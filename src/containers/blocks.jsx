@@ -74,17 +74,17 @@ const messages = defineMessages({
     removeExtension: {
         defaultMessage: 'Remove Extension',
         description: 'Button text to remove an extension from the current project.',
-        id: 'tw.blocks.removeExtension'
+        id: 'dash.blocks.removeExtension'
     },
     removeUnusedExtensions: {
         defaultMessage: 'Remove Unused Extensions',
         description: 'Button text to remove all extensions that are not currently used in the project.',
-        id: 'tw.blocks.removeUnusedExtensions'
+        id: 'dash.blocks.removeUnusedExtensions'
     },
     editExtension: {
         defaultMessage: 'Edit Extension',
         description: 'Button text to open the custom extension editor for a custom extension in the project.',
-        id: 'tw.blocks.editExtension'
+        id: 'dash.blocks.editExtension'
     }
 });
 
@@ -107,21 +107,21 @@ class Blocks extends React.Component {
         this.ScratchBlocks = VMScratchBlocks(props.vm, false);
 		this.ScratchBlocks.Toolbox.registerMenu('extensionControls', [
             {
-                text: this.props.intl.formatMessage(messages.removeExtension),
+                text: 'Remove Extension',
                 enabled: true,
-                callback: ext => this.props.vm.extensionManager.removeExtension(ext)
+                callback: ext => props.vm.extensionManager.removeExtension(ext)
             },
             {
-                text: this.props.intl.formatMessage(messages.removeUnusedExtensions),
+                text: 'Remove Unused Extensions',
                 enabled: true,
-                callback: () => this.props.vm.extensionManager.removeUnusedExtensions()
+                callback: () => props.vm.extensionManager.removeUnusedExtensions()
             },
             {
-                text: this.props.intl.formatMessage(messages.editExtension),
+                text: 'Edit Extension',
                 enabled: true,
-                callback: ext => this.props.reduxOnOpenCustomExtensionModal(ext)
+                callback: ext => this.props.onOpenCustomExtensionModal(ext)
             }
-        ], false);
+        ]);
 
         window.ScratchBlocks = this.ScratchBlocks;
         AddonHooks.blockly = this.ScratchBlocks;
