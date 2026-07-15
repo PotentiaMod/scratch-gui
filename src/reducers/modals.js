@@ -14,6 +14,8 @@ const MODAL_TIPS_LIBRARY = 'tipsLibrary';
 const MODAL_USERNAME = 'usernameModal';
 const MODAL_SETTINGS = 'settingsModal';
 const MODAL_CUSTOM_EXTENSION = 'customExtensionModal';
+const MODAL_EXTENSION_MANAGER = 'extensionManagerModal';
+const MODAL_CUSTOM_ACCENT = 'customAccentModal';
 const MODAL_RESTORE_POINTS = 'restorePointModal';
 const MODAL_FONTS = 'fontsModal';
 const MODAL_UNKNOWN_PLATFORM = 'unknownPlatformModal';
@@ -33,6 +35,8 @@ const initialState = {
     [MODAL_USERNAME]: false,
     [MODAL_SETTINGS]: false,
     [MODAL_CUSTOM_EXTENSION]: false,
+    [MODAL_EXTENSION_MANAGER]: false,
+    [MODAL_CUSTOM_ACCENT]: false,
     [MODAL_RESTORE_POINTS]: false,
     [MODAL_FONTS]: false,
     [MODAL_UNKNOWN_PLATFORM]: false,
@@ -105,6 +109,12 @@ const openSettingsModal = function () {
 const openCustomExtensionModal = function () {
     return openModal(MODAL_CUSTOM_EXTENSION);
 };
+const openExtensionManagerModal = function () {
+    return openModal(MODAL_EXTENSION_MANAGER);
+};
+const openCustomAccentModal = function () {
+    return openModal(MODAL_CUSTOM_ACCENT);
+};
 const openRestorePointModal = function () {
     return openModal(MODAL_RESTORE_POINTS);
 };
@@ -156,6 +166,12 @@ const closeSettingsModal = function () {
 const closeCustomExtensionModal = function () {
     return closeModal(MODAL_CUSTOM_EXTENSION);
 };
+const closeExtensionManagerModal = function () {
+    return closeModal(MODAL_EXTENSION_MANAGER);
+};
+const closeCustomAccentModal = function () {
+    return closeModal(MODAL_CUSTOM_ACCENT);
+};
 const closeRestorePointModal = function () {
     return closeModal(MODAL_RESTORE_POINTS);
 };
@@ -184,6 +200,8 @@ export {
     openUsernameModal,
     openSettingsModal,
     openCustomExtensionModal,
+    openExtensionManagerModal,
+	openCustomAccentModal,
     openRestorePointModal,
     openFontsModal,
     openUnknownPlatformModal,
@@ -201,6 +219,8 @@ export {
     closeUsernameModal,
     closeSettingsModal,
     closeCustomExtensionModal,
+    closeExtensionManagerModal,
+    closeCustomAccentModal,
     closeRestorePointModal,
     closeFontsModal,
     closeUnknownPlatformModal,
