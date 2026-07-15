@@ -12,9 +12,6 @@
   "main": "./dist/scratch-gui.js",
   "scripts": {
     "build": "npm run clean && webpack --colors --bail",
-	"build:prepublish": "rm -rf ../potentiamod.github.io/* && cp -r ./build/* ../potentiamod.github.io",
-    "build:desktop": "rm -rf ../potentia_d/public/* && cp -r ./build/* ../potentia_d/public/",
-    "render-fonts": "rm -rf ../penguinmod-render-fonts/* && cp -r ./src/lib/tw-scratch-render-fonts/* ../penguinmod-render-fonts",
     "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
     "deploy": "touch build/.nojekyll && gh-pages -t -d build -m \"[skip ci] Build for $(git log --pretty=format:%H -n1)\"",
     "prepublish": "node scripts/prepublish.mjs",

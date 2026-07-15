@@ -50,9 +50,11 @@ import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
 import twIcon from './tw/tw.svg';
+import ptIcon from './tw/pt.png';
 import customExtensionIcon from './custom/custom.svg';
 import returnIcon from './custom/return.svg';
-import galleryIcon from './gallery/gallery.svg';
+import galleryIcon from './gallery/gallery.png';
+import TWgalleryIcon from './gallery/TWgallery.svg';
 import {APP_NAME} from '../../brand';
 
 export default [
@@ -394,7 +396,7 @@ export default [
             />
         ),
         extensionId: 'tw',
-        iconURL: twIcon,
+        iconURL: ptIcon,
         description: (
             <FormattedMessage
                 defaultMessage="Weird new blocks."
@@ -451,7 +453,7 @@ export const galleryLoading = {
             id="tw.extensionGallery.loading"
         />
     ),
-    tags: ['tw'],
+    tags: ['potentia'],
     featured: true
 };
 
@@ -477,7 +479,7 @@ export const galleryMore = {
             id="tw.extensionGallery.more"
         />
     ),
-    tags: ['tw'],
+    tags: ['potentia'],
     featured: true
 };
 
@@ -503,6 +505,6 @@ export const galleryError = {
             id="tw.extensionGallery.error"
         />
     ),
-    tags: ['tw'],
+    tags: ['potentia'],
     featured: true
 };
