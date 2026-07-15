@@ -22,6 +22,16 @@ const messages = defineMessages({
         defaultMessage: 'Unfavorite',
         description: 'Alt text of icon in costume, sound, and extension libraries to unmark an item as favorite.',
         id: 'tw.unfavorite'
+    },
+    select: {
+        defaultMessage: 'Select',
+        description: 'Tooltip for selecting a library item for batch actions.',
+        id: 'tw.libraryItem.select'
+    },
+    unselect: {
+        defaultMessage: 'Cancel selection',
+        description: 'Tooltip for removing a library item from batch selection.',
+        id: 'tw.libraryItem.unselect'
     }
 });
 
@@ -31,7 +41,10 @@ class LibraryItemComponent extends React.PureComponent {
         const favoriteMessage = this.props.intl.formatMessage(
             this.props.favorite ? messages.unfavorite : messages.favorite
         );
-        const favorite = (
+        const selectionMessage = this.props.intl.formatMessage(
+            this.props.isSelected ? messages.unselect : messages.select
+        );
+        const favorite = this.props.hideFavorite ? null : (
             <button
                 className={classNames(styles.favoriteContainer, {[styles.active]: this.props.favorite})}
                 onClick={this.props.onFavorite}
@@ -45,6 +58,42 @@ class LibraryItemComponent extends React.PureComponent {
                 />
             </button>
         );
+        const selectionCheckbox = this.props.isSelectable ? (
+            <button
+                className={classNames(styles.selectionContainer, {
+                    [styles.selectionActive]: this.props.isSelected
+                })}
+                onClick={this.props.onSelectionToggle}
+                title={selectionMessage}
+                aria-label={selectionMessage}
+            >
+                <span className={styles.selectionCheckbox}>
+                    {this.props.isSelected ? <span className={styles.selectionCheckmark} /> : null}
+                </span>
+            </button>
+        ) : null;
+        const sourceBadge = this.props.sourceLabel ? (
+            <span
+                className={classNames(
+                    styles.sourceBadge,
+                    this.props.sourceTone ? styles[`sourceBadge${this.props.sourceTone}`] : null
+                )}
+            >
+                {this.props.sourceLabel}
+            </span>
+        ) : null;
+        const statusBadges = this.props.badges && this.props.badges.length ? (
+            <div className={styles.badgeRow}>
+                {this.props.badges.map(badge => (
+                    <span key={badge.key || badge.label} className={styles.statusBadge}>
+                        {badge.label}
+                    </span>
+                ))}
+            </div>
+        ) : null;
+        const actionHint = this.props.actionLabel ? (
+            <div className={styles.actionHint}>{this.props.actionLabel}</div>
+        ) : null;
 
         return this.props.featured ? (
             <div
@@ -60,6 +109,7 @@ class LibraryItemComponent extends React.PureComponent {
                 onClick={this.props.onClick}
             >
                 <div className={styles.featuredImageContainer}>
+                    {sourceBadge}
                     {this.props.disabled ? (
                         <div className={styles.comingSoonText}>
                             <FormattedMessage
@@ -91,8 +141,9 @@ class LibraryItemComponent extends React.PureComponent {
                     }
                 >
                     <span className={styles.libraryItemName}>{this.props.name}</span>
-                    <br />
                     <span className={styles.featuredDescription}>{this.props.description}</span>
+                    {statusBadges}
+                    {actionHint}
                 </div>
 
                 {(this.props.docsURI || this.props.samples) && (
@@ -203,6 +254,7 @@ class LibraryItemComponent extends React.PureComponent {
                 ) : null}
 
                 {favorite}
+                {selectionCheckbox}
             </div>
         ) : (
             <Box
@@ -233,9 +285,12 @@ class LibraryItemComponent extends React.PureComponent {
                             src={this.props.iconURL}
                             draggable={false}
                         />
+                        {sourceBadge}
                     </Box>
                 </Box>
                 <span className={styles.libraryItemName}>{this.props.name}</span>
+                {statusBadges}
+                {actionHint}
                 {this.props.showPlayButton ? (
                     <PlayButton
                         isPlaying={this.props.isPlaying}
@@ -245,6 +300,7 @@ class LibraryItemComponent extends React.PureComponent {
                 ) : null}
 
                 {favorite}
+                {selectionCheckbox}
             </Box>
         );
     }
@@ -268,6 +324,8 @@ LibraryItemComponent.propTypes = {
     insetIconURL: PropTypes.string,
     internetConnectionRequired: PropTypes.bool,
     isPlaying: PropTypes.bool,
+    isSelectable: PropTypes.bool,
+    isSelected: PropTypes.bool,
     name: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.node
@@ -282,6 +340,7 @@ LibraryItemComponent.propTypes = {
         text: PropTypes.string
     })),
     favorite: PropTypes.bool,
+    hideFavorite: PropTypes.bool,
     onFavorite: PropTypes.func,
     onBlur: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
@@ -290,8 +349,25 @@ LibraryItemComponent.propTypes = {
     onMouseEnter: PropTypes.func.isRequired,
     onMouseLeave: PropTypes.func.isRequired,
     onPlay: PropTypes.func.isRequired,
+    onSelectionToggle: PropTypes.func,
     onStop: PropTypes.func.isRequired,
-    showPlayButton: PropTypes.bool
+    showPlayButton: PropTypes.bool,
+    actionLabel: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    badges: PropTypes.arrayOf(PropTypes.shape({
+        key: PropTypes.string,
+        label: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.node
+        ])
+    })),
+    sourceLabel: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    sourceTone: PropTypes.string
 };
 
 LibraryItemComponent.defaultProps = {
