@@ -1,34 +1,15 @@
-import { defineMessages } from 'react-intl';
+import {defineMessages} from 'react-intl';
 import sharedMessages from '../shared-messages';
-
-const defaultMsg_README = `
-#README #Welocome
-
-# Welcome to **GaiaMod**, a Scratch editor based on PenguinMod, with features that served as ultimate experiences to coders eevrywhere!
-
-Here, we put thi README feature from Astra Editor in here. Don't tell us that we stole those features because we are just lowkey people.
-
-For its source code, pelase visit our [code repository](https://github.com/GaiaMod-Main).
-
-Got a bug? Go to [this link](https://github.com/GaiaMod-Main/gaiamod-main.github.io/issues) to report it for us!
-
-> [!NOTE]
-> [Follow the head developer's profile on YouTube](https://www.youtube.com/@GaiaWindWave90)`;
 
 let messages = defineMessages({
     variable: {
         defaultMessage: 'my variable',
         description: 'Name for the default variable',
         id: 'gui.defaultProject.variable'
-    },
-    tip: {
-        defaultMessage: defaultMsg_README,
-        description: 'a README',
-        id: 'tw.defaultProject.readme'
     }
 });
 
-messages = { ...messages, ...sharedMessages };
+messages = {...messages, ...sharedMessages};
 
 // use the default message if a translation function is not passed
 const defaultTranslator = msgObj => msgObj.defaultMessage;
@@ -58,7 +39,7 @@ const projectData = translateFunction => {
                 costumes: [
                     {
                         assetId: 'cd21514d0531fdffb22204e0ec5ed84a',
-                        name: translator(messages.backdrop, { index: 1 }),
+                        name: translator(messages.backdrop, {index: 1}),
                         md5ext: 'cd21514d0531fdffb22204e0ec5ed84a.svg',
                         dataFormat: 'svg',
                         rotationCenterX: 240,
@@ -70,7 +51,7 @@ const projectData = translateFunction => {
             },
             {
                 isStage: false,
-                name: translator(messages.sprite, { index: 1 }),
+                name: translator(messages.sprite, {index: 1}),
                 variables: {},
                 lists: {},
                 broadcasts: {},
@@ -79,13 +60,13 @@ const projectData = translateFunction => {
                 currentCostume: 0,
                 costumes: [
                     {
-                        assetId: '21ccd231439bc50cb761ecb7609fd799',
-                        name: translator(messages.costume, { index: 1 }),
+                        assetId: '927d672925e7b99f7813735c484c6922',
+                        name: translator(messages.costume, {index: 1}),
                         bitmapResolution: 1,
-                        md5ext: '592bae6f8bb9c8d88401b54ac431f7b6.svg',
+                        md5ext: '927d672925e7b99f7813735c484c6922.svg',
                         dataFormat: 'svg',
-                        rotationCenterX: 26,
-                        rotationCenterY: 47
+                        rotationCenterX: 30.74937882782359,
+                        rotationCenterY: 58.864768144346826
                     }
                 ],
                 sounds: [],

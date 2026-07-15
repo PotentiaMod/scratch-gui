@@ -3,10 +3,16 @@ import defaultsDeep from 'lodash.defaultsdeep';
 import * as accentPurple from './accent/purple';
 import * as accentBlue from './accent/blue';
 import * as accentRed from './accent/red';
+import * as accentMagenta from './accent/magenta';
+import * as accentOrange from './accent/orange';
+import * as accentIndigo from './accent/indigo';
 import * as accentRainbow from './accent/rainbow';
 
 import * as guiLight from './gui/light';
+import * as guiModernLight from './gui/modern-light';
 import * as guiDark from './gui/dark';
+import * as guiModernDark from './gui/modern-dark';
+import * as guiMidnight from './gui/midnight';
 
 import * as blocksThree from './blocks/three';
 import * as blocksHighContrast from './blocks/high-contrast';
@@ -15,20 +21,32 @@ import * as blocksDark from './blocks/dark';
 const ACCENT_PURPLE = 'purple';
 const ACCENT_BLUE = 'blue';
 const ACCENT_RED = 'red';
+const ACCENT_ORANGE = 'orange';
+const ACCENT_MAGENTA = 'magenta';
+const ACCENT_INDIGO = 'indigo';
 const ACCENT_RAINBOW = 'rainbow';
 const ACCENT_MAP = {
     [ACCENT_PURPLE]: accentPurple,
     [ACCENT_BLUE]: accentBlue,
     [ACCENT_RED]: accentRed,
+    [ACCENT_ORANGE]: accentOrange,
+    [ACCENT_MAGENTA]: accentMagenta,
+    [ACCENT_INDIGO]: accentIndigo,
     [ACCENT_RAINBOW]: accentRainbow
 };
-const ACCENT_DEFAULT = ACCENT_RED;
+const ACCENT_DEFAULT = ACCENT_INDIGO;
 
 const GUI_LIGHT = 'light';
+const GUI_MODERN_LIGHT = 'modern-light';
 const GUI_DARK = 'dark';
+const GUI_MODERN_DARK = 'modern-dark';
+const GUI_MIDNIGHT = 'midnight';
 const GUI_MAP = {
     [GUI_LIGHT]: guiLight,
-    [GUI_DARK]: guiDark
+    [GUI_MODERN_LIGHT]: guiModernLight,
+    [GUI_DARK]: guiDark,
+    [GUI_MODERN_DARK]: guiModernDark,
+    [GUI_MIDNIGHT]: guiMidnight
 };
 const GUI_DEFAULT = GUI_LIGHT;
 
@@ -149,11 +167,17 @@ export {
     ACCENT_RED,
     ACCENT_PURPLE,
     ACCENT_BLUE,
+    ACCENT_ORANGE,
+    ACCENT_MAGENTA,
+    ACCENT_INDIGO,
     ACCENT_RAINBOW,
     ACCENT_MAP,
 
     GUI_LIGHT,
+    GUI_MODERN_LIGHT,
     GUI_DARK,
+    GUI_MODERN_DARK,
+    GUI_MIDNIGHT,
     GUI_MAP,
 
     BLOCKS_THREE,
