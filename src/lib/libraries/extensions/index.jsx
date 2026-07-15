@@ -378,7 +378,7 @@ export default [
                 id="tw.customReporters.description"
             />
         ),
-        tags: ['tw'],
+        tags: ['potentia'],
         incompatibleWithScratch: true,
         featured: true
     },
@@ -386,7 +386,7 @@ export default [
         name: (
             <FormattedMessage
                 defaultMessage="{APP_NAME} Blocks"
-                description="Name of the strange 'TurboWarp Blocks' extension"
+                description="Name of the strange 'PotentiaMod Blocks' extension"
                 id="tw.twExtension.name"
                 values={{
                     APP_NAME
@@ -398,12 +398,12 @@ export default [
         description: (
             <FormattedMessage
                 defaultMessage="Weird new blocks."
-                description="Description of the strange 'TurboWarp Blocks' extension"
+                description="Description of the strange 'PotentiaMod Blocks' extension"
                 id="tw.twExtension.description"
             />
         ),
         incompatibleWithScratch: true,
-        tags: ['tw'],
+        tags: ['potentia'],
         featured: true
     },
     {
@@ -423,7 +423,7 @@ export default [
                 id="tw.customExtension.description"
             />
         ),
-        tags: ['tw'],
+        tags: ['potentia'],
         featured: true
         // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
     }
@@ -432,15 +432,15 @@ export default [
 export const galleryLoading = {
     name: (
         <FormattedMessage
-            defaultMessage="{APP_NAME} Extension Gallery"
-            description="Name of extensions.turbowarp.org in extension library"
+            defaultMessage="{APP_NAME} Extension Bonanza"
+            description="Name of potentiamod.github.io/extensions in extension library"
             id="tw.extensionGallery.name"
             values={{
                 APP_NAME
             }}
         />
     ),
-    href: 'https://extensions.turbowarp.org/',
+    href: 'https://potentiamod.github.io/extensions/',
     extensionId: 'gallery',
     iconURL: galleryIcon,
     description: (
@@ -458,21 +458,21 @@ export const galleryLoading = {
 export const galleryMore = {
     name: (
         <FormattedMessage
-            defaultMessage="{APP_NAME} Extension Gallery"
-            description="Name of extensions.turbowarp.org in extension library"
+            defaultMessage="{APP_NAME} Extension Bonanza"
+            description="Name of potentiamod.github.io/extensions in extension library"
             id="tw.extensionGallery.name"
             values={{
                 APP_NAME
             }}
         />
     ),
-    href: 'https://extensions.turbowarp.org/',
+    href: 'https://potentiamod.github.io/extensions/',
     extensionId: 'gallery',
     iconURL: galleryIcon,
     description: (
         <FormattedMessage
             // eslint-disable-next-line max-len
-            defaultMessage="Learn more about extensions at extensions.turbowarp.org."
+            defaultMessage="Learn more about extensions at potentiamod.github.io/extensions."
             description="Appears after the extension list from the gallery was loaded successfully"
             id="tw.extensionGallery.more"
         />
@@ -484,21 +484,21 @@ export const galleryMore = {
 export const galleryError = {
     name: (
         <FormattedMessage
-            defaultMessage="{APP_NAME} Extension Gallery"
-            description="Name of extensions.turbowarp.org in extension library"
+            defaultMessage="{APP_NAME} Extension Bonanza"
+            description="Name of potentiamod.github.io/extensions in extension library"
             id="tw.extensionGallery.name"
             values={{
                 APP_NAME
             }}
         />
     ),
-    href: 'https://extensions.turbowarp.org/',
+    href: 'https://potentiamod.github.io/extensions/',
     extensionId: 'gallery',
     iconURL: galleryIcon,
     description: (
         <FormattedMessage
             // eslint-disable-next-line max-len
-            defaultMessage="Error loading extension gallery. Visit extensions.turbowarp.org to find more extensions."
+            defaultMessage="Error loading extension gallery. Visit potentiamod.github.io/extensions to find more extensions."
             description="Appears when an error occurred loading extension list from the custom extension gallery"
             id="tw.extensionGallery.error"
         />
