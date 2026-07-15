@@ -1,6 +1,6 @@
-import bindAll from 'lodash.bindall';
-import debounce from 'lodash.debounce';
-import defaultsDeep from 'lodash.defaultsdeep';
+import bindAll from 'lotw.bindall';
+import debounce from 'lotw.debounce';
+import defaultsDeep from 'lotw.defaultsdeep';
 import makeToolboxXML from '../lib/make-toolbox-xml';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -74,17 +74,17 @@ const messages = defineMessages({
     removeExtension: {
         defaultMessage: 'Remove Extension',
         description: 'Button text to remove an extension from the current project.',
-        id: 'dash.blocks.removeExtension'
+        id: 'tw.blocks.removeExtension'
     },
     removeUnusedExtensions: {
         defaultMessage: 'Remove Unused Extensions',
         description: 'Button text to remove all extensions that are not currently used in the project.',
-        id: 'dash.blocks.removeUnusedExtensions'
+        id: 'tw.blocks.removeUnusedExtensions'
     },
     editExtension: {
         defaultMessage: 'Edit Extension',
         description: 'Button text to open the custom extension editor for a custom extension in the project.',
-        id: 'dash.blocks.editExtension'
+        id: 'tw.blocks.editExtension'
     }
 });
 
@@ -105,7 +105,7 @@ class Blocks extends React.Component {
     constructor (props) {
         super(props);
         this.ScratchBlocks = VMScratchBlocks(props.vm, false);
-		/*
+
 		this.ScratchBlocks.Toolbox.registerMenu('extensionControls', [
             {
                 text: 'Remove Extension',
@@ -123,7 +123,7 @@ class Blocks extends React.Component {
                 callback: ext => this.props.onOpenCustomExtensionModal(ext)
             }
         ]);
-       */
+
         window.ScratchBlocks = this.ScratchBlocks;
         AddonHooks.blockly = this.ScratchBlocks;
         AddonHooks.blocklyCallbacks.forEach(i => i());
