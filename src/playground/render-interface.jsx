@@ -57,7 +57,7 @@ const handleClickAddonSettings = addonId => {
 
 const messages = defineMessages({
     defaultTitle: {
-        defaultMessage: 'Run Scratch projects faster',
+        defaultMessage: 'A Block-Based Coding That Goes EXTREME',
         description: 'Title of homepage',
         id: 'tw.guiDefaultTitle'
     }
@@ -88,7 +88,7 @@ const Footer = () => (
             <div className={styles.footerText}>
                 <FormattedMessage
                     // eslint-disable-next-line max-len
-                    defaultMessage="{APP_NAME} is not affiliated with Scratch, the Scratch Team, or the Scratch Foundation."
+                    defaultMessage="{APP_NAME} is not affiliated with TurboWarp, Scratch, the Scratch Team, or the Scratch Foundation."
                     description="Disclaimer that TurboWarp is not connected to Scratch"
                     id="tw.footer.disclaimer"
                     values={{
@@ -331,17 +331,56 @@ class Interface extends React.Component {
                                 <p>
                                     <FormattedMessage
                                         // eslint-disable-next-line max-len
-                                        defaultMessage="{APP_NAME} is a Scratch mod that compiles projects to JavaScript to make them run really fast. Try it out by inputting a project ID or URL above or choosing a featured project below."
-                                        description="Description of TurboWarp on the homepage"
+                                        defaultMessage="{potentiaMod} is a mod of {turboWarp} that adds powerful new features in extensions and anything. {turboWarp} is a {scratch} mod that compiles projects to JavaScript to make them run really fast. Try it out by inputting a project ID or URL above or choosing a featured project below."
+                                        description="Description of PotentiaMod on the homepage"
                                         id="tw.home.description"
                                         values={{
-                                            APP_NAME
-                                        }}
+                                            APP_NAME,
+											potentiaMod: (
+                                                <a
+												style={{
+                                                color: '#4900D1',
+                                                cursor: 'pointer'
+                                            }}
+                                                href="potentiamod.github.io"
+                                              target="_blank"
+                                              rel="noreferrer"
+                                                   >
+                                              {'PotentiaMod'}
+                                               </a>
+                                               ),
+										turboWarp: (
+                                                <a
+												style={{
+                                                color: '#FF4C4C',
+                                                cursor: 'pointer'
+                                            }}
+                                                href="https://turbowarp.org/"
+                                              target="_blank"
+                                              rel="noreferrer"
+                                                   >
+                                              {'TurboWarp'}
+                                               </a>
+                                               ),
+										scratch: (
+                                                <a
+												style={{
+                                                color: '#FCA919',
+                                                cursor: 'pointer'
+                                            }}
+                                                href="https://scratch.mit.edu/"
+                                              target="_blank"
+                                              rel="noreferrer"
+                                                   >
+                                              {'Scratch'}
+                                               </a>
+                                               ),
+                                            }}
                                     />
                                 </p>
                             </div>
                             <div className={styles.section}>
-                                <FeaturedProjects studio="27205657" />
+                                <FeaturedProjects studio="51729513" />
                             </div>
                         </React.Fragment>
                     ) : null}
