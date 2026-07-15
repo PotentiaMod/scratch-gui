@@ -1,6 +1,6 @@
-import bindAll from 'lotw.bindall';
-import debounce from 'lotw.debounce';
-import defaultsDeep from 'lotw.defaultsdeep';
+import bindAll from 'lodash.bindall';
+import debounce from 'lodash.debounce';
+import defaultsDeep from 'lodash.defaultsdeep';
 import makeToolboxXML from '../lib/make-toolbox-xml';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -105,7 +105,6 @@ class Blocks extends React.Component {
     constructor (props) {
         super(props);
         this.ScratchBlocks = VMScratchBlocks(props.vm, false);
-
 		this.ScratchBlocks.Toolbox.registerMenu('extensionControls', [
             {
                 text: 'Remove Extension',
@@ -123,7 +122,6 @@ class Blocks extends React.Component {
                 callback: ext => this.props.onOpenCustomExtensionModal(ext)
             }
         ]);
-
         window.ScratchBlocks = this.ScratchBlocks;
         AddonHooks.blockly = this.ScratchBlocks;
         AddonHooks.blocklyCallbacks.forEach(i => i());
