@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import check from './check.svg';
 import dropdownCaret from './dropdown-caret.svg';
 import {MenuItem, Submenu} from '../menu/menu.jsx';
-import {ACCENT_BLUE, ACCENT_MAP, ACCENT_PURPLE, ACCENT_RED, ACCENT_RAINBOW, Theme} from '../../lib/themes/index.js';
+import {ACCENT_BLUE, ACCENT_MAP, ACCENT_PURPLE, ACCENT_RED, ACCENT_ORANGE, ACCENT_MAGENTA, ACCENT_INDIGO, ACCENT_RAINBOW, Theme} from '../../lib/themes/index.js';
 import {openAccentMenu, accentMenuOpen, closeSettingsMenu} from '../../reducers/menus.js';
 import {setTheme} from '../../reducers/theme.js';
 import {persistTheme} from '../../lib/themes/themePersistance.js';
@@ -15,9 +15,24 @@ import rainbowIcon from './tw-accent-rainbow.svg';
 import styles from './settings-menu.css';
 
 const options = defineMessages({
+    [ACCENT_INDIGO]: {
+        defaultMessage: 'Indigo',
+        description: 'Name of the indigo color scheme, used by PotentiaMod by default.',
+        id: 'tw.accent.indigo'
+    },
+    [ACCENT_MAGENTA]: {
+        defaultMessage: 'Magenta',
+        description: 'Name of the magenta color scheme.',
+        id: 'tw.accent.magenta'
+    },
+    [ACCENT_ORANGE]: {
+        defaultMessage: 'Orange',
+        description: 'Name of the orange color scheme.',
+        id: 'tw.accent.orange'
+    },
     [ACCENT_RED]: {
         defaultMessage: 'Red',
-        description: 'Name of the red color scheme, used by TurboWarp by default.',
+        description: 'Name of the red color scheme. Matches TurboWarp.',
         id: 'tw.accent.red'
     },
     [ACCENT_PURPLE]: {

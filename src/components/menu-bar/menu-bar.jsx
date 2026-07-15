@@ -34,7 +34,7 @@ import CloudVariablesToggler from '../../containers/tw-cloud-toggler.jsx';
 import TWSaveStatus from './tw-save-status.jsx';
 import TWNews from './tw-news.jsx';
 
-import {openTipsLibrary, openSettingsModal, openRestorePointModal} from '../../reducers/modals';
+import {openTipsLibrary, openExtensionManagerModal, openSettingsModal, openRestorePointModal, openCustomExtensionModal} from '../../reducers/modals';
 import {setPlayer} from '../../reducers/mode';
 import {
     isTimeTravel220022BC,
@@ -97,6 +97,7 @@ import addonsIcon from './addons.svg';
 import errorIcon from './tw-error.svg';
 import advancedIcon from './tw-advanced.svg';
 
+import logo from './scratch-logo.png';
 import ninetiesLogo from './nineties_logo.svg';
 import catLogo from './cat_logo.svg';
 import prehistoricLogo from './prehistoric-logo.svg';
@@ -492,6 +493,18 @@ class MenuBar extends React.Component {
             >
                 <div className={styles.mainMenu}>
                     <div className={styles.fileGroup}>
+					 <div className={classNames(styles.menuBarItem)}>
+                            <img
+                                id="logo_img"
+                                alt="PotentiaMod"
+                                className={classNames(styles.scratchLogo, {
+                                    [styles.clickable]: typeof this.props.onClickLogo !== 'undefined'
+                                })}
+                                draggable={false}
+                                src={this.props.logo}
+                                onClick={this.props.onClickLogo}
+                            />
+                        </div>
                         {this.props.errors.length > 0 && <div>
                             <MenuLabel
                                 open={this.props.errorsMenuOpen}
@@ -839,6 +852,22 @@ class MenuBar extends React.Component {
                                         />
                                     </MenuItem>
                                 </MenuSection>
+								<MenuSection>
+								<MenuItem onClick={this.props.onClickCustomExtensionModal}>
+                                        <FormattedMessage
+                                            defaultMessage="Add custom extension"
+                                            description="Menu bar item for the custom extension"
+                                            id="tw.menuBar.customExtensionAdd"
+                                        />
+                                    </MenuItem>
+									<MenuItem onClick={this.props.onClickExtensionManagerModal}>
+                                        <FormattedMessage
+                                            defaultMessage="Extension Manager"
+                                            description="Menu bar item for the extension manager"
+                                            id="tw.menuBar.extensionManager"
+                                        />
+                                    </MenuItem>
+								</MenuSection>
                             </MenuBarMenu>
                         </MenuLabel>
                         {this.props.isTotallyNormal && (
@@ -1125,6 +1154,8 @@ MenuBar.propTypes = {
     onClickSave: PropTypes.func,
     onClickSaveAsCopy: PropTypes.func,
     onClickSettings: PropTypes.func,
+	onClickExtensionManagerModal: PropTypes.func,
+	onClickCustomExtensionModal: PropTypes.func,
     onClickSettingsModal: PropTypes.func,
     onLogOut: PropTypes.func,
     onOpenRegistration: PropTypes.func,
@@ -1157,6 +1188,7 @@ MenuBar.propTypes = {
 };
 
 MenuBar.defaultProps = {
+    logo: logo,
     onShare: () => {}
 };
 
@@ -1216,6 +1248,14 @@ const mapDispatchToProps = dispatch => ({
     onRequestCloseAbout: () => dispatch(closeAboutMenu()),
     onClickRestorePoints: () => dispatch(openRestorePointModal()),
     onClickSettings: () => dispatch(openSettingsMenu()),
+	onClickExtensionManagerModal: () => {
+        dispatch(closeEditMenu());
+        dispatch(openExtensionManagerModal());
+    },
+	onClickCustomExtensionModal: () => {
+        dispatch(closeEditMenu());
+        dispatch(openCustomExtensionModal());
+    },
     onClickSettingsModal: () => {
         dispatch(closeEditMenu());
         dispatch(openSettingsModal());
