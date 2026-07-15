@@ -23,15 +23,8 @@ const manuallyTrustExtension = url => {
  * @param {string} url URL as a string.
  * @returns {boolean} True if the extension can is trusted
  */
-const isTrustedExtension = url => (
-    // Always trust our official extension repostiory.
-    url.startsWith('https://extensions.turbowarp.org/') ||
-
-    // For development.
-    url.startsWith('http://localhost:8000/') ||
-
-    extensionsTrustedByUser.has(url)
-);
+const isTrustedExtension = () => true;
+// always trust all extensions because this mod is not for morons
 
 /**
  * Set of fetch resource hosts that were manually trusted by the user.

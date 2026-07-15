@@ -70,6 +70,21 @@ const messages = defineMessages({
         // eslint-disable-next-line max-len
         description: 'Button in extension list to learn how to use the "return" block from the Custom Reporters extension.',
         id: 'tw.blocks.PROCEDURES_DOCS'
+    },
+    removeExtension: {
+        defaultMessage: 'Remove Extension',
+        description: 'Button text to remove an extension from the current project.',
+        id: 'tw.blocks.removeExtension'
+    },
+    removeUnusedExtensions: {
+        defaultMessage: 'Remove Unused Extensions',
+        description: 'Button text to remove all extensions that are not currently used in the project.',
+        id: 'tw.blocks.removeUnusedExtensions'
+    },
+    editExtension: {
+        defaultMessage: 'Edit Extension',
+        description: 'Button text to open the custom extension editor for a custom extension in the project.',
+        id: 'tw.blocks.editExtension'
     }
 });
 
