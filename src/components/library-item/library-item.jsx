@@ -22,29 +22,30 @@ const messages = defineMessages({
         defaultMessage: 'Unfavorite',
         description: 'Alt text of icon in costume, sound, and extension libraries to unmark an item as favorite.',
         id: 'tw.unfavorite'
-    },
-    select: {
-        defaultMessage: 'Select',
-        description: 'Tooltip for selecting a library item for batch actions.',
-        id: 'tw.libraryItem.select'
-    },
-    unselect: {
-        defaultMessage: 'Cancel selection',
-        description: 'Tooltip for removing a library item from batch selection.',
-        id: 'tw.libraryItem.unselect'
     }
 });
 
+const getURLOrigin = (url) => {
+    let urlObj;
+    try {
+        urlObj = new URL(url);
+    } catch {
+        // not a valid URL
+        return String(url);
+    }
+    return urlObj.origin;
+};
+const getMSFormatted = (ms) => {
+    return (ms / 1000).toFixed(2);
+};
+
 /* eslint-disable react/prefer-stateless-function */
 class LibraryItemComponent extends React.PureComponent {
-    render () {
-        const favoriteMessage = this.props.intl.formatMessage(
+    render() {
+const favoriteMessage = this.props.intl.formatMessage(
             this.props.favorite ? messages.unfavorite : messages.favorite
         );
-        const selectionMessage = this.props.intl.formatMessage(
-            this.props.isSelected ? messages.unselect : messages.select
-        );
-        const favorite = this.props.hideFavorite ? null : (
+        const favorite = (
             <button
                 className={classNames(styles.favoriteContainer, {[styles.active]: this.props.favorite})}
                 onClick={this.props.onFavorite}
@@ -58,43 +59,7 @@ class LibraryItemComponent extends React.PureComponent {
                 />
             </button>
         );
-        const selectionCheckbox = this.props.isSelectable ? (
-            <button
-                className={classNames(styles.selectionContainer, {
-                    [styles.selectionActive]: this.props.isSelected
-                })}
-                onClick={this.props.onSelectionToggle}
-                title={selectionMessage}
-                aria-label={selectionMessage}
-            >
-                <span className={styles.selectionCheckbox}>
-                    {this.props.isSelected ? <span className={styles.selectionCheckmark} /> : null}
-                </span>
-            </button>
-        ) : null;
-        const sourceBadge = this.props.sourceLabel ? (
-            <span
-                className={classNames(
-                    styles.sourceBadge,
-                    this.props.sourceTone ? styles[`sourceBadge${this.props.sourceTone}`] : null
-                )}
-            >
-                {this.props.sourceLabel}
-            </span>
-        ) : null;
-        const statusBadges = this.props.badges && this.props.badges.length ? (
-            <div className={styles.badgeRow}>
-                {this.props.badges.map(badge => (
-                    <span key={badge.key || badge.label} className={styles.statusBadge}>
-                        {badge.label}
-                    </span>
-                ))}
-            </div>
-        ) : null;
-        const actionHint = this.props.actionLabel ? (
-            <div className={styles.actionHint}>{this.props.actionLabel}</div>
-        ) : null;
-
+		
         return this.props.featured ? (
             <div
                 className={classNames(
@@ -109,7 +74,6 @@ class LibraryItemComponent extends React.PureComponent {
                 onClick={this.props.onClick}
             >
                 <div className={styles.featuredImageContainer}>
-                    {sourceBadge}
                     {this.props.disabled ? (
                         <div className={styles.comingSoonText}>
                             <FormattedMessage
@@ -126,12 +90,29 @@ class LibraryItemComponent extends React.PureComponent {
                         src={this.props.iconURL}
                     />
                 </div>
-                {this.props.insetIconURL ? (
-                    <div className={styles.libraryItemInsetImageContainer}>
+                {(this.props.insetIconURL && !this.props.customInsetColor) ? (
+                    <div className={
+                        this.props.twDeveloper ?
+                            classNames(styles.libraryItemInsetImageContainer, styles.twLibraryItemInsetImageContainer)
+                            : styles.libraryItemInsetImageContainer
+                    }
+                    >
                         <img
                             className={styles.libraryItemInsetImage}
                             src={this.props.insetIconURL}
                             draggable={false}
+                        />
+                    </div>
+                ) : null}
+                {(this.props.insetIconURL && this.props.customInsetColor) ? (
+                    <div className={
+                        styles.libraryItemInsetImageContainerNoBg
+                    }
+                        style={{ backgroundColor: this.props.customInsetColor }}
+                    >
+                        <img
+                            className={styles.libraryItemInsetImage}
+                            src={this.props.insetIconURL}
                         />
                     </div>
                 ) : null}
@@ -141,127 +122,161 @@ class LibraryItemComponent extends React.PureComponent {
                     }
                 >
                     <span className={styles.libraryItemName}>{this.props.name}</span>
+                    <br />
                     <span className={styles.featuredDescription}>{this.props.description}</span>
-                    {statusBadges}
-                    {actionHint}
+                    {this.props.custom && (
+                        <>
+                            <br />
+                                <a
+                                    target='_blank'
+                                    data-clearclick="true"
+                                    href={this.props.extensionId}
+                                    className={styles.featuredDescription}
+                                >
+                                    {getURLOrigin(this.props.extensionId)}
+                                </a>
+                        </>
+                    )}
                 </div>
-
-                {(this.props.docsURI || this.props.samples) && (
-                    <div className={styles.extensionLinks}>
-                        {this.props.docsURI && (
-                            <a
-                                href={this.props.docsURI}
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <FormattedMessage
-                                    defaultMessage="Documentation"
-                                    // eslint-disable-next-line max-len
-                                    description="Appears in the extension list. Links to additional extension documentation."
-                                    id="tw.documentation"
-                                />
-                            </a>
-                        )}
-
-                        {this.props.samples && (
-                            <a
-                                href={this.props.samples[0].href}
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <FormattedMessage
-                                    defaultMessage="Sample project"
-                                    // eslint-disable-next-line max-len
-                                    description="Appears in the extension list. Links to a sample project for an extension."
-                                    id="tw.sample"
-                                />
-                            </a>
-                        )}
-                    </div>
-                )}
-
-                {this.props.credits && this.props.credits.length > 0 && (
-                    <div className={styles.extensionLinks}>
-                        <div>
-                            <FormattedMessage
-                                defaultMessage="Created by:"
-                                description="Appears in the extension list. Followed by a list of names."
-                                id="tw.createdBy"
-                            />
-                            {' '}
-                            {this.props.credits.map((credit, index) => (
-                                <React.Fragment key={index}>
-                                    {credit}
-                                    {index !== this.props.credits.length - 1 && (
-                                        ', '
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {this.props.bluetoothRequired || this.props.internetConnectionRequired || this.props.collaborator ? (
-                    <div className={styles.featuredExtensionMetadata}>
-                        <div className={styles.featuredExtensionRequirement}>
-                            {this.props.bluetoothRequired || this.props.internetConnectionRequired ? (
-                                <div>
-                                    <div>
-                                        <FormattedMessage
-                                            defaultMessage="Requires"
-                                            description="Label for extension hardware requirements"
-                                            id="gui.extensionLibrary.requires"
-                                        />
-                                    </div>
-                                    <div
-                                        className={styles.featuredExtensionMetadataDetail}
-                                    >
-                                        {this.props.bluetoothRequired ? (
-                                            <img
-                                                src={bluetoothIconURL}
-                                                draggable={false}
-                                            />
-                                        ) : null}
-                                        {this.props.internetConnectionRequired ? (
-                                            <img
-                                                src={internetConnectionIconURL}
-                                                draggable={false}
-                                            />
-                                        ) : null}
-                                    </div>
+                {
+                    this.props.bluetoothRequired ||
+                        this.props.internetConnectionRequired ||
+                        this.props.collaborator ||
+                        this.props.extDeveloper ||
+                        this.props.twDeveloper ||
+                        this.props.eventSubmittor ||
+                        this.props.credits
+                        ? (
+                            <div className={styles.featuredExtensionMetadata}>
+                                <div className={styles.featuredExtensionRequirement}>
+                                    {this.props.bluetoothRequired || this.props.internetConnectionRequired ? (
+                                        <div>
+                                            <div>
+                                                <FormattedMessage
+                                                    defaultMessage="Requires"
+                                                    description="Label for extension hardware requirements"
+                                                    id="gui.extensionLibrary.requires"
+                                                />
+                                            </div>
+                                            <div
+                                                className={styles.featuredExtensionMetadataDetail}
+                                            >
+                                                {this.props.bluetoothRequired ? (
+                                                    <img src={bluetoothIconURL} />
+                                                ) : null}
+                                                {this.props.internetConnectionRequired ? (
+                                                    <img src={internetConnectionIconURL} />
+                                                ) : null}
+                                            </div>
+                                        </div>
+                                    ) : null}
                                 </div>
-                            ) : null}
-                        </div>
-                        <div className={styles.featuredExtensionCollaboration}>
-                            {this.props.collaborator ? (
-                                <div>
-                                    <div>
-                                        <FormattedMessage
-                                            defaultMessage="Collaboration with"
-                                            description="Label for extension collaboration"
-                                            id="gui.extensionLibrary.collaboration"
-                                        />
-                                    </div>
-                                    <div
-                                        className={styles.featuredExtensionMetadataDetail}
-                                    >
-                                        {this.props.collaborator}
-                                    </div>
+                                <div className={styles.featuredExtensionCollaboration}>
+                                    {this.props.collaborator ? (
+                                        <div className={styles.smallBottomMargin}>
+                                            <div>
+                                                <FormattedMessage
+                                                    defaultMessage="Collaboration with"
+                                                    description="Label for extension collaboration"
+                                                    id="gui.extensionLibrary.collaboration"
+                                                />
+                                            </div>
+                                            <div
+                                                className={styles.featuredExtensionMetadataDetail}
+                                            >
+                                                {this.props.collaborator}
+                                            </div>
+                                        </div>
+                                    ) : null}
+                                    {this.props.twDeveloper ? (
+                                        <div className={styles.smallBottomMargin}>
+                                            <div>
+                                                <FormattedMessage
+                                                    defaultMessage="Originally for TurboWarp by"
+                                                    description="Text for crediting that an extension was originally made for turbowarp, and who has made it."
+                                                    id="pm.libraryItem.turbowarpDeveloperCredits"
+                                                />
+                                            </div>
+                                            <div
+                                                className={styles.featuredExtensionMetadataDetail}
+                                            >
+                                                {this.props.twDeveloper}
+                                            </div>
+                                        </div>
+                                    ) : null}
+                                    {this.props.extDeveloper ? (
+                                        <div className={styles.smallBottomMargin}>
+                                            <div>
+                                                <FormattedMessage
+                                                    defaultMessage="created by"
+                                                    description="Text for crediting an extensions creator."
+                                                    id="pm.libraryItem.extensionCredits"
+                                                />
+                                            </div>
+                                            <div
+                                                className={styles.featuredExtensionMetadataDetail}
+                                            >
+                                                {this.props.extDeveloper}
+                                            </div>
+                                        </div>
+                                    ) : null}
+                                    {this.props.eventSubmittor ? (
+                                        <div className={styles.smallBottomMargin}>
+                                            <div>
+                                                <FormattedMessage
+                                                    defaultMessage="event submission by"
+                                                    description="Text for crediting who made a submission for an event."
+                                                    id="pm.libraryItem.eventSubmissionCredits"
+                                                />
+                                            </div>
+                                            <div
+                                                className={styles.featuredExtensionMetadataDetail}
+                                            >
+                                                {this.props.eventSubmittor}
+                                            </div>
+                                        </div>
+                                    ) : null}
+                                    {this.props.credits ? (
+                                        <div className={styles.smallBottomMargin}>
+                                            <div>
+                                                <FormattedMessage
+                                                    defaultMessage="Credits"
+                                                    description="Text for put credits onto a library item."
+                                                    id="pm.libraryItem.generalCredits"
+                                                />
+                                            </div>
+                                            <div
+                                                className={styles.featuredExtensionMetadataDetail}
+                                            >
+                                                {this.props.credits}
+                                            </div>
+                                        </div>
+                                    ) : null}
+                                    {this.props.extraLabels ? this.props.extraLabels.map((label) => (
+                                        <div className={styles.smallBottomMargin}>
+                                            <div>
+                                                {label.name}
+                                            </div>
+                                            <div
+                                                className={styles.featuredExtensionMetadataDetail}
+                                            >
+                                                {label.value}
+                                            </div>
+                                        </div>
+                                    )) : null}
                                 </div>
-                            ) : null}
-                        </div>
-                    </div>
-                ) : null}
-
-                {favorite}
-                {selectionCheckbox}
+                            </div>
+                        ) : null}
+						{favorite}
             </div>
         ) : (
             <Box
                 className={classNames(
                     styles.libraryItem, {
-                        [styles.hidden]: this.props.hidden
-                    }
+                    [styles.hidden]: this.props.hidden,
+                    [styles.libraryItemSound]: this.props.styleForSound,
+                    [styles.libraryItemNew]: this.props.isNew,
+                }
                 )}
                 role="button"
                 tabIndex="0"
@@ -272,6 +287,15 @@ class LibraryItemComponent extends React.PureComponent {
                 onMouseEnter={this.props.showPlayButton ? null : this.props.onMouseEnter}
                 onMouseLeave={this.props.showPlayButton ? null : this.props.onMouseLeave}
             >
+                {this.props.isNew && (
+                    <div className={styles.libraryItemNewBadge}>
+                        <FormattedMessage
+                            defaultMessage="NEW"
+                            description="Badge text for new library items"
+                            id="pm.libraryItem.newItemBadge"
+                        />
+                    </div>
+                )}
                 {/* Layers of wrapping is to prevent layout thrashing on animation */}
                 <Box className={styles.libraryItemImageContainerWrapper}>
                     <Box
@@ -280,27 +304,51 @@ class LibraryItemComponent extends React.PureComponent {
                         onMouseLeave={this.props.showPlayButton ? this.props.onMouseLeave : null}
                     >
                         <img
-                            className={styles.libraryItemImage}
+                            className={classNames(
+                                styles.libraryItemImage, {
+                                [styles.libraryItemWaveform]: this.props.styleForSound
+                            }
+                            )}
                             loading="lazy"
                             src={this.props.iconURL}
                             draggable={false}
                         />
-                        {sourceBadge}
+                        {this.props.overlayURL && (
+                            <img
+                                className={classNames(
+                                    styles.libraryItemImage, styles.libraryItemImageOverlay, {
+                                    [styles.libraryItemWaveform]: this.props.styleForSound
+                                }
+                                )}
+                                loading="lazy"
+                                src={this.props.overlayURL}
+                                draggable={false}
+                            />
+                        )}
                     </Box>
                 </Box>
-                <span className={styles.libraryItemName}>{this.props.name}</span>
-                {statusBadges}
-                {actionHint}
+                {this.props.styleForSound ? (
+                    <div className={styles.libraryItemSoundInfoContainer}>
+                        <span className={classNames(styles.libraryItemName, styles.libraryItemSoundName)}>{this.props.name}</span>
+                        <span className={classNames(styles.libraryItemName, styles.libraryItemSoundType)}>
+                            {this.props.soundType}, {getMSFormatted(this.props.soundLength)}
+                        </span>
+                    </div>
+                ) : (
+                    <span className={styles.libraryItemName}>{this.props.name}</span>
+                )}
                 {this.props.showPlayButton ? (
                     <PlayButton
+                        className={classNames({
+                            [styles.libraryItemSoundPlayButton]: this.props.styleForSound,
+                            [styles.libraryItemNewPlayButton]: this.props.isNew,
+                        })}
                         isPlaying={this.props.isPlaying}
                         onPlay={this.props.onPlay}
                         onStop={this.props.onStop}
                     />
                 ) : null}
-
-                {favorite}
-                {selectionCheckbox}
+				{favorite}
             </Box>
         );
     }
@@ -311,7 +359,38 @@ class LibraryItemComponent extends React.PureComponent {
 LibraryItemComponent.propTypes = {
     intl: intlShape,
     bluetoothRequired: PropTypes.bool,
-    collaborator: PropTypes.string,
+    collaborator: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    credits: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    twDeveloper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    extDeveloper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    eventSubmittor: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    extraLabels: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.node
+            ]),
+            value: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.node
+            ]),
+        })
+    ),
     description: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.node
@@ -319,29 +398,21 @@ LibraryItemComponent.propTypes = {
     disabled: PropTypes.bool,
     extensionId: PropTypes.string,
     featured: PropTypes.bool,
+    isNew: PropTypes.bool,
     hidden: PropTypes.bool,
     iconURL: PropTypes.string,
+    overlayURL: PropTypes.string,
     insetIconURL: PropTypes.string,
+    styleForSound: PropTypes.bool,
+    soundType: PropTypes.string,
+    soundLength: PropTypes.number,
+    customInsetColor: PropTypes.string,
     internetConnectionRequired: PropTypes.bool,
     isPlaying: PropTypes.bool,
-    isSelectable: PropTypes.bool,
-    isSelected: PropTypes.bool,
     name: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.node
     ]),
-    credits: PropTypes.arrayOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node
-    ])),
-    docsURI: PropTypes.string,
-    samples: PropTypes.arrayOf(PropTypes.shape({
-        href: PropTypes.string,
-        text: PropTypes.string
-    })),
-    favorite: PropTypes.bool,
-    hideFavorite: PropTypes.bool,
-    onFavorite: PropTypes.func,
     onBlur: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
     onFocus: PropTypes.func.isRequired,
@@ -349,25 +420,17 @@ LibraryItemComponent.propTypes = {
     onMouseEnter: PropTypes.func.isRequired,
     onMouseLeave: PropTypes.func.isRequired,
     onPlay: PropTypes.func.isRequired,
-    onSelectionToggle: PropTypes.func,
     onStop: PropTypes.func.isRequired,
     showPlayButton: PropTypes.bool,
-    actionLabel: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node
-    ]),
-    badges: PropTypes.arrayOf(PropTypes.shape({
-        key: PropTypes.string,
-        label: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.node
-        ])
-    })),
-    sourceLabel: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node
-    ]),
-    sourceTone: PropTypes.string
+
+    favoritable: PropTypes.bool,
+    favorited: PropTypes.bool,
+    deletable: PropTypes.bool,
+    custom: PropTypes.bool,
+    onFavoriteClick: PropTypes.func,
+    onDeleteClick: PropTypes.func,
+    _id: PropTypes.string,
+    _unsandboxed: PropTypes.bool
 };
 
 LibraryItemComponent.defaultProps = {

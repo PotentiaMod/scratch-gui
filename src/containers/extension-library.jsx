@@ -2,14 +2,11 @@ import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
 import VM from 'scratch-vm';
-import {defineMessages, injectIntl, intlShape} from 'react-intl';
+import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import log from '../lib/log';
+import { manuallyTrustExtension } from './tw-security-manager.jsx';
 
-import extensionLibraryContent, {
-    galleryError,
-    galleryLoading,
-    galleryMore
-} from '../lib/libraries/extensions/index.jsx';
+import extensionLibraryContent from '../lib/libraries/extensions/index.jsx';
 import extensionTags from '../lib/libraries/tw-extension-tags';
 
 import LibraryComponent from '../components/library/library.jsx';
@@ -20,126 +17,172 @@ const messages = defineMessages({
         defaultMessage: 'Choose an Extension',
         description: 'Heading for the extension library',
         id: 'gui.extensionLibrary.chooseAnExtension'
+    },
+    // extensionUrl: {
+    //     defaultMessage: 'Enter the URL of the extension',
+    //     description: 'Prompt for unoffical extension url',
+    //     id: 'gui.extensionLibrary.extensionUrl'
+    // },
+    incompatible: {
+        // eslint-disable-next-line max-len
+        defaultMessage: 'This extension is incompatible with Scratch. Projects made with it cannot be uploaded to the Scratch website. Are you sure you want to enable it?',
+        description: 'Confirm loading Scratch-incompatible extension',
+        id: 'tw.confirmIncompatibleExtension'
+    },
+    extensionWarning: {
+        // eslint-disable-next-line max-len
+        defaultMessage: 'This extension is not recommended for real projects. It may be unstable and cause problems with your project later on. Are you sure you want to enable it?',
+        description: 'Confirm loading buggy and unstable extension',
+        id: 'pm.confirmBuggyUnstableExtension'
+    },
+    libraryHeader: {
+        defaultMessage: 'Extensions',
+        description: 'Header for the extension picker',
+        id: 'pm.costumeLibrary.extensionsHeader'
     }
 });
 
-const toLibraryItem = extension => {
-    if (typeof extension === 'object') {
-        return ({
-            rawURL: extension.iconURL || extensionIcon,
-            ...extension
-        });
-    }
-    return extension;
-};
-
-const translateGalleryItem = (extension, locale) => ({
-    ...extension,
-    name: extension.nameTranslations[locale] || extension.name,
-    description: extension.descriptionTranslations[locale] || extension.description
-});
-
-let cachedGallery = null;
-
-const fetchLibrary = async () => {
-    const res = await fetch('https://extensions.turbowarp.org/generated-metadata/extensions-v0.json');
-    if (!res.ok) {
-        throw new Error(`HTTP status ${res.status}`);
-    }
-    const data = await res.json();
-    return data.extensions.map(extension => ({
-        name: extension.name,
-        nameTranslations: extension.nameTranslations || {},
-        description: extension.description,
-        descriptionTranslations: extension.descriptionTranslations || {},
-        extensionId: extension.id,
-        extensionURL: `https://extensions.turbowarp.org/${extension.slug}.js`,
-        iconURL: `https://extensions.turbowarp.org/${extension.image || 'images/unknown.svg'}`,
-        tags: ['tw'],
-        credits: [
-            ...(extension.original || []),
-            ...(extension.by || [])
-        ].map(credit => {
-            if (credit.link) {
-                return (
-                    <a
-                        href={credit.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        key={credit.name}
-                    >
-                        {credit.name}
-                    </a>
-                );
-            }
-            return credit.name;
-        }),
-        docsURI: extension.docs ? `https://extensions.turbowarp.org/${extension.slug}` : null,
-        samples: extension.samples ? extension.samples.map(sample => ({
-            href: `${process.env.ROOT}editor?project_url=https://extensions.turbowarp.org/samples/${encodeURIComponent(sample)}.sb3`,
-            text: sample
-        })) : null,
-        incompatibleWithScratch: !extension.scratchCompatible,
-        featured: true
-    }));
-};
+// Only trust loading extension links from these origins.
+// For user-made libraries.
+const TRUSTED_LOADEXT_ORIGINS = [
+    'https://studio.penguinmod.com', // for development
+    'https://extensions.penguinmod.com',
+    'https://sharkpools-extensions.vercel.app',
+    'https://raw.githubusercontent.com/SharkPool-SP/SharkPools-Extensions/main', // Some people cant connect to vercel
+    'https://pen-group.github.io',
+    'http://localhost:5173', // for development
+    'http://localhost:3000', // for development
+];
 
 class ExtensionLibrary extends React.PureComponent {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
-            'handleItemSelect'
+            'handleItemSelect',
+            'wrapperEventHandler'
         ]);
-        this.state = {
-            gallery: cachedGallery,
-            galleryError: null,
-            galleryTimedOut: false
-        };
     }
-    componentDidMount () {
-        if (!this.state.gallery) {
-            const timeout = setTimeout(() => {
-                this.setState({
-                    galleryTimedOut: true
-                });
-            }, 750);
 
-            fetchLibrary()
-                .then(gallery => {
-                    cachedGallery = gallery;
-                    this.setState({
-                        gallery
-                    });
-                    clearTimeout(timeout);
-                })
-                .catch(error => {
-                    log.error(error);
-                    this.setState({
-                        galleryError: error
-                    });
-                    clearTimeout(timeout);
-                });
-        }
+    componentDidMount() {
+        window.addEventListener('message', this.wrapperEventHandler);
     }
-    handleItemSelect (item) {
-        if (item.href) {
+    componentWillUnmount() {
+        window.removeEventListener('message', this.wrapperEventHandler);
+    }
+    async wrapperEventHandler(e) {
+        // Don't recursively try to run this event.
+        if (e.origin === window.origin) {
             return;
         }
 
-        const extensionId = item.extensionId;
+        // Only trust loading extension links from these origins.
+        let foundTrustedOrigin = false;
+        for (const trustedOrigin of TRUSTED_LOADEXT_ORIGINS) {
+            if (e.origin.startsWith(trustedOrigin)) {
+                foundTrustedOrigin = true;
+                break;
+            }
+        }
+        if (!foundTrustedOrigin) {
+            console.log(e.origin);
+            e.source.postMessage({
+                p4: {
+                    type: 'error',
+                    error: 'not_trusted'
+                }
+            }, e.origin);
+            return;
+        }
 
-        if (extensionId === 'custom_extension') {
+        if (!e.data.loadExt) {
+            e.source.postMessage({
+                p4: {
+                    type: 'error',
+                    error: 'no_loadExt'
+                }
+            }, e.origin);
+            return;
+        }
+
+        const extensionId = e.data.loadExt;
+        if (typeof extensionId !== 'string') {
+            e.source.postMessage({
+                p4: {
+                    type: 'error',
+                    error: 'not_string'
+                }
+            }, e.origin);
+            return;
+        }
+        // load the extension like any other custom extension url (this means sandboxing for some urls)
+        console.log("Received request to load", extensionId, "from", e.origin);
+        if (this.props.vm.extensionManager.isExtensionLoaded(extensionId)) {
+            this.props.onCategorySelected(extensionId);
+            // i mean, technically we succeeded
+            e.source.postMessage({
+                p4: {
+                    type: 'success',
+                    extensionId
+                }
+            }, e.origin);
+        } else {
+            this.props.vm.extensionManager.loadExtensionURL(extensionId)
+                .then(() => {
+                    this.props.onCategorySelected(extensionId);
+                    // succeeded
+                    e.source.postMessage({
+                        p4: {
+                            type: 'success',
+                            extensionId
+                        }
+                    }, e.origin);
+                })
+                .catch(err => {
+                    log.error(err);
+                    // The source website is expected to display the error
+                    e.source.postMessage({
+                        p4: {
+                            type: 'error',
+                            error: 'couldnt_load',
+                            pmerror: String(err.stack ? err.stack : err)
+                        }
+                    }, e.origin);
+                });
+        }
+    }
+
+    async handleItemSelect(item) {
+        // eslint-disable-next-line no-alert
+        if (item.extensionWarningOnImport && !confirm(this.props.intl.formatMessage(messages.extensionWarning))) {
+            return;
+        }
+
+        // const id = item.extensionId;
+        // let url = item.extensionURL ? item.extensionURL : id;
+        // const isCustomURL = !item.disabled && !id;
+        // if (isCustomURL) {
+        //     // eslint-disable-next-line no-alert
+        //     url = prompt(this.props.intl.formatMessage(messages.extensionUrl));
+        // }
+        
+        const extensionId = item.extensionId;
+        const isCustomURL = !item.disabled && !extensionId;
+        if (isCustomURL) {
             this.props.onOpenCustomExtensionModal();
             return;
         }
-
-        if (extensionId === 'procedures_enable_return') {
-            this.props.onEnableProcedureReturns();
-            this.props.onCategorySelected('myBlocks');
+        if (extensionId === 'special_penguinmodExtensionLibrary') {
+            window.open('https://extensions.penguinmod.com/?editor=true');
             return;
         }
-
-        const url = item.extensionURL ? item.extensionURL : extensionId;
+        const url = (item.extensionURL ? item.extensionURL : extensionId);
+        if (item._unsandboxed) {
+            if (url.startsWith("data:")) {
+                manuallyTrustExtension(url);
+            } else {
+                await this.props.vm.securityManager.canLoadExtensionFromProject(url);
+            }
+        }
         if (!item.disabled) {
             if (this.props.vm.extensionManager.isExtensionLoaded(extensionId)) {
                 this.props.onCategorySelected(extensionId);
@@ -147,6 +190,17 @@ class ExtensionLibrary extends React.PureComponent {
                 this.props.vm.extensionManager.loadExtensionURL(url)
                     .then(() => {
                         this.props.onCategorySelected(extensionId);
+                        // if (isCustomURL) {
+                        //     let newUrl = location.pathname;
+                        //     if (location.search) {
+                        //         newUrl += location.search;
+                        //         newUrl += '&';
+                        //     } else {
+                        //         newUrl += '?';
+                        //     }
+                        //     newUrl += `extension=${encodeURIComponent(url)}`;
+                        //     history.replaceState('', '', newUrl);
+                        // }
                     })
                     .catch(err => {
                         log.error(err);
@@ -156,34 +210,20 @@ class ExtensionLibrary extends React.PureComponent {
             }
         }
     }
-    render () {
-        let library = null;
-        if (this.state.gallery || this.state.galleryError || this.state.galleryTimedOut) {
-            library = extensionLibraryContent.map(toLibraryItem);
-            library.push('---');
-            if (this.state.gallery) {
-                library.push(toLibraryItem(galleryMore));
-                const locale = this.props.intl.locale;
-                library.push(
-                    ...this.state.gallery
-                        .filter(i => i.extensionId !== 'faceSensing')
-                        .map(i => translateGalleryItem(i, locale))
-                        .map(toLibraryItem)
-                );
-            } else if (this.state.galleryError) {
-                library.push(toLibraryItem(galleryError));
-            } else {
-                library.push(toLibraryItem(galleryLoading));
-            }
-        }
-
+    render() {
+        const extensionLibraryThumbnailData = extensionLibraryContent.map(extension => ({
+            rawURL: extension.iconURL || extensionIcon,
+            disabled: extension.disabled && !this.props.liveTest,
+            ...extension
+        }));
         return (
             <LibraryComponent
-                data={library}
-                filterable
-                persistableKey="extensionId"
-                id="extensionLibrary"
+                data={extensionLibraryThumbnailData}
+                filterable={true}
                 tags={extensionTags}
+                id="extensionLibrary"
+                actor="ExtensionLibrary"
+                header={this.props.intl.formatMessage(messages.libraryHeader)}
                 title={this.props.intl.formatMessage(messages.extensionTitle)}
                 visible={this.props.visible}
                 onItemSelected={this.handleItemSelect}
@@ -196,7 +236,6 @@ class ExtensionLibrary extends React.PureComponent {
 ExtensionLibrary.propTypes = {
     intl: intlShape.isRequired,
     onCategorySelected: PropTypes.func,
-    onEnableProcedureReturns: PropTypes.func,
     onOpenCustomExtensionModal: PropTypes.func,
     onRequestClose: PropTypes.func,
     visible: PropTypes.bool,

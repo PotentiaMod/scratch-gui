@@ -335,10 +335,10 @@ class LibraryComponent extends React.Component {
                         ref={this.setFilteredDataRef}
                     >
                         {filteredData && this.getFilteredData().map((dataItem, index) => (
-                            dataItem === '---' ? (
+                            dataItem.seperator ? (
                                 <Separator key={index} />
                             ) : (
-                                <LibraryItem
+                            <LibraryItem
                                     bluetoothRequired={dataItem.bluetoothRequired}
                                     collaborator={dataItem.collaborator}
                                     description={dataItem.description}
