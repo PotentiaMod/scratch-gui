@@ -510,7 +510,7 @@ const IsSecretExt = urlParams.has('shipguy');
 const menuItems = [
    {
         name: 'Custom Extension',
-        extensionId: 'custom_extension',
+        extensionId: '',
         iconURL: customExtensionIcon,
         description: 'Load custom extensions from URLs, files, or JavaScript source code.',
         tags: ['potentia'],
