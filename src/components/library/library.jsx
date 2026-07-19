@@ -236,14 +236,14 @@ class LibraryComponent extends React.Component {
         let filteredItems = favoriteItems.concat(nonFavoriteItems);
 
         if (this.state.selectedTags.length !== 0) {
-    filteredItems = filteredItems.filter(dataItem => {
-        const itemTags = Array.isArray(dataItem.tags)
-            ? dataItem.tags.map(i => i.toLowerCase())
-            : [];
-
-        return this.state.selectedTags.every(tag => itemTags.includes(tag));
-    });
-}
+            filteredItems = filteredItems.filter(dataItem => {
+                const itemTags = dataItem.tags.map(i => i.toLowerCase());
+                return (
+                    dataItem.tags &&
+                    this.state.selectedTags.every(tag => itemTags.includes(tag))
+                );
+            });
+        }
 
         if (this.state.filterQuery) {
             filteredItems = filteredItems.filter(dataItem => {
@@ -335,10 +335,10 @@ class LibraryComponent extends React.Component {
                         ref={this.setFilteredDataRef}
                     >
                         {filteredData && this.getFilteredData().map((dataItem, index) => (
-                            dataItem.seperator ? (
+                            dataItem === '---' ? (
                                 <Separator key={index} />
                             ) : (
-                            <LibraryItem
+                                <LibraryItem
                                     bluetoothRequired={dataItem.bluetoothRequired}
                                     collaborator={dataItem.collaborator}
                                     description={dataItem.description}
