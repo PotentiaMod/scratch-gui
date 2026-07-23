@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import check from './check.svg';
 import dropdownCaret from './dropdown-caret.svg';
 import {MenuItem, MenuSection, Submenu} from '../menu/menu.jsx';
-import {GUI_MODERN_DARK, GUI_MODERN_LIGHT, GUI_DARK, GUI_LIGHT, GUI_MIDNIGHT, Theme} from '../../lib/themes/index.js';
+import {GUI_MAP, GuiIcons, GuiOptions, Theme} from '../../lib/themes/index.js';
 import {openGuiMenu, guiMenuOpen, closeSettingsMenu} from '../../reducers/menus.js';
 import {setTheme} from '../../reducers/theme.js';
 import {persistTheme} from '../../lib/themes/themePersistance.js';
@@ -16,45 +16,9 @@ import darkModeIcon from './tw-moon.svg';
 import midnightModeIcon from './tw-star.svg';
 import styles from './settings-menu.css';
 
-const options = defineMessages({
-    [GUI_MODERN_LIGHT]: {
-        defaultMessage: 'PotentiaMod - Light',
-        description: 'Name of PotentiaMod\'s Light color scheme.',
-        id: 'tw.gui.light'
-    },
-    [GUI_LIGHT]: {
-        defaultMessage: 'Light',
-        description: 'Name of the light color scheme.',
-        id: 'tw.gui.classiclight'
-    },
-    [GUI_MODERN_DARK]: {
-        defaultMessage: 'PotentiaMod - Dark',
-        description: 'Name of PotentiaMod\'s Dark color scheme.',
-        id: 'tw.gui.dark'
-    },
-    [GUI_DARK]: {
-        defaultMessage: 'Dark',
-        description: 'Name of the dark color scheme.',
-        id: 'tw.gui.classicdark'
-    },
-    [GUI_MIDNIGHT]: {
-        defaultMessage: 'Midnight',
-        description: 'Name of the midnight color scheme.',
-        id: 'tw.gui.midnight'
-    }
-});
-
-const icons = {
-    [GUI_LIGHT]: lightModeIcon,
-	[GUI_MODERN_LIGHT]: lightModeIcon,
-    [GUI_DARK]: darkModeIcon,
-    [GUI_MODERN_DARK]: darkModeIcon,
-    [GUI_MIDNIGHT]: midnightModeIcon
-};
-
 const ThemeIcon = props => (
         <img
-            src={icons[props.id]}
+            src={GuiIcons[props.id]}
             draggable={false}
             // Image is decorative
             alt=""
@@ -70,13 +34,13 @@ const GuiMenuItem = props => (
         <div className={styles.option}>
             <img
                 className={classNames(styles.check, {[styles.selected]: props.isSelected})}
-                width={24}
-                height={24}
+                width={15}
+                height={12}
                 src={check}
                 draggable={false}
             />
             <ThemeIcon id={props.id} />
-            <FormattedMessage {...options[props.id]} />
+            <FormattedMessage {...GuiOptions[props.id]} />
         </div>
     </MenuItem>
 );
@@ -117,7 +81,7 @@ const GuiThemeMenu = ({
                 />
             </div>
             <Submenu place={isRtl ? 'left' : 'right'}>
-                {Object.keys(options).map(item => (
+                {Object.keys(GuiOptions).map(item => (
                     <GuiMenuItem
                         key={item}
                         id={item}

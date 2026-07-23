@@ -49,12 +49,15 @@ import gdxforInsetIconURL from './gdxfor/gdxfor-small.svg';
 import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
-import twIcon from './tw/tw.svg';
+
 import ptIcon from './tw/pt.png';
 import TWgalleryIcon from './gallery/TWgallery.svg';
-import customExtensionIcon from './custom/custom.svg';
 import returnIcon from './custom/return.svg';
-import galleryIcon from './gallery/gallery.png';
+import customExtensionIcon from './custom/custom.svg';
+import galleryIconNB from './gallery/gallery-nb.svg';
+import galleryIconMW from './gallery/gallery-mw.png';;
+import galleryIconTW from './gallery/gallery-tw.svg';
+import galleryIconPT from './gallery/gallery.png';
 import {APP_NAME} from '../../brand';
 
 export default [
@@ -362,33 +365,21 @@ export default [
         ),
         helpLink: 'https://scratch.mit.edu/vernier'
     },
-    {
-        // not really an extension, but it's easiest to present it as one
-        name: (
-            <FormattedMessage
-                defaultMessage="Custom Reporters"
-                description="Name of custom reporters extension"
-                id="tw.customReporters.name"
-            />
-        ),
-        extensionId: 'procedures_enable_return',
-        iconURL: returnIcon,
-        description: (
-            <FormattedMessage
-                defaultMessage="Allow custom blocks to output values and be used as inputs."
-                description="Description of custom reporters extension"
-                id="tw.customReporters.description"
-            />
-        ),
-        tags: ['potentia'],
-        incompatibleWithScratch: true,
+	 {
+        name: 'App Utilities',
+        extensionId: 'appmaker',
+        iconURL: 'https://gaiamod-main.github.io/static/assets/ab0f9df0edc8698e6e01580a343b5423.svg',
+		insetIconURL: 'https://gaiamod-main.github.io/static/assets/7698093467c8a39f4d05107e7c979c06.svg',
+        tags: ['other'],
+		collaborator: 'LibreKitten',
+        description: 'Develop apps in PotentiaMod.',
         featured: true
     },
     {
         name: (
             <FormattedMessage
                 defaultMessage="{APP_NAME} Blocks"
-                description="Name of the strange 'PotentiaMod Blocks' extension"
+                description="Name of the strange 'NitroBolt Blocks' extension"
                 id="tw.twExtension.name"
                 values={{
                     APP_NAME
@@ -404,7 +395,6 @@ export default [
                 id="tw.twExtension.description"
             />
         ),
-        incompatibleWithScratch: true,
         tags: ['potentia'],
         featured: true
     },
@@ -428,83 +418,77 @@ export default [
         tags: ['potentia'],
         featured: true
         // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
-    }
+    },
+		 {
+        name: 'PotentiaMod Extension Bonanza',
+        extensionId: 'potentiaGallery',
+		href: 'https://potentiamod.github.io/extensions/',
+        iconURL: galleryIconPT,
+        tags: ['potentia'],
+        description: 'Learn more about extensions at potentiamod.github.io/extensions.',
+        featured: true
+    },
 ];
 
-export const galleryLoading = {
-    name: (
-        <FormattedMessage
-            defaultMessage="{APP_NAME} Extension Bonanza"
-            description="Name of potentiamod.github.io/extensions in extension library"
-            id="tw.extensionGallery.name"
-            values={{
-                APP_NAME
-            }}
-        />
-    ),
-    href: 'https://potentiamod.github.io/extensions/',
-    extensionId: 'gallery',
-    iconURL: galleryIcon,
-    description: (
-        <FormattedMessage
-            // eslint-disable-next-line max-len
-            defaultMessage="Loading extension gallery..."
-            description="Appears while loading extension list from the custom extension gallery"
-            id="tw.extensionGallery.loading"
-        />
-    ),
-    tags: ['potentia'],
-    featured: true
+const gallerySourceDisplay = {
+    nitrobolt: {
+        name: 'NitroBolt Extension Gallery',
+        href: 'https://extensions.nitrobolt.org/',
+        iconURL: galleryIconNB,
+        tag: 'nb'
+    },
+    astraeditor: {
+        name: 'AstraEditor Extension Gallery',
+        href: 'https://editors.astras.top/extensions/',
+        iconURL: 'https://github.com/AstraEditor/scratch-gui/blob/develop/src/lib/libraries/extensions/gallery/aegallery.png?raw=true',
+        tag: 'ae'
+    },
+    bilup: {
+        name: 'Bilup Extension Gallery',
+        href: 'https://extensions.bilup.org/',
+        iconURL: 'https://editor.bilup.org/static/assets/5b5e7dd645a0e3891de6e5d937cca6a6.svg',
+        tag: 'bilup'
+    },
+    turbowarp: {
+        name: 'TurboWarp Extension Gallery',
+        href: 'https://extensions.turbowarp.org/',
+        iconURL: galleryIconTW,
+        tag: 'tw'
+    }
 };
 
-export const galleryMore = {
-    name: (
-        <FormattedMessage
-            defaultMessage="{APP_NAME} Extension Bonanza"
-            description="Name of potentiamod.github.io/extensions in extension library"
-            id="tw.extensionGallery.name"
-            values={{
-                APP_NAME
-            }}
-        />
-    ),
-    href: 'https://potentiamod.github.io/extensions/',
-    extensionId: 'gallery',
-    iconURL: galleryIcon,
-    description: (
-        <FormattedMessage
-            // eslint-disable-next-line max-len
-            defaultMessage="Learn more about extensions at potentiamod.github.io/extensions."
-            description="Appears after the extension list from the gallery was loaded successfully"
-            id="tw.extensionGallery.more"
-        />
-    ),
-    tags: ['potentia'],
-    featured: true
+const createGalleryStatusItem = (sourceId, description) => {
+    const source = gallerySourceDisplay[sourceId];
+    return {
+        name: source.name,
+        href: source.href,
+        extensionId: `gallery_${sourceId}`,
+        iconURL: source.iconURL,
+        description,
+        tags: [source.tag],
+        featured: true
+    };
 };
 
-export const galleryError = {
-    name: (
-        <FormattedMessage
-            defaultMessage="{APP_NAME} Extension Bonanza"
-            description="Name of potentiamod.github.io/extensions in extension library"
-            id="tw.extensionGallery.name"
-            values={{
-                APP_NAME
-            }}
-        />
-    ),
-    href: 'https://potentiamod.github.io/extensions/',
-    extensionId: 'gallery',
-    iconURL: galleryIcon,
-    description: (
-        <FormattedMessage
-            // eslint-disable-next-line max-len
-            defaultMessage="Error loading extension gallery. Visit potentiamod.github.io/extensions to find more extensions."
-            description="Appears when an error occurred loading extension list from the custom extension gallery"
-            id="tw.extensionGallery.error"
-        />
-    ),
-    tags: ['potentia'],
-    featured: true
+export const galleryStatusItems = {
+    nitrobolt: {
+        loading: createGalleryStatusItem('nitrobolt', 'Loading NitroBolt extension gallery...'),
+        more: createGalleryStatusItem('nitrobolt', 'Learn more about extensions at extensions.nitrobolt.org.'),
+        error: createGalleryStatusItem('nitrobolt', 'Error loading NitroBolt extension gallery. Visit extensions.nitrobolt.org to find more extensions.')
+    },
+    astraeditor: {
+        loading: createGalleryStatusItem('astraeditor', 'Loading AstraEditor extension gallery...'),
+        more: createGalleryStatusItem('astraeditor', 'Learn more about extensions at editors.astras.top/extensions.'),
+        error: createGalleryStatusItem('astraeditor', 'Error loading AstraEditor extension gallery. Visit editors.astras.top/extensions to find more extensions.')
+    },
+    bilup: {
+        loading: createGalleryStatusItem('bilup', 'Loading Bilup extension gallery...'),
+        more: createGalleryStatusItem('bilup', 'Learn more about extensions at extensions.bilup.org.'),
+        error: createGalleryStatusItem('bilup', 'Error loading Bilup extension gallery. Visit extensions.bilup.org to find more extensions.')
+    },
+    turbowarp: {
+        loading: createGalleryStatusItem('turbowarp', 'Loading TurboWarp extension gallery...'),
+        more: createGalleryStatusItem('turbowarp', 'Learn more about extensions at extensions.turbowarp.org.'),
+        error: createGalleryStatusItem('turbowarp', 'Error loading TurboWarp extension gallery. Visit extensions.turbowarp.org to find more extensions.')
+    }
 };

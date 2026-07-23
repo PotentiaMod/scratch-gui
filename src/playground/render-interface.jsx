@@ -159,14 +159,14 @@ const Footer = () => (
                     </a>
                 </div>
                 <div className={styles.footerSection}>
-                    <a href="https://scratch.mit.edu/users/GarboMuffin/#comments">
+                    <a href="https://github.com/PotentiaMod/scratch-gui/issues">
                         <FormattedMessage
                             defaultMessage="Feedback & Bugs"
                             description="Link to feedback/bugs page"
                             id="tw.feedback"
                         />
                     </a>
-                    <a href="https://github.com/TurboWarp/">
+                    <a href="https://github.com/PotentiaMod/">
                         <FormattedMessage
                             defaultMessage="Source Code"
                             description="Link to source code"

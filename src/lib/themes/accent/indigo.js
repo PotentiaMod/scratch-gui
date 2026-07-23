@@ -1,24 +1,28 @@
 const guiColors = {
-    'motion-primary': '#4800cc',
-    'motion-primary-transparent': '#4800cce6',
-    'motion-tertiary': '#2D00A8',
+    'motion-primary': '#6D4CFF',
+    'motion-primary-transparent': '#6D4CFF09',
+    'motion-tertiary': '#5233DE',
 
-    'looks-secondary': '#4800cc',
-    'looks-transparent': '#5208D959',
-    'looks-light-transparent': '#6B30D926',
-    'looks-secondary-dark': '#220099',
+    'looks-secondary': '#6D4CFF',
+    'looks-transparent': '#6D4CFF35',
+    'looks-light-transparent': '#7F73FF26',
+    'looks-secondary-dark': '#3D29D1',
 
-    'extensions-primary': 'hsla(261, 100%, 38%, 1)',
-    'extensions-tertiary': 'hsla(261, 100%, 15%, 1)',
-    'extensions-transparent': 'hsla(261, 100%, 38%, 0.43)',
-    'extensions-light': 'hsla(261, 100%, 56%, 1)',
+    'data-primary': '#696EFF',
 
-    'drop-highlight': '#7E4ED9'
+    'extensions-primary': 'hsla(253, 85%, 65% 1)',
+    'extensions-tertiary': '#350FBD',
+    'extensions-transparent': 'hsla(253, 85%, 65%, 0.35)',
+    'extensions-light': 'hsla(252, 57%, 85%, 1)',
+
+    'drop-highlight': '#8C8CFF',
+	
+	'menu-bar-background': 'var(--looks-secondary)'
 };
 
 const blockColors = {
-    checkboxActiveBackground: '#4800cc',
-    checkboxActiveBorder: '#3100AD'
+    checkboxActiveBackground: 'rgb(255, 183, 76)',
+    checkboxActiveBorder: 'rgb(204, 130, 51)'
 };
 
 export {
