@@ -5,6 +5,7 @@ import messages from './tag-messages.js';
 export default [
     {tag: 'scratch', intlLabel: 'Scratch'},
     {tag: 'potentia', intlLabel: APP_NAME},
-    {tag: 'other', intlLabel: 'Other Mods'},
-    {tag: 'tw', intlLabel: 'TurboWarp'}
+    {tag: 'tw', intlLabel: 'TurboWarp'},
+    {tag: 'pm', intlLabel: 'PenguinMod'},
+    {tag: 'other', intlLabel: 'Other Mods'}
 ];

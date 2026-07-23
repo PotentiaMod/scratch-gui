@@ -58,6 +58,8 @@ import galleryIconNB from './gallery/gallery-nb.svg';
 import galleryIconMW from './gallery/gallery-mw.png';;
 import galleryIconTW from './gallery/gallery-tw.svg';
 import galleryIconPT from './gallery/gallery.png';
+
+import galleryIconPM from './penguinmod/library.svg';
 import {APP_NAME} from '../../brand';
 
 export default [
@@ -436,6 +438,12 @@ const gallerySourceDisplay = {
         href: 'https://extensions.turbowarp.org/',
         iconURL: galleryIconTW,
         tag: 'tw'
+    },
+    penguinmod: {
+        name: 'PenguinMod Extra Extensions',
+        href: 'https://extensions.penguinmod.com/',
+        iconURL: galleryIconPM,
+        tag: 'pm'
     }
 };
 
@@ -457,5 +465,10 @@ export const galleryStatusItems = {
         loading: createGalleryStatusItem('turbowarp', 'Loading TurboWarp extension gallery...'),
         more: createGalleryStatusItem('turbowarp', 'Learn more about extensions at extensions.turbowarp.org.'),
         error: createGalleryStatusItem('turbowarp', 'Error loading TurboWarp extension gallery. Visit extensions.turbowarp.org to find more extensions.')
+    },
+    penguinmod: {
+        loading: createGalleryStatusItem('penguinmod', 'Loading PenguinMod Extra Extensions...'),
+        more: createGalleryStatusItem('penguinmod', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('penguinmod', 'Error loading PenguinMod Extra Extensions.')
     }
 };

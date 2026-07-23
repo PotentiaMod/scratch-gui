@@ -18,8 +18,17 @@ const gallerySources = [
         id: 'turbowarp',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/turbowarp/',
         baseImageURL: 'https://potentiamod.github.io/extensions/img/turbowarp/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/turbowarp/',
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/tw-extensions.json',
         tag: 'tw'
+    },
+    {
+        id: 'penguinmod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/penguinmod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/penguinmod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/penguinmod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/pm-extensions.json',
+        tag: 'pm'
     }
 ];
 
@@ -54,7 +63,7 @@ const mapGalleryExtension = (extension, source) => ({
     descriptionTranslations: extension.descriptionTranslations || {},
     extensionId: extension.id,
     extensionURL: `${source.baseURL}${extension.slug}.js`,
-    iconURL: `${source.baseImageURL}${extension.image || 'unknown.svg'}`,
+    iconURL: `${source.baseImageURL}${extension.image || 'placeholder.png'}`,
     tags: [source.tag],
     credits: [
         ...(extension.original || []),
@@ -76,7 +85,7 @@ const mapGalleryExtension = (extension, source) => ({
     }),
     docsURI: extension.docs ? `${source.baseURL}${extension.slug}` : null,
     samples: extension.samples ? extension.samples.map(sample => ({
-        href: `${process.env.ROOT}editor?project_url=${source.baseURL}samples/${encodeURIComponent(sample)}.sb3`,
+        href: `${process.env.ROOT}editor?project_url=${source.baseSamplesURL}${encodeURIComponent(sample)}.sb3`,
         text: sample
     })) : null,
     featured: true
@@ -103,7 +112,7 @@ const fetchLibrary = async () => {
         if (result.status === 'fulfilled') {
             const extensions = [];
             for (const extension of result.value) {
-                // Keep first occurrence, so NitroBolt wins when IDs overlap.
+                // Keep first occurrence, so PotentiaMod wins when IDs overlap.
                 if (!extensionIds.has(extension.extensionId)) {
                     extensionIds.add(extension.extensionId);
                     extensions.push(extension);
