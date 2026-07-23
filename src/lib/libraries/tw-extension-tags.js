@@ -8,5 +8,6 @@ export default [
     {tag: 'tw', intlLabel: 'TurboWarp'},
     {tag: 'nb', intlLabel: 'NitroBolt'},
     {tag: 'pm', intlLabel: 'PenguinMod'},
+    {tag: 'preload', intlLabel: 'Built-In'},
     {tag: 'other', intlLabel: 'Other Mods'}
 ];

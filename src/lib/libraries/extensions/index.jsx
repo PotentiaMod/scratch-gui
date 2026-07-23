@@ -372,7 +372,7 @@ export default [
         extensionId: 'appmaker',
         iconURL: 'https://gaiamod-main.github.io/static/assets/ab0f9df0edc8698e6e01580a343b5423.svg',
 		insetIconURL: 'https://gaiamod-main.github.io/static/assets/7698093467c8a39f4d05107e7c979c06.svg',
-        tags: ['other'],
+        tags: ['other', 'preload'],
 		collaborator: 'LibreKitten',
         description: 'Develop apps in PotentiaMod.',
         featured: true
