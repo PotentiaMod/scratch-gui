@@ -13,29 +13,12 @@ import extensionTags from '../lib/libraries/tw-extension-tags';
 import LibraryComponent from '../components/library/library.jsx';
 import extensionIcon from '../components/action-menu/icon--sprite.svg';
 
-const gallerySources = [
-{
-        id: 'nitrobolt',
-        baseURL: 'https://extensions.nitrobolt.org/',
-        metadataURL: 'https://extensions.nitrobolt.org/generated-metadata/extensions-v0.json',
-        tag: 'nb'
-    },
-    {
-        id: 'astraeditor',
-        baseURL: 'https://editors.astras.top/extensions/',
-        metadataURL: 'https://editors.astras.top/extensions/generated-metadata/extensions-v0.json',
-        tag: 'ae'
-    },	
-    {
-        id: 'bilup',
-        baseURL: 'https://extensions.bilup.org/',
-        metadataURL: 'https://extensions.bilup.org/generated-metadata/extensions-v0.json',
-        tag: 'bilup'
-    },			
+const gallerySources = [		
     {
         id: 'turbowarp',
-        baseURL: 'https://extensions.turbowarp.org/',
-        metadataURL: 'https://extensions.turbowarp.org/generated-metadata/extensions-v0.json',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/turbowarp/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/turbowarp/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/tw-extensions.json',
         tag: 'tw'
     }
 ];
@@ -71,7 +54,7 @@ const mapGalleryExtension = (extension, source) => ({
     descriptionTranslations: extension.descriptionTranslations || {},
     extensionId: extension.id,
     extensionURL: `${source.baseURL}${extension.slug}.js`,
-    iconURL: `${source.baseURL}${extension.image || 'images/unknown.svg'}`,
+    iconURL: `${source.baseImageURL}${extension.image || 'unknown.svg'}`,
     tags: [source.tag],
     credits: [
         ...(extension.original || []),

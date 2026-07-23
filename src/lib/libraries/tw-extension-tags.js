@@ -5,9 +5,6 @@ import messages from './tag-messages.js';
 export default [
     {tag: 'scratch', intlLabel: 'Scratch'},
     {tag: 'potentia', intlLabel: APP_NAME},
-    {tag: 'nb', intlLabel: 'NitroBolt'},
-    {tag: 'ae', intlLabel: 'AstraEditor'},
-    {tag: 'bilup', intlLabel: 'Bilup'},
     {tag: 'other', intlLabel: 'Other Mods'},
     {tag: 'tw', intlLabel: 'TurboWarp'}
 ];

@@ -431,24 +431,6 @@ export default [
 ];
 
 const gallerySourceDisplay = {
-    nitrobolt: {
-        name: 'NitroBolt Extension Gallery',
-        href: 'https://extensions.nitrobolt.org/',
-        iconURL: galleryIconNB,
-        tag: 'nb'
-    },
-    astraeditor: {
-        name: 'AstraEditor Extension Gallery',
-        href: 'https://editors.astras.top/extensions/',
-        iconURL: 'https://github.com/AstraEditor/scratch-gui/blob/develop/src/lib/libraries/extensions/gallery/aegallery.png?raw=true',
-        tag: 'ae'
-    },
-    bilup: {
-        name: 'Bilup Extension Gallery',
-        href: 'https://extensions.bilup.org/',
-        iconURL: 'https://editor.bilup.org/static/assets/5b5e7dd645a0e3891de6e5d937cca6a6.svg',
-        tag: 'bilup'
-    },
     turbowarp: {
         name: 'TurboWarp Extension Gallery',
         href: 'https://extensions.turbowarp.org/',
@@ -471,21 +453,6 @@ const createGalleryStatusItem = (sourceId, description) => {
 };
 
 export const galleryStatusItems = {
-    nitrobolt: {
-        loading: createGalleryStatusItem('nitrobolt', 'Loading NitroBolt extension gallery...'),
-        more: createGalleryStatusItem('nitrobolt', 'Learn more about extensions at extensions.nitrobolt.org.'),
-        error: createGalleryStatusItem('nitrobolt', 'Error loading NitroBolt extension gallery. Visit extensions.nitrobolt.org to find more extensions.')
-    },
-    astraeditor: {
-        loading: createGalleryStatusItem('astraeditor', 'Loading AstraEditor extension gallery...'),
-        more: createGalleryStatusItem('astraeditor', 'Learn more about extensions at editors.astras.top/extensions.'),
-        error: createGalleryStatusItem('astraeditor', 'Error loading AstraEditor extension gallery. Visit editors.astras.top/extensions to find more extensions.')
-    },
-    bilup: {
-        loading: createGalleryStatusItem('bilup', 'Loading Bilup extension gallery...'),
-        more: createGalleryStatusItem('bilup', 'Learn more about extensions at extensions.bilup.org.'),
-        error: createGalleryStatusItem('bilup', 'Error loading Bilup extension gallery. Visit extensions.bilup.org to find more extensions.')
-    },
     turbowarp: {
         loading: createGalleryStatusItem('turbowarp', 'Loading TurboWarp extension gallery...'),
         more: createGalleryStatusItem('turbowarp', 'Learn more about extensions at extensions.turbowarp.org.'),
