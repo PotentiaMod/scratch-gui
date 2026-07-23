@@ -29,6 +29,7 @@ import midnightModeIcon from './icons/tw-midnight.svg';
 
 import threeIcon from './icons/tw-blocks-three.svg';
 import highContrastIcon from './icons/tw-blocks-high-contrast.svg';
+import darkIcon from './icons/tw-blocks-dark.svg';
 import customIcon from './icons/tw-blocks-custom.svg';
 
 const ACCENT_PURPLE = 'purple';
@@ -199,6 +200,36 @@ const BLOCKS_MAP = {
         useForStage: false
     }
 };
+
+const BlockIcons = {
+    [BLOCKS_THREE]: threeIcon,
+    [BLOCKS_HIGH_CONTRAST]: highContrastIcon,
+    [BLOCKS_DARK]: darkIcon,
+    [BLOCKS_CUSTOM]: customIcon
+};
+
+const BlockOptions = defineMessages({
+    [BLOCKS_THREE]: {
+        defaultMessage: 'Original',
+        description: 'Name of normal Scratch block colors.',
+        id: 'tw.blockColors.three'
+    },
+    [BLOCKS_HIGH_CONTRAST]: {
+        defaultMessage: 'High Contrast',
+        description: 'Name of the high contrast block colors.',
+        id: 'tw.blockColors.highContrast'
+    },
+    [BLOCKS_DARK]: {
+        defaultMessage: 'Dark (Beta)',
+        description: 'Name of the dark block colors',
+        id: 'tw.blockColors.dark'
+    },
+    [BLOCKS_CUSTOM]: {
+        defaultMessage: 'Customize in Addon Settings',
+        description: 'Link in block color list to open addon settings for more customization',
+        id: 'tw.blockColors.custom'
+    }
+});
 
 let themeObjectsCreated = 0;
 
