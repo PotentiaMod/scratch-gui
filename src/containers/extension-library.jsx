@@ -98,23 +98,23 @@ const mapGalleryExtension = (extension, source) => ({
     iconURL: `${source.baseImageURL}${extension.image || 'placeholder.png'}`,
     tags: [source.tag],
     credits: [
-        ...(extension.original || []),
-        ...(extension.by || [])
-    ].map(credit => {
-        if (credit.link) {
-            return (
-                <a
-                    href={credit.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    key={credit.name}
-                >
-                    {credit.name}
-                </a>
-            );
-        }
-        return credit.name;
-    }),
+            ...(extension.original || []),
+            ...(extension.by || [])
+        ].map(credit => {
+            if (credit.link) {
+                return (
+                    <a
+                        href={credit.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        key={credit.name}
+                    >
+                        {credit.name}
+                    </a>
+                );
+            }
+            return credit.name;
+        }),
     docsURI: extension.docs ? `${source.baseURL}${extension.slug}` : null,
     samples: extension.samples ? extension.samples.map(sample => ({
         href: `${process.env.ROOT}editor?project_url=${source.baseSamplesURL}${encodeURIComponent(sample)}.sb3`,
