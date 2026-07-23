@@ -132,9 +132,9 @@ const Footer = () => (
                         {/* Do not translate */}
                         {'TurboWarp Desktop'}
                     </a>
-                    <a href="https://packager.turbowarp.org/">
+                    <a href="https://potentiamod.github.io/packager/">
                         {/* Do not translate */}
-                        {'TurboWarp Packager'}
+                        {'PotentiaMod Packager'}
                     </a>
                     <a href="https://docs.turbowarp.org/embedding">
                         <FormattedMessage
@@ -159,7 +159,7 @@ const Footer = () => (
                     </a>
                 </div>
                 <div className={styles.footerSection}>
-                    <a href="https://github.com/PotentiaMod/scratch-gui/issues">
+                    <a href="https://warp.mistium.com/users/GaiaKitty">
                         <FormattedMessage
                             defaultMessage="Feedback & Bugs"
                             description="Link to feedback/bugs page"
