@@ -14,6 +14,7 @@ const MODAL_TIPS_LIBRARY = 'tipsLibrary';
 const MODAL_USERNAME = 'usernameModal';
 const MODAL_SETTINGS = 'settingsModal';
 const MODAL_CUSTOM_EXTENSION = 'customExtensionModal';
+const SWAP_ID = 'extensionSwapId';
 const MODAL_EXTENSION_MANAGER = 'extensionManagerModal';
 const MODAL_CUSTOM_ACCENT = 'customAccentModal';
 const MODAL_RESTORE_POINTS = 'restorePointModal';
@@ -35,6 +36,7 @@ const initialState = {
     [MODAL_USERNAME]: false,
     [MODAL_SETTINGS]: false,
     [MODAL_CUSTOM_EXTENSION]: false,
+	[SWAP_ID]: null,
     [MODAL_EXTENSION_MANAGER]: false,
     [MODAL_CUSTOM_ACCENT]: false,
     [MODAL_RESTORE_POINTS]: false,
@@ -46,10 +48,13 @@ const initialState = {
 const reducer = function (state, action) {
     if (typeof state === 'undefined') state = initialState;
     switch (action.type) {
-    case OPEN_MODAL:
-        return Object.assign({}, state, {
+    case OPEN_MODAL: {
+        const makeState =  {
             [action.modal]: true
-        });
+        };
+        if (action.extensionSwapId) makeState.extensionSwapId = action.extensionSwapId;
+        return Object.assign({}, state, makeState);
+    }
     case CLOSE_MODAL:
         return Object.assign({}, state, {
             [action.modal]: false
@@ -58,10 +63,11 @@ const reducer = function (state, action) {
         return state;
     }
 };
-const openModal = function (modal) {
+const openModal = function (modal, extensionSwapId) {
     return {
         type: OPEN_MODAL,
-        modal: modal
+        modal: modal,
+        extensionSwapId: extensionSwapId
     };
 };
 const closeModal = function (modal) {

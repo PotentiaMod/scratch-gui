@@ -10,6 +10,7 @@ import * as accentGreen from './accent/green';
 import * as accentIndigo from './accent/indigo';
 import * as accentCottonCandy from './accent/cottoncandy';
 import * as accentRainbow from './accent/rainbow';
+import * as accentCustom from './accent/custom';
 
 import * as guiLight from './gui/light';
 import * as guiModernLight from './gui/modern-light';
@@ -41,6 +42,7 @@ const ACCENT_INDIGO = 'indigo';
 const ACCENT_GREEN = 'green';
 const ACCENT_RAINBOW = 'rainbow';
 const ACCENT_COTTON_CANDY = 'cottoncandy';
+const ACCENT_CUSTOM = 'custom';
 const ACCENT_MAP = {
     [ACCENT_PURPLE]: accentPurple,
     [ACCENT_BLUE]: accentBlue,
@@ -50,6 +52,7 @@ const ACCENT_MAP = {
     [ACCENT_INDIGO]: accentIndigo,
     [ACCENT_GREEN]: accentGreen,
     [ACCENT_RAINBOW]: accentRainbow,
+    [ACCENT_CUSTOM]: accentCustom,
     [ACCENT_COTTON_CANDY]: accentCottonCandy
 };
 
@@ -265,10 +268,17 @@ class Theme {
         return BLOCKS_MAP[this.blocks].blocksMediaFolder;
     }
 
-    getGuiColors () {
+     getGuiColors () {
         return defaultsDeep(
             {},
-            ACCENT_MAP[this.accent].guiColors,
+            Object.hasOwn(this.accent, 'primaryColor') ?
+                ACCENT_MAP[ACCENT_CUSTOM].getGuiColors(
+                    this.accent.primaryColor,
+                    this.accent.secondaryColor,
+                    this.accent.tertiaryColor,
+                    this.accent.gradient
+                ) :
+                ACCENT_MAP[this.accent].guiColors,
             GUI_MAP[this.gui].guiColors,
             guiLight.guiColors
         );
@@ -277,7 +287,12 @@ class Theme {
     getBlockColors () {
         return defaultsDeep(
             {},
-            ACCENT_MAP[this.accent].blockColors,
+            Object.hasOwn(this.accent, 'primaryColor') ?
+                ACCENT_MAP[ACCENT_CUSTOM].getBlockColors(
+                    this.accent.primaryColor,
+                    this.accent.secondaryColor
+                ) :
+                ACCENT_MAP[this.accent].blockColors,
             GUI_MAP[this.gui].blockColors,
             BLOCKS_MAP[this.blocks].colors
         );
@@ -316,6 +331,7 @@ export {
     ACCENT_GREEN,
     ACCENT_RAINBOW,
     ACCENT_COTTON_CANDY,
+	ACCENT_CUSTOM,
     ACCENT_MAP,
 	AccentIcons,
     AccentOptions,

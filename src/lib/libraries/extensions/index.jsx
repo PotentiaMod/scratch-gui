@@ -55,11 +55,15 @@ import TWgalleryIcon from './gallery/TWgallery.svg';
 import returnIcon from './custom/return.svg';
 import customExtensionIcon from './custom/custom.svg';
 import galleryIconNB from './gallery/gallery-nb.svg';
+import galleryIconDash from './dashblocks/gallery.svg';
 import galleryIconMW from './gallery/gallery-mw.png';;
 import galleryIconTW from './gallery/gallery-tw.svg';
 import galleryIconPT from './gallery/gallery.png';
 
 import galleryIconPM from './penguinmod/library.svg';
+import galleryIconDM from './dinosaurmod/gallery.svg';
+import galleryIconGM from './gaiamod/gallery.png';
+
 import {APP_NAME} from '../../brand';
 
 export default [
@@ -422,12 +426,12 @@ export default [
         // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
     },
 		 {
-        name: 'PotentiaMod Extension Bonanza',
+        name: 'PotentiaMod Extension Bonanza!',
         extensionId: 'potentiaGallery',
 		href: 'https://potentiamod.github.io/extensions/',
         iconURL: galleryIconPT,
         tags: ['potentia'],
-        description: 'Learn more about extensions at potentiamod.github.io/extensions.',
+        description: 'See the glory of extensions!',
         featured: true
     },
 ];
@@ -439,17 +443,35 @@ const gallerySourceDisplay = {
         iconURL: galleryIconTW,
         tag: 'tw'
     },
-	    nitrobolt: {
+	 nitrobolt: {
         name: 'NitroBolt Extension Gallery',
         href: 'https://extensions.nitrobolt.org/',
         iconURL: galleryIconNB,
         tag: 'nb'
+    },
+	 dash: {
+        name: 'Dash Extension Gallery',
+        href: 'https://dashblocks.org/extensions/',
+        iconURL: galleryIconDash,
+        tag: 'dash'
     },
     penguinmod: {
         name: 'PenguinMod Extra Extensions',
         href: 'https://extensions.penguinmod.com/',
         iconURL: galleryIconPM,
         tag: 'pm'
+    },
+	dinosaurmod: {
+        name: 'DinosaurMod Extra Extensions',
+        href: 'https://dinosaurmod.github.io/extensions/',
+        iconURL: galleryIconDM,
+        tag: 'dm'
+    },
+    gaiamod: {
+        name: 'GaiaMod Extra Extensions',
+        href: 'https://gaiamod-main.github.io/GaiaMod-ExtensionsGallery/',
+        iconURL: galleryIconGM,
+        tag: 'gaia'
     }
 };
 
@@ -477,9 +499,24 @@ export const galleryStatusItems = {
         more: createGalleryStatusItem('nitrobolt', 'Learn more about extensions at extensions.nitrobolt.org.'),
         error: createGalleryStatusItem('nitrobolt', 'Error loading NitroBolt extension gallery. Visit extensions.nitrobolt.org to find more extensions.')
     },
+	dash: {
+        loading: createGalleryStatusItem('dash', 'Loading Dash extension gallery...'),
+        more: createGalleryStatusItem('dash', 'Learn more about extensions at dashblocks.org/extensions.'),
+        error: createGalleryStatusItem('dash', 'Error loading Dash extension gallery. Visit dashblocks.org/extensions to find more extensions.')
+    },
     penguinmod: {
         loading: createGalleryStatusItem('penguinmod', 'Loading PenguinMod Extra Extensions...'),
         more: createGalleryStatusItem('penguinmod', 'See some user-submitted extensions.'),
         error: createGalleryStatusItem('penguinmod', 'Error loading PenguinMod Extra Extensions.')
-    }
+    },
+	dinosaurmod: {
+        loading: createGalleryStatusItem('dinosaurmod', 'Loading DinosaurMod Extra Extensions...'),
+        more: createGalleryStatusItem('dinosaurmod', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('dinosaurmod', 'Error loading DinosaurMod Extra Extensions.')
+    },
+    gaiamod: {
+        loading: createGalleryStatusItem('gaiamod', 'Loading GaiaMod Extra Extensions...'),
+        more: createGalleryStatusItem('gaiamod', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('gaiamod', 'Error loading GaiaMod Extra Extensions.')
+    },
 };

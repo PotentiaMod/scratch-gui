@@ -30,6 +30,14 @@ const gallerySources = [
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/nb-extensions.json',
         tag: 'nb'
     },
+	{
+        id: 'dash',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/dash/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/dash/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/dash/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/dash-extensions.json',
+        tag: 'dash'
+    },
     {
         id: 'penguinmod',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/penguinmod/',
@@ -37,6 +45,22 @@ const gallerySources = [
         baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/penguinmod/',
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/pm-extensions.json',
         tag: 'pm'
+    },
+	{
+        id: 'dinosaurmod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/dinosaurmod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/dinosaurmod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/dinosaurmod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/dm-extensions.json',
+        tag: 'dm'
+    },
+    {
+        id: 'gaiamod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/gaiamod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/gaiamod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/gaiamod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/gm-extensions.json',
+        tag: 'gaia'
     }
 ];
 

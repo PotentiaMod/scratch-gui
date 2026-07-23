@@ -7,7 +7,10 @@ export default [
     {tag: 'potentia', intlLabel: APP_NAME},
     {tag: 'tw', intlLabel: 'TurboWarp'},
     {tag: 'nb', intlLabel: 'NitroBolt'},
+    {tag: 'dash', intlLabel: 'Dash'},
     {tag: 'pm', intlLabel: 'PenguinMod'},
+    {tag: 'dm', intlLabel: 'DinosaurMod'},
+    {tag: 'gaia', intlLabel: 'GaiaMod'},
     {tag: 'preload', intlLabel: 'Built-In'},
     {tag: 'other', intlLabel: 'Other Mods'}
 ];
