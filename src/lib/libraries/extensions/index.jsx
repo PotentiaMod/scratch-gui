@@ -439,6 +439,12 @@ const gallerySourceDisplay = {
         iconURL: galleryIconTW,
         tag: 'tw'
     },
+	    nitrobolt: {
+        name: 'NitroBolt Extension Gallery',
+        href: 'https://extensions.nitrobolt.org/',
+        iconURL: galleryIconNB,
+        tag: 'nb'
+    },
     penguinmod: {
         name: 'PenguinMod Extra Extensions',
         href: 'https://extensions.penguinmod.com/',
@@ -465,6 +471,11 @@ export const galleryStatusItems = {
         loading: createGalleryStatusItem('turbowarp', 'Loading TurboWarp extension gallery...'),
         more: createGalleryStatusItem('turbowarp', 'Learn more about extensions at extensions.turbowarp.org.'),
         error: createGalleryStatusItem('turbowarp', 'Error loading TurboWarp extension gallery. Visit extensions.turbowarp.org to find more extensions.')
+    },
+    nitrobolt: {
+        loading: createGalleryStatusItem('nitrobolt', 'Loading NitroBolt extension gallery...'),
+        more: createGalleryStatusItem('nitrobolt', 'Learn more about extensions at extensions.nitrobolt.org.'),
+        error: createGalleryStatusItem('nitrobolt', 'Error loading NitroBolt extension gallery. Visit extensions.nitrobolt.org to find more extensions.')
     },
     penguinmod: {
         loading: createGalleryStatusItem('penguinmod', 'Loading PenguinMod Extra Extensions...'),

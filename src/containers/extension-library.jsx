@@ -23,6 +23,14 @@ const gallerySources = [
         tag: 'tw'
     },
     {
+        id: 'nitrobolt',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/nitrobolt/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/nitrobolt/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/nitrobolt/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/nb-extensions.json',
+        tag: 'nb'
+    },
+    {
         id: 'penguinmod',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/penguinmod/',
         baseImageURL: 'https://potentiamod.github.io/extensions/img/penguinmod/',
