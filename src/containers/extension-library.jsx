@@ -31,6 +31,14 @@ const gallerySources = [
         tag: 'nb'
     },
 	{
+        id: 'mistium',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/mistium/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/mistium/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/mistium/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/mist-extensions.json',
+        tag: 'mist'
+    },
+	{
         id: 'dash',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/dash/',
         baseImageURL: 'https://potentiamod.github.io/extensions/img/dash/',

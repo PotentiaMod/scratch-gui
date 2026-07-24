@@ -56,6 +56,7 @@ import returnIcon from './custom/return.svg';
 import customExtensionIcon from './custom/custom.svg';
 import galleryIconNB from './gallery/gallery-nb.svg';
 import galleryIconDash from './dashblocks/gallery.svg';
+import galleryIconMist from './mistium/library.svg';
 import galleryIconMW from './gallery/gallery-mw.png';;
 import galleryIconTW from './gallery/gallery-tw.svg';
 import galleryIconPT from './gallery/gallery.png';
@@ -449,6 +450,12 @@ const gallerySourceDisplay = {
         iconURL: galleryIconNB,
         tag: 'nb'
     },
+	 mistium: {
+        name: 'Mistium Extension Gallery',
+        href: 'https://extensions.mistium.com/',
+        iconURL: galleryIconMist,
+        tag: 'mist'
+    },
 	 dash: {
         name: 'Dash Extension Gallery',
         href: 'https://dashblocks.org/extensions/',
@@ -498,6 +505,11 @@ export const galleryStatusItems = {
         loading: createGalleryStatusItem('nitrobolt', 'Loading NitroBolt extension gallery...'),
         more: createGalleryStatusItem('nitrobolt', 'Learn more about extensions at extensions.nitrobolt.org.'),
         error: createGalleryStatusItem('nitrobolt', 'Error loading NitroBolt extension gallery. Visit extensions.nitrobolt.org to find more extensions.')
+    },
+    mistium: {
+        loading: createGalleryStatusItem('mistium', 'Loading Mistium extension gallery...'),
+        more: createGalleryStatusItem('mistium', 'Learn more about Mistium at extensions.mistium.com.'),
+        error: createGalleryStatusItem('mistium', 'Error loading Mistium extension gallery. Visit extensions.mistium.com to find more extensions.')
     },
 	dash: {
         loading: createGalleryStatusItem('dash', 'Loading Dash extension gallery...'),

@@ -10,6 +10,7 @@ import * as accentGreen from './accent/green';
 import * as accentIndigo from './accent/indigo';
 import * as accentCottonCandy from './accent/cottoncandy';
 import * as accentRainbow from './accent/rainbow';
+import * as accentStars from './accent/stars';
 import * as accentCustom from './accent/custom';
 
 import * as guiLight from './gui/light';
@@ -23,6 +24,7 @@ import * as blocksHighContrast from './blocks/high-contrast';
 import * as blocksDark from './blocks/dark';
 
 import rainbowIcon from './icons/tw-accent-rainbow.svg';
+import starsIcon from './icons/tw-accent-stars.svg';
 
 import lightModeIcon from './icons/tw-sun.svg';
 import darkModeIcon from './icons/tw-moon.svg';
@@ -42,6 +44,7 @@ const ACCENT_INDIGO = 'indigo';
 const ACCENT_GREEN = 'green';
 const ACCENT_RAINBOW = 'rainbow';
 const ACCENT_COTTON_CANDY = 'cottoncandy';
+const ACCENT_STARS = 'stars';
 const ACCENT_CUSTOM = 'custom';
 const ACCENT_MAP = {
     [ACCENT_PURPLE]: accentPurple,
@@ -52,6 +55,7 @@ const ACCENT_MAP = {
     [ACCENT_INDIGO]: accentIndigo,
     [ACCENT_GREEN]: accentGreen,
     [ACCENT_RAINBOW]: accentRainbow,
+    [ACCENT_STARS]: accentStars,
     [ACCENT_CUSTOM]: accentCustom,
     [ACCENT_COTTON_CANDY]: accentCottonCandy
 };
@@ -97,6 +101,12 @@ const AccentOptions = defineMessages({
         description: 'Name of the pastel pink/blue color scheme.',
         id: 'tw.accent.cottoncandy'
     },
+	[ACCENT_STARS]: {
+        defaultMessage: 'Stars',
+        description: 'Name of special color scheme.',
+		icon: rainbowIcon,
+        id: 'tw.accent.stars'
+    },
     [ACCENT_RAINBOW]: {
         defaultMessage: 'Rainbow',
         description: 'Name of color scheme that uses a rainbow.',
@@ -106,7 +116,8 @@ const AccentOptions = defineMessages({
 });
 
 const AccentIcons = {
-    [ACCENT_RAINBOW]: rainbowIcon
+    [ACCENT_RAINBOW]: rainbowIcon,
+    [ACCENT_STARS]: starsIcon
 };
 
 const ACCENT_DEFAULT = ACCENT_INDIGO;

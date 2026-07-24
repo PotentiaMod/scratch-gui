@@ -7,6 +7,7 @@ export default [
     {tag: 'potentia', intlLabel: APP_NAME},
     {tag: 'tw', intlLabel: 'TurboWarp'},
     {tag: 'nb', intlLabel: 'NitroBolt'},
+    {tag: 'mist', intlLabel: 'Mistium'},
     {tag: 'dash', intlLabel: 'Dash'},
     {tag: 'pm', intlLabel: 'PenguinMod'},
     {tag: 'dm', intlLabel: 'DinosaurMod'},
