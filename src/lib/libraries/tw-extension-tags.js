@@ -13,5 +13,6 @@ export default [
     {tag: 'dm', intlLabel: 'DinosaurMod'},
     {tag: 'gaia', intlLabel: 'GaiaMod'},
     {tag: 'preload', intlLabel: 'Built-In'},
-    {tag: 'other', intlLabel: 'Other Mods'}
+    {tag: 'other', intlLabel: 'Other Mods'},
+    {tag: 'ukn', intlLabel: 'Uncategorized'}
 ];
