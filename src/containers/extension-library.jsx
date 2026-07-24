@@ -77,6 +77,11 @@ const messages = defineMessages({
         defaultMessage: 'Choose an Extension',
         description: 'Heading for the extension library',
         id: 'gui.extensionLibrary.chooseAnExtension'
+    },
+    header: {
+        defaultMessage: 'Extensions',
+        description: 'Header for extension library',
+        id: 'tw.gui.extensionLibrary.header'
     }
 });
 
@@ -294,6 +299,7 @@ class ExtensionLibrary extends React.PureComponent {
                 persistableKey="extensionId"
                 id="extensionLibrary"
                 tags={extensionTags}
+                header={this.props.intl.formatMessage(messages.header)}
                 title={this.props.intl.formatMessage(messages.extensionTitle)}
                 visible={this.props.visible}
                 onItemSelected={this.handleItemSelect}
