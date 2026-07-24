@@ -30,6 +30,22 @@ const gallerySources = [
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/nb-extensions.json',
         tag: 'nb'
     },
+{
+        id: 'astraeditor',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/astraeditor/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/astraeditor/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/astraeditor/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ae-extensions.json',
+        tag: 'ae'
+    },	
+    {
+        id: 'bilup',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/bilup/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/bilup/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/bilup/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/bilup-extensions.json',
+        tag: 'bilup'
+    },	
 	{
         id: 'mistium',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/mistium/',

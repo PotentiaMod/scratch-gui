@@ -8,6 +8,8 @@ export default [
     {tag: 'tw', intlLabel: 'TurboWarp'},
     {tag: 'nb', intlLabel: 'NitroBolt'},
     {tag: 'mist', intlLabel: 'Mistium'},
+    {tag: 'ae', intlLabel: 'Astra Editor'},
+    {tag: 'bilup', intlLabel: 'Bilup'},
     {tag: 'dash', intlLabel: 'Dash'},
     {tag: 'pm', intlLabel: 'PenguinMod'},
     {tag: 'dm', intlLabel: 'DinosaurMod'},
