@@ -69,7 +69,13 @@ import galleryIconGM from './gaiamod/gallery.png';
 
 import {APP_NAME} from '../../brand';
 
-export default [
+const urlParams = new URLSearchParams(location.search);
+const IsLocal = String(window.location.href).startsWith(`http://localhost:`);
+const IsLiveTests = urlParams.has('eneabletest');
+const IsSecret = urlParams.has('allpowerscombined');
+const IsMysterious = urlParams.has('666');
+
+const menuItems = [
     {
         name: (
             <FormattedMessage
@@ -480,7 +486,7 @@ export default [
         tags: ['potentia'],
         description: 'See the glory of extensions!',
         featured: true
-    },
+    }
 ];
 
 const gallerySourceDisplay = {
@@ -633,3 +639,5 @@ export const galleryStatusItems = {
         error: createGalleryStatusItem('gaiamod', 'Error loading GaiaMod Extra Extensions.')
     },
 };
+
+export default menuItems;
