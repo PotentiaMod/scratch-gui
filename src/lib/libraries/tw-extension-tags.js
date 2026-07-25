@@ -13,6 +13,7 @@ export default [
     {tag: 'dash', intlLabel: 'Dash'},
     {tag: 'pm', intlLabel: 'PenguinMod'},
     {tag: 'dm', intlLabel: 'DinosaurMod'},
+    {tag: 'sp', intlLabel: 'SharkPool'},
     {tag: 'gaia', intlLabel: 'GaiaMod'},
     {tag: 'preload', intlLabel: 'Built-In'},
     {tag: 'other', intlLabel: 'Other Mods'},

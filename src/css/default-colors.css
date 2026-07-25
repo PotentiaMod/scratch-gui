@@ -22,6 +22,7 @@ $motion-primary-default: var(--motion-primary-default);
 $motion-tertiary-default: var(--motion-tertiary-default);
 
 $looks-secondary-default: var(--looks-secondary-default);
+$looks-secondary-light-default: var(--looks-secondary-light-default);
 $looks-transparent-default: var(--looks-transparent-default);
 $looks-light-transparent-default: var(--looks-light-transparent-default);
 $looks-secondary-dark-default: var(--looks-secondary-dark-default);
@@ -53,12 +54,15 @@ $drop-highlight-default: var(--drop-highlight-default);
 
 $menu-bar-background-default: var(--menu-bar-background-default);
 $menu-bar-foreground-default: var(--menu-bar-foreground-default);
+$menu-bar-icon-filter-default: var(--menu-bar-icon-filter-default);
 
 $assets-background-default: var(--assets-background-default);
 
 $input-background-default: var(--input-background-default);
 
 $popover-background-default: var(--popover-background-default);
+
+$progress-bar-outer-default: var(--progress-bar-outer-default);
 
 $shadow-default: var(--shadow-default);
 

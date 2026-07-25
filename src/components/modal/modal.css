@@ -128,6 +128,10 @@ $sides: 20rem;
     z-index: 1;
 }
 
+.header-item-close img {
+	filter: var(--menu-bar-icon-filter);
+}
+
 .full-screen .header-item-close {
     order: -1;
     justify-content: flex-start;
@@ -141,6 +145,7 @@ $sides: 20rem;
 
 [dir="rtl"] .back-button img {
     transform: scaleX(-1);
+	
 }
 
 .header-item-help {

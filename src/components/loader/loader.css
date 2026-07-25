@@ -15,7 +15,7 @@
     background-color: $menu-bar-background;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
-    color: white;
+    color: $menu-bar-foreground;
 }
 
 .fullscreen {
@@ -36,6 +36,7 @@
     position: relative;
     height: 30%;
     margin-top: -4px;
+	filter: var(--menu-bar-icon-filter);
 }
 
 .top-block {
@@ -177,7 +178,7 @@
     width: 250px;
     height: 8px;
     border-radius: 8px;
-    background-color: $ui-white-transparent-default;
+    background-color: $progress-bar-outer;
     overflow: hidden;
     position: relative;
     margin: auto;
@@ -188,5 +189,5 @@
     left: 0;
     width: 0;
     height: 100%;
-    background-color: $ui-white-default;
+    background-color: $menu-bar-foreground;
 }

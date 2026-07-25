@@ -62,6 +62,14 @@ const gallerySources = [
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/dash-extensions.json',
         tag: 'dash'
     },
+	{
+        id: 'sharkpool',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/sharkpool/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/sharkpool/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/sharkpool/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/sp-extensions.json',
+        tag: 'sp'
+    },
     {
         id: 'penguinmod',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/penguinmod/',

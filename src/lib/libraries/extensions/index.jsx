@@ -474,6 +474,12 @@ const gallerySourceDisplay = {
         iconURL: galleryIconDash,
         tag: 'dash'
     },
+	sharkpool: {
+        name: 'SharkPool\'s Extension Collection',
+        href: 'https://sharkpools-extensions.vercel.app/',
+        iconURL: 'https://studio.penguinmod.com/static/assets/93259f95026260bc06f83d29d3b89115.svg',
+        tag: 'sp'
+    },
     penguinmod: {
         name: 'PenguinMod Extra Extensions',
         href: 'https://extensions.penguinmod.com/',
@@ -537,6 +543,11 @@ export const galleryStatusItems = {
         loading: createGalleryStatusItem('dash', 'Loading Dash extension gallery...'),
         more: createGalleryStatusItem('dash', 'Learn more about extensions at dashblocks.org/extensions.'),
         error: createGalleryStatusItem('dash', 'Error loading Dash extension gallery. Visit dashblocks.org/extensions to find more extensions.')
+    },
+	sharkpool: {
+        loading: createGalleryStatusItem('sharkpool', 'Loading SharkPool\'s extension collection...'),
+        more: createGalleryStatusItem('sharkpool', 'Tons of extensions created by SharkPool.'),
+        error: createGalleryStatusItem('sharkpool', 'Error loading SharkPool\'s extension collection.')
     },
     penguinmod: {
         loading: createGalleryStatusItem('penguinmod', 'Loading PenguinMod Extra Extensions...'),

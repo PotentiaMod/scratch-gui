@@ -21,6 +21,10 @@
     color: inherit;
 }
 
+.body img {
+    filter: var(--menu-bar-icon-filter);
+}
+
 .reloadButton {
     border: 1px solid $motion-primary;
     border-radius: 0.25rem;

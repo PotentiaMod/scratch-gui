@@ -116,8 +116,8 @@ const AccentOptions = defineMessages({
 });
 
 const AccentIcons = {
-    [ACCENT_RAINBOW]: rainbowIcon,
-    [ACCENT_STARS]: starsIcon
+    //[ACCENT_RAINBOW]: rainbowIcon,
+    //[ACCENT_STARS]: starsIcon
 };
 
 const ACCENT_DEFAULT = ACCENT_INDIGO;
@@ -160,9 +160,9 @@ const GuiOptions = defineMessages({
         id: 'tw.gui.classicdark'
     },
     [GUI_MIDNIGHT]: {
-        defaultMessage: 'Midnight',
-        description: 'Name of the midnight color scheme.',
-		icon: midnightModeIcon,
+        defaultMessage: 'Amoled',
+        description: 'Name of the amolede color scheme.',
+		icon: darkModeIcon,
         id: 'tw.gui.midnight'
     }
 });
@@ -172,7 +172,7 @@ const GuiIcons = {
 	[GUI_MODERN_LIGHT]: lightModeIcon,
     [GUI_DARK]: darkModeIcon,
     [GUI_MODERN_DARK]: darkModeIcon,
-    [GUI_MIDNIGHT]: midnightModeIcon
+    [GUI_MIDNIGHT]: darkModeIcon
 };
 
 const GUI_DEFAULT = GUI_LIGHT;

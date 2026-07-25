@@ -1,12 +1,1 @@
-<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-  <!-- Circular background -->
-  <circle cx="12" cy="12" r="11" fill="#2D3748" stroke="#1A202C" stroke-width="1"/>
-  
-  <!-- Star shape in white -->
-  <path d="M12 4l2.45 5.33L20 10.8l-4.05 3.7 1.1 5.8-5.05-2.9-5.05 2.9 1.1-5.8L4 10.8l5.55-1.47z" fill="white"/>
-  
-  <!-- Small decorative stars -->
-  <circle cx="17" cy="6" r="0.8" fill="white" opacity="0.6"/>
-  <circle cx="7" cy="18" r="0.6" fill="white" opacity="0.5"/>
-  <circle cx="19" cy="17" r="0.5" fill="white" opacity="0.4"/>
-</svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.07979" height="22.20106" viewBox="0,0,23.07979,22.20106"><g transform="translate(-308.4601,-168.67601)"><g fill="none" stroke="#ffffff" stroke-width="1.5" stroke-miterlimit="10"><path d="M320,170.98147l2.32015,6.74407l7.06504,0.14547l-5.63111,4.31354l2.04629,6.83398l-5.80036,-4.07816l-5.80036,4.07816l2.04629,-6.83398l-5.63111,-4.31354l7.06504,-0.14547z"/></g></g></svg><!--rotationCenter:11.539895848538663:11.323993821436488-->

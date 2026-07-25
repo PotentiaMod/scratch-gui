@@ -49,6 +49,11 @@
     transition: height 0.3s ease;
     height: 2.25rem;
     color: inherit;
+	filter: initial;
+}
+
+.scratch-logo img{
+	filter: initial;
 }
 
 .scratch-logo:hover {
@@ -70,8 +75,9 @@
     height: $menu-bar-height;
 }
 
-.menu-bar-item.hoverable {
+.menu-bar-item.hoverable img {
     cursor: pointer;
+	filter: var(--menu-bar-icon-filter);
 }
 
 .menu-bar-item.active,
@@ -181,6 +187,15 @@
 .dropdown-caret-icon {
     width: 0.5rem;
     height: 0.5rem;
+	filter: var(--menu-bar-icon-filter);
+}
+
+.settings-button .button-icon,
+.file-button .button-icon,
+.edit-button .button-icon,
+.error-icon,
+.menu-bar-item.logo img {
+    filter: var(--menu-bar-icon-filter);
 }
 
 [dir="ltr"] .dropdown-caret-icon {
@@ -218,6 +233,11 @@
     height: 1.25rem;
     margin: 0.5rem;
     vertical-align: middle;
+	filter: var(--menu-bar-icon-filter);
+}
+
+.icon {
+	filter: var(--menu-bar-icon-filter);
 }
 
 .collapsible-label {

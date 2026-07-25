@@ -24,6 +24,7 @@ $motion-primary: var(--motion-primary);
 $motion-tertiary: var(--motion-tertiary);
 
 $looks-secondary: var(--looks-secondary);
+$looks-secondary-light: var(--looks-secondary-light);
 $looks-transparent: var(--looks-transparent);
 $looks-light-transparent: var(--looks-light-transparent);
 $looks-secondary-dark: var(--looks-secondary-dark);
@@ -56,6 +57,7 @@ $drop-highlight: var(--drop-highlight);
 $menu-bar-background: var(--menu-bar-background);
 $menu-bar-background-image: var(--menu-bar-background-image);
 $menu-bar-foreground: var(--menu-bar-foreground);
+$menu-bar-icon-filter: var(--menu-bar-icon-filter);
 
 $assets-background: var(--assets-background);
 
@@ -65,6 +67,8 @@ $fullscreen-background: var(--fullscreen-background);
 $fullscreen-accent: var(--fullscreen-accent);
 
 $popover-background: var(--popover-background);
+
+$progress-bar-outer: var(--progress-bar-outer);
 
 $shadow: var(--shadow);
 
