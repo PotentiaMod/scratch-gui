@@ -88,6 +88,14 @@ const gallerySources = [
         tag: 'pm'
     },
 	{
+        id: 'snailide',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/snailide/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/snailide/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/snailide/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/sn-extensions.json',
+        tag: 'sn'
+    },
+	{
         id: 'dinosaurmod',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/dinosaurmod/',
         baseImageURL: 'https://potentiamod.github.io/extensions/img/dinosaurmod/',

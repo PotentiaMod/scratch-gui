@@ -13,6 +13,7 @@ export default [
     {tag: 'bilup', intlLabel: 'Bilup'},
     {tag: 'dash', intlLabel: 'Dash'},
     {tag: 'pm', intlLabel: 'PenguinMod'},
+    {tag: 'sn', intlLabel: 'Snail IDE'},
     {tag: 'dm', intlLabel: 'DinosaurMod'},
     {tag: 'sp', intlLabel: 'SharkPool'},
     {tag: 'gaia', intlLabel: 'GaiaMod'},

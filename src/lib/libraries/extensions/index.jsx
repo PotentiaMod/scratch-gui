@@ -63,6 +63,7 @@ import galleryIconPT from './gallery/gallery.png';
 import galleryIconZT from './02engine/02engine.svg';
 
 import galleryIconPM from './penguinmod/library.svg';
+import galleryIconSN from './gaiamod/snailIDEEXGallery.png';
 import galleryIconDM from './dinosaurmod/gallery.svg';
 import galleryIconGM from './gaiamod/gallery.png';
 
@@ -383,6 +384,50 @@ export default [
         description: 'Develop apps in PotentiaMod.',
         featured: true
     },
+	{
+        name: 'Posenet2Scratch',
+        extensionId: 'posenet2scratch',
+        iconURL: 'https://www.adacraft.org/studio/static/assets/cc4d68fe9d6a77c7f35f9d5461b60967.png',
+        insetIconURL: 'https://raw.githubusercontent.com/champierre/posenet2scratch/master/scratch-gui/src/lib/libraries/extensions/posenet2scratch/posenet2scratch-small.png',
+        collaborator: 'champierre',
+        internetConnectionRequired: true,
+        tags: ['other', 'preload', 'ai'],
+        description: 'Detect human poses quickly and accurately with a normal WebCam without using a special device',
+        featured: true
+    },
+    {
+        name: 'Facemesh2scratch',
+        extensionId: 'facemesh2scratch',
+        iconURL: 'https://raw.githubusercontent.com/champierre/facemesh2scratch/master/scratch-gui/src/lib/libraries/extensions/facemesh2scratch/facemesh2scratch.png',
+        insetIconURL: 'https://raw.githubusercontent.com/champierre/facemesh2scratch/master/scratch-gui/src/lib/libraries/extensions/facemesh2scratch/facemesh2scratch-small.png',
+        collaborator: 'champierre',
+        internetConnectionRequired: true,
+        tags: ['other', 'preload', 'ai'],
+        description: 'Use facetracking in your projects!',
+        featured: true
+    },
+    {
+        name: 'Scratch2WebSerialAPI',
+        extensionId: 'scratch2webserialapi',
+        iconURL: 'https://raw.githubusercontent.com/champierre/scratch2webserialapi/main/scratch-gui/src/lib/libraries/extensions/scratch2webserialapi/scratch2webserialapi.png',
+        insetIconURL: 'https://raw.githubusercontent.com/champierre/scratch2webserialapi/main/scratch-gui/src/lib/libraries/extensions/scratch2webserialapi/Icon.png',
+        collaborator: 'champierre',
+        internetConnectionRequired: true,
+        tags: ['other', 'preload', 'iot'],
+        description: 'Do more complex things with hardware via the serial ports.',
+        featured: true
+    },
+    {
+        name: 'ImageClassifer2Scratch',
+        extensionId: 'ic2scratch',
+        iconURL: 'https://raw.githubusercontent.com/champierre/ic2scratch/master/scratch-gui/src/lib/libraries/extensions/ic2scratch/ic2scratch.png',
+        insetIconURL: 'https://raw.githubusercontent.com/champierre/ic2scratch/master/scratch-gui/src/lib/libraries/extensions/ic2scratch/ic2scratch-small.png',
+        collaborator: 'champierre',
+        internetConnectionRequired: true,
+        tags: ['other', 'preload', 'ai'],
+        description: 'Image Classification Blocks.',
+        featured: true
+    },
     {
         name: (
             <FormattedMessage
@@ -493,6 +538,12 @@ const gallerySourceDisplay = {
         iconURL: galleryIconPM,
         tag: 'pm'
     },
+	snailide: {
+        name: 'Snail-IDE Extra Extensions',
+        href: 'https://snail-ide-extensions-gallery.vercel.app/',
+        iconURL: galleryIconSN,
+        tag: 'sn'
+    },
 	dinosaurmod: {
         name: 'DinosaurMod Extra Extensions',
         href: 'https://dinosaurmod.github.io/extensions/',
@@ -565,6 +616,11 @@ export const galleryStatusItems = {
         loading: createGalleryStatusItem('penguinmod', 'Loading PenguinMod Extra Extensions...'),
         more: createGalleryStatusItem('penguinmod', 'See some user-submitted extensions.'),
         error: createGalleryStatusItem('penguinmod', 'Error loading PenguinMod Extra Extensions.')
+    },
+	snailide: {
+        loading: createGalleryStatusItem('snailide', 'Loading Snail-IDE Extra Extensions...'),
+        more: createGalleryStatusItem('snailide', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('snailide', 'Error loading Snail-IDE Extra Extensions.')
     },
 	dinosaurmod: {
         loading: createGalleryStatusItem('dinosaurmod', 'Loading DinosaurMod Extra Extensions...'),
