@@ -9,6 +9,7 @@ export default [
     {tag: 'nb', intlLabel: 'NitroBolt'},
     {tag: 'mist', intlLabel: 'Mistium'},
     {tag: 'ae', intlLabel: 'Astra Editor'},
+    {tag: 'ztengine', intlLabel: '02Engine'},
     {tag: 'bilup', intlLabel: 'Bilup'},
     {tag: 'dash', intlLabel: 'Dash'},
     {tag: 'pm', intlLabel: 'PenguinMod'},

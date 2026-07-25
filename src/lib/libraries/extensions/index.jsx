@@ -60,6 +60,7 @@ import galleryIconMist from './mistium/library.svg';
 import galleryIconMW from './gallery/gallery-mw.png';;
 import galleryIconTW from './gallery/gallery-tw.svg';
 import galleryIconPT from './gallery/gallery.png';
+import galleryIconZT from './02engine/02engine.svg';
 
 import galleryIconPM from './penguinmod/library.svg';
 import galleryIconDM from './dinosaurmod/gallery.svg';
@@ -462,6 +463,12 @@ const gallerySourceDisplay = {
         iconURL: 'https://github.com/AstraEditor/scratch-gui/blob/develop/src/lib/libraries/extensions/gallery/aegallery.png?raw=true',
         tag: 'ae'
     },
+    zerotwoengine: {
+        name: '02Engine Extension Collection',
+        href: 'https://github.com/DDguan2010/02engine-extensions/tree/master/extension',
+        iconURL: galleryIconZT,
+        tag: 'ztengine'
+    },
     bilup: {
         name: 'Bilup Extension Gallery',
         href: 'https://extensions.bilup.org/',
@@ -528,6 +535,11 @@ export const galleryStatusItems = {
         loading: createGalleryStatusItem('astraeditor', 'Loading AstraEditor extension gallery...'),
         more: createGalleryStatusItem('astraeditor', 'Learn more about extensions at editors.astras.top/extensions.'),
         error: createGalleryStatusItem('astraeditor', 'Error loading AstraEditor extension gallery. Visit editors.astras.top/extensions to find more extensions.')
+    },
+	zerotwoengine: {
+        loading: createGalleryStatusItem('zerotwoengine', 'Loading 02Engine extension collection...'),
+        more: createGalleryStatusItem('zerotwoengine', 'See 02Engine extensions at GitHub.'),
+        error: createGalleryStatusItem('zerotwoengine', 'Error loading 02Engine extension collection.')
     },
     bilup: {
         loading: createGalleryStatusItem('bilup', 'Loading Bilup extension gallery...'),

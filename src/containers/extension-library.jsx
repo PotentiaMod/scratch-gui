@@ -1,3 +1,4 @@
+//This entire code is taken from NitroBolt.
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -30,13 +31,21 @@ const gallerySources = [
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/nb-extensions.json',
         tag: 'nb'
     },
-{
+    {
         id: 'astraeditor',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/astraeditor/',
         baseImageURL: 'https://potentiamod.github.io/extensions/img/astraeditor/',
         baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/astraeditor/',
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ae-extensions.json',
         tag: 'ae'
+    },	
+	{
+        id: 'zerotwoengine',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/zerotwoengine/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/zerotwoengine/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/zerotwoengine/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ztengine-extensions.json',
+        tag: 'ztengine'
     },	
     {
         id: 'bilup',
