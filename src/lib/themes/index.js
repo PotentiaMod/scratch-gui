@@ -115,8 +115,8 @@ const AccentOptions = defineMessages({
 });
 
 const AccentIcons = {
-    //[ACCENT_RAINBOW]: rainbowIcon,
-    //[ACCENT_STARS]: starsIcon
+    [ACCENT_RAINBOW]: rainbowIcon,
+    [ACCENT_STARS]: starsIcon
 };
 
 const ACCENT_DEFAULT = ACCENT_INDIGO;
