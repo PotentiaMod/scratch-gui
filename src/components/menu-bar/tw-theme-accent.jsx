@@ -119,68 +119,6 @@ const AccentThemeMenu = ({
                         onClick={() => onChangeTheme(theme.set('accent', item))}
                     />
                 ))}
-                <MenuSection>
-                    {themes.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase()).map((value, index) => (
-                        <MenuItem
-                            className={styles.menuSection}
-                            // eslint-disable-next-line react/jsx-no-bind
-                            onClick={() => onChangeTheme(theme.set('accent', value))}
-                            key={index}
-                        >
-                            <div
-                                className={styles.option}
-                            >
-                                <img
-                                    className={classNames(styles.check,
-                                        {[styles.selected]: theme.accent.name === value.name})}
-                                    width={15}
-                                    height={12}
-                                    src={check}
-                                    draggable={false}
-                                />
-                                <div
-                                    className={styles.accentIconOuter}
-                                    style={{
-                                        backgroundColor: value.primaryColor,
-                                        backgroundImage: value.isGradient && value.gradient ?
-                                            gradientDataToCSS(value.gradient.colors, value.gradient.direction) :
-                                            'none'
-                                    }}
-                                />
-                                {value.name}
-                            </div>
-                        </MenuItem>
-                    ))}
-                </MenuSection>
-                <MenuSection>
-                    <MenuItem
-                        className={styles.menuSection}
-                        onClick={onClickCustomAccent}
-                    >
-                        <div
-                            className={styles.option}
-                        >
-                            <img
-                                className={styles.check}
-                                width={15}
-                                height={12}
-                                src={check}
-                                draggable={false}
-                            />
-                            <img
-                                src={settingsIcon}
-                                draggable={false}
-                                width={21.6}
-                                height={21.6}
-                            />
-                            <FormattedMessage
-                                defaultMessage="Accent Manager"
-                                description="Menu item to open the custom accent manager"
-                                id="nb.customAccent"
-                            />
-                        </div>
-                    </MenuItem>
-                </MenuSection>
             </Submenu>
         </MenuItem>
     );
