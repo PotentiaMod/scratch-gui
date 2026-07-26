@@ -17,6 +17,7 @@ export default [
     {tag: 'sn', intlLabel: 'Snail IDE'},
     {tag: 'dm', intlLabel: 'DinosaurMod'},
     {tag: 'em', intlLabel: 'ElectraMod'},
+    {tag: 'ark', intlLabel: 'Ark IDE'},
     {tag: 'gaia', intlLabel: 'GaiaMod'},
     {tag: 'other', intlLabel: 'Other Mods'},
     {tag: 'preload', intlLabel: 'Built-In'},

@@ -111,6 +111,14 @@ const gallerySources = [
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/em-extensions.json',
         tag: 'em'
     },
+	{
+        id: 'arkide',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/arkide/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/arkide/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/arkide/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ark-extensions.json',
+        tag: 'ark'
+    },
     {
         id: 'gaiamod',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/gaiamod/',

@@ -562,6 +562,12 @@ const gallerySourceDisplay = {
         iconURL: 'https://electramod.vercel.app/static/assets/c5353140b7d13c3beceb811ad943bd20.svg',
         tag: 'em'
     },
+	arkide: {
+        name: 'Ark IDE Extra Extensions',
+        href: 'https://extensions.arkide.site',
+        iconURL: 'https://studio.arkide.site/static/assets/ec6c0b201605163f47d10636142e36b9.svg',
+        tag: 'ark'
+    },
     gaiamod: {
         name: 'GaiaMod Extra Extensions',
         href: 'https://gaiamod-main.github.io/GaiaMod-ExtensionsGallery/',
@@ -643,6 +649,11 @@ export const galleryStatusItems = {
         loading: createGalleryStatusItem('electramod', 'Loading ElectraMod Extra Extensions...'),
         more: createGalleryStatusItem('electramod', 'See some user-submitted extensions.'),
         error: createGalleryStatusItem('electramod', 'Error loading ElectraMod Extra Extensions.')
+    },
+	arkide: {
+        loading: createGalleryStatusItem('arkide', 'Loading Ark IDE Extra Extensions...'),
+        more: createGalleryStatusItem('arkide', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('arkide', 'Error loading Ark IDE Extra Extensions.')
     },
     gaiamod: {
         loading: createGalleryStatusItem('gaiamod', 'Loading GaiaMod Extra Extensions...'),
