@@ -29,6 +29,7 @@ import starsIcon from './icons/tw-accent-stars.svg';
 import lightModeIcon from './icons/tw-sun.svg';
 import darkModeIcon from './icons/tw-moon.svg';
 import midnightModeIcon from './icons/tw-midnight.svg';
+import paletteIcon from './icons/tw-palette.svg';
 
 import threeIcon from './icons/tw-blocks-three.svg';
 import highContrastIcon from './icons/tw-blocks-high-contrast.svg';
@@ -104,13 +105,11 @@ const AccentOptions = defineMessages({
 	[ACCENT_STARS]: {
         defaultMessage: 'Stars',
         description: 'Name of special color scheme.',
-		icon: rainbowIcon,
         id: 'tw.accent.stars'
     },
     [ACCENT_RAINBOW]: {
         defaultMessage: 'Rainbow',
         description: 'Name of color scheme that uses a rainbow.',
-		icon: rainbowIcon,
         id: 'tw.accent.rainbow'
     }
 });
@@ -138,41 +137,36 @@ const GuiOptions = defineMessages({
     [GUI_MODERN_LIGHT]: {
         defaultMessage: 'PotentiaMod - Light',
         description: 'Name of PotentiaMod\'s Light color scheme.',
-		icon: lightModeIcon,
         id: 'tw.gui.light'
     },
     [GUI_LIGHT]: {
         defaultMessage: 'Light',
         description: 'Name of the light color scheme.',
-		icon: lightModeIcon,
         id: 'tw.gui.classiclight'
     },
     [GUI_MODERN_DARK]: {
         defaultMessage: 'PotentiaMod - Dark',
         description: 'Name of PotentiaMod\'s Dark color scheme.',
-		icon: darkModeIcon,
         id: 'tw.gui.dark'
     },
     [GUI_DARK]: {
         defaultMessage: 'Dark',
         description: 'Name of the dark color scheme.',
-		icon: darkModeIcon,
         id: 'tw.gui.classicdark'
     },
     [GUI_MIDNIGHT]: {
         defaultMessage: 'Amoled',
         description: 'Name of the amolede color scheme.',
-		icon: darkModeIcon,
         id: 'tw.gui.midnight'
     }
 });
 
 const GuiIcons = {
     [GUI_LIGHT]: lightModeIcon,
-	[GUI_MODERN_LIGHT]: lightModeIcon,
+	[GUI_MODERN_LIGHT]: paletteIcon,
     [GUI_DARK]: darkModeIcon,
-    [GUI_MODERN_DARK]: darkModeIcon,
-    [GUI_MIDNIGHT]: darkModeIcon
+    [GUI_MODERN_DARK]: paletteIcon,
+    [GUI_MIDNIGHT]: paletteIcon
 };
 
 const GUI_DEFAULT = GUI_LIGHT;

@@ -556,6 +556,12 @@ const gallerySourceDisplay = {
         iconURL: galleryIconDM,
         tag: 'dm'
     },
+	electramod: {
+        name: 'ElectraMod Extra Extensions',
+        href: 'https://electramod-extensions-gallery.vercel.app/',
+        iconURL: 'https://electramod.vercel.app/static/assets/c5353140b7d13c3beceb811ad943bd20.svg',
+        tag: 'em'
+    },
     gaiamod: {
         name: 'GaiaMod Extra Extensions',
         href: 'https://gaiamod-main.github.io/GaiaMod-ExtensionsGallery/',
@@ -632,6 +638,11 @@ export const galleryStatusItems = {
         loading: createGalleryStatusItem('dinosaurmod', 'Loading DinosaurMod Extra Extensions...'),
         more: createGalleryStatusItem('dinosaurmod', 'See some user-submitted extensions.'),
         error: createGalleryStatusItem('dinosaurmod', 'Error loading DinosaurMod Extra Extensions.')
+    },
+	electramod: {
+        loading: createGalleryStatusItem('electramod', 'Loading ElectraMod Extra Extensions...'),
+        more: createGalleryStatusItem('electramod', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('electramod', 'Error loading ElectraMod Extra Extensions.')
     },
     gaiamod: {
         loading: createGalleryStatusItem('gaiamod', 'Loading GaiaMod Extra Extensions...'),

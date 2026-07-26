@@ -7,9 +7,13 @@ const guiColors = {
     'motion-tertiary': '#b20077',
 
     'looks-secondary': '#e6009b',
+    'looks-secondary-light': '#eda1d3',
+    'looks-secondary-lighter': '#ffebf9',
     'looks-transparent': '#e6009b59',
     'looks-light-transparent': '#e675c026',
     'looks-secondary-dark': '#b8007b',
+    'looks-secondary-darker': '#4e0035',
+    'looks-secondary-deep-dark': '#2c001e',
 	
 	'data-primary': '#8d00ff',
 

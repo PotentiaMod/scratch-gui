@@ -103,6 +103,14 @@ const gallerySources = [
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/dm-extensions.json',
         tag: 'dm'
     },
+	{
+        id: 'electramod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/electramod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/electramod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/electramod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/em-extensions.json',
+        tag: 'em'
+    },
     {
         id: 'gaiamod',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/gaiamod/',

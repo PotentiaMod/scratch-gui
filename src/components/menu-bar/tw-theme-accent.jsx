@@ -6,15 +6,17 @@ import {connect} from 'react-redux';
 
 import check from './check.svg';
 import dropdownCaret from './dropdown-caret.svg';
-import {MenuItem, MenuSection, Submenu} from '../menu/menu.jsx';
 import {gradientDataToCSS} from '../../lib/gradient-to-css.js';
 import {openCustomAccentModal} from '../../reducers/modals.js';
+import {MenuItem, MenuSection, Submenu} from '../menu/menu.jsx';
 import {ACCENT_CUSTOM, ACCENT_MAP, AccentIcons, AccentOptions, Theme} from '../../lib/themes/index.js';
 import {openAccentMenu, accentMenuOpen, closeSettingsMenu} from '../../reducers/menus.js';
 import {setTheme} from '../../reducers/theme.js';
 import {persistTheme} from '../../lib/themes/themePersistance.js';
 import rainbowIcon from './tw-accent-rainbow.svg';
 import styles from './settings-menu.css';
+import settingsIcon from '../menu-bar/icon--settings.svg';
+
 
 const ColorIcon = props => (
     AccentIcons[props.id] ? (
@@ -31,7 +33,7 @@ const ColorIcon = props => (
             style={{
                 // menu-bar-background is var(...), don't want to evaluate with the current values
                 backgroundColor: props.id === ACCENT_CUSTOM ? 'var(--looks-secondary)' :
-                ACCENT_MAP[props.id].guiColors['looks-secondary'],
+                    ACCENT_MAP[props.id].guiColors['looks-secondary'],
                 backgroundImage: props.id === ACCENT_CUSTOM ? props.isGradient && props.gradient ?
                     gradientDataToCSS(props.gradient.colors, props.gradient.direction) :
                     'none' :
@@ -42,7 +44,9 @@ const ColorIcon = props => (
 );
 
 ColorIcon.propTypes = {
-    id: PropTypes.string
+    id: PropTypes.string,
+    isGradient: PropTypes.bool,
+    gradient: PropTypes.any
 };
 
 const AccentMenuItem = props => (
@@ -70,7 +74,7 @@ AccentMenuItem.propTypes = {
 const AccentThemeMenu = ({
     isOpen,
     isRtl,
-	onClickCustomAccent,
+    onClickCustomAccent,
     onChangeTheme,
     onOpen,
     theme
@@ -82,40 +86,40 @@ const AccentThemeMenu = ({
     const themes = JSON.parse(localStorage.getItem('pot:custom-accents'));
 
     return (
-    <MenuItem expanded={isOpen}>
-        <div
-            className={styles.option}
-            onClick={onOpen}
-        >
-            <ColorIcon
+        <MenuItem expanded={isOpen}>
+            <div
+                className={styles.option}
+                onClick={onOpen}
+            >
+                <ColorIcon
                     id={Object.hasOwn(theme.accent, 'primaryColor') ? ACCENT_CUSTOM : theme.accent}
                     isGradient={theme.accent?.isGradient}
                     gradient={theme.accent?.gradient}
                 />
-            <span className={styles.submenuLabel}>
-                <FormattedMessage
-                    defaultMessage="Accent"
-                    description="Label for menu to choose accent color (eg. TurboWarp's red, Scratch's purple)"
-                    id="tw.menuBar.accent"
+                <span className={styles.submenuLabel}>
+                    <FormattedMessage
+                        defaultMessage="Accent"
+                        description="Label for menu to choose accent color (eg. TurboWarp's red, Scratch's purple)"
+                        id="tw.menuBar.accent"
+                    />
+                </span>
+                <img
+                    className={styles.expandCaret}
+                    src={dropdownCaret}
+                    draggable={false}
                 />
-            </span>
-            <img
-                className={styles.expandCaret}
-                src={dropdownCaret}
-                draggable={false}
-            />
-        </div>
-        <Submenu place={isRtl ? 'left' : 'right'}>
-            {Object.keys(AccentOptions).map(item => (
-                <AccentMenuItem
-                    key={item}
-                    id={item}
-                    isSelected={theme.accent === item}
-                    // eslint-disable-next-line react/jsx-no-bind
-                    onClick={() => onChangeTheme(theme.set('accent', item))}
-                />
-            ))}
-			<MenuSection>
+            </div>
+            <Submenu place={isRtl ? 'left' : 'right'}>
+                {Object.keys(AccentOptions).map(item => (
+                    <AccentMenuItem
+                        key={item}
+                        id={item}
+                        isSelected={theme.accent === item}
+                        // eslint-disable-next-line react/jsx-no-bind
+                        onClick={() => onChangeTheme(theme.set('accent', item))}
+                    />
+                ))}
+                <MenuSection>
                     {themes.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase()).map((value, index) => (
                         <MenuItem
                             className={styles.menuSection}
@@ -163,6 +167,12 @@ const AccentThemeMenu = ({
                                 src={check}
                                 draggable={false}
                             />
+                            <img
+                                src={settingsIcon}
+                                draggable={false}
+                                width={21.6}
+                                height={21.6}
+                            />
                             <FormattedMessage
                                 defaultMessage="Accent Manager"
                                 description="Menu item to open the custom accent manager"
@@ -171,15 +181,15 @@ const AccentThemeMenu = ({
                         </div>
                     </MenuItem>
                 </MenuSection>
-        </Submenu>
-    </MenuItem>
+            </Submenu>
+        </MenuItem>
     );
 };
 
 AccentThemeMenu.propTypes = {
     isOpen: PropTypes.bool,
     isRtl: PropTypes.bool,
-	onClickCustomAccent: PropTypes.func,
+    onClickCustomAccent: PropTypes.func,
     onChangeTheme: PropTypes.func,
     onOpen: PropTypes.func,
     theme: PropTypes.instanceOf(Theme)
@@ -192,7 +202,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	onClickCustomAccent: () => {
+    onClickCustomAccent: () => {
         dispatch(openCustomAccentModal());
         dispatch(closeSettingsMenu());
     },

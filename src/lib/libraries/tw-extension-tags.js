@@ -12,12 +12,13 @@ export default [
     {tag: 'ztengine', intlLabel: '02Engine'},
     {tag: 'bilup', intlLabel: 'Bilup'},
     {tag: 'dash', intlLabel: 'Dash'},
+    {tag: 'sp', intlLabel: 'SharkPool'},
     {tag: 'pm', intlLabel: 'PenguinMod'},
     {tag: 'sn', intlLabel: 'Snail IDE'},
     {tag: 'dm', intlLabel: 'DinosaurMod'},
-    {tag: 'sp', intlLabel: 'SharkPool'},
+    {tag: 'em', intlLabel: 'ElectraMod'},
     {tag: 'gaia', intlLabel: 'GaiaMod'},
-    {tag: 'preload', intlLabel: 'Built-In'},
     {tag: 'other', intlLabel: 'Other Mods'},
+    {tag: 'preload', intlLabel: 'Built-In'},
     {tag: 'ukn', intlLabel: 'Uncategorized'}
 ];

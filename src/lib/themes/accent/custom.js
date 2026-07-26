@@ -6,9 +6,13 @@ const getGuiColors = (primaryColor, secondaryColor, tertiaryColor, gradient) => 
     'motion-tertiary': '${secondaryColor}',
 
     'looks-secondary': '${primaryColor}',
+    'looks-secondary-light': '${primaryColor}',
+    'looks-secondary-lighter': '${primaryColor}',
     'looks-transparent': '${primaryColor}59',
     'looks-light-transparent': '${primaryColor}26',
     'looks-secondary-dark': '${secondaryColor}',
+    'looks-secondary-darker': '${secondaryColor}',
+    'looks-secondary-deep-dark': '${secondaryColor}',
 
     'extensions-primary': '${tertiaryColor}',
     'extensions-tertiary': '${tertiaryColor}',
