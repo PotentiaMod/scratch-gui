@@ -7,7 +7,7 @@ import bindAll from 'lodash.bindall';
 import styles from './loader.css';
 import {getIsLoadingWithId} from '../../reducers/project-state';
 import logo from './logo.png';
-import { randomMessages } from './randomMessages';
+import { randomMessages } from './randomMessages.js';
 import topBlock from './top-block.svg';
 import middleBlock from './middle-block.svg';
 import bottomBlock from './bottom-block.svg';
