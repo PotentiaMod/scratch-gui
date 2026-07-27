@@ -64,6 +64,14 @@ const gallerySources = [
         tag: 'mist'
     },
 	{
+        id: 'acidmod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/acidmod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/acidmod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/acidmod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/am-extensions.json',
+        tag: 'acid'
+    },
+	{
         id: 'dash',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/dash/',
         baseImageURL: 'https://potentiamod.github.io/extensions/img/dash/',
@@ -87,6 +95,16 @@ const gallerySources = [
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/pm-extensions.json',
         tag: 'pm'
     },
+	/*
+	{
+        id: 'bananamod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/bananamod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/bananamod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/bananamod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/bm-extensions.json',
+        tag: 'bm'
+    },
+	*/
 	{
         id: 'snailide',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/snailide/',

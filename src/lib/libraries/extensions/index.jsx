@@ -49,6 +49,26 @@ import gdxforInsetIconURL from './gdxfor/gdxfor-small.svg';
 import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
+//champierre
+import chatgpt2scratchIconURL from './chatgpt2scratch/chatgpt2scratch.png';
+import chatgpt2scratchInsetIconURL from './chatgpt2scratch/chatgpt2scratch-small.png';
+import facemesh2scratchIconURL from './facemesh2scratch/facemesh2scratch.png';
+import facemesh2scratchInsetIconURL from './facemesh2scratch/facemesh2scratch-small.png';
+import scratch2webserialapiIconURL from './scratch2webserialapi/scratch2webserialapi.png';
+import scratch2webserialapiInsetIconURL from './scratch2webserialapi/scratch2webserialapi-small.png';
+import handpose2scratchIconURL from './handpose2scratch/handpose2scratch.png';
+import handpose2scratchInsetIconURL from './handpose2scratch/handpose2scratch-small.png';
+import ic2scratchIconURL from './ic2scratch/ic2scratch.png';
+import ic2scratchInsetIconURL from './ic2scratch/ic2scratch-small.png';
+import posenet2scratchIconURL from './posenet2scratch/posenet2scratch.png';
+import posenet2scratchInsetIconURL from './posenet2scratch/posenet2scratch-small.png';
+import ml2scratchIconURL from './ml2scratch/ml2scratch.png';
+import ml2scratchInsetIconURL from './ml2scratch/ml2scratch-small.png';
+import tm2scratchIconURL from './tm2scratch/tm2scratch.png';
+import tm2scratchInsetIconURL from './tm2scratch/tm2scratch-small.png';
+import tmpose2scratchIconURL from './tmpose2scratch/tmpose2scratch.png';
+import tmpose2scratchInsetIconURL from './tmpose2scratch/tmpose2scratch-small.png';
+
 
 import ptIcon from './tw/pt.png';
 import TWgalleryIcon from './gallery/TWgallery.svg';
@@ -391,46 +411,111 @@ const menuItems = [
         featured: true
     },
 	{
+        name: 'ChatGPT2Scratch',
+        extensionId: 'chatgpt2scratch',
+        iconURL: chatgpt2scratchIconURL,
+        insetIconURL: chatgpt2scratchInsetIconURL,
+        credits: 'ichiroc',
+        featured: true,
+        bluetoothRequired: false,
+        internetConnectionRequired: true,
+        tags: ['preload', 'ai'],
+        description: 'Interact with ChatGPT in Scratch!',
+        featured: true
+    },
+    {
+        name: 'ML2Scratch',
+        extensionId: 'ml2scratch',
+        iconURL: ml2scratchIconURL,
+        insetIconURL: ml2scratchInsetIconURL,
+		credits: 'champierre',
+        featured: true,
+        bluetoothRequired: false,
+        internetConnectionRequired: true,
+        tags: ['preload', 'ai'],
+        description: 'Lets you train with Machine Learning blocks.',
+        featured: true
+    },
+    {
+        name: 'TM2Scratch',
+        extensionId: 'tm2scratch',
+        iconURL: tm2scratchIconURL,
+        insetIconURL: tm2scratchInsetIconURL,
+		credits: 'Tsukurusha, YengawaLab and Google',
+        featured: true,
+        bluetoothRequired: false,
+        internetConnectionRequired: true,
+        tags: ['preload', 'ai'],
+        description: 'Lets you train with images and audio.',
+        featured: true
+    },
+    {
+        name: 'TMPose2Scratch',
+        extensionId: 'tmpose2scratch',
+        iconURL: tmpose2scratchIconURL,
+        insetIconURL: tmpose2scratchInsetIconURL,
+		credits: 'champierre',
+        featured: true,
+        bluetoothRequired: false,
+        internetConnectionRequired: true,
+        tags: ['preload', 'ai'],
+        description: 'Lets you train with poses.',
+        featured: true
+    },
+    {
+        name: 'HandPose2Scratch',
+        extensionId: 'handpose2scratch',
+        credits: 'champierre',
+        description: 'Hand tracking in Scratch.',
+        iconURL: handpose2scratchIconURL,
+        insetIconURL: handpose2scratchInsetIconURL,
+        tags: ['preload', 'ai'],
+        internetConnectionRequired: true,
+        featured: true
+    },	
+    {
         name: 'Posenet2Scratch',
         extensionId: 'posenet2scratch',
-        iconURL: 'https://www.adacraft.org/studio/static/assets/cc4d68fe9d6a77c7f35f9d5461b60967.png',
-        insetIconURL: 'https://raw.githubusercontent.com/champierre/posenet2scratch/master/scratch-gui/src/lib/libraries/extensions/posenet2scratch/posenet2scratch-small.png',
-        collaborator: 'champierre',
+        iconURL: posenet2scratchIconURL,
+        insetIconURL: posenet2scratchInsetIconURL,
+        credits: 'champierre',
+        featured: true,
+        bluetoothRequired: false,
         internetConnectionRequired: true,
-        tags: ['other', 'preload', 'ai'],
+        tags: ['preload', 'ai'],
         description: 'Detect human poses quickly and accurately with a normal WebCam without using a special device',
         featured: true
     },
     {
         name: 'Facemesh2scratch',
         extensionId: 'facemesh2scratch',
-        iconURL: 'https://raw.githubusercontent.com/champierre/facemesh2scratch/master/scratch-gui/src/lib/libraries/extensions/facemesh2scratch/facemesh2scratch.png',
-        insetIconURL: 'https://raw.githubusercontent.com/champierre/facemesh2scratch/master/scratch-gui/src/lib/libraries/extensions/facemesh2scratch/facemesh2scratch-small.png',
-        collaborator: 'champierre',
+        iconURL: facemesh2scratchIconURL,
+        insetIconURL: facemesh2scratchInsetIconURL,
+        credits: 'champierre',
         internetConnectionRequired: true,
-        tags: ['other', 'preload', 'ai'],
+        tags: ['preload', 'ai'],
         description: 'Use facetracking in your projects!',
         featured: true
     },
     {
         name: 'Scratch2WebSerialAPI',
         extensionId: 'scratch2webserialapi',
-        iconURL: 'https://raw.githubusercontent.com/champierre/scratch2webserialapi/main/scratch-gui/src/lib/libraries/extensions/scratch2webserialapi/scratch2webserialapi.png',
-        insetIconURL: 'https://raw.githubusercontent.com/champierre/scratch2webserialapi/main/scratch-gui/src/lib/libraries/extensions/scratch2webserialapi/Icon.png',
-        collaborator: 'champierre',
+        iconURL: scratch2webserialapiIconURL,
+        insetIconURL: scratch2webserialapiInsetIconURL,
+        credits: 'champierre',
         internetConnectionRequired: true,
-        tags: ['other', 'preload', 'iot'],
+        tags: ['preload', 'iot'],
         description: 'Do more complex things with hardware via the serial ports.',
         featured: true
     },
     {
         name: 'ImageClassifer2Scratch',
         extensionId: 'ic2scratch',
-        iconURL: 'https://raw.githubusercontent.com/champierre/ic2scratch/master/scratch-gui/src/lib/libraries/extensions/ic2scratch/ic2scratch.png',
-        insetIconURL: 'https://raw.githubusercontent.com/champierre/ic2scratch/master/scratch-gui/src/lib/libraries/extensions/ic2scratch/ic2scratch-small.png',
-        collaborator: 'champierre',
+        iconURL: ic2scratchIconURL,
+        insetIconURL: ic2scratchInsetIconURL,
+        credits: 'champierre',
         internetConnectionRequired: true,
-        tags: ['other', 'preload', 'ai'],
+        tags: ['preload', 'ai'],
         description: 'Image Classification Blocks.',
         featured: true
     },
@@ -532,6 +617,12 @@ const gallerySourceDisplay = {
         iconURL: galleryIconDash,
         tag: 'dash'
     },
+	acidmod: {
+        name: 'AcidMod Extension Gallery',
+        href: 'https://acidmod.js.org/extensions/',
+        iconURL: 'https://potentiamod.github.io/extensions/img/placeholder.png',
+        tag: 'acid'
+    },
 	sharkpool: {
         name: 'SharkPool\'s Extension Collection',
         href: 'https://sharkpools-extensions.vercel.app/',
@@ -544,6 +635,14 @@ const gallerySourceDisplay = {
         iconURL: galleryIconPM,
         tag: 'pm'
     },
+	/*
+	bananamod: {
+        name: 'BananaMod Extension Gallery',
+        href: 'https://banana-mod.github.io/extension-galery/',
+        iconURL: 'https://potentiamod.github.io/extensions/img/placeholder.png',
+        tag: 'bm'
+    },
+	*/
 	snailide: {
         name: 'Snail-IDE Extra Extensions',
         href: 'https://snail-ide-extensions-gallery.vercel.app/',
@@ -625,6 +724,11 @@ export const galleryStatusItems = {
         more: createGalleryStatusItem('dash', 'Learn more about extensions at dashblocks.org/extensions.'),
         error: createGalleryStatusItem('dash', 'Error loading Dash extension gallery. Visit dashblocks.org/extensions to find more extensions.')
     },
+	acidmod: {
+        loading: createGalleryStatusItem('acidmod', 'Loading Dash extension gallery...'),
+        more: createGalleryStatusItem('acidmod', 'Learn more about extensions at acidmod.js.org/extensions.'),
+        error: createGalleryStatusItem('acidmod', 'Error loading Dash extension gallery. Visit acidmod.js.org/extensions to find more extensions.')
+    },
 	sharkpool: {
         loading: createGalleryStatusItem('sharkpool', 'Loading SharkPool\'s extension collection...'),
         more: createGalleryStatusItem('sharkpool', 'Tons of extensions created by SharkPool.'),
@@ -635,6 +739,13 @@ export const galleryStatusItems = {
         more: createGalleryStatusItem('penguinmod', 'See some user-submitted extensions.'),
         error: createGalleryStatusItem('penguinmod', 'Error loading PenguinMod Extra Extensions.')
     },
+	/*
+	bananamod: {
+        loading: createGalleryStatusItem('bananamod', 'Loading BananaMod Extension Gallery...'),
+        more: createGalleryStatusItem('bananamod', 'See some extensions by BananaMod.'),
+        error: createGalleryStatusItem('bananamod', 'Error loading BananaMod Extension Gallery.')
+    },
+	*/
 	snailide: {
         loading: createGalleryStatusItem('snailide', 'Loading Snail-IDE Extra Extensions...'),
         more: createGalleryStatusItem('snailide', 'See some user-submitted extensions.'),

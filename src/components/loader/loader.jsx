@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import bindAll from 'lodash.bindall';
 import styles from './loader.css';
 import {getIsLoadingWithId} from '../../reducers/project-state';
+import logo from './logo.png';
+import { randomMessages } from './randomMessages';
 import topBlock from './top-block.svg';
 import middleBlock from './middle-block.svg';
 import bottomBlock from './bottom-block.svg';
@@ -60,6 +62,7 @@ class LoaderComponent extends React.Component {
         this.barInnerEl = null;
         this.messageEl = null;
         this.ignoreProgress = false;
+		this.randomMessages = randomMessages[Math.round(Math.random() * randomMessages.length)];
     }
     componentDidMount () {
         this.handleAssetProgress(
@@ -114,38 +117,39 @@ class LoaderComponent extends React.Component {
             >
                 <div className={styles.container}>
                     <div className={styles.blockAnimation}>
-                        <img
-                            className={styles.topBlock}
-                            src={topBlock}
-                            draggable={false}
-                        />
-                        <img
-                            className={styles.middleBlock}
-                            src={middleBlock}
-                            draggable={false}
-                        />
-                        <img
-                            className={styles.bottomBlock}
-                            src={bottomBlock}
-                            draggable={false}
-                        />
+                        <img src={logo} />
                     </div>
-
                     <div className={styles.title}>
                         {mainMessages[this.props.messageId]}
                     </div>
-
+                  <p className={styles.tips} dangerouslySetInnerHTML={{__html: this.randomMessages}} />
                     <div
                         className={styles.message}
                         ref={this.messageRef}
                     />
-
                     <div className={styles.barOuter}>
                         <div
                             className={styles.barInner}
                             ref={this.barInnerRef}
                         />
                     </div>
+					<a
+                            className={styles.githubCta}
+                            href="https://gaiamod-main.github.io/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            <img
+                            width="30px"
+                            src="https://gaiamod-main.github.io/static/assets/fe83d13c2f5884449a3d7cad9a0e4778.png"
+                            draggable={false}
+                        />
+                            <FormattedMessage
+                                defaultMessage="Check out GaiaMod!"
+                                description="Link on the loading screen to the GaiaMod page"
+                                id="pot.loader.gaiamod"
+                            />
+                        </a>
                 </div>
             </div>
         );
