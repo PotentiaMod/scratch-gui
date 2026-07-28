@@ -8,16 +8,13 @@ const asyncLibrary = callback => {
 };
 
 export const getBackdropLibrary = asyncLibrary(
-    () => import(/* webpackChunkName: "library-backdrops" */ './backdrops.json'),
-	() => import(/* webpackChunkName: "pot-library-backdrops" */ './pot-assets/generated-backgrounds.json')
+    () => import(/* webpackChunkName: "library-backdrops" */ './backdrops.json')
 );
 export const getCostumeLibrary = asyncLibrary(
-    () => import(/* webpackChunkName: "library-costumes" */ './costumes.json'),
-	() => import(/* webpackChunkName: "pot-library-costumes" */ './pot-assets/generated-costumes.json')
-);
+    () => import(/* webpackChunkName: "library-costumes" */ './costumes.json')
+);        
 export const getSoundLibrary = asyncLibrary(
-    () => import(/* webpackChunkName: "library-sounds" */ './sounds.json'),
-	() => import(/* webpackChunkName: "pot-library-sounds" */ './pot-assets/generated-sounds.json')
+    () => import(/* webpackChunkName: "library-sounds" */ './sounds.json')
 );
 export const getSpriteLibrary = asyncLibrary(
     () => import(/* webpackChunkName: "library-sprites" */ './sprites.json')
