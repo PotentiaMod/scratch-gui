@@ -35,7 +35,7 @@ const guiColors = {
     "menu-bar-background-image": "none",
     "menu-bar-hover": "#fff2",
 	"menu-bar-icon-filter": "",
-    "progress-bar-outer": "#ffffff3",
+    'progress-bar-outer': 'var(--looks-secondary-deep-dark)',
 
     'fullscreen-background': '#000000',
     'fullscreen-accent': '#000000',

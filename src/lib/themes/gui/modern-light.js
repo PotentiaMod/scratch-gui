@@ -61,7 +61,7 @@ const guiColors = {
 	'menu-bar-icon-filter': 'invert(100%)',
 	'menu-bar-icon-normal': 'invert(0%)',
     
-    'progress-bar-outer': 'var(--looks-secondary)',
+    'progress-bar-outer': 'var(--looks-secondary-lighter)',
 
     'assets-background': '#ffffff',
 
