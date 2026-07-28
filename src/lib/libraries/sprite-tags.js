@@ -1,3 +1,4 @@
+import {APP_NAME} from '../brand';
 import messages from './tag-messages.js';
 export default [
     {tag: 'potentia', intlLabel: APP_NAME},
