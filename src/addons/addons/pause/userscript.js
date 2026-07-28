@@ -1,15 +1,18 @@
+//Code taken from DashBlocks
 import { isPaused, setPaused, onPauseChanged, setup } from "../debugger/module.js";
 
 export default async function ({ addon, console, msg }) {
   setup(addon);
-
-  const img = document.createElement("img");
-  img.className = "pause-btn";
-  img.draggable = false;
-  img.title = msg("pause");
+  
+   const img = Object.assign(addon.tab.recolorable(), {
+    className: "pause-btn",
+    draggable: false,
+    title: msg("pause"),
+    src: addon.self.getResource("/pause.svg") /* rewritten by pull.js */
+  });
 
   const setSrc = () => {
-    img.src = addon.self.getResource((isPaused() ? "/play.svg" : "/pause.svg")) /* rewritten by pull.js */;
+    img.src = addon.self.getResource(isPaused() ? "/play.svg" : "/pause.svg") /* rewritten by pull.js */;
     img.title = isPaused() ? msg("play") : msg("pause");
   };
   img.addEventListener("click", () => setPaused(!isPaused()));
