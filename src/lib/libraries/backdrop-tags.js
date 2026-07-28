@@ -1,5 +1,6 @@
 import messages from './tag-messages.js';
 export default [
+    {tag: 'potentia', intlLabel: APP_NAME},
     {tag: 'fantasy', intlLabel: messages.fantasy},
     {tag: 'music', intlLabel: messages.music},
     {tag: 'sports', intlLabel: messages.sports},
