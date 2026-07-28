@@ -15,7 +15,6 @@ export default [
     {tag: 'acid', intlLabel: 'AcidMod'},
     {tag: 'sp', intlLabel: 'SharkPool'},
     {tag: 'pm', intlLabel: 'PenguinMod'},
-    //{tag: 'bm', intlLabel: 'BananaMod'},
     {tag: 'sn', intlLabel: 'Snail IDE'},
     {tag: 'dm', intlLabel: 'DinosaurMod'},
     {tag: 'em', intlLabel: 'ElectraMod'},

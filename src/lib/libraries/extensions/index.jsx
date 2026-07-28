@@ -635,14 +635,6 @@ const gallerySourceDisplay = {
         iconURL: galleryIconPM,
         tag: 'pm'
     },
-	/*
-	bananamod: {
-        name: 'BananaMod Extension Gallery',
-        href: 'https://banana-mod.github.io/extension-galery/',
-        iconURL: 'https://potentiamod.github.io/extensions/img/placeholder.png',
-        tag: 'bm'
-    },
-	*/
 	snailide: {
         name: 'Snail-IDE Extra Extensions',
         href: 'https://snail-ide-extensions-gallery.vercel.app/',
@@ -739,13 +731,6 @@ export const galleryStatusItems = {
         more: createGalleryStatusItem('penguinmod', 'See some user-submitted extensions.'),
         error: createGalleryStatusItem('penguinmod', 'Error loading PenguinMod Extra Extensions.')
     },
-	/*
-	bananamod: {
-        loading: createGalleryStatusItem('bananamod', 'Loading BananaMod Extension Gallery...'),
-        more: createGalleryStatusItem('bananamod', 'See some extensions by BananaMod.'),
-        error: createGalleryStatusItem('bananamod', 'Error loading BananaMod Extension Gallery.')
-    },
-	*/
 	snailide: {
         loading: createGalleryStatusItem('snailide', 'Loading Snail-IDE Extra Extensions...'),
         more: createGalleryStatusItem('snailide', 'See some user-submitted extensions.'),
