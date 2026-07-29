@@ -14,6 +14,9 @@ const MODAL_TIPS_LIBRARY = 'tipsLibrary';
 const MODAL_USERNAME = 'usernameModal';
 const MODAL_SETTINGS = 'settingsModal';
 const MODAL_CUSTOM_EXTENSION = 'customExtensionModal';
+const MODAL_CUSTOM_GALLERY = 'customGalleryModal';
+const MODAL_WALLPAPER = 'wallpaperModal';
+const MODAL_CUSTOM_FONTS = 'customFontsModal';
 const SWAP_ID = 'extensionSwapId';
 const MODAL_EXTENSION_MANAGER = 'extensionManagerModal';
 const MODAL_CUSTOM_ACCENT = 'customAccentModal';
@@ -36,6 +39,9 @@ const initialState = {
     [MODAL_USERNAME]: false,
     [MODAL_SETTINGS]: false,
     [MODAL_CUSTOM_EXTENSION]: false,
+    [MODAL_CUSTOM_GALLERY]: false,
+    [MODAL_WALLPAPER]: false,
+    [MODAL_CUSTOM_FONTS]: false,
 	[SWAP_ID]: null,
     [MODAL_EXTENSION_MANAGER]: false,
     [MODAL_CUSTOM_ACCENT]: false,
@@ -115,6 +121,15 @@ const openSettingsModal = function () {
 const openCustomExtensionModal = function () {
     return openModal(MODAL_CUSTOM_EXTENSION);
 };
+const openCustomGalleryModal = function () {
+    return openModal(MODAL_CUSTOM_GALLERY);
+};
+const openWallpaperModal = function () {
+    return openModal(MODAL_WALLPAPER);
+};
+const openCustomFontsModal = function () {
+    return openModal(MODAL_CUSTOM_FONTS);
+};
 const openExtensionManagerModal = function () {
     return openModal(MODAL_EXTENSION_MANAGER);
 };
@@ -175,6 +190,15 @@ const closeCustomExtensionModal = function () {
 const closeExtensionManagerModal = function () {
     return closeModal(MODAL_EXTENSION_MANAGER);
 };
+const closeCustomGalleryModal = function () {
+    return closeModal(MODAL_CUSTOM_GALLERY);
+};
+const closeWallpaperModal = function () {
+    return closeModal(MODAL_WALLPAPER);
+};
+const closeCustomFontsModal = function () {
+    return closeModal(MODAL_CUSTOM_FONTS);
+};
 const closeCustomAccentModal = function () {
     return closeModal(MODAL_CUSTOM_ACCENT);
 };
@@ -207,6 +231,9 @@ export {
     openSettingsModal,
     openCustomExtensionModal,
     openExtensionManagerModal,
+	openCustomGalleryModal,
+	openWallpaperModal,
+	openCustomFontsModal,
 	openCustomAccentModal,
     openRestorePointModal,
     openFontsModal,
@@ -225,6 +252,9 @@ export {
     closeUsernameModal,
     closeSettingsModal,
     closeCustomExtensionModal,
+    closeCustomGalleryModal,
+    closeWallpaperModal,
+    closeCustomFontsModal,
     closeExtensionManagerModal,
     closeCustomAccentModal,
     closeRestorePointModal,

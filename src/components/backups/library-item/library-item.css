@@ -21,6 +21,7 @@
     border-radius: $space;
     text-align: center;
     cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
 }
 
 .library-item-extension {
@@ -30,6 +31,8 @@
 .library-item:hover {
     border-width: 2px;
     border-color: $looks-secondary;
+    box-shadow: 0 0.5rem 1.25rem hsla(225, 15%, 15%, 0.08);
+    transform: translateY(-1px);
 }
 
 .hidden {
@@ -110,8 +113,8 @@
 }
 
 .featured-item {
-    flex-basis: 350px;
-    max-width: 350px;
+    flex-basis: 280px;
+    max-width: 280px;
     height: auto;
     overflow: hidden;
     padding: 0;
