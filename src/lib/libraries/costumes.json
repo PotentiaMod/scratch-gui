@@ -7252,6 +7252,118 @@
         "rotationCenterX": 73.981,
         "rotationCenterY": 77.163
     },
+	{
+        "name": "Nero",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "660567a0483d3924efd2537e2592844b",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "660567a0483d3924efd2537e2592844b.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-smile",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "545ae61d142fde398b045524d2dc7237",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "545ae61d142fde398b045524d2dc7237.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-arm-up",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "a2bac42c77ecc6a046c4aa2d3a8bd507",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "a2bac42c77ecc6a046c4aa2d3a8bd507.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-evil",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "432efe770572e48293adcc8559e7f270",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "432efe770572e48293adcc8559e7f270.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-evil-smile",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "a5d3c35b47f8e4e53ae576be71fe2c30",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "a5d3c35b47f8e4e53ae576be71fe2c30.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-look-down",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "4fe4bfd83b4bf0da26bcebc9fcc19ce4",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "4fe4bfd83b4bf0da26bcebc9fcc19ce4.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-look-up",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "d80e3e05a9d466c36c77013f8e71ebb3",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "d80e3e05a9d466c36c77013f8e71ebb3.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-head-tilt",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "9227f8f2c5a660c67a527fd1a079fc21",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "9227f8f2c5a660c67a527fd1a079fc21.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
     {
         "name": "Noor-a",
         "tags": [
