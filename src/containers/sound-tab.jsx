@@ -24,6 +24,7 @@ import errorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
 import DragConstants from '../lib/drag-constants';
 import downloadBlob from '../lib/download-blob';
 import SharedAudioContext from '../lib/audio/shared-audio-context.js';
+import {handleAssetLoad} from '../lib/libraries/pot-web-libraries';
 
 import {connect} from 'react-redux';
 
@@ -52,6 +53,7 @@ class SoundTab extends React.Component {
             'handleNewSound',
             'handleSurpriseSound',
             'handleFileUploadClick',
+			'handleSoundFromWebLibrary',
             'handleSoundUpload',
             'handleDrop',
             'setFileInput'
@@ -115,6 +117,10 @@ class SoundTab extends React.Component {
     async handleSurpriseSound () {
         const soundLibraryContent = await getSoundLibrary();
         const soundItem = soundLibraryContent[Math.floor(Math.random() * soundLibraryContent.length)];
+        if (soundItem.src) {
+            this.handleSoundFromWebLibrary(soundItem);
+            return;
+        }
         const vmSound = {
             format: soundItem.dataFormat,
             md5: soundItem.md5ext,
@@ -129,6 +135,19 @@ class SoundTab extends React.Component {
 
     handleFileUploadClick () {
         this.fileInput.click();
+    }
+	
+	handleSoundFromWebLibrary (item) {
+        const storage = this.props.vm.runtime.storage;
+        const targetId = this.props.vm.editingTarget.id;
+        handleAssetLoad(item.src.library, item.src.path, (buffer, fileType) => {
+            soundUpload(buffer, fileType, storage, newSound => {
+                newSound.name = item.name;
+                this.props.vm.addSound(newSound, targetId).then(() => {
+                    this.handleNewSound();
+                });
+            });
+        });
     }
 
     handleSoundUpload (e) {

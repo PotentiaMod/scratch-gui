@@ -9,6 +9,7 @@ import randomizeSpritePosition from '../lib/randomize-sprite-position';
 import spriteTags from '../lib/libraries/sprite-tags';
 
 import LibraryComponent from '../components/library/library.jsx';
+import {handleAssetLoad} from '../lib/libraries/pot-web-libraries';
 
 const messages = defineMessages({
     libraryTitle: {

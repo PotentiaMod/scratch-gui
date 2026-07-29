@@ -7,6 +7,7 @@ import VM from 'scratch-vm';
 import {getCostumeLibrary} from '../lib/libraries/tw-async-libraries';
 import spriteTags from '../lib/libraries/sprite-tags';
 import LibraryComponent from '../components/library/library.jsx';
+import {handleAssetLoad} from '../lib/libraries/pot-web-libraries';
 
 const messages = defineMessages({
     libraryTitle: {
@@ -35,6 +36,17 @@ class CostumeLibrary extends React.PureComponent {
         }
     }
     handleItemSelected (item) {
+        if (item.src) {
+            handleAssetLoad(item.src.library, item.src.path, (buffer, fileType) => {
+                costumeUpload(buffer, fileType, this.props.vm, vmCostumes => {
+                    vmCostumes.forEach((costume, i) => {
+                        costume.name = `${item.name}${i ? i + 1 : ''}`;
+                        this.props.vm.addCostume(costume.md5, costume);
+                    });
+                });
+            });
+            return;
+        }
         const vmCostume = {
             name: item.name,
             rotationCenterX: item.rotationCenterX,
