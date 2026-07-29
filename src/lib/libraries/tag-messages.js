@@ -56,6 +56,11 @@ export default defineMessages({
         description: 'Tag for filtering a library for notes',
         id: 'gui.libraryTags.notes'
     },
+	other: {
+        defaultMessage: 'Other Scratch Mods',
+        description: 'Tag for filtering a library for extensions from other modifications',
+        id: 'pot.libraryTags.other'
+    },
     outdoors: {
         defaultMessage: 'Outdoors',
         description: 'Tag for filtering a library for outdoors',
@@ -75,6 +80,11 @@ export default defineMessages({
         defaultMessage: 'Percussion',
         description: 'Tag for filtering a library for percussion',
         id: 'gui.libraryTags.percussion'
+    },
+	potentia: {
+        defaultMessage: 'PotentiaMod',
+        description: 'Tag for filtering a library for PotentiaMod-created content',
+        id: 'pot.libraryTags.pot'
     },
     space: {
         defaultMessage: 'Space',
