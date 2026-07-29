@@ -175,8 +175,11 @@ class LibraryItem extends React.PureComponent {
                 isPlaying={this.props.isPlaying}
                 name={this.props.name}
                 credits={this.props.credits}
+                src={this.props.src}
                 docsURI={this.props.docsURI}
                 samples={this.props.samples}
+                rate={this.props.rate}
+                sampleCount={this.props.sampleCount}
                 favorite={this.props.favorite}
                 onFavorite={this.handleFavorite}
                 showPlayButton={this.props.showPlayButton}
@@ -232,6 +235,12 @@ LibraryItem.propTypes = {
         href: PropTypes.string,
         text: PropTypes.string
     })),
+	rate: PropTypes.number,
+    sampleCount: PropTypes.number,
+    src: PropTypes.shape({
+        library: PropTypes.string,
+        path: PropTypes.string
+    }),
     favorite: PropTypes.bool,
     onFavorite: PropTypes.func,
     onMouseEnter: PropTypes.func.isRequired,

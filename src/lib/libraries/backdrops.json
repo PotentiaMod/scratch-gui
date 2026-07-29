@@ -926,6 +926,20 @@
         "rotationCenterX": 480,
         "rotationCenterY": 360
     },
+	{
+        "name": "Starry",
+        "tags": [
+            "potentia",
+            "space",
+            "night"
+        ],
+        "assetId": "e9b6827bb5209f0479c210eac4113595",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "e9b6827bb5209f0479c210eac4113595.svg",
+        "rotationCenterX": 245.5,
+        "rotationCenterY": 185.811355
+    },
     {
         "name": "Stripes",
         "tags": [
@@ -935,6 +949,19 @@
         "bitmapResolution": 1,
         "dataFormat": "svg",
         "md5ext": "a6a21f5c08d586e8daaebde37c97fb6f.svg",
+        "rotationCenterX": 240,
+        "rotationCenterY": 180
+    },
+	{
+        "name": "Stripes 2",
+        "tags": [
+            "potentia",
+            "patterns"
+        ],
+        "assetId": "b93fdaa2af5f1b1b4979b78c5bf8bd02",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "b93fdaa2af5f1b1b4979b78c5bf8bd02.svg",
         "rotationCenterX": 240,
         "rotationCenterY": 180
     },

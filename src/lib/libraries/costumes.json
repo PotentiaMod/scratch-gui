@@ -7967,6 +7967,20 @@
         "rotationCenterX": 104,
         "rotationCenterY": 43
     },
+	{
+        "name": "Potentia-a",
+        "tags": [
+            "potentia",
+            "dragon",
+            "mascot"
+        ],
+        "assetId": "1468b47250e8103d8220d102c7a9b597",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "1468b47250e8103d8220d102c7a9b597.svg",
+        "rotationCenterX": 121.231122427814,
+        "rotationCenterY": 109.913924032961
+    },
     {
         "name": "Potion-a",
         "tags": [
@@ -8303,6 +8317,42 @@
         "md5ext": "137976ec71439e2f986caeaa70e4c932.svg",
         "rotationCenterX": 84,
         "rotationCenterY": 84
+    },
+	{
+        "name": "Raccoon-a",
+        "tags": [
+            "potentia",
+            "animals",
+            "mammal",
+            "bandit",
+            "masked",
+            "mascot"
+        ],
+        "assetId": "f86a0fab44dcc904d204c29ea576a7c1",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "f86a0fab44dcc904d204c29ea576a7c1.svg",
+        "rotationCenterX": 84.223388671875,
+        "rotationCenterY": 89.3388137817383
+
+    },
+	{
+        "name": "Raccoon-b",
+        "tags": [
+            "potentia",
+            "animals",
+            "mammal",
+            "bandit",
+            "masked",
+            "mascot"
+        ],
+        "assetId": "9fc1b2ddf07d20ca6e24fb72c772a2fe",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "9fc1b2ddf07d20ca6e24fb72c772a2fe.svg",
+        "rotationCenterX": 84.223388671875,
+        "rotationCenterY": 89.3388137817383
+
     },
     {
         "name": "Radio-a",

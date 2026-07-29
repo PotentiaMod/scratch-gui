@@ -771,6 +771,19 @@
         "sampleCount": 31698,
         "rate": 44100
     },
+	{
+        "name": "Cat Hiss",
+        "tags": [
+            "potentia",
+            "animals",
+            "cats"
+        ],
+        "assetId": "2e2dae6884917a151eaef9cf2e27e8e3",
+        "dataFormat": "wav",
+        "md5ext": "2e2dae6884917a151eaef9cf2e27e8e3.wav",
+        "sampleCount": 43954,
+        "rate": 48000
+    },
     {
         "name": "Car Horn",
         "tags": [
