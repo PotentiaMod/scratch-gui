@@ -60,28 +60,31 @@ const GuiThemeMenu = ({
     theme,
 }) => (
 <MenuItem expanded={isOpen}>
-            <div
-                className={styles.option}
-                onClick={onOpen}
-            >
-                <ThemeIcon
+        <div
+            className={styles.option}
+            onClick={onOpen}
+        >
+            <ThemeIcon
                     id={theme.gui}
                 />
-                <span>
-                    <FormattedMessage
-                        defaultMessage="Theme"
-                        description="Label for menu to choose a GUI theme color"
-                        id="tw.menuBar.gui"
-                    />
-                </span>
-                <img
+            <span className={styles.submenuLabel}>
+                <FormattedMessage
+                    defaultMessage="Theme"
+                    description="Label for menu to choose theme"
+                    id="tw.menuBar.theme"
+                />
+            </span>
+            <img
                     className={styles.expandCaret}
                     src={dropdownCaret}
                     draggable={false}
                 />
-            </div>
-            <Submenu place={isRtl ? 'left' : 'right'}>
-                {Object.keys(GuiOptions).map(item => (
+        </div>
+        <Submenu
+            place={isRtl ? 'left' : 'right'}
+            className={styles.submenu}
+        >
+            {Object.keys(GuiOptions).map(item => (
                     <GuiMenuItem
                         key={item}
                         id={item}
@@ -90,8 +93,8 @@ const GuiThemeMenu = ({
                         onClick={() => onChangeTheme(theme.set('gui', item))}
                     />
                 ))}
-            </Submenu>
-        </MenuItem>
+        </Submenu>
+    </MenuItem>
 );
 
 GuiThemeMenu.propTypes = {

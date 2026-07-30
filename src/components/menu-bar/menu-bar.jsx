@@ -27,6 +27,7 @@ import DeletionRestorer from '../../containers/deletion-restorer.jsx';
 import TurboMode from '../../containers/turbo-mode.jsx';
 import MenuBarHOC from '../../containers/menu-bar-hoc.jsx';
 import SettingsMenu from './settings-menu.jsx';
+import TWRenderRecoloredImage from '../../lib/tw-recolor/render.jsx';
 
 import FramerateChanger from '../../containers/tw-framerate-changer.jsx';
 import ChangeUsername from '../../containers/tw-change-username.jsx';
@@ -97,7 +98,7 @@ import addonsIcon from './addons.svg';
 import errorIcon from './tw-error.svg';
 import advancedIcon from './tw-advanced.svg';
 
-import logo from './scratch-logo.png';
+import logo from '!../../lib/tw-recolor/build!./scratch-logo.svg';
 import ninetiesLogo from './nineties_logo.svg';
 import catLogo from './cat_logo.svg';
 import prehistoricLogo from './prehistoric-logo.svg';
@@ -494,7 +495,7 @@ class MenuBar extends React.Component {
                 <div className={styles.mainMenu}>
                     <div className={styles.fileGroup}>
 					 <div className={classNames(styles.menuBarItem)}>
-                            <img
+                            <TWRenderRecoloredImage
                                 id="logo_img"
                                 alt="PotentiaMod"
                                 className={classNames(styles.scratchLogo, {
