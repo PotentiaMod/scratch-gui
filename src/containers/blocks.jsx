@@ -105,6 +105,7 @@ class Blocks extends React.Component {
     constructor (props) {
         super(props);
         this.ScratchBlocks = VMScratchBlocks(props.vm, false);
+		/*
 		this.ScratchBlocks.Toolbox.registerMenu('extensionControls', [
             {
                 text: 'Remove Extension',
@@ -117,6 +118,7 @@ class Blocks extends React.Component {
                 callback: () => props.vm.extensionManager.removeUnusedExtensions()
             }
         ]);
+       */
         window.ScratchBlocks = this.ScratchBlocks;
         AddonHooks.blockly = this.ScratchBlocks;
         AddonHooks.blocklyCallbacks.forEach(i => i());
