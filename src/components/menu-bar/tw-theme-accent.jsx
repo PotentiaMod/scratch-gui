@@ -86,31 +86,34 @@ const AccentThemeMenu = ({
     const themes = JSON.parse(localStorage.getItem('pot:custom-accents'));
 
     return (
-        <MenuItem expanded={isOpen}>
-            <div
-                className={styles.option}
-                onClick={onOpen}
-            >
-                <ColorIcon
+       <MenuItem expanded={isOpen}>
+        <div
+            className={styles.option}
+            onClick={onOpen}
+        >
+            <ColorIcon
                     id={Object.hasOwn(theme.accent, 'primaryColor') ? ACCENT_CUSTOM : theme.accent}
                     isGradient={theme.accent?.isGradient}
                     gradient={theme.accent?.gradient}
                 />
-                <span className={styles.submenuLabel}>
-                    <FormattedMessage
-                        defaultMessage="Accent"
-                        description="Label for menu to choose accent color (eg. TurboWarp's red, Scratch's purple)"
-                        id="tw.menuBar.accent"
-                    />
-                </span>
-                <img
+            <span className={styles.submenuLabel}>
+                <FormattedMessage
+                    defaultMessage="Accent"
+                    description="Label for menu to choose accent color (eg. TurboWarp's red, Scratch's purple)"
+                    id="tw.menuBar.accent"
+                />
+            </span>
+            <img
                     className={styles.expandCaret}
                     src={dropdownCaret}
                     draggable={false}
                 />
-            </div>
-            <Submenu place={isRtl ? 'left' : 'right'}>
-                {Object.keys(AccentOptions).map(item => (
+        </div>
+        <Submenu 
+            place={isRtl ? 'left' : 'right'}
+            className={styles.accentSubmenu}
+        >
+            {Object.keys(AccentOptions).map(item => (
                     <AccentMenuItem
                         key={item}
                         id={item}
@@ -119,8 +122,8 @@ const AccentThemeMenu = ({
                         onClick={() => onChangeTheme(theme.set('accent', item))}
                     />
                 ))}
-            </Submenu>
-        </MenuItem>
+        </Submenu>
+    </MenuItem>
     );
 };
 
