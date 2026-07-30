@@ -18,6 +18,7 @@
 	"link": "npm link ../scratch-vm ../scratch-blocks ../scratch-paint",
     "prepublish": "node scripts/prepublish.mjs",
     "prune": "./prune-gh-pages.sh",
+	"reinstall": "rm -rf node_modules npm-lock.yaml && npm install --legacy-peer-deps && npm run link",
     "i18n:push": "tx-push-src scratch-editor interface translations/en.json",
     "i18n:src": "rimraf ./translations/messages/src && babel src > tmp.js && rimraf tmp.js && build-i18n-src ./translations/messages/src ./translations/",
     "start": "webpack-dev-server",
