@@ -43,6 +43,7 @@ import {loadServiceWorker} from './load-service-worker';
 import runAddons from '../addons/entry';
 import InvalidEmbed from '../components/tw-invalid-embed/invalid-embed.jsx';
 import {APP_NAME} from '../lib/brand.js';
+import Footer from '../components/potentia-footer/footer.jsx';
 
 import styles from './interface.css';
 
@@ -57,7 +58,7 @@ const handleClickAddonSettings = addonId => {
 
 const messages = defineMessages({
     defaultTitle: {
-        defaultMessage: 'A Block-Based Coding That Goes EXTREME',
+        defaultMessage: 'A Block-Based Coding That Goes EXTREME!',
         description: 'Title of homepage',
         id: 'tw.guiDefaultTitle'
     }
@@ -82,109 +83,6 @@ if (AddonChannels.changeChannel) {
 
 runAddons();
 
-const Footer = () => (
-    <footer className={styles.footer}>
-        <div className={styles.footerContent}>
-            <div className={styles.footerText}>
-                <FormattedMessage
-                    // eslint-disable-next-line max-len
-                    defaultMessage="{APP_NAME} is not affiliated with TurboWarp, Scratch, the Scratch Team, or the Scratch Foundation."
-                    description="Disclaimer that TurboWarp is not connected to Scratch"
-                    id="tw.footer.disclaimer"
-                    values={{
-                        APP_NAME
-                    }}
-                />
-            </div>
-
-            <div className={styles.footerText}>
-                <FormattedMessage
-                    // eslint-disable-next-line max-len
-                    defaultMessage="Scratch is a project of the Scratch Foundation. It is available for free at {scratchDotOrg}."
-                    description="A disclaimer that Scratch requires when referring to Scratch. {scratchDotOrg} is a link with text 'https://scratch.org/'"
-                    id="tw.footer.scratchDisclaimer"
-                    values={{
-                        scratchDotOrg: (
-                            <a
-                                href="https://scratch.org/"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                {'https://scratch.org/'}
-                            </a>
-                        )
-                    }}
-                />
-            </div>
-
-            <div className={styles.footerColumns}>
-                <div className={styles.footerSection}>
-                    <a href="credits.html">
-                        <FormattedMessage
-                            defaultMessage="Credits"
-                            description="Credits link in footer"
-                            id="tw.footer.credits"
-                        />
-                    </a>
-                </div>
-                <div className={styles.footerSection}>
-                    <a href="https://desktop.turbowarp.org/">
-                        {/* Do not translate */}
-                        {'TurboWarp Desktop'}
-                    </a>
-                    <a href="https://potentiamod.github.io/packager/">
-                        {/* Do not translate */}
-                        {'PotentiaMod Packager'}
-                    </a>
-                    <a href="https://docs.turbowarp.org/embedding">
-                        <FormattedMessage
-                            defaultMessage="Embedding"
-                            description="Link in footer to embedding documentation for embedding link"
-                            id="tw.footer.embed"
-                        />
-                    </a>
-                    <a href="https://docs.turbowarp.org/url-parameters">
-                        <FormattedMessage
-                            defaultMessage="URL Parameters"
-                            description="Link in footer to URL parameters documentation"
-                            id="tw.footer.parameters"
-                        />
-                    </a>
-                    <a href="https://docs.turbowarp.org/">
-                        <FormattedMessage
-                            defaultMessage="Documentation"
-                            description="Link in footer to additional documentation"
-                            id="tw.footer.documentation"
-                        />
-                    </a>
-                </div>
-                <div className={styles.footerSection}>
-                    <a href="https://warp.mistium.com/users/GaiaKitty">
-                        <FormattedMessage
-                            defaultMessage="Feedback & Bugs"
-                            description="Link to feedback/bugs page"
-                            id="tw.feedback"
-                        />
-                    </a>
-                    <a href="https://github.com/PotentiaMod/">
-                        <FormattedMessage
-                            defaultMessage="Source Code"
-                            description="Link to source code"
-                            id="tw.code"
-                        />
-                    </a>
-                    <a href="privacy.html">
-                        <FormattedMessage
-                            defaultMessage="Privacy Policy"
-                            description="Link to privacy policy"
-                            id="tw.privacy"
-                        />
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-);
 
 class Interface extends React.Component {
     constructor (props) {
