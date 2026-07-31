@@ -98,7 +98,6 @@ const randomMessages = [
         "You are too slow. Try again.",
 		"Guess again, nerd!",
 		"PotentiaMod is in beta, so there may be bugs and breaking changes.",
-        "Check out my first Scratch Mod, <a href='https://gaiamod-main.github.io/'>GaiaMod</a>!",
         "Simply the Best",
 		"Potentia is reading this message",
         "Evil Kumquats beware! The project you are loading uses Kumquat Anti-Cheat.",
