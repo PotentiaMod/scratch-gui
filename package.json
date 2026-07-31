@@ -98,7 +98,6 @@
     "react-virtualized": "9.20.1",
     "redux": "3.7.2",
     "redux-throttle": "0.1.1",
-	"rotur-sdk": "^2.0.0",
      "scratch-audio": "github:TurboWarp/scratch-audio#develop",
     "scratch-blocks": "github:PotentiaMod/scratch-blocks#develop-builds",
     "scratch-paint": "github:PotentiaMod/scratch-paint#develop",
