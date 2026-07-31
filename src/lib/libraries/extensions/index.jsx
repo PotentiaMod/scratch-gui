@@ -69,6 +69,31 @@ import tm2scratchInsetIconURL from './tm2scratch/tm2scratch-small.png';
 import tmpose2scratchIconURL from './tmpose2scratch/tmpose2scratch.png';
 import tmpose2scratchInsetIconURL from './tmpose2scratch/tmpose2scratch-small.png';
 
+//GvbvdxxMod2
+import NESEmuThumb from './nes_emulator/nes.svg';
+import NESInsetIcon from './nes_emulator/nes-small.svg';
+import gm2HTML5Small from './html5/small.svg';
+import gm2HTML5Large from './html5/large.svg';
+import sndanalyserBig from './sound_analyser/big.svg';
+import jsDialogsBigIcon from './dialog/dialogs.png';
+import jsDialogsSmallIcon from './dialog/small.png';
+import speech4pcDialogsBigIcon from './speech4pc/speech.png';
+import speech4pcDialogsSmallIcon from './speech4pc/small.png';
+import websitesBigIcon from './websites/websites.png';
+import websitesSmallIcon from './websites/small.png';
+import scratchBigIcon from './control/scratch.png';
+import scratchSmallIcon from './control/small.png';
+import wssmall from './websockets/small.png';
+import wsbig from './websockets/big.png';
+import audioctxsmall from './audio_context/small.png';
+import audioctxbig from './audio_context/big.png';
+import userdatasmall from './userdata/small.png';
+import userdatabig from './userdata/big.png';
+import beepboxsmall from './beepbox_synth/small.png';
+import beepboxbig from './beepbox_synth/big.png';
+import betteraudioBigIcon from './better_audio/big.png';
+import betteraudioSmallIcon from './better_audio/small.png';
+
 
 import ptIcon from './tw/pt.png';
 import TWgalleryIcon from './gallery/TWgallery.svg';
@@ -400,6 +425,7 @@ const menuItems = [
         ),
         helpLink: 'https://scratch.mit.edu/vernier'
     },
+	//Exts
 	 {
         name: 'App Utilities',
         extensionId: 'appmaker',
@@ -410,6 +436,7 @@ const menuItems = [
         description: 'Develop apps in PotentiaMod.',
         featured: true
     },
+	//Champierre
 	{
         name: 'ChatGPT2Scratch',
         extensionId: 'chatgpt2scratch',
@@ -519,11 +546,12 @@ const menuItems = [
         description: 'Image Classification Blocks.',
         featured: true
     },
+	//PotentiaMod
     {
         name: (
             <FormattedMessage
                 defaultMessage="{APP_NAME} Blocks"
-                description="Name of the strange 'NitroBolt Blocks' extension"
+                description="Name of the strange 'PotentiaMod Blocks' extension"
                 id="tw.twExtension.name"
                 values={{
                     APP_NAME

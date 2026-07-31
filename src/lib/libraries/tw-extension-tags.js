@@ -21,5 +21,5 @@ export default [
     {tag: 'ark', intlLabel: 'Ark IDE'},
     {tag: 'gaia', intlLabel: 'GaiaMod'},
     {tag: 'other', intlLabel: 'Other Mods'},
-    {tag: 'preload', intlLabel: 'Built-In'}
+    {tag: 'preload', intlLabel: 'Preloaded'}
 ];
