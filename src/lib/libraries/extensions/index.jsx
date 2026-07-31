@@ -88,6 +88,8 @@ import PictoBloxMathIconURL from './PictoBloxMath/PictoBloxMath.png';
 import PictoBloxMathInsetIconURL from './PictoBloxMath/PictoBloxMath-small.svg';
 import PictoBloxStringIconURL from './PictoBloxString/PictoBloxString.png';
 import PictoBloxStringInsetIconURL from './PictoBloxString/PictoBloxString-small.svg';
+import wonderBlocksIcon from './gaiamod/WonderBlocks.png';
+import catWithDonut from './gaiamod/DingDongDitch.svg';
 
 //GvbvdxxMod2
 import NESEmuThumb from './nes_emulator/nes.svg';
@@ -165,8 +167,15 @@ import emoBlockImage from './emo/Scratch_emo.png';
 import emoBlockInsertIconImage from './emo/bocco-emo_body.png';
 import missmixalotIconURL from "./missmixalot/missmixalot.png";
 import missmixalotInsetIconURL from "./missmixalot/missmixalot-small.svg";
+import echidnaIconURL from './echidna/echidna.png';
+import echidnaInsetIconURL from './echidna/erizo.png';
+import echidnaConnectionIconURL from './echidna/echidna-illustration.svg';
+import echidnaConnectionSmallIconURL from './echidna/echidna-small.svg';
 
-import ptIcon from './tw/pt.png';
+import libraImage from './libra/Libra.png';
+import libraInsetImage from './libra/Libra-small.svg';
+
+import ptIcon from './tw/pt.svg';
 import TWgalleryIcon from './gallery/TWgallery.svg';
 import returnIcon from './custom/return.svg';
 import customExtensionIcon from './custom/custom.svg';
@@ -175,7 +184,7 @@ import galleryIconDash from './dashblocks/gallery.svg';
 import galleryIconMist from './mistium/library.svg';
 import galleryIconMW from './gallery/gallery-mw.png';;
 import galleryIconTW from './gallery/gallery-tw.svg';
-import galleryIconPT from './gallery/gallery.png';
+import galleryIconPT from './gallery/gallery.svg';
 import galleryIconZT from './02engine/02engine.svg';
 
 import galleryIconPM from './penguinmod/library.svg';
@@ -497,11 +506,20 @@ const menuItems = [
         helpLink: 'https://scratch.mit.edu/vernier'
     },
 	//Exts
+	{
+        name: 'Wonder Blocks',
+        extensionId: 'wonderblocks',
+        iconURL: wonderBlocksIcon,
+        tags: ['preload'],
+        description: 'Some mysterious blocks.',
+        collaborator: 'GaiaWindWave90 with some blocks from other users.',
+        featured: true
+    },
 	 {
         name: 'App Utilities',
         extensionId: 'appmaker',
-        iconURL: 'https://gaiamod-main.github.io/static/assets/ab0f9df0edc8698e6e01580a343b5423.svg',
-		insetIconURL: 'https://gaiamod-main.github.io/static/assets/7698093467c8a39f4d05107e7c979c06.svg',
+        iconURL: appMakerIconURL,
+		insetIconURL: appMakerInsetIconURL,
         tags: ['other', 'preload'],
 		collaborator: 'LibreKitten',
         description: 'Develop apps in PotentiaMod.',
@@ -529,6 +547,23 @@ const menuItems = [
         featured: true
     },
 	{
+        name: 'Echidna',
+        extensionId: 'echidna',
+        collaborator: 'echidna',
+        iconURL: echidnaIconURL,
+        insetIconURL: echidnaInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Connect your projects with the world."
+                description="Description for the 'echidna' extension"
+                id="gui.extension.echidna.description"
+            />
+        ),
+        featured: true,
+		tags: ['other', 'preload', 'iot'],
+        helpLink: 'http://echidna.es/'
+    },
+	{
         name: 'NES Emulator',
         extensionId: 'nesemulator', // update reference once file names are updated
         tags: ['other', 'preload', 'iot'],
@@ -540,6 +575,26 @@ const menuItems = [
         description: 'Use the power of the NES emulation in PotentiaMod!',
         featured: true,
         collaborator: 'Gvbvdxx'
+    },
+	{
+        name: 'Libra',
+        collaborator: 'Clipteam',
+        extensionId: 'libra',
+        iconURL: libraImage,
+        insetIconURL: libraInsetImage,
+        description: 'Libra Redlist extension.',
+        featured: true,
+		tags: ['other', 'preload']
+    },
+	{
+        name: 'ClipCC Blocks',
+        collaborator: 'Clipteam',
+        extensionId: 'clipblocks',
+        iconURL: 'https://github.com/SoilZhu/clipcc-gui/blob/master/src/lib/libraries/extensions/clipcc/CCUnknownExtension.jpg?raw=true',
+		insetIconURL: 'https://raw.githubusercontent.com/SoilZhu/clipcc-gui/5005874fe09e4431c5c7b4c006fcfc80db4d0eb8/src/lib/libraries/extensions/clipcc/CCUnknownExtension.svg',
+        description: 'Clip Blocks extension.',
+        featured: true,
+		tags: ['other', 'preload']
     },
 	//Champierre
 	{
