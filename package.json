@@ -169,10 +169,6 @@
     }
   },
   "overrides": {
-      "scratch-blocks": "link:../scratch-blocks",
-      "scratch-render": "link:../scratch-render",
-      "scratch-vm": "link:../scratch-vm",
-      "scratch-paint": "link:../scratch-paint",
       "webpack@4.47.0": {"terser-webpack-plugin": "^4.2.3"}
   }
 }
