@@ -69,6 +69,26 @@ import tm2scratchInsetIconURL from './tm2scratch/tm2scratch-small.png';
 import tmpose2scratchIconURL from './tmpose2scratch/tmpose2scratch.png';
 import tmpose2scratchInsetIconURL from './tmpose2scratch/tmpose2scratch-small.png';
 
+//other
+import appMakerIconURL from './librekitten/appmaker/appmaker.svg';
+import appMakerInsetIconURL from './librekitten/appmaker/software-small.svg';
+import mbotIconURL from './mbot/mbot-header.png';
+import mbotInsetIconURL from './mbot/mbot.svg';
+import roku from './roku/big.jpg';
+import rokuSmall from './roku/small.png';
+import axerAIIconURL from './other/AxerAI.svg';
+import axerAIInsetIconURL from './other/InsetAxerAI.png';
+import nftIconURL from './nft/nft.png';
+import nftInsetIconURL from './nft/nft-small.svg';
+import toonco1ImageURL from './webKit/webKit.png';
+import toonco1ImageSmallURL from './webKit/webKit-small.png';
+import bodyblocksIconURL from './bodyblocks/background.png';
+import bodyblocksInsetIconURL from './bodyblocks/inset-small.svg';
+import PictoBloxMathIconURL from './PictoBloxMath/PictoBloxMath.png';
+import PictoBloxMathInsetIconURL from './PictoBloxMath/PictoBloxMath-small.svg';
+import PictoBloxStringIconURL from './PictoBloxString/PictoBloxString.png';
+import PictoBloxStringInsetIconURL from './PictoBloxString/PictoBloxString-small.svg';
+
 //GvbvdxxMod2
 import NESEmuThumb from './nes_emulator/nes.svg';
 import NESInsetIcon from './nes_emulator/nes-small.svg';
@@ -94,6 +114,57 @@ import beepboxbig from './beepbox_synth/big.png';
 import betteraudioBigIcon from './better_audio/big.png';
 import betteraudioSmallIcon from './better_audio/small.png';
 
+// onegpio
+import onegpioArduinoImage from './onegpioArduino/onegpioArduino.png';
+import onegpioArduinoInsetIconURL from './onegpioArduino/onegpioArduino-small.png';
+import onegpioRpiImage from './onegpioRpi/onegpioRpi.png';
+import onegpioRpiInsetIconURL from './onegpioRpi/onegpioRpi-small.png';
+import onegpioEspImage from './onegpioEsp/onegpioEsp.png';
+import onegpioEspInsetIconURL from './onegpioEsp/onegpioEsp-small.png';
+import onegpioPicoboardImage from './onegpioPicoboard/onegpioPicoboard.jpg';
+import onegpioPicoboardInsetIconURL from './onegpioPicoboard/onegpioPicoboard-small.png';
+import onegpioCpxImage from './onegpioCpx/onegpioCpx.jpg';
+import onegpioCpxInsetIconURL from './onegpioCpx/onegpioCpx-small.png';
+import onegpioRoboHATImage from './onegpioRoboHAT/onegpioRoboHAT.png';
+import onegpioRoboHATInsetIconURL from './onegpioRoboHAT/onegpioRoboHAT-small.png';
+import onegpioRpiPicoImage from './onegpioRpiPico/onegpioRpiPico.png';
+import onegpioRpiPicoInsetIconURL from './onegpioRpiPico/onegpioRpiPico-small.png';
+
+import lassImage from "./lass/lass.png";
+import iftttImage from "./ifttt/ifttt.png";
+import thingspeakImage from "./thingspeak/thingspeak.png";
+
+import smartLumiesIconURL from './smart-lumies/smart-lumies.png';
+import smartLumiesInsetIconURL from './smart-lumies/smart-lumies-small.svg';
+import smartLumiesConnectionIconURL from './smart-lumies/smart-lumies-illustration.svg';
+import smartLumiesConnectionSmallIconURL from './smart-lumies/smart-lumies-small.svg';
+import smartLumiesConnectionTipIconURL from './smart-lumies/smart-lumies-button-illustration.svg';
+import matatabotIconURL from './matatabot/matatabot.png';
+import matatabotInsetIconURL from './matatabot/matatabot-small.svg';
+import matatabotConnectionIconURL from './matatabot/matatabot-illustration.svg';
+import matatabotConnectionSmallIconURL from './matatabot/matatabot-small.svg';
+import midiIconURL from './midi/midi.png';
+import midiInsetIconURL from './midi/midi-small.svg';
+import spikePrimeIconURL from './spikePrime/spikePrime.png';
+import spikePrimeInsetIconURL from './spikePrime/spikePrime-small.svg';
+import spikePrimeConnectionIconURL from './spikePrime/spikePrime-illustration.svg';
+import spikePrimeConnectionSmallIconURL from './spikePrime/spikePrime-small.svg';
+import futureBoardIconURL from './futureBoard/futureBoard.png';
+import futureBoardInsetIconURL from './futureBoard/futureBoard-small.svg';
+import minecraftIconURL from './minecraft/minecraft.png';
+import minecraftInsetIconURL from './minecraft/minecraft-small.svg';
+import toolboxIconURL from './toolbox/toolbox.png';
+import toolboxInsetIconURL from './toolbox/toolbox-small.svg';
+import iCarProIconURL from './iCarPro/iCarPro.png';
+import iCarProInsetIconURL from './iCarPro/iCarPro-small.svg';
+import snapCircuitsU33IconURL from './snapCircuitsU33/snapCircuitsU33.png';
+import snapCircuitsU33InsetIconURL from './snapCircuitsU33/snapCircuitsU33-small.svg';
+import magicBlueUUIconURL from './magicBlueUU/magicBlueUU.png';
+import magicBlueUUInsetIconURL from './magicBlueUU/magicBlueUU-small.svg';
+import emoBlockImage from './emo/Scratch_emo.png';
+import emoBlockInsertIconImage from './emo/bocco-emo_body.png';
+import missmixalotIconURL from "./missmixalot/missmixalot.png";
+import missmixalotInsetIconURL from "./missmixalot/missmixalot-small.svg";
 
 import ptIcon from './tw/pt.png';
 import TWgalleryIcon from './gallery/TWgallery.svg';
@@ -436,6 +507,40 @@ const menuItems = [
         description: 'Develop apps in PotentiaMod.',
         featured: true
     },
+	{
+        name: 'Web kit',
+        extensionId: 'webkit',
+        iconURL: toonco1ImageURL,
+        insetIconURL: toonco1ImageSmallURL,
+		collaborator: 'toonco1',
+		tags: ['other', 'preload'],
+        description: 'Make your own webkit in PotentiaMod!',
+        featured: true,
+    },
+	{
+        name: 'Roku',
+        extensionId: 'roku',
+        internetConnectionRequired: true,
+        collaborator: 'Gvbvdxx',
+        iconURL: roku,
+		insetIconURL: rokuSmall,
+        tags: ['other', 'preload', 'iot'],
+        description: 'Interact with your Roku tv via the GM2Helper software!',
+        featured: true
+    },
+	{
+        name: 'NES Emulator',
+        extensionId: 'nesemulator', // update reference once file names are updated
+        tags: ['other', 'preload', 'iot'],
+        bluetoothRequired: false,
+        internetConnectionRequired: true,
+        launchPeripheralConnectionFlow: false,
+        iconURL: NESEmuThumb,
+        insetIconURL: NESInsetIcon,
+        description: 'Use the power of the NES emulation in PotentiaMod!',
+        featured: true,
+        collaborator: 'Gvbvdxx'
+    },
 	//Champierre
 	{
         name: 'ChatGPT2Scratch',
@@ -544,6 +649,77 @@ const menuItems = [
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
         description: 'Image Classification Blocks.',
+        featured: true
+    },
+	//Adacraft
+	{
+        name: 'Adacraft HTTP',
+        extensionId: 'adahttp',
+        tags: ['adacraft', 'preload'],
+        iconURL: 'https://www.adacraft.org/studio/static/assets/dea779e4ed4e0d1e4d553755f0beea24.png',
+        insetIconURL: 'https://www.adacraft.org/studio/static/assets/c82f3fea945be86f2c208f2e3d799c8e.svg',
+        description: 'Some new blocks to send HTTP requests ad manage results.',
+        collaborator: 'Adacraft',
+        featured: true
+    },
+    {
+        name: 'Adacraft GIF',
+        extensionId: 'gif',
+        tags: ['adacraft', 'preload'],
+        iconURL: 'https://www.adacraft.org/studio/static/assets/e482db7668b6f6bbc8ce5223e4427e96.png',
+        insetIconURL: 'https://www.adacraft.org/studio/static/assets/bbb78885842b3cd65078881647f674f2.svg',
+        description: 'Some new blocks to encode GIF files.',
+        collaborator: 'Adacraft',
+        featured: true
+    },
+{
+        name: 'Ada Vision',
+        extensionId: 'adavision',
+        tags: ['adacraft', 'ai', 'preload'],
+        iconURL: 'https://www.adacraft.org/studio/static/assets/e0dbaa558a96f981dd0a34c25b4b4b84.png',
+        insetIconURL: 'https://www.adacraft.org/studio/static/assets/327aa5322c2e9cd1cd90cb69efa1c15a.svg',
+        description: 'Use TeachableMachine models to detect things in images.',
+        collaborator: 'Adacraft',
+        featured: true
+    },
+    {
+        name: 'Ada Sound',
+        extensionId: 'adasound',
+        tags: ['adacraft', 'ai', 'preload'],
+        iconURL: 'https://www.adacraft.org/studio/static/assets/3aa7424034ffdc3bd8027132a5b1b5b9.png',
+        insetIconURL: 'https://www.adacraft.org/studio/static/assets/21800acf6e3a345f805d74d75e32bb2d.png',
+        description: 'Use TeachableMachine models to detect things in sounds.',
+        collaborator: 'Adacraft',
+        featured: true
+    },
+    {
+        name: 'Adacraft Runtime',
+        extensionId: 'adaruntime',
+        tags: ['adacraft', 'preload'],
+        iconURL: 'https://www.adacraft.org/studio/static/assets/53d3dbd30eb60a7860a3ffdb4753a43f.png',
+        insetIconURL: 'https://www.adacraft.org/studio/static/assets/e91bb243062b53cc04ac11d1c7e381d6.svg',
+        description: 'Some new blocks to interact with the adacraft runtime (renderer, VM, etc.)',
+        collaborator: 'Adacraft',
+        featured: true
+    },
+{
+        name: 'Ada Browser',
+        tags: ['adacraft', 'preload'],
+        extensionId: 'adabrowser',
+        iconURL: 'https://www.adacraft.org/studio/static/assets/40998229311219c2117265d5e4bd9745.png',
+        insetIconURL: 'https://www.adacraft.org/studio/static/assets/f1fe0bbe960a0d60c783b111c84b837e.svg',
+        description: 'Some new blocks to interact with the browser',
+        collaborator: 'Adacraft',
+        featured: true
+    },
+    {
+        name: 'Croquet',
+        extensionId: 'croquet',
+        tags: ['adacraft', 'preload'],
+        iconURL: 'https://www.adacraft.org/studio/static/assets/05479b8bc697d26fee9740d868c2a30e.png',
+        insetIconURL: 'https://www.adacraft.org/studio/static/assets/3ebaeec3436fd9dd59d325a879e1a0dc.svg',
+        description: 'Croquet Collaboration Library',
+        collaborator: 'Croquet Corporation',
         featured: true
     },
 	//PotentiaMod

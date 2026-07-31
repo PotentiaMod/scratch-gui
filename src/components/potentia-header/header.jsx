@@ -12,7 +12,7 @@ import Button from '../button/button.jsx';
 
 import styles from './header.css';
 
-import logo from '../menu-bar/scratch-logo.png';
+import logo from '../menu-bar/scratch-logo.svg';
 
 import {APP_NAME} from '../../lib/brand.js';
 

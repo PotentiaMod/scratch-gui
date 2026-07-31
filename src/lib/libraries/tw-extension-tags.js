@@ -7,6 +7,7 @@ export default [
     {tag: 'potentia', intlLabel: APP_NAME},
     {tag: 'tw', intlLabel: 'TurboWarp'},
     {tag: 'nb', intlLabel: 'NitroBolt'},
+    {tag: 'adacraft', intlLabel: 'Adacraft'},
     {tag: 'mist', intlLabel: 'Mistium'},
     {tag: 'ae', intlLabel: 'Astra Editor'},
     {tag: 'ztengine', intlLabel: '02Engine'},
