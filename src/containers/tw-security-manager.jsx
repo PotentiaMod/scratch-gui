@@ -74,17 +74,8 @@ const isAlwaysTrustedForFetching = parsed => (
     // Sourcehut Pages
     parsed.origin.endsWith('.srht.site') ||
 
-    // Itch
-    parsed.origin.endsWith('.itch.io') ||
-
     // GameJolt
-    parsed.origin === 'https://api.gamejolt.com' ||
-
-    // httpbin
-    parsed.origin === 'https://httpbin.org' ||
-
-    // ScratchDB
-    parsed.origin === 'https://scratchdb.lefty.one'
+    parsed.origin === 'https://api.gamejolt.com'
 );
 
 const FETCHABLE_PROTOCOLS = [
@@ -104,6 +95,7 @@ const VISITABLE_PROTOCOLS = [
     'blob:',
     'mailto:',
     'steam:',
+    'roblox:',
     'calculator:'
 ];
 
