@@ -1,0 +1,12 @@
+[
+  {
+    "id": "gui.extensionLibrary.chooseAnExtension",
+    "description": "Heading for the extension library",
+    "defaultMessage": "Choose an Extension"
+  },
+  {
+    "id": "tw.gui.extensionLibrary.header",
+    "description": "Header for extension library",
+    "defaultMessage": "Extensions"
+  }
+]

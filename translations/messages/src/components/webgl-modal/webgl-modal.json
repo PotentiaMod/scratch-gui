@@ -1,0 +1,17 @@
+[
+  {
+    "id": "gui.webglModal.label",
+    "description": "WebGL missing title",
+    "defaultMessage": "Your Browser Does Not Support WebGL"
+  },
+  {
+    "id": "tw.webglModal.description",
+    "description": "WebGL missing message",
+    "defaultMessage": "Unfortunately it looks like your browser or computer {webGlLink}. This technology is needed for this site to run. Try updating your browser and graphics drivers or restarting your computer."
+  },
+  {
+    "id": "gui.webglModal.webgllink",
+    "description": "link part of your browser does not support WebGL message",
+    "defaultMessage": "does not support WebGL"
+  }
+]

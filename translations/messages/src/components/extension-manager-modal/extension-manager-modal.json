@@ -1,0 +1,7 @@
+[
+  {
+    "id": "tw.extensionManager.title",
+    "description": "Title of modal that appears when loading the Extension Manager",
+    "defaultMessage": "Extension Manager"
+  }
+]

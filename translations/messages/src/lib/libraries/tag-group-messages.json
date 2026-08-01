@@ -1,0 +1,17 @@
+[
+  {
+    "id": "tw.libraryTagGroups.platform",
+    "description": "Group for tags that filtering a library by platform",
+    "defaultMessage": "Platform"
+  },
+  {
+    "id": "tw.libraryTagGroups.category",
+    "description": "Group for tags that filtering a library by category",
+    "defaultMessage": "Category"
+  },
+  {
+    "id": "tw.libraryTagGroups.soundType",
+    "description": "Group for tags that filtering a library by sound type",
+    "defaultMessage": "Sound Type"
+  }
+]

@@ -1,0 +1,7 @@
+[
+  {
+    "id": "tw.menuBar.accent",
+    "description": "Label for menu to choose accent color (eg. TurboWarp's red, Scratch's purple)",
+    "defaultMessage": "Accent"
+  }
+]

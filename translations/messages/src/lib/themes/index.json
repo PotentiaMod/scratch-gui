@@ -1,0 +1,97 @@
+[
+  {
+    "id": "tw.accent.indigo",
+    "description": "Name of the indigo color scheme, used by PotentiaMod by default.",
+    "defaultMessage": "Indigo"
+  },
+  {
+    "id": "tw.accent.magenta",
+    "description": "Name of the magenta color scheme.",
+    "defaultMessage": "Magenta"
+  },
+  {
+    "id": "tw.accent.orange",
+    "description": "Name of the orange color scheme.",
+    "defaultMessage": "Orange"
+  },
+  {
+    "id": "tw.accent.green",
+    "description": "Name of the green color scheme",
+    "defaultMessage": "Green"
+  },
+  {
+    "id": "tw.accent.red",
+    "description": "Name of the red color scheme. Matches TurboWarp.",
+    "defaultMessage": "Red"
+  },
+  {
+    "id": "tw.accent.purple",
+    "description": "Name of the purple color scheme. Matches modern Scratch.",
+    "defaultMessage": "Purple"
+  },
+  {
+    "id": "tw.accent.blue",
+    "description": "Name of the blue color scheme. Matches Scratch before the high contrast update.",
+    "defaultMessage": "Blue"
+  },
+  {
+    "id": "tw.accent.cottoncandy",
+    "description": "Name of the pastel pink/blue color scheme.",
+    "defaultMessage": "Cotton Candy"
+  },
+  {
+    "id": "tw.accent.stars",
+    "description": "Name of special color scheme.",
+    "defaultMessage": "Stars"
+  },
+  {
+    "id": "tw.accent.rainbow",
+    "description": "Name of color scheme that uses a rainbow.",
+    "defaultMessage": "Rainbow"
+  },
+  {
+    "id": "tw.gui.light",
+    "description": "Name of PotentiaMod's Light color scheme.",
+    "defaultMessage": "PotentiaMod - Light"
+  },
+  {
+    "id": "tw.gui.classiclight",
+    "description": "Name of the light color scheme.",
+    "defaultMessage": "Light"
+  },
+  {
+    "id": "tw.gui.dark",
+    "description": "Name of PotentiaMod's Dark color scheme.",
+    "defaultMessage": "PotentiaMod - Dark"
+  },
+  {
+    "id": "tw.gui.classicdark",
+    "description": "Name of the dark color scheme.",
+    "defaultMessage": "Dark"
+  },
+  {
+    "id": "tw.gui.midnight",
+    "description": "Name of the amolede color scheme.",
+    "defaultMessage": "Amoled"
+  },
+  {
+    "id": "tw.blockColors.three",
+    "description": "Name of normal Scratch block colors.",
+    "defaultMessage": "Original"
+  },
+  {
+    "id": "tw.blockColors.highContrast",
+    "description": "Name of the high contrast block colors.",
+    "defaultMessage": "High Contrast"
+  },
+  {
+    "id": "tw.blockColors.dark",
+    "description": "Name of the dark block colors",
+    "defaultMessage": "Dark (Beta)"
+  },
+  {
+    "id": "tw.blockColors.custom",
+    "description": "Link in block color list to open addon settings for more customization",
+    "defaultMessage": "Customize in Addon Settings"
+  }
+]

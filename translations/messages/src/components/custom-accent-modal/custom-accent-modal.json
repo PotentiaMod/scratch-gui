@@ -1,0 +1,117 @@
+[
+  {
+    "id": "pot.customAccent.title",
+    "description": "Title of custom accent manager",
+    "defaultMessage": "Custom Accent Manager"
+  },
+  {
+    "id": "nb.customAccent.create",
+    "description": "Button to choose to create or edit a custom accent.",
+    "defaultMessage": "Create/Edit"
+  },
+  {
+    "id": "nb.customAccent.manage",
+    "description": "Button to choose to manage custom accents.",
+    "defaultMessage": "Manage"
+  },
+  {
+    "id": "nb.customAccent.editingExisting",
+    "description": "Label for name input",
+    "defaultMessage": "You're editing an existing accent called \"{name}\""
+  },
+  {
+    "id": "nb.customAccent.editingNew",
+    "description": "Label for name input",
+    "defaultMessage": "A new accent will be created called \"{name}\""
+  },
+  {
+    "id": "nb.customAccent.primaryTitle",
+    "description": "Title for color picker",
+    "defaultMessage": "Primary"
+  },
+  {
+    "id": "nb.customAccent.primaryLabel",
+    "description": "Label for color picker",
+    "defaultMessage": "For most UI components"
+  },
+  {
+    "id": "nb.customAccent.secondaryTitle",
+    "description": "Title for color picker",
+    "defaultMessage": "Secondary"
+  },
+  {
+    "id": "nb.customAccent.secondaryLabel",
+    "description": "Label for color picker",
+    "defaultMessage": "For less important menus"
+  },
+  {
+    "id": "nb.customAccent.tertiaryTitle",
+    "description": "Title for color picker",
+    "defaultMessage": "Tertiary"
+  },
+  {
+    "id": "nb.customAccent.tertiaryLabel",
+    "description": "Label for color picker",
+    "defaultMessage": "For menus being hovered over"
+  },
+  {
+    "id": "nb.customAccent.headerGradient",
+    "description": "Message that appears in custom accent prompt",
+    "defaultMessage": "Header gradient"
+  },
+  {
+    "id": "nb.customAccent.headerGradientDegrees",
+    "description": "Label for degrees",
+    "defaultMessage": "degrees"
+  },
+  {
+    "id": "nb.customAccent.headerGradientAddColor",
+    "description": "Label for button to add a color",
+    "defaultMessage": "Add color"
+  },
+  {
+    "id": "gui.customProcedures.cancel",
+    "description": "Label for button to cancel custom procedure edits",
+    "defaultMessage": "Cancel"
+  },
+  {
+    "id": "gui.customProcedures.ok",
+    "description": "Label for button to save new custom procedure",
+    "defaultMessage": "OK"
+  },
+  {
+    "id": "nb.customAccent.noAccents",
+    "description": "Label to show no custom accents exist",
+    "defaultMessage": "No custom accents to show"
+  },
+  {
+    "id": "gui.customProcedures.cancelSelectMultiple",
+    "description": "Label for button to cancel",
+    "defaultMessage": "Cancel"
+  },
+  {
+    "id": "nb.customAccent.selectNone",
+    "description": "Label for button to select none",
+    "defaultMessage": "Select None"
+  },
+  {
+    "id": "nb.customAccent.selectAll",
+    "description": "Label for button to select all",
+    "defaultMessage": "Select All"
+  },
+  {
+    "id": "nb.customAccent.deleteMultiple",
+    "description": "Label for button to delete",
+    "defaultMessage": "Delete"
+  },
+  {
+    "id": "nb.customAccent.exportMultiple",
+    "description": "Label for button to export",
+    "defaultMessage": "Export"
+  },
+  {
+    "id": "nb.customAccent.selectMultiple",
+    "description": "Label for button to select multiple accents",
+    "defaultMessage": "Select Multiple"
+  }
+]

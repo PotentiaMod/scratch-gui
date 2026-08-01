@@ -1,0 +1,12 @@
+[
+  {
+    "id": "tw.restorePoint.loadFail",
+    "description": "Alert displayed when restore point loading failed",
+    "defaultMessage": "Could not load restore point: {error}"
+  },
+  {
+    "id": "tw.restorePoint.confirm",
+    "description": "Confirmation to load restore point",
+    "defaultMessage": "The editor automatically records one restore point in case something goes wrong and you forget to save. You shouldn't rely on this and we can't guarantee it will recover your project. Try to load it?"
+  }
+]

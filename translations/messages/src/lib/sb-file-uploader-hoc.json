@@ -1,0 +1,7 @@
+[
+  {
+    "id": "tw.loadError",
+    "description": "An error that displays when a local project file fails to load.",
+    "defaultMessage": "Could not load project: {error}"
+  }
+]

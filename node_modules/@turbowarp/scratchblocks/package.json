@@ -1,0 +1,77 @@
+{
+  "name": "@turbowarp/scratchblocks",
+  "version": "3.6.7",
+  "description": "Make pictures of Scratch blocks from text.",
+  "license": "MIT",
+  "author": "Tim Radvan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TurboWarp/scratchblocks.git"
+  },
+  "type": "module",
+  "main": "build/scratchblocks.min.js",
+  "module": "build/scratchblocks.min.es.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "rollup -c --environment buildTarget:PROD",
+    "fmt": "prettier --cache --write *.js syntax/*.js scratch2/*.js scratch3/*.js locales-src/*.js snapshots/*.js snapshots/*.html tests/*.js",
+    "lint:staged": "lint-staged",
+    "lint": "eslint *.js syntax/*.js scratch2/*.js scratch3/*.js locales-src/*.js snapshots/*.js tests/*.js",
+    "locales": "node locales-src/build-locales.js",
+    "rollup": "rollup -c",
+    "snapshots": "node ./snapshots/index.js",
+    "start": "rollup -c -m -w",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.25.9",
+    "@babel/plugin-external-helpers": "^7.25.9",
+    "@babel/plugin-syntax-import-assertions": "^7.26.0",
+    "@babel/plugin-transform-object-assign": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
+    "@eslint/js": "^9.15.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "cross-env": "^7.0.3",
+    "csso": "^5.0.5",
+    "eslint": "^9.15.0",
+    "express": "^5.0.1",
+    "globals": "^15.12.0",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "prettier-package-json": "^2.8.0",
+    "puppeteer": "^23.8.0",
+    "rollup": "^4.27.2",
+    "rollup-plugin-license": "^3.5.3",
+    "rollup-plugin-serve": "^3.0.0",
+    "scratch-l10n": "^4.0.31"
+  },
+  "keywords": [
+    "scratch"
+  ],
+  "lint-staged": {
+    "package.json": [
+      "prettier-package-json --write",
+      "git add"
+    ],
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint:staged",
+  "prettier": {
+    "semi": false,
+    "trailingComma": "all",
+    "arrowParens": "avoid"
+  },
+  "jest": {
+    "transform": {}
+  }
+}

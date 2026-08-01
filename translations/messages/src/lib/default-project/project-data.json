@@ -1,0 +1,12 @@
+[
+  {
+    "id": "gui.defaultProject.variable",
+    "description": "Name for the default variable",
+    "defaultMessage": "my variable"
+  },
+  {
+    "id": "tw.defaultProject.readme",
+    "description": "a README",
+    "defaultMessage": "#README #Welocome\n\n# Welcome to **GaiaMod**, a Scratch editor based on PenguinMod, with features that served as ultimate experiences to coders eevrywhere!\n\nHere, we put thi README feature from Astra Editor in here. Don't tell us that we stole those features because we are just lowkey people.\n\nFor its source code, pelase visit our [code repository](https://github.com/GaiaMod-Main).\n\nGot a bug? Go to [this link](https://github.com/GaiaMod-Main/gaiamod-main.github.io/issues) to report it for us!\n\n> [!NOTE]\n> [Follow the head developer's profile on YouTube](https://www.youtube.com/@GaiaWindWave90)"
+  }
+]

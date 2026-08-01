@@ -1,0 +1,118 @@
+// Type definitions for scratch-storage
+// Project: https://github.com/LLK/scratch-storage
+
+declare namespace ScratchStorage {
+  enum DataFormat {
+    // TW
+    TTF = 'ttf',
+    OTF = 'otf',
+    WOFF = 'woff',
+    WOFF2 = 'woff2',
+
+    JPG = 'jpg',
+    JSON = 'json',
+    MP3 = 'mp3',
+    PNG = 'png',
+    SB2 = 'sb2',
+    SB3 = 'sb3',
+    SVG = 'svg',
+    WAV = 'wav'
+  }
+
+  interface AssetType {
+    contentType: string;
+    name: string;
+    runtimeFormat: DataFormat;
+    /** Indicates if the asset id is determined by the asset content. */
+    immutable: boolean;
+  }
+  namespace AssetType {
+    // TW
+    const Font: AssetType;
+
+    const ImageBitmap: AssetType;
+    const ImageVector: AssetType;
+    const Project: AssetType;
+    const Sound: AssetType;
+    const Sprite: AssetType;
+  }
+
+  class Asset {
+    // TW
+    clean: boolean;
+
+    constructor(assetType: AssetType, assetId: string, dataFormat: DataFormat | null, data: Uint8Array, generateId?: boolean);
+
+    assetType: AssetType;
+
+    dataFormat: DataFormat;
+
+    /**
+     * MD5 of asset's data.
+     */
+    assetId: string;
+
+    data: Uint8Array;
+
+    setData(data: Uint8Array, dataFormat: DataFormat, generateId?: boolean): void;
+    encodeTextData(text: string, dataFormat: DataFormat, generateId?: boolean): void;
+
+    decodeText(): string;
+    encodeDataURI(contentType?: string): string;
+
+    /**
+     * @deprecated Unused.
+     */
+    dependencies: [];
+  }
+
+  // TW: may also return a fetch request-config object, or false to skip the store
+  type UrlFunction = (asset: Asset) => string | object | false;
+
+  interface Helper {
+    parent: ScratchStorage;
+    load(assetType: AssetType, assetId: string, dataFormat: DataFormat): Promise<Asset>;
+    store(assetType: AssetType, dataFormat: DataFormat, data: Uint8Array, assetId: string): Promise<unknown>;
+  }
+}
+
+declare class ScratchStorage {
+  get Asset(): typeof ScratchStorage.Asset;
+  get AssetType(): typeof ScratchStorage.AssetType;
+  get DataFormat(): typeof ScratchStorage.DataFormat;
+
+  _helpers: ScratchStorage.Helper[];
+  addHelper(helper: ScratchStorage.Helper, priority?: number): void;
+
+  /**
+   * Synchronously get a cached asset.
+   */
+  get(assetId: string): ScratchStorage.Asset | null;
+
+  cache(assetType: ScratchStorage.AssetType, dataFormat: ScratchStorage.DataFormat, data: Uint8Array, assetId: string): string;
+
+  load(assetType: ScratchStorage.AssetType, assetId: string, dataFormat: ScratchStorage.DataFormat): Promise<ScratchStorage.Asset | null>;
+
+  store(assetType: ScratchStorage.AssetType, dataFormat: ScratchStorage.DataFormat, data: Uint8Array, assetId: string): Promise<unknown>;
+
+  getDefaultAssetId(type: ScratchStorage.AssetType): string | undefined;
+  setDefaultAssetId(type: ScratchStorage.AssetType, id: string): void;
+
+  createAsset(assetType: ScratchStorage.AssetType, dataFormat: ScratchStorage.DataFormat, data: Uint8Array, assetId: null, generateId: true): ScratchStorage.Asset;
+  createAsset(assetType: ScratchStorage.AssetType, dataFormat: ScratchStorage.DataFormat, data: Uint8Array, assetId: string, generateId?: boolean): ScratchStorage.Asset;
+
+  addWebStore(types: ScratchStorage.AssetType[], getFunction: ScratchStorage.UrlFunction, createFunction?: ScratchStorage.UrlFunction, updateFunction?: ScratchStorage.UrlFunction): void;
+
+  /**
+   * @deprecated Use addWebStore instead.
+   */
+  addWebSource(types: ScratchStorage.AssetType[], getFunction: ScratchStorage.UrlFunction): void;
+}
+
+/**
+ * Modified version of ScratchStorage used by scratch-gui.
+ */
+declare class GUIScratchStorage extends ScratchStorage {
+  projectToken?: string;
+  setProjectToken(token: string): void;
+}
