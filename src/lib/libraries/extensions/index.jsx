@@ -179,6 +179,7 @@ import ptIcon from './tw/pt.svg';
 import TWgalleryIcon from './gallery/TWgallery.svg';
 import returnIcon from './custom/return.svg';
 import customExtensionIcon from './custom/custom.svg';
+import customURLIcon from './custom/customURL.svg';
 import galleryIconNB from './gallery/gallery-nb.svg';
 import galleryIconDash from './dashblocks/gallery.svg';
 import galleryIconMist from './mistium/library.svg';
@@ -822,6 +823,28 @@ const menuItems = [
         featured: true
         // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
     },
+	/*
+	{
+        name: (
+            <FormattedMessage
+                defaultMessage="Custom Extension Gallery"
+                description="Name of library item to load a custom extension gallery from a URL"
+                id="tw.customExtensionGallery.name"
+            />
+        ),
+        extensionId: 'custom_gallery',
+        iconURL: customURLIcon,
+        description: (
+            <FormattedMessage
+                defaultMessage="Load extensions from a custom extension gallery URL."
+                description="Description of library item to load extensions from a custom gallery source"
+                id="tw.customExtensionGallery.description"
+            />
+        ),
+        tags: ['potentia'],
+        featured: true
+    },
+	*/
 		 {
         name: 'PotentiaMod Extension Bonanza!',
         extensionId: 'potentiaGallery',

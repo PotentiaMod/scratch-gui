@@ -147,6 +147,11 @@ const messages = defineMessages({
         defaultMessage: 'Extensions',
         description: 'Header for extension library',
         id: 'tw.gui.extensionLibrary.header'
+    },
+	 customGalleryPrompt: {
+        defaultMessage: 'Enter custom extension gallery URL:',
+        description: 'Prompt for entering custom extension gallery URL',
+        id: 'tw.customExtensionGallery.prompt'
     }
 });
 
@@ -289,6 +294,13 @@ class ExtensionLibrary extends React.PureComponent {
             this.props.onOpenCustomExtensionModal();
             return;
         }
+		
+		if (extensionId === 'custom_gallery') {
+            if (this.props.onOpenCustomGalleryModal) {
+                this.props.onOpenCustomGalleryModal();
+            }
+            return;
+        }
 
         const url = item.extensionURL ? item.extensionURL : extensionId;
         if (!item.disabled) {
@@ -378,6 +390,7 @@ ExtensionLibrary.propTypes = {
     intl: intlShape.isRequired,
     onCategorySelected: PropTypes.func,
     onOpenCustomExtensionModal: PropTypes.func,
+    onOpenCustomGalleryModal: PropTypes.func,
     onRequestClose: PropTypes.func,
     visible: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired // eslint-disable-line react/no-unused-prop-types

@@ -34,6 +34,7 @@ import TWSettingsModal from '../../containers/tw-settings-modal.jsx';
 import TWSecurityManager from '../../containers/tw-security-manager.jsx';
 import TWCustomExtensionModal from '../../containers/tw-custom-extension-modal.jsx';
 import TWCustomAccentModal from '../../containers/custom-accent-modal.jsx';
+import CustomGalleryModal from '../../containers/custom-gallery-modal.jsx';
 import TWExtensionManagerModal from '../../containers/extension-manager-modal.jsx';
 import TWRestorePointManager from '../../containers/tw-restore-point-manager.jsx';
 import TWFontsModal from '../../containers/tw-fonts-modal.jsx';
@@ -133,6 +134,7 @@ const GUIComponent = props => {
         onClickLogo,
         onExtensionButtonClick,
         onOpenCustomExtensionModal,
+		onOpenCustomGalleryModal,
         onProjectTelemetryEvent,
         onRequestCloseBackdropLibrary,
         onRequestCloseCostumeLibrary,
@@ -157,6 +159,7 @@ const GUIComponent = props => {
         usernameModalVisible,
         settingsModalVisible,
         customExtensionModalVisible,
+		customGalleryModalVisible,
         customAccentModalVisible,
 		extensionManagerModalVisible,
         fontsModalVisible,
@@ -193,6 +196,7 @@ const GUIComponent = props => {
                 {usernameModalVisible && <TWUsernameModal />}
                 {settingsModalVisible && <TWSettingsModal />}
                 {customExtensionModalVisible && <TWCustomExtensionModal />}
+                {customGalleryModalVisible && <CustomGalleryModal />}
                 {customAccentModalVisible && <TWCustomAccentModal />}
 				{extensionManagerModalVisible && <TWExtensionManagerModal />}
                 {fontsModalVisible && <TWFontsModal />}
@@ -403,6 +407,7 @@ const GUIComponent = props => {
                                             }}
                                             stageSize={stageSize}
                                             onOpenCustomExtensionModal={onOpenCustomExtensionModal}
+                                            onOpenCustomGalleryModal={onOpenCustomGalleryModal}
                                             theme={theme}
                                             vm={vm}
                                         />
@@ -515,6 +520,7 @@ GUIComponent.propTypes = {
     onCloseAccountNav: PropTypes.func,
     onExtensionButtonClick: PropTypes.func,
     onOpenCustomExtensionModal: PropTypes.func,
+    onOpenCustomGalleryModal: PropTypes.func,
     onLogOut: PropTypes.func,
     onOpenRegistration: PropTypes.func,
     onRequestCloseBackdropLibrary: PropTypes.func,
@@ -543,6 +549,7 @@ GUIComponent.propTypes = {
     usernameModalVisible: PropTypes.bool,
     settingsModalVisible: PropTypes.bool,
     customExtensionModalVisible: PropTypes.bool,
+    customGalleryModalVisible: PropTypes.bool,
     extensionManagerModalVisible: PropTypes.bool,
     customAccentModalVisible: PropTypes.bool,
     fontsModalVisible: PropTypes.bool,
