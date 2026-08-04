@@ -147,7 +147,10 @@ module.exports = [
             'fullscreen': './src/playground/fullscreen.jsx',
             'embed': './src/playground/embed.jsx',
             'addon-settings': './src/playground/addon-settings.jsx',
-            'credits': './src/playground/credits/credits.jsx'
+            'credits': './src/playground/credits/credits.jsx',
+            'not_found': './src/playground/not_found/not_found.jsx',
+            'pot-desktop': './src/playground/pot-desktop/pot-desktop.jsx',
+            'index': './src/playground/index/index.jsx'
         },
         output: {
             path: path.resolve(__dirname, 'build')

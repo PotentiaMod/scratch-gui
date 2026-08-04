@@ -1,0 +1,57 @@
+@import "../../css/colors.css";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: $page-background;
+    color: $page-foreground;
+}
+
+a {
+    color: $link-color;
+}
+
+.main section {
+    max-width: 900px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.header-container {
+    color: white;
+    background-color: $looks-secondary;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.header-text {
+
+}
+
+.download-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.screenshot {
+    filter: drop-shadow(0 0 1rem $ui-black-transparent);
+    border-radius: 0.5rem;
+    background-color: $page-background;
+    width: 100%;
+}
+
+.download-button {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0.75rem 1rem;
+    background: $looks-secondary;
+    color: white;
+    border: 1px solid $looks-secondary;
+    font-weight: 600;
+    font-size: 0.85rem;
+}

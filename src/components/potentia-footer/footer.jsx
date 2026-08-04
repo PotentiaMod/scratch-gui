@@ -106,7 +106,7 @@ const Footer = () => (
 							</h4>
 							</p>
             <p className={styles.info}>
-                Version: 15.7 | <a
+                Version: 1.19.0 | <a
                     onClick={eraseData}
                     style={{color: 'red'}}
                 >Erase data</a>
