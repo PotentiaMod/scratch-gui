@@ -14,9 +14,6 @@ import Footer from '../../components/potentia-footer/footer.jsx';
 import screenshotLight from './screencap-light.png';
 import screenshotDark from './screencap-dark.png';
 
-import 'modern-normalize/modern-normalize.css';
-import '../load-fonts.css';
-
 const RELEASE_VERSION = '1.19.0';
 const VERSION_IN_FILENAME = '1.19.0';
 const RELEASES_DOWNLOAD_URL = `https://github.com/PotentiaMod/desktop/releases/download/v${RELEASE_VERSION}`;
@@ -30,7 +27,7 @@ const BRAND = 'PotententiaMod';
 const SLOGAN = 'A Block-Based Coding That Goes EXTREME!';
 
 
-const POT-Desktop = () => {
+const POTDesktop = () => {
     const openFile = (file) => {
         window.open(`${RELEASES_DOWNLOAD_URL}/${file}`, '_blank', 'noreferrer');
     };
@@ -89,6 +86,6 @@ const POT-Desktop = () => {
     );
 };
 
-const WrappedDesktop = AppStateHOC(POT-Desktop);
+const WrappedDesktop = AppStateHOC(POTDesktop);
 
 render(<WrappedDesktop />);

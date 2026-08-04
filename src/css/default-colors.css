@@ -74,6 +74,13 @@ $shadow-default: var(--shadow-default);
 $badge-background-default: var(--badge-background-default);
 $badge-border-default: var(--badge-border-default);
 
+$page-header-background-default: var(--page-header-background-default);
+$page-header-foreground-default: var(--page-header-foreground-default);
+
+$page-header-button-background-default: var(--page-header-button-background-default);
+$page-header-button-foreground-default: var(--page-header-button-foreground-default);
+
+
 $fullscreen-background-default: var(--fullscreen-background-default);
 $fullscreen-accent-default: var(--fullscreen-accent-default);
 
