@@ -40,7 +40,7 @@ const base = {
         // allows ROUTING_STYLE=wildcard to work properly
         historyApiFallback: {
             rewrites: [
-                {from: /^\/\d+\/?$/, to: '/index.html'},
+                {from: /^\/\d+\/?$/, to: '/'},
                 {from: /^\/\d+\/fullscreen\/?$/, to: '/fullscreen.html'},
                 {from: /^\/\d+\/editor\/?$/, to: '/editor.html'},
                 {from: /^\/\d+\/embed\/?$/, to: '/embed.html'},
@@ -187,24 +187,17 @@ module.exports = [
             }),
             new HtmlWebpackPlugin({
                 chunks: ['editor'],
-                template: 'src/playground/index.ejs',
+                template: 'src/playground/player.ejs',
                 filename: 'editor.html',
-                title: `${APP_NAME} - Run Scratch projects faster`,
+                title: `${APP_NAME} - A Block-Based Coding That Goes EXTREME!`,
                 isEditor: true,
                 ...htmlWebpackPluginCommon
             }),
             new HtmlWebpackPlugin({
-                chunks: ['player'],
-                template: 'src/playground/index.ejs',
-                filename: 'index.html',
-                title: `${APP_NAME} - Run Scratch projects faster`,
-                ...htmlWebpackPluginCommon
-            }),
-            new HtmlWebpackPlugin({
                 chunks: ['fullscreen'],
-                template: 'src/playground/index.ejs',
+                template: 'src/playground/player.ejs',
                 filename: 'fullscreen.html',
-                title: `${APP_NAME} - Run Scratch projects faster`,
+                title: `${APP_NAME} - A Block-Based Coding That Goes EXTREME!`,
                 ...htmlWebpackPluginCommon
             }),
             new HtmlWebpackPlugin({
@@ -226,6 +219,31 @@ module.exports = [
                 template: 'src/playground/simple.ejs',
                 filename: 'credits.html',
                 title: `${APP_NAME} Credits`,
+                ...htmlWebpackPluginCommon
+            }),
+            new HtmlWebpackPlugin({
+                chunks: ['not_found'],
+                template: 'src/playground/simple.ejs',
+                filename: 'not_found.html',
+                title: `404 - ${APP_NAME}`,
+                noSplash: true,
+                ...htmlWebpackPluginCommon
+            }),
+           new HtmlWebpackPlugin({
+                chunks: ['index'],
+                template: 'src/playground/simple.ejs',
+                filename: 'index.html',
+                title: `${APP_NAME} - A Block-Based Coding That Goes EXTREME!`,
+                description:
+                    `${APP_NAME} is a beta block-based visual programming language based on TurboWarp that allows you to program things on the fly! You do things with ${APP_NAME} such as making apps or a program that controls your browser!`,
+                noSplash: true,
+                ...htmlWebpackPluginCommon
+            }),
+			new HtmlWebpackPlugin({
+                chunks: ['pot-desktop'],
+                template: 'src/playground/simple.ejs',
+                filename: 'pot-desktop.html',
+                title: `${APP_NAME} Desktop - ${APP_NAME} if it was a desktop app.`,
                 ...htmlWebpackPluginCommon
             }),
             new CopyWebpackPlugin({

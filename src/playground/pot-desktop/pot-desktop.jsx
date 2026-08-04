@@ -41,7 +41,7 @@ const POTDesktop = () => {
                 </h1>
             </header>
             <section>
-                <p>PotentiaMod if it as a desktop app.</p>
+                <p>PotentiaMod if it was a desktop app.</p>
                 <img
                     className={styles.screenshot}
                     loading="lazy"
