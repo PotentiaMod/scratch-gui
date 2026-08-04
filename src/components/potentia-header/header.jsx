@@ -12,7 +12,7 @@ import Button from '../button/button.jsx';
 
 import styles from './header.css';
 
-import logo from '../menu-bar/scratch-logo.svg';
+import logo from '../menu-bar/potentiamod-logo.svg';
 
 import {APP_NAME} from '../../lib/brand.js';
 
@@ -23,13 +23,14 @@ const Header = () => (
                 href="/"
                 className={classNames(styles.headerItem)}
             >
-                <img
-                                id="logo_img"
-                                alt="PotentiaMod"
-                                className={classNames(styles.scratchLogo)}
-                                draggable={false}
-                                src={logo}
-                            />
+                 <img
+                            src={logo}
+                            alt="PotentiaMod"
+                            className={styles.homeLogo}
+                        />
+                        <span className={styles.homeWordmark}>
+                            {'PotentiaMod'}
+                        </span>
             </a>
             <a
                 href="/editor.html"

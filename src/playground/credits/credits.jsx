@@ -8,6 +8,9 @@ import {applyGuiColors} from '../../lib/themes/guiHelpers';
 import {detectTheme} from '../../lib/themes/themePersistance';
 import UserData from './users';
 
+import Header from '../../components/potentia-header/header.jsx';
+import Footer from '../../components/potentia-footer/footer.jsx';
+
 /* eslint-disable react/jsx-no-literals */
 
 applyGuiColors(detectTheme());
@@ -54,14 +57,13 @@ UserList.propTypes = {
 
 const Credits = () => (
     <main className={styles.main}>
-        <header className={styles.headerContainer}>
-            <h1 className={styles.headerText}>
+	<Header />
+            <h1>
                 {APP_NAME} Credits
             </h1>
-        </header>
         <section>
             <p>
-                The {APP_NAME} project is made possible by the work of many volunteers.
+                The {APP_NAME} project is made possible by only one developer.
             </p>
         </section>
         {APP_NAME !== 'TurboWarp' && (
@@ -69,14 +71,14 @@ const Credits = () => (
             <section>
                 <h2>TurboWarp</h2>
                 <p>
-                    {APP_NAME} is based on <a href="https://turbowarp.org/">TurboWarp</a>.
+                    {APP_NAME} is based on <a href="https://turbowarp.org/">TurboWarp</a>, which in turn is based on <a href="https://scratch.mit.edu/">Scratch</a>.
                 </p>
             </section>
         )}
         <section>
             <h2>Scratch</h2>
             <p>
-                {APP_NAME} is based on the work of the <a href="https://scratch.mit.edu/credits">Scratch contributors</a> but is not endorsed by Scratch in any way.
+                {APP_NAME} is based on the work of the <a href="https://scratch.mit.edu/credits">Scratch contributors</a> but is not endorsed by Scratch in any way when it was TurboWarp.
             </p>
             <p>
                 <a href="https://scratch.mit.edu/donate">
@@ -107,6 +109,14 @@ const Credits = () => (
                 &mdash; far more than we could hope to list here.
             </p>
         </section>
+		<section>
+            <h2>Codes Taken from Other Scratch Mods</h2>
+			<p>
+			We've also included some codes taken from other open-source Scratch mods inside of {APP_NAME}.
+            Here's a list of some other Scratch mods you should check out:
+		     </p>
+            <UserList users={UserData.codeUsedFrom} />
+        </section>
         <section>
             <p>
                 <i>
@@ -115,6 +125,7 @@ const Credits = () => (
                 </i>
             </p>
         </section>
+		<Footer />
     </main>
 );
 

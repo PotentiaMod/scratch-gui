@@ -1,55 +1,68 @@
 @import "../../css/colors.css";
 @import "../../css/units.css";
 @import "../../css/z-index.css";
-@import "../../css/typography.css";
 
 .header {
     display: flex;
-    width: 100vw;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: nowrap;
     gap: 0.5rem;
-    padding: 0 0.5rem;
-
-    /* Stick it on the top. */
-    position: fixed;
 
     /*
-     *        For most things, we shouldn't explicitly set height, and let the
-     *        content push the element to whatever fits. Using a fixed height
-     *        instead, will help us subtract the value we assign from the body,
-     *        adding up to a perfect 100%. This means we don't need to set
-     *        overflow: hidden, which makes it hard to debug. border-box
-     *        simplifies by all of this by removing padding from the equation.
-     */
+        For most things, we shouldn't explicitly set height, and let the
+        content push the element to whatever fits. Using a fixed height
+        instead, will help us subtract the value we assign from the body,
+        adding up to a perfect 100%. This means we don't need to set
+        overflow: hidden, which makes it hard to debug. border-box
+        simplifies by all of this by removing padding from the equation.
+    */
     box-sizing: border-box;
     height: $menu-bar-height;
 
     /*
-     *        @todo: This adds ~20px in Chrome, when scrolling to the right,
-     *        but fixes [FFx + Safari] [resize window down + scroll to the right] bug.
-     *        width: 100%;
-     */
-    font-family: $font-family;
+        @todo: This adds ~20px in Chrome, when scrolling to the right,
+        but fixes [FFx + Safari] [resize window down + scroll to the right] bug.
+        width: 100%;
+    */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: $menu-bar-standard-font-size;
     font-weight: bold;
-    background-color: $navbar-background;
+    background-color: $menu-bar-background;
     background-image: $menu-bar-background-image;
     color: $menu-bar-foreground;
-
-    box-shadow: 0 0.1em 0.5em hsla(0, 0%, 0%, 0.25);
 }
 
-.main-group {
+.header.centered {
+    justify-content: center;
+}
+
+.header.centered > .header-menu {
+    flex-grow: 0;
+}
+
+.file-group, .main-group {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
     align-items: center;
-    flex-grow: 1;
     gap: 0.5rem;
 }
+
+.file-group .header-item, .main-group .header-item {
+    padding: 0 0.5rem;
+}
+
+[dir="ltr"] .header.centered > .account-info-group {
+    flex-grow: 0;
+    position: absolute;
+    right: 0;
+}
+[dir="rtl"] .header.centered > .account-info-group {
+    flex-grow: 0;
+    position: absolute;
+    left: 0;
+}
+
 .inactive {
     opacity: 0;
 }
@@ -57,14 +70,40 @@
     transition: height 0.3s ease;
     height: 2.25rem;
     color: inherit;
+	filter: initial;
 }
 
-.scratch-logo:hover {
-    height: 2.40rem;
+.scratch-logo img{
+	filter: initial;
 }
+
+/*
+.scratch-logo:hover {
+    height: 2.30rem;
+}
+*/
 
 .scratch-logo.clickable {
     cursor: pointer;
+}
+
+.home-link {
+    gap: 6px;
+    padding: 0 10px;
+    color: inherit;
+}
+
+.home-logo {
+    height: 28px;
+    border-radius: 6px;
+    display: block;
+}
+
+.home-wordmark {
+	color: var(--menu-bar-foreground);
+    font-weight: 800;
+    font-size: 19px;
+    letter-spacing: -0.02em;
 }
 
 .header-item {
@@ -76,20 +115,16 @@
     align-items: center;
     white-space: nowrap;
     height: $menu-bar-height;
-    padding: 0 0.5rem;
-    color: $menu-bar-foreground;
-    border-radius: 0.5rem;
-    transition: 0.1s background-color;
-    height: calc($menu-bar-height - 0.75rem);
 }
 
-.header-item.hoverable {
+.header-item.hoverable img {
     cursor: pointer;
+	filter: var(--menu-bar-icon-filter);
 }
 
 .header-item.active,
 .header-item.hoverable:hover {
-    background-color: $menu-bar-item-hover;
+    background-color: $ui-black-transparent;
 }
 
 .header-item.growable {
@@ -102,18 +137,29 @@
     width: 2rem;
 }
 
+.file-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.file-group .header-item {
+    padding: 0 0.5rem;
+}
+
 .header-menu {
     margin-top: $menu-bar-height;
     z-index: $z-index-menu-bar;
 }
 
 .feedback-link {
-    color: $navbar-background;
+    color: var(--looks-secondary-darker);
     text-decoration: none;
 }
 
 .feedback-button {
-    background-color: $menu-bar-primary-button;
+    background-color: var(--looks-secondary-light);
     color: inherit;
     height: 34px;
 }
@@ -183,6 +229,15 @@
 .dropdown-caret-icon {
     width: 0.5rem;
     height: 0.5rem;
+	filter: var(--menu-bar-icon-filter);
+}
+
+.settings-button .button-icon,
+.file-button .button-icon,
+.edit-button .button-icon,
+.error-icon,
+.menu-bar-item.logo img {
+    filter: var(--menu-bar-icon-filter);
 }
 
 [dir="ltr"] .dropdown-caret-icon {
@@ -198,29 +253,33 @@
 }
 
 .mystuff > a {
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 45%;
-    padding-right: 10px;
-    padding-left: 10px;
-    width: 30px;
-    overflow: hidden;
-    text-indent: 50px;
-    white-space: nowrap;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 45%;
+  padding-right: 10px;
+  padding-left: 10px;
+  width: 30px;
+  overflow: hidden;
+  text-indent: 50px;
+  white-space: nowrap;
 }
 .mystuff > a:hover {
-    background-size: 50%;
+  background-size: 50%;
 }
 
 .mystuff > a {
-    /* background-image: url("/images/mystuff.png"); */
+  /* background-image: url("/images/mystuff.png"); */
 }
 
 .about-icon {
     height: 1.25rem;
     margin: 0.5rem;
     vertical-align: middle;
-    filter: var(--icon-filter);
+	filter: var(--menu-bar-icon-filter);
+}
+
+.icon {
+	filter: var(--menu-bar-icon-filter);
 }
 
 .collapsible-label {
@@ -237,7 +296,7 @@
     }
 }
 
-.header-link {
+.menu-item-link {
     color: inherit;
     text-decoration: none;
 }

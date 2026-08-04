@@ -132,12 +132,12 @@
 }
 
 .feedback-link {
-    color: $menu-bar-background;
+    color: var(--looks-secondary-darker);
     text-decoration: none;
 }
 
 .feedback-button {
-    background-color: white;
+    background-color: var(--looks-secondary-light);
     color: inherit;
     height: 34px;
 }

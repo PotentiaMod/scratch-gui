@@ -19,6 +19,24 @@ const fromHardcoded = ({userID = '0', username}) => {
     return result;
 };
 
+const fromHardcodedPM = ({username}) => {
+    const result = {
+        image: `https://projects.penguinmod.com/api/v1/users/getpfp?username=${username}`,
+        href: `https://studio.penguinmod.com/credits.html#`,
+        text: username
+    };
+    return result;
+};
+
+const fromHardcodedGitHub = ({username}) => {
+    const result = {
+        image: `https://github.com/${username}.png`,
+        href: `https://github.com/${username}/`,
+        text: username
+    };
+    return result;
+};
+
 // The lists below are in no particular order.
 
 const contributors = [
@@ -381,9 +399,113 @@ const docs = [
     }
 ].map(fromHardcoded);
 
+const codeUsedFrom = [
+    {
+        text: "02 Engine",
+        image: `https://gaiamod-main.github.io/icons/mods/02engine.png`,
+        href: `https://editor.02engine.org/index.html`,
+    },
+    {
+        text: "AstraEditor",
+        image: `https://gaiamod-main.github.io/icons/mods/astraeditor.png`,
+        href: `https://editors.astras.top/`,
+    },
+	    {
+        text: "Bilup",
+        image: `https://gaiamod-main.github.io/icons/mods/bilup.png`,
+        href: `https://editor.bilup.org/`,
+    },
+    {
+        text: "Adacraft",
+        image: `https://gitlab.com/uploads/-/system/group/avatar/8613368/logo.png`,
+        href: `https://www.adacraft.org/studio/`,
+    },
+    {
+        text: "MistWarp",
+        image: `https://gaiamod-main.github.io/icons/mods/mistwarp.png`,
+        href: `https://warp.mistium.com/`,
+    },
+    {
+        text: "OmniBlocks",
+        image: `https://gaiamod-main.github.io/icons/mods/omniblocks.png`,
+        href: `https://omniblocks.github.io/`,
+    },
+	    {
+        text: "LibreKitten",
+        image: `https://gaiamod-main.github.io/icons/mods/librekitten.png`,
+        href: `https://librekitten.org/`,
+    },
+	    {
+        text: "AmpMod",
+        image: `https://gaiamod-main.github.io/icons/mods/ampmod.png`,
+        href: `https://ampmod.codeberg.page/`,
+    },
+	   {
+        text: "ScratchBox",
+        image: `https://gaiamod-main.github.io/icons/mods/scratchbox.png`,
+        href: `https://editor.scratchbox.dev/`,
+    },
+    {
+        text: "Dash",
+        image: `https://gaiamod-main.github.io/icons/mods/dashblocks.png`,
+        href: `https://dashblocks.org/`,
+    },
+	    {
+        text: "Nitro-Bolt",
+        image: `https://gaiamod-main.github.io/icons/mods/nitrobolt.png`,
+        href: `https://nitrobolt.org/`,
+    },
+    {
+        text: "Cocrea World",
+        image: `https://gaiamod-main.github.io/icons/mods/cocreaworld.png`,
+        href: `https://www.cocrea.world/`,
+    },
+	{
+        text: "GaiaMod",
+        image: `https://gaiamod-main.github.io/icons/mods/gaiamod.png`,
+        href: `https://gaiamod-main.github.io/`,
+    },
+    {
+        text: "ElectraMod",
+        image: `https://gaiamod-main.github.io/icons/mods/electramod.png`,
+        href: `https://electramod.vercel.app/`,
+    },
+    {
+        text: "Snail IDE",
+        image: `https://gaiamod-main.github.io/icons/mods/snailide.png`,
+        href: `http://snail-ide.js.org/`,
+    },
+	 {
+        text: "Ark IDE",
+        image: `https://gaiamod-main.github.io/icons/mods/arkide.png`,
+        href: `https://studio.arkide.site/`,
+    },
+    {
+        text: "DinosaurMod",
+        image: `https://gaiamod-main.github.io/icons/mods/dinosaurmod.png`,
+        href: `https://dinosaurmod.github.io/`,
+    },
+	 {
+        text: "PenguinMod",
+        image: `https://gaiamod-main.github.io/icons/mods/penguinmod.png`,
+        href: `https://studio.penguinmod.com/`,
+    },	
+    {
+        text: "TurboWarp",
+        image: `https://gaiamod-main.github.io/icons/mods/turbowarp.png`,
+        href: `https://turbowarp.org/`,
+    },
+    {
+        text: "scratchfoundation",
+        image: `https://gaiamod-main.github.io/icons/mods/scratch.png`,
+        href: `https://scratch.mit.edu/`,
+    },
+];
+
 export default {
     contributors: shuffle(contributors),
     addonDevelopers: shuffle(addonDevelopers),
     extensionDevelopers: shuffle(extensionDevelopers),
-    docs: shuffle(docs)
+    docs: shuffle(docs),
+    codeUsedFrom: shuffle(codeUsedFrom)
 };

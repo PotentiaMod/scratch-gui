@@ -1,9 +1,8 @@
 import classNames from 'classnames';
 import React from 'react';
 import {defineMessages, FormattedMessage, injectIntl, intlShape} from 'react-intl';
-import logo from '!../../lib/tw-recolor/build!./logo.svg';
+import logo from './logo.svg';
 import gaiamod from './gaiamod-logo.svg';
-import TWRenderRecoloredImage from '../../lib/tw-recolor/render.jsx';
 import {APP_NAME} from '../../lib/brand.js';
 import styles from './footer.css';
 import Swal from 'sweetalert2';
@@ -29,7 +28,7 @@ const Footer = () => (
     <footer className={styles.footer}>
         <div className={styles.inner}>
             <div className={styles.brand}>
-                <TWRenderRecoloredImage
+                <img
                     width="70px"
                     src={logo}
                     alt="PotentiaMod"

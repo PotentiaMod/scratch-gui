@@ -7,6 +7,8 @@ import {APP_NAME} from '../../lib/brand';
 import {applyGuiColors} from '../../lib/themes/guiHelpers';
 import {detectTheme} from '../../lib/themes/themePersistance';
 import UserData from './users';
+import Header from '../../components/potentia-header/header.jsx';
+import Footer from '../../components/potentia-footer/footer.jsx';
 
 /* eslint-disable react/jsx-no-literals */
 
