@@ -27,7 +27,7 @@ import DeletionRestorer from '../../containers/deletion-restorer.jsx';
 import TurboMode from '../../containers/turbo-mode.jsx';
 import MenuBarHOC from '../../containers/menu-bar-hoc.jsx';
 import SettingsMenu from './settings-menu.jsx';
-import TWRenderRecoloredImage from '../../lib/tw-recolor/render.jsx';
+//import TWRenderRecoloredImage from '../../lib/tw-recolor/render.jsx';
 
 import FramerateChanger from '../../containers/tw-framerate-changer.jsx';
 import ChangeUsername from '../../containers/tw-change-username.jsx';
@@ -98,7 +98,7 @@ import addonsIcon from './addons.svg';
 import errorIcon from './tw-error.svg';
 import advancedIcon from './tw-advanced.svg';
 
-import logo from '!../../lib/tw-recolor/build!./scratch-logo.svg';
+import logo from './potentiamod-logo.svg';
 import ninetiesLogo from './nineties_logo.svg';
 import catLogo from './cat_logo.svg';
 import prehistoricLogo from './prehistoric-logo.svg';
@@ -495,16 +495,14 @@ class MenuBar extends React.Component {
                 <div className={styles.mainMenu}>
                     <div className={styles.fileGroup}>
 					 <div className={classNames(styles.menuBarItem)}>
-                            <TWRenderRecoloredImage
-                                id="logo_img"
-                                alt="PotentiaMod"
-                                className={classNames(styles.scratchLogo, {
-                                    [styles.clickable]: typeof this.props.onClickLogo !== 'undefined'
-                                })}
-                                draggable={false}
-                                src={this.props.logo}
-                                onClick={this.props.onClickLogo}
-                            />
+                            <img
+                            src={logo}
+                            alt="PotentiaMod"
+                            className={styles.homeLogo}
+                        />
+                        <span className={styles.homeWordmark}>
+                            {'PotentiaMod'}
+                        </span>
                         </div>
                         {this.props.errors.length > 0 && <div>
                             <MenuLabel
