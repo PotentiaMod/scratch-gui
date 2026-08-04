@@ -242,7 +242,7 @@ const BlockOptions = defineMessages({
 let themeObjectsCreated = 0;
 
 class Theme {
-    constructor (accent, gui, blocks) {
+    constructor (accent, gui, blocks, wallpaper, font) {
         // do not modify these directly
         /** @readonly */
         this.id = ++themeObjectsCreated;
@@ -252,19 +252,27 @@ class Theme {
         this.gui = Object.prototype.hasOwnProperty.call(GUI_MAP, gui) ? gui : GUI_DEFAULT;
         /** @readonly */
         this.blocks = Object.prototype.hasOwnProperty.call(BLOCKS_MAP, blocks) ? blocks : BLOCKS_DEFAULT;
+		/** @readonly */
+        this.wallpaper = wallpaper || {url: null, opaque: 0.6};
+        /** @readonly */
+        this.font = font || {font: null}
     }
 
-    static light = new Theme(ACCENT_DEFAULT, GUI_LIGHT, BLOCKS_DEFAULT);
-    static dark = new Theme(ACCENT_DEFAULT, GUI_DARK, BLOCKS_DEFAULT);
-    static highContrast = new Theme(ACCENT_DEFAULT, GUI_DEFAULT, BLOCKS_HIGH_CONTRAST);
+    static light = new Theme(ACCENT_DEFAULT, GUI_LIGHT, BLOCKS_DEFAULT, null, null);
+    static dark = new Theme(ACCENT_DEFAULT, GUI_DARK, BLOCKS_DEFAULT, null, null);
+    static highContrast = new Theme(ACCENT_DEFAULT, GUI_DEFAULT, BLOCKS_HIGH_CONTRAST, null, null);
 
     set (what, to) {
         if (what === 'accent') {
-            return new Theme(to, this.gui, this.blocks);
+            return new Theme(to, this.gui, this.blocks, this.wallpaper, this.font);
         } else if (what === 'gui') {
-            return new Theme(this.accent, to, this.blocks);
+            return new Theme(this.accent, to, this.blocks, this.wallpaper, this.font);
         } else if (what === 'blocks') {
-            return new Theme(this.accent, this.gui, to);
+            return new Theme(this.accent, this.gui, to, this.wallpaper, this.font);
+        } else if (what === 'wallpaper') {
+            return new Theme(this.accent, this.gui, this.blocks, to, this.font);
+        } else if (what === 'font') {
+            return new Theme(this.accent, this.gui, this.blocks, this.wallpaper, to);
         }
         throw new Error(`Unknown theme property: ${what}`);
     }
@@ -289,18 +297,25 @@ class Theme {
         );
     }
 
-    getBlockColors () {
-        return defaultsDeep(
+   getBlockColors () {
+        let blockColors = defaultsDeep(
             {},
-            Object.hasOwn(this.accent, 'primaryColor') ?
+			Object.hasOwn(this.accent, 'primaryColor') ?
                 ACCENT_MAP[ACCENT_CUSTOM].getBlockColors(
                     this.accent.primaryColor,
                     this.accent.secondaryColor
                 ) :
-                ACCENT_MAP[this.accent].blockColors,
+            ACCENT_MAP[this.accent].blockColors,
             GUI_MAP[this.gui].blockColors,
             BLOCKS_MAP[this.blocks].colors
         );
+        if (this.wallpaper.url !== null) {
+            blockColors = defaultsDeep(
+                {workspace: blockColors.workspace + Math.round(this.wallpaper.opaque * 255).toString(16).padStart(2, 0)},
+                blockColors
+            )
+        }
+        return blockColors;
     }
 
     getExtensions () {

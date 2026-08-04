@@ -14,7 +14,15 @@ import extensionTags from '../lib/libraries/tw-extension-tags';
 import LibraryComponent from '../components/library/library.jsx';
 import extensionIcon from '../components/action-menu/icon--sprite.svg';
 
-const gallerySources = [		
+const gallerySources = [
+    {
+        id: 'potentiamod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/potentiamod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/potentiamod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/potentiamod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/pot-extensions.json',
+        tag: 'potentia'
+    },		
     {
         id: 'turbowarp',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/turbowarp/',
@@ -62,14 +70,6 @@ const gallerySources = [
         baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/mistium/',
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/mist-extensions.json',
         tag: 'mist'
-    },
-	{
-        id: 'acidmod',
-        baseURL: 'https://potentiamod.github.io/extensions/extensions/acidmod/',
-        baseImageURL: 'https://potentiamod.github.io/extensions/img/acidmod/',
-        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/acidmod/',
-        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/am-extensions.json',
-        tag: 'acid'
     },
 	{
         id: 'dash',
@@ -134,6 +134,14 @@ const gallerySources = [
         baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/gaiamod/',
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/gm-extensions.json',
         tag: 'gaia'
+    },
+	{
+        id: 'other',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/other/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/other/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/other/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/other-extensions.json',
+        tag: 'other'
     }
 ];
 

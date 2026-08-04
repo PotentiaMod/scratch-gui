@@ -187,6 +187,7 @@ import galleryIconMW from './gallery/gallery-mw.png';;
 import galleryIconTW from './gallery/gallery-tw.svg';
 import galleryIconPT from './gallery/gallery.svg';
 import galleryIconZT from './02engine/02engine.svg';
+import scratchmegarepoThumb from './gaiamod/ScratchMegaRepo.png';
 
 import galleryIconPM from './penguinmod/library.svg';
 import galleryIconSN from './gaiamod/snailIDEEXGallery.png';
@@ -779,6 +780,7 @@ const menuItems = [
         featured: true
     },
 	//PotentiaMod
+	/*
     {
         name: (
             <FormattedMessage
@@ -802,6 +804,7 @@ const menuItems = [
         tags: ['potentia'],
         featured: true
     },
+	*/
     {
         name: (
             <FormattedMessage
@@ -822,8 +825,7 @@ const menuItems = [
         tags: ['potentia'],
         featured: true
         // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
-    },
-	/*
+    }/*,
 	{
         name: (
             <FormattedMessage
@@ -844,7 +846,6 @@ const menuItems = [
         tags: ['potentia'],
         featured: true
     },
-	*/
 		 {
         name: 'PotentiaMod Extension Bonanza!',
         extensionId: 'potentiaGallery',
@@ -854,9 +855,16 @@ const menuItems = [
         description: 'See the glory of extensions!',
         featured: true
     }
+	*/
 ];
 
 const gallerySourceDisplay = {
+    potentiamod: {
+        name: 'PotentiaMod Extension Bonanza!',
+        href: 'https://potentiamod.github.io/extensions/',
+        iconURL: galleryIconPT,
+        tag: 'potentia'
+    },
     turbowarp: {
         name: 'TurboWarp Extension Gallery',
         href: 'https://extensions.turbowarp.org/',
@@ -899,12 +907,6 @@ const gallerySourceDisplay = {
         iconURL: galleryIconDash,
         tag: 'dash'
     },
-	acidmod: {
-        name: 'AcidMod Extension Gallery',
-        href: 'https://acidmod.js.org/extensions/',
-        iconURL: 'https://potentiamod.github.io/extensions/img/placeholder.png',
-        tag: 'acid'
-    },
 	sharkpool: {
         name: 'SharkPool\'s Extension Collection',
         href: 'https://sharkpools-extensions.vercel.app/',
@@ -946,6 +948,12 @@ const gallerySourceDisplay = {
         href: 'https://gaiamod-main.github.io/GaiaMod-ExtensionsGallery/',
         iconURL: galleryIconGM,
         tag: 'gaia'
+    },
+	other: {
+        name: 'Scratch Repo Mega Extension Gallery',
+        href: 'https://scratchmegarepo.pages.dev/extensions',
+        iconURL: scratchmegarepoThumb,
+        tag: 'other'
     }
 };
 
@@ -963,6 +971,11 @@ const createGalleryStatusItem = (sourceId, description) => {
 };
 
 export const galleryStatusItems = {
+	potentiamod: {
+        loading: createGalleryStatusItem('potentiamod', 'Loading PotentiaMod extension gallery...'),
+        more: createGalleryStatusItem('potentiamod', 'See the glory of extensions!'),
+        error: createGalleryStatusItem('potentiamod', 'Error loading PotentiaMod extension gallery.')
+    },
     turbowarp: {
         loading: createGalleryStatusItem('turbowarp', 'Loading TurboWarp extension gallery...'),
         more: createGalleryStatusItem('turbowarp', 'Learn more about extensions at extensions.turbowarp.org.'),
@@ -998,11 +1011,6 @@ export const galleryStatusItems = {
         more: createGalleryStatusItem('dash', 'Learn more about extensions at dashblocks.org/extensions.'),
         error: createGalleryStatusItem('dash', 'Error loading Dash extension gallery. Visit dashblocks.org/extensions to find more extensions.')
     },
-	acidmod: {
-        loading: createGalleryStatusItem('acidmod', 'Loading Dash extension gallery...'),
-        more: createGalleryStatusItem('acidmod', 'Learn more about extensions at acidmod.js.org/extensions.'),
-        error: createGalleryStatusItem('acidmod', 'Error loading Dash extension gallery. Visit acidmod.js.org/extensions to find more extensions.')
-    },
 	sharkpool: {
         loading: createGalleryStatusItem('sharkpool', 'Loading SharkPool\'s extension collection...'),
         more: createGalleryStatusItem('sharkpool', 'Tons of extensions created by SharkPool.'),
@@ -1037,6 +1045,11 @@ export const galleryStatusItems = {
         loading: createGalleryStatusItem('gaiamod', 'Loading GaiaMod Extra Extensions...'),
         more: createGalleryStatusItem('gaiamod', 'See some user-submitted extensions.'),
         error: createGalleryStatusItem('gaiamod', 'Error loading GaiaMod Extra Extensions.')
+    },
+	other: {
+        loading: createGalleryStatusItem('other', 'Loading the Mega Repo extensions...'),
+        more: createGalleryStatusItem('other', 'A mega gallery for most of the extensions'),
+        error: createGalleryStatusItem('other', 'Error loading Mega Repo extensions.')
     },
 };
 

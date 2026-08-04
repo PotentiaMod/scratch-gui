@@ -13,7 +13,6 @@ export default [
     {tag: 'ztengine', intlLabel: '02Engine'},
     {tag: 'bilup', intlLabel: 'Bilup'},
     {tag: 'dash', intlLabel: 'Dash'},
-    {tag: 'acid', intlLabel: 'AcidMod'},
     {tag: 'sp', intlLabel: 'SharkPool'},
     {tag: 'pm', intlLabel: 'PenguinMod'},
     {tag: 'sn', intlLabel: 'Snail IDE'},
