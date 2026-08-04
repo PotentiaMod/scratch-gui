@@ -6,6 +6,7 @@
 .footer {
     margin-top: 60px;
     background: var(--menu-bar-background);
+    background-image: var(--menu-bar-background-image);
     border-top: 1px solid $ui-black-transparent;
 }
 
