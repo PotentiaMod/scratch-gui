@@ -365,6 +365,7 @@ const fetchCCWExtensions = async (name, sortField, page, perPage) => {
     throw new Error('CCW API response format unexpected');
 };
 
+
 class ExtensionLibrary extends React.PureComponent {
     constructor (props) {
         super(props);

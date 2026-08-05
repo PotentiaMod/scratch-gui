@@ -2,7 +2,6 @@
 
 * {
     box-sizing: border-box;
-    text-align: center;
 }
 
 body {
@@ -27,6 +26,10 @@ h1 {
     max-width: 900px;
     margin: auto;
     margin-bottom: 30px;
+}
+
+.main center {
+    text-align: center;
 }
 
 .header-container {
