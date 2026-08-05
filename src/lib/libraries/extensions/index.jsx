@@ -825,7 +825,8 @@ const menuItems = [
         tags: ['potentia'],
         featured: true
         // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
-    }/*,
+    },
+	/*,
 	{
         name: (
             <FormattedMessage
@@ -846,15 +847,6 @@ const menuItems = [
         tags: ['potentia'],
         featured: true
     },
-		 {
-        name: 'PotentiaMod Extension Bonanza!',
-        extensionId: 'potentiaGallery',
-		href: 'https://potentiamod.github.io/extensions/',
-        iconURL: galleryIconPT,
-        tags: ['potentia'],
-        description: 'See the glory of extensions!',
-        featured: true
-    }
 	*/
 ];
 

@@ -14,6 +14,27 @@ import extensionTags from '../lib/libraries/tw-extension-tags';
 import LibraryComponent from '../components/library/library.jsx';
 import extensionIcon from '../components/action-menu/icon--sprite.svg';
 
+const updateGallery = newGallery => {
+    cachedGallery = newGallery;
+    galleryUpdateListeners.forEach(listener => listener(newGallery));
+};
+
+let galleryUpdateListeners = [];
+
+const CCW_EXTENSION_API_BASE = 'https://ccwbfs-proxy.netlify.app/extensions';
+
+const CCW_METADATA_CACHE = {};
+
+const addGalleryUpdateListener = listener => {
+    galleryUpdateListeners.push(listener);
+    return () => {
+        const index = galleryUpdateListeners.indexOf(listener);
+        if (index > -1) {
+            galleryUpdateListeners.splice(index, 1);
+        }
+    };
+};
+
 const gallerySources = [
     {
         id: 'potentiamod',
@@ -214,7 +235,70 @@ const mapGalleryExtension = (extension, source) => ({
     featured: true
 });
 
+const toCCWGalleryItem = (item) => {
+    const credits = [];
+    if (item.publisher) {
+        if (item.publisher.nickname) {
+            const oid = item.publisher.oid || item.publisher._id || item.publisher.id || '';
+            if (oid) {
+                credits.push(
+                    <a href={`https://www.ccw.site/student/${oid}`} target="_blank" rel="noreferrer" key={oid}>
+                        {item.publisher.nickname}
+                    </a>
+                );
+            } else {
+                credits.push(item.publisher.nickname);
+            }
+        }
+    }
+    return {
+        name: item.name || item.eid || 'Unknown extension',
+        nameTranslations: {},
+        description: item.description || 'Not available.',
+        descriptionTranslations: {},
+        extensionId: `ccw_${item.eid || item.id}`,
+        extensionURL: null,
+        iconURL: item.cover || 'https://placehold.co/600x310/f5f5f5/111111?text=No+Cover',
+        tags: ['ccw'],
+        credits,
+        docsURI: null,
+        samples: null,
+        incompatibleWithScratch: false,
+        featured: true,
+        _ccwMeta: {
+            eid: item.eid,
+            id: item.id,
+            publisher: item.publisher,
+            stats: item.stats,
+            createdAt: item.createdAt,
+            updatedAt: item.updatedAt,
+            versions: item.versions,
+            activeVersionId: item.activeVersionId
+        }
+    };
+};
+
 let cachedGalleryBySource = null;
+
+const fetchCCWItemMetadata = async (eid) => {
+    if (CCW_METADATA_CACHE[eid]) {
+        return CCW_METADATA_CACHE[eid];
+    }
+    const response = await fetch(`${CCW_EXTENSION_API_BASE}/${encodeURIComponent(eid)}`);
+    if (!response.ok) {
+        throw new Error(`CCW metadata HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    const metadata = data?.body || data;
+    if (!metadata || !Array.isArray(metadata.versions) || !metadata.versions.length) {
+        throw new Error('No versions found for this CCW extension.');
+    }
+    if (!metadata.versions[0]?.assetUri) {
+        throw new Error('The latest version does not include an asset URL.');
+    }
+    CCW_METADATA_CACHE[eid] = metadata;
+    return metadata;
+};
 
 const fetchLibrary = async () => {
     const results = await Promise.allSettled(gallerySources.map(async source => {
@@ -258,6 +342,29 @@ const fetchLibrary = async () => {
     return galleryBySource;
 };
 
+const fetchCCWExtensions = async (name, sortField, page, perPage) => {
+	
+    let requestUrl = `${CCW_EXTENSION_API_BASE}?page=${page || 1}&perPage=${perPage || 30}&sortField=${sortField || 'updatedAt'}&sortType=DESC`;
+    if (name) {
+        requestUrl += `&name=${encodeURIComponent(name)}`;
+    }
+    const response = await fetch(requestUrl);
+    if (!response.ok) {
+        throw new Error(`CCW API HTTP error! status: ${response.status}`);
+    }
+    const json = await response.json();
+    if (json?.body?.data) {
+        const body = json.body;
+        return {
+            items: body.data,
+            total: body.total || body.totalCount || body.count || null,
+            page: body.page || page || 1,
+            perPage: body.perPage || perPage || 30
+        };
+    }
+    throw new Error('CCW API response format unexpected');
+};
+
 class ExtensionLibrary extends React.PureComponent {
     constructor (props) {
         super(props);
@@ -270,6 +377,10 @@ class ExtensionLibrary extends React.PureComponent {
         };
     }
     componentDidMount () {
+		this.unsubscribeGalleryUpdate = addGalleryUpdateListener(newGallery => {
+            this.setState({ gallery: newGallery });
+        });
+		
         if (!this.state.galleryBySource) {
             const timeout = setTimeout(() => {
                 this.setState({
@@ -290,7 +401,36 @@ class ExtensionLibrary extends React.PureComponent {
                     clearTimeout(timeout);
                 });
         }
+        this.fetchAndSetCCWItems('', 'likeCount', 1);
     }
+    async fetchAndSetCCWItems (name, sortField, page = 1) {
+        this.setState({ccwLoading: true});
+        try {
+            const result = await fetchCCWExtensions(name, sortField, page, this.state.ccwPerPage);
+            const rawItems = Array.isArray(result.items) ? result.items : [];
+            const ccwItems = rawItems.map(item => toCCWGalleryItem(item));
+            const hasMore = typeof result.total === 'number' ?
+                (page * result.perPage) < result.total :
+                rawItems.length >= result.perPage;
+            this.setState({
+                ccwItems,
+                ccwLoading: false,
+                ccwPage: page,
+                ccwHasMore: hasMore,
+                ccwTotal: result.total
+            });
+        } catch (err) {
+            log.error(err);
+            this.setState({ccwItems: [], ccwLoading: false, ccwHasMore: false, ccwTotal: null});
+        }
+    }
+	
+	componentWillUnmount() {
+        if (this.unsubscribeGalleryUpdate) {
+            this.unsubscribeGalleryUpdate();
+        }
+    }
+	
     handleItemSelect (item) {
         if (item.href) {
             return;
@@ -307,6 +447,42 @@ class ExtensionLibrary extends React.PureComponent {
             if (this.props.onOpenCustomGalleryModal) {
                 this.props.onOpenCustomGalleryModal();
             }
+            return;
+        }
+		
+
+		 // Handle CCW gallery items: fetch metadata and load extension
+        if (item._ccwMeta && item._ccwMeta.eid) {
+            const ccwEid = item._ccwMeta.eid;
+            fetchCCWItemMetadata(ccwEid)
+                .then(metadata => {
+                    const versions = Array.isArray(metadata.versions) ? metadata.versions : [];
+                    const selectedVersion = versions[0];
+                    if (!selectedVersion?.assetUri) {
+                        throw new Error('No valid asset URL found for this CCW extension.');
+                    }
+                    const url = item.assetUri ? item.assetUri : ccwEid;
+                    if (!item.disabled) {
+                        this.props.onCategorySelected(ccwEid);
+                    } else {
+                        this.props.vm.extensionManager.loadExtensionURL(assetUri)
+                            .then(() => {
+                                if (this.props.onCategorySelected) {
+                                    this.props.onCategorySelected(ccwEid);
+                                }
+                            })
+                            .catch(err => {
+                                log.error(err);
+                                // eslint-disable-next-line no-alert
+                                alert(err);
+                            });
+                    }
+                })
+                .catch(err => {
+                    log.error(err);
+                    // eslint-disable-next-line no-alert
+                    alert(err || String(err));
+                });
             return;
         }
 

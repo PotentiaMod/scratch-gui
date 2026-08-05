@@ -16,26 +16,22 @@ applyGuiColors(detectTheme());
 document.documentElement.lang = 'en';
 
 const FourOhFour = () => (
-    <>
+	<main className={styles.main}>
 	<Header />
-        <main className={styles.main}>
-            <header className={styles.headerContainer}>
-                <h1 className={styles.headerText}>
-                    Sorry!
-                </h1>
-            </header>
-            <section>
-                <p>
+            <h1>
+                Sorry!
+            </h1>
+        <section>
+            <p>
                     We coudn't find what you're looking for.
                 </p>
 				                <p>
                     Do not fret, tho. There is a new page coming soon...
                 </p>
                 <h3 className={styles.headerText}>404</h3>
-            </section>
-			<Footer />
-        </main>
-    </>
+        </section>
+		<Footer />
+    </main>
 );
 
 render(<FourOhFour />);
