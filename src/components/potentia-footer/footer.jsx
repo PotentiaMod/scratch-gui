@@ -4,6 +4,7 @@ import {defineMessages, FormattedMessage, injectIntl, intlShape} from 'react-int
 import logo from './logo.svg';
 import gaiamod from './gaiamod-logo.svg';
 import {APP_NAME} from '../../lib/brand.js';
+import {APP_VERSION} from '../../lib/version.js';
 import styles from './footer.css';
 import Swal from 'sweetalert2';
 
@@ -17,7 +18,6 @@ const eraseData = async () => {
     if (confirm('Please be aware that this will reset all your local data, including the Restore Points and backpack. Are you sure you want to continue?')) {
         
         localStorage.clear();
-        // We have to manually delete the databases due to Firefox not supporting indexedDB.databases(). WHYYYY???
         indexedDB.deleteDatabase('TW_RestorePoints');
         indexedDB.deleteDatabase('TW_Backpack');
         location.reload();
@@ -43,6 +43,7 @@ const Footer = () => (
                 <div className={styles.column}>
                     <span className={styles.columnTitle}>Website</span>
                     <a href="/editor.html">Editor</a>
+                    <a href="/pot-desktop.html">PotentiaMod Desktop</a>
                     <a href="/packager">PotentiaMod Packager</a>
 					 <a
                         href="https://github.com/PotentiaMod"
@@ -106,7 +107,7 @@ const Footer = () => (
 							</h4>
 							</p>
             <p className={styles.info}>
-                Version: 1.19.0 | <a
+                Version: {APP_VERSION} | <a
                     onClick={eraseData}
                     style={{color: 'red'}}
                 >Erase data</a>

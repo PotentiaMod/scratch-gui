@@ -148,7 +148,7 @@ module.exports = [
             'embed': './src/playground/embed.jsx',
             'addon-settings': './src/playground/addon-settings.jsx',
             'credits': './src/playground/credits/credits.jsx',
-            'not_found': './src/playground/not_found/not_found.jsx',
+            '404': './src/playground/404/404.jsx',
             'pot-desktop': './src/playground/pot-desktop/pot-desktop.jsx',
             'index': './src/playground/index/index.jsx'
         },
@@ -189,7 +189,7 @@ module.exports = [
                 chunks: ['editor'],
                 template: 'src/playground/index.ejs',
                 filename: 'editor.html',
-                title: `${APP_NAME} - Run Scratch projects faster`,
+                title: `${APP_NAME} - A Block-Based Coding That Goes EXTREME`,
                 isEditor: true,
                 ...htmlWebpackPluginCommon
             }),
@@ -197,14 +197,14 @@ module.exports = [
                 chunks: ['player'],
                 template: 'src/playground/index.ejs',
                 filename: 'index.html',
-                title: `${APP_NAME} - Run Scratch projects faster`,
+                title: `${APP_NAME} - A Block-Based Coding That Goes EXTREME`,
                 ...htmlWebpackPluginCommon
             }),
             new HtmlWebpackPlugin({
                 chunks: ['fullscreen'],
                 template: 'src/playground/index.ejs',
                 filename: 'fullscreen.html',
-                title: `${APP_NAME} - Run Scratch projects faster`,
+                title: `${APP_NAME} - A Block-Based Coding That Goes EXTREME`,
                 ...htmlWebpackPluginCommon
             }),
             new HtmlWebpackPlugin({
@@ -226,6 +226,20 @@ module.exports = [
                 template: 'src/playground/simple.ejs',
                 filename: 'credits.html',
                 title: `${APP_NAME} Credits`,
+                ...htmlWebpackPluginCommon
+            }),
+			new HtmlWebpackPlugin({
+                chunks: ['pot-desktop'],
+                template: 'src/playground/simple.ejs',
+                filename: 'pot-desktop.html',
+                title: `${APP_NAME} Desktop`,
+                ...htmlWebpackPluginCommon
+            }),
+            new HtmlWebpackPlugin({
+                chunks: ['404'],
+                template: 'src/playground/simple.ejs',
+                filename: '404.html',
+                title: `404!`,
                 ...htmlWebpackPluginCommon
             }),
             new CopyWebpackPlugin({

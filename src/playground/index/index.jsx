@@ -42,7 +42,7 @@ const Index = () => (
                     {`${BRAND} - ${MOTTO}`}
                 </h1>
                 <p>
-                    PotententiaMod is an <strong>beta</strong> block-based visual programming language based
+                    PotententiaMod is a <strong>beta</strong> block-based visual programming language based
                     on <a href="https://turbowarp.org/">TurboWarp</a>, that allows you to program things on the fly! You do things with PotententiaMod such as making apps or a program that controls your browser!
                 </p>
             </header>
