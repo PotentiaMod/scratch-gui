@@ -59,6 +59,11 @@ const Desktop = () => (
                         Download installer (64-bit, recommended)
                     </Button>
                 </div>
+				</section>
+               <section>
+				<i>
+                    This page is based on Dash's Desktop page.
+                </i>
             </section>
 		<Footer />
     </main>

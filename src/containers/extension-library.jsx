@@ -437,26 +437,6 @@ class ExtensionLibrary extends React.PureComponent {
             return;
         }
 
-        const openCCWInsert = async (id,version,url) => {
-			try{
-				id=id??prompt("Enter CCW extension ID");
-				if(id===null) return null;
-				let res=await fetch("https://bfs-web.ccw.site/extensions/"+id);
-				if(!res.ok) throw"Retrieval failed!";
-				let json=await res.json();
-				let versions=json.body.versions;
-				version=version??prompt("Enter the version to obtain.",versions[0].version);
-				if(version===null) return null;
-				let assets=versions.filter(asset=>asset.version===version);
-				if(assets.length!=1) if(confirm("Search failed!")) return await this.openCCWInsert.call(this,id);
-				url=url??prompt("Load the extension immediately?",assets[0].assetUri);
-				if(url===null) return null;
-				return this.load.call(this, url);
-			}
-			catch(e){
-				if(confirm(e.message)) return await this.openCCWInsert.call(this);
-			}
-	   };
 	   
         const extensionId = item.extensionId;
 		
