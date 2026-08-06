@@ -8,6 +8,7 @@ import {MenuSection} from '../menu/menu.jsx';
 import MenuLabel from './tw-menu-label.jsx';
 import TWAccentThemeMenu from './tw-theme-accent.jsx';
 import TWGuiThemeMenu from './tw-theme-gui.jsx';
+import TWWallpaperThemeMenu from './tw-theme-wallpaper.jsx';
 import TWBlocksThemeMenu from './tw-theme-blocks.jsx';
 import TWDesktopSettings from './tw-desktop-settings.jsx';
 
@@ -65,6 +66,9 @@ const SettingsMenu = ({
                             onOpenCustomSettings={onOpenCustomSettings}
                         />
                         <TWAccentThemeMenu />
+                        <TWWallpaperThemeMenu
+                            onOpenCustomSettings={onOpenCustomSettings}
+                        />
                     </React.Fragment>
                 )}
                 {onClickDesktopSettings && <TWDesktopSettings onClick={onClickDesktopSettings} />}

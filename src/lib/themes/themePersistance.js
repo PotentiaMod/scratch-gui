@@ -65,7 +65,9 @@ const detectTheme = () => {
         return new Theme(
             parsed.accent || systemPreferences.accent,
             parsed.gui || systemPreferences.gui,
-            parsed.blocks || systemPreferences.blocks
+            parsed.blocks || systemPreferences.blocks,
+            parsed.wallpaper || null,
+            parsed.font || null
         );
     } catch (e) {
         // ignore

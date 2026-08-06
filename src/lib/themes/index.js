@@ -4,10 +4,15 @@ import {defineMessages} from 'react-intl';
 import * as accentPurple from './accent/purple';
 import * as accentBlue from './accent/blue';
 import * as accentRed from './accent/red';
+import * as accentCyan from './accent/cyan';
+import * as accentLime from './accent/lime';
 import * as accentMagenta from './accent/magenta';
 import * as accentOrange from './accent/orange';
 import * as accentGreen from './accent/green';
 import * as accentIndigo from './accent/indigo';
+import * as accentIndigoBlue from './accent/indigo-blue';
+import * as accentCorruptedBlue from './accent/corrupted-blue';
+import * as accentFuchsia from './accent/magenta-purple';
 import * as accentCottonCandy from './accent/cottoncandy';
 import * as accentRainbow from './accent/rainbow';
 import * as accentStars from './accent/stars';
@@ -18,6 +23,7 @@ import * as guiModernLight from './gui/modern-light';
 import * as guiDark from './gui/dark';
 import * as guiModernDark from './gui/modern-dark';
 import * as guiMidnight from './gui/midnight';
+import * as guiDeepDark from './gui/deep-dark';
 
 import * as blocksThree from './blocks/three';
 import * as blocksHighContrast from './blocks/high-contrast';
@@ -39,9 +45,14 @@ import customIcon from './icons/tw-blocks-custom.svg';
 const ACCENT_PURPLE = 'purple';
 const ACCENT_BLUE = 'blue';
 const ACCENT_RED = 'red';
+const ACCENT_CYAN = 'cyan';
+const ACCENT_LIME = 'lime';
 const ACCENT_ORANGE = 'orange';
 const ACCENT_MAGENTA = 'magenta';
+const ACCENT_FUCHSIA = 'fuchsia';
 const ACCENT_INDIGO = 'indigo';
+const ACCENT_INDIGO_BLUE = 'indigoblue';
+const ACCENT_CORRUPTED_BLUE = 'corruptedblue';
 const ACCENT_GREEN = 'green';
 const ACCENT_RAINBOW = 'rainbow';
 const ACCENT_COTTON_CANDY = 'cottoncandy';
@@ -51,9 +62,14 @@ const ACCENT_MAP = {
     [ACCENT_PURPLE]: accentPurple,
     [ACCENT_BLUE]: accentBlue,
     [ACCENT_RED]: accentRed,
+    [ACCENT_CYAN]: accentCyan,
+    [ACCENT_LIME]: accentLime,
     [ACCENT_ORANGE]: accentOrange,
     [ACCENT_MAGENTA]: accentMagenta,
+    [ACCENT_FUCHSIA]: accentFuchsia,
     [ACCENT_INDIGO]: accentIndigo,
+    [ACCENT_INDIGO_BLUE]: accentIndigoBlue,
+    [ACCENT_CORRUPTED_BLUE]: accentCorruptedBlue,
     [ACCENT_GREEN]: accentGreen,
     [ACCENT_RAINBOW]: accentRainbow,
     [ACCENT_STARS]: accentStars,
@@ -97,6 +113,31 @@ const AccentOptions = defineMessages({
         description: 'Name of the blue color scheme. Matches Scratch before the high contrast update.',
         id: 'tw.accent.blue'
     },
+	[ACCENT_CYAN]: {
+        defaultMessage: 'Cyan',
+        description: 'Name of the cyan blue color scheme. Matches PenguinMod.',
+        id: 'tw.accent.cyan'
+    },
+	[ACCENT_LIME]: {
+        defaultMessage: 'Lime',
+        description: 'Name of the lime green color scheme. Matches DinosaurMod.',
+        id: 'tw.accent.lime'
+    },
+	[ACCENT_FUCHSIA]: {
+        defaultMessage: 'Fuchsia',
+        description: 'Name of the fuchsia color scheme. Matches Snail IDE.',
+        id: 'tw.accent.fuchsia'
+    },
+	[ACCENT_INDIGO_BLUE]: {
+        defaultMessage: 'Serene Blue',
+        description: 'Name of the indigoish-blue color scheme. Matches Ark IDE.',
+        id: 'tw.accent.indigoblue'
+    },
+	[ACCENT_CORRUPTED_BLUE]: {
+        defaultMessage: 'Corrupted Blue',
+        description: 'Name of the greyish-blue color scheme. Matches ElectraMod.',
+        id: 'tw.accent.corruptedblue'
+    },
 	[ACCENT_COTTON_CANDY]: {
         defaultMessage: 'Cotton Candy',
         description: 'Name of the pastel pink/blue color scheme.',
@@ -126,12 +167,14 @@ const GUI_MODERN_LIGHT = 'modern-light';
 const GUI_DARK = 'dark';
 const GUI_MODERN_DARK = 'modern-dark';
 const GUI_MIDNIGHT = 'midnight';
+const GUI_DEEP_DARK = 'deep-dark';
 const GUI_MAP = {
     [GUI_LIGHT]: guiLight,
     [GUI_MODERN_LIGHT]: guiModernLight,
     [GUI_DARK]: guiDark,
     [GUI_MODERN_DARK]: guiModernDark,
-    [GUI_MIDNIGHT]: guiMidnight
+    [GUI_MIDNIGHT]: guiMidnight,
+    [GUI_DEEP_DARK]: guiDeepDark
 };
 const GuiOptions = defineMessages({
     [GUI_MODERN_LIGHT]: {
@@ -154,9 +197,14 @@ const GuiOptions = defineMessages({
         description: 'Name of the dark color scheme.',
         id: 'tw.gui.classicdark'
     },
-    [GUI_MIDNIGHT]: {
+    [GUI_DEEP_DARK]: {
+        defaultMessage: 'Deep Dark',
+        description: 'Name of the deep dark color scheme.',
+        id: 'tw.gui.deepdark'
+    },
+	[GUI_MIDNIGHT]: {
         defaultMessage: 'Amoled',
-        description: 'Name of the amolede color scheme.',
+        description: 'Name of the amoled color scheme.',
         id: 'tw.gui.midnight'
     }
 });
@@ -166,6 +214,7 @@ const GuiIcons = {
 	[GUI_MODERN_LIGHT]: paletteIcon,
     [GUI_DARK]: darkModeIcon,
     [GUI_MODERN_DARK]: paletteIcon,
+    [GUI_DEEP_DARK]: paletteIcon,
     [GUI_MIDNIGHT]: paletteIcon
 };
 
@@ -346,8 +395,13 @@ export {
     ACCENT_PURPLE,
     ACCENT_BLUE,
     ACCENT_ORANGE,
+    ACCENT_CYAN,
+    ACCENT_LIME,
     ACCENT_MAGENTA,
+    ACCENT_FUCHSIA,
     ACCENT_INDIGO,
+    ACCENT_INDIGO_BLUE,
+    ACCENT_CORRUPTED_BLUE,
     ACCENT_GREEN,
     ACCENT_RAINBOW,
     ACCENT_COTTON_CANDY,
@@ -360,6 +414,7 @@ export {
     GUI_MODERN_LIGHT,
     GUI_DARK,
     GUI_MODERN_DARK,
+    GUI_DEEP_DARK,
     GUI_MIDNIGHT,
     GUI_MAP,
 	GuiIcons,
