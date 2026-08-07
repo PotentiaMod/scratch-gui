@@ -49,6 +49,10 @@ import gdxforInsetIconURL from './gdxfor/gdxfor-small.svg';
 import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
+import shredsdkIcon from './shredsdk/shredsdk.svg'
+import utilsIcon from './utils/utilites.svg';
+import gameutilsIcon from './gameutils/gameutils.svg'
+
 //champierre
 import chatgpt2scratchIconURL from './chatgpt2scratch/chatgpt2scratch.png';
 import chatgpt2scratchInsetIconURL from './chatgpt2scratch/chatgpt2scratch-small.png';
@@ -68,6 +72,56 @@ import tm2scratchIconURL from './tm2scratch/tm2scratch.png';
 import tm2scratchInsetIconURL from './tm2scratch/tm2scratch-small.png';
 import tmpose2scratchIconURL from './tmpose2scratch/tmpose2scratch.png';
 import tmpose2scratchInsetIconURL from './tmpose2scratch/tmpose2scratch-small.png';
+import scratch2maqueenIconURL from './scratch2maqueen/scratch2maqueen.png';
+import scratch2maqueenInsetIconURL from './scratch2maqueen/scratch2maqueen-small.png';
+
+import playgoIconURL from './playgo/playgo.png';
+import playgoInsetIconURL from './playgo/playgo-small.svg';
+import playgoConnectionIconURL from './wedo2/wedo-illustration.svg';
+import playgoConnectionSmallIconURL from './wedo2/wedo-small.svg';
+import playgoConnectionTipIconURL from './wedo2/wedo-button-illustration.svg';
+
+import playIoTIconURL from './playiot/playiot.png';
+import playIoTInsetIconURL from './playiot/playiot-small.svg';
+import playIoTConnectionIconURL from './wedo2/wedo-illustration.svg';
+import playIoTConnectionSmallIconURL from './wedo2/wedo-small.svg';
+import playIoTConnectionTipIconURL from './wedo2/wedo-button-illustration.svg';
+
+import playMeIconURL from './playme/playme.png';
+import playMeInsetIconURL from './playme/playme-small.svg';
+import playMeConnectionIconURL from './wedo2/wedo-illustration.svg';
+import playMeConnectionSmallIconURL from './wedo2/wedo-small.svg';
+import playMeConnectionTipIconURL from './wedo2/wedo-button-illustration.svg';
+
+//junilab
+import jdcodeIconURL from './jdcode/jdcode.png';
+import jdcodeInsetIconURL from './jdcode/jdcode-small.png';
+import jdcodeConnectionIconURL from './jdcode/jdcode-illustration.png';
+import jdcodeConnectionSmallIconURL from './jdcode/jdcode-small.png';
+import robodogIconURL from './robodog/robodog.png';
+import robodogInsetIconURL from './robodog/robodog-small.png';
+import robodogConnectionIconURL from './robodog/robodog-illustration.png';
+import robodogConnectionSmallIconURL from './robodog/robodog-small.png';
+import jcboardIconURL from './jcboard/jcboard.png';
+import jcboardInsetIconURL from './jcboard/jcboard-small.png';
+import jcboardConnectionIconURL from './jcboard/jcboard-illustration.png';
+import jcboardConnectionSmallIconURL from './jcboard/jcboard-small.png';
+import uglybotIconURL from './uglybot/uglybot.png';
+import uglybotInsetIconURL from './uglybot/uglybot-small.png';
+import uglybotConnectionIconURL from './uglybot/uglybot-illustration.png';
+import uglybotConnectionSmallIconURL from './uglybot/uglybot-small.png';
+import firmtechIconURL from './firmtech/firmtech.png';
+import firmtechInsetIconURL from './firmtech/firmtech-small.png';
+import firmtechConnectionIconURL from './firmtech/firmtech-illustration.png';
+import firmtechConnectionSmallIconURL from './firmtech/firmtech-small.png';
+import aidroneIconURL from './aidrone/aidrone.png';
+import aidroneInsetIconURL from './aidrone/aidrone-small.png';
+import aidroneConnectionIconURL from './aidrone/aidrone-illustration.png';
+import aidroneConnectionSmallIconURL from './aidrone/aidrone-small.png';
+import aicobotIconURL from './aicobot/aicobot.png';
+import aicobotInsetIconURL from './aicobot/aicobot-small.png';
+import aicobotConnectionIconURL from './aicobot/aicobot-illustration.png';
+import aicobotConnectionSmallIconURL from './aicobot/aicobot-small.png';
 
 //other
 import appMakerIconURL from './librekitten/appmaker/appmaker.svg';
@@ -89,7 +143,24 @@ import PictoBloxMathInsetIconURL from './PictoBloxMath/PictoBloxMath-small.svg';
 import PictoBloxStringIconURL from './PictoBloxString/PictoBloxString.png';
 import PictoBloxStringInsetIconURL from './PictoBloxString/PictoBloxString-small.svg';
 import wonderBlocksIcon from './gaiamod/WonderBlocks.png';
-import catWithDonut from './gaiamod/DingDongDitch.svg';
+import martyIconURL from './marty/marty.png';
+import martyInsetIconURL from './marty/marty-small.svg';
+import ohbotIconURL from './ohbot/ohbot.png';
+import ohbotInsetIconURL from './ohbot/ohbot-small.svg';
+import webmidiIconURL from './webmidi/webmidi.png';
+import webmidiInsetIconURL from './webmidi/webmidi-small.png';
+import newBlockImage from './newblocks/newblocks.png';
+import newBlockButtonImage from './newblocks/newblocks-small.png';
+import newMicrobitImage from './newmicrobit/newmicrobit.png';
+import newMicrobitButtonImage from './newmicrobit/newmicrobit-small.png';
+import ExtensionInsetIconURL from './ellabsextension/extension-icon.png';
+import ExtensionIconURL from './ellabsextension/extension-background.png';
+import maikaIconURL from './olliMaika/maika.png';
+import maikaforInsetIconURL from './olliMaika/maika-small.png';
+import duploIconURL from './duplotrain/duplo-train-illustration.png';
+import duploforInsetIconURL from './duplotrain/duplo-train-small.svg';
+import poweredupIconURL from './poweredup/poweredup.png';
+import poweredupforInsetIconURL from './poweredup/poweredup-small.svg';
 
 //GvbvdxxMod2
 import NESEmuThumb from './nes_emulator/nes.svg';
@@ -135,6 +206,8 @@ import onegpioRpiPicoInsetIconURL from './onegpioRpiPico/onegpioRpiPico-small.pn
 import lassImage from "./lass/lass.png";
 import iftttImage from "./ifttt/ifttt.png";
 import thingspeakImage from "./thingspeak/thingspeak.png";
+
+import sencuIconURL from "./sencu/sencu.jpg";
 
 import smartLumiesIconURL from './smart-lumies/smart-lumies.png';
 import smartLumiesInsetIconURL from './smart-lumies/smart-lumies-small.svg';
@@ -528,6 +601,129 @@ const menuItems = [
         featured: true
     },
 	{
+        name: 'Magic Blue UU',
+        extensionId: 'magicBlueUU',
+        collaborator: 'PlusPlus',
+        iconURL: magicBlueUUIconURL,
+        insetIconURL: magicBlueUUInsetIconURL,
+		tags: ['other', 'preload'],
+        description: (
+            <FormattedMessage
+                defaultMessage='Magic Blue UU extension.'
+                description='Description for the Magic Blue UU extension'
+                id='gui.extension.magicBlueUU.description'
+            />
+        ),
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        connectingMessage: (
+            <FormattedMessage
+                defaultMessage='Connecting'
+                description='Have your Magic Blue UU nearby.'
+                id='gui.extension.magicBlueUU.connectingMessage'
+            />
+        )
+    },
+	{
+        name: 'UglyBot',
+        extensionId: 'uglybot',
+        collaborator: 'Junilab Inc.',
+        iconURL: uglybotIconURL,
+        insetIconURL: uglybotInsetIconURL,
+        description: 'UglyBot with PotentiaMod',
+        featured: true,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: true,
+		tags: ['other', 'preload'],
+        useAutoScan: false,
+        connectionIconURL: uglybotConnectionIconURL,
+        connectionSmallIconURL: uglybotConnectionSmallIconURL,
+        connectingMessage: 'Connecting',
+        helpLink: 'http://www.junilab.co.kr/sub/uglybot.php'
+    },
+    {
+        name: 'Robodog',
+        extensionId: 'robodog',
+        collaborator: 'Junilab Inc.',
+        iconURL: robodogIconURL,
+        insetIconURL: robodogInsetIconURL,
+        description: 'RoboDog with PotentiaMod',
+        featured: true,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: true,
+		tags: ['other', 'preload'],
+        useAutoScan: false,
+        connectionIconURL: robodogConnectionIconURL,
+        connectionSmallIconURL: robodogConnectionSmallIconURL,
+        connectingMessage: 'Connecting',
+        helpLink: 'http://jcblock.co.kr'
+    },
+	{
+        name: 'SenCu',
+        extensionId: 'sencu',
+        iconURL: sencuIconURL,
+        description: 'Play with a SenCu Extension for PotentiaMod!',
+		tags: ['other', 'preload'],
+        featured: true,
+        disabled: false,
+    },
+	{
+        name: 'Body Blocks',
+        extensionId: 'bodyblocks',
+        iconURL: bodyblocksIconURL,
+        insetIconURL: bodyblocksInsetIconURL,
+		credits: 'Stephen Howell',
+		tags: ['other', 'preload'],
+        description: 'Control sprites with body movements.\nRequires Android phone app.',
+        featured: true
+    },
+	 {
+        name: 'Utilites',
+        tags: ['other', 'preload'],
+        extensionId: 'utils',
+        iconURL: utilsIcon,
+        description: 'Utilites for Scratch',
+        featured: true,
+        credits: 'The_Mad_Punter'
+    },
+	{
+        name: 'ShredSDK',
+        tags: ['other', 'preload'],
+        extensionId: 'shredsdk',
+        iconURL: shredsdkIcon,
+        description: 'A development kit for making good web games',
+        featured: true,
+        credits: 'The_Mad_Punter'
+    },
+	{
+        name: 'Marty the Robot',
+        extensionId: 'marty',
+        collaborator: 'Robotical',
+        iconURL: martyIconURL,
+        insetIconURL: martyInsetIconURL,
+        description: 'Play and program with Marty.',
+        tags: ['other', 'preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: true
+    },
+	{
+        name: 'Ohbot',
+        extensionId: 'ohbot',
+        iconURL: ohbotIconURL,
+        insetIconURL: ohbotInsetIconURL,
+		credits: 'Ohbot',
+		tags: ['other', 'preload'],
+        description: 'Control your Ohbot',
+        featured: true
+    },
+	{
         name: 'Web kit',
         extensionId: 'webkit',
         iconURL: toonco1ImageURL,
@@ -597,6 +793,157 @@ const menuItems = [
         description: 'Clip Blocks extension.',
         featured: true,
 		tags: ['other', 'preload']
+    },
+	{
+        name: 'LEGO Duplo Train',
+        extensionId: 'duploTrain',
+        collaborator: 'bricklife',
+        iconURL: 'https://bricklife.com/scratch-gui/static/assets/12fd44910fedc5b99761e024ddf05c59.png',
+        insetIconURL: 'https://bricklife.com/scratch-gui/static/assets/4e8df03eb146bd7f93b355c62450029b.svg',
+        description: 'Build and control your train!',
+        tags: ['other', 'preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: true
+
+    },
+{
+        name: 'LEGO Powered Up',
+        extensionId: 'poweredUp',
+        collaborator: 'bricklife',
+        iconURL: 'https://bricklife.com/scratch-gui/static/assets/27d60d6cf54cf80ce2bbb8493e43262e.png',
+        insetIconURL: 'https://bricklife.com/scratch-gui/static/assets/9a7b1e04a4d5afda42d2d4bb2de61247.svg',
+        description: 'Build with motors and sensors!',
+        tags: ['other', 'preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: true
+    },
+	{        
+        name: 'PlayGo',
+        extensionId: 'playgo',
+        collaborator: 'tdrobotica',
+        iconURL: playgoIconURL,
+        insetIconURL: playgoInsetIconURL,
+        description: 'Playgo Scratch extension',
+		tags: ['other', 'preload'],
+		internetConnectionRequired: true,
+		bluetoothRequired: true,
+        featured: true,        
+    }, 
+    {
+        name: 'PlayIoT',
+        extensionId: 'playiot',
+        collaborator: 'tdrobotica',
+        iconURL: playIoTIconURL,
+        insetIconURL: playIoTInsetIconURL,
+		description: 'PlayIoT Scratch extension',
+		tags: ['other', 'preload'],
+		internetConnectionRequired: true,
+		bluetoothRequired: true,
+        featured: true,        
+    },
+	{
+        name: 'MatataBot',
+        extensionId: 'matatabot',
+        collaborator: 'matatalab',
+        iconURL: matatabotIconURL,
+        insetIconURL: matatabotInsetIconURL,
+		tags: ['other', 'preload'],
+        description: 'Connect your projects with the MatataBot.',
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        connectionIconURL: matatabotConnectionIconURL,
+        connectionSmallIconURL: matatabotConnectionSmallIconURL,
+        connectingMessage: 'Connecting',
+        helpLink: 'https://matatalab.com/'
+    },
+	{
+        name: 'OneGpio Arduino',
+        extensionId: 'onegpioArduino',
+        collaborator: 'Mr. Y\'s Lab',
+        iconURL: onegpioArduinoImage,
+        insetIconURL: onegpioArduinoInsetIconURL,
+        description: 'OneGPIOArduino',
+        tags: ['other', 'preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+    },
+    {
+        name: 'OneGpio Raspberry Pi',
+        extensionId: 'onegpioRpi',
+        collaborator: 'Mr. Y\'s Lab',
+        iconURL: onegpioRpiImage,
+        insetIconURL: onegpioRpiInsetIconURL,
+        description: 'OneGPIORpi',
+        tags: ['other', 'preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+
+    },
+    {
+        name: 'OneGpio Picoboard',
+        extensionId: 'onegpioPicoboard',
+        collaborator: 'Mr. Y\'s Lab',
+        iconURL: onegpioPicoboardImage,
+        insetIconURL: onegpioPicoboardInsetIconURL,
+        description: 'OneGPIOPicoboard',
+        tags: ['other', 'preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+
+    },
+    {
+        name: 'OneGpio Playground Express',
+        extensionId: 'onegpioCpx',
+        collaborator: 'Mr. Y\'s Lab',
+        iconURL: onegpioCpxImage,
+        insetIconURL: onegpioCpxInsetIconURL,
+        description: 'OneGPIOCpx',
+        tags: ['other', 'preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+
+    },
+    {
+        name: 'OneGpio RoboHAT MM1',
+        extensionId: 'onegpioRoboHAT',
+        collaborator: 'Mr. Y\'s Lab',
+        iconURL: onegpioRoboHATImage,
+        insetIconURL: onegpioRoboHATInsetIconURL,
+        description: 'OneGPIORoboHAT',
+        tags: ['other', 'preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+
+    },
+    {
+        name: 'OneGpio Raspberry Pi Pico',
+        extensionId: 'onegpioRpiPico',
+        collaborator: 'Mr. Y\'s Lab',
+        iconURL: onegpioRpiPicoImage,
+        insetIconURL: onegpioRpiPicoInsetIconURL,
+        description: 'onegpioRpiPico',
+        tags: ['other', 'preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+
     },
 	//Champierre
 	{
@@ -707,6 +1054,20 @@ const menuItems = [
         tags: ['preload', 'ai'],
         description: 'Image Classification Blocks.',
         featured: true
+    },
+	{
+        name: 'scratch2maqueen',
+        extensionId: 'scratch2maqueen', // update reference once file names are updated
+        tags: ['preload'],
+        bluetoothRequired: true,
+        internetConnectionRequired: true,
+        launchPeripheralConnectionFlow: true,
+        useAutoScan: true,
+        iconURL: scratch2maqueenIconURL,
+        insetIconURL: scratch2maqueenInsetIconURL,
+        description: 'Control DFRobot Maqueen.',
+        featured: true,
+        credits: 'Vernier',
     },
 	//Adacraft
 	{
