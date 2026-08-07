@@ -12,6 +12,7 @@ import * as accentGreen from './accent/green';
 import * as accentIndigo from './accent/indigo';
 import * as accentIndigoBlue from './accent/indigo-blue';
 import * as accentCorruptedBlue from './accent/corrupted-blue';
+import * as accentGaiaBlue from './accent/gaia-blue';
 import * as accentFuchsia from './accent/magenta-purple';
 import * as accentCottonCandy from './accent/cottoncandy';
 import * as accentRainbow from './accent/rainbow';
@@ -28,6 +29,7 @@ import * as guiDeepDark from './gui/deep-dark';
 import * as blocksThree from './blocks/three';
 import * as blocksHighContrast from './blocks/high-contrast';
 import * as blocksDark from './blocks/dark';
+import * as blocksColorful from './blocks/colorful';
 
 import rainbowIcon from './icons/tw-accent-rainbow.svg';
 import starsIcon from './icons/tw-accent-stars.svg';
@@ -40,6 +42,7 @@ import paletteIcon from './icons/tw-palette.svg';
 import threeIcon from './icons/tw-blocks-three.svg';
 import highContrastIcon from './icons/tw-blocks-high-contrast.svg';
 import darkIcon from './icons/tw-blocks-dark.svg';
+import colorfulIcon from './icons/tw-blocks-colorful.svg';
 import customIcon from './icons/tw-blocks-custom.svg';
 
 const ACCENT_PURPLE = 'purple';
@@ -53,6 +56,7 @@ const ACCENT_FUCHSIA = 'fuchsia';
 const ACCENT_INDIGO = 'indigo';
 const ACCENT_INDIGO_BLUE = 'indigoblue';
 const ACCENT_CORRUPTED_BLUE = 'corruptedblue';
+const ACCENT_GAIA_BLUE = 'gaiablue';
 const ACCENT_GREEN = 'green';
 const ACCENT_RAINBOW = 'rainbow';
 const ACCENT_COTTON_CANDY = 'cottoncandy';
@@ -70,6 +74,7 @@ const ACCENT_MAP = {
     [ACCENT_INDIGO]: accentIndigo,
     [ACCENT_INDIGO_BLUE]: accentIndigoBlue,
     [ACCENT_CORRUPTED_BLUE]: accentCorruptedBlue,
+    [ACCENT_GAIA_BLUE]: accentGaiaBlue,
     [ACCENT_GREEN]: accentGreen,
     [ACCENT_RAINBOW]: accentRainbow,
     [ACCENT_STARS]: accentStars,
@@ -137,6 +142,11 @@ const AccentOptions = defineMessages({
         defaultMessage: 'Corrupted Blue',
         description: 'Name of the greyish-blue color scheme. Matches ElectraMod.',
         id: 'tw.accent.corruptedblue'
+    },
+	[ACCENT_GAIA_BLUE]: {
+        defaultMessage: 'Gaia Blue',
+        description: 'Name of the pure blue color scheme. Matches GaiaMod.',
+        id: 'tw.accent.gaiablue'
     },
 	[ACCENT_COTTON_CANDY]: {
         defaultMessage: 'Cotton Candy',
@@ -223,6 +233,7 @@ const GUI_DEFAULT = GUI_LIGHT;
 const BLOCKS_THREE = 'three';
 const BLOCKS_DARK = 'dark';
 const BLOCKS_HIGH_CONTRAST = 'high-contrast';
+const BLOCKS_COLORFUL = 'colorful';
 const BLOCKS_CUSTOM = 'custom';
 const BLOCKS_DEFAULT = BLOCKS_THREE;
 const defaultBlockColors = blocksThree.blockColors;
@@ -248,6 +259,13 @@ const BLOCKS_MAP = {
         customExtensionColors: blocksDark.customExtensionColors,
         useForStage: false
     },
+	[BLOCKS_COLORFUL]: {
+        blocksMediaFolder: 'blocks-media/default',
+        colors: defaultsDeep({}, blocksColorful.blockColors, defaultBlockColors),
+        extensions: blocksColorful.extensions,
+        customExtensionColors: blocksColorful.customExtensionColors,
+        useForStage: false
+    },
     [BLOCKS_CUSTOM]: {
         // to be filled by editor-theme3 addon
         blocksMediaFolder: 'blocks-media/default',
@@ -262,6 +280,7 @@ const BlockIcons = {
     [BLOCKS_THREE]: threeIcon,
     [BLOCKS_HIGH_CONTRAST]: highContrastIcon,
     [BLOCKS_DARK]: darkIcon,
+    [BLOCKS_COLORFUL]: colorfulIcon,
     [BLOCKS_CUSTOM]: customIcon
 };
 
@@ -277,9 +296,14 @@ const BlockOptions = defineMessages({
         id: 'tw.blockColors.highContrast'
     },
     [BLOCKS_DARK]: {
-        defaultMessage: 'Dark (Beta)',
+        defaultMessage: 'Dark',
         description: 'Name of the dark block colors',
         id: 'tw.blockColors.dark'
+    },
+	[BLOCKS_COLORFUL]: {
+        defaultMessage: 'Colorful (Beta)',
+        description: 'Name of the colorful block colors',
+        id: 'tw.blockColors.colorful'
     },
     [BLOCKS_CUSTOM]: {
         defaultMessage: 'Customize in Addon Settings',
@@ -402,6 +426,7 @@ export {
     ACCENT_INDIGO,
     ACCENT_INDIGO_BLUE,
     ACCENT_CORRUPTED_BLUE,
+    ACCENT_GAIA_BLUE,
     ACCENT_GREEN,
     ACCENT_RAINBOW,
     ACCENT_COTTON_CANDY,
@@ -423,6 +448,7 @@ export {
     BLOCKS_THREE,
     BLOCKS_DARK,
     BLOCKS_HIGH_CONTRAST,
+    BLOCKS_COLORFUL,
     BLOCKS_CUSTOM,
     BLOCKS_MAP
 };

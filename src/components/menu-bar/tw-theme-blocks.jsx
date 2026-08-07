@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import check from './check.svg';
 import dropdownCaret from './dropdown-caret.svg';
 import {MenuItem, Submenu} from '../menu/menu.jsx';
-import {BLOCKS_CUSTOM, BLOCKS_DARK, BLOCKS_HIGH_CONTRAST, BLOCKS_THREE, Theme} from '../../lib/themes/index.js';
+import {BLOCKS_CUSTOM, BLOCKS_DARK, BLOCKS_COLORFUL, BLOCKS_HIGH_CONTRAST, BLOCKS_THREE, Theme} from '../../lib/themes/index.js';
 import {openBlocksThemeMenu, blocksThemeMenuOpen, closeSettingsMenu} from '../../reducers/menus.js';
 import {setTheme} from '../../reducers/theme.js';
 import {persistTheme} from '../../lib/themes/themePersistance.js';
@@ -15,6 +15,7 @@ import styles from './settings-menu.css';
 import threeIcon from './tw-blocks-three.svg';
 import highContrastIcon from './tw-blocks-high-contrast.svg';
 import darkIcon from './tw-blocks-dark.svg';
+import colorfulIcon from './tw-blocks-colorful.svg';
 import customIcon from './tw-blocks-custom.svg';
 import openLinkIcon from './tw-open-link.svg';
 
@@ -30,21 +31,32 @@ const options = defineMessages({
         id: 'tw.blockColors.highContrast'
     },
     [BLOCKS_DARK]: {
-        defaultMessage: 'Dark (Beta)',
+        defaultMessage: 'Dark',
         description: 'Name of the dark block colors',
         id: 'tw.blockColors.dark'
     },
+	[BLOCKS_COLORFUL]: {
+        defaultMessage: 'Colorful (Beta)',
+        description: 'Name of the colorful block colors',
+        id: 'tw.blockColors.colorful'
+    },
     [BLOCKS_CUSTOM]: {
         defaultMessage: 'Customize in Addon Settings',
-        description: 'Link in block color list to open addon settings for more customization',
+        description: 'Link in block colsor list to open addon settings for more customization',
         id: 'tw.blockColors.custom'
     }
 });
+
+//Taken fro Unsandboxed
+const showColorful = () => {
+    return new URLSearchParams(global.location.search).has('allpowerscombined');
+};
 
 const icons = {
     [BLOCKS_THREE]: threeIcon,
     [BLOCKS_HIGH_CONTRAST]: highContrastIcon,
     [BLOCKS_DARK]: darkIcon,
+    [BLOCKS_COLORFUL]: colorfulIcon,
     [BLOCKS_CUSTOM]: customIcon
 };
 
@@ -124,6 +136,7 @@ const BlocksThemeMenu = ({
                 BLOCKS_THREE,
                 BLOCKS_HIGH_CONTRAST,
                 BLOCKS_DARK,
+				...(showColorful()) ? [BLOCKS_COLORFUL] : [],
                 ...(onOpenCustomSettings ? [BLOCKS_CUSTOM] : [])
             ].map(i => (
                 <ThemeMenuItem

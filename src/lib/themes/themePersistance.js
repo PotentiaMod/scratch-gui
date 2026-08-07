@@ -93,6 +93,12 @@ const persistTheme = theme => {
     if (theme.blocks !== systemPreferences.blocks && theme.blocks !== BLOCKS_CUSTOM) {
         nonDefaultSettings.blocks = theme.blocks;
     }
+	if (theme.wallpaper.url !== null) {
+        nonDefaultSettings.wallpaper = theme.wallpaper;
+    }
+    if (theme.font.font !== null) {
+        nonDefaultSettings.font = theme.font;
+    }
 
     if (Object.keys(nonDefaultSettings).length === 0) {
         try {

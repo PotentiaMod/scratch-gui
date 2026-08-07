@@ -241,7 +241,7 @@ class Interface extends React.Component {
                                                 color: '#4900D1',
                                                 cursor: 'pointer'
                                             }}
-                                                href="potentiamod.github.io"
+                                              href="https://potentiamod.github.io/"
                                               target="_blank"
                                               rel="noreferrer"
                                                    >

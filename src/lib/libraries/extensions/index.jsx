@@ -198,7 +198,7 @@ import {APP_NAME} from '../../brand';
 
 const urlParams = new URLSearchParams(location.search);
 const IsLocal = String(window.location.href).startsWith(`http://localhost:`);
-const IsLiveTests = urlParams.has('eneabletest');
+const IsLiveTests = urlParams.has('enabletest');
 const IsSecret = urlParams.has('allpowerscombined');
 const IsMysterious = urlParams.has('666');
 

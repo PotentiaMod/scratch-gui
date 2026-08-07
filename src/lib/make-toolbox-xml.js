@@ -746,10 +746,10 @@ const myBlocks = function (isInitialSetup, isStage, targetId, colors) {
     `;
 };
 
-// eslint-disable-next-line max-len
+const potBlocksColours = `colourmutprimary="#66757f" colourmutsecondary="#5c6a73" colourmuttertiary="#525e66" colourmutquaternary="#0B8E69"`;
 const extraTurboWarpBlocks = `
-<block type="argument_reporter_boolean"><field name="VALUE">is compiled?</field></block>
-<block type="argument_reporter_boolean"><field name="VALUE">is PotentiaMod?</field></block>
+<block type="argument_reporter_boolean"><field name="VALUE">is compiled?</field><mutation ${potBlocksColours}></mutation></block>
+<block type="argument_reporter_boolean"><field name="VALUE">is PotentiaMod?</field><mutation ${potBlocksColours}></mutation></block>
 `;
 /* eslint-enable no-unused-vars */
 
