@@ -115,6 +115,7 @@ const GUIComponent = props => {
         isWindowFullScreen,
         isTelemetryEnabled,
         isTotallyNormal,
+        isSecret,
         loading,
         logo,
         renderLogin,
@@ -314,6 +315,7 @@ const GUIComponent = props => {
                     enableCommunity={enableCommunity}
                     isShared={isShared}
                     isTotallyNormal={isTotallyNormal}
+                    isSecret={isSecret}
                     logo={logo}
                     renderLogin={renderLogin}
                     showComingSoon={showComingSoon}
@@ -515,6 +517,7 @@ GUIComponent.propTypes = {
     isShared: PropTypes.bool,
     isWindowFullScreen: PropTypes.bool,
     isTotallyNormal: PropTypes.bool,
+    isSecret: PropTypes.bool,
     loading: PropTypes.bool,
     logo: PropTypes.string,
     onActivateCostumesTab: PropTypes.func,
@@ -585,6 +588,7 @@ GUIComponent.defaultProps = {
     isCreating: false,
     isShared: false,
     isTotallyNormal: false,
+    isSecret: false,
     loading: false,
     showComingSoon: false,
     stageSizeMode: STAGE_SIZE_MODES.large

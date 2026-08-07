@@ -869,7 +869,7 @@ class MenuBar extends React.Component {
 								</MenuSection>
                             </MenuBarMenu>
                         </MenuLabel>
-                        {this.props.isTotallyNormal && (
+                        {this.props.isSecret && (
                             <MenuLabel
                                 open={this.props.modeMenuOpen}
                                 onOpen={this.props.onClickMode}
@@ -1120,6 +1120,7 @@ MenuBar.propTypes = {
     isShared: PropTypes.bool,
     isShowingProject: PropTypes.bool,
     isTotallyNormal: PropTypes.bool,
+    isSecret: PropTypes.bool,
     isUpdating: PropTypes.bool,
     locale: PropTypes.string.isRequired,
     loginMenuOpen: PropTypes.bool,
