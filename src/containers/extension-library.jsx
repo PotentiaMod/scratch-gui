@@ -585,3 +585,7 @@ ExtensionLibrary.propTypes = {
 };
 
 export default injectIntl(ExtensionLibrary);
+
+export {
+    updateGallery
+};

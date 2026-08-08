@@ -126,7 +126,21 @@ const blockColors = {
 
 const extensions = {};
 
+const customExtensionColors = {
+    primary: primary => {
+        const hsv = hex2hsv(primary);
+        hsv[2] = Math.max(hsv[2] - 70, 20);
+        return hsv2hex(hsv);
+    },
+    secondary: () => '#30175C',
+    tertiary: primary => primary,
+    quaternary: primary => primary,
+    categoryIconBackground: primary => customExtensionColors.primary(primary),
+    categoryIconBorder: primary => customExtensionColors.tertiary(primary)
+};
+
 export {
     blockColors,
+	customExtensionColors,
     extensions
 };
