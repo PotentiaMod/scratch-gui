@@ -559,6 +559,11 @@ class Tab extends EventTargetShim {
             const oldShow = ScratchBlocks.ContextMenu.show;
             ScratchBlocks.ContextMenu.show = function (event, items, rtl) {
                 const gesture = ScratchBlocks.mainWorkspace.currentGesture_;
+                // abbort the injection as we have no clue wtf this is
+                if (!gesture) {
+                    oldShow.call(this, event, items, rtl);
+                    return;
+                }
                 const block = gesture.targetBlock_;
 
                 // eslint-disable-next-line no-shadow
