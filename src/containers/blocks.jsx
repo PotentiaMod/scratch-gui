@@ -77,16 +77,6 @@ const messages = defineMessages({
         defaultMessage: 'Remove Extension',
         description: 'Button text to remove an extension from the current project.',
         id: 'tw.blocks.removeExtension'
-    },
-    removeUnusedExtensions: {
-        defaultMessage: 'Remove Unused Extensions',
-        description: 'Button text to remove all extensions that are not currently used in the project.',
-        id: 'tw.blocks.removeUnusedExtensions'
-    },
-    editExtension: {
-        defaultMessage: 'Edit Extension',
-        description: 'Button text to open the custom extension editor for a custom extension in the project.',
-        id: 'tw.blocks.editExtension'
     }
 });
 
@@ -112,11 +102,6 @@ class Blocks extends React.Component {
                 text: 'Remove Extension',
                 enabled: true,
                 callback: ext => props.vm.extensionManager.removeExtension(ext)
-            },
-            {
-                text: 'Remove Unused Extensions',
-                enabled: true,
-                callback: () => props.vm.extensionManager.removeUnusedExtensions()
             }
         ]);
         window.ScratchBlocks = this.ScratchBlocks;
