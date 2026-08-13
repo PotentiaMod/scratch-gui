@@ -422,7 +422,7 @@ class Blocks extends React.Component {
             });
         }
     }
-	
+	//"remove extension" menu
 	handleExtensionRemoved () {
         const toolboxXML = this.getToolboxXML();
         if (toolboxXML) {
