@@ -77,6 +77,11 @@ const messages = defineMessages({
         defaultMessage: 'Remove Extension',
         description: 'Button text to remove an extension from the current project.',
         id: 'tw.blocks.removeExtension'
+    },
+	removeUnusedExtensions: {
+        defaultMessage: 'Remove Unused Extension',
+        description: 'Button text to remove uused extension from the current project.',
+        id: 'tw.blocks.removeUnusedExtensions'
     }
 });
 
@@ -97,13 +102,18 @@ class Blocks extends React.Component {
     constructor (props) {
         super(props);
         this.ScratchBlocks = VMScratchBlocks(props.vm, false);
-		this.ScratchBlocks.Toolbox.registerMenu('extensionControls', [
+		 this.ScratchBlocks.Toolbox.registerMenu('extensionControls', [
             {
                 text: 'Remove Extension',
                 enabled: true,
-                callback: ext => props.vm.extensionManager.removeExtension(ext)
+                callback: ext => this.props.vm.extensionManager.removeExtension(ext)
+            },
+            {
+                text: 'Remove Unused Extensions',
+                enabled: true,
+                callback: () => this.props.vm.extensionManager.removeUnusedExtensions()
             }
-        ]);
+        ], true);
         window.ScratchBlocks = this.ScratchBlocks;
         AddonHooks.blockly = this.ScratchBlocks;
         AddonHooks.blocklyCallbacks.forEach(i => i());
