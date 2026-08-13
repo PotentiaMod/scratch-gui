@@ -1,0 +1,32 @@
+[
+  {
+    "id": "tw.wallpaper.changeOpaquePrompt",
+    "description": "Text of prompt for changing opaque of workspace",
+    "defaultMessage": "Enter new opaque of workspace:"
+  },
+  {
+    "id": "tw.wallpaper.changeOpaque",
+    "description": "Option to change opaque of Blockly workspace",
+    "defaultMessage": "Change opaque of workspace"
+  },
+  {
+    "id": "dash.wallpaper",
+    "description": "Wallpaper label",
+    "defaultMessage": "Wallpaper"
+  },
+  {
+    "id": "tw.fileInput.selected",
+    "description": "Shows selected wallpaper file name",
+    "defaultMessage": "Selected: {names}"
+  },
+  {
+    "id": "dash.wallpaper.choose",
+    "description": "Button text to choose a wallpaper file",
+    "defaultMessage": "Choose wallpaper..."
+  },
+  {
+    "id": "tw.wallpaper.remove",
+    "description": "Option to remove wallpaper",
+    "defaultMessage": "Remove wallpaper"
+  }
+]

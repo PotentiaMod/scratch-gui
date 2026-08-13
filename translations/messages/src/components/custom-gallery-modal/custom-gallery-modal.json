@@ -1,0 +1,47 @@
+[
+  {
+    "id": "tw.customExtensionGallery.title",
+    "description": "Title for custom extension modal",
+    "defaultMessage": "Add Custom Extension"
+  },
+  {
+    "id": "tw.customExtensionGallery.extensionId",
+    "description": "Extension ID field label",
+    "defaultMessage": "Extension ID"
+  },
+  {
+    "id": "tw.customExtensionGallery.nameLabel",
+    "description": "Extension name field label",
+    "defaultMessage": "Name"
+  },
+  {
+    "id": "tw.customExtensionGallery.descriptionLabel",
+    "description": "Extension description field label",
+    "defaultMessage": "Description"
+  },
+  {
+    "id": "tw.customExtensionGallery.extensionUrl",
+    "description": "Extension JS file URL field label",
+    "defaultMessage": "Extension URL"
+  },
+  {
+    "id": "tw.customExtensionGallery.iconUrl",
+    "description": "Extension icon URL field label",
+    "defaultMessage": "Icon URL (optional)"
+  },
+  {
+    "id": "tw.customExtensionGallery.author",
+    "description": "Extension author field label",
+    "defaultMessage": "Author"
+  },
+  {
+    "id": "tw.customExtensionGallery.add",
+    "description": "Button to confirm",
+    "defaultMessage": "Add"
+  },
+  {
+    "id": "tw.simpleDialog.cancel",
+    "description": "Button to cancel",
+    "defaultMessage": "Cancel"
+  }
+]

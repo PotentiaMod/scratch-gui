@@ -1,0 +1,27 @@
+[
+  {
+    "id": "tw.font",
+    "description": "Custom font label",
+    "defaultMessage": "Custom Font"
+  },
+  {
+    "id": "tw.fileInput.selected",
+    "description": "Shows selected wallpaper file name",
+    "defaultMessage": "Selected: {names}"
+  },
+  {
+    "id": "tw.font.choose",
+    "description": "Button text to choose a font file",
+    "defaultMessage": "Choose font..."
+  },
+  {
+    "id": "tw.font.setForEverything",
+    "description": "Option to set font for all elements",
+    "defaultMessage": "Set for everything"
+  },
+  {
+    "id": "tw.font.reset",
+    "description": "Option to reset font",
+    "defaultMessage": "Reset font"
+  }
+]
