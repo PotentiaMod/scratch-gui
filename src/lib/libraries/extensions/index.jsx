@@ -271,7 +271,7 @@ import {APP_NAME} from '../../brand';
 
 const urlParams = new URLSearchParams(location.search);
 const IsLocal = String(window.location.href).startsWith(`http://localhost:`);
-const IsLiveTests = urlParams.has('enabletest');
+const IsLiveTests = urlParams.has('livetest');
 const IsSecret = urlParams.has('allpowerscombined');
 const IsMysterious = urlParams.has('666');
 
@@ -1140,6 +1140,7 @@ const menuItems = [
         collaborator: 'Croquet Corporation',
         featured: true
     },
+	
 	//PotentiaMod
 	/*
     {
@@ -1210,6 +1211,7 @@ const menuItems = [
     },
 	*/
 ];
+
 
 const gallerySourceDisplay = {
     potentiamod: {
