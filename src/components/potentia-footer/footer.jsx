@@ -123,11 +123,6 @@ const Footer = () => (
         </div>
     </footer>
 );
-
-if (IsLiveTests) {
-    extras.forEach(ext => {
-        menuItems.push(ext);
-    });
 }
 
 export default Footer;
