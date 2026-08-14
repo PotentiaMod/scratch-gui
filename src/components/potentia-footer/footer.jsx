@@ -8,9 +8,8 @@ import {APP_VERSION} from '../../lib/version.js';
 import styles from './footer.css';
 import Swal from 'sweetalert2';
 
-
 const urlParams = new URLSearchParams(location.search);
-const IsLiveTests = urlParams.has('livetest');
+const DevTest = urlParams.has('livetest');
 
 //Taken from LibreKitten.
 const hardRefresh = () => {
@@ -112,7 +111,7 @@ const Footer = () => (
 							</h4>
 							</p>
             <p className={styles.info}>
-                {window.location.href.startsWith('https://potentiamod.github.io/scratch-gui') ? 'Development' : 'Version:' + {APP_VERSION}}  |
+                {DevTest ? 'Development' : 'Version:' + {APP_VERSION}}  |
 				<a
                     onClick={eraseData}
                     style={{color: 'red'}}
