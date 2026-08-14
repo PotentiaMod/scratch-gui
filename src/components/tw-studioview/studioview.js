@@ -313,6 +313,6 @@ StudioView.PROJECT_PAGE = 'https://turbowarp.org/$id';
 StudioView.STUDIO_PAGE = 'https://scratch.mit.edu/studios/$id/';
 
 // The amount of "placeholders" to insert before the next page loads.
-StudioView.PLACEHOLDER_COUNT = 9;
+StudioView.PLACEHOLDER_COUNT = 24;
 
 export default StudioView;
