@@ -8,8 +8,9 @@ import {APP_VERSION} from '../../lib/version.js';
 import styles from './footer.css';
 import Swal from 'sweetalert2';
 
+
 const urlParams = new URLSearchParams(location.search);
-const DevTest = urlParams.has('livetest');
+const IsLiveTests = urlParams.has('livetest');
 
 //Taken from LibreKitten.
 const hardRefresh = () => {
@@ -110,16 +111,23 @@ const Footer = () => (
 							</em>
 							</h4>
 							</p>
-            <p className={styles.info}>
-                {DevTest ? 'Development' : 'Version:' + {APP_VERSION}}  |
+            <p className={styles.info}>                
+				Version: {APP_VERSION} |
 				<a
                     onClick={eraseData}
                     style={{color: 'red'}}
-                >Erase data
+                >
+				Erase data
 				</a>
             </p>
         </div>
     </footer>
 );
+
+if (IsLiveTests) {
+    extras.forEach(ext => {
+        menuItems.push(ext);
+    });
+}
 
 export default Footer;
