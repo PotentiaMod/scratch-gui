@@ -3,7 +3,7 @@ import React from 'react';
 import {defineMessages, FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import logo from './logo.svg';
 import gaiamod from './gaiamod-logo.svg';
-import {APP_NAME} from '../../lib/brand.js';
+import {APP_NAME, MOTTO} from '../../lib/brand.js';
 import {APP_VERSION} from '../../lib/version.js';
 import styles from './footer.css';
 import Swal from 'sweetalert2';
@@ -34,8 +34,8 @@ const Footer = () => (
                     alt="PotentiaMod"
                 />
                 <div>
-				   <span className={styles.wordmark}>PotentiaMod</span>
-                    <p className={styles.tagline}>A Block-Based Coding That Goes EXTREME!</p>
+				   <span className={styles.wordmark}>{APP_NAME}</span>
+                    <p className={styles.tagline}>{MOTTO}</p>
                 </div>
             </div>
 
@@ -45,6 +45,7 @@ const Footer = () => (
                     <a href="/editor.html">Editor</a>
                     <a href="/pot-desktop.html">PotentiaMod Desktop</a>
                     <a href="/packager">PotentiaMod Packager</a>
+                    <a href="?livetest">Live Test</a>
 					 <a
                         href="https://github.com/PotentiaMod"
                         target="_blank"

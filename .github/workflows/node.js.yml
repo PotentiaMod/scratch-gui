@@ -24,7 +24,8 @@ jobs:
       with:
         node-version: 22
         cache: npm
-    - run: npm install --legacy-peer-deps
+    - run: npm cache clean --force
+    - run: npm ci --legacy-peer-deps
     - run: npm run build
       env:
         NODE_ENV: production

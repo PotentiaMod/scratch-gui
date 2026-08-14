@@ -42,7 +42,7 @@ import AddonChannels from '../addons/channels';
 import {loadServiceWorker} from './load-service-worker';
 import runAddons from '../addons/entry';
 import InvalidEmbed from '../components/tw-invalid-embed/invalid-embed.jsx';
-import {APP_NAME} from '../lib/brand.js';
+import {APP_NAME, MOTTO} from '../lib/brand.js';
 import Footer from '../components/potentia-footer/footer.jsx';
 import TWRenderRecoloredImage from '../lib/tw-recolor/render.jsx';
 
@@ -59,7 +59,7 @@ const handleClickAddonSettings = addonId => {
 
 const messages = defineMessages({
     defaultTitle: {
-        defaultMessage: 'A Block-Based Coding That Goes EXTREME!',
+        defaultMessage: '${MOTTO}',
         description: 'Title of homepage',
         id: 'tw.guiDefaultTitle'
     }
@@ -97,7 +97,7 @@ class Interface extends React.Component {
     }
     handleUpdateProjectTitle (title, isDefault) {
         if (isDefault || !title) {
-            document.title = `${APP_NAME} - ${this.props.intl.formatMessage(messages.defaultTitle)}`;
+            document.title = `${APP_NAME} - ${MOTTO}`;
         } else {
             document.title = `${title} - ${APP_NAME}`;
         }
