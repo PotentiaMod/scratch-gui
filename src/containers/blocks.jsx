@@ -107,11 +107,6 @@ class Blocks extends React.Component {
                 text: this.props.intl.formatMessage(messages.removeExtension),
                 enabled: true,
                 callback: ext => this.props.vm.extensionManager.removeExtension(ext)
-            },
-            {
-                text: this.props.intl.formatMessage(messages.removeUnusedExtensions),
-                enabled: true,
-                callback: () => this.props.vm.extensionManager.removeUnusedExtensions()
             }
         ], false);
 		
