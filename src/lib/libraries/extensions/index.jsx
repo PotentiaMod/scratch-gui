@@ -53,6 +53,18 @@ import shredsdkIcon from './shredsdk/shredsdk.svg'
 import utilsIcon from './utils/utilites.svg';
 import gameutilsIcon from './gameutils/gameutils.svg'
 
+// ESP32
+import esp32SerialIconURL from './zumiAI/zumiAI.png';
+import esp32SerialInsetIconURL from './zumiAI/zumiAI-small.svg';
+import esp32SerialConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
+import esp32SerialConnectionSmallIconURL from './zumiAI/zumiAI-small.svg';
+
+// ESP32
+import esp32BluetoothIconURL from './zumiAI/zumiAI.png';
+import esp32BluetoothInsetIconURL from './zumiAI/zumiAI_bluetooth-small.svg';
+import esp32BluetoothConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
+import esp32BluetoothConnectionSmallIconURL from './zumiAI/zumiAI_bluetooth-small.svg'; //
+
 //champierre
 import chatgpt2scratchIconURL from './chatgpt2scratch/chatgpt2scratch.png';
 import chatgpt2scratchInsetIconURL from './chatgpt2scratch/chatgpt2scratch-small.png';
@@ -161,6 +173,13 @@ import duploIconURL from './duplotrain/duplo-train-illustration.png';
 import duploforInsetIconURL from './duplotrain/duplo-train-small.svg';
 import poweredupIconURL from './poweredup/poweredup.png';
 import poweredupforInsetIconURL from './poweredup/poweredup-small.svg';
+
+//166iwase-lgtm/taichan0123
+import meshImage from './mesh/mesh.png';
+import ledButtonImage from './led/led-small.png';
+import brightnessButtonImage from './brightness/brightness-small.png';
+import motionButtonImage from './motion/motion-small.png';
+import gpioButtonImage from './gpio/gpio-small.png';
 
 //GvbvdxxMod2
 import NESEmuThumb from './nes_emulator/nes.svg';
@@ -793,6 +812,57 @@ const menuItems = [
         description: 'Clip Blocks extension.',
         featured: true,
 		tags: ['other', 'preload']
+    },
+	{
+        name: 'Zumi AI (with dongle)',
+        extensionId: 'zumiAIS',
+        collaborator: 'ROBOLINK',
+        iconURL: esp32SerialIconURL,
+        insetIconURL: esp32SerialInsetIconURL,
+        description: (
+            <FormattedMessage
+                id='gui.extension.zumiAIS.description'
+                defaultMessage='Zumi AI for Scratch 3 with Bluetooth'
+            />
+        ),
+        featured: true,
+        disabled: false,
+        bluetoothRequired: false,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+		tags: ['other', 'preload'],
+        connectionIconURL: esp32SerialConnectionIconURL,
+        connectionSmallIconURL: esp32SerialConnectionSmallIconURL,
+        connectingMessage: 'connecting...', //
+
+        helpLink: 'https://your-custom-help-link.com'
+    },
+
+    {
+        name: 'Zumi AI (with bluetooth)',
+        extensionId: 'zumiAIB',
+        collaborator: 'ROBOLINK',
+        iconURL: esp32BluetoothIconURL,
+        insetIconURL: esp32BluetoothInsetIconURL,
+        description: (
+            <FormattedMessage
+                id='gui.extension.zumiAIB.description'
+                defaultMessage='Zumi AI for Scratch 3 with Bluetooth'
+            />
+        ),
+        featured: true,
+        disabled: false,
+        bluetoothRequired: false,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+		tags: ['other', 'preload'],
+        connectionIconURL: esp32BluetoothConnectionIconURL,
+        connectionSmallIconURL: esp32BluetoothConnectionSmallIconURL,
+        connectingMessage: 'connecting...', // 👈
+
+        helpLink: 'https://your-custom-help-link.com'
     },
 	{
         name: 'LEGO Duplo Train',
