@@ -25,7 +25,7 @@ const SLOGAN = 'A Block-Based Coding That Goes EXTREME!';
 import screenshotLight from './screencap-light.png';
 import screenshotDark from './screencap-dark.png';
 
-const RELEASES_DOWNLOAD_URL = `https://github.com/PotentiaMod/desktop/releases/download/${APP_VERSION}/`;
+const RELEASES_DOWNLOAD_URL = `https://github.com/PotentiaMod/desktop/releases/download/v.${APP_VERSION}`;
 
 const openFile = (file) => {
         window.open(`${RELEASES_DOWNLOAD_URL}/${file}`, '_blank', 'noreferrer');
@@ -38,7 +38,7 @@ const Desktop = () => (
                 {APP_NAME} Desktop
             </h1>
         <section>
-                <p>PotentiaMod if it was a desktop app.</p>
+                <p>PotentiaMod as a desktop app.</p>
                 <img
                     className={styles.screenshot}
                     loading="lazy"
@@ -58,8 +58,44 @@ const Desktop = () => (
                     >
                         Download installer (64-bit, recommended)
                     </Button>
+                    <Button
+                        className={styles.downloadButton}
+                        onClick={() => openFile(`PotentiaMod-Setup-${APP_VERSION}-ia32.exe`)}
+                    >
+                        32-bit
+                    </Button>
+                    <Button
+                        className={styles.downloadButton}
+                        onClick={() => openFile(`PotentiaMod-Setup-${APP_VERSION}-arm64.exe`)}
+                    >
+                        ARM 64-bit
+                    </Button>
+                    <Button
+                        className={styles.downloadButton}
+                        onClick={() => openFile(`PotentiaMod.Portable.${APP_VERSION}.x64.exe`)}
+                    >
+                        Download portable (64-bit)
+                    </Button>
                 </div>
-				</section>
+            </section>
+            <section>
+                <h2>Windows 7, 8, and 8.1</h2>
+                These versions of the app have the same features but are slower and less secure. Support will be removed at an unknown time in the future. If a Windows SmartScreen alert appears, click "More info" then "Run anyways".
+                <div className={styles.downloadList}>
+                    <Button
+                        className={styles.downloadButton}
+                        onClick={() => openFile(`PotentiaMod-Legacy-Setup-${APP_VERSION}-x64.exe`)}
+                    >
+                        Download legacy installer (64-bit, recommended)
+                    </Button>
+                    <Button
+                        className={styles.downloadButton}
+                        onClick={() => openFile(`PotentiaMod-Legacy-Setup-${APP_VERSION}-ia32.exe`)}
+                    >
+                        32-bit
+                    </Button>
+                </div>
+            </section>
                <section>
 				<i>
                     This page is based on Dash's Desktop page.

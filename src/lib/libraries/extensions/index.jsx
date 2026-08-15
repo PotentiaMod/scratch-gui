@@ -1211,6 +1211,63 @@ const menuItems = [
         featured: true
     },
 	
+	//PenguinMod Preloads
+	{
+        name: 'PenguinMod Runtime',
+        extensionId: 'jgRuntime',
+        iconURL: require('../extensions/penguinmod/extensions/runtime.svg'),
+        description:'Blocks for modifying project data and settings from PenguinMod itself.',
+        credits: 'PenguinMod',
+        tags: ['pm', 'preload'],
+		featured: true
+    },
+	 {
+        name: 'Prism',
+        extensionId: 'jgPrism',
+        tags: ['pm', 'preload'],
+        iconURL: require('../extensions/penguinmod/extensions/prism.png'),
+		credits: 'PenguinMod',
+        description: 'Blocks for specific use-cases or major convenience.',
+        featured: true
+    },
+	 {
+        name: 'Motion Expansion',
+        extensionId: 'pmMotionExpansion',
+        iconURL: require('../extensions/penguinmod/extensions/motion_expanded.png'),
+        description: 'More small motion blocks for movement or collision.',
+        tags: ['pm', 'preload'],
+		credits: 'PenguinMod',
+		featured: true
+    },
+	{
+        name: 'JSON',
+        extensionId: 'jgJSON',
+        iconURL: require('../extensions/penguinmod/extensions/json.png'),
+        tags: ['pm', 'preload'],
+		credits: 'PenguinMod',
+        description: 'Blocks for handling JSON objects and Arrays.',
+        featured: true
+    },
+	{
+        name: 'Tweening',
+        extensionId: 'jgTween',
+        credits: 'easings.net, Arrow & GarboMuffin',
+        description: 'Smoothly animating values using different easing functions and directions.',
+        iconURL: require('../extensions/penguinmod/jgTween.svg'),
+        tags: ['pm', 'tw', 'preload'],
+        featured: true
+    },
+	{
+        name: 'Storage',
+        extensionId: 'jgStorage',
+        iconURL: require('../extensions/penguinmod/jgStorage.svg'),
+        tags: ['pm', 'preload'],
+        description: 'Store data after PenguinMod has already been closed out. Basic Server Storage is also included.',
+        credits: 'Fir & silvxrcat',
+        featured: true
+    },
+	
+	
 	//PotentiaMod
 	/*
     {
@@ -1280,6 +1337,7 @@ const menuItems = [
         featured: true
     },
 	*/
+	
 ];
 
 
