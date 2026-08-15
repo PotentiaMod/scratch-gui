@@ -8,6 +8,11 @@ import {APP_VERSION} from '../../lib/version.js';
 import styles from './footer.css';
 import Swal from 'sweetalert2';
 
+const urlParams = new URLSearchParams(location.search);
+const Local = String(window.location.href).startsWith(`http://localhost:`);
+const LiveTests = urlParams.has('livetest');
+const Secrets = urlParams.has('allpowerscombined');
+
 //Taken from LibreKitten.
 const hardRefresh = () => {
     const search = location.search.replace(/[?&]nocache=\d+/, '');
@@ -106,9 +111,10 @@ const Footer = () => (
                             />
 							</em>
 							</h4>
-							</p>
+							</p>		
             <p className={styles.info}>
-                Version: {APP_VERSION} | <a
+                Version: {APP_VERSION} | 
+				<a
                     onClick={eraseData}
                     style={{color: 'red'}}
                 >Erase data</a>

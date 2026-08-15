@@ -39,7 +39,7 @@ const guiColors = {
     'project-title-inactive': 'var(--ui-secondary)',
     'project-title-hover': '#ffffff3f',
 
-    'link-color': '#00397D',
+    'link-color': '#44aaff',
 
     'filter-icon-black': 'invert(100%)',
     'filter-icon-gray': 'grayscale(100%) brightness(1.7)',

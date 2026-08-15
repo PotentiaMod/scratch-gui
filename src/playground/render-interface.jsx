@@ -45,8 +45,14 @@ import InvalidEmbed from '../components/tw-invalid-embed/invalid-embed.jsx';
 import {APP_NAME, MOTTO} from '../lib/brand.js';
 import Footer from '../components/potentia-footer/footer.jsx';
 import TWRenderRecoloredImage from '../lib/tw-recolor/render.jsx';
+import Swal from 'sweetalert2';
 
 import styles from './interface.css';
+
+const urlParams = new URLSearchParams(location.search);
+const Local = String(window.location.href).startsWith(`http://localhost:`);
+const LiveTests = urlParams.has('livetest');
+const Secrets = urlParams.has('allpowerscombined');
 
 const isInvalidEmbed = window.parent !== window;
 
@@ -210,6 +216,16 @@ class Interface extends React.Component {
                                             id="tw.unshared.bug"
                                         />
                                     </p>
+                                </div>
+                            )}
+							{LiveTests && (
+                                <div className={styles.infobox, styles.unsharedUpdate}>
+                                    <p>
+                                {`You're using a live test version of ${APP_NAME}. Please don't use test extensions for your projects. I'm dead serious!`}
+								</p>
+								<p>
+                                <a href="https://potentiamod.github.io/">{'Click here to visit the normal version.'}</a>
+                            </p>
                                 </div>
                             )}
                             {hasCloudVariables && projectId !== '0' && (
