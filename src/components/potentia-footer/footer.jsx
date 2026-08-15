@@ -65,7 +65,7 @@ const Footer = () => (
 					<a href="/credits.html">Credits</a>
 					<a href="/privacy.html">Privacy Policy</a>
                     <a
-                        href="https://warp.mistium.com/users/GaiaKitty"
+                        href="https://com.bilup.org/users/GaiaKitty"
                         target="_blank"
                         rel="noreferrer"
                     >Report a bug</a>

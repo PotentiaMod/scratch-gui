@@ -21,10 +21,12 @@ import * as accentCustom from './accent/custom';
 
 import * as guiLight from './gui/light';
 import * as guiModernLight from './gui/modern-light';
+import * as guiLighterColor from './gui/lighter-colored';
 import * as guiDark from './gui/dark';
 import * as guiModernDark from './gui/modern-dark';
 import * as guiMidnight from './gui/midnight';
 import * as guiDeepDark from './gui/deep-dark';
+import * as guiDarkerColor from './gui/darker-colored';
 
 import * as blocksThree from './blocks/three';
 import * as blocksHighContrast from './blocks/high-contrast';
@@ -174,17 +176,21 @@ const ACCENT_DEFAULT = ACCENT_INDIGO;
 
 const GUI_LIGHT = 'light';
 const GUI_MODERN_LIGHT = 'modern-light';
+const GUI_LIGHTER_COLORED = 'lighter-colored';
 const GUI_DARK = 'dark';
 const GUI_MODERN_DARK = 'modern-dark';
 const GUI_MIDNIGHT = 'midnight';
 const GUI_DEEP_DARK = 'deep-dark';
+const GUI_DARKER_COLORED = 'darker-colored';
 const GUI_MAP = {
     [GUI_LIGHT]: guiLight,
     [GUI_MODERN_LIGHT]: guiModernLight,
+    [GUI_LIGHTER_COLORED]: guiLighterColor,
     [GUI_DARK]: guiDark,
     [GUI_MODERN_DARK]: guiModernDark,
     [GUI_MIDNIGHT]: guiMidnight,
-    [GUI_DEEP_DARK]: guiDeepDark
+    [GUI_DEEP_DARK]: guiDeepDark,
+    [GUI_DARKER_COLORED]: guiDarkerColor
 };
 const GuiOptions = defineMessages({
     [GUI_MODERN_LIGHT]: {
@@ -196,6 +202,11 @@ const GuiOptions = defineMessages({
         defaultMessage: 'Light',
         description: 'Name of the light color scheme.',
         id: 'tw.gui.classiclight'
+    },
+	[GUI_LIGHTER_COLORED]: {
+        defaultMessage: 'Lighter (Colored)',
+        description: 'Name of the lighter color scheme.',
+        id: 'tw.gui.lightercolored'
     },
     [GUI_MODERN_DARK]: {
         defaultMessage: 'PotentiaMod - Dark',
@@ -212,6 +223,11 @@ const GuiOptions = defineMessages({
         description: 'Name of the deep dark color scheme.',
         id: 'tw.gui.deepdark'
     },
+	[GUI_DARKER_COLORED]: {
+        defaultMessage: 'Darker (Colored)',
+        description: 'Name of the darker color scheme.',
+        id: 'tw.gui.darkercolored'
+    },
 	[GUI_MIDNIGHT]: {
         defaultMessage: 'Amoled',
         description: 'Name of the amoled color scheme.',
@@ -222,9 +238,11 @@ const GuiOptions = defineMessages({
 const GuiIcons = {
     [GUI_LIGHT]: lightModeIcon,
 	[GUI_MODERN_LIGHT]: paletteIcon,
+	[GUI_LIGHTER_COLORED]: paletteIcon,
     [GUI_DARK]: darkModeIcon,
     [GUI_MODERN_DARK]: paletteIcon,
     [GUI_DEEP_DARK]: paletteIcon,
+    [GUI_DARKER_COLORED]: paletteIcon,
     [GUI_MIDNIGHT]: paletteIcon
 };
 
@@ -437,9 +455,11 @@ export {
 
     GUI_LIGHT,
     GUI_MODERN_LIGHT,
+    GUI_LIGHTER_COLORED,
     GUI_DARK,
     GUI_MODERN_DARK,
     GUI_DEEP_DARK,
+    GUI_DARKER_COLORED,
     GUI_MIDNIGHT,
     GUI_MAP,
 	GuiIcons,

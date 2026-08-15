@@ -1,8 +1,4 @@
-import { guiColors as lightGuiColors } from "./modern-light";
-
 const guiColors = {
-  ...lightGuiColors,
-
     "color-scheme": "dark",
 
     'ui-primary': 'var(--looks-secondary-deep-dark)',
