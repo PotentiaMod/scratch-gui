@@ -102,7 +102,9 @@ const Footer = () => (
                             draggable={false}
                         />
 							</a>
-							<h4>
+							</p>
+							<p>
+							<b>
 						<em>
                             <FormattedMessage
                                 defaultMessage="Also, check out my first mod of PenguinMod, GaiaMod!"
@@ -110,7 +112,7 @@ const Footer = () => (
                                 id="pot.projectrender.gaiamod"
                             />
 							</em>
-							</h4>
+							</b>
 							</p>		
             <p className={styles.info}>
                 Version: {APP_VERSION} | 

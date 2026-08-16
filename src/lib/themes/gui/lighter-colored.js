@@ -1,4 +1,7 @@
+import {guiColors as lightGuiColors} from './modern-light';
+
 const guiColors = {
+	...lightGuiColors,
     'color-scheme': 'light',
 
     'ui-primary': 'white',
@@ -18,8 +21,8 @@ const guiColors = {
 
     'ui-black-transparent': 'hsla(0, 0%, 0%, 0.15)', /* 15% transparent version of black */
 
-    'text-primary': 'hsl(0,0%,0%)', /* #575E75 */
-    'text-primary-transparent': 'hsla(0,0%,0%,0.75)',
+    'text-primary': 'hsla(225, 15%, 40%, 1)', /* #575E75 */
+    'text-primary-transparent': 'hsla(225, 15%, 40%, 0.75)',
 
     'motion-primary': 'hsla(215, 100%, 65%, 1)', /* #4C97FF */
     'motion-primary-transparent': 'hsla(215, 100%, 65%, 0.9)', /* 90% transparent version of motion-primary */

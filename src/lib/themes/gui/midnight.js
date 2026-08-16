@@ -2,6 +2,7 @@ import {guiColors as darkGuiColors} from './modern-dark';
 
 const guiColors = {
     ...darkGuiColors,
+	'color-scheme': 'dark',
     'ui-primary': '#000000',
     'ui-secondary': '#000000',
     'ui-tertiary': '#222222',

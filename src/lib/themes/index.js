@@ -193,30 +193,30 @@ const GUI_MAP = {
     [GUI_DARKER_COLORED]: guiDarkerColor
 };
 const GuiOptions = defineMessages({
-    [GUI_MODERN_LIGHT]: {
-        defaultMessage: 'PotentiaMod - Light',
-        description: 'Name of PotentiaMod\'s Light color scheme.',
-        id: 'tw.gui.light'
-    },
     [GUI_LIGHT]: {
         defaultMessage: 'Light',
         description: 'Name of the light color scheme.',
-        id: 'tw.gui.classiclight'
+        id: 'tw.gui.light'
+    },
+    [GUI_MODERN_LIGHT]: {
+        defaultMessage: 'PotentiaMod - Light',
+        description: 'Name of PotentiaMod\'s Light color scheme.',
+        id: 'tw.gui.modernlight'
     },
 	[GUI_LIGHTER_COLORED]: {
         defaultMessage: 'Lighter (Colored)',
         description: 'Name of the lighter color scheme.',
         id: 'tw.gui.lightercolored'
     },
-    [GUI_MODERN_DARK]: {
-        defaultMessage: 'PotentiaMod - Dark',
-        description: 'Name of PotentiaMod\'s Dark color scheme.',
-        id: 'tw.gui.dark'
-    },
     [GUI_DARK]: {
         defaultMessage: 'Dark',
         description: 'Name of the dark color scheme.',
-        id: 'tw.gui.classicdark'
+        id: 'tw.gui.dark'
+    },
+    [GUI_MODERN_DARK]: {
+        defaultMessage: 'PotentiaMod - Dark',
+        description: 'Name of PotentiaMod\'s Dark color scheme.',
+        id: 'tw.gui.moderndark'
     },
     [GUI_DEEP_DARK]: {
         defaultMessage: 'Deep Dark',
