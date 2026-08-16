@@ -5,7 +5,7 @@ const guiColors = {
     'ui-secondary': 'white',
     'ui-tertiary': 'var(--looks-secondary-lighter)',
 
-    'ui-modal-overlay': 'var(--looks-secondary-lighter)',
+    'ui-modal-overlay': '#ffffffaa',
     'ui-modal-background': 'white', /* #FFFFFF */
     'ui-modal-foreground': 'var(--looks-secondary)', /* #575E75 */
     'ui-modal-header-background': 'var(--looks-secondary-lighter)',
