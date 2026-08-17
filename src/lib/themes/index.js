@@ -47,6 +47,10 @@ import darkIcon from './icons/tw-blocks-dark.svg';
 import colorfulIcon from './icons/tw-blocks-colorful.svg';
 import customIcon from './icons/tw-blocks-custom.svg';
 
+import alignLeftIcon from '../../components/menu-bar/tw-align-left.svg';
+import alignCenterIcon from '../../components/menu-bar/tw-align-center.svg';
+import alignRightIcon from '../../components/menu-bar/tw-align-right.svg';
+
 const ACCENT_PURPLE = 'purple';
 const ACCENT_BLUE = 'blue';
 const ACCENT_RED = 'red';
@@ -329,11 +333,33 @@ const BlockOptions = defineMessages({
         id: 'tw.blockColors.custom'
     }
 });
+//Copied from ScratchBox/MistWarp
+const MENUBAR_ALIGN = {
+    left: {
+        defaultMessage: 'Left',
+        description: 'Label for left-aligned menu bar',
+        id: 'tw.menuBar.align.left',
+        icon: alignLeftIcon
+    },
+    center: {
+        defaultMessage: 'Center',
+        description: 'Label for center-aligned menu bar',
+        id: 'tw.menuBar.align.center',
+        icon: alignCenterIcon
+    },
+    right: {
+        defaultMessage: 'Right',
+        description: 'Label for right-aligned menu bar',
+        id: 'tw.menuBar.align.right',
+        icon: alignRightIcon
+    }
+};
+const MENUBAR_ALIGN_DEFAULT = 'left';
 
 let themeObjectsCreated = 0;
 
 class Theme {
-    constructor (accent, gui, blocks, wallpaper, font) {
+    constructor (accent, gui, blocks, menuBarAlign, wallpaper, font) {
         // do not modify these directly
         /** @readonly */
         this.id = ++themeObjectsCreated;
@@ -344,6 +370,12 @@ class Theme {
         /** @readonly */
         this.blocks = Object.prototype.hasOwnProperty.call(BLOCKS_MAP, blocks) ? blocks : BLOCKS_DEFAULT;
 		/** @readonly */
+        this.menuBarAlign = Object
+            .keys(MENUBAR_ALIGN)
+            .includes(menuBarAlign) ?
+            menuBarAlign : MENUBAR_ALIGN_DEFAULT;
+    
+        /** @readonly */
         this.wallpaper = wallpaper || {url: null, opaque: 0.6};
         /** @readonly */
         this.font = font || {font: null}
@@ -355,15 +387,17 @@ class Theme {
 
     set (what, to) {
         if (what === 'accent') {
-            return new Theme(to, this.gui, this.blocks, this.wallpaper, this.font);
+            return new Theme(to, this.gui, this.blocks, this.menuBarAlign, this.wallpaper, this.font);
         } else if (what === 'gui') {
-            return new Theme(this.accent, to, this.blocks, this.wallpaper, this.font);
+            return new Theme(this.accent, to, this.blocks, this.wallpaper, this.menuBarAlign, this.font);
         } else if (what === 'blocks') {
-            return new Theme(this.accent, this.gui, to, this.wallpaper, this.font);
+            return new Theme(this.accent, this.gui, to, this.wallpaper, this.menuBarAlign, this.font);
         } else if (what === 'wallpaper') {
-            return new Theme(this.accent, this.gui, this.blocks, to, this.font);
-        } else if (what === 'font') {
-            return new Theme(this.accent, this.gui, this.blocks, this.wallpaper, to);
+            return new Theme(this.accent, this.gui, this.blocks, to, this.menuBarAlign, this.font);
+        } else if (what === 'menuBarAlign') {
+            return new Theme(this.accent, this.gui, this.blocks, this.wallpaper, to, this.font);
+        }else if (what === 'font') {
+            return new Theme(this.accent, this.gui, this.blocks, this.wallpaper, this.menuBarAlign, to);
         }
         throw new Error(`Unknown theme property: ${what}`);
     }
@@ -470,5 +504,8 @@ export {
     BLOCKS_HIGH_CONTRAST,
     BLOCKS_COLORFUL,
     BLOCKS_CUSTOM,
-    BLOCKS_MAP
+    BLOCKS_MAP,
+	
+	MENUBAR_ALIGN,
+    MENUBAR_ALIGN_DEFAULT
 };

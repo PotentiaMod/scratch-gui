@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable no-unused-vars */
 import classNames from 'classnames';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
@@ -492,7 +494,14 @@ class MenuBar extends React.Component {
                     styles.menuBar
                 )}
             >
-                <div className={styles.mainMenu}>
+                <div
+                    className={classNames(
+                        styles.mainMenu,
+                        {
+                            [styles[`main-menu-align-${this.props.theme.menuBarAlign || 'left'}`]]: true
+                        }
+                    )}
+                >
                     <div className={styles.fileGroup}>
 					 <div className={classNames(styles.menuBarItem)}>
                             <img
@@ -528,14 +537,14 @@ class MenuBar extends React.Component {
                                     place={this.props.isRtl ? 'left' : 'right'}
                                 >
                                     <MenuSection>
-                                        <MenuItemLink href="https://warp.mistium.com/users/GaiaKitty">
+                                        <MenuItemLink href="https://accounts.bilup.org/profile/GaiaKitty">
                                             <FormattedMessage
                                                 defaultMessage="Some scripts encountered errors."
                                                 description="Link in error menu"
                                                 id="tw.menuBar.reportError1"
                                             />
                                         </MenuItemLink>
-                                        <MenuItemLink href="https://warp.mistium.com/users/GaiaKitty">
+                                        <MenuItemLink href="https://accounts.bilup.org/profile/GaiaKitty">
                                             <FormattedMessage
                                                 defaultMessage="This is a bug. Please report it."
                                                 description="Link in error menu"
@@ -1043,7 +1052,7 @@ class MenuBar extends React.Component {
                     <div className={styles.menuBarItem}>
                         <a
                             className={styles.feedbackLink}
-                            href="https://warp.mistium.com/users/GaiaKitty"
+                            href="https://accounts.bilup.org/profile/GaiaKitty"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
@@ -1182,6 +1191,9 @@ MenuBar.propTypes = {
     shouldSaveBeforeTransition: PropTypes.func,
     showSaveFilePicker: PropTypes.func,
     showComingSoon: PropTypes.bool,
+	theme: PropTypes.shape({
+        menuBarAlign: PropTypes.string
+    }),
     username: PropTypes.string,
     userOwnsProject: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired
@@ -1216,6 +1228,7 @@ const mapStateToProps = (state, ownProps) => {
         projectTitle: state.scratchGui.projectTitle,
         sessionExists: state.session && typeof state.session.session !== 'undefined',
         settingsMenuOpen: settingsMenuOpen(state),
+		theme: state.scratchGui.theme.theme,
         username: user ? user.username : null,
         userOwnsProject: ownProps.authorUsername && user &&
             (ownProps.authorUsername === user.username),

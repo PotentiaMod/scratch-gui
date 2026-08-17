@@ -14,6 +14,8 @@ const MENU_GUI = 'guiMenu';
 const MENU_BLOCKS_THEME = 'blocksThemeMenu';
 const MENU_WALLPAPER = 'wallpaperThemeMenu';
 const MENU_FONT = 'fontThemeMenu';
+const MENU_MENUBAR_ALIGN = 'menubarAlignMenu';
+const MENU_CUSTOM_THEMES = 'customThemesMenu';
 const MENU_ERRORS = 'errorsMenu';
 
 class Menu {
@@ -58,10 +60,12 @@ const rootMenu = new Menu('root')
         new Menu(MENU_SETTINGS)
             .addChild(new Menu(MENU_LANGUAGE))
             .addChild(new Menu(MENU_ACCENT))
+            .addChild(new Menu(MENU_CUSTOM_THEMES))
             .addChild(new Menu(MENU_GUI))
             .addChild(new Menu(MENU_BLOCKS_THEME))
             .addChild(new Menu(MENU_WALLPAPER))
             .addChild(new Menu(MENU_FONT))
+            .addChild(new Menu(MENU_MENUBAR_ALIGN))
     )
     .addChild(new Menu(MENU_FILE))
     .addChild(new Menu(MENU_EDIT))
@@ -81,10 +85,12 @@ const initialState = {
     [MENU_MODE]: false,
     [MENU_SETTINGS]: false,
     [MENU_ACCENT]: false,
+    [MENU_CUSTOM_THEMES]: false,
     [MENU_GUI]: false,
     [MENU_BLOCKS_THEME]: false,
     [MENU_WALLPAPER]: false,
     [MENU_FONT]: false,
+    [MENU_MENUBAR_ALIGN]: false,
     [MENU_ERRORS]: false
 };
 
@@ -161,6 +167,10 @@ const openAccentMenu = () => openMenu(MENU_ACCENT);
 const closeAccentMenu = () => closeMenu(MENU_ACCENT);
 const accentMenuOpen = state => state.scratchGui.menus[MENU_ACCENT];
 
+const openCustomThemes = () => openMenu(MENU_CUSTOM_THEMES);
+const closeCustomThemes = () => closeMenu(MENU_CUSTOM_THEMES);
+const customThemesOpen = state => state.scratchGui.menus[MENU_CUSTOM_THEMES];
+
 const openGuiMenu = () => openMenu(MENU_GUI);
 const closeGuiMenu = () => closeMenu(MENU_GUI);
 const guiMenuOpen = state => state.scratchGui.menus[MENU_GUI];
@@ -176,6 +186,10 @@ const wallpaperThemeMenuOpen = state => state.scratchGui.menus[MENU_WALLPAPER];
 const openFontThemeMenu = () => openMenu(MENU_FONT);
 const closeFontThemeMenu = () => openMenu(MENU_FONT);
 const fontThemeMenuOpen = state => state.scratchGui.menus[MENU_FONT];
+
+const openMenubarAlignMenu = () => openMenu(MENU_MENUBAR_ALIGN);
+const closeMenubarAlignMenu = () => closeMenu(MENU_MENUBAR_ALIGN);
+const menubarAlignMenuOpen = state => state.scratchGui.menus[MENU_MENUBAR_ALIGN];
 
 const openErrorsMenu = () => openMenu(MENU_ERRORS);
 const closeErrorsMenu = () => closeMenu(MENU_ERRORS);
@@ -211,6 +225,9 @@ export {
     openAccentMenu,
     closeAccentMenu,
     accentMenuOpen,
+	openCustomThemes,
+    closeCustomThemes,
+    customThemesOpen,
 	openGuiMenu,
     closeGuiMenu,
     guiMenuOpen,
@@ -223,6 +240,9 @@ export {
     openFontThemeMenu,
     closeFontThemeMenu,
     fontThemeMenuOpen,
+	openMenubarAlignMenu,
+    closeMenubarAlignMenu,
+    menubarAlignMenuOpen,
     openErrorsMenu,
     closeErrorsMenu,
     errorsMenuOpen

@@ -10,6 +10,7 @@ import TWAccentThemeMenu from './tw-theme-accent.jsx';
 import TWGuiThemeMenu from './tw-theme-gui.jsx';
 import TWWallpaperThemeMenu from './tw-theme-wallpaper.jsx';
 import TWFontThemeMenu from './tw-theme-font.jsx';
+import TWMenuBarAlignMenu from './tw-menubar-align.jsx';
 import TWBlocksThemeMenu from './tw-theme-blocks.jsx';
 import TWDesktopSettings from './tw-desktop-settings.jsx';
 
@@ -67,6 +68,7 @@ const SettingsMenu = ({
                             onOpenCustomSettings={onOpenCustomSettings}
                         />
                         <TWAccentThemeMenu />
+						<TWMenuBarAlignMenu />
                         <TWWallpaperThemeMenu
                             onOpenCustomSettings={onOpenCustomSettings}
                         />
