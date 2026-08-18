@@ -80,7 +80,8 @@
       <div class="splash-screen">
         <div>
           <h1><%= htmlWebpackPlugin.options.APP_NAME %> requires JavaScript</h1>
-          <p>Consider using <a href="https://desktop.turbowarp.org/">TurboWarp Desktop</a> if you are scared of a remote JavaScript.</p>
+          <p>Consider using <a href="https://potentiamod.github.io/pot-desktop.html">PotentiaMod Desktop</a> if you are scared of a remote JavaScript.</p>
+          <p>No way! I'm scared of the remote Javascript! >:(</p>
         </div>
       </div>
     </noscript>
@@ -98,7 +99,7 @@
         'use strict';
 
         var theme = '';
-        var accent = '#6D4CFF';
+        var accent = '#4800cc';
 
         try {
           var themeSetting = localStorage.getItem('tw:theme');
@@ -182,5 +183,40 @@
     </script>
 
     <div id="app"></div>
+<script>
+async function checkAdBlock() {
+            try {
+                // Using an official Google Ad URL that is blacklisted by all adblockers
+                const targetUrl = 'https://googlesyndication.com';
+
+                try {
+                    // We send a lightweight HEAD request just to check the connection status
+                    const response = await fetch(targetUrl, {
+                        method: 'HEAD',
+                        mode: 'no-cors',
+                    });
+
+                    // Modern adblockers fake a "200 OK" redirect, but Google never redirects this JS path.
+                    // If it was redirected or manipulated, an adblocker is present.
+                    if (response.redirected) {
+                        window.location.replace("stop.html");
+                        return true;
+                    }
+
+                    //no code lol
+                    return false;
+                } catch (error) {
+                    // If the browser blocks the connection entirely, catch triggers.
+                    window.location.replace("stop.html");
+                    return true;
+                }
+            } catch (e) {
+                console.error(`checkAdBlock error: e`);
+                return e;
+            }
+        }
+		
+		checkAdBlock();
+</script>
   </body>
 </html>
