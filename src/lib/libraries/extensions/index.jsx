@@ -232,7 +232,67 @@ import lassImage from "./lass/lass.png";
 import iftttImage from "./ifttt/ifttt.png";
 import thingspeakImage from "./thingspeak/thingspeak.png";
 
+import rosIconURL from './ros/ros.png';
+import rosInsetIconURL from './ros/ros-small.svg';
+import rosConnectionIconURL from './ros/ros-illustration.svg';
+import rosConnectionSmallIconURL from './ros/ros-small.svg';
+
+import pr2RobotIconURL from './pr2robot/pr2.png';
+import pr2RobotInsetIconURL from './pr2robot/pr2-small.svg';
+import pr2RobotConnectionSmallIconURL from './pr2robot/pr2-small.svg';
+
+import fetchRobotIconURL from './fetchrobot/fetch.png';
+import fetchRobotInsetIconURL from './fetchrobot/fetch-small.svg';
+import fetchRobotConnectionSmallIconURL from './fetchrobot/fetch-small.svg';
+
+import spotRobotIconURL from './spotrobot/spot.png';
+import spotRobotInsetIconURL from './spotrobot/spot-small.svg';
+import spotRobotConnectionSmallIconURL from './spotrobot/spot-small.svg';
+
+import go1RobotIconURL from './go1robot/go1.png';
+import go1RobotInsetIconURL from './go1robot/go1-small.svg';
+import go1RobotConnectionSmallIconURL from './go1robot/go1-small.svg';
+
+import pepperRobotIconURL from './pepperrobot/pepper.png';
+import pepperRobotInsetIconURL from './pepperrobot/pepper-small.svg';
+import pepperRobotConnectionSmallIconURL from './pepperrobot/pepper-small.svg';
+
 import sencuIconURL from "./sencu/sencu.jpg";
+
+import kakaIconURL from './kaka/kaka.png';
+import kakaInsetIconURL from './kaka/kaka-small.svg';
+import kakaConnectionIconURL from './kaka/kaka-illustration.svg';
+import kakaConnectionSmallIconURL from './kaka/kaka-small.svg';
+import kakaHelpLink from './kaka/kakaHelpLink.png';
+
+import galaxyRVRIconURL from './galaxyRVR/galaxyRVR.jpg';
+import galaxyRVRInsetIconURL from './galaxyRVR/galaxyRVR-small.svg';
+import galaxyRVRConnectionIconURL from './galaxyRVR/galaxyRVR-illustration.svg';
+import galaxyRVRConnectionSmallIconURL from './galaxyRVR/galaxyRVR-small.svg';
+import galaxyRVRHelpLink from './galaxyRVR/galaxyRVRHelpLink.png';
+
+import zeusCarIconURL from './zeusCar/zeusCar.jpg';
+import zeusCarInsetIconURL from './zeusCar/zeusCar-small.svg';
+import zeusCarConnectionIconURL from './zeusCar/zeusCar-illustration.svg';
+import zeusCarConnectionSmallIconURL from './zeusCar/zeusCar-small.svg';
+import zeusCarHelpLink from './zeusCar/zeusCarHelpLink.png';
+
+import piCarXIconURL from './picar-x/piCarX.png';
+import piCarXInsetIconURL from './picar-x/piCarX-small.svg';
+import piCarXConnectionIconURL from './picar-x/piCarX-illustration.svg';
+import piCarXConnectionSmallIconURL from './picar-x/piCarX-small.svg';
+import piCarXHelpLink from './picar-x/piCarXHelpLink.png';
+
+import gsaTempVariablesExtensionIcon from './penguinmod/extensions/tempvariables.svg';
+import jgIframeExtensionIcon from './penguinmod/extensions/iframe.png';
+import jgExtendedAudioExtensionIcon from './penguinmod/extensions/extendedaudio.png';
+import jgScratchAuthExtensionIcon from './penguinmod/extensions/scratchauth2.svg';
+import jgPermissionExtensionIcon from './penguinmod/extensions/permissions.png';
+import jgCloneManagerExtensionIcon from './penguinmod/extensions/clonemanager.png';
+import pmInlineBlocksExtensionIcon from './penguinmod/extensions/inlineblocks.png';
+import jgPackagerApplicationsExtensionIcon from './penguinmod/extensions/packagedApplications.png';
+import jgPackagerApplicationsInsetExtensionIcon from './penguinmod/extensions/packagedApplications_inset.png';
+import spJSONExtensionIcon from './penguinmod/extensions/sp_json.svg';
 
 import smartLumiesIconURL from './smart-lumies/smart-lumies.png';
 import smartLumiesInsetIconURL from './smart-lumies/smart-lumies-small.svg';
@@ -293,6 +353,13 @@ import galleryIconDM from './dinosaurmod/gallery.svg';
 import galleryIconGM from './gaiamod/gallery.png';
 
 import {APP_NAME} from '../../brand';
+
+let platform = "browsers";
+if (window.cordova && window.cordova.platformId !== "browser") {
+    platform = window.cordova.platformId;
+} else if (navigator.userAgent.indexOf("Electron/") > 0) {
+    platform = "electron";
+}
 
 const urlParams = new URLSearchParams(location.search);
 const IsLocal = String(window.location.href).startsWith(`http://localhost:`);
@@ -722,7 +789,7 @@ const menuItems = [
 	{
         name: 'ScratchPro',
         extensionId: 'scratchpro',
-		tags: ['scratchpro', 'preload'],
+		tags: ['other', 'preload'],
         iconURL: require('../extensions/scratchpro/illustration.svg'),
         insetIconURL: require('../extensions/scratchpro/small.svg'),
         credits: 'cuiJY',
@@ -730,6 +797,7 @@ const menuItems = [
         featured: true,
         internetConnectionRequired: false
     },
+	
 	/*
 	{
         name: 'Pro AI',
@@ -739,83 +807,6 @@ const menuItems = [
         insetIconURL: require('../extensions/scratchpro_ai/small.svg'),
         credits: 'cuiJY',
         description:'Text generation, sentiment analysis & natural language processing.',
-        featured: true,
-        internetConnectionRequired: false
-    },
-	{
-        name: 'Pro Audio',
-        extensionId: 'scratchpro_audio',
-		tags: ['scratchpro', 'preload'],
-        iconURL: require('../extensions/scratchpro_audio/illustration.svg'),
-        insetIconURL: require('../extensions/scratchpro_audio/small.svg'),
-        credits: 'cuiJY',
-        description:'Audio synthesis, oscillators, effects & Web Audio API.',
-        featured: true,
-        internetConnectionRequired: false
-    },
-	{
-        name: 'Pro Crypto',
-        extensionId: 'scratchpro_crypto',
-		tags: ['scratchpro', 'preload'],
-        iconURL: require('../extensions/scratchpro_crypto/illustration.svg'),
-        insetIconURL: require('../extensions/scratchpro_crypto/small.svg'),
-        credits: 'cuiJY',
-        description:'Encryption, hashing, compression & steganography.',
-        featured: true,
-        internetConnectionRequired: false
-    },
-	{
-        name: 'Pro Data',
-        extensionId: 'scratchpro_data',
-		tags: ['scratchpro', 'preload'],
-        iconURL: require('../extensions/scratchpro_data/illustration.svg'),
-        insetIconURL: require('../extensions/scratchpro_data/small.svg'),
-        credits: 'cuiJY',
-        description:'Arrays, dictionaries, JSON & data structures.',
-        featured: true,
-        internetConnectionRequired: false
-    },
-	{
-        name: 'Pro Game',
-        extensionId: 'scratchpro_game',
-		tags: ['scratchpro', 'preload'],
-        iconURL: require('../extensions/scratchpro_game/illustration.svg'),
-        insetIconURL: require('../extensions/scratchpro_game/small.svg'),
-        credits: 'cuiJY',
-        description:'Pathfinding, tilemaps, particles, easing & game utilities.',
-        featured: true,
-        internetConnectionRequired: false
-    },
-	{
-        name: 'Pro Graphics',
-        extensionId: 'scratchpro_gfx',
-		tags: ['scratchpro', 'preload'],
-        iconURL: require('../extensions/scratchpro_gfx/illustration.svg'),
-        insetIconURL: require('../extensions/scratchpro_gfx/small.svg'),
-        credits: 'cuiJY',
-        description:'Canvas drawing, shapes, overlays & screen utilities.',
-        featured: true,
-        internetConnectionRequired: false
-    },
-	{
-        name: 'Pro Tools',
-        extensionId: 'scratchpro_tool',
-		tags: ['scratchpro', 'preload'],
-        iconURL: require('../extensions/scratchpro_tool/illustration.svg'),
-        insetIconURL: require('../extensions/scratchpro_tool/small.svg'),
-        credits: 'cuiJY',
-        description:'Type conversion, console, JSON & utility blocks',
-        featured: true,
-        internetConnectionRequired: false
-    },
-	{
-        name: 'Pro Text',
-        extensionId: 'scratchpro_text',
-		tags: ['scratchpro', 'preload'],
-        iconURL: require('../extensions/scratchpro_text/illustration.svg'),
-        insetIconURL: require('../extensions/scratchpro_text/small.svg'),
-        credits: 'cuiJY',
-        description:'String manipulation, regex, templates & text utilities',
         featured: true,
         internetConnectionRequired: false
     },
@@ -986,7 +977,7 @@ const menuItems = [
         name: 'Scratch Emo',
         extensionId: 'emo',
         collaborator: 'Yukai Engineering Inc.',
-		tags: ['othermods', 'hardware', 'iot'],
+		tags: ['other', 'preload'],
         iconURL: emoBlockImage,
         insetIconURL: emoBlockInsertIconImage,
         description: 'Play with BOCCO emo!',
@@ -1012,7 +1003,7 @@ const menuItems = [
         collaborator: 'Gvbvdxx',
         iconURL: roku,
 		insetIconURL: rokuSmall,
-        tags: ['other', 'preload', 'iot'],
+        tags: ['other', 'preload'],
         description: 'Interact with your Roku tv via the GM2Helper software!',
         featured: true
     },
@@ -1030,13 +1021,13 @@ const menuItems = [
             />
         ),
         featured: true,
-		tags: ['other', 'preload', 'iot'],
+		tags: ['other', 'preload'],
         helpLink: 'http://echidna.es/'
     },
 	{
         name: 'NES Emulator',
         extensionId: 'nesemulator', // update reference once file names are updated
-        tags: ['other', 'preload', 'iot'],
+        tags: ['other', 'preload'],
         bluetoothRequired: false,
         internetConnectionRequired: true,
         launchPeripheralConnectionFlow: false,
@@ -1492,6 +1483,14 @@ const menuItems = [
 		featured: true
     },
 	{
+        name: 'Scratch Authentication',
+        extensionId: 'jgScratchAuthenticate',
+        iconURL: jgScratchAuthExtensionIcon,
+		tags: ['pm', 'preload'],
+        description: "Interact with Scratch Authentication to prove the player is a real scratch user.",
+        featured: true
+    },
+	{
         name: 'JSON',
         extensionId: 'jgJSON',
         iconURL: require('../extensions/penguinmod/extensions/json.png'),
@@ -1547,22 +1546,10 @@ const menuItems = [
     },
 	*/
     {
-        name: (
-            <FormattedMessage
-                defaultMessage="Custom Extension"
-                description="Name of library item to load a custom extension from a remote source"
-                id="tw.customExtension.name"
-            />
-        ),
+        name: 'Custom Extension',
         extensionId: 'custom_extension',
         iconURL: customExtensionIcon,
-        description: (
-            <FormattedMessage
-                defaultMessage="Load custom extensions from URLs, files, or JavaScript source code."
-                description="Description of library item to load a custom extension from a custom source"
-                id="tw.customExtension.description"
-            />
-        ),
+        description: 'Load custom extensions from URLs, files, or JavaScript source code.',
         tags: ['potentia'],
         featured: true
         // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
