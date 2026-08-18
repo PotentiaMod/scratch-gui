@@ -135,6 +135,12 @@ import aicobotInsetIconURL from './aicobot/aicobot-small.png';
 import aicobotConnectionIconURL from './aicobot/aicobot-illustration.png';
 import aicobotConnectionSmallIconURL from './aicobot/aicobot-small.png';
 
+//garragames
+import koriIconURL from './kori/kori.png';
+import koriInsetIconURL from './kori/kori-small.svg';
+import koriConnectionIconURL from './kori/kori-illustration.svg';
+import koriConnectionSmallIconURL from './kori/kori-small.svg'
+
 //other
 import appMakerIconURL from './librekitten/appmaker/appmaker.svg';
 import appMakerInsetIconURL from './librekitten/appmaker/software-small.svg';
@@ -713,6 +719,107 @@ const menuItems = [
         description: 'Blocks made for Twitter posts.',
         featured: true
     },
+	{
+        name: 'ScratchPro',
+        extensionId: 'scratchpro',
+		tags: ['scratchpro', 'preload'],
+        iconURL: require('../extensions/scratchpro/illustration.svg'),
+        insetIconURL: require('../extensions/scratchpro/small.svg'),
+        credits: 'cuiJY',
+        description:'Advanced blocks: HTTP, JSON, arrays, color, utilities.',
+        featured: true,
+        internetConnectionRequired: false
+    },
+	/*
+	{
+        name: 'Pro AI',
+        extensionId: 'scratchpro_ai',
+		tags: ['scratchpro', 'preload'],
+        iconURL: require('../extensions/scratchpro_ai/illustration.svg'),
+        insetIconURL: require('../extensions/scratchpro_ai/small.svg'),
+        credits: 'cuiJY',
+        description:'Text generation, sentiment analysis & natural language processing.',
+        featured: true,
+        internetConnectionRequired: false
+    },
+	{
+        name: 'Pro Audio',
+        extensionId: 'scratchpro_audio',
+		tags: ['scratchpro', 'preload'],
+        iconURL: require('../extensions/scratchpro_audio/illustration.svg'),
+        insetIconURL: require('../extensions/scratchpro_audio/small.svg'),
+        credits: 'cuiJY',
+        description:'Audio synthesis, oscillators, effects & Web Audio API.',
+        featured: true,
+        internetConnectionRequired: false
+    },
+	{
+        name: 'Pro Crypto',
+        extensionId: 'scratchpro_crypto',
+		tags: ['scratchpro', 'preload'],
+        iconURL: require('../extensions/scratchpro_crypto/illustration.svg'),
+        insetIconURL: require('../extensions/scratchpro_crypto/small.svg'),
+        credits: 'cuiJY',
+        description:'Encryption, hashing, compression & steganography.',
+        featured: true,
+        internetConnectionRequired: false
+    },
+	{
+        name: 'Pro Data',
+        extensionId: 'scratchpro_data',
+		tags: ['scratchpro', 'preload'],
+        iconURL: require('../extensions/scratchpro_data/illustration.svg'),
+        insetIconURL: require('../extensions/scratchpro_data/small.svg'),
+        credits: 'cuiJY',
+        description:'Arrays, dictionaries, JSON & data structures.',
+        featured: true,
+        internetConnectionRequired: false
+    },
+	{
+        name: 'Pro Game',
+        extensionId: 'scratchpro_game',
+		tags: ['scratchpro', 'preload'],
+        iconURL: require('../extensions/scratchpro_game/illustration.svg'),
+        insetIconURL: require('../extensions/scratchpro_game/small.svg'),
+        credits: 'cuiJY',
+        description:'Pathfinding, tilemaps, particles, easing & game utilities.',
+        featured: true,
+        internetConnectionRequired: false
+    },
+	{
+        name: 'Pro Graphics',
+        extensionId: 'scratchpro_gfx',
+		tags: ['scratchpro', 'preload'],
+        iconURL: require('../extensions/scratchpro_gfx/illustration.svg'),
+        insetIconURL: require('../extensions/scratchpro_gfx/small.svg'),
+        credits: 'cuiJY',
+        description:'Canvas drawing, shapes, overlays & screen utilities.',
+        featured: true,
+        internetConnectionRequired: false
+    },
+	{
+        name: 'Pro Tools',
+        extensionId: 'scratchpro_tool',
+		tags: ['scratchpro', 'preload'],
+        iconURL: require('../extensions/scratchpro_tool/illustration.svg'),
+        insetIconURL: require('../extensions/scratchpro_tool/small.svg'),
+        credits: 'cuiJY',
+        description:'Type conversion, console, JSON & utility blocks',
+        featured: true,
+        internetConnectionRequired: false
+    },
+	{
+        name: 'Pro Text',
+        extensionId: 'scratchpro_text',
+		tags: ['scratchpro', 'preload'],
+        iconURL: require('../extensions/scratchpro_text/illustration.svg'),
+        insetIconURL: require('../extensions/scratchpro_text/small.svg'),
+        credits: 'cuiJY',
+        description:'String manipulation, regex, templates & text utilities',
+        featured: true,
+        internetConnectionRequired: false
+    },
+	*/
 	/////NEW FACES!
 	{
         name: 'Magic Blue UU',
@@ -741,6 +848,44 @@ const menuItems = [
                 id='gui.extension.magicBlueUU.connectingMessage'
             />
         )
+    },
+	{
+        name: 'Smart Lumies',
+        extensionId: 'smartLumies',
+        collaborator: 'PlusPlus',
+        iconURL: smartLumiesIconURL,
+        insetIconURL: smartLumiesInsetIconURL,
+        description: 'Have fun with Smart Lumies Cube in GaiaMod!',
+		tags: ['other', 'preload'],
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        connectionIconURL: smartLumiesConnectionIconURL,
+        connectionSmallIconURL: smartLumiesConnectionSmallIconURL,
+        connectionTipIconURL: smartLumiesConnectionTipIconURL,
+        connectingMessage: 'Have your Cube nearby.',
+        helpLink: 'https://smartlumies.com'
+    },
+	{
+        name: 'Kori Assistant',
+        extensionId: 'kori',
+        collaborator: 'OpenAI',
+        iconURL: koriIconURL,
+        insetIconURL: koriInsetIconURL,
+		connectionIconURL: koriConnectionIconURL,
+        connectionSmallIconURL: koriConnectionSmallIconURL,
+		connectingMessage: 'Connecting',
+        tags: ['other', 'preload'],
+        description: 'Experiment with Generative AI.',
+        bluetoothRequired: true,
+        internetConnectionRequired: true,
+		launchPeripheralConnectionFlow: true,
+		useAutoScan: false,
+		helpLink: 'https://scratch.mit.edu/kori',
+        featured: true
     },
 	{
         name: 'UglyBot',
@@ -836,6 +981,19 @@ const menuItems = [
 		tags: ['other', 'preload'],
         description: 'Control your Ohbot',
         featured: true
+    },
+	{
+        name: 'Scratch Emo',
+        extensionId: 'emo',
+        collaborator: 'Yukai Engineering Inc.',
+		tags: ['othermods', 'hardware', 'iot'],
+        iconURL: emoBlockImage,
+        insetIconURL: emoBlockInsertIconImage,
+        description: 'Play with BOCCO emo!',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
     },
 	{
         name: 'Web kit',
