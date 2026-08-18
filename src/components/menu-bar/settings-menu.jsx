@@ -68,7 +68,6 @@ const SettingsMenu = ({
                             onOpenCustomSettings={onOpenCustomSettings}
                         />
                         <TWAccentThemeMenu />
-						<TWMenuBarAlignMenu />
                         <TWWallpaperThemeMenu
                             onOpenCustomSettings={onOpenCustomSettings}
                         />

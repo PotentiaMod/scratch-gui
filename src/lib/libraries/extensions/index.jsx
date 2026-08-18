@@ -619,6 +619,101 @@ const menuItems = [
         description: 'Develop apps in PotentiaMod.',
         featured: true
     },
+	/////NEW FACES!
+		{
+        name: 'Face Emotion Sensing',
+        extensionId: 'poseFace',
+        tags: ['other', 'preload'],
+        iconURL: require('../extensions/poseFace/pose-face.png'),
+		credits: 'Curriulum',
+        description: 'Sense face movement with the camera with added emotion detection.',
+        featured: true
+    },
+	{
+        name: 'Cozmo',
+        extensionId: 'cozmo',
+        tags: ['cognimates', 'preload'],
+        iconURL: require('../extensions/cognimates/cozmo-ext.png'),
+		insetIconURL: require('../extensions/cognimates/cozmo-small.jpg'),
+		credits: 'Anki',
+        description: 'Play with Cozmo in PotentiaMod.',
+        featured: true
+    },
+	{
+        name: 'Muse',
+        extensionId: 'muse',
+        tags: ['cognimates', 'preload'],
+        iconURL: require('../extensions/cognimates/Muse.png'),
+		insetIconURL: require('../extensions/cognimates/muse_inset.png'),
+		credits: 'InteraXon',
+        description: 'Use Muse for a special development in PotentiaMod.',
+        featured: true
+    },
+	{
+        name: 'Alexa',
+        extensionId: 'alexa',
+        tags: ['cognimates', 'preload'],
+        iconURL: require('../extensions/cognimates/Alexa_extension.png'),
+		credits: 'Amazon',
+        description: 'Talk to Alexa in PotentiaMod.',
+        featured: true
+    },
+	{
+        name: 'Ergo',
+        extensionId: 'ergo',
+        tags: ['cognimates', 'preload'],
+        iconURL: require('../extensions/cognimates/Ergo_extension.png'),
+		credits: 'Cognimates',
+        description: 'Play with Ergo in PotentiaMod.',
+        featured: true
+    },
+	{
+        name: 'Smart Lights',
+        extensionId: 'hue',
+        tags: ['cognimates', 'preload'],
+        iconURL: require('../extensions/cognimates/Hue_extension.png'),
+		credits: 'Cognimates',
+        description: 'Blocks used for changing and modifying lights.',
+        featured: true
+    },
+	{
+        name: 'Feelings',
+        extensionId: 'sentiment',
+        tags: ['cognimates', 'preload'],
+        iconURL: require('../extensions/cognimates/sentiment_ext.png'),
+		insetIconURL: require('../extensions/cognimates/sentiment-small.svg'),
+		credits: 'Cognimates',
+        description: 'Detects feelings',
+        featured: true
+    },
+	{
+        name: 'Wemo',
+        extensionId: 'wemo',
+        tags: ['cognimates', 'preload'],
+        iconURL: require('../extensions/cognimates/wemo_ext.png'),
+		credits: 'Cognimates',
+        description: 'Play with Wemo in PotentiaMod.',
+        featured: true
+    },
+	{
+        name: 'Vision Training',
+        extensionId: 'vision',
+        tags: ['cognimates', 'preload'],
+        iconURL: require('../extensions/cognimates/vision_ext.png'),
+		credits: 'Cognimates',
+        description: 'Vision training.',
+        featured: true
+    },
+	{
+        name: 'Twitter',
+        extensionId: 'twitter',
+        tags: ['cognimates', 'preload'],
+        iconURL: require('../extensions/cognimates/twitter_ext.jpg'),
+		credits: 'Twitter',
+        description: 'Blocks made for Twitter posts.',
+        featured: true
+    },
+	/////NEW FACES!
 	{
         name: 'Magic Blue UU',
         extensionId: 'magicBlueUU',
@@ -838,7 +933,6 @@ const menuItems = [
 
         helpLink: 'https://your-custom-help-link.com'
     },
-
     {
         name: 'Zumi AI (with bluetooth)',
         extensionId: 'zumiAIB',
