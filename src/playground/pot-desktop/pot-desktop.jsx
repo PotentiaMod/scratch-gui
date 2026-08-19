@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import render from '../app-target';
 import styles from './pot-desktop.css';
 
-import {APP_NAME} from '../../lib/brand';
+import {APP_NAME, MOTTO} from '../../lib/brand.js';
 import {APP_VERSION} from '../../lib/version.js';
 import {applyGuiColors} from '../../lib/themes/guiHelpers';
 import {detectTheme} from '../../lib/themes/themePersistance';
@@ -19,8 +19,6 @@ const theme = detectTheme();
 applyGuiColors(theme);
 document.documentElement.lang = 'en';
 
-const BRAND = 'PotententiaMod';
-const SLOGAN = 'A Block-Based Coding That Goes EXTREME!';
 
 import screenshotLight from './screencap-light.png';
 import screenshotDark from './screencap-dark.png';

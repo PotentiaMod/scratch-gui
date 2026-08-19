@@ -183,40 +183,5 @@
     </script>
 
     <div id="app"></div>
-<script>
-async function checkAdBlock() {
-            try {
-                // Using an official Google Ad URL that is blacklisted by all adblockers
-                const targetUrl = 'https://googlesyndication.com';
-
-                try {
-                    // We send a lightweight HEAD request just to check the connection status
-                    const response = await fetch(targetUrl, {
-                        method: 'HEAD',
-                        mode: 'no-cors',
-                    });
-
-                    // Modern adblockers fake a "200 OK" redirect, but Google never redirects this JS path.
-                    // If it was redirected or manipulated, an adblocker is present.
-                    if (response.redirected) {
-                        window.location.replace("stop.html");
-                        return true;
-                    }
-
-                    //no code lol
-                    return false;
-                } catch (error) {
-                    // If the browser blocks the connection entirely, catch triggers.
-                    window.location.replace("stop.html");
-                    return true;
-                }
-            } catch (e) {
-                console.error(`checkAdBlock error: e`);
-                return e;
-            }
-        }
-		
-		checkAdBlock();
-</script>
   </body>
 </html>
