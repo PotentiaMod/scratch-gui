@@ -47,9 +47,9 @@ const Footer = () => (
             <div className={styles.columns}>
                 <div className={styles.column}>
                     <span className={styles.columnTitle}>Website</span>
-                    <a href="/editor.html">Editor</a>
-                    <a href="/pot-desktop.html">PotentiaMod Desktop</a>
-                    <a href="/packager">PotentiaMod Packager</a>
+                    <a href="editor.html">Editor</a>
+                    <a href="pot-desktop.html">PotentiaMod Desktop</a>
+                    <a href="packager">PotentiaMod Packager</a>
                     <a href="?livetest">Live Test</a>
 					 <a
                         href="https://github.com/PotentiaMod"
@@ -62,8 +62,8 @@ const Footer = () => (
                 </div>
                 <div className={styles.column}>
                     <span className={styles.columnTitle}>Community</span>
-					<a href="/credits.html">Credits</a>
-					<a href="/privacy.html">Privacy Policy</a>
+					<a href="credits.html">Credits</a>
+					<a href="privacy.html">Privacy Policy</a>
                     <a
                         href="https://com.bilup.org/users/GaiaKitty"
                         target="_blank"
