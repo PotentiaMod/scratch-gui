@@ -27,7 +27,6 @@ const STAGE_SIZE_PRESETS = [
     {label: '9:16', width: 360, height: 640},
     {label: '9:18', width: 360, height: 720}
 ];
-
 const messages = defineMessages({
     title: {
         defaultMessage: 'Advanced Settings',
