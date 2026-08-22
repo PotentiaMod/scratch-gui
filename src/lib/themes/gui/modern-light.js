@@ -1,15 +1,15 @@
 const guiColors = {
     'color-scheme': 'light',
 
-    'ui-primary': 'var(--looks-secondary-lighter)',
-    'ui-secondary': 'rgb(229,229,229)',
-    'ui-tertiary': 'rgb(200,200,200)',
+    'ui-primary': 'white',
+    'ui-secondary': 'white',
+    'ui-tertiary': 'var(--looks-secondary-lighter)',
 
     'ui-modal-overlay': 'var(--motion-primary-transparent)',
-    'ui-modal-background': 'hsla(0, 100%, 100%, 1)', /* #FFFFFF */
-    'ui-modal-foreground': 'hsl(0,0%,0%)', /* #575E75 */
-    'ui-modal-header-background': 'white',
-    'ui-modal-header-foreground': 'black', /* #FFFFFF */
+    'ui-modal-background': 'white', /* #FFFFFF */
+    'ui-modal-foreground': 'var(--looks-secondary-dark)', /* #575E75 */
+    'ui-modal-header-background': 'var(--looks-secondary-lighter)',
+    'ui-modal-header-foreground': 'hsla(0, 100%, 100%, 1)', /* #FFFFFF */
 
     'ui-white': 'hsla(0, 100%, 100%, 1)', /* #FFFFFF */
     'ui-white-dim': 'hsla(0, 100%, 100%, 0.75)', /* 25% transparent version of ui-white */
@@ -18,8 +18,8 @@ const guiColors = {
 
     'ui-black-transparent': 'hsla(0, 0%, 0%, 0.15)', /* 15% transparent version of black */
 
-    'text-primary': 'hsl(0,0%,0%)', /* #575E75 */
-    'text-primary-transparent': 'hsla(0,0%,0%,0.75)',
+    'text-primary': 'hsla(225, 15%, 40%, 1)', /* #575E75 */
+    'text-primary-transparent': 'hsla(225, 15%, 40%, 0.75)',
 
     'motion-primary': 'hsla(215, 100%, 65%, 1)', /* #4C97FF */
     'motion-primary-transparent': 'hsla(215, 100%, 65%, 0.9)', /* 90% transparent version of motion-primary */
@@ -55,33 +55,33 @@ const guiColors = {
 
     'drop-highlight': 'hsla(215, 100%, 77%, 1)', /* lighter than motion-primary */
 
-    'menu-bar-background': 'white',
-    'menu-bar-foreground': 'black',
-    'menu-bar-background-image': 'var(--looks-secondary-light)',
-	'menu-bar-icon-filter': 'invert(100%)',
-	'menu-bar-icon-normal': 'invert(0%)',
-    
-    'progress-bar-outer': 'var(--looks-secondary-lighter)',
+    'menu-bar-background': 'var(--looks-secondary-light)',
+	'menu-bar-foreground': 'black',
+    'menu-bar-background-image': 'none',
+    'menu-bar-foreground': '#ffffff',
+	'menu-bar-icon-filter': 'none',
+	
+	'progress-bar-outer': 'var(--looks-secondary-lighter)',
 
     'assets-background': '#ffffff',
 
     'input-background': '#ffffff',
 
     'popover-background': '#ffffff',
-    
-    'feedback-background': 'var(--looks-secondary-light)',
-    'feedback-foreground': 'rgb(0,0,0)',
+	
+	'feedback-background': 'white',
+    'feedback-foreground': 'black',
 
     'shadow': 'hsla(0, 0%, 0%, 0.15)',
 
-    'badge-background': '#ffffff',
-    'badge-border': '#d1d1d1',
+    'badge-background': '#dbebff',
+    'badge-border': '#b9d6ff',
 
     'fullscreen-background': '#ffffff',
-    'fullscreen-accent': '#e3e3e3',
+    'fullscreen-accent': '#e8edf1',
 
     'page-background': '#ffffff',
-    'page-foreground': '#000000',
+    'page-foreground': 'var(--looks-secondary-dark)',
 
     'project-title-inactive': 'var(--ui-white-transparent)',
     'project-title-hover': '#ffffff7f',
@@ -95,14 +95,17 @@ const guiColors = {
     'paint-ui-pane-border': 'var(--ui-black-transparent)',
     'paint-text-primary': 'var(--text-primary)',
     'paint-form-border': 'var(--ui-black-transparent)',
-    'paint-looks-secondary': 'var(--looks-secondary-light)',
-    'paint-looks-transparent': 'var(--looks-light-transparent)',
+    'paint-looks-secondary': 'var(--looks-secondary-lighter)',
+    'paint-looks-transparent': 'var(--looks-transparent)',
     'paint-input-background': 'var(--input-background)',
     'paint-popover-background': 'var(--popover-background)',
     'paint-filter-icon-gray': 'none'
 };
 
-const blockColors = {gridColor: 'transparent'};
+const blockColors = {
+	workspace: 'white',
+	gridColor: 'transparent'
+	};
 
 export {
     guiColors,

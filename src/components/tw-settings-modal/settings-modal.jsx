@@ -11,11 +11,22 @@ import BufferedInputHOC from '../forms/buffered-input-hoc.jsx';
 import DocumentationLink from '../tw-documentation-link/documentation-link.jsx';
 import styles from './settings-modal.css';
 import helpIcon from './help-icon.svg';
+import swapIcon from './swap-icon.svg';
 import {APP_NAME} from '../../lib/brand.js';
 
 /* eslint-disable react/no-multi-comp */
 
 const BufferedInput = BufferedInputHOC(Input);
+
+// Copied from Nyx IDE
+const STAGE_SIZE_PRESETS = [
+    {label: '1:1', width: 360, height: 360},
+    {label: '4:3', width: 480, height: 360},
+	{label: '16:9', width: 640, height: 360},
+    {label: '4:5', width: 360, height: 450},
+    {label: '9:16', width: 360, height: 640},
+    {label: '9:18', width: 360, height: 720}
+];
 
 const messages = defineMessages({
     title: {
@@ -325,55 +336,119 @@ const DisableCompiler = props => (
     />
 );
 
+class StageSizePresets extends React.Component {
+    constructor (props) {
+        super(props);
+        bindAll(this, ['handleClick']);
+    }
+    handleClick (e) {
+        this.props.onSelectPreset(Number(e.currentTarget.dataset.width), Number(e.currentTarget.dataset.height));
+    }
+    render () {
+        const {stageWidth, stageHeight} = this.props;
+        return (
+            <div className={styles.stagePresets}>
+                {STAGE_SIZE_PRESETS.map(preset => (
+                    <button
+                        key={preset.label}
+                        type="button"
+                        data-width={preset.width}
+                        data-height={preset.height}
+                        className={classNames(styles.stagePresetButton, {
+                            [styles.stagePresetButtonActive]:
+                                stageWidth === preset.width && stageHeight === preset.height
+                        })}
+                        onClick={this.handleClick}
+                    >
+                        {preset.label}
+                    </button>
+                ))}
+            </div>
+        );
+    }
+}
+StageSizePresets.propTypes = {
+    stageWidth: PropTypes.number,
+    stageHeight: PropTypes.number,
+    onSelectPreset: PropTypes.func.isRequired
+};
+
 const CustomStageSize = ({
     customStageSizeEnabled,
     stageWidth,
     onStageWidthChange,
     stageHeight,
-    onStageHeightChange
+    onStageHeightChange,
+    onSelectStageSizePreset,
+    onSwapStageSize
 }) => (
     <Setting
         active={customStageSizeEnabled}
         primary={(
-            <div className={classNames(styles.label, styles.customStageSize)}>
+            <div className={styles.label}>
                 <FormattedMessage
-                    defaultMessage="Custom Stage Size:"
+                    defaultMessage="Stage Size:"
                     description="Custom Stage Size option"
                     id="tw.settingsModal.customStageSize"
-                />
-                <BufferedInput
-                    value={stageWidth}
-                    onSubmit={onStageWidthChange}
-                    className={styles.customStageSizeInput}
-                    type="number"
-                    min="0"
-                    max="1024"
-                    step="1"
-                />
-                <span>{'×'}</span>
-                <BufferedInput
-                    value={stageHeight}
-                    onSubmit={onStageHeightChange}
-                    className={styles.customStageSizeInput}
-                    type="number"
-                    min="0"
-                    max="1024"
-                    step="1"
                 />
             </div>
         )}
         secondary={
-            (stageWidth >= 1000 || stageHeight >= 1000) && (
-                <div className={styles.warning}>
+            <React.Fragment>
+                <StageSizePresets
+                    stageWidth={stageWidth}
+                    stageHeight={stageHeight}
+                    onSelectPreset={onSelectStageSizePreset}
+                />
+                <div className={classNames(styles.label, styles.customStageSize)}>
                     <FormattedMessage
-                        // eslint-disable-next-line max-len
-                        defaultMessage="Using a custom stage size this large is not recommended! Instead, use a lower size with the same aspect ratio and let fullscreen mode upscale it to match the user's display."
-                        description="Warning about using stages that are too large in settings modal"
-                        id="tw.settingsModal.largeStageWarning"
+                        defaultMessage="Custom Stage Size:"
+                        description="Custom Stage Size option"
+                        id="tw.settingsModal.customStageSizeLabel"
                     />
-                    <LearnMore slug="custom-stage-size" />
+                    <BufferedInput
+                        value={stageWidth}
+                        onSubmit={onStageWidthChange}
+                        className={styles.customStageSizeInput}
+                        type="number"
+                        min="0"
+                        max="1024"
+                        step="1"
+                    />
+                    <span>{'×'}</span>
+                    <BufferedInput
+                        value={stageHeight}
+                        onSubmit={onStageHeightChange}
+                        className={styles.customStageSizeInput}
+                        type="number"
+                        min="0"
+                        max="1024"
+                        step="1"
+                    />
+                    <button
+                        type="button"
+                        className={styles.swapButton}
+                        onClick={onSwapStageSize}
+                        title="Swap width and height"
+                    >
+                        <img
+                            src={swapIcon}
+                            draggable={false}
+                        />
+                    </button>
                 </div>
-            )
+                {(stageWidth >= 1000 || stageHeight >= 1000) && (
+                    <div className={styles.warning}>
+                        <FormattedMessage
+                            // eslint-disable-next-line max-len
+                            defaultMessage="Using a custom stage size this large is not recommended! Instead, use a lower size with the same aspect ratio and let fullscreen mode upscale it to match the user's display."
+                            description="Warning about using stages that are too large in settings modal"
+                            id="tw.settingsModal.largeStageWarning"
+                        />
+                        <LearnMore slug="custom-stage-size" />
+                    </div>
+                )}
+            </React.Fragment>
         }
         help={(
             <FormattedMessage
@@ -391,7 +466,9 @@ CustomStageSize.propTypes = {
     stageWidth: PropTypes.number,
     onStageWidthChange: PropTypes.func,
     stageHeight: PropTypes.number,
-    onStageHeightChange: PropTypes.func
+    onStageHeightChange: PropTypes.func,
+    onSelectStageSizePreset: PropTypes.func,
+    onSwapStageSize: PropTypes.func
 };
 
 const StoreProjectOptions = ({onStoreProjectOptions}) => (

@@ -180,21 +180,15 @@ const ACCENT_DEFAULT = ACCENT_INDIGO;
 
 const GUI_LIGHT = 'light';
 const GUI_MODERN_LIGHT = 'modern-light';
-const GUI_LIGHTER_COLORED = 'lighter-colored';
 const GUI_DARK = 'dark';
 const GUI_MODERN_DARK = 'modern-dark';
 const GUI_MIDNIGHT = 'midnight';
-const GUI_DEEP_DARK = 'deep-dark';
-const GUI_DARKER_COLORED = 'darker-colored';
 const GUI_MAP = {
     [GUI_LIGHT]: guiLight,
     [GUI_MODERN_LIGHT]: guiModernLight,
-    [GUI_LIGHTER_COLORED]: guiLighterColor,
     [GUI_DARK]: guiDark,
     [GUI_MODERN_DARK]: guiModernDark,
     [GUI_MIDNIGHT]: guiMidnight,
-    [GUI_DEEP_DARK]: guiDeepDark,
-    [GUI_DARKER_COLORED]: guiDarkerColor
 };
 const GuiOptions = defineMessages({
     [GUI_LIGHT]: {
@@ -207,11 +201,6 @@ const GuiOptions = defineMessages({
         description: 'Name of PotentiaMod\'s Light color scheme.',
         id: 'tw.gui.modernlight'
     },
-	[GUI_LIGHTER_COLORED]: {
-        defaultMessage: 'Lighter (Colored)',
-        description: 'Name of the lighter color scheme.',
-        id: 'tw.gui.lightercolored'
-    },
     [GUI_DARK]: {
         defaultMessage: 'Dark',
         description: 'Name of the dark color scheme.',
@@ -221,16 +210,6 @@ const GuiOptions = defineMessages({
         defaultMessage: 'PotentiaMod - Dark',
         description: 'Name of PotentiaMod\'s Dark color scheme.',
         id: 'tw.gui.moderndark'
-    },
-    [GUI_DEEP_DARK]: {
-        defaultMessage: 'Deep Dark',
-        description: 'Name of the deep dark color scheme.',
-        id: 'tw.gui.deepdark'
-    },
-	[GUI_DARKER_COLORED]: {
-        defaultMessage: 'Darker (Colored)',
-        description: 'Name of the darker color scheme.',
-        id: 'tw.gui.darkercolored'
     },
 	[GUI_MIDNIGHT]: {
         defaultMessage: 'Amoled',
@@ -242,11 +221,8 @@ const GuiOptions = defineMessages({
 const GuiIcons = {
     [GUI_LIGHT]: lightModeIcon,
 	[GUI_MODERN_LIGHT]: paletteIcon,
-	[GUI_LIGHTER_COLORED]: paletteIcon,
     [GUI_DARK]: darkModeIcon,
     [GUI_MODERN_DARK]: paletteIcon,
-    [GUI_DEEP_DARK]: paletteIcon,
-    [GUI_DARKER_COLORED]: paletteIcon,
     [GUI_MIDNIGHT]: paletteIcon
 };
 
@@ -489,11 +465,8 @@ export {
 
     GUI_LIGHT,
     GUI_MODERN_LIGHT,
-    GUI_LIGHTER_COLORED,
     GUI_DARK,
     GUI_MODERN_DARK,
-    GUI_DEEP_DARK,
-    GUI_DARKER_COLORED,
     GUI_MIDNIGHT,
     GUI_MAP,
 	GuiIcons,
