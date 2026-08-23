@@ -501,6 +501,15 @@ const sensing = function (isInitialSetup, isStage, targetId, colors) {
         <block type="sensing_mousedown"/>
         <block type="sensing_mousex"/>
         <block type="sensing_mousey"/>
+		${blockSeparator}
+        <block type="sensing_setclipboard">
+            <value name="ITEM">
+                <shadow type="text">
+                    <field name="TEXT">Hiya, PotentiaMod!</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="sensing_getclipboard"/>
         ${isStage ? '' : `
             ${blockSeparator}
             '<block type="sensing_setdragmode" id="sensing_setdragmode"></block>'+
@@ -520,7 +529,29 @@ const sensing = function (isInitialSetup, isStage, targetId, colors) {
         ${blockSeparator}
         <block id="current" type="sensing_current"/>
         <block type="sensing_dayssince2000"/>
-        ${blockSeparator}
+         ${blockSeparator}
+        <block type="sensing_mobile"></block>
+        <block type="sensing_fingerdown">
+            <value name="FINGER_OPTION">
+                <shadow id="sensing_fingeroptions" type="sensing_fingeroptions"/>
+            </value>
+        </block>
+        <block type="sensing_fingertapped">
+            <value name="FINGER_OPTION">
+                <shadow id="sensing_fingeroptions" type="sensing_fingeroptions"/>
+            </value>
+        </block>
+        <block type="sensing_fingerx">
+            <value name="FINGER_OPTION">
+                <shadow id="sensing_fingeroptions" type="sensing_fingeroptions"/>
+            </value>
+        </block>
+        <block type="sensing_fingery">
+            <value name="FINGER_OPTION">
+                <shadow id="sensing_fingeroptions" type="sensing_fingeroptions"/>
+            </value>
+        </block>
+		${blockSeparator}
         <block id="online" type="sensing_online"/>
         <block type="sensing_username"/>
         ${categorySeparator}
