@@ -883,54 +883,6 @@ const menuItems = [
     },
 	/////NEW FACES!
 	{
-        name: 'Magic Blue UU',
-        extensionId: 'magicBlueUU',
-        collaborator: 'PlusPlus',
-        iconURL: magicBlueUUIconURL,
-        insetIconURL: magicBlueUUInsetIconURL,
-		tags: ['other', 'preload'],
-        description: (
-            <FormattedMessage
-                defaultMessage='Magic Blue UU extension.'
-                description='Description for the Magic Blue UU extension'
-                id='gui.extension.magicBlueUU.description'
-            />
-        ),
-        featured: true,
-        disabled: false,
-        bluetoothRequired: true,
-        internetConnectionRequired: false,
-        launchPeripheralConnectionFlow: false,
-        useAutoScan: false,
-        connectingMessage: (
-            <FormattedMessage
-                defaultMessage='Connecting'
-                description='Have your Magic Blue UU nearby.'
-                id='gui.extension.magicBlueUU.connectingMessage'
-            />
-        )
-    },
-	{
-        name: 'Smart Lumies',
-        extensionId: 'smartLumies',
-        collaborator: 'PlusPlus',
-        iconURL: smartLumiesIconURL,
-        insetIconURL: smartLumiesInsetIconURL,
-        description: 'Have fun with Smart Lumies Cube in GaiaMod!',
-		tags: ['other', 'preload'],
-        featured: true,
-        disabled: false,
-        bluetoothRequired: true,
-        internetConnectionRequired: false,
-        launchPeripheralConnectionFlow: false,
-        useAutoScan: false,
-        connectionIconURL: smartLumiesConnectionIconURL,
-        connectionSmallIconURL: smartLumiesConnectionSmallIconURL,
-        connectionTipIconURL: smartLumiesConnectionTipIconURL,
-        connectingMessage: 'Have your Cube nearby.',
-        helpLink: 'https://smartlumies.com'
-    },
-	{
         name: 'Kori Assistant',
         extensionId: 'kori',
         collaborator: 'OpenAI',
@@ -1083,6 +1035,54 @@ const menuItems = [
         featured: true,
 		tags: ['other', 'preload'],
         helpLink: 'http://echidna.es/'
+    },
+	{
+        name: 'Magic Blue UU',
+        extensionId: 'magicBlueUU',
+        collaborator: 'PlusPlus',
+        iconURL: magicBlueUUIconURL,
+        insetIconURL: magicBlueUUInsetIconURL,
+		tags: ['other', 'preload'],
+        description: (
+            <FormattedMessage
+                defaultMessage='Magic Blue UU extension.'
+                description='Description for the Magic Blue UU extension'
+                id='gui.extension.magicBlueUU.description'
+            />
+        ),
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        connectingMessage: (
+            <FormattedMessage
+                defaultMessage='Connecting'
+                description='Have your Magic Blue UU nearby.'
+                id='gui.extension.magicBlueUU.connectingMessage'
+            />
+        )
+    },
+	{
+        name: 'Smart Lumies',
+        extensionId: 'smartLumies',
+        collaborator: 'PlusPlus',
+        iconURL: smartLumiesIconURL,
+        insetIconURL: smartLumiesInsetIconURL,
+        description: 'Have fun with Smart Lumies Cube in GaiaMod!',
+		tags: ['other', 'preload'],
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        connectionIconURL: smartLumiesConnectionIconURL,
+        connectionSmallIconURL: smartLumiesConnectionSmallIconURL,
+        connectionTipIconURL: smartLumiesConnectionTipIconURL,
+        connectingMessage: 'Have your Cube nearby.',
+        helpLink: 'https://smartlumies.com'
     },
 	{
         name: 'NES Emulator',

@@ -78,6 +78,11 @@ const messages = defineMessages({
         description: 'Label for the mouse y monitor when show on the stage',
         id: 'tw.opcode.mousey'
     },
+	sensing_getclipboard: {
+        defaultMessage: 'clipboard item',
+        description: 'Label for the clipboard item monitor when shown on the stage',
+        id: 'gui.opcodeLabels.getclipboard'
+    },
     sensing_loudness: {
         defaultMessage: 'loudness',
         description: 'Label for the loudness monitor when shown on the stage',
