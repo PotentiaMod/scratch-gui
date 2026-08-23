@@ -53,6 +53,9 @@ import shredsdkIcon from './shredsdk/shredsdk.svg'
 import utilsIcon from './utils/utilites.svg';
 import gameutilsIcon from './gameutils/gameutils.svg'
 
+import kidsboardIconURL from './kidsboard/kidsboard.svg';
+import kidsboardInsetIconURL from './kidsboard/kidsboard-small.svg';
+
 // ESP32
 import esp32SerialIconURL from './zumiAI/zumiAI.png';
 import esp32SerialInsetIconURL from './zumiAI/zumiAI-small.svg';
@@ -797,20 +800,27 @@ const menuItems = [
         featured: true,
         internetConnectionRequired: false
     },
-	
-	/*
 	{
-        name: 'Pro AI',
-        extensionId: 'scratchpro_ai',
-		tags: ['scratchpro', 'preload'],
-        iconURL: require('../extensions/scratchpro_ai/illustration.svg'),
-        insetIconURL: require('../extensions/scratchpro_ai/small.svg'),
-        credits: 'cuiJY',
-        description:'Text generation, sentiment analysis & natural language processing.',
+        name: 'KidsBoard',
+        extensionId: 'kidsboard',
+        credits: 'Nekoma Manufacturing',
+        iconURL: kidsboardIconURL,
+        insetIconURL: kidsboardInsetIconURL,
+		tags: ['other', 'preload'],
+        description: 'Connect KidsBoard via Bluetooth to operate the LEDs, buttons, speaker, and sensors.',
         featured: true,
-        internetConnectionRequired: false
+        bluetoothRequired: true
     },
-	*/
+	{
+        name: 'EIM Messaging',
+        extensionId: 'eim',
+        iconURL: require('../extensions/eim/illustration.jpg'),
+		insetIconURL: require('../extensions/eim/small.svg'),
+        tags: ['other', 'preload'],
+		credits: 'CodeLab',
+        description: 'Everything is a mesage! Contains capabilities of all the other extensions.',
+        featured: true
+    },
 	/////NEW FACES!
 	{
         name: 'Magic Blue UU',
@@ -985,16 +995,6 @@ const menuItems = [
         disabled: false,
         internetConnectionRequired: true,
         bluetoothRequired: false,
-    },
-	{
-        name: 'Web kit',
-        extensionId: 'webkit',
-        iconURL: toonco1ImageURL,
-        insetIconURL: toonco1ImageSmallURL,
-		collaborator: 'toonco1',
-		tags: ['other', 'preload'],
-        description: 'Make your own webkit in PotentiaMod!',
-        featured: true,
     },
 	{
         name: 'Roku',
