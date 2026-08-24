@@ -437,7 +437,7 @@ const menuItems = [
     {
         name: (
             <FormattedMessage
-                defaultMessage="Face Sensing"
+                defaultMessage="Face Sensing (Built-In)"
                 description="Name for the 'Face Sensing' extension"
                 id="tw.extension.faceSensing.name"
             />
