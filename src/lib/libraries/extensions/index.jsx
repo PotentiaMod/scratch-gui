@@ -830,6 +830,17 @@ const menuItems = [
         description: 'Blocks made for Twitter posts.',
         featured: true
     },
+	 {
+        name: 'PlayData',
+        extensionId: 'dataviewer',
+		tags: ['preload'],
+        collaborator: 'Cassia Fernandez and João Adriano Freitas',
+        iconURL: require('../extensions/dataviewer/dataviewer.png'),
+		insetIconURL: require('../extensions/dataviewer/dataviewer-small.svg'),
+        description: 'Play with your data.',
+        featured: true,
+        disabled: false
+    },
 	{
         name: 'QR Code',
         extensionId: 'qrcode',
