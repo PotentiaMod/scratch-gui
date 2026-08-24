@@ -334,6 +334,11 @@ class ExtensionLibrary extends React.PureComponent {
             return;
         }
 		
+		if (extensionId === 'ccw_extension') {
+            this.props.onOpenCCWExtensionModal();
+            return;
+        }
+		
 		if (extensionId === 'custom_gallery') {
             if (this.props.onOpenCustomGalleryModal) {
                 this.props.onOpenCustomGalleryModal();

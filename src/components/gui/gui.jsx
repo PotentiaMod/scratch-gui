@@ -33,6 +33,8 @@ import TWUsernameModal from '../../containers/tw-username-modal.jsx';
 import TWSettingsModal from '../../containers/tw-settings-modal.jsx';
 import TWSecurityManager from '../../containers/tw-security-manager.jsx';
 import TWCustomExtensionModal from '../../containers/tw-custom-extension-modal.jsx';
+import TWCCWExtensionModal from '../../containers/tw-ccw-extension-modal.jsx';
+import TWExtensionImportModal from '../../containers/tw-extension-import-modal.jsx';
 import TWCustomAccentModal from '../../containers/custom-accent-modal.jsx';
 import CustomGalleryModal from '../../containers/custom-gallery-modal.jsx';
 import TWExtensionManagerModal from '../../containers/extension-manager-modal.jsx';
@@ -135,6 +137,8 @@ const GUIComponent = props => {
         onClickLogo,
         onExtensionButtonClick,
         onOpenCustomExtensionModal,
+        onOpenCCWExtensionModal,
+        onOpenExtensionImportMethodModal,
 		onOpenCustomGalleryModal,
         onProjectTelemetryEvent,
         onRequestCloseBackdropLibrary,
@@ -160,6 +164,8 @@ const GUIComponent = props => {
         usernameModalVisible,
         settingsModalVisible,
         customExtensionModalVisible,
+        ccwExtensionModalVisible,
+        extensionImportMethodModalVisible,
 		customGalleryModalVisible,
         customAccentModalVisible,
 		extensionManagerModalVisible,
@@ -197,6 +203,8 @@ const GUIComponent = props => {
                 {usernameModalVisible && <TWUsernameModal />}
                 {settingsModalVisible && <TWSettingsModal />}
                 {customExtensionModalVisible && <TWCustomExtensionModal />}
+                {ccwExtensionModalVisible && <TWCCWExtensionModal />}
+                {extensionImportMethodModalVisible && <TWExtensionImportModal />}
                 {customGalleryModalVisible && <CustomGalleryModal />}
                 {customAccentModalVisible && <TWCustomAccentModal />}
 				{extensionManagerModalVisible && <TWExtensionManagerModal />}
@@ -418,6 +426,8 @@ const GUIComponent = props => {
                                             }}
                                             stageSize={stageSize}
                                             onOpenCustomExtensionModal={onOpenCustomExtensionModal}
+                                            onOpenCCWExtensionModal={onOpenCCWExtensionModal}
+                                            onOpenExtensionImportMethodModal={onOpenExtensionImportMethodModal}
                                             onOpenCustomGalleryModal={onOpenCustomGalleryModal}
                                             theme={theme}
                                             vm={vm}
@@ -532,6 +542,8 @@ GUIComponent.propTypes = {
     onCloseAccountNav: PropTypes.func,
     onExtensionButtonClick: PropTypes.func,
     onOpenCustomExtensionModal: PropTypes.func,
+    onOpenCCWExtensionModal: PropTypes.func,
+    onOpenExtensionImportMethodModal: PropTypes.func,
     onOpenCustomGalleryModal: PropTypes.func,
     onLogOut: PropTypes.func,
     onOpenRegistration: PropTypes.func,
@@ -561,6 +573,8 @@ GUIComponent.propTypes = {
     usernameModalVisible: PropTypes.bool,
     settingsModalVisible: PropTypes.bool,
     customExtensionModalVisible: PropTypes.bool,
+    ccwExtensionModalVisible: PropTypes.bool,
+    extensionImportMethodModalVisible: PropTypes.bool,
     customGalleryModalVisible: PropTypes.bool,
     extensionManagerModalVisible: PropTypes.bool,
     customAccentModalVisible: PropTypes.bool,

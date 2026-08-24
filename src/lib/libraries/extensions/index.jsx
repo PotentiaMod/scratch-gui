@@ -1642,9 +1642,15 @@ const menuItems = [
         credits: 'Fir & silvxrcat',
         featured: true
     },
-	
-	
-	//PotentiaMod
+    {
+        name: 'Custom Extension',
+        extensionId: 'custom_extension',
+        iconURL: customExtensionIcon,
+        description: 'Load custom extensions from URLs, files, or JavaScript source code.',
+        tags: ['potentia'],
+        featured: true
+        // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
+    }
 	/*
     {
         name: (
@@ -1670,16 +1676,7 @@ const menuItems = [
         featured: true
     },
 	*/
-    {
-        name: 'Custom Extension',
-        extensionId: 'custom_extension',
-        iconURL: customExtensionIcon,
-        description: 'Load custom extensions from URLs, files, or JavaScript source code.',
-        tags: ['potentia'],
-        featured: true
-        // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
-    },
-	/*,
+	/*
 	{
         name: (
             <FormattedMessage
@@ -1697,9 +1694,18 @@ const menuItems = [
                 id="tw.customExtensionGallery.description"
             />
         ),
-        tags: ['potentia'],
+        tags: ['bilup'],
         featured: true
-    },
+    }
+	{
+        name: 'CCW Extension Loader',
+        extensionId: 'ccw_extension',
+        iconURL: require('../extensions/02engine/ccw.svg'),
+        description: 'Load custom extensions from Cocrea World.',
+        tags: ['ztengine'],
+        featured: true
+        // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
+    }
 	*/
 	
 ];

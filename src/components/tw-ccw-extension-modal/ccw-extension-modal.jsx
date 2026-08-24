@@ -8,52 +8,52 @@ import styles from './ccw-extension-modal.css';
 
 const messages = defineMessages({
     title: {
-        defaultMessage: '加载CCW扩展',
+        defaultMessage: 'Load CCW Extension',
         description: 'Title of CCW extension loader modal',
         id: 'tw.ccwExtensionModal.title'
     },
     description: {
-        defaultMessage: '从共创世界加载扩展，可从 https://assets.ccw.site/extensions 获取。',
+        defaultMessage: 'Load the extension from the Cocrea World, which can be obtained from https://assets.ccw.site/extensions.',
         description: 'Description of CCW extension loader modal',
         id: 'tw.ccwExtensionModal.description'
     },
     prompt: {
-        defaultMessage: '输入CCW扩展ID：',
+        defaultMessage: 'Enter CCW extension ID：',
         description: 'Label that appears when loading a CCW extension by ID',
         id: 'tw.ccwExtensionModal.prompt'
     },
     lookup: {
-        defaultMessage: '查询',
+        defaultMessage: 'Fetch',
         description: 'Button to fetch CCW extension metadata',
         id: 'tw.ccwExtensionModal.lookup'
     },
     publisher: {
-        defaultMessage: '发布者：{publisher}',
+        defaultMessage: 'Author',
         description: 'Publisher label in CCW extension loader',
         id: 'tw.ccwExtensionModal.publisher'
     },
     version: {
-        defaultMessage: '版本：',
+        defaultMessage: 'Version',
         description: 'Version selector label in CCW extension loader',
         id: 'tw.ccwExtensionModal.version'
     },
     latest: {
-        defaultMessage: '最新',
+        defaultMessage: 'Latest version',
         description: 'Latest version marker in CCW extension loader',
         id: 'tw.ccwExtensionModal.latest'
     },
     asset: {
-        defaultMessage: '资源：{asset}',
+        defaultMessage: 'Asset',
         description: 'Asset URL label in CCW extension loader',
         id: 'tw.ccwExtensionModal.asset'
     },
     cancel: {
-        defaultMessage: '取消',
+        defaultMessage: 'Cancel',
         description: 'Button that cancels loading a CCW extension',
         id: 'tw.ccwExtensionModal.cancel'
     },
     confirm: {
-        defaultMessage: '确认',
+        defaultMessage: 'Confirm',
         description: 'Button that confirms loading a CCW extension',
         id: 'tw.ccwExtensionModal.confirm'
     }
@@ -83,7 +83,7 @@ const CCWExtensionModal = props => {
                         value={props.extensionId}
                         onChange={props.onChangeExtensionId}
                         onKeyDown={props.onKeyDown}
-                        placeholder="输入扩展ID"
+                        placeholder="Input Extension ID"
                         disabled={props.loading}
                         autoFocus
                     />
