@@ -701,8 +701,49 @@ const menuItems = [
         extensionId: 'poseFace',
         tags: ['preload'],
         iconURL: require('../extensions/poseFace/pose-face.png'),
+		insetIconURL: require('../extensions/poseFace/pose-face-small.svg'),
 		credits: 'Curriulum',
         description: 'Sense face movement with the camera with added emotion detection.',
+        featured: true
+    },
+	{
+        name: 'Body Sensing',
+        extensionId: 'poseBody',
+        tags: ['preload'],
+        iconURL: require('../extensions/poseBody/pose-body.png'),
+		insetIconURL: require('../extensions/poseBody/pose-body-small.svg'),
+		credits: 'Curriulum',
+        description: 'Sense body position with the camera.',
+        featured: true
+    },
+	{
+        name: 'Hand Sensing',
+        extensionId: 'poseHand',
+        tags: ['preload'],
+        iconURL: require('../extensions/poseHand/pose-hand.png'),
+		insetIconURL: require('../extensions/poseHand/pose-hand-small-3.svg'),
+		credits: 'Curriulum',
+        description: 'Sense hand position with the camera.',
+        featured: true
+    },
+	{
+        name: 'Object Detection',
+        extensionId: 'objectDetection',
+		tags: ['preload'],
+        iconURL: require('../extensions/objectDetection/objectdetection.png'),
+		insetIconURL: require('../extensions/objectDetection/objectdetectionsmall.svg'),
+        description: 'Detect and identify objects in the camera view.',
+		credits: 'Curriulum',
+        featured: true
+    },
+	{
+        name: 'Teachable Machine',
+        extensionId: 'teachableMachine',
+		tags: ['preload'],
+        iconURL: require('../extensions/teachableMachine/teachable-machine-blocks.png'),
+		insetIconURL: require('../extensions/teachableMachine/teachable-machine-blocks-small.svg'),
+        description: 'Use your Teachable Machine models in your Scratch project!',
+		credits: 'Custom',
         featured: true
     },
 	{
@@ -788,6 +829,19 @@ const menuItems = [
 		credits: 'Twitter',
         description: 'Blocks made for Twitter posts.',
         featured: true
+    },
+	{
+        name: 'QR Code',
+        extensionId: 'qrcode',
+        tags: ['preload'],
+        collaborator: 'Sugiura Lab',
+        iconURL: require('../extensions/qrcode/qrcode.png'),
+		insetIconURL: require('../extensions/qrcode/qrcode-small.svg'),
+		description: 'Scans things with a QR Code extension.',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: false,
+        bluetoothRequired: false,
     },
 	{
         name: 'ScratchPro',
