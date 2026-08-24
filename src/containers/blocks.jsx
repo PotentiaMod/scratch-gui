@@ -32,6 +32,8 @@ import {
     openSoundRecorder,
     openConnectionModal,
     openCustomExtensionModal,
+	openExtensionImportMethodModal,
+    openCCWExtensionModal,
     openCustomGalleryModal
 } from '../reducers/modals';
 import {activateCustomProcedures, deactivateCustomProcedures} from '../reducers/custom-procedures';
@@ -711,6 +713,8 @@ class Blocks extends React.Component {
             onOpenConnectionModal,
             onOpenSoundRecorder,
             onOpenCustomExtensionModal,
+            onOpenCCWExtensionModal,
+            onOpenExtensionImportMethodModal,
             onOpenCustomGalleryModal,
             reduxOnOpenCustomExtensionModal,
             updateToolboxState,
@@ -752,6 +756,9 @@ class Blocks extends React.Component {
                         onEnableProcedureReturns={this.handleEnableProcedureReturns}
                         onRequestClose={onRequestCloseExtensionLibrary}
                         onOpenCustomExtensionModal={onOpenCustomExtensionModal || reduxOnOpenCustomExtensionModal}
+                        onOpenCCWExtensionModal={onOpenCCWExtensionModal}
+                        onOpenExtensionImportMethodModal={onOpenExtensionImportMethodModal}
+                        onOpenCustomGalleryModal={onOpenCustomGalleryModal}
                     />
                 ) : null}
                 {customProceduresVisible ? (
@@ -786,6 +793,8 @@ Blocks.propTypes = {
     onOpenConnectionModal: PropTypes.func,
     onOpenSoundRecorder: PropTypes.func,
     onOpenCustomExtensionModal: PropTypes.func,
+    onOpenCCWExtensionModal: PropTypes.func,
+    onOpenExtensionImportMethodModal: PropTypes.func,
     onOpenCustomGalleryModal: PropTypes.func,
     reduxOnOpenCustomExtensionModal: PropTypes.func,
     onRequestCloseCustomProcedures: PropTypes.func,
@@ -862,6 +871,9 @@ const mapDispatchToProps = dispatch => ({
         dispatch(openSoundRecorder());
     },
     reduxOnOpenCustomExtensionModal: () => dispatch(openCustomExtensionModal()),
+	onOpenCCWExtensionModal: () => dispatch(openCCWExtensionModal()),
+	onOpenExtensionImportMethodModal: () => dispatch(openExtensionImportMethodModal()),
+	onOpenCustomGalleryModal: () => dispatch(openCustomGalleryModal()),
     onRequestCloseExtensionLibrary: () => {
         dispatch(closeExtensionLibrary());
     },

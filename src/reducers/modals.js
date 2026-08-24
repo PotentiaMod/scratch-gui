@@ -14,6 +14,8 @@ const MODAL_TIPS_LIBRARY = 'tipsLibrary';
 const MODAL_USERNAME = 'usernameModal';
 const MODAL_SETTINGS = 'settingsModal';
 const MODAL_CUSTOM_EXTENSION = 'customExtensionModal';
+const MODAL_CCW_EXTENSION = 'ccwExtensionModal';
+const MODAL_EXTENSION_IMPORT_METHOD = 'extensionImportMethodModal';
 const MODAL_CUSTOM_GALLERY = 'customGalleryModal';
 const MODAL_WALLPAPER = 'wallpaperModal';
 const MODAL_CUSTOM_FONTS = 'customFontsModal';
@@ -39,6 +41,8 @@ const initialState = {
     [MODAL_USERNAME]: false,
     [MODAL_SETTINGS]: false,
     [MODAL_CUSTOM_EXTENSION]: false,
+	[MODAL_CCW_EXTENSION]: false,
+    [MODAL_EXTENSION_IMPORT_METHOD]: false,
     [MODAL_CUSTOM_GALLERY]: false,
     [MODAL_WALLPAPER]: false,
     [MODAL_CUSTOM_FONTS]: false,
@@ -121,6 +125,12 @@ const openSettingsModal = function () {
 const openCustomExtensionModal = function () {
     return openModal(MODAL_CUSTOM_EXTENSION);
 };
+const openCCWExtensionModal = function () {
+    return openModal(MODAL_CCW_EXTENSION);
+};
+const openExtensionImportMethodModal = function () {
+    return openModal(MODAL_EXTENSION_IMPORT_METHOD);
+};
 const openCustomGalleryModal = function () {
     return openModal(MODAL_CUSTOM_GALLERY);
 };
@@ -187,6 +197,12 @@ const closeSettingsModal = function () {
 const closeCustomExtensionModal = function () {
     return closeModal(MODAL_CUSTOM_EXTENSION);
 };
+const closeCCWExtensionModal = function () {
+    return closeModal(MODAL_CCW_EXTENSION);
+};
+const closeExtensionImportMethodModal = function () {
+    return closeModal(MODAL_EXTENSION_IMPORT_METHOD);
+};
 const closeExtensionManagerModal = function () {
     return closeModal(MODAL_EXTENSION_MANAGER);
 };
@@ -230,6 +246,8 @@ export {
     openUsernameModal,
     openSettingsModal,
     openCustomExtensionModal,
+	openCCWExtensionModal,
+    openExtensionImportMethodModal,
     openExtensionManagerModal,
 	openCustomGalleryModal,
 	openWallpaperModal,
@@ -252,6 +270,8 @@ export {
     closeUsernameModal,
     closeSettingsModal,
     closeCustomExtensionModal,
+	closeCCWExtensionModal,
+    closeExtensionImportMethodModal,
     closeCustomGalleryModal,
     closeWallpaperModal,
     closeCustomFontsModal,
