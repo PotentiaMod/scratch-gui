@@ -3,6 +3,12 @@ import _cat_blocks from "../addons/cat-blocks/_manifest_entry.js";
 import _dev_inspector from "../addons/dev-inspector/_manifest_entry.js";
 //import _background from '../addons/background/_manifest_entry.js';
 import _editor_devtools from "../addons/editor-devtools/_manifest_entry.js";
+import _paint_default_smoothing from "../addons/paint-default-smoothing/_manifest_entry.js";
+import _paint_gradient_maker from "../addons/paint-gradient-maker/_manifest_entry.js";
+import _canvas_screenshot from "../addons/canvas-screenshot/_manifest_entry.js";
+import _editor_animations from "../addons/editor-animations/_manifest_entry.js";
+import _block_pins from "../addons/block-pins/_manifest_entry.js";
+import _undo_redo_buttons from "../addons/undo-redo-buttons/_manifest_entry.js";
 import _find_bar from "../addons/find-bar/_manifest_entry.js";
 import _middle_click_popup from "../addons/middle-click-popup/_manifest_entry.js";
 import _jump_to_def from "../addons/jump-to-def/_manifest_entry.js";
@@ -87,6 +93,12 @@ export default {
   "dev-inspector": _dev_inspector,
  // "background": _background,
   "editor-devtools": _editor_devtools,
+  "paint-default-smoothing": _paint_default_smoothing,
+  "paint-gradient-maker": _paint_gradient_maker,
+  "canvas-screenshot": _canvas_screenshot,
+  "editor-animations": _editor_animations,
+  "block-pins": _block_pins,
+  "undo-redo-buttons": _undo_redo_buttons,
   "find-bar": _find_bar,
   "middle-click-popup": _middle_click_popup,
   "jump-to-def": _jump_to_def,

@@ -253,6 +253,59 @@ const Tags = ({manifest}) => (
                 {settingsTranslations.tagDanger}
             </span>
         )}
+	{manifest.tags.includes('mistium') && (
+            <span className={classNames(styles.tag, styles.tagMistium)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://warp.mistium.com/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="MistWarp Icon"
+                />
+                {settingsTranslations.tagMistium}
+            </span>
+			        )}
+	{manifest.tags.includes('ae') && (
+            <span className={classNames(styles.tag, styles.tagAstraEditor)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://warp.mistium.com/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="AstraEditor Icon"
+                />
+                {settingsTranslations.tagAstraEditor}
+            </span>
+			        )}
+	{manifest.tags.includes('pm') && (
+            <span className={classNames(styles.tag, styles.tagPenguinmod)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://studio.penguinmod.com/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="PenguinMod Icon"
+                />
+                {settingsTranslations.tagPenguinmod}
+            </span>
+			        )}
+        {manifest.tags.includes('dm') && (
+            <span className={classNames(styles.tag, styles.tagDinosaurmod)} 
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://dinosaurmod.github.io/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="DinosaurMod Icon"
+                />
+                {settingsTranslations.tagDinosaurmod}
+            </span>
+			 )}
+        {manifest.tags.includes('other') && (
+            <span className={classNames(styles.tag, styles.tagOtherMods)}>
+                {settingsTranslations.tagOtherMods}
+            </span>
+           )}
     </span>
 );
 Tags.propTypes = {

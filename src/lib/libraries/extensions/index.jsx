@@ -1751,7 +1751,7 @@ const gallerySourceDisplay = {
     bilup: {
         name: 'Bilup Extension Gallery',
         href: 'https://extensions.bilup.org/',
-        iconURL: 'https://editor.bilup.org/static/assets/5b5e7dd645a0e3891de6e5d937cca6a6.svg',
+        iconURL: 'https://com.bilup.org/static/assets/5b5e7dd645a0e3891de6e5d937cca6a6.svg',
         tag: 'bilup'
     },
 	 dash: {

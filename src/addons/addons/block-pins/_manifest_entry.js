@@ -30,6 +30,7 @@ const manifest = {
   ],
   "tags": [
     "editor",
+    "pm",
     "new"
   ],
   "enabledByDefault": false,

@@ -85,7 +85,13 @@ const addons = [
 ];
 
 const newAddons = [
-    'expanded-backpack'
+    'expanded-backpack',
+    'paint-default-smoothing',
+    'paint-gradient-maker',
+    'canvas-screenshot',
+    'editor-animations',
+    'block-pins',
+    'undo-redo-buttons'
 ];
 
 // eslint-disable-next-line import/no-commonjs
