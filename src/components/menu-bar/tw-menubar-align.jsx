@@ -11,7 +11,6 @@ import {MenuItem, Submenu} from '../menu/menu.jsx';
 import {MENUBAR_ALIGN, Theme} from '../../lib/themes/index.js';
 import {closeSettingsMenu, menubarAlignMenuOpen, openMenubarAlignMenu} from '../../reducers/menus.js';
 import {setTheme} from '../../reducers/theme.js';
-import {applyTheme} from '../../lib/themes/themePersistance.js';
 import {persistTheme} from '../../lib/themes/themePersistance.js';
 import styles from './settings-menu.css';
 

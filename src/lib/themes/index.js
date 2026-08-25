@@ -21,12 +21,9 @@ import * as accentCustom from './accent/custom';
 
 import * as guiLight from './gui/light';
 import * as guiModernLight from './gui/modern-light';
-import * as guiLighterColor from './gui/lighter-colored';
 import * as guiDark from './gui/dark';
 import * as guiModernDark from './gui/modern-dark';
 import * as guiMidnight from './gui/midnight';
-import * as guiDeepDark from './gui/deep-dark';
-import * as guiDarkerColor from './gui/darker-colored';
 
 import * as blocksThree from './blocks/three';
 import * as blocksHighContrast from './blocks/high-contrast';

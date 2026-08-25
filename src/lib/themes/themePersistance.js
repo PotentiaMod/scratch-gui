@@ -1,4 +1,4 @@
-import {BLOCKS_CUSTOM, Theme} from '.';
+import {BLOCKS_CUSTOM, Theme, ACCENT_DEFAULT, GUI_DEFAULT, BLOCKS_THREE, MENUBAR_ALIGN_DEFAULT} from '.';
 
 const matchMedia = query => (window.matchMedia ? window.matchMedia(query) : null);
 const PREFERS_HIGH_CONTRAST_QUERY = matchMedia('(prefers-contrast: more)');
@@ -62,14 +62,16 @@ const detectTheme = () => {
         }
 
         const parsed = JSON.parse(local);
-        // Any invalid values in storage will be handled by Theme itself
-        return new Theme(
+       // Any invalid values in storage will be handled by Theme itself
+        const theme = new Theme(
             parsed.accent || systemPreferences.accent,
             parsed.gui || systemPreferences.gui,
             parsed.blocks || systemPreferences.blocks,
+			parsed.menuBarAlign || systemPreferences.menuBarAlign,
             parsed.wallpaper || null,
             parsed.font || null
         );
+        return theme;
     } catch (e) {
         // ignore
     }
@@ -101,7 +103,7 @@ const persistTheme = theme => {
         nonDefaultSettings.font = theme.font;
     }
 	if (theme.menuBarAlign.menuBarAlign !== null) {
-        nonDefaultSettings.menuBarAlign = theme.menuBarAligns;
+        nonDefaultSettings.menuBarAlign = theme.menuBarAlign;
     }
 
     if (Object.keys(nonDefaultSettings).length === 0) {
@@ -119,31 +121,8 @@ const persistTheme = theme => {
     }
 };
 
-/**
- * Apply a theme to the GUI pipeline and persist settings.
- * This centralizes application so loading and manual changes behave the same.
- * @param {Theme} theme the theme
- */
-const applyTheme = theme => {
-    try {
-        applyGuiColors(theme);
-    } catch (e) {
-        // Don't let GUI application failures block persistence
-        console.error('Failed to apply GUI colors for theme:', e);
-    }
-
-    persistTheme(theme);
-};
-
-try {
-    applyTheme(detectTheme());
-} catch (e) {
-    console.error('Failed to apply theme:', e);
-}
-
 export {
     onSystemPreferenceChange,
     detectTheme,
-    persistTheme,
-	applyTheme
+    persistTheme
 };
