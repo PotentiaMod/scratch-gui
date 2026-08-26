@@ -154,12 +154,12 @@
 }
 
 .feedback-link {
-    color: var(--looks-secondary-darker);
+    color: black;
     text-decoration: none;
 }
 
 .feedback-button {
-    background-color: var(--looks-secondary-light);
+    background-color: white;
     color: inherit;
     height: 34px;
 }

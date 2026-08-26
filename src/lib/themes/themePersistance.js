@@ -102,9 +102,6 @@ const persistTheme = theme => {
     if (theme.font.font !== null) {
         nonDefaultSettings.font = theme.font;
     }
-	if (theme.menuBarAlign.menuBarAlign !== null) {
-        nonDefaultSettings.menuBarAlign = theme.menuBarAlign;
-    }
 
     if (Object.keys(nonDefaultSettings).length === 0) {
         try {

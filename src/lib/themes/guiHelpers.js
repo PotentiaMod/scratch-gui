@@ -67,19 +67,11 @@ const applyGuiColors = theme => {
     }
     metaThemeColor.setAttribute('content', evaluateCSS(guiColors['menu-bar-background']));
 
- // a horrible hack for icons...
+    // a horrible hack for icons...
     window.Recolor = {
-        primary: evaluateCSS(guiColors['looks-secondary'])
+        primary: guiColors['looks-secondary']
     };
     AddonHooks.recolorCallbacks.forEach(i => i());
-
-    // Not a GUI color, but we apply it here anyway lol
-    const fontFace = new FontFace('customFont', `url(${theme.font.font})`);
-    fontFace.load().then(loadedFont => {
-        document.fonts.add(loadedFont);
-        document.body.style.fontFamily = 'customFont, "Helvetica Neue", Helvetica, sans-serif';
-    })
-        .catch(console.error);
 };
 
 export {
