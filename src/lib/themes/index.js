@@ -180,12 +180,15 @@ const GUI_MODERN_LIGHT = 'modern-light';
 const GUI_DARK = 'dark';
 const GUI_MODERN_DARK = 'modern-dark';
 const GUI_MIDNIGHT = 'midnight';
+const GUI_CUSTOM = "custom";
 const GUI_MAP = {
     [GUI_LIGHT]: guiLight,
     [GUI_MODERN_LIGHT]: guiModernLight,
     [GUI_DARK]: guiDark,
     [GUI_MODERN_DARK]: guiModernDark,
     [GUI_MIDNIGHT]: guiMidnight,
+	// amp-customizable-colours addon
+    [GUI_CUSTOM]: {},
 };
 const GuiOptions = defineMessages({
     [GUI_LIGHT]: {
@@ -379,19 +382,21 @@ class Theme {
         return BLOCKS_MAP[this.blocks].blocksMediaFolder;
     }
 
-     getGuiColors () {
+     getGuiColors() {
         return defaultsDeep(
             {},
-            Object.hasOwn(this.accent, 'primaryColor') ?
+            this.gui === "custom"
+                ? null
+                : Object.hasOwn(this.accent, 'primaryColor') ?
                 ACCENT_MAP[ACCENT_CUSTOM].getGuiColors(
                     this.accent.primaryColor,
                     this.accent.secondaryColor,
                     this.accent.tertiaryColor,
                     this.accent.gradient
-                ) :
-                ACCENT_MAP[this.accent].guiColors,
+                )
+				: ACCENT_MAP[this.accent].guiColors,
             GUI_MAP[this.gui].guiColors,
-            guiLight.guiColors
+            guiLight.guiColors,
         );
     }
 
@@ -465,6 +470,7 @@ export {
     GUI_DARK,
     GUI_MODERN_DARK,
     GUI_MIDNIGHT,
+    GUI_CUSTOM,
     GUI_MAP,
 	GuiIcons,
     GuiOptions,

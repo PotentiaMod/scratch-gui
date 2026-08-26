@@ -13,6 +13,9 @@ import TWFontThemeMenu from './tw-theme-font.jsx';
 import TWMenuBarAlignMenu from './tw-menubar-align.jsx';
 import TWBlocksThemeMenu from './tw-theme-blocks.jsx';
 import TWDesktopSettings from './tw-desktop-settings.jsx';
+import InstallPWA from './install-pwa.jsx';
+import {APP_NAME, MOTTO} from '../../lib/brand.js';
+import {APP_VERSION} from '../../lib/version.js';
 
 import menuBarStyles from './menu-bar.css';
 import styles from './settings-menu.css';
@@ -26,6 +29,7 @@ const SettingsMenu = ({
     isRtl,
     onClickDesktopSettings,
     onOpenCustomSettings,
+    onOpenAltCustomSettings,
     onRequestClose,
     onRequestOpen,
     settingsMenuOpen
@@ -63,15 +67,21 @@ const SettingsMenu = ({
                 {canChangeLanguage && <LanguageMenu onRequestCloseSettings={onRequestClose} />}
                 {canChangeTheme && (
                     <React.Fragment>
-                        <TWGuiThemeMenu />
-                        <TWBlocksThemeMenu
-                            onOpenCustomSettings={onOpenCustomSettings}
-                        />
-                        <TWAccentThemeMenu />
+                         <TWGuiThemeMenu/>
+                         <TWBlocksThemeMenu onOpenCustomSettings={onOpenCustomSettings} />
+                         <TWAccentThemeMenu />
                     </React.Fragment>
                 )}
-                {onClickDesktopSettings && <TWDesktopSettings onClick={onClickDesktopSettings} />}
             </MenuSection>
+			<MenuSection>
+			{onClickDesktopSettings && <TWDesktopSettings onClick={onClickDesktopSettings} />}
+               <InstallPWA />
+			   <div className={`${styles.option} ${styles.disabled}`}>
+                                    <span className={styles.submenuLabel}>
+                                        {APP_NAME} v{APP_VERSION}
+                                    </span>
+                                </div>
+                </MenuSection>
         </MenuBarMenu>
     </MenuLabel>
 );

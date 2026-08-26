@@ -455,6 +455,11 @@ const codeUsedFrom = [
         image: `https://gaiamod-main.github.io/icons/mods/nitrobolt.png`,
         href: `https://nitrobolt.org/`,
     },
+	{
+        text: "CattyMod",
+        image: `https://gaiamod-main.github.io/icons/mods/cattymod.png`,
+        href: `https://cattymod.app/`,
+    },
     {
         text: "Cocrea World",
         image: `https://gaiamod-main.github.io/icons/mods/cocreaworld.png`,

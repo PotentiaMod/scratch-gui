@@ -87,6 +87,8 @@ const addons = [
 const newAddons = [
     'expanded-backpack',
     'paint-default-smoothing',
+    'amp-customizable-colours',
+    'background',
     'paint-gradient-maker',
     'canvas-screenshot',
     'editor-animations',

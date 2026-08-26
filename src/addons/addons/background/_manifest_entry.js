@@ -3,12 +3,14 @@ const manifest = {
   "description": "Make your editor look brand new.",
   "editorOnly": false,
   "tags": [
-    "astraeditor"
+    "astraeditor",
+    "ae",
+    "new"
   ],
   "info": [
     {
       "type": "notice",
-      "text": "This may reduce performance, and will override PotentiaMod's original wallpaper.",
+      "text": "This may reduce performance.",
       "id": "reducePerformance"
     }
   ],

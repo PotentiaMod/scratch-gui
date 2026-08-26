@@ -290,7 +290,7 @@ const Tags = ({manifest}) => (
             </span>
 			        )}
 	{manifest.tags.includes('ae') && (
-            <span className={classNames(styles.tag, styles.tagAstraEditor)}
+            <span className={classNames(styles.tag, styles.tagAstraeditor)}
                 style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
             >
                 <img

@@ -99,7 +99,7 @@ const AccentThemeMenu = ({
             <span className={styles.submenuLabel}>
                 <FormattedMessage
                     defaultMessage="Accent"
-                    description="Label for menu to choose accent color (eg. TurboWarp's red, Scratch's purple)"
+                    description="Label for menu to choose accent color (eg. PotentiaMod's indigo, TurboWarp's red, Scratch's purple)"
                     id="tw.menuBar.accent"
                 />
             </span>
