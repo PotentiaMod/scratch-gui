@@ -9,6 +9,7 @@ import _canvas_screenshot from "../addons/canvas-screenshot/_manifest_entry.js";
 import _editor_animations from "../addons/editor-animations/_manifest_entry.js";
 import _block_pins from "../addons/block-pins/_manifest_entry.js";
 import _undo_redo_buttons from "../addons/undo-redo-buttons/_manifest_entry.js";
+import _coder_style from "../addons/coder-style/_manifest_entry.js";
 import _find_bar from "../addons/find-bar/_manifest_entry.js";
 import _middle_click_popup from "../addons/middle-click-popup/_manifest_entry.js";
 import _jump_to_def from "../addons/jump-to-def/_manifest_entry.js";
@@ -99,6 +100,7 @@ export default {
   "editor-animations": _editor_animations,
   "block-pins": _block_pins,
   "undo-redo-buttons": _undo_redo_buttons,
+  "coder-style": _coder_style,
   "find-bar": _find_bar,
   "middle-click-popup": _middle_click_popup,
   "jump-to-def": _jump_to_def,

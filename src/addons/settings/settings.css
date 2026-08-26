@@ -361,6 +361,11 @@ a:active, a:focus {
     background: #4900D1;
     border-color: #00006E;
 }
+.tag-ampmod {
+    color: white;
+    background: #4FA55C;
+    border-color: #065712;
+}
 .tag-penguinmod {
     color: white;
     background: #00c3ff;
@@ -380,6 +385,11 @@ a:active, a:focus {
     color: white;
     background: #0099FF;
     border-color: #003BA8;
+}
+.tag-engine {
+    color: white;
+    background: #00BAAD;
+    border-color: #006E62;
 }
 .tag-othermods {
     color: white;

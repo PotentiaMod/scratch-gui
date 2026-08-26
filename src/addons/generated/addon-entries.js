@@ -15,6 +15,7 @@ export default {
   "editor-animations": () => import(/* webpackChunkName: "addon-entry-editor-animations" */ "../addons/editor-animations/_runtime_entry.js"),
   "block-pins": () => import(/* webpackChunkName: "addon-entry-block-pins" */ "../addons/block-pins/_runtime_entry.js"),
   "undo-redo-buttons": () => import(/* webpackChunkName: "addon-entry-undo-redo-buttons" */ "../addons/undo-redo-buttons/_runtime_entry.js"),
+  "coder-style": () => import(/* webpackChunkName: "addon-entry-coder-style" */ "../addons/coder-style/_runtime_entry.js"),
   "block-palette-icons": () => import(/* webpackChunkName: "addon-entry-block-palette-icons" */ "../addons/block-palette-icons/_runtime_entry.js"),
   "hide-flyout": () => import(/* webpackChunkName: "addon-entry-hide-flyout" */ "../addons/hide-flyout/_runtime_entry.js"),
   "mediarecorder": () => import(/* webpackChunkName: "addon-entry-mediarecorder" */ "../addons/mediarecorder/_runtime_entry.js"),

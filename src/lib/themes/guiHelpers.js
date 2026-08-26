@@ -18,10 +18,6 @@ const BLOCK_COLOR_NAMES = [
     'addons'
 ];
 
-const GUI_COLOR_NAMES = [
-    // Corresponds to the name of the object in guiColors
-    'ui'
-];
 
 /**
  * @param {string} css CSS color or var(--...)
@@ -49,9 +45,6 @@ const applyGuiColors = theme => {
     const guiColors = theme.getGuiColors();
     for (const [name, value] of Object.entries(guiColors)) {
         doc.style.setProperty(`--${name}`, value);
-		doc.style.setProperty(`--editorTheme2-ui-primary`, guiColors[color].primary);
-        doc.style.setProperty(`--editorTheme2-ui-secondary`, guiColors[color].secondary);
-        doc.style.setProperty(`--editorTheme2-ui-tertiary`, guiColors[color].tertiary);
     }
 
     const blockColors = theme.getBlockColors();

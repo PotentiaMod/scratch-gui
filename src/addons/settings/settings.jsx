@@ -265,6 +265,18 @@ const Tags = ({manifest}) => (
                 {settingsTranslations.tagPotentiamod}
             </span>
 			 )}
+     {manifest.tags.includes('amp') && (
+            <span className={classNames(styles.tag, styles.tagAmpmod)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://ampmod.codeberg.page/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="AmpMod Icon"
+                />
+                {settingsTranslations.tagAmpmod}
+            </span>
+			        )}
 	{manifest.tags.includes('mistium') && (
             <span className={classNames(styles.tag, styles.tagMistium)}
                 style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
@@ -287,6 +299,18 @@ const Tags = ({manifest}) => (
                     alt="AstraEditor Icon"
                 />
                 {settingsTranslations.tagAstraEditor}
+            </span>
+			        )}
+		{manifest.tags.includes('ztengine') && (
+            <span className={classNames(styles.tag, styles.tagEngine)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://editor.02engine.org/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="02Engine Icon"
+                />
+                {settingsTranslations.tagZtEngine}
             </span>
 			        )}
 	{manifest.tags.includes('pm') && (

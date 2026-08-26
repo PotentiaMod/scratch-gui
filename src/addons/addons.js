@@ -91,7 +91,8 @@ const newAddons = [
     'canvas-screenshot',
     'editor-animations',
     'block-pins',
-    'undo-redo-buttons'
+    'undo-redo-buttons',
+    'coder-style'
 ];
 
 // eslint-disable-next-line import/no-commonjs
