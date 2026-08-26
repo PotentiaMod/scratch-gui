@@ -69,10 +69,24 @@ const Credits = () => (
         {APP_NAME !== 'TurboWarp' && (
             // Be kind and considerate. Don't remove this :)
             <section>
-                <h2>TurboWarp</h2>
+                <h2>Forks and Code Usages</h2>
                 <p>
                     {APP_NAME} is based on <a href="https://turbowarp.org/">TurboWarp</a>, which in turn is based on <a href="https://scratch.mit.edu/">Scratch</a>.
                 </p>
+				<p>
+                    {APP_NAME}'s paint editor is forked from <a href="https://penguinmod.com/">PenguinMod</a>.
+                </p>
+				<p>
+                    {APP_NAME}'s extension manager comes from <a href="https://nitrobolt.org/">NitroBolt</a>.
+                </p>
+				<p>
+                    {APP_NAME}'s wallpaper and fonts feature comes from <a href="https://dashblocks.org">DashBlocks</a>.
+                </p>
+				<p>
+			We've also included some codes taken from other open-source Scratch mods inside of {APP_NAME} as well.
+            Here's a list of some other Scratch mods you should check out:
+		     </p>
+            <UserList users={UserData.codeUsedFrom} />
             </section>
         )}
         <section>
@@ -107,22 +121,6 @@ const Credits = () => (
             <p>
                 More than 100 people have helped translate {APP_NAME} and its addons into many languages
                 &mdash; far more than we could hope to list here.
-            </p>
-        </section>
-		<section>
-            <h2>Codes Taken from Other Scratch Mods</h2>
-			<p>
-			We've also included some codes taken from other open-source Scratch mods inside of {APP_NAME}.
-            Here's a list of some other Scratch mods you should check out:
-		     </p>
-            <UserList users={UserData.codeUsedFrom} />
-        </section>
-        <section>
-            <p>
-                <i>
-                    Individual contributors are listed in no particular order.
-                    The order is randomized each visit.
-                </i>
             </p>
         </section>
 		<Footer />

@@ -253,6 +253,18 @@ const Tags = ({manifest}) => (
                 {settingsTranslations.tagDanger}
             </span>
         )}
+		{manifest.tags.includes('pot') && (
+            <span className={classNames(styles.tag, styles.tagPotentiamod)} 
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://potentiamod.github.io/online/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="PotentiaMod Icon"
+                />
+                {settingsTranslations.tagPotentiamod}
+            </span>
+			 )}
 	{manifest.tags.includes('mistium') && (
             <span className={classNames(styles.tag, styles.tagMistium)}
                 style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
@@ -270,7 +282,7 @@ const Tags = ({manifest}) => (
                 style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
             >
                 <img
-                    src="https://warp.mistium.com/favicon.ico"
+                    src="https://editors.astras.top/online/favicon.ico"
                     style={{width: "13px", height: "13px"}}
                     alt="AstraEditor Icon"
                 />

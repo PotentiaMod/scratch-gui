@@ -413,7 +413,7 @@ const codeUsedFrom = [
 	    {
         text: "Bilup",
         image: `https://gaiamod-main.github.io/icons/mods/bilup.png`,
-        href: `https://editor.bilup.org/`,
+        href: `https://com.bilup.org/editor`,
     },
     {
         text: "Adacraft",
@@ -423,7 +423,7 @@ const codeUsedFrom = [
     {
         text: "MistWarp",
         image: `https://gaiamod-main.github.io/icons/mods/mistwarp.png`,
-        href: `https://warp.mistium.com/`,
+        href: `https://warp.mistium.com/editor`,
     },
     {
         text: "OmniBlocks",
@@ -479,6 +479,11 @@ const codeUsedFrom = [
         text: "Ark IDE",
         image: `https://gaiamod-main.github.io/icons/mods/arkide.png`,
         href: `https://studio.arkide.site/`,
+    },
+	{
+        text: "Nyx IDE",
+        image: `https://gaiamod-main.github.io/icons/mods/nyxide.png`,
+        href: `https://ide.nyxdev.app/editor`,
     },
     {
         text: "DinosaurMod",

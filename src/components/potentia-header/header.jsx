@@ -13,6 +13,7 @@ import Button from '../button/button.jsx';
 import styles from './header.css';
 
 import logo from '../menu-bar/potentiamod-logo.svg';
+import menuBar from '../menu-bar/menu-bar.jsx';
 
 import {APP_NAME} from '../../lib/brand.js';
 
@@ -31,7 +32,7 @@ const Header = () => (
                         <span className={styles.homeWordmark}>
                             {'PotentiaMod'}
                         </span>
-            </a>
+            </a>		
             <a
                 href="/editor.html"
                 className={classNames(styles.headerItem, styles.hoverable)}
