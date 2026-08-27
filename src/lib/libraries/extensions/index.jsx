@@ -684,7 +684,7 @@ const menuItems = [
         iconURL: wonderBlocksIcon,
         tags: ['gm', 'preload'],
         description: 'Some mysterious blocks.',
-        collaborator: 'GaiaWindWave90 with some blocks from other users.',
+        credits: 'GaiaWindWave90',
         featured: true
     },
 	 {
@@ -693,7 +693,7 @@ const menuItems = [
         iconURL: appMakerIconURL,
 		insetIconURL: appMakerInsetIconURL,
         tags: ['other', 'preload'],
-		collaborator: 'LibreKitten',
+		credits: 'LibreKitten',
         description: 'Develop apps in PotentiaMod.',
         featured: true
     },

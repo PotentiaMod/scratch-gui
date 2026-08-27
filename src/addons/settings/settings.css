@@ -514,6 +514,24 @@ a:active, a:focus {
     border-radius: 0 20px 20px 0;
 }
 
+.tag-button {
+    padding: .375rem .625rem;
+    margin-bottom: 6px;
+    background: $looks-secondary;
+    border-radius: .625rem;
+    color: $ui-white;
+    height: 28px;
+}
+
+.tag-button-icon {
+    max-width: 1rem;
+    max-height: 1rem;
+}
+
+.filter-bar-item {
+    margin-right: .75rem;
+}
+
 .select {
     display: flex;
 }
