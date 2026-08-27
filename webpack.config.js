@@ -158,7 +158,7 @@ module.exports = [
         module: {
             rules: base.module.rules.concat([
                 {
-                    test: /\.(svg|png|wav|mp3|gif|jpg|woff2|hex)$/,
+                    test: /\.(svg|png|wav|mp3|gif|jpg|webp|woff2|ttf|otf|hex)$/,
                     loader: 'url-loader',
                     options: {
                         limit: 2048,
@@ -283,7 +283,7 @@ module.exports = [
             module: {
                 rules: base.module.rules.concat([
                     {
-                        test: /\.(svg|png|wav|mp3|gif|jpg|woff2|hex)$/,
+                        test: /\.(svg|png|wav|mp3|gif|jpg|webp|woff2|ttf|otf|hex)$/,
                         loader: 'url-loader',
                         options: {
                             limit: 2048,
