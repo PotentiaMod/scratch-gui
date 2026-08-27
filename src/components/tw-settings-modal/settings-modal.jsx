@@ -13,6 +13,7 @@ import styles from './settings-modal.css';
 import helpIcon from './help-icon.svg';
 import swapIcon from './swap-icon.svg';
 import {APP_NAME} from '../../lib/brand.js';
+import VM from 'scratch-vm';
 
 /* eslint-disable react/no-multi-comp */
 
@@ -138,6 +139,26 @@ BooleanSetting.propTypes = {
     label: PropTypes.node.isRequired
 };
 
+const DisableBlur = props => (
+    <BooleanSetting
+        {...props}
+        label={
+            <FormattedMessage
+                defaultMessage="Disable Blur"
+                description="Disable Blur setting"
+                id="pm.settingsModal.disableBlur"
+            />
+        }
+        help={
+            <FormattedMessage
+                defaultMessage="Disables background blur effects on modals and UI elements across the website. Good for older computers."
+                description="Disable Blur setting help"
+                id="pm.settingsModal.disableBlurHelp"
+            />
+        }
+    />
+);
+
 const HighQualityPen = props => (
     <BooleanSetting
         {...props}
@@ -157,6 +178,69 @@ const HighQualityPen = props => (
             />
         }
         slug="high-quality-pen"
+    />
+);
+
+const DisableOffscreenRendering = props => (
+    <BooleanSetting
+        {...props}
+        label={
+            <FormattedMessage
+                defaultMessage="Disable Off Screen Rendering"
+                description="Disable Out of Bounds Rendering setting"
+                id="pm.settingsModal.oobRendering"
+            />
+        }
+        help={
+            <FormattedMessage
+                defaultMessage="When enabled all sprites that are off screen will not be rendered."
+                description="Out of Bounds Rendering setting help"
+                id="pm.settingsModal.oobRenderingHelp"
+            />
+        }
+        // slug="out-of-bounds-rendering"
+    />
+);
+
+const EnableDangerousOptimizations = props => (
+    <BooleanSetting
+        {...props}
+        label={
+            <FormattedMessage
+                defaultMessage="Enable Dangerous Optimizations"
+                description="Enable Dangerous Optimizations setting"
+                id="pm.settingsModal.dangerousOptimizations"
+            />
+        }
+        help={
+            <FormattedMessage
+                defaultMessage="Precomputes certain numbers & uses faster methods for certain operations, at the cost of losing tiny features like typing special text in certain number inputs. Not all projects will be compatible with this setting."
+                description="Dangerous Optimizations setting help"
+                id="pm.settingsModal.dangerousOptimizationsHelp"
+            />
+        }
+        // slug="enable-dangerous-optimizations"
+    />
+);
+
+const DisableDirectionClamping = props => (
+    <BooleanSetting
+        {...props}
+        label={
+            <FormattedMessage
+                defaultMessage="Disable Direction Clamping"
+                description="Disable Direction Clamping setting"
+                id="pm.settingsModal.noDirWrap"
+            />
+        }
+        help={
+            <FormattedMessage
+                defaultMessage="When enabled, directions will not be clamped from -179 - 180"
+                description="Disable Direction Clamping setting help"
+                id="pm.settingsModal.noDirWrapHelp"
+            />
+        }
+        // slug="out-of-bounds-rendering"
     />
 );
 
@@ -508,86 +592,304 @@ Header.propTypes = {
     children: PropTypes.node
 };
 
-const SettingsModalComponent = props => (
-    <Modal
-        className={styles.modalContent}
-        onRequestClose={props.onClose}
-        contentLabel={props.intl.formatMessage(messages.title)}
-        id="settingsModal"
-    >
-        <Box className={styles.body}>
-            <Header>
-                <FormattedMessage
-                    defaultMessage="Featured"
-                    description="Settings modal section"
-                    id="tw.settingsModal.featured"
-                />
-            </Header>
-            <CustomFPS
-                framerate={props.framerate}
-                onChange={props.onFramerateChange}
-                onCustomizeFramerate={props.onCustomizeFramerate}
-            />
-            <Interpolation
-                value={props.interpolation}
-                onChange={props.onInterpolationChange}
-            />
-            <HighQualityPen
-                value={props.highQualityPen}
-                onChange={props.onHighQualityPenChange}
-            />
-            <WarpTimer
-                value={props.warpTimer}
-                onChange={props.onWarpTimerChange}
-            />
-            <Header>
-                <FormattedMessage
-                    defaultMessage="Remove Limits"
-                    description="Settings modal section"
-                    id="tw.settingsModal.removeLimits"
-                />
-            </Header>
-            <InfiniteClones
-                value={props.infiniteClones}
-                onChange={props.onInfiniteClonesChange}
-            />
-            <RemoveFencing
-                value={props.removeFencing}
-                onChange={props.onRemoveFencingChange}
-            />
-            <RemoveMiscLimits
-                value={props.removeLimits}
-                onChange={props.onRemoveLimitsChange}
-            />
-            <Header>
-                <FormattedMessage
-                    defaultMessage="Danger Zone"
-                    description="Settings modal section"
-                    id="tw.settingsModal.dangerZone"
-                />
-            </Header>
-            {!props.isEmbedded && (
-                <CustomStageSize
-                    {...props}
-                />
-            )}
-            <DisableCompiler
-                value={props.disableCompiler}
-                onChange={props.onDisableCompilerChange}
-            />
-            {!props.isEmbedded && (
-                <StoreProjectOptions
-                    {...props}
-                />
-            )}
-        </Box>
-    </Modal>
-);
+const ProjectSizeTracker = ({ vm }) => {
+    const [projectSize, setProjectSize] = React.useState(0);
 
+    React.useEffect(() => {
+        const calculateSize = () => {
+    
+    if (!vm || !vm.runtime) {
+        return 0;
+    }
+            if (!vm || !vm.runtime) return 0;
+
+            let totalSize = 0;
+            const processedAssets = new Set();
+
+            const getAssetSize = (asset) => {
+                if (!asset) return 0;
+                if (asset.size) return asset.size;
+                if (asset.data) return asset.data.length || asset.data.byteLength || 0;
+                return 0;
+            };
+
+            if (vm.runtime.targets) {
+                vm.runtime.targets.forEach(target => {
+                    if (target.sprite && target.sprite.costumes) {
+                        target.sprite.costumes.forEach(costume => {
+                            const assetId = costume.assetId || costume.md5;
+                            if (assetId && !processedAssets.has(assetId)) {
+                                processedAssets.add(assetId);
+                                totalSize += getAssetSize(costume.asset);
+                            }
+                        });
+                    }
+
+                    if (target.sprite && target.sprite.sounds) {
+                        target.sprite.sounds.forEach(sound => {
+                            const assetId = sound.assetId || sound.md5;
+                            if (assetId && !processedAssets.has(assetId)) {
+                                processedAssets.add(assetId);
+                                totalSize += getAssetSize(sound.asset);
+                            }
+                        });
+                    }
+                });
+            }
+
+            const scriptEstimate = vm.runtime.targets ? vm.runtime.targets.length * 5000 : 10000;
+            totalSize += scriptEstimate;
+
+            return totalSize;
+        };
+
+        const updateSize = () => {
+            const size = calculateSize();
+            setProjectSize(size);
+        };
+
+        updateSize();
+        const interval = setInterval(updateSize, 2000);
+
+        return () => clearInterval(interval);
+    }, [vm]);
+
+    const formatBytes = (bytes) => {
+        if (bytes === 0) return '0 B';
+        if (bytes < 1024) return `${bytes} B`;
+        if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(2)} KB`;
+        return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+    };
+
+    const UPLOAD_LIMIT = 64 * 1024 * 1024;
+    const percentage = Math.min((projectSize / UPLOAD_LIMIT) * 100, 100);
+    const isNearLimit = percentage > 80 && percentage <= 100;
+    const isOverLimit = projectSize > UPLOAD_LIMIT;
+
+    let barClass = styles.projectSizeBarSafe;
+    if (isOverLimit) {
+        barClass = styles.projectSizeBarDanger;
+    } else if (isNearLimit) {
+        barClass = styles.projectSizeBarWarning;
+    }
+
+    return (
+        <div className={styles.projectSizeContainer}>
+            <div className={styles.projectSizeHeader}>
+                <span>
+                    <FormattedMessage
+                        defaultMessage="Project Size"
+                        description="Project size tracker header"
+                        id="tw.settingsModal.projectSize"
+                    />
+                </span>
+                <span className={styles.projectSizeValue}>
+                    {formatBytes(projectSize)}
+                </span>
+            </div>
+
+            <div className={styles.projectSizeBarContainer}>
+                <div
+                    className={classNames(styles.projectSizeBar, barClass)}
+                    style={{ width: `${percentage}%` }}
+                >
+                    {percentage > 15 && `${percentage.toFixed(1)}%`}
+                </div>
+            </div>
+                <FormattedMessage
+                    defaultMessage="This is a tracker to make sure that your project stays under the upload limit for the PotentiaMod web."
+                    description="Project size tracker header"
+                    id="tw.settingsModal.sizedisc"
+                />
+            <div className={styles.projectSizeInfo}>
+                <FormattedMessage
+                    defaultMessage="Upload limit for PotentiaMod: {limit}"
+                    description="Upload limit info"
+                    id="tw.settingsModal.uploadLimit"
+                    values={{
+                        limit: formatBytes(UPLOAD_LIMIT)
+                    }}
+                />
+            </div>
+
+            {isOverLimit && (
+                <div className={styles.projectSizeDangerText}>
+                    <FormattedMessage
+                        defaultMessage=" Your project is over the 64MB upload limit. You won't be able to upload this project to the PotentiaMod website until you reduce its size by removing unused costumes or sounds."
+                        description="Over limit warning"
+                        id="tw.settingsModal.overLimitWarning"
+                    />
+                </div>
+            )}
+
+            {isNearLimit && !isOverLimit && (
+                <div className={styles.projectSizeWarningText}>
+                    <FormattedMessage
+                        defaultMessage=" Your project is approaching the 64MB upload limit! Consider removing unused assets to stay under the limit."
+                        description="Near limit warning"
+                        id="tw.settingsModal.nearLimitWarning"
+                    />
+                </div>
+            )}
+        </div>
+    );
+};
+
+ProjectSizeTracker.propTypes = {
+    vm: PropTypes.instanceOf(VM).isRequired
+};
+
+
+
+const SettingsModalComponent = props => {
+    const [activeTab, setActiveTab] = React.useState('render');
+
+    return (
+        <Modal
+            className={styles.modalContent}
+            onRequestClose={(...args) => {
+                if (!props.isEmbedded) {
+                    props.onStoreProjectOptions();
+                }
+                props.onClose(...args)
+            }}
+            contentLabel={props.intl.formatMessage(messages.title)}
+            id="settingsModal"
+        >
+            <Box className={styles.body}>
+                <div className={styles.tabContainer}>
+                    <div className={styles.sidebar}>
+                        <button
+                            className={classNames(styles.tabButton, {
+                                [styles.tabButtonActive]: activeTab === 'render'
+                            })}
+                            onClick={() => setActiveTab('render')}
+                        >
+                            <FormattedMessage
+                                defaultMessage="Render"
+                                description="Settings tab"
+                                id="tw.settingsModal.render"
+                            />
+                        </button>
+                        <button
+                            className={classNames(styles.tabButton, {
+                                [styles.tabButtonActive]: activeTab === 'limits'
+                            })}
+                            onClick={() => setActiveTab('limits')}
+                        >
+                            <FormattedMessage
+                                defaultMessage="Limits"
+                                description="Settings tab"
+                                id="tw.settingsModal.limits"
+                            />
+                        </button>
+                        <button
+                            className={classNames(styles.tabButton, {
+                                [styles.tabButtonActive]: activeTab === 'optimization'
+                            })}
+                            onClick={() => setActiveTab('optimization')}
+                        >
+                            <FormattedMessage
+                                defaultMessage="Optimization"
+                                description="Settings tab"
+                                id="tw.settingsModal.optimization"
+                            />
+                        </button>
+                        <button
+                            className={classNames(styles.tabButton, {
+                                [styles.tabButtonActive]: activeTab === 'projectInfo'
+                            })}
+                            onClick={() => setActiveTab('projectInfo')}
+                        >
+                            <FormattedMessage
+                                defaultMessage="Project Information"
+                                description="Settings tab"
+                                id="tw.settingsModal.projectInfo"
+                            />
+                        </button>
+                    </div>
+
+                    <div className={styles.tabContent}>
+                    {activeTab === 'render' && (
+                        <div>
+                            {!props.isEmbedded && (
+                                <CustomStageSize
+                                    {...props}
+                                />
+                            )}
+                            <CustomFPS
+                                framerate={props.framerate}
+                                onChange={props.onFramerateChange}
+                                onCustomizeFramerate={props.onCustomizeFramerate}
+                            />
+                            <HighQualityPen
+                                value={props.highQualityPen}
+                                onChange={props.onHighQualityPenChange}
+                            />
+                            <DisableBlur
+                                value={props.disableBlur}
+                                onChange={props.onDisableBlurChange}
+                            />
+                        </div>
+                    )}
+
+                        {activeTab === 'limits' && (
+                            <div>
+                                <InfiniteClones
+                                    value={props.infiniteClones}
+                                    onChange={props.onInfiniteClonesChange}
+                                />
+                                <RemoveFencing
+                                    value={props.removeFencing}
+                                    onChange={props.onRemoveFencingChange}
+                                />
+                                <RemoveMiscLimits
+                                    value={props.removeLimits}
+                                    onChange={props.onRemoveLimitsChange}
+                                />
+                                <WarpTimer
+                                    value={props.warpTimer}
+                                    onChange={props.onWarpTimerChange}
+                                />
+                            </div>
+                        )}
+
+                        {activeTab === 'optimization' && (
+                            <div>
+                                <DisableOffscreenRendering
+                                    value={props.disableOffscreenRendering}
+                                    onChange={props.onDisableOffscreenRenderingChange}
+                                />
+                                <EnableDangerousOptimizations
+                                    value={props.dangerousOptimizations}
+                                    onChange={props.onEnableDangerousOptimizationsChange}
+                                />
+                                <DisableDirectionClamping
+                                    value={props.disableDirectionClamping}
+                                    onChange={props.onDisableDirectionClamping}
+                                />
+                                <Interpolation
+                                    value={props.interpolation}
+                                    onChange={props.onInterpolationChange}
+                                />
+                            </div>
+                        )}
+                        {activeTab === 'projectInfo' && (
+                            <div>
+                                <ProjectSizeTracker vm={props.vm} />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </Box>
+        </Modal>
+    );
+};
 SettingsModalComponent.propTypes = {
-    intl: intlShape,
+     intl: intlShape,
     onClose: PropTypes.func,
     isEmbedded: PropTypes.bool,
+    vm: PropTypes.instanceOf(VM), 
     framerate: PropTypes.number,
     onFramerateChange: PropTypes.func,
     onCustomizeFramerate: PropTypes.func,
@@ -604,7 +906,13 @@ SettingsModalComponent.propTypes = {
     warpTimer: PropTypes.bool,
     onWarpTimerChange: PropTypes.func,
     disableCompiler: PropTypes.bool,
-    onDisableCompilerChange: PropTypes.func
+    dangerousOptimizations: PropTypes.bool,
+    onDisableCompilerChange: PropTypes.func,
+    onEnableDangerousOptimizationsChange: PropTypes.func,
+    disableOffscreenRendering: PropTypes.bool,
+    onDisableOffscreenRenderingChange: PropTypes.func,
+    disableBlur: PropTypes.bool,
+    onDisableBlurChange: PropTypes.func
 };
 
 export default injectIntl(SettingsModalComponent);
