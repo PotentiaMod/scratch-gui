@@ -340,6 +340,8 @@ import ptIcon from './tw/pt.svg';
 import TWgalleryIcon from './gallery/TWgallery.svg';
 import returnIcon from './custom/return.svg';
 import customExtensionIcon from './custom/custom.svg';
+import customExtIcon from './custom/CustomEx.svg';
+import customExtInsetIcon from './custom/CustomSmall.svg';
 import customURLIcon from './custom/customURL.svg';
 import galleryIconNB from './gallery/gallery-nb.svg';
 import galleryIconDash from './dashblocks/gallery.svg';
@@ -1645,7 +1647,8 @@ const menuItems = [
     {
         name: 'Custom Extension',
         extensionId: 'custom_extension',
-        iconURL: customExtensionIcon,
+        iconURL: customExtIcon,
+		insetIconURL: customExtInsetIcon,
         description: 'Load custom extensions from URLs, files, or JavaScript source code.',
         tags: ['potentia'],
         featured: true
