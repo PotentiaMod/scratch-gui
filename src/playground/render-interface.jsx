@@ -56,6 +56,31 @@ const Secrets = urlParams.has('allpowerscombined');
 
 const isInvalidEmbed = window.parent !== window;
 
+let announcement = null;
+if (process.env.ANNOUNCEMENT) {
+    announcement = document.createElement('p');
+    // This is safe because process.env.ANNOUNCEMENT is set at build time.
+    announcement.innerHTML = process.env.ANNOUNCEMENT;
+}
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-start',
+    iconColor: 'indigo',
+	draggable: true,
+    customClass: {
+      popup: 'colored-toast',
+    },
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+});
+
+Toast.fire({
+    icon: 'success',
+    title: 'PotentiaMod is loading...'
+})
+
 const handleClickAddonSettings = addonId => {
     // addonId might be a string of the addon to focus on, undefined, or an event (treat like undefined)
     const path = process.env.ROUTING_STYLE === 'wildcard' ? 'addons' : 'addons.html';

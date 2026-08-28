@@ -826,10 +826,6 @@ const SettingsModalComponent = props => {
                                 value={props.highQualityPen}
                                 onChange={props.onHighQualityPenChange}
                             />
-                            <DisableBlur
-                                value={props.disableBlur}
-                                onChange={props.onDisableBlurChange}
-                            />
                         </div>
                     )}
 

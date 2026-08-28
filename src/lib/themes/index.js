@@ -16,7 +16,8 @@ import * as accentGaiaBlue from './accent/gaia-blue';
 import * as accentFuchsia from './accent/magenta-purple';
 import * as accentCottonCandy from './accent/cottoncandy';
 import * as accentRainbow from './accent/rainbow';
-import * as accentStars from './accent/stars';
+import * as accentHotFuse from './accent/hotfuse';
+import * as accentNitroFire from './accent/nitrofire';
 import * as accentCustom from './accent/custom';
 
 import * as guiLight from './gui/light';
@@ -63,7 +64,8 @@ const ACCENT_GAIA_BLUE = 'gaiablue';
 const ACCENT_GREEN = 'green';
 const ACCENT_RAINBOW = 'rainbow';
 const ACCENT_COTTON_CANDY = 'cottoncandy';
-const ACCENT_STARS = 'stars'; //unique
+const ACCENT_HOT_FUSE = 'stars'; //unique
+const ACCENT_NITRO_FIRE = 'nitrofire'; //unique
 const ACCENT_CUSTOM = 'custom';
 const ACCENT_MAP = {
     [ACCENT_PURPLE]: accentPurple,
@@ -80,7 +82,8 @@ const ACCENT_MAP = {
     [ACCENT_GAIA_BLUE]: accentGaiaBlue,
     [ACCENT_GREEN]: accentGreen,
     [ACCENT_RAINBOW]: accentRainbow,
-    [ACCENT_STARS]: accentStars,
+    [ACCENT_HOT_FUSE]: accentHotFuse,
+    [ACCENT_NITRO_FIRE]: accentNitroFire,
     [ACCENT_CUSTOM]: accentCustom,
     [ACCENT_COTTON_CANDY]: accentCottonCandy
 };
@@ -137,29 +140,34 @@ const AccentOptions = defineMessages({
         id: 'tw.accent.fuchsia'
     },
 	[ACCENT_INDIGO_BLUE]: {
-        defaultMessage: 'Serene Blue',
+        defaultMessage: 'S. Blue',
         description: 'Name of the indigoish-blue color scheme. Matches Ark IDE.',
         id: 'tw.accent.indigoblue'
     },
 	[ACCENT_CORRUPTED_BLUE]: {
-        defaultMessage: 'Corrupted Blue',
+        defaultMessage: 'C. Blue',
         description: 'Name of the greyish-blue color scheme. Matches ElectraMod.',
         id: 'tw.accent.corruptedblue'
     },
 	[ACCENT_GAIA_BLUE]: {
-        defaultMessage: 'Gaia Blue',
+        defaultMessage: 'G. Blue',
         description: 'Name of the pure blue color scheme. Matches GaiaMod.',
         id: 'tw.accent.gaiablue'
     },
 	[ACCENT_COTTON_CANDY]: {
-        defaultMessage: 'Cotton Candy',
+        defaultMessage: 'C. Candy',
         description: 'Name of the pastel pink/blue color scheme.',
         id: 'tw.accent.cottoncandy'
     },
-	[ACCENT_STARS]: {
-        defaultMessage: 'Stars',
-        description: 'Name of special color scheme.',
-        id: 'tw.accent.stars'
+	[ACCENT_HOT_FUSE]: {
+        defaultMessage: 'H. Fuse',
+        description: 'Name of hot pink-purple color scheme.',
+        id: 'tw.accent.hotfuse'
+    },
+	[ACCENT_NITRO_FIRE]: {
+        defaultMessage: 'N. Fire',
+        description: 'Name of orange-red color scheme.',
+        id: 'tw.accent.nitrofire'
     },
     [ACCENT_RAINBOW]: {
         defaultMessage: 'Rainbow',
@@ -170,7 +178,7 @@ const AccentOptions = defineMessages({
 
 const AccentIcons = {
     //[ACCENT_RAINBOW]: rainbowIcon,
-    //[ACCENT_STARS]: starsIcon
+    //[ACCENT_HOT_FUSE]: starsIcon
 };
 
 const ACCENT_DEFAULT = ACCENT_INDIGO;
@@ -460,6 +468,8 @@ export {
     ACCENT_GREEN,
     ACCENT_RAINBOW,
     ACCENT_COTTON_CANDY,
+    ACCENT_NITRO_FIRE,
+    ACCENT_HOT_FUSE,
 	ACCENT_CUSTOM,
     ACCENT_MAP,
 	AccentIcons,

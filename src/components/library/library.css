@@ -14,7 +14,9 @@
     padding: 6px;
     margin-left: 4px;
     border-radius: 8px;
-    background: $ui-primary;
+    background: $ui-transparent; /* Made semi-transparent */
+    backdrop-filter: blur(10px); /* Add blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
     overflow: auto;
     border: 2px solid $ui-black-transparent;
 }

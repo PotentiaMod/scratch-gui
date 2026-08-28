@@ -173,3 +173,21 @@ $sides: 20rem;
 [dir="rtl"] .help-button {
     padding-left: 0;
 }
+
+/* Specific styles for extension library only */
+#extensionLibrary .modal-overlay {
+    background-color: $ui-modal-overlay;
+}
+
+#extensionLibrary .modal-content {
+    background-color: $ui-modal-overlay;
+}
+
+/* Specific styles for extension library only */
+[id="extensionLibrary"] .modal-overlay {
+    background-color: $ui-modal-overlay;
+}
+
+[id="extensionLibrary"] .modal-content.full-screen {
+    background-color: $ui-modal-overlay;
+}

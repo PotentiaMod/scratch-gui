@@ -14,6 +14,7 @@ import extensionTags from '../lib/libraries/extension-tags';
 import LibraryComponent from '../components/library/library.jsx';
 import extensionIcon from '../components/action-menu/icon--sprite.svg';
 import PMExtensions from '../lib/libraries/extensions/index.jsx';
+import {manuallyTrustExtension} from './tw-security-manager.jsx';
 
 const updateGallery = newGallery => {
     cachedGallery = newGallery;
@@ -350,6 +351,7 @@ class ExtensionLibrary extends React.PureComponent {
 
         const url = item.extensionURL ? item.extensionURL : extensionId;
         if (!item.disabled) {
+			if (item.extensionURL) manuallyTrustExtension(url);
             if (this.props.vm.extensionManager.isExtensionLoaded(extensionId)) {
                 this.props.onCategorySelected(extensionId);
             } else {

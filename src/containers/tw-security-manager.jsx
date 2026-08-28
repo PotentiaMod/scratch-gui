@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import log from '../lib/log';
 import bindAll from 'lodash.bindall';
 import SecurityManagerModal from '../components/tw-security-manager-modal/security-manager-modal.jsx';
-import SecurityModals from '../lib/tw-security-manager-constants';
-import {getPersistedUnsandboxed, setPersistedUnsandboxed} from '../lib/tw-persisted-unsandboxed.js';
 
 /* eslint-disable require-atomic-updates */
 
@@ -24,93 +21,31 @@ const manuallyTrustExtension = url => {
  * @returns {boolean} True if the extension can is trusted
  */
 const isTrustedExtension = () => true;
-// always trust all extensions because this mod is not for morons
-
-/**
- * Set of fetch resource hosts that were manually trusted by the user.
- * @type {Set<string>}
- */
-const fetchHostsTrustedByUser = new Set();
-
-/**
- * Set of hosts manually trusted by the user for embedding.
- * @type {Set<string>}
- */
-const embedHostsTrustedByUser = new Set();
-
-/**
- * @param {URL} parsed Parsed URL object
- * @returns {boolean} True if path is untrusted.
- */
-const isUntrustedPath = parsed => (
-    // Cloudflare serves stuff on /cdn-cgi/ that we don't want to let projects access without showing
-    // a permission prompt to a non-trusted domain (/cdn-cgi/trace contains IP)
-    /^\/cdn-cgi\//i.test(parsed.pathname)
-);
-
-/**
- * @param {URL} parsed Parsed URL object
- * @returns {boolean} True if the URL is part of the builtin set of URLs to always trust fetching from.
- */
-const isAlwaysTrustedForFetching = parsed => (
-    // If we would trust loading an extension from here, we can trust loading resources too.
-    isTrustedExtension(parsed.href) ||
-
-    // Any TurboWarp service such as trampoline
-    parsed.origin === 'https://turbowarp.org' ||
-    parsed.origin.endsWith('.turbowarp.org') ||
-    parsed.origin.endsWith('.turbowarp.xyz') ||
-
-    // GitHub API
-    // GitHub Pages allows redirects, so not included here.
-    parsed.origin === 'https://raw.githubusercontent.com' ||
-    parsed.origin === 'https://gist.githubusercontent.com' ||
-    parsed.origin === 'https://api.github.com' ||
-
-    // GitLab API
-    // GitLab Pages allows redirects, so not included here.
-    parsed.origin === 'https://gitlab.com' ||
-
-    // Sourcehut Pages
-    parsed.origin.endsWith('.srht.site') ||
-
-    // GameJolt
-    parsed.origin === 'https://api.gamejolt.com'
-);
-
-const FETCHABLE_PROTOCOLS = [
-    'http:',
-    'https:',
-    'data:',
-    'blob:',
-    'ws:',
-    'wss:'
-];
-
-const VISITABLE_PROTOCOLS = [
-    // The important one we want to exclude is javascript:
-    'http:',
-    'https:',
-    'data:',
-    'blob:',
-    'mailto:',
-    'steam:',
-    'roblox:',
-    'calculator:'
-];
+// always trust all extensions because this mod isnt for morons
 
 /**
  * @param {string} url Original URL string
- * @param {string[]} protocols List of allowed protocols
  * @returns {URL|null} A URL object if it is valid and of a known protocol, otherwise null.
  */
-const parseURL = (url, protocols) => {
+const parseURL = url => {
     let parsed;
     try {
         parsed = new URL(url);
     } catch (e) {
         return null;
     }
+    const protocols = [
+        // The important one we want to exclude is javascript:
+        'http:',
+        'https:',
+        'ws:',
+        'wss:',
+        'data:',
+        'blob:',
+        'mailto:',
+        'steam:',
+        'calculator:'
+    ];
     if (!protocols.includes(parsed.protocol)) {
         return null;
     }
@@ -134,8 +69,7 @@ const SECURITY_MANAGER_METHODS = [
     'canReadClipboard',
     'canNotify',
     'canGeolocate',
-    'canEmbed',
-    'canDownload'
+    'canEmbed'
 ];
 
 class TWSecurityManagerComponent extends React.Component {
@@ -228,11 +162,7 @@ class TWSecurityManagerComponent extends React.Component {
      * @returns {string} The VM worker mode to use
      */
     getSandboxMode (url) {
-        if (isTrustedExtension(url)) {
-            log.info(`Loading extension ${url} unsandboxed`);
-            return 'unsandboxed';
-        }
-        return 'iframe';
+        return 'unsandboxed';
     }
 
     handleChangeUnsandboxed (e) {
@@ -250,29 +180,7 @@ class TWSecurityManagerComponent extends React.Component {
      * @returns {Promise<boolean>} Whether the extension can be loaded
      */
     async canLoadExtensionFromProject (url) {
-        if (isTrustedExtension(url)) {
-            log.info(`Loading extension ${url} automatically`);
-            return true;
-        }
-        const {showModal} = await this.acquireModalLock();
-        if (url.startsWith('data:')) {
-            const allowed = await showModal(SecurityModals.LoadExtension, {
-                url,
-                unsandboxed: getPersistedUnsandboxed(),
-                onChangeUnsandboxed: this.handleChangeUnsandboxed.bind(this)
-            });
-            if (allowed) {
-                setPersistedUnsandboxed(this.state.data.unsandboxed);
-            }
-            if (allowed && this.state.data.unsandboxed) {
-                manuallyTrustExtension(url);
-            }
-            return allowed;
-        }
-        return showModal(SecurityModals.LoadExtension, {
-            url,
-            unsandboxed: false
-        });
+        return true;
     }
 
     /**
@@ -280,33 +188,7 @@ class TWSecurityManagerComponent extends React.Component {
      * @returns {Promise<boolean>} True if the resource is allowed to be fetched
      */
     async canFetch (url) {
-        const parsed = parseURL(url, FETCHABLE_PROTOCOLS);
-        if (!parsed) {
-            return false;
-        }
-        if (isAlwaysTrustedForFetching(parsed)) {
-            // For untrusted paths, don't even show a dialog, just auto-reject because users won't understand
-            // what the dialog actually does.
-            return !isUntrustedPath(parsed);
-        }
-        const {showModal, releaseLock} = await this.acquireModalLock();
-        const host = (
-            parsed.protocol === 'http:' ||
-            parsed.protocol === 'https:' ||
-            parsed.protocol === 'ws:' ||
-            parsed.protocol === 'wss:'
-        ) ? parsed.host : null;
-        if (host && fetchHostsTrustedByUser.has(host)) {
-            releaseLock();
-            return true;
-        }
-        const allowed = await showModal(SecurityModals.Fetch, {
-            url
-        });
-        if (host && allowed) {
-            fetchHostsTrustedByUser.add(host);
-        }
-        return allowed;
+        return true;
     }
 
     /**
@@ -314,14 +196,7 @@ class TWSecurityManagerComponent extends React.Component {
      * @returns {Promise<boolean>} True if the website can be opened
      */
     async canOpenWindow (url) {
-        const parsed = parseURL(url, VISITABLE_PROTOCOLS);
-        if (!parsed) {
-            return false;
-        }
-        const {showModal} = await this.acquireModalLock();
-        return showModal(SecurityModals.OpenWindow, {
-            url
-        });
+        return true;
     }
 
     /**
@@ -329,69 +204,42 @@ class TWSecurityManagerComponent extends React.Component {
      * @returns {Promise<boolean>} True if the website can be redirected to
      */
     async canRedirect (url) {
-        const parsed = parseURL(url, VISITABLE_PROTOCOLS);
-        if (!parsed) {
-            return false;
-        }
-        const {showModal} = await this.acquireModalLock();
-        return showModal(SecurityModals.Redirect, {
-            url
-        });
+        return true;
     }
 
     /**
      * @returns {Promise<boolean>} True if audio can be recorded
      */
     async canRecordAudio () {
-        if (!allowedAudio) {
-            const {showModal} = await this.acquireModalLock();
-            allowedAudio = await showModal(SecurityModals.RecordAudio);
-        }
-        return allowedAudio;
+        return true;
     }
 
     /**
      * @returns {Promise<boolean>} True if video can be recorded
      */
     async canRecordVideo () {
-        if (!allowedVideo) {
-            const {showModal} = await this.acquireModalLock();
-            allowedVideo = await showModal(SecurityModals.RecordVideo);
-        }
-        return allowedVideo;
+        return true;
     }
 
     /**
      * @returns {Promise<boolean>} True if the clipboard can be read
      */
     async canReadClipboard () {
-        if (!allowedReadClipboard) {
-            const {showModal} = await this.acquireModalLock();
-            allowedReadClipboard = await showModal(SecurityModals.ReadClipboard);
-        }
-        return allowedReadClipboard;
+        return true;
     }
 
     /**
      * @returns {Promise<boolean>} True if the notifications are allowed
      */
     async canNotify () {
-        if (!allowedNotify) {
-            const {showModal} = await this.acquireModalLock();
-            allowedNotify = await showModal(SecurityModals.Notify);
-        }
-        return allowedNotify;
+        return true;
     }
 
     /**
      * @returns {Promise<boolean>} True if geolocation is allowed.
      */
     async canGeolocate () {
-        if (!allowedGeolocation) {
-            const {showModal} = await this.acquireModalLock();
-            allowedGeolocation = await showModal(SecurityModals.Geolocate);
-        }
-        return allowedGeolocation;
+        return true;
     }
 
     /**
@@ -399,38 +247,7 @@ class TWSecurityManagerComponent extends React.Component {
      * @returns {Promise<boolean>} True if embed is allowed.
      */
     async canEmbed (url) {
-        const parsed = parseURL(url, FETCHABLE_PROTOCOLS);
-        if (!parsed) {
-            return false;
-        }
-        const host = (parsed.protocol === 'http:' || parsed.protocol === 'https:') ? parsed.host : null;
-        const {showModal, releaseLock} = await this.acquireModalLock();
-        if (host && embedHostsTrustedByUser.has(host)) {
-            releaseLock();
-            return true;
-        }
-        const allowed = await showModal(SecurityModals.Embed, {url});
-        if (host && allowed) {
-            embedHostsTrustedByUser.add(host);
-        }
-        return allowed;
-    }
-
-    /**
-     * @param {string} url URL to download
-     * @param {string} name Name to download as
-     * @returns {Promise<boolean>} True if allowed
-     */
-    async canDownload (url, name) {
-        const parsed = parseURL(url, FETCHABLE_PROTOCOLS);
-        if (!parsed) {
-            return false;
-        }
-        const {showModal} = await this.acquireModalLock();
-        return showModal(SecurityModals.Download, {
-            url,
-            name
-        });
+        return true;
     }
 
     render () {

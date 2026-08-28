@@ -6,6 +6,14 @@ const guiColors = {
     'ui-primary': '#000000',
     'ui-secondary': '#000000',
     'ui-tertiary': '#222222',
+	
+	'ui-modal-overlay': '#000000aa',
+    'ui-modal-background': '#010101',
+    'ui-modal-foreground': '#c0c0c0',
+    'ui-modal-header-background': 'var(--looks-secondary-darker)',
+    'ui-modal-header-foreground': '#ffffff',
+	
+	
     'menu-bar-background': 'var(--looks-secondary-dark)',
 
     'ui-white': '#000000',

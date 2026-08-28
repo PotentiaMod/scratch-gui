@@ -4,7 +4,6 @@ import React from 'react';
 import {injectIntl, intlShape, defineMessages} from 'react-intl';
 
 import LibraryItemComponent from '../components/library-item/library-item.jsx';
-import {getAssetURL} from '../lib/libraries/pot-web-libraries';
 
 const messages = defineMessages({
     incompatible: {
@@ -137,26 +136,11 @@ class LibraryItem extends React.PureComponent {
         }
         return iconMd5Prop;
     }
-    curSrc () {
-        const srcProp = this.props.src;
-        if (this.props.icons &&
-            this.state.isRotatingIcon &&
-            this.state.iconIndex < this.props.icons.length) {
-            const icon = this.props.icons[this.state.iconIndex] || {};
-            return icon.src || srcProp;
-        }
-        return srcProp;
-    }
     render () {
-        /* const url = this.props.icons && this.props.icons.length > 0 ?
-            this.props.icons[this.state.iconIndex].url : null; */
         const iconMd5 = this.curIconMd5();
-        const src = this.curSrc();
-        const iconURL = iconMd5
-            ? `https://cdn.assets.scratch.mit.edu/internalapi/asset/${iconMd5}/get/`
-            : src
-                ? getAssetURL(src.library, src.path)
-                : this.props.iconRawURL;
+        const iconURL = iconMd5 ?
+            `https://cdn.assets.scratch.mit.edu/internalapi/asset/${iconMd5}/get/` :
+            this.props.iconRawURL;
         return (
             <LibraryItemComponent
                 intl={this.props.intl}
@@ -175,11 +159,8 @@ class LibraryItem extends React.PureComponent {
                 isPlaying={this.props.isPlaying}
                 name={this.props.name}
                 credits={this.props.credits}
-                src={this.props.src}
                 docsURI={this.props.docsURI}
                 samples={this.props.samples}
-                rate={this.props.rate}
-                sampleCount={this.props.sampleCount}
                 favorite={this.props.favorite}
                 onFavorite={this.handleFavorite}
                 showPlayButton={this.props.showPlayButton}
@@ -235,12 +216,6 @@ LibraryItem.propTypes = {
         href: PropTypes.string,
         text: PropTypes.string
     })),
-	rate: PropTypes.number,
-    sampleCount: PropTypes.number,
-    src: PropTypes.shape({
-        library: PropTypes.string,
-        path: PropTypes.string
-    }),
     favorite: PropTypes.bool,
     onFavorite: PropTypes.func,
     onMouseEnter: PropTypes.func.isRequired,

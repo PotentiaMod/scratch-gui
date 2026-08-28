@@ -684,7 +684,7 @@ const menuItems = [
         iconURL: wonderBlocksIcon,
         tags: ['gm', 'preload'],
         description: 'Some mysterious blocks.',
-        credits: 'GaiaWindWave90',
+        collaborator: 'GaiaWindWave90',
         featured: true
     },
 	 {
@@ -693,7 +693,7 @@ const menuItems = [
         iconURL: appMakerIconURL,
 		insetIconURL: appMakerInsetIconURL,
         tags: ['other', 'preload'],
-		credits: 'LibreKitten',
+		collaborator: 'LibreKitten',
         description: 'Develop apps in PotentiaMod.',
         featured: true
     },
@@ -704,7 +704,7 @@ const menuItems = [
         tags: ['preload'],
         iconURL: require('../extensions/poseFace/pose-face.png'),
 		insetIconURL: require('../extensions/poseFace/pose-face-small.svg'),
-		credits: 'Curriulum',
+		collaborator: 'Curriulum',
         description: 'Sense face movement with the camera with added emotion detection.',
         featured: true
     },
@@ -714,7 +714,7 @@ const menuItems = [
         tags: ['preload'],
         iconURL: require('../extensions/poseBody/pose-body.png'),
 		insetIconURL: require('../extensions/poseBody/pose-body-small.svg'),
-		credits: 'Curriulum',
+		collaborator: 'Curriulum',
         description: 'Sense body position with the camera.',
         featured: true
     },
@@ -724,7 +724,7 @@ const menuItems = [
         tags: ['preload'],
         iconURL: require('../extensions/poseHand/pose-hand.png'),
 		insetIconURL: require('../extensions/poseHand/pose-hand-small-3.svg'),
-		credits: 'Curriulum',
+		collaborator: 'Curriulum',
         description: 'Sense hand position with the camera.',
         featured: true
     },
@@ -735,7 +735,7 @@ const menuItems = [
         iconURL: require('../extensions/objectDetection/objectdetection.png'),
 		insetIconURL: require('../extensions/objectDetection/objectdetectionsmall.svg'),
         description: 'Detect and identify objects in the camera view.',
-		credits: 'Curriulum',
+		collaborator: 'Curriulum',
         featured: true
     },
 	{
@@ -745,7 +745,7 @@ const menuItems = [
         iconURL: require('../extensions/teachableMachine/teachable-machine-blocks.png'),
 		insetIconURL: require('../extensions/teachableMachine/teachable-machine-blocks-small.svg'),
         description: 'Use your Teachable Machine models in your Scratch project!',
-		credits: 'Custom',
+		collaborator: 'Custom',
         featured: true
     },
 	{
@@ -754,7 +754,7 @@ const menuItems = [
         tags: ['cognimates', 'preload'],
         iconURL: require('../extensions/cognimates/cozmo-ext.png'),
 		insetIconURL: require('../extensions/cognimates/cozmo-small.jpg'),
-		credits: 'Anki',
+		collaborator: 'Anki',
         description: 'Play with Cozmo in PotentiaMod.',
         featured: true
     },
@@ -764,7 +764,7 @@ const menuItems = [
         tags: ['cognimates', 'preload'],
         iconURL: require('../extensions/cognimates/Muse.png'),
 		insetIconURL: require('../extensions/cognimates/muse_inset.png'),
-		credits: 'InteraXon',
+		collaborator: 'InteraXon',
         description: 'Use Muse for a special development in PotentiaMod.',
         featured: true
     },
@@ -773,7 +773,7 @@ const menuItems = [
         extensionId: 'alexa',
         tags: ['cognimates', 'preload'],
         iconURL: require('../extensions/cognimates/Alexa_extension.png'),
-		credits: 'Amazon',
+		collaborator: 'Amazon',
         description: 'Talk to Alexa in PotentiaMod.',
         featured: true
     },
@@ -782,7 +782,7 @@ const menuItems = [
         extensionId: 'ergo',
         tags: ['cognimates', 'preload'],
         iconURL: require('../extensions/cognimates/Ergo_extension.png'),
-		credits: 'Cognimates',
+		collaborator: 'Cognimates',
         description: 'Play with Ergo in PotentiaMod.',
         featured: true
     },
@@ -791,7 +791,7 @@ const menuItems = [
         extensionId: 'hue',
         tags: ['cognimates', 'preload'],
         iconURL: require('../extensions/cognimates/Hue_extension.png'),
-		credits: 'Cognimates',
+		collaborator: 'Cognimates',
         description: 'Blocks used for changing and modifying lights.',
         featured: true
     },
@@ -801,7 +801,7 @@ const menuItems = [
         tags: ['cognimates', 'preload'],
         iconURL: require('../extensions/cognimates/sentiment_ext.png'),
 		insetIconURL: require('../extensions/cognimates/sentiment-small.svg'),
-		credits: 'Cognimates',
+		collaborator: 'Cognimates',
         description: 'Detects feelings',
         featured: true
     },
@@ -810,7 +810,7 @@ const menuItems = [
         extensionId: 'wemo',
         tags: ['cognimates', 'preload'],
         iconURL: require('../extensions/cognimates/wemo_ext.png'),
-		credits: 'Cognimates',
+		collaborator: 'Cognimates',
         description: 'Play with Wemo in PotentiaMod.',
         featured: true
     },
@@ -819,7 +819,7 @@ const menuItems = [
         extensionId: 'vision',
         tags: ['cognimates', 'preload'],
         iconURL: require('../extensions/cognimates/vision_ext.png'),
-		credits: 'Cognimates',
+		collaborator: 'Cognimates',
         description: 'Vision training.',
         featured: true
     },
@@ -828,7 +828,7 @@ const menuItems = [
         extensionId: 'twitter',
         tags: ['cognimates', 'preload'],
         iconURL: require('../extensions/cognimates/twitter_ext.jpg'),
-		credits: 'Twitter',
+		collaborator: 'Twitter',
         description: 'Blocks made for Twitter posts.',
         featured: true
     },
@@ -862,7 +862,7 @@ const menuItems = [
 		tags: ['preload'],
         iconURL: require('../extensions/scratchpro/illustration.svg'),
         insetIconURL: require('../extensions/scratchpro/small.svg'),
-        credits: 'cuiJY',
+        collaborator: 'cuiJY',
         description:'Advanced blocks: HTTP, JSON, arrays, color, utilities.',
         featured: true,
         internetConnectionRequired: false
@@ -870,7 +870,7 @@ const menuItems = [
 	{
         name: 'KidsBoard',
         extensionId: 'kidsboard',
-        credits: 'Nekoma Manufacturing',
+        collaborator: 'Nekoma Manufacturing',
         iconURL: kidsboardIconURL,
         insetIconURL: kidsboardInsetIconURL,
 		tags: ['preload'],
@@ -884,7 +884,7 @@ const menuItems = [
         iconURL: require('../extensions/eim/illustration.jpg'),
 		insetIconURL: require('../extensions/eim/small.svg'),
         tags: ['preload'],
-		credits: 'CodeLab',
+		collaborator: 'CodeLab',
         description: 'Everything is a mesage! Contains capabilities of all the other extensions.',
         featured: true
     },
@@ -1017,7 +1017,7 @@ const menuItems = [
         extensionId: 'bodyblocks',
         iconURL: bodyblocksIconURL,
         insetIconURL: bodyblocksInsetIconURL,
-		credits: 'Stephen Howell',
+		collaborator: 'Stephen Howell',
 		tags: ['preload'],
         description: 'Control sprites with body movements.\nRequires Android phone app.',
         featured: true
@@ -1029,7 +1029,7 @@ const menuItems = [
         iconURL: utilsIcon,
         description: 'Utilites for Scratch',
         featured: true,
-        credits: 'The_Mad_Punter'
+        collaborator: 'The_Mad_Punter'
     },
 	{
         name: 'ShredSDK',
@@ -1038,7 +1038,7 @@ const menuItems = [
         iconURL: shredsdkIcon,
         description: 'A development kit for making good web games',
         featured: true,
-        credits: 'The_Mad_Punter'
+        collaborator: 'The_Mad_Punter'
     },
 	{
         name: 'Marty the Robot',
@@ -1057,7 +1057,7 @@ const menuItems = [
         extensionId: 'ohbot',
         iconURL: ohbotIconURL,
         insetIconURL: ohbotInsetIconURL,
-		credits: 'Ohbot',
+		collaborator: 'Ohbot',
 		tags: ['preload'],
         description: 'Control your Ohbot',
         featured: true
@@ -1391,7 +1391,7 @@ const menuItems = [
         extensionId: 'chatgpt2scratch',
         iconURL: chatgpt2scratchIconURL,
         insetIconURL: chatgpt2scratchInsetIconURL,
-        credits: 'ichiroc',
+        collaborator: 'ichiroc',
         featured: true,
         bluetoothRequired: false,
         internetConnectionRequired: true,
@@ -1404,7 +1404,7 @@ const menuItems = [
         extensionId: 'ml2scratch',
         iconURL: ml2scratchIconURL,
         insetIconURL: ml2scratchInsetIconURL,
-		credits: 'champierre',
+		collaborator: 'champierre',
         featured: true,
         bluetoothRequired: false,
         internetConnectionRequired: true,
@@ -1417,7 +1417,7 @@ const menuItems = [
         extensionId: 'tm2scratch',
         iconURL: tm2scratchIconURL,
         insetIconURL: tm2scratchInsetIconURL,
-		credits: 'Tsukurusha, YengawaLab and Google',
+		collaborator: 'Tsukurusha, YengawaLab and Google',
         featured: true,
         bluetoothRequired: false,
         internetConnectionRequired: true,
@@ -1430,7 +1430,7 @@ const menuItems = [
         extensionId: 'tmpose2scratch',
         iconURL: tmpose2scratchIconURL,
         insetIconURL: tmpose2scratchInsetIconURL,
-		credits: 'champierre',
+		collaborator: 'champierre',
         featured: true,
         bluetoothRequired: false,
         internetConnectionRequired: true,
@@ -1441,7 +1441,7 @@ const menuItems = [
     {
         name: 'HandPose2Scratch',
         extensionId: 'handpose2scratch',
-        credits: 'champierre',
+        collaborator: 'champierre',
         description: 'Hand tracking in Scratch.',
         iconURL: handpose2scratchIconURL,
         insetIconURL: handpose2scratchInsetIconURL,
@@ -1454,7 +1454,7 @@ const menuItems = [
         extensionId: 'posenet2scratch',
         iconURL: posenet2scratchIconURL,
         insetIconURL: posenet2scratchInsetIconURL,
-        credits: 'champierre',
+        collaborator: 'champierre',
         featured: true,
         bluetoothRequired: false,
         internetConnectionRequired: true,
@@ -1467,7 +1467,7 @@ const menuItems = [
         extensionId: 'facemesh2scratch',
         iconURL: facemesh2scratchIconURL,
         insetIconURL: facemesh2scratchInsetIconURL,
-        credits: 'champierre',
+        collaborator: 'champierre',
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
         description: 'Use facetracking in your projects!',
@@ -1478,7 +1478,7 @@ const menuItems = [
         extensionId: 'scratch2webserialapi',
         iconURL: scratch2webserialapiIconURL,
         insetIconURL: scratch2webserialapiInsetIconURL,
-        credits: 'champierre',
+        collaborator: 'champierre',
         internetConnectionRequired: true,
         tags: ['preload', 'iot'],
         description: 'Do more complex things with hardware via the serial ports.',
@@ -1489,7 +1489,7 @@ const menuItems = [
         extensionId: 'ic2scratch',
         iconURL: ic2scratchIconURL,
         insetIconURL: ic2scratchInsetIconURL,
-        credits: 'champierre',
+        collaborator: 'champierre',
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
         description: 'Image Classification Blocks.',
@@ -1507,7 +1507,7 @@ const menuItems = [
         insetIconURL: scratch2maqueenInsetIconURL,
         description: 'Control DFRobot Maqueen.',
         featured: true,
-        credits: 'Vernier',
+        collaborator: 'Vernier',
     },
 	//Adacraft
 	{
@@ -1587,7 +1587,7 @@ const menuItems = [
         extensionId: 'jgRuntime',
         iconURL: require('../extensions/penguinmod/extensions/runtime.svg'),
         description:'Blocks for modifying project data and settings from PenguinMod itself.',
-        credits: 'PenguinMod',
+        collaborator: 'PenguinMod',
         tags: ['pm', 'preload'],
 		featured: true
     },
@@ -1596,7 +1596,7 @@ const menuItems = [
         extensionId: 'jgPrism',
         tags: ['pm', 'preload'],
         iconURL: require('../extensions/penguinmod/extensions/prism.png'),
-		credits: 'PenguinMod',
+		collaborator: 'PenguinMod',
         description: 'Blocks for specific use-cases or major convenience.',
         featured: true
     },
@@ -1606,7 +1606,7 @@ const menuItems = [
         iconURL: require('../extensions/penguinmod/extensions/motion_expanded.png'),
         description: 'More small motion blocks for movement or collision.',
         tags: ['pm', 'preload'],
-		credits: 'PenguinMod',
+		collaborator: 'PenguinMod',
 		featured: true
     },
 	{
@@ -1622,14 +1622,14 @@ const menuItems = [
         extensionId: 'jgJSON',
         iconURL: require('../extensions/penguinmod/extensions/json.png'),
         tags: ['pm', 'preload'],
-		credits: 'PenguinMod',
+		collaborator: 'PenguinMod',
         description: 'Blocks for handling JSON objects and Arrays.',
         featured: true
     },
 	{
         name: 'Tweening',
         extensionId: 'jgTween',
-        credits: 'easings.net, Arrow & GarboMuffin',
+        collaborator: 'easings.net, Arrow & GarboMuffin',
         description: 'Smoothly animating values using different easing functions and directions.',
         iconURL: require('../extensions/penguinmod/jgTween.svg'),
         tags: ['pm', 'tw', 'preload'],
@@ -1641,7 +1641,7 @@ const menuItems = [
         iconURL: require('../extensions/penguinmod/jgStorage.svg'),
         tags: ['pm', 'preload'],
         description: 'Store data after PenguinMod has already been closed out. Basic Server Storage is also included.',
-        credits: 'Fir & silvxrcat',
+        collaborator: 'Fir & silvxrcat',
         featured: true
     },
     {
