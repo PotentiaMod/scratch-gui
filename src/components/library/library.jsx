@@ -2,17 +2,19 @@ import classNames from 'classnames';
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {defineMessages, FormattedMessage, injectIntl, intlShape} from 'react-intl';
+import {defineMessages, injectIntl, intlShape, FormattedMessage } from 'react-intl';
 
 import LibraryItem from '../../containers/library-item.jsx';
 import Modal from '../../containers/modal.jsx';
+import Divider from '../divider/divider.jsx';
 import Filter from '../filter/filter.jsx';
 import TagButton from '../../containers/tag-button.jsx';
-import FancyCheckbox from '../tw-fancy-checkbox/checkbox.jsx';
+import TagCheckbox from '../../containers/tag-checkbox.jsx';
 import Spinner from '../spinner/spinner.jsx';
 import Separator from '../tw-extension-separator/separator.jsx';
 import RemovedTrademarks from '../tw-removed-trademarks/removed-trademarks.jsx';
-import {APP_NAME} from '../../lib/brand.js';
+import {APP_NAME, LIBRARY_SITE} from '../../lib/brand.js';
+import SettingsStore from '../../editor-settings/settings-store-singleton';
 
 import styles from './library.css';
 
@@ -29,35 +31,8 @@ const messages = defineMessages({
     }
 });
 
-const NarrowDownTag = ({
-    intlLabel,
-    onChange,
-    tag
-}) => (
-    <label className={styles.label}>
-        <FancyCheckbox
-            className={styles.checkbox}
-            onChange={e => onChange(e, tag)} // eslint-disable-line react/jsx-no-bind
-        />
-        {typeof intlLabel === 'string' ? intlLabel : (
-            <FormattedMessage {...intlLabel} />
-        )}
-    </label>
-);
-
-NarrowDownTag.propTypes = {
-    active: PropTypes.bool,
-    intlLabel: PropTypes.oneOfType([
-        PropTypes.shape({
-            defaultMessage: PropTypes.string,
-            description: PropTypes.string,
-            id: PropTypes.string
-        }),
-        PropTypes.string
-    ]).isRequired,
-    onChange: PropTypes.func.isRequired,
-    tag: PropTypes.string.isRequired
-};
+const ALL_TAG = {tag: 'all', intlLabel: messages.allTag};
+const tagListPrefix = [];
 
 class LibraryComponent extends React.Component {
     constructor (props) {
@@ -71,7 +46,7 @@ class LibraryComponent extends React.Component {
             'handlePlayingEnd',
             'handleSelect',
             'handleFavorite',
-            'handleTagChange',
+            'handleTagClick',
             'setFilteredDataRef'
         ]);
         const favorites = this.readFavoritesFromStorage();
@@ -80,6 +55,7 @@ class LibraryComponent extends React.Component {
             filterQuery: '',
             selectedTags: [],
             canDisplay: false,
+            collapsed: false,
             favorites,
             initialFavorites: favorites
         };
@@ -96,7 +72,7 @@ class LibraryComponent extends React.Component {
     }
     componentDidUpdate (prevProps, prevState) {
         if (prevState.filterQuery !== this.state.filterQuery ||
-            prevState.selectedTags !== this.state.selectedTags) {
+            prevState.selectedTags.length !== this.state.selectedTags.length) {
             this.scrollToTop();
         }
 
@@ -141,20 +117,25 @@ class LibraryComponent extends React.Component {
     handleClose () {
         this.props.onRequestClose();
     }
-    handleTagChange (e, tag) {
-        const newSelection = e.currentTarget.checked ?
-            [...this.state.selectedTags, tag.toLowerCase()] :
-            this.state.selectedTags.filter(selected => selected !== tag.toLowerCase());
-
+    handleTagClick (tag, enabled) {
         if (this.state.playingItem === null) {
             this.setState({
-                selectedTags: newSelection
+                filterQuery: '',
+                selectedTags: this.state.selectedTags.concat([tag.toLowerCase()])
             });
         } else {
             this.props.onItemMouseLeave(this.getFilteredData()[[this.state.playingItem]]);
             this.setState({
+                filterQuery: '',
                 playingItem: null,
-                selectedTags: newSelection
+                selectedTags: this.state.selectedTags.concat([tag.toLowerCase()])
+            });
+        }
+
+        if (!enabled) {
+            const tags = this.state.selectedTags.filter(t => (t !== tag));
+            this.setState({
+                selectedTags: tags
             });
         }
     }
@@ -200,7 +181,7 @@ class LibraryComponent extends React.Component {
     }
     getFilteredData () {
         // When no filtering, favorites get their own section
-        if (this.state.selectedTags.length === 0 && !this.state.filterQuery) {
+        if (this.state.selectedTags.length == 0 && !this.state.filterQuery) {
             const favoriteItems = this.props.data
                 .filter(dataItem => (
                     this.state.initialFavorites.includes(dataItem[this.props.persistableKey])
@@ -235,14 +216,11 @@ class LibraryComponent extends React.Component {
 
         let filteredItems = favoriteItems.concat(nonFavoriteItems);
 
-        if (this.state.selectedTags.length !== 0) {
-            filteredItems = filteredItems.filter(dataItem => {
-                const itemTags = dataItem.tags.map(i => i.toLowerCase());
-                return (
-                    dataItem.tags &&
-                    this.state.selectedTags.every(tag => itemTags.includes(tag))
-                );
-            });
+        if (this.state.selectedTags.length > 0) {
+            filteredItems = filteredItems.filter(dataItem => (
+                dataItem.tags &&
+                dataItem.tags.map(i => i.toLowerCase()).filter(v => this.state.selectedTags.includes(v)).length == this.state.selectedTags.length
+            ));
         }
 
         if (this.state.filterQuery) {
@@ -266,6 +244,9 @@ class LibraryComponent extends React.Component {
                             APP_NAME
                         }));
                     }
+                }
+                if (dataItem.extensionId && SettingsStore.store.showExtensionIds) {
+                    search.push(dataItem.extensionId);
                 }
                 return search
                     .join('\n')
@@ -291,10 +272,43 @@ class LibraryComponent extends React.Component {
                 id={this.props.id}
                 onRequestClose={this.handleClose}
             >
-                <div className={styles.libraryContainer}>
-                    {(this.props.filterable || this.props.tags) && (
-                        <div className={styles.filterBar}>
-                            {this.props.filterable && (
+                {this.props.header && (
+                    <h1
+                        className={classNames(
+                            styles.libraryHeader
+                        )}
+                    >
+                        <button
+                            style={this.state.collapsed ? { transform: "scaleX(0.65)" } : null}
+                            className={classNames(styles.libraryFilterCollapse)}
+                            onClick={() => {
+                                this.setState({
+                                    collapsed: !this.state.collapsed
+                                });
+                            }}
+                        />
+                        {this.props.header}
+                        <p
+                            className={classNames(styles.libraryItemCount)}
+                        >
+                            {(this.props.data ?? []).map(v => v !== "---").length}
+                        </p>
+                    </h1>
+                )}
+                <div className={classNames(styles.libraryContentWrapper)}>
+                    <div
+                        className={classNames(styles.libraryFilterBar)}
+                        style={this.state.collapsed ? { display: "none" } : null}
+                    >
+                        <h3 className={classNames(styles.whiteTextInDarkMode)}>
+                            <FormattedMessage
+                                defaultMessage="Filters"
+                                description="Header text for the filter controls in the asset picker"
+                                id="pm.gui.library.filtersHeader"
+                            />
+                        </h3>
+                        {this.props.filterable && (
+                            <div>
                                 <Filter
                                     className={classNames(
                                         styles.filterBarItem,
@@ -306,32 +320,74 @@ class LibraryComponent extends React.Component {
                                     onChange={this.handleFilterChange}
                                     onClear={this.handleFilterClear}
                                 />
-                            )}
-                            {this.props.filterable && this.props.tags && (
-                                <div className={styles.divider} />
-                            )}
-                            {this.props.tags &&
-                                <div className={styles.tagWrapper}>
-                                    {this.props.tags.map((tagProps, id) => (
-                                        <NarrowDownTag
-                                            /* className={classNames(
-                                                styles.filterBarItem,
-                                                styles.tagButton,
-                                                tagProps.className
-                                            )} */
-                                            key={`narrow-down-${id}`}
-                                            onChange={this.handleTagChange}
-                                            {...tagProps}
-                                        />
-                                    ))}
-                                </div>
-                            }
-                        </div>
-                    )}
+                                <Divider className={classNames(styles.filterBarItem, styles.divider)} />
+                            </div>
+                        )}
+                        {this.props.tags &&
+                            <div>
+                                {tagListPrefix.concat(this.props.tags).map((tagProps, id) => {
+                                    let onclick = this.handleTagClick;
+                                    if (tagProps.type === 'divider') {
+                                        return (<Divider className={classNames(styles.filterBarItem, styles.divider)} />);
+                                    }
+                                    if (tagProps.type === 'title') {
+                                        return (<h3>{tagProps.intlLabel}</h3>);
+                                    }
+                                    if (tagProps.type === 'subtitle') {
+                                        return (<h5>{tagProps.intlLabel}</h5>);
+                                    }
+                                    if (tagProps.type === 'custom') {
+                                        onclick = () => {
+                                            const api = {};
+                                            api.useTag = this.handleTagClick;
+                                            api.close = this.handleClose;
+                                            api.select = (id) => {
+                                                const items = this.props.data;
+                                                for (const item of items) {
+                                                    if (item.extensionId === id) {
+                                                        this.handleClose();
+                                                        this.props.onItemSelected(item);
+                                                        return;
+                                                    };
+                                                }
+                                            };
+                                            tagProps.func(api);
+                                        };
+                                        return (
+                                            <TagButton
+                                                active={false}
+                                                className={classNames(
+                                                    styles.filterBarItem,
+                                                    styles.tagButton,
+                                                    tagProps.className
+                                                )}
+                                                key={`tag-button-${id}`}
+                                                onClick={onclick}
+                                                {...tagProps}
+                                            />
+                                        );
+                                    }
+                                    return (
+                                        <div className={styles.tagCheckboxWrapper}>
+                                            <div style={{ width: "90%" }}>
+                                                <TagCheckbox
+                                                    active={false}
+                                                    key={`tag-button-${id}`}
+                                                    onClick={onclick}
+                                                    {...tagProps}
+                                                />
+                                            </div>
+                                            <div className={styles.libraryTagCount}>
+                                                {(this.props.data ?? []).map(i => (i.tags ?? []).map(v => v.toLowerCase())).filter(v => v.includes(tagProps.tag)).length}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        }
+                    </div>
                     <div
-                        className={classNames(styles.libraryScrollGrid, {
-                            [styles.withFilterBar]: this.props.filterable || this.props.tags
-                        })}
+                        className={styles.libraryScrollGrid}
                         ref={this.setFilteredDataRef}
                     >
                         {filteredData && this.getFilteredData().map((dataItem, index) => (
@@ -348,10 +404,10 @@ class LibraryComponent extends React.Component {
                                     featured={dataItem.featured}
                                     hidden={dataItem.hidden}
                                     iconMd5={dataItem.costumes ? dataItem.costumes[0].md5ext : dataItem.md5ext}
-                                    iconRawURL={dataItem.rawURL}
+                                    iconRawURL={this.props.actor === "CostumeLibrary" ? `${LIBRARY_SITE}files/${dataItem.libraryFilePage}` : dataItem.rawURL}
                                     icons={dataItem.costumes}
                                     id={index}
-                                    incompatibleWithScratch={dataItem.incompatibleWithScratch}
+                                    //incompatibleWithScratch={dataItem.incompatibleWithScratch}
                                     favorite={this.state.favorites.includes(dataItem[this.props.persistableKey])}
                                     onFavorite={this.handleFavorite}
                                     insetIconURL={dataItem.insetIconURL}
@@ -425,8 +481,9 @@ LibraryComponent.propTypes = {
     onRequestClose: PropTypes.func,
     setStopHandler: PropTypes.func,
     showPlayButton: PropTypes.bool,
-    tags: PropTypes.arrayOf(PropTypes.shape(TagButton.propTypes)),
+    tags: PropTypes.arrayOf(PropTypes.object),
     title: PropTypes.string.isRequired,
+    header: PropTypes.string,
     removedTrademarks: PropTypes.bool
 };
 

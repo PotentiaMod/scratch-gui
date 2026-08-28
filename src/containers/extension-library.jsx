@@ -9,10 +9,11 @@ import log from '../lib/log';
 import extensionLibraryContent, {
     galleryStatusItems
 } from '../lib/libraries/extensions/index.jsx';
-import extensionTags from '../lib/libraries/tw-extension-tags';
+import extensionTags from '../lib/libraries/extension-tags';
 
 import LibraryComponent from '../components/library/library.jsx';
 import extensionIcon from '../components/action-menu/icon--sprite.svg';
+import PMExtensions from '../lib/libraries/extensions/index.jsx';
 
 const updateGallery = newGallery => {
     cachedGallery = newGallery;
@@ -223,7 +224,7 @@ const mapGalleryExtension = (extension, source) => ({
             }
             return credit.name;
         }),
-    docsURI: extension.docs ? `${source.baseURL}${extension.slug}` : null,
+        docsURI: extension.docs ? `${source.baseURL}${extension.slug}` : null,
     samples: extension.samples ? extension.samples.map(sample => ({
         href: `${process.env.ROOT}editor?project_url=${source.baseSamplesURL}${encodeURIComponent(sample)}.sb3`,
         text: sample
