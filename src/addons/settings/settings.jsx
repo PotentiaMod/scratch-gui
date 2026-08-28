@@ -36,8 +36,7 @@ import TWFancyCheckbox from '../../components/tw-fancy-checkbox/checkbox.jsx';
 import styles from './settings.css';
 import {detectTheme} from '../../lib/themes/themePersistance.js';
 import {applyGuiColors} from '../../lib/themes/guiHelpers.js';
-import {APP_NAME, MOTTO} from '../../lib/brand.js';
-import {APP_VERSION} from '../../lib/version.js';
+import {APP_NAME} from '../../lib/brand.js';
 import '../../lib/normalize.css';
 import TagButton from '../../containers/tag-button.jsx';
 import addonTags from './addon-tags.js';
@@ -1196,7 +1195,7 @@ class AddonSettingsComponent extends React.Component {
                             />
                         </div>
                         <a
-                            href="https://scratch.mit.edu/users/GarboMuffin/#comments"
+                            href="https://com.bilup.org/users/GaiaKitty"
                             target="_blank"
                             rel="noreferrer"
                             className={styles.feedbackButtonOuter}
