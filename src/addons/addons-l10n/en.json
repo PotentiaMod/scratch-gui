@@ -85,6 +85,8 @@
     "mediarecorder/click-flag-description": "Click the green flag to start recording. Click this button to stop.",
     "mediarecorder/option-title": "Record Options",
     "mediarecorder/record": "Record",
+    "mediarecorder/record-note": "Note: Variable, list, and reporter monitors, as well as ask prompts will not be visible in the recording.",
+    "mediarecorder/seconds": "seconds",
     "mediarecorder/record-after-flag": "Do not start recording until the Green Flag is clicked",
     "mediarecorder/record-audio": "Include project sounds",
     "mediarecorder/record-audio-description": "This does not include Text-to-Speech.",
