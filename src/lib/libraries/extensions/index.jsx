@@ -90,6 +90,16 @@ import tmpose2scratchInsetIconURL from './tmpose2scratch/tmpose2scratch-small.pn
 import scratch2maqueenIconURL from './scratch2maqueen/scratch2maqueen.png';
 import scratch2maqueenInsetIconURL from './scratch2maqueen/scratch2maqueen-small.png';
 
+//AkariGroup
+import akariBlocksImage from './akariBlocks/logo320.jpg';
+import akariBlocksButtonImage from './akariBlocks/logo320_ex.jpg';
+import akariCameraImage from './akariCamera/logo320.jpg';
+import akariCameraButtonImage from './akariCamera/logo320_ex.jpg';
+import akariBlocksSimpleImage from './akariBlocksSimple/logo320.jpg';
+import akariBlocksSimpleButtonImage from './akariBlocksSimple/logo320_ex.jpg';
+import akariCameraSimpleImage from './akariCameraSimple/logo320.jpg';
+import akariCameraSimpleButtonImage from './akariCameraSimple/logo320_ex.jpg';
+
 import playgoIconURL from './playgo/playgo.png';
 import playgoInsetIconURL from './playgo/playgo-small.svg';
 import playgoConnectionIconURL from './wedo2/wedo-illustration.svg';
@@ -107,6 +117,9 @@ import playMeInsetIconURL from './playme/playme-small.svg';
 import playMeConnectionIconURL from './wedo2/wedo-illustration.svg';
 import playMeConnectionSmallIconURL from './wedo2/wedo-small.svg';
 import playMeConnectionTipIconURL from './wedo2/wedo-button-illustration.svg';
+
+// default icon if one is not made yet...
+import defaultExtensionIcon from './potentiamod/placeholder.png';
 
 //junilab
 import jdcodeIconURL from './jdcode/jdcode.png';
@@ -1076,17 +1089,6 @@ const menuItems = [
         bluetoothRequired: false,
     },
 	{
-        name: 'Roku',
-        extensionId: 'roku',
-        internetConnectionRequired: true,
-        collaborator: 'Gvbvdxx',
-        iconURL: roku,
-		insetIconURL: rokuSmall,
-        tags: ['other', 'preload'],
-        description: 'Interact with your Roku tv via the GM2Helper software!',
-        featured: true
-    },
-	{
         name: 'Echidna',
         extensionId: 'echidna',
         collaborator: 'echidna',
@@ -1150,19 +1152,6 @@ const menuItems = [
         connectionTipIconURL: smartLumiesConnectionTipIconURL,
         connectingMessage: 'Have your Cube nearby.',
         helpLink: 'https://smartlumies.com'
-    },
-	{
-        name: 'NES Emulator',
-        extensionId: 'nesemulator', // update reference once file names are updated
-        tags: ['other', 'preload'],
-        bluetoothRequired: false,
-        internetConnectionRequired: true,
-        launchPeripheralConnectionFlow: false,
-        iconURL: NESEmuThumb,
-        insetIconURL: NESInsetIcon,
-        description: 'Use the power of the NES emulation in PotentiaMod!',
-        featured: true,
-        collaborator: 'Gvbvdxx'
     },
 	{
         name: 'Libra',
@@ -1581,6 +1570,139 @@ const menuItems = [
         featured: true
     },
 	
+	//GvbvdxxMod Preloads
+	{
+        name: 'Roku',
+        extensionId: 'roku',
+        internetConnectionRequired: true,
+        collaborator: 'Gvbvdxx',
+        iconURL: roku,
+		insetIconURL: rokuSmall,
+        tags: ['gvbvdxxmod', 'preload'],
+        description: 'Interact with your Roku tv via the GM2Helper software!',
+        featured: true
+    },
+	{
+        name: 'HTML5 Elements',
+        extensionId: 'html5',
+		insetIconURL: gm2HTML5Small,
+        iconURL: gm2HTML5Large,
+        description: 'Create HTMl5 elements. Display sprite costumes out of the stage!',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+    },
+{
+        name: 'Gvbvdxx Extras',
+        extensionId: 'extra',
+		iconURL: defaultExtensionIcon,
+        description: 'Unfinished Gvbvdxx Mod Helper App.',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+    },
+{
+        name: 'Website API',
+        extensionId: 'websites',
+		iconURL: websitesBigIcon,
+        insetIconURL: websitesSmallIcon,
+        description: 'Website API',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+    },
+{
+        name: 'Websockets',
+        extensionId: 'websocket',
+        iconURL: wsbig,
+        insetIconURL: wssmall,
+        description: 'Connect to servers!',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+    },
+	{
+        name: 'NES Emulator',
+        extensionId: 'nesemulator', // update reference once file names are updated
+        tags: ['gvbvdxxmod', 'preload'],
+        bluetoothRequired: false,
+        internetConnectionRequired: true,
+        launchPeripheralConnectionFlow: false,
+        iconURL: NESEmuThumb,
+        insetIconURL: NESInsetIcon,
+        description: 'Use the power of the NES emulation in PotentiaMod!',
+        featured: true,
+        collaborator: 'Gvbvdxx'
+    },
+	{
+        name: 'Sound Analyser',
+        extensionId: 'sndanalyser',
+        iconURL: sndanalyserBig,
+        description: 'Read the information about sounds playing from the project.',
+        featured: true,
+		collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+    },
+	{
+        name: 'User Data',
+        extensionId: 'userdata',
+        iconURL: userdatabig,
+        insetIconURL: userdatasmall,
+        description: 'Get The User\'s Data',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+	},
+	{
+        name: 'Audio Context',
+        extensionId: 'audioctx',
+        iconURL: audioctxbig,
+        insetIconURL: audioctxsmall,
+        description: 'Play 8-bit sounds',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+	},
+{
+        name: 'Beepbox Synth',
+        extensionId: 'beepboxsynth',
+        iconURL: beepboxbig,
+        insetIconURL: beepboxsmall,
+        description: 'Play beepbox songs',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+	},
+	 {
+        name: 'Better Audio',
+        extensionId: 'betteraudio',
+        iconURL: betteraudioBigIcon,
+        insetIconURL: betteraudioSmallIcon,
+        description: 'etter Audio For Scratch',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+	},
+	 {
+        name: 'JS (GM2)',
+        extensionId: 'dialogs',
+        iconURL: jsDialogsBigIcon,
+        insetIconURL: jsDialogsSmallIcon,
+        description: 'JS Blocks',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+	},
+    {
+        name: 'speech4pc',
+        extensionId: 'speech4pc',
+        iconURL: speech4pcDialogsBigIcon,
+        insetIconURL: speech4pcDialogsSmallIcon,
+        description: 'Pc Version Of Text To Speech.',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+	},
 	//PenguinMod Preloads
 	{
         name: 'PenguinMod Runtime',
