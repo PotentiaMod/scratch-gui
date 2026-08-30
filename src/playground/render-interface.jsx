@@ -243,10 +243,10 @@ class Interface extends React.Component {
                                     </p>
                                 </div>
                             )}
-							{LiveTests && (
+							{(LiveTests || Local) && (
                                 <div className={styles.infobox, styles.unsharedUpdate}>
                                     <p>
-                                {`You're using a live test version of ${APP_NAME}. Please don't use test extensions for your projects. I'm dead serious!`}
+                                {`You're using a development version of ${APP_NAME}. Please don't use test extensions for your projects. I'm dead serious!`}
 								</p>
 								<p>
                                 <a href="https://potentiamod.github.io/online">{'Click here to visit the normal version.'}</a>

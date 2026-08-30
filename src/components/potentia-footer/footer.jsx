@@ -115,8 +115,8 @@ const Footer = () => (
 							</b>
 							</p>		
             <p className={styles.info}>
-                Version: {APP_VERSION} | 
-				<a
+			{(LiveTests || Local) ? 'Dev.' : `v${APP_VERSION}`}| 
+				 <a
                     onClick={eraseData}
                     style={{color: 'red'}}
                 >Erase data</a>

@@ -80,7 +80,7 @@ const Credits = () => (
                     {APP_NAME}'s extension manager comes from <a href="https://nitrobolt.org/">NitroBolt</a>.
                 </p>
 				<p>
-                    {APP_NAME}'s wallpaper and fonts feature comes from <a href="https://dashblocks.org">DashBlocks</a>.
+                    {APP_NAME}'s text to SVG paint feature comes from <a href="https://dashblocks.org">DashBlocks</a>.
                 </p>
 				<p>
 			We've also included some codes taken from other open-source Scratch mods inside of {APP_NAME} as well.
