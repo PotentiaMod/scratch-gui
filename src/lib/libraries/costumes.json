@@ -13172,27 +13172,13 @@
         ],
       "bitmapResolution": 1,
       "dataFormat": "svg",
-      "assetId": "dd1c98cf8a34b7d932bf40d675c3a4ea",
-      "md5ext": "dd1c98cf8a34b7d932bf40d675c3a4ea.svg",
-      "rotationCenterX": 190.873095,
-      "rotationCenterY": 130.701185409841
-    },
-    {
-      "name": "Murphy-r",
-	  "tags": [
-            "potentia",
-            "characters",
-            "mascots"
-        ],
-      "bitmapResolution": 1,
-      "dataFormat": "svg",
       "assetId": "6228f95d8f8db1e30787c9c0e0aedca9",
       "md5ext": "6228f95d8f8db1e30787c9c0e0aedca9.svg",
       "rotationCenterX": 123.75,
       "rotationCenterY": 130.701189245904
     },
     {
-      "name": "Murphy-s",
+      "name": "Murphy-r",
 	  "tags": [
             "potentia",
             "characters",
@@ -13206,7 +13192,7 @@
       "rotationCenterY": 118.189918839176
     },
     {
-      "name": "Murphy-t",
+      "name": "Murphy-s",
 	  "tags": [
             "potentia",
             "characters",
@@ -13220,7 +13206,7 @@
       "rotationCenterY": 139.222162981572
     },
     {
-      "name": "Murphy-u",
+      "name": "Murphy-t",
 	  "tags": [
             "potentia",
             "characters",
@@ -13234,7 +13220,7 @@
       "rotationCenterY": 124.880192054645
     },
     {
-      "name": "Murphy-v",
+      "name": "Murphy-u",
 	  "tags": [
             "potentia",
             "characters",
@@ -13248,7 +13234,7 @@
       "rotationCenterY": 118.189918839176
     },
     {
-      "name": "Murphy-w",
+      "name": "Murphy-v",
 	  "tags": [
             "potentia",
             "characters",
@@ -13262,7 +13248,7 @@
       "rotationCenterY": 118.189912678352
     },
     {
-      "name": "Murphy-x",
+      "name": "Murphy-w",
 	  "tags": [
             "potentia",
             "characters",
@@ -13276,7 +13262,7 @@
       "rotationCenterY": 130.701176163936
     },
     {
-      "name": "Murphy-y",
+      "name": "Murphy-x",
 	  "tags": [
             "potentia",
             "characters",

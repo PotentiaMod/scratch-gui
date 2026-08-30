@@ -50,6 +50,14 @@ const gallerySources = [
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/tw-extensions.json',
         tag: 'tw'
     },
+	{
+        id: 'cocreaworld',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/cocreaworld/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/cocreaworld/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/cocreaworld/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ccw-extensions.json',
+        tag: 'ccw'
+    },
     {
         id: 'nitrobolt',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/nitrobolt/',

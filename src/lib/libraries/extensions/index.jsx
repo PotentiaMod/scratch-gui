@@ -356,6 +356,7 @@ import customExtensionIcon from './custom/custom.svg';
 import customExtIcon from './custom/CustomEx.svg';
 import customExtInsetIcon from './custom/CustomSmall.svg';
 import customURLIcon from './custom/customURL.svg';
+import galleryIconCCW from './gallery/cocreaworld.svg';
 import galleryIconNB from './gallery/nitrobolt.svg';
 import galleryIconDash from './gallery/dash.svg';
 import galleryIconMist from './mistium/library.svg';
@@ -1849,6 +1850,12 @@ const gallerySourceDisplay = {
         iconURL: galleryIconTW,
         tag: 'tw'
     },
+	 cocreaworld: {
+        name: 'Cocrea World Extension Marketplace',
+        href: 'https://assets.ccw.site/extensions/',
+        iconURL: galleryIconCCW,
+        tag: 'ccw'
+    },
 	 nitrobolt: {
         name: 'NitroBolt Extension Gallery',
         href: 'https://extensions.nitrobolt.org/',
@@ -1958,6 +1965,11 @@ export const galleryStatusItems = {
         loading: createGalleryStatusItem('turbowarp', 'Loading TurboWarp extension gallery...'),
         more: createGalleryStatusItem('turbowarp', 'Learn more about extensions at extensions.turbowarp.org.'),
         error: createGalleryStatusItem('turbowarp', 'Error loading TurboWarp extension gallery. Visit extensions.turbowarp.org to find more extensions.')
+    },
+    cocreaworld: {
+        loading: createGalleryStatusItem('cocreaworld', 'Loading CCW extensions...'),
+        more: createGalleryStatusItem('cocreaworld', 'See some extensions at the Cocrea World Extension Marketplace.'),
+        error: createGalleryStatusItem('cocreaworld', 'Error loading CCW extensions.')
     },
     nitrobolt: {
         loading: createGalleryStatusItem('nitrobolt', 'Loading NitroBolt extension gallery...'),

@@ -6,6 +6,7 @@ export default [
     {tag: 'scratch', intlLabel: 'Scratch'},
     {tag: 'potentia', intlLabel: APP_NAME},
     {tag: 'tw', intlLabel: 'TurboWarp'},
+	{tag: 'ccw', intlLabel: 'Cocrea World/Gandi IDE'},
     {tag: 'nb', intlLabel: 'NitroBolt'},
     {tag: 'adacraft', intlLabel: 'Adacraft'},
     {tag: 'mist', intlLabel: 'Mistium'},

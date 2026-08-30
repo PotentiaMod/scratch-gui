@@ -14,6 +14,7 @@ export default [
     {tag: 'scratch', intlLabel: 'Scratch'},
     {tag: 'potentia', intlLabel: APP_NAME},
     {tag: 'tw', intlLabel: 'TurboWarp'},
+    {tag: 'ccw', intlLabel: 'Cocrea World'},
     {tag: 'nb', intlLabel: 'NitroBolt'},
     {tag: 'mist', intlLabel: 'Mistium'},
     {tag: 'ae', intlLabel: 'Astra Editor'},
