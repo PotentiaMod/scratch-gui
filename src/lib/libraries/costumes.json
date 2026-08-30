@@ -7252,118 +7252,6 @@
         "rotationCenterX": 73.981,
         "rotationCenterY": 77.163
     },
-	{
-        "name": "Nero",
-        "tags": [
-            "potentia",
-            "characters",
-            "mascots"
-        ],
-        "assetId": "660567a0483d3924efd2537e2592844b",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "660567a0483d3924efd2537e2592844b.svg",
-        "rotationCenterX": 80.6266444147686,
-        "rotationCenterY": 72.0139664723848
-    },
-	{
-        "name": "Nero-smile",
-        "tags": [
-            "potentia",
-            "characters",
-            "mascots"
-        ],
-        "assetId": "545ae61d142fde398b045524d2dc7237",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "545ae61d142fde398b045524d2dc7237.svg",
-        "rotationCenterX": 80.6266444147686,
-        "rotationCenterY": 72.0139664723848
-    },
-	{
-        "name": "Nero-arm-up",
-        "tags": [
-            "potentia",
-            "characters",
-            "mascots"
-        ],
-        "assetId": "a2bac42c77ecc6a046c4aa2d3a8bd507",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "a2bac42c77ecc6a046c4aa2d3a8bd507.svg",
-        "rotationCenterX": 80.6266444147686,
-        "rotationCenterY": 72.0139664723848
-    },
-	{
-        "name": "Nero-evil",
-        "tags": [
-            "potentia",
-            "characters",
-            "mascots"
-        ],
-        "assetId": "432efe770572e48293adcc8559e7f270",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "432efe770572e48293adcc8559e7f270.svg",
-        "rotationCenterX": 80.6266444147686,
-        "rotationCenterY": 72.0139664723848
-    },
-	{
-        "name": "Nero-evil-smile",
-        "tags": [
-            "potentia",
-            "characters",
-            "mascots"
-        ],
-        "assetId": "a5d3c35b47f8e4e53ae576be71fe2c30",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "a5d3c35b47f8e4e53ae576be71fe2c30.svg",
-        "rotationCenterX": 80.6266444147686,
-        "rotationCenterY": 72.0139664723848
-    },
-	{
-        "name": "Nero-look-down",
-        "tags": [
-            "potentia",
-            "characters",
-            "mascots"
-        ],
-        "assetId": "4fe4bfd83b4bf0da26bcebc9fcc19ce4",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "4fe4bfd83b4bf0da26bcebc9fcc19ce4.svg",
-        "rotationCenterX": 80.6266444147686,
-        "rotationCenterY": 72.0139664723848
-    },
-	{
-        "name": "Nero-look-up",
-        "tags": [
-            "potentia",
-            "characters",
-            "mascots"
-        ],
-        "assetId": "d80e3e05a9d466c36c77013f8e71ebb3",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "d80e3e05a9d466c36c77013f8e71ebb3.svg",
-        "rotationCenterX": 80.6266444147686,
-        "rotationCenterY": 72.0139664723848
-    },
-	{
-        "name": "Nero-head-tilt",
-        "tags": [
-            "potentia",
-            "characters",
-            "mascots"
-        ],
-        "assetId": "9227f8f2c5a660c67a527fd1a079fc21",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "9227f8f2c5a660c67a527fd1a079fc21.svg",
-        "rotationCenterX": 80.6266444147686,
-        "rotationCenterY": 72.0139664723848
-    },
     {
         "name": "Noor-a",
         "tags": [
@@ -8079,20 +7967,6 @@
         "rotationCenterX": 104,
         "rotationCenterY": 43
     },
-	{
-        "name": "Potentia-a",
-        "tags": [
-            "potentia",
-            "dragon",
-            "mascot"
-        ],
-        "assetId": "1468b47250e8103d8220d102c7a9b597",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "1468b47250e8103d8220d102c7a9b597.svg",
-        "rotationCenterX": 121.231122427814,
-        "rotationCenterY": 109.913924032961
-    },
     {
         "name": "Potion-a",
         "tags": [
@@ -8429,42 +8303,6 @@
         "md5ext": "137976ec71439e2f986caeaa70e4c932.svg",
         "rotationCenterX": 84,
         "rotationCenterY": 84
-    },
-	{
-        "name": "Raccoon-a",
-        "tags": [
-            "potentia",
-            "animals",
-            "mammal",
-            "bandit",
-            "masked",
-            "mascot"
-        ],
-        "assetId": "f86a0fab44dcc904d204c29ea576a7c1",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "f86a0fab44dcc904d204c29ea576a7c1.svg",
-        "rotationCenterX": 84.223388671875,
-        "rotationCenterY": 89.3388137817383
-
-    },
-	{
-        "name": "Raccoon-b",
-        "tags": [
-            "potentia",
-            "animals",
-            "mammal",
-            "bandit",
-            "masked",
-            "mascot"
-        ],
-        "assetId": "9fc1b2ddf07d20ca6e24fb72c772a2fe",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "9fc1b2ddf07d20ca6e24fb72c772a2fe.svg",
-        "rotationCenterX": 84.223388671875,
-        "rotationCenterY": 89.3388137817383
-
     },
     {
         "name": "Radio-a",
@@ -12594,5 +12432,1267 @@
         "md5ext": "665db4c356d7e010fa8d71cc291834e3.svg",
         "rotationCenterX": 17,
         "rotationCenterY": 23
+    },
+	{
+        "name": "Potentia-a",
+        "tags": [
+            "potentia",
+            "dragon",
+            "mascot"
+        ],
+        "assetId": "1468b47250e8103d8220d102c7a9b597",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "1468b47250e8103d8220d102c7a9b597.svg",
+        "rotationCenterX": 121.231122427814,
+        "rotationCenterY": 109.913924032961
+    },
+	{
+        "name": "Raccoon-a",
+        "tags": [
+            "potentia",
+            "animals",
+            "mammal",
+            "bandit",
+            "masked",
+            "mascot"
+        ],
+        "assetId": "f86a0fab44dcc904d204c29ea576a7c1",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "f86a0fab44dcc904d204c29ea576a7c1.svg",
+        "rotationCenterX": 84.223388671875,
+        "rotationCenterY": 89.3388137817383
+
+    },
+	{
+        "name": "Raccoon-b",
+        "tags": [
+            "potentia",
+            "animals",
+            "mammal",
+            "bandit",
+            "masked",
+            "mascot"
+        ],
+        "assetId": "9fc1b2ddf07d20ca6e24fb72c772a2fe",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "9fc1b2ddf07d20ca6e24fb72c772a2fe.svg",
+        "rotationCenterX": 84.223388671875,
+        "rotationCenterY": 89.3388137817383
+
+    },
+	{
+        "name": "Nero",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "660567a0483d3924efd2537e2592844b",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "660567a0483d3924efd2537e2592844b.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-smile",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "545ae61d142fde398b045524d2dc7237",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "545ae61d142fde398b045524d2dc7237.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-arm-up",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "a2bac42c77ecc6a046c4aa2d3a8bd507",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "a2bac42c77ecc6a046c4aa2d3a8bd507.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-evil",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "432efe770572e48293adcc8559e7f270",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "432efe770572e48293adcc8559e7f270.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-evil-smile",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "a5d3c35b47f8e4e53ae576be71fe2c30",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "a5d3c35b47f8e4e53ae576be71fe2c30.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-look-down",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "4fe4bfd83b4bf0da26bcebc9fcc19ce4",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "4fe4bfd83b4bf0da26bcebc9fcc19ce4.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-look-up",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "d80e3e05a9d466c36c77013f8e71ebb3",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "d80e3e05a9d466c36c77013f8e71ebb3.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Nero-head-tilt",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "9227f8f2c5a660c67a527fd1a079fc21",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "9227f8f2c5a660c67a527fd1a079fc21.svg",
+        "rotationCenterX": 80.6266444147686,
+        "rotationCenterY": 72.0139664723848
+    },
+	{
+        "name": "Ship-Guy-a",
+        "tags": [
+            "potentia",
+            "characters",
+            "robots",
+            "mascots"
+        ],
+        "assetId": "87eac32b5f78f74ae51af6409f6bffca",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "87eac32b5f78f74ae51af6409f6bffca.svg",
+        "rotationCenterX": 91.7885614701593,
+        "rotationCenterY": 89.1961653270834
+    },
+	{
+        "name": "Ship-Guy-b",
+        "tags": [
+            "potentia",
+            "characters",
+            "robots",
+            "mascots"
+        ],
+        "assetId": "8d79b57ea0a5b484f55485ea2cc7dd68",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "8d79b57ea0a5b484f55485ea2cc7dd68.svg",
+        "rotationCenterX": 91.7885614701593,
+        "rotationCenterY": 89.1961653270834
+    },
+	{
+        "name": "Ship-Guy-c",
+        "tags": [
+            "potentia",
+            "characters",
+            "robots",
+            "mascots"
+        ],
+        "assetId": "0523473814a7299ebf5ae5a3cb663a38",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "0523473814a7299ebf5ae5a3cb663a38.svg",
+        "rotationCenterX": 91.7885614701593,
+        "rotationCenterY": 89.1961653270834
+    },
+	{
+        "name": "Ship-Guy-d",
+        "tags": [
+            "potentia",
+            "characters",
+            "robots",
+            "mascots"
+        ],
+        "assetId": "03c994acc733d11413bfe88d01477073",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "03c994acc733d11413bfe88d01477073.svg",
+        "rotationCenterX": 91.7885614701593,
+        "rotationCenterY": 89.1961653270834
+    },
+	{
+        "name": "Ship-Guy-e",
+        "tags": [
+            "potentia",
+            "characters",
+            "robots",
+            "mascots"
+        ],
+        "assetId": "a97c381cd0dcd01f71b86521216a9fd1",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "a97c381cd0dcd01f71b86521216a9fd1.svg",
+        "rotationCenterX": 91.7885614701593,
+        "rotationCenterY": 89.1961653270834
+    },
+	{
+        "name": "Ship-Guy-f",
+        "tags": [
+            "potentia",
+            "characters",
+            "robots",
+            "mascots"
+        ],
+        "assetId": "63e818ec89a880e91f462d4250fa7c55",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "63e818ec89a880e91f462d4250fa7c55.svg",
+        "rotationCenterX": 91.7885614701593,
+        "rotationCenterY": 89.1961653270834
+    },
+	{
+        "name": "Ship-Guy-g",
+        "tags": [
+            "potentia",
+            "characters",
+            "robots",
+            "mascots"
+        ],
+        "assetId": "4db79518dc86129f25b299c581e429ea",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "4db79518dc86129f25b299c581e429ea.svg",
+        "rotationCenterX": 91.7885614701593,
+        "rotationCenterY": 75.8676916797749
+    },
+	{
+        "name": "Ship-Guy-h",
+        "tags": [
+            "potentia",
+            "characters",
+            "robots",
+            "mascots"
+        ],
+        "assetId": "3ee01e92026c1d65fd45a3072a10c93b",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "3ee01e92026c1d65fd45a3072a10c93b.svg",
+        "rotationCenterX": 102.863602519359,
+        "rotationCenterY": 73.5466526422157
+    },
+	{
+        "name": "Ethan-a",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "f3e0d9a866333a97573d3a24fe642cba",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "f3e0d9a866333a97573d3a24fe642cba.svg",
+        "rotationCenterX": 129.5,
+        "rotationCenterY": 60.389145
+    },
+	{
+        "name": "Ethan-b",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "4c472b03c8187fd62be096391eac6458",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "4c472b03c8187fd62be096391eac6458.svg",
+        "rotationCenterX": 129.5,
+        "rotationCenterY": 60.389145
+    },
+	{
+        "name": "Ethan-c",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "3bebfd28e74138ba3e870381dda5ffd2",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "3bebfd28e74138ba3e870381dda5ffd2.svg",
+        "rotationCenterX": 129.5,
+        "rotationCenterY": 60.389145
+    },
+	{
+        "name": "Ethan-d",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "cfab03a73fa5e9256e5b08e260a49fb8",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "cfab03a73fa5e9256e5b08e260a49fb8.svg",
+        "rotationCenterX": 129.5,
+        "rotationCenterY": 60.389145
+    },
+	{
+        "name": "Ethan-e",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "c4b60ac6700bf08b9ef54186bdae8565",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "c4b60ac6700bf08b9ef54186bdae8565.svg",
+        "rotationCenterX": 129.5,
+        "rotationCenterY": 60.389145
+    },
+	{
+        "name": "Sebastian-a",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "45f17665459a67356a454659c2d22b7b",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "45f17665459a67356a454659c2d22b7b.svg",
+        "rotationCenterX": 107.75,
+        "rotationCenterY": 115.628979097063
+    },
+	{
+        "name": "Sebastian-b",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "a06b2f8dbc7c0669be05c504b06f9741",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "a06b2f8dbc7c0669be05c504b06f9741.svg",
+        "rotationCenterX": 99.8621649748314,
+        "rotationCenterY": 107.504532819115
+    },
+	{
+        "name": "Garwin-a",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "9ab4c8fa91b5d0e22b31ea0d19d97bff",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "9ab4c8fa91b5d0e22b31ea0d19d97bff.svg",
+        "rotationCenterX": 71.2379189933336,
+        "rotationCenterY": 107.991713808354
+    },
+	{
+        "name": "Eliza-a",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "b277cb568762ceaef01f209f1160a06d",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "b277cb568762ceaef01f209f1160a06d.svg",
+        "rotationCenterX": 145.5,
+        "rotationCenterY": 92.3187979120477
+    },
+	{
+        "name": "Eliza-b",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "97494558c96b90a5cc6bcec42184e907",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "97494558c96b90a5cc6bcec42184e907.svg",
+        "rotationCenterX": 117.893164622318,
+        "rotationCenterY": 92.3187995602386
+    },
+	{
+        "name": "Eliza-c",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "19f4d73b068adb132ec8db0a22f7070a",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "19f4d73b068adb132ec8db0a22f7070a.svg",
+        "rotationCenterX": 117.893165,
+        "rotationCenterY": 92.3187958240955
+    },
+	{
+        "name": "Eliza-d",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "c33f111f8f54e6d863e69b87cdc56462",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "c33f111f8f54e6d863e69b87cdc56462.svg",
+        "rotationCenterX": 89.364699322347,
+        "rotationCenterY": 92.3187912084295
+    },
+	{
+        "name": "Eliza-e",
+        "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+        "assetId": "904e99b0cf1ee029f9f5fbfd2c37d744",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "904e99b0cf1ee029f9f5fbfd2c37d744.svg",
+        "rotationCenterX": 89.364699322347,
+        "rotationCenterY": 92.3187912084295
+    },
+	{
+      "name": "Elijah-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "6bbc83f8d55c471fe45702544795649e",
+      "md5ext": "6bbc83f8d55c471fe45702544795649e.svg",
+      "rotationCenterX": 119.935123332605,
+      "rotationCenterY": 99.4821693094469
+    },
+	 {
+      "name": "Ian-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "b3754384f5d3e6fdcca7f03acaeb9d41",
+      "md5ext": "b3754384f5d3e6fdcca7f03acaeb9d41.svg",
+      "rotationCenterX": 68.2512461906457,
+      "rotationCenterY": 68.5988399539455
+    },
+	 {
+      "name": "Joe",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "3982eecc434108fea84129748f106054",
+      "md5ext": "3982eecc434108fea84129748f106054.svg",
+      "rotationCenterX": 49.014653190184,
+      "rotationCenterY": 95.25
+    },
+	{
+      "name": "Murphy-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "a987600af5fcbe5e4d94a67d5e76498b",
+      "md5ext": "a987600af5fcbe5e4d94a67d5e76498b.svg",
+      "rotationCenterX": 133.25,
+      "rotationCenterY": 130.701191163936
+    },
+    {
+      "name": "Murphy-b",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "418475237cdb7df6b7fd5fb6871a4a57",
+      "md5ext": "418475237cdb7df6b7fd5fb6871a4a57.svg",
+      "rotationCenterX": 141.25,
+      "rotationCenterY": 118.18991855984
+    },
+    {
+      "name": "Murphy-c",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "442632aac6df467dfaa991b1b1f7a596",
+      "md5ext": "442632aac6df467dfaa991b1b1f7a596.svg",
+      "rotationCenterX": 153.873095,
+      "rotationCenterY": 130.701191163936
+    },
+    {
+      "name": "Murphy-d",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "f900fcb22f6a7af3b46712d472b79068",
+      "md5ext": "f900fcb22f6a7af3b46712d472b79068.svg",
+      "rotationCenterX": 97.37310030707,
+      "rotationCenterY": 118.189910356704
+    },
+    {
+      "name": "Murphy-e",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "1e6d627fb9a71eb45c918367eedf4ecb",
+      "md5ext": "1e6d627fb9a71eb45c918367eedf4ecb.svg",
+      "rotationCenterX": 155.135417059393,
+      "rotationCenterY": 139.222161692044
+    },
+    {
+      "name": "Murphy-f",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "881a40dc613c414f8c8d723e0e3b9ad5",
+      "md5ext": "881a40dc613c414f8c8d723e0e3b9ad5.svg",
+      "rotationCenterX": 121.25,
+      "rotationCenterY": 130.701193081968
+    },
+    {
+      "name": "Murphy-g",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "ac33f8a42538e8281bc9d2660b84a6e7",
+      "md5ext": "ac33f8a42538e8281bc9d2660b84a6e7.svg",
+      "rotationCenterX": 136.135405,
+      "rotationCenterY": 139.222166490786
+    },
+    {
+      "name": "Murphy-h",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "44f4eb517750bf11e70b7a114977e8a1",
+      "md5ext": "44f4eb517750bf11e70b7a114977e8a1.svg",
+      "rotationCenterX": 85.921835,
+      "rotationCenterY": 130.701184245904
+    },
+    {
+      "name": "Murphy-i",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "e2f8bf97948480b8b4f3f77dd094327b",
+      "md5ext": "e2f8bf97948480b8b4f3f77dd094327b.svg",
+      "rotationCenterX": 169.25,
+      "rotationCenterY": 178.845523808266
+    },
+    {
+      "name": "Murphy-j",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "dd1c98cf8a34b7d932bf40d675c3a4ea",
+      "md5ext": "dd1c98cf8a34b7d932bf40d675c3a4ea.svg",
+      "rotationCenterX": 190.873095,
+      "rotationCenterY": 130.701185409841
+    },
+    {
+      "name": "Murphy-k",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "298cca84b48bb4c0da0093bc0af70619",
+      "md5ext": "298cca84b48bb4c0da0093bc0af70619.svg",
+      "rotationCenterX": 92.7542741934128,
+      "rotationCenterY": 130.701185409841
+    },
+    {
+      "name": "Murphy-l",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "12b7b5d3f08df77c5e6ce2a6e59e2817",
+      "md5ext": "12b7b5d3f08df77c5e6ce2a6e59e2817.svg",
+      "rotationCenterX": 138.539761666667,
+      "rotationCenterY": 130.701187327872
+    },
+    {
+      "name": "Murphy-m",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "0bf935116b9fa33abaa6064a5140876e",
+      "md5ext": "0bf935116b9fa33abaa6064a5140876e.svg",
+      "rotationCenterX": 145.03976,
+      "rotationCenterY": 130.701179245904
+    },
+    {
+      "name": "Murphy-n",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "19e9a567838294a1fd474a3b0b5da056",
+      "md5ext": "19e9a567838294a1fd474a3b0b5da056.svg",
+      "rotationCenterX": 127.311524829541,
+      "rotationCenterY": 116.631837512154
+    },
+    {
+      "name": "Murphy-o",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "29094bf7fd2addb1a12868a9e9171f9a",
+      "md5ext": "29094bf7fd2addb1a12868a9e9171f9a.svg",
+      "rotationCenterX": 121.25,
+      "rotationCenterY": 130.701191163936
+    },
+    {
+      "name": "Murphy-p",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "b5fe1111a56f8385bd73e7baa7034313",
+      "md5ext": "b5fe1111a56f8385bd73e7baa7034313.svg",
+      "rotationCenterX": 92.754270929272,
+      "rotationCenterY": 130.701178081968
+    },
+    {
+      "name": "Murphy-q",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "dd1c98cf8a34b7d932bf40d675c3a4ea",
+      "md5ext": "dd1c98cf8a34b7d932bf40d675c3a4ea.svg",
+      "rotationCenterX": 190.873095,
+      "rotationCenterY": 130.701185409841
+    },
+    {
+      "name": "Murphy-r",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "6228f95d8f8db1e30787c9c0e0aedca9",
+      "md5ext": "6228f95d8f8db1e30787c9c0e0aedca9.svg",
+      "rotationCenterX": 123.75,
+      "rotationCenterY": 130.701189245904
+    },
+    {
+      "name": "Murphy-s",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "84536beb6428249f55570c4ca168d738",
+      "md5ext": "84536beb6428249f55570c4ca168d738.svg",
+      "rotationCenterX": 90.75,
+      "rotationCenterY": 118.189918839176
+    },
+    {
+      "name": "Murphy-t",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "5eb1a782d7c488377b7e79b2091490bf",
+      "md5ext": "5eb1a782d7c488377b7e79b2091490bf.svg",
+      "rotationCenterX": 134.577561213944,
+      "rotationCenterY": 139.222162981572
+    },
+    {
+      "name": "Murphy-u",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "30c2359eb165cc6482ceb38b61531dae",
+      "md5ext": "30c2359eb165cc6482ceb38b61531dae.svg",
+      "rotationCenterX": 96.5456672800825,
+      "rotationCenterY": 124.880192054645
+    },
+    {
+      "name": "Murphy-v",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "a2f1e30f54547e783319a2a4582a5895",
+      "md5ext": "a2f1e30f54547e783319a2a4582a5895.svg",
+      "rotationCenterX": 88.4563374220202,
+      "rotationCenterY": 118.189918839176
+    },
+    {
+      "name": "Murphy-w",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "05abed2269cfabd55c8d19dbd871c097",
+      "md5ext": "05abed2269cfabd55c8d19dbd871c097.svg",
+      "rotationCenterX": 87.7750240794545,
+      "rotationCenterY": 118.189912678352
+    },
+    {
+      "name": "Murphy-x",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "9256619e2aa6d8c34ecd2003766fbbca",
+      "md5ext": "9256619e2aa6d8c34ecd2003766fbbca.svg",
+      "rotationCenterX": 95.095305,
+      "rotationCenterY": 130.701176163936
+    },
+    {
+      "name": "Murphy-y",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "84fdafefa8a9479aa1c8632b396e72e3",
+      "md5ext": "84fdafefa8a9479aa1c8632b396e72e3.svg",
+      "rotationCenterX": 195.889358502845,
+      "rotationCenterY": 160.747115
+    },
+	{
+      "name": "Starlet-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "5274df576bef6b71a012c9fa2a8ff675",
+      "md5ext": "5274df576bef6b71a012c9fa2a8ff675.svg",
+      "rotationCenterX": 131.248676338536,
+      "rotationCenterY": 110.599338286593
+    },
+    {
+      "name": "Starlet-b",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "6404f22dd023c676f19a2fe80054ee13",
+      "md5ext": "6404f22dd023c676f19a2fe80054ee13.svg",
+      "rotationCenterX": 129.818995,
+      "rotationCenterY": 110.599338967887
+    },
+    {
+      "name": "Starlet-c",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "201ba383ab877f25634519622f7042d2",
+      "md5ext": "201ba383ab877f25634519622f7042d2.svg",
+      "rotationCenterX": 131.248667507998,
+      "rotationCenterY": 110.599337770536
+    },
+    {
+      "name": "Starlet-d",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "7f3eb3da0a22c2269327d2ff523528ee",
+      "md5ext": "7f3eb3da0a22c2269327d2ff523528ee.svg",
+      "rotationCenterX": 126.091376894883,
+      "rotationCenterY": 107.975373491617
+    },
+    {
+      "name": "Starlet-e",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "2e34f2dd578bdf51a56c76e5e291261b",
+      "md5ext": "2e34f2dd578bdf51a56c76e5e291261b.svg",
+      "rotationCenterX": 126.091372028638,
+      "rotationCenterY": 88.904987719368
+    },
+	{
+      "name": "Hudson-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "63f6911bd3c3eb1f8fe9be37fb8c7cef",
+      "md5ext": "63f6911bd3c3eb1f8fe9be37fb8c7cef.svg",
+      "rotationCenterX": 83.25,
+      "rotationCenterY": 130.939863124806
+    },
+    {
+      "name": "Hudson-b",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "baa66d1498a997944889578cdd9bc2d5",
+      "md5ext": "baa66d1498a997944889578cdd9bc2d5.svg",
+      "rotationCenterX": 102.583333333333,
+      "rotationCenterY": 130.939872631915
+    },
+	{
+      "name": "Sophie-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "ab69a2061df7d239fd12bfe2bff913e4",
+      "md5ext": "ab69a2061df7d239fd12bfe2bff913e4.svg",
+      "rotationCenterX": 110.841325679859,
+      "rotationCenterY": 119.281683887288
+    },
+	{
+      "name": "X-Bros-Evan-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "28c18de73aae8028ea4c2172f46e79d4",
+      "md5ext": "28c18de73aae8028ea4c2172f46e79d4.svg",
+      "rotationCenterX": 90.7007464327246,
+      "rotationCenterY": 53.6049867900777
+    },
+	 {
+      "name": "X-Bros-Monty-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "e004dea691465f738938341724f8ee8e",
+      "md5ext": "e004dea691465f738938341724f8ee8e.svg",
+      "rotationCenterX": 90.7007485868084,
+      "rotationCenterY": 62.1988279565412
+    },
+	{
+      "name": "X-Bros-Victor-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "84cd6d9259ee101d7bfaf6889c83ccbb",
+      "md5ext": "84cd6d9259ee101d7bfaf6889c83ccbb.svg",
+      "rotationCenterX": 90.7007392981738,
+      "rotationCenterY": 65.4171994779727
+    },
+	{
+      "name": "Arno-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "f63982d330a6571c32e08b162517c508",
+      "md5ext": "f63982d330a6571c32e08b162517c508.svg",
+      "rotationCenterX": 116.958646435756,
+      "rotationCenterY": 90.0860511959744
+    },
+	{
+      "name": "Adam-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "a0839611e0d2b22a45220d2ec707fefb",
+      "md5ext": "a0839611e0d2b22a45220d2ec707fefb.svg",
+      "rotationCenterX": 130.597571737575,
+      "rotationCenterY": 105.694144066854
+    },
+    {
+      "name": "Adam-b",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "b075612f491c6f5ffc2f90818cb889ad",
+      "md5ext": "b075612f491c6f5ffc2f90818cb889ad.svg",
+      "rotationCenterX": 130.597571849155,
+      "rotationCenterY": 105.694145998204
+    },
+    {
+      "name": "Adam-c",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "b2674acb38a6e61a1820762cd2a47936",
+      "md5ext": "b2674acb38a6e61a1820762cd2a47936.svg",
+      "rotationCenterX": 130.597566849155,
+      "rotationCenterY": 105.694140998204
+    },
+    {
+      "name": "Adam-d",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "c09cf601bd9174462896c82816cebfc2",
+      "md5ext": "c09cf601bd9174462896c82816cebfc2.svg",
+      "rotationCenterX": 130.597575547465,
+      "rotationCenterY": 105.694137994612
+    },
+    {
+      "name": "Adam-e",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "e7247b3a7b7f94beed57af24fd3e4199",
+      "md5ext": "e7247b3a7b7f94beed57af24fd3e4199.svg",
+      "rotationCenterX": 130.59757369831,
+      "rotationCenterY": 105.694136996408
+    },
+    {
+      "name": "Adam-f",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "ccd10c0d7a3f8aee1b126507bfd56527",
+      "md5ext": "ccd10c0d7a3f8aee1b126507bfd56527.svg",
+      "rotationCenterX": 130.597572944085,
+      "rotationCenterY": 105.694141987427
+    },
+    {
+      "name": "Adam-g",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "eea48a67d92c228950cb1b71d7db4ac5",
+      "md5ext": "eea48a67d92c228950cb1b71d7db4ac5.svg",
+      "rotationCenterX": 150.133935,
+      "rotationCenterY": 105.694143992815
+    },
+	{
+      "name": "Atlas-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "17a9291dd433421e4799600085651f3a",
+      "md5ext": "17a9291dd433421e4799600085651f3a.svg",
+      "rotationCenterX": 130.754664877,
+      "rotationCenterY": 113.372646860926
+    },
+    {
+      "name": "Atlas-b",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "f41dfaecaa3716f5eeb7bf12d96bc1fc",
+      "md5ext": "f41dfaecaa3716f5eeb7bf12d96bc1fc.svg",
+      "rotationCenterX": 121.781714113669,
+      "rotationCenterY": 113.372640514368
+    },
+    {
+      "name": "Atlas-c",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "fa6fac0fc34377464188dbf170cccb45",
+      "md5ext": "fa6fac0fc34377464188dbf170cccb45.svg",
+      "rotationCenterX": 103.999084045604,
+      "rotationCenterY": 117.441427943247
+    },
+    {
+      "name": "Atlas-d",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "c0c89865e5c72c344ee92f27708941fc",
+      "md5ext": "c0c89865e5c72c344ee92f27708941fc.svg",
+      "rotationCenterX": 139.650334282929,
+      "rotationCenterY": 113.372640514368
+    },
+    {
+      "name": "Atlas-e",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "6ee3530212e260e94566dbc439efbcad",
+      "md5ext": "6ee3530212e260e94566dbc439efbcad.svg",
+      "rotationCenterX": 103.711544472739,
+      "rotationCenterY": 113.372638653443
+    },
+	{
+      "name": "Noah-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "0e5ff02c488fd59657635bc510414b46",
+      "md5ext": "0e5ff02c488fd59657635bc510414b46.svg",
+      "rotationCenterX": 132.1332675,
+      "rotationCenterY": 106.91592436582
+    },
+    {
+      "name": "Noah-b",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "f415f228c51fda6c3dffa597d970af73",
+      "md5ext": "f415f228c51fda6c3dffa597d970af73.svg",
+      "rotationCenterX": 101.8832675,
+      "rotationCenterY": 106.915931691071
+    },
+	{
+      "name": "Zoe-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "cb241f884fe9b731ce29fb82abd8c800",
+      "md5ext": "cb241f884fe9b731ce29fb82abd8c800.svg",
+      "rotationCenterX": 162.956062702806,
+      "rotationCenterY": 116.5
+    },
+	{
+      "name": "Penelope-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "98932c3c5d7793ff514b7fec0c53880a",
+      "md5ext": "98932c3c5d7793ff514b7fec0c53880a.svg",
+      "rotationCenterX": 110.992486445395,
+      "rotationCenterY": 145.263497577024
+    },
+	{
+      "name": "Myles-a",
+	  "tags": [
+            "potentia",
+            "characters",
+            "mascots"
+        ],
+      "bitmapResolution": 1,
+      "dataFormat": "svg",
+      "assetId": "681a0d7e6ef88d36e36abade9132683d",
+      "md5ext": "681a0d7e6ef88d36e36abade9132683d.svg",
+      "rotationCenterX": 183.174642853741,
+      "rotationCenterY": 135.755815550318
     }
 ]

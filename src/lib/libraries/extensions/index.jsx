@@ -356,19 +356,19 @@ import customExtensionIcon from './custom/custom.svg';
 import customExtIcon from './custom/CustomEx.svg';
 import customExtInsetIcon from './custom/CustomSmall.svg';
 import customURLIcon from './custom/customURL.svg';
-import galleryIconNB from './gallery/gallery-nb.svg';
-import galleryIconDash from './dashblocks/gallery.svg';
+import galleryIconNB from './gallery/nitrobolt.svg';
+import galleryIconDash from './gallery/dash.svg';
 import galleryIconMist from './mistium/library.svg';
-import galleryIconMW from './gallery/gallery-mw.png';;
-import galleryIconTW from './gallery/gallery-tw.svg';
-import galleryIconPT from './gallery/gallery.svg';
-import galleryIconZT from './02engine/02engine.svg';
-import scratchmegarepoThumb from './gaiamod/ScratchMegaRepo.png';
+import galleryIconMW from './gallery/mistwarp.svg';;
+import galleryIconTW from './gallery/turbowarp.svg';
+import galleryIconPT from './gallery/potentiamod.svg';
+import galleryIconZT from './gallery/02engine.svg';
+import galleryIconPM from './gallery/penguinmod.svg';
+import galleryIconSN from './gallery/snailide.png';
+import galleryIconDM from './gallery/dinosaurmod.svg';
+import galleryIconGM from './gallery/gaiamod.png';
+import scratchmegarepoThumb from './gallery/megarepo.png';
 
-import galleryIconPM from './penguinmod/library.svg';
-import galleryIconSN from './gaiamod/snailIDEEXGallery.png';
-import galleryIconDM from './dinosaurmod/gallery.svg';
-import galleryIconGM from './gaiamod/gallery.png';
 
 import {APP_NAME} from '../../brand';
 
