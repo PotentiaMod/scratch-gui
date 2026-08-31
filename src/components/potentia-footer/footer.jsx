@@ -25,6 +25,8 @@ const eraseData = async () => {
         localStorage.clear();
         indexedDB.deleteDatabase('TW_RestorePoints');
         indexedDB.deleteDatabase('TW_Backpack');
+        indexedDB.deleteDatabase('p4-local-settings');
+        indexedDB.deleteDatabase('p4-large-assets');
         location.reload();
     }
 };
