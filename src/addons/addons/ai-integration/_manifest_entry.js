@@ -3,7 +3,7 @@ const manifest = {
   "editorOnly": true,
   "noTranslations": true,
   "name": "AI integration into the editor",
-  "description": "Adds AI integration into the editor including code completion, code generation, sprite generation, background generation, and more.\n\n\nDISCLAIMER: We do not store any request data or your API keys. Your API keys are only sent with requests and remain fully stored locally on your computer. All models we use are free, ensuring no charges apply. However, for added security, we recommend setting restrictions on your API keys.",
+  "description": "Adds AI integration from CodeTorch into the editor including code completion, code generation, sprite generation, background generation, and more.\n\n\nDISCLAIMER: We do not store any request data or your API keys. Your API keys are only sent with requests and remain fully stored locally on your computer. All models we use are free, ensuring no charges apply. However, for added security, we recommend setting restrictions on your API keys.",
   "info": [
     {
       "text": "Credits: CodeTorch.net"

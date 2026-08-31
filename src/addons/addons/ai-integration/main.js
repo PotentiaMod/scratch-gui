@@ -4,7 +4,7 @@ import showdown from "showdown";
 import Attachment from "./helpers/attachment.js";
 import TorchyBridge from "./helpers/torchyBridge.js";
 import blockDefinitions from "./helpers/blockDefinitions.js";
-import potentia from "./potentia.svg";
+import potentia from "./helpers/potentia.svg";
 
 const converter = new showdown.Converter();
 const resistanceThreshold = 10;

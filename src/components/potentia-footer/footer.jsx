@@ -61,6 +61,8 @@ const Footer = () => (
                     >
                         GitHub Source Code
                     </a>
+					<a href="https://gaiamod-main.github.io/">GaiaMod</a>
+					<a href="https://gaiawindwave90.github.io/">Gaia Zone</a>
                 </div>
                 <div className={styles.column}>
                     <span className={styles.columnTitle}>Community</span>

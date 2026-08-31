@@ -1,7 +1,7 @@
 const manifest = {
   "name": "Background",
   "description": "Make your editor look brand new.",
-  "editorOnly": false,
+  "editorOnly": true,
   "tags": [
     "astraeditor",
     "ae",

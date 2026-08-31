@@ -388,7 +388,7 @@ class ExtensionLibrary extends React.PureComponent {
                 const sourceStatusItems = galleryStatusItems[source.id];
 
                 const extensionsToExclude = [
-                    'skyhigh173JSON'
+                    'polzovatel8787dashApi'
                 ];
 
                 if (sourceGallery && sourceGallery.status === 'success') {

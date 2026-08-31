@@ -18,6 +18,6 @@ const manifest = {
     "dm",
     "new"
   ],
-  "enabledByDefault": false
+  "enabledByDefault": true
 };
 export default manifest;

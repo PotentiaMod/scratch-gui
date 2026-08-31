@@ -19,24 +19,24 @@ const manifest = {
       "id": "brush",
       "type": "integer",
       "min": 0,
-      "max": 1000,
-      "default": 100
+      "max": 10000,
+      "default": 250
     },
     {
       "name": "Eraser Smoothing",
       "id": "eraser",
       "type": "integer",
       "min": 0,
-      "max": 1000,
-      "default": 100
+      "max": 10000,
+      "default": 250
     },
     {
       "name": "Pen Smoothing",
       "id": "pen",
       "type": "integer",
       "min": 0,
-      "max": 1000,
-      "default": 100
+      "max": 10000,
+      "default": 250
     },
   ],
   "dynamicEnable": true,

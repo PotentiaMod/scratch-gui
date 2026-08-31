@@ -1741,7 +1741,7 @@ const menuItems = [
         featured: true
     },
 	{
-        name: 'JSON',
+        name: 'JSON (PM)',
         extensionId: 'jgJSON',
         iconURL: require('../extensions/penguinmod/extensions/json.png'),
         tags: ['pm', 'preload'],
