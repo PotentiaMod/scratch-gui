@@ -812,18 +812,6 @@ const SettingsModalComponent = props => {
                                 id="tw.settingsModal.projectInfo"
                             />
                         </button>
-                        <button
-                            className={classNames(styles.tabButton, {
-                                [styles.tabButtonActive]: activeTab === 'addons'
-                            })}
-                            onClick={() => setActiveTab('addons')}
-                        >
-                            <FormattedMessage
-                                defaultMessage="Addons"
-                                description="Addons tab"
-                                id="tw.settingsModal.addons"
-                            />
-                        </button>
                     </div>
 
                     <div className={styles.tabContent}>
@@ -890,11 +878,6 @@ const SettingsModalComponent = props => {
                         {activeTab === 'projectInfo' && (
                             <div>
                                 <ProjectSizeTracker vm={props.vm} />
-                            </div>
-                        )}
-						{activeTab === 'addons' && (
-                            <div className={styles.content}>
-        				<iframe src="/addons.html" />			 
                             </div>
                         )}
                     </div>
