@@ -100,7 +100,7 @@ const Footer = () => (
                             target="_blank"
                         >
                             <img
-                            width="120px"
+                            width="150px"
                             alt="GaiaMod"
                             src={gaiamod}
                             draggable={false}

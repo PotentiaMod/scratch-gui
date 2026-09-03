@@ -6,13 +6,10 @@ export default [
     {type: 'custom', intlLabel: messages.customextension, func: (library) => {
         library.select('custom_extension');
     } },
-	
     {type: 'divider'},
-	
 	{type: 'title', intlLabel: 'Sources'},
-	
     {tag: 'scratch', intlLabel: 'Scratch'},
-    {tag: 'potentia', intlLabel: APP_NAME},
+    {tag: 'potentia', intlLabel: 'PotentiaMod'},
     {tag: 'tw', intlLabel: 'TurboWarp'},
     {tag: 'ccw', intlLabel: 'Cocrea World'},
     {tag: 'nb', intlLabel: 'NitroBolt'},
@@ -31,5 +28,9 @@ export default [
     {tag: 'gvbvdxxmod', intlLabel: 'GvbvdxxMod'},
     {tag: 'adacraft', intlLabel: 'Adacraft'},
     {tag: 'other', intlLabel: 'Other Mods'},
-    {tag: 'preload', intlLabel: 'Preloaded'},
+    {tag: 'preload', intlLabel: 'Built-In'},
+	{type: 'divider'},
+	{type: 'title', intlLabel: 'Status'},
+    {tag: 'new', intlLabel: 'New!'},
+	{tag: 'disabled', intlLabel: 'Disabled'},
 ];

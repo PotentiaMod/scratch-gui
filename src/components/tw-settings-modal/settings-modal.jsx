@@ -1,6 +1,6 @@
 import {defineMessages, FormattedMessage, intlShape, injectIntl} from 'react-intl';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import classNames from 'classnames';
 import bindAll from 'lodash.bindall';
 import Box from '../box/box.jsx';
@@ -14,6 +14,10 @@ import helpIcon from './help-icon.svg';
 import swapIcon from './swap-icon.svg';
 import {APP_NAME} from '../../lib/brand.js';
 import VM from 'scratch-vm';
+import AddonSettingsComponent from '../../addons/settings/settings.jsx';
+import {setTheme} from '../../reducers/theme.js';
+import {persistTheme, detectTheme} from '../../lib/themes/themePersistance.js';
+import {GUI_DARK, GUI_LIGHT, Theme} from '../../lib/themes/index.js';
 
 /* eslint-disable react/no-multi-comp */
 
@@ -743,6 +747,7 @@ ProjectSizeTracker.propTypes = {
 
 const SettingsModalComponent = props => {
     const [activeTab, setActiveTab] = React.useState('render');
+	const [dirty, setDirty] = useState(false);
 
     return (
         <Modal
@@ -805,6 +810,18 @@ const SettingsModalComponent = props => {
                                 defaultMessage="Project Information"
                                 description="Settings tab"
                                 id="tw.settingsModal.projectInfo"
+                            />
+                        </button>
+                        <button
+                            className={classNames(styles.tabButton, {
+                                [styles.tabButtonActive]: activeTab === 'addons'
+                            })}
+                            onClick={() => setActiveTab('addons')}
+                        >
+                            <FormattedMessage
+                                defaultMessage="Addons"
+                                description="Addons tab"
+                                id="tw.settingsModal.addons"
                             />
                         </button>
                     </div>
@@ -873,6 +890,11 @@ const SettingsModalComponent = props => {
                         {activeTab === 'projectInfo' && (
                             <div>
                                 <ProjectSizeTracker vm={props.vm} />
+                            </div>
+                        )}
+						{activeTab === 'addons' && (
+                            <div className={styles.content}>
+        				<iframe src="/addons.html" />			 
                             </div>
                         )}
                     </div>
