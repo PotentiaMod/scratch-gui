@@ -345,9 +345,14 @@ import echidnaIconURL from './echidna/echidna.png';
 import echidnaInsetIconURL from './echidna/erizo.png';
 import echidnaConnectionIconURL from './echidna/echidna-illustration.svg';
 import echidnaConnectionSmallIconURL from './echidna/echidna-small.svg';
-
+import tinkibotIconURL from './tinkibot/tinkibot.png';
+import tinkibotInsetIconURL from './tinkibot/tinkimo-small.png';
+import mcremoteIconURL from './mcremote/mcremote.svg';
 import libraImage from './libra/Libra.png';
 import libraInsetImage from './libra/Libra-small.svg';
+import rubyIconURL from './smalruby-ruby/smalruby-ruby.svg';
+import rubyInsetIconURL from './smalruby-ruby/smalruby-ruby-small.svg';
+import translations from './smalruby-ruby/translations.json';
 
 import ptIcon from './tw/tw.svg';
 import TWgalleryIcon from './gallery/TWgallery.svg';
@@ -732,6 +737,17 @@ const menuItems = [
         featured: true
     },
 	{
+        name: 'Tinkibot',
+        extensionId: 'tinkibot',
+		tags: ['preload', 'new'],
+        iconURL: tinkibotIconURL,
+        insetIconURL: tinkibotInsetIconURL,
+		collaborator: 'Tinkimo',
+        description: 'Control one or more Tinkibots',
+        featured: true,
+        internetConnectionRequired: false
+    },
+	{
         name: 'Kori Assistant',
         extensionId: 'kori',
         collaborator: 'OpenAI',
@@ -805,14 +821,19 @@ const menuItems = [
         featured: true
     },
 	{
-        name: 'Muse',
-        extensionId: 'muse',
-        tags: ['cognimates', 'preload', 'new'],
-        iconURL: require('../extensions/cognimates/Muse.png'),
-		insetIconURL: require('../extensions/cognimates/muse_inset.png'),
-		collaborator: 'InteraXon',
-        description: 'Use Muse for a special development in PotentiaMod.',
-        featured: true
+        name: 'Ruby',
+        extensionId: 'ruby',
+        tags: ['preload', 'new'],
+        iconURL: rubyIconURL,
+        insetIconURL: rubyInsetIconURL,
+		collaborator: 'SmallRuby',
+        description: 'Use Ruby methods in PotentiaMod.',
+        featured: true,
+        disabled: false,
+        bluetoothRequired: false,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
     },
 	{
         name: 'Alexa',
@@ -893,6 +914,30 @@ const menuItems = [
         description: 'Connect KidsBoard via Bluetooth to operate the LEDs, buttons, speaker, and sensors.',
         featured: true,
         bluetoothRequired: true
+    },
+	{
+        name: (
+            <FormattedMessage
+                defaultMessage="McRemote"
+                description="Name for the 'McRemote' extension"
+                id="gui.extension.mcremote.name"
+            />
+        ),
+        extensionId: 'mcremote',
+		tags: ['preload', 'new'],
+        iconURL: mcremoteIconURL,
+        insetIconURL: mcremoteIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage={
+                    'Control Minecraft from Scratch blocks. Full lightning can cause damage, fire, ' +
+                    'lightning rod and copper reactions, events, and entity changes.'
+                }
+                description="Description for the 'McRemote' extension"
+                id="gui.extension.mcremote.description"
+            />
+        ),
+        featured: true
     },
 	{
         name: 'EIM Messaging',
@@ -1446,7 +1491,7 @@ const menuItems = [
         iconURL: akariBlocksImage,
         insetIconURL: akariBlocksButtonImage,
         description: 'AKARI control block',
-		tags: ['othermods', 'hardware', 'iot'],
+		tags: ['preload'],
         featured: true,
         internetConnectionRequired: true,
         bluetoothRequired: false
@@ -1458,7 +1503,7 @@ const menuItems = [
         iconURL: akariCameraImage,
         insetIconURL: akariCameraButtonImage,
         description: 'AKARI camera block',
-		tags: ['othermods', 'hardware', 'iot'],
+		tags: ['preload'],
         featured: true,
         internetConnectionRequired: true,
         bluetoothRequired: false
@@ -1470,7 +1515,7 @@ const menuItems = [
         iconURL: akariBlocksSimpleImage,
         insetIconURL: akariBlocksSimpleButtonImage,
         description: 'Simple Akari blocks.',
-		tags: ['othermods', 'hardware', 'iot'],
+		tags: ['preload'],
         featured: true,
         internetConnectionRequired: true,
         bluetoothRequired: false
@@ -1482,7 +1527,7 @@ const menuItems = [
         iconURL: akariCameraSimpleImage,
         insetIconURL: akariCameraSimpleButtonImage,
         description: 'Simple Akari camera blocks.',
-		tags: ['othermods', 'hardware', 'iot'],
+		tags: ['preload'],
         featured: true,
         internetConnectionRequired: true,
         bluetoothRequired: false
@@ -2167,6 +2212,33 @@ const livetests = [
         description: 'A test extension to see if posible. For developers only.',
         featured: true
     },
+	{
+            name: 'Editor',
+            href: 'https://potentiamod.github.io/online/editor.html',
+            extensionId: 'gallery_potentiamodEditor',
+            iconURL: galleryIconPT,
+			tags: ['potentia', 'preload', 'dev'],
+            description: 'Opens the editor with this tab as the parent, still with the library opened. For developers.',
+            featured: true
+        },
+        {
+            name: 'localhost:8601',
+            href: 'http://localhost:8601',
+            extensionId: 'gallery_potentiamodLocalhost8601',
+            iconURL: defaultExtensionIcon,
+			tags: ['potentia', 'preload', 'dev'],
+            description: 'Opens localhost:8601 in a new tab with this tab as the parent. For developers',
+            featured: true
+        },
+        {
+            name: 'localhost:8601?editor=true',
+            href: 'http://localhost:8601?editor=true',
+            extensionId: 'gallery_potentiamodLocalhost8601EditorTrue',
+            iconURL: defaultExtensionIcon,
+			tags: ['potentia', 'preload', 'dev'],
+            description: 'Opens localhost:8601 in a new tab with this tab as the parent. Sets ?editor=true. For developers',
+            featured: true
+        },
 ];
 livetests.forEach(ext => {
         menuItems.push(ext);

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import bindAll from 'lodash.bindall';
 import styles from './loader.css';
 import logo from './logo.svg';
+import gmlogo from './gaiamod-logo.svg';
 import {getIsLoadingWithId} from '../../reducers/project-state';
 import topBlock from './top-block.svg';
 import middleBlock from './middle-block.svg';
@@ -263,7 +264,7 @@ class LoaderComponent extends React.Component {
                         >
                             <img
                             width="100px"
-                            src="https://gaiamod-main.github.io/static/assets/fe83d13c2f5884449a3d7cad9a0e4778.png"
+                            src={gmlogo}
                             draggable={false}
                         />
                             <FormattedMessage
