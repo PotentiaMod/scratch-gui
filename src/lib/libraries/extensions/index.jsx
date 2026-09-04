@@ -2209,7 +2209,7 @@ const livetests = [
         extensionId: 'test',
         iconURL: defaultExtensionIcon,
         tags: ['potentia', 'preload', 'dev'],
-        description: 'A test extension to see if posible. For developers only.',
+        description: 'A test extension to see if possible. For developers only.',
         featured: true
     },
 	{
@@ -2228,15 +2228,6 @@ const livetests = [
             iconURL: defaultExtensionIcon,
 			tags: ['potentia', 'preload', 'dev'],
             description: 'Opens localhost:8601 in a new tab with this tab as the parent. For developers',
-            featured: true
-        },
-        {
-            name: 'localhost:8601?editor=true',
-            href: 'http://localhost:8601?editor=true',
-            extensionId: 'gallery_potentiamodLocalhost8601EditorTrue',
-            iconURL: defaultExtensionIcon,
-			tags: ['potentia', 'preload', 'dev'],
-            description: 'Opens localhost:8601 in a new tab with this tab as the parent. Sets ?editor=true. For developers',
             featured: true
         },
 ];
