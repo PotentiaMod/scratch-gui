@@ -353,6 +353,10 @@ import libraInsetImage from './libra/Libra-small.svg';
 import rubyIconURL from './smalruby-ruby/smalruby-ruby.svg';
 import rubyInsetIconURL from './smalruby-ruby/smalruby-ruby-small.svg';
 import translations from './smalruby-ruby/translations.json';
+import hcIconURL from './hc/hc.svg';
+import hcInsetIconURL from './hc/hc-small.svg';
+import snapIconURL from './snap/snap.svg'
+import snapInsetIconURL from './snap/snap-small.svg'
 
 import ptIcon from './tw/tw.svg';
 import TWgalleryIcon from './gallery/TWgallery.svg';
@@ -1225,6 +1229,53 @@ const menuItems = [
         connectingMessage: 'connecting...', // 👈
 
         helpLink: 'https://your-custom-help-link.com'
+    },
+	{
+        name: (
+            <FormattedMessage
+                defaultMessage="HighClass"
+                description="Name of HighClass extension"
+                id="sn.hc.name"
+            />
+        ),
+        extensionId: 'hc',
+		tags: ['preload', 'new'],
+		collaborator: 'Cubix Entertainment',
+        iconURL: hcIconURL,
+        insetIconURL: hcInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Special Blocks that make development alot easier. Also compatible with PotentiaMod."
+                description="Description of HighClass extension"
+                id="sn.hc.description"
+            />
+        ),
+        featured: true,
+        incompatibleWithScratch: true
+    },
+    {
+        name: (
+            <FormattedMessage
+                defaultMessage="Snap"
+                description="Name of Snext Audio Player extension"
+                id="sn.snap.name"
+            />
+        ),
+        extensionId: 'snap',
+		tags: ['preload', 'new'],
+		collaborator: 'Cubix Entertainment',
+        iconURL: snapIconURL,
+        insetIconURL: snapInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="SNext Audio Player or SNAP is an extension developed to allow developers to play audio from an external source."
+                description="Description of SNext Audio Player extension"
+                id="sn.snap.description"
+            />
+        ),
+        featured: true,
+        internetConnectionRequired: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'LEGO Duplo Train',
