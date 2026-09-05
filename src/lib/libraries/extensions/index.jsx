@@ -228,6 +228,206 @@ import beepboxbig from './beepbox_synth/big.png';
 import betteraudioBigIcon from './better_audio/big.png';
 import betteraudioSmallIcon from './better_audio/small.png';
 
+// Open Webserial...
+import chartImage from "./chart/chart.png";
+import chartInsetIconURL from "./chart/chart-small.png";
+import stockInfoImage from "./stockInfo/stockInfo.png";
+import stockInfoInsetIconURL from "./stockInfo/stockInfo-small.png";
+import googleMapImage from "./googleMap/googleMap.png";
+import googleMapInsetIconURL from "./googleMap/googleMap-small.png";
+import dataMiningImage from "./dataMining/dataMining.png";
+import dataMiningInsetIconURL from "./dataMining/dataMining-small.png";
+import dataProcessingImage from "./dataProcessing/dataProcessing.png";
+import dataProcessingInsetIconURL from "./dataProcessing/dataProcessing-small.png";
+import voicetotextImage from "./voicetotext/voicetotext.png";
+import voicetotextInsetIconURL from "./voicetotext/voicetotext.svg";
+import urltxtImage from "./urltxt/urltxt.png";
+import urltxtInsetIconURL from "./urltxt/clound-small.png";
+import rwGoogleImage from "./rwgoogle/rwgoogle.png";
+import rwGoogleInsetIconURL from "./rwgoogle/clound-small.png";
+import linenotifyImage from "./linenotify/linenotify.svg";
+import linenotifyInsetIconURL from "./linenotify/linenotify_small.svg";
+import telegrambotImage from "./telegrambot/telegrambot.svg";
+import telegrambotInsetIconURL from "./telegrambot/telegrambot_small.svg";
+import pushnotifyapiImage from "./pushnotifyapi/pushnotifyapi.svg";
+import pushnotifyapiInsetIconURL from "./pushnotifyapi/pushnotifyapi_small.png";
+import openaiImage from "./openai/openai.png";
+import openaiInsetIconURL from "./openai/openai-small.svg";
+import geminiImage from "./gemini/gemini.png";
+import geminiInsetIconURL from "./gemini/gemini-small.svg";
+import davinciImage from "./davinci/davinci.png";
+import davinciInsetIconURL from "./davinci/davinci-small.png";
+import llmstudioImage from "./llmstudio/llmstudio.svg";
+import llmstudioInsetIconURL from "./llmstudio/llmstudio-small.png";
+import textSentimentImage from "./textSentiment/textSentiment.png";
+import textSentimentInsetIconURL from "./textSentiment/textSentiment-small.png";
+import faceExpressionRecogintionImage from "./faceExpressionRecogintion/faceExpressionRecogintion.png";
+import faceExpressionRecogintionIconURL from "./faceExpressionRecogintion/faceExpressionRecogintion-small.png";
+
+// Lepi
+import lepiIconURL from './lepi-banbao-v1/big/主机.png';
+import lepiInsetIconURL from './lepi-banbao-v1/small/主机.png';
+
+import lepiConnectionIconURL from './lepi-banbao-v1/small/主机m.png';
+import lepiConnectionSmallIconURL from './lepi-banbao-v1/lepi_icon_small.png';
+
+import actuatorIconURL from './lepi-banbao-v1/big/电机.png';
+import actuatorInsetIconURL from './lepi-banbao-v1/small/电机.png';
+
+import apriltagIconURL from './lepi-banbao-v1/big/标签识别.png';
+import localApriltagIconURL from './lepi-banbao-v1/big/标签识别2.png';
+import apriltagInsetIconURL from './lepi-banbao-v1/small/标签识别.png';
+
+
+import cameraIconURL from './lepi-banbao-v1/big/摄像头.png';
+import cameraInsetIconURL from './lepi-banbao-v1/small/摄像头.png';
+
+import AIAudioIconURL from './lepi-banbao-v1/big/智能语音.png';
+
+
+import audioIconURL from './lepi-banbao-v1/big/音频.png';
+import audioInsetIconURL from './lepi-banbao-v1/small/音频.png';
+
+import poseEstimateIconURL from './lepi-banbao-v1/big/姿态估计.png';
+import localPoseDetectionIconURL from './lepi-banbao-v1/big/姿态估计2.png';
+import poseEstimateInsetIconURL from './lepi-banbao-v1/small/姿态估计.png';
+
+import handDetectIconURL from './lepi-banbao-v1/big/手势识别.png';
+import localHandDetectionIconURL from './lepi-banbao-v1/big/手势识别2.png';
+import handDetectInsetIconURL from './lepi-banbao-v1/small/手势识别.png';
+
+import colorDetectIconURL from './lepi-banbao-v1/big/颜色识别.png';
+import colorDetectInsetIconURL from './lepi-banbao-v1/small/颜色识别.png';
+
+import generalAIInsetIconURL from './lepi-banbao-v1/small/谷歌AI.png';
+
+import faceRecognizeIconURL from './lepi-banbao-v1/big/人脸识别.png';
+import localFaceDetectionIconURL from './lepi-banbao-v1/big/人脸识别2.png';
+import faceRecognizeInsetIconURL from './lepi-banbao-v1/small/人脸识别.png';
+
+import rfidIconURL from './lepi-banbao-v1/big/nfc.png';
+import rfidInsetIconURL from './lepi-banbao-v1/small/nfc.png';
+
+import joystickIconURL from './lepi-banbao-v1/big/游戏.png';
+import joystickInsetIconURL from './lepi-banbao-v1/small/游戏.png';
+
+import balanceCarIconURL from './lepi-banbao-v1/big/平衡车.png';
+import balanceCarInsetIconURL from './lepi-banbao-v1/small/平衡车.png';
+
+import pupperIconURL from './lepi-banbao-v1/big/四足.jpg';
+import pupperInsetIconURL from './lepi-banbao-v1/small/四足.png';
+
+import hexapodIconURL from './lepi-banbao-v1/big/六足.png';
+import hexapodInsetIconURL from './lepi-banbao-v1/small/六足.png';
+
+import webPlottorIconURL from './lepi-banbao-v1/big/绘图.png';
+import webPlottorInsetIconURL from './lepi-banbao-v1/small/绘图.png';
+
+import lepiWebSerialIconURL from './lepi-banbao-v1/big/WebSerial.png';
+import lepiWebSerialInsetIconURL from './lepi-banbao-v1/small/WebSerial.png';
+
+import echartsIconURL from './lepi-banbao-v1/big/echarts.png';
+import echartsInsetIconURL from './lepi-banbao-v1/small/echarts.png';
+
+
+import imageProcessIconURL from './lepi-banbao-v1/big/图像处理.png';
+import imageProcessInsetIconURL from './lepi-banbao-v1/small/图像处理.png';
+
+import sensorIconURL from './lepi-banbao-v1/big/传感器.png';
+import sensorInsetIconURL from './lepi-banbao-v1/small/传感器.png';
+
+import scienceSensorIconURL from './lepi-banbao-v1/big/科学传感器.png';
+import scienceSensorInsetIconURL from './lepi-banbao-v1/small/科学传感器.png';
+
+import transferLearningIconURL from './lepi-banbao-v1/big/迁移.png';
+import transferLearningInsetIconURL from './lepi-banbao-v1/small/迁移.png';
+
+import serialIconURL from './lepi-banbao-v1/big/串口通信.png';
+import serialInsetIconURL from './lepi-banbao-v1/small/串口通信.png';
+
+import bleIconURL from './lepi-banbao-v1/big/bluetooth.png';
+import bleInsetIconURL from './lepi-banbao-v1/small/bluetooth_icon.png';
+
+import imageClassifyIconURL from './lepi-banbao-v1/big/图像分类.png';
+import imageClassifyInsetIconURL from './lepi-banbao-v1/small/图像分类.png';
+
+
+import objectDetectIconURL from './lepi-banbao-v1/big/目标检测.png';
+import localObjectDetectionIconURL from './lepi-banbao-v1/big/目标检测2.png';
+import objectDetectInsetIconURL from './lepi-banbao-v1/small/目标检测.png';
+
+import variableIconURL from './lepi-banbao-v1/big/变量.png';
+import variableInsetIconURL from './lepi-banbao-v1/small/变量.png';
+
+import collaborationSheetIconURL from './lepi-banbao-v1/big/协作表格.png';
+import collaborationSheetInsetIconURL from './lepi-banbao-v1/small/协作表格.png';
+
+import googleIconURL from './lepi-banbao-v1/big/General_AI.png';
+import googleInsetIconURL from './lepi-banbao-v1/small/谷歌AI.png';
+
+import learningMachineImageIconURL from './lepi-banbao-v1/big/机器学习-图像.png';
+import learningMachineImageInsetIconURL from './lepi-banbao-v1/small/机器学习-图像.png';
+
+import learningMachineAudioIconURL from './lepi-banbao-v1/big/机器学习-音频.png';
+import learningMachineAudioInsetIconURL from './lepi-banbao-v1/small/机器学习-音频.png';
+
+import learningMachinePoseIconURL from './lepi-banbao-v1/big/机器学习-姿态.png';
+import learningMachinePoseInsetIconURL from './lepi-banbao-v1/small/机器学习-姿态.png';
+
+import learningMachineHandIconURL from './lepi-banbao-v1/big/机器学习-手势.png';
+import learningMachineHandInsetIconURL from './lepi-banbao-v1/small/机器学习-手势.png';
+
+import barcodeScannerIconURL from './lepi-banbao-v1/big/二维码扫描.png';
+import localQRCodeDetectionIconURL from './lepi-banbao-v1/big/二维码扫描2.png';
+import barcodeScannerInsetIconURL from './lepi-banbao-v1/small/二维码扫描.png';
+
+import learningMachineFaceIconURL from './lepi-banbao-v1/big/人脸检测.png';
+import learningMachineFaceInsetIconURL from './lepi-banbao-v1/small/人脸检测.png';
+
+import textRecognizeIconURL from './lepi-banbao-v1/big/文本识别.png';
+import localTextDetectionIconURL from './lepi-banbao-v1/big/文本识别2.png';
+import textRecognizeInsetIconURL from './lepi-banbao-v1/small/文本识别.png';
+
+import httpIconURL from './lepi-banbao-v1/big/http.png';
+import httpInsetIconURL from './lepi-banbao-v1/small/http.png';
+
+import chatIconURL from './lepi-banbao-v1/big/chat.png';
+import chatInsetIconURL from './lepi-banbao-v1/small/大语言模型.png';
+
+import llmImageIconURL from './lepi-banbao-v1/big/AI绘画.jpg';
+import llmImageInsetIconURL from './lepi-banbao-v1/small/大语言模型.png';
+
+import llmVideoIconURL from './lepi-banbao-v1/big/文生视频.gif';
+import llmVideoInsetIconURL from './lepi-banbao-v1/small/大语言模型.png';
+
+import hostCommunicationIconURL from './lepi-banbao-v1/big/主机通信.png';
+import hostCommunicationInsetIconURL from './lepi-banbao-v1/small/主机通信.png';
+
+import homeassistantIconURL from './lepi-banbao-v1/big/智能家居.png';
+import homeassistantInsetIconURL from './lepi-banbao-v1/small/智能家居.png';
+
+import smartClassroomIconURL from './lepi-banbao-v1/big/智慧教室.jpg';
+import smartClassroomInsetIconURL from './lepi-banbao-v1/small/智慧教室.jpg';
+
+import mqttIconURL from './lepi-banbao-v1/big/mqtt.png';
+import mqttInsetIconURL from './lepi-banbao-v1/small/mqtt.png';
+
+import ledSimulatorIconURL from './lepi-banbao-v1/big/led_simulator2.png'
+import ledSimulatorInsetIconURL from './lepi-banbao-v1/small/led_simulator.svg'
+
+import difyIconURL from './lepi-banbao-v1/big/dify.png'
+import difyInsetIconURL from './lepi-banbao-v1/small/dify.png'
+
+import live2dIconURL from './lepi-banbao-v1/big/live2d.png'
+import live2dInsetIconURL from './lepi-banbao-v1/small/live2d.png'
+
+import xiaozhiIconURL from './lepi-banbao-v1/big/小智机器人.png'
+import xiaozhiInsetIconURL from './lepi-banbao-v1/small/小智机器人.png'
+
+import mcpIconURL from './lepi-banbao-v1/big/mcp工具.jpg'
+import mcpInsetIconURL from './lepi-banbao-v1/small/mcp工具.png'
+
+
 // onegpio
 import onegpioArduinoImage from './onegpioArduino/onegpioArduino.png';
 import onegpioArduinoInsetIconURL from './onegpioArduino/onegpioArduino-small.png';
@@ -815,6 +1015,62 @@ const menuItems = [
         disabled: false,
     },
 	{
+    name: 'TAIEX',
+    extensionId: "stockInfo",
+    collaborator: "TYiC",
+    iconURL: stockInfoImage,
+    insetIconURL: stockInfoInsetIconURL,
+	tags: ['preload', 'new'],
+    description: 'Information about Taiwan Capitalization Weighted Stock Index (TAXIE).',
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    useAutoScan: false,
+    helpLink: "https://github.com/estea8968/scratch3-internet",
+  },
+  {
+    name: 'Google Maps',
+    extensionId: "googleMap",
+    collaborator: "Champierre, TYiC",
+	tags: ['preload', 'new'],
+    iconURL: googleMapImage,
+    insetIconURL: googleMapInsetIconURL,
+    description: 'Display geographic location using the latitude and longitude coordinates (Experimental).',
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    useAutoScan: false,
+    helpLink: "https://github.com/estea8968/scratch3-internet",
+  },
+  {
+    name:'Data Mining',
+    extensionId: "dataMining",
+    collaborator: "TYiC",
+	tags: ['preload', 'new'],
+    iconURL: dataMiningImage,
+    insetIconURL: dataMiningInsetIconURL,
+    description: 'Mining a large amount of data for knowledge exploration and using analytical models to evaluate and predict.',
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    useAutoScan: false,
+    helpLink: "https://github.com/estea8968/scratch3-internet",
+  },
+  {
+    name:'Data Processing',
+    extensionId: "dataProcessing",
+    collaborator: "TYiC",
+	tags: ['preload', 'new'],
+    iconURL: dataProcessingImage,
+    insetIconURL: dataProcessingInsetIconURL,
+    description: 'Number system conversion and string manipulation.',
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    useAutoScan: false,
+    helpLink: "https://github.com/estea8968/scratch3-internet",
+  },
+	{
         name: 'Body Blocks',
         extensionId: 'bodyblocks',
         iconURL: bodyblocksIconURL,
@@ -857,6 +1113,39 @@ const menuItems = [
         description: 'Play with Ergo in PotentiaMod.',
         featured: true
     },
+	{
+    name: "URL & Text File",
+    extensionId: "urlTXT",
+    collaborator: "estea chen",
+	tags: ['preload', 'new'],
+    iconURL: urltxtImage,
+    insetIconURL: urltxtInsetIconURL,
+    description: 'Read and write text files and open a URL.',
+    featured: true,
+    disabled: false,
+    // bluetoothRequired: false,
+    internetConnectionRequired: true,
+    // launchPeripheralConnectionFlow: false,
+    useAutoScan: false,
+    helpLink: "https://github.com/estea8968/scratch3-internet",
+  },
+
+  {
+    name:'Google Sheets',
+    extensionId: "rwGoogle",
+    collaborator: "estea chen, TYiC",
+	tags: ['preload', 'new'],
+    iconURL: rwGoogleImage,
+    insetIconURL: rwGoogleInsetIconURL,
+    description: 'Read and write Google Sheets and Google Forms.',
+    featured: true,
+    disabled: false,
+    // bluetoothRequired: false,
+    internetConnectionRequired: true,
+    // launchPeripheralConnectionFlow: false,
+    useAutoScan: false,
+    helpLink: "https://github.com/estea8968/scratch3-internet",
+  },
 	{
         name: 'QR Code',
         extensionId: 'qrcode',
@@ -908,6 +1197,48 @@ const menuItems = [
         featured: true,
         internetConnectionRequired: false
     },
+	{
+    name: "LineNotify",
+    extensionId: "linenotify",
+    collaborator: "estea chen",
+	tags: ['preload', 'new'],
+    iconURL: linenotifyImage,
+    insetIconURL: linenotifyInsetIconURL,
+    description: "Use Line Notify to send messages.",
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    bluetoothRequired: false,
+    //helpLink: ''
+  },
+  {
+    name: "TelegramBot",
+    extensionId: "telegrambot",
+    collaborator: "estea chen",
+	tags: ['preload', 'new'],
+    iconURL: telegrambotImage,
+    insetIconURL: telegrambotInsetIconURL,
+    description:"Use TelegramBot to send messages.",
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    bluetoothRequired: false,
+    //helpLink: ''
+  },
+  {
+    name: "Push Notify API",
+    extensionId: "pushnotifyapi",
+    collaborator: "estea chen",
+	tags: ['preload', 'new'],
+    iconURL: pushnotifyapiImage,
+    insetIconURL: pushnotifyapiInsetIconURL,
+    description: "Use Push Notify API app to send messages.",
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    bluetoothRequired: false,
+    //helpLink: ''
+  },
 	{
         name: 'KidsBoard',
         extensionId: 'kidsboard',
@@ -989,6 +1320,22 @@ const menuItems = [
         bluetoothRequired: false,
     },
 	{
+    name:"DaVinci",
+    extensionId: "davinci",
+	tags: ['preload', 'new'],
+    collaborator: "estea chen ",
+    iconURL: davinciImage,
+    insetIconURL: davinciInsetIconURL,
+    description: "MediaTek DaVinci AI.",
+    featured: true,
+    disabled: false,
+    // bluetoothRequired: false,
+    internetConnectionRequired: true,
+    // launchPeripheralConnectionFlow: false,
+    useAutoScan: false,
+    helpLink: "https://prod.dvcbot.net/",
+    },   
+	{
         name: 'Face Emotion Sensing',
         extensionId: 'poseFace',
         tags: ['preload', 'new'],
@@ -1038,6 +1385,20 @@ const menuItems = [
 		collaborator: 'Custom',
         featured: true
     },
+	{
+    name: "Text Sentiment",
+    extensionId: "textSentiment",
+    collaborator: "TYiC",
+	tags: ['preload', 'new'],
+    iconURL: textSentimentImage,
+    insetIconURL: textSentimentInsetIconURL,
+    description: "Text Sentiment.",
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    useAutoScan: false,
+    helpLink: "https://github.com/estea8968/scratch3-internet",
+  },
 	{
         name: 'Echidna',
         extensionId: 'echidna',
@@ -1276,6 +1637,455 @@ const menuItems = [
         featured: true,
         internetConnectionRequired: true,
         incompatibleWithScratch: true
+    },
+	{
+        name: (<FormattedMessage
+            defaultMessage="HTTP Communication"
+            id="gui.extension.lepiHttp.name"
+        />),
+        extensionId: 'lepiHttp',
+		collaborator: 'LEPI',
+        iconURL: httpIconURL,
+        insetIconURL: httpInsetIconURL,
+        internetConnectionRequired: true,
+        description: (
+            <FormattedMessage
+                defaultMessage="Network communication using HTTP/HTTPS."
+                id="gui.extension.lepiHttp.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Sensor"
+            id="gui.extension.lepiSensor.name"
+        />),
+        extensionId: 'lepiSensor',
+        collaborator: 'LEPI',
+        iconURL: sensorIconURL,
+        insetIconURL: sensorInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Ultrasonic, infrared, acceleration, gyroscope, geomagnetic, etc., to perceive the world."
+                id="gui.extension.lepiSensor.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="ScienceSensor"
+            id="gui.extension.lepiScienceSensor.name"
+        />),
+        extensionId: 'lepiScienceSensor',
+        collaborator: 'LEPI',
+        iconURL: scienceSensorIconURL,
+        insetIconURL: scienceSensorInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Force, spectrum, aduio, temperature, voltage, etc., to explore science."
+                id="gui.extension.lepiScienceSensor.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Actuator"
+            id="gui.extension.lepiActuator.name"
+        />),
+        extensionId: 'lepiActuator',
+        collaborator: 'LEPI',
+        iconURL: actuatorIconURL,
+        insetIconURL: actuatorInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Large motor, medium motor, steering gear, make your work move."
+                id="gui.extension.lepiActuator.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Camera"
+            id="gui.extension.lepiCamera.name"
+        />),
+        extensionId: 'lepiCamera',
+        collaborator: 'LEPI',
+        iconURL: cameraIconURL,
+        insetIconURL: cameraInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="See the world."
+                id="gui.extension.lepiCamera.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Face Recognize"
+            id="gui.extension.lepiFaceRecognize.name"
+        />),
+        extensionId: 'lepiFaceRecognize',
+        collaborator: 'LEPI',
+        iconURL: faceRecognizeIconURL,
+        insetIconURL: faceRecognizeInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Detect faces and mark them as well."
+                id="gui.extension.lepiFaceRecognize.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Gesture Detection"
+            id="gui.extension.lepiHandDetect.name"
+        />),
+        extensionId: 'lepiHandDetect',
+        collaborator: 'LEPI',
+        iconURL: handDetectIconURL,
+        insetIconURL: handDetectInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Identify 21 key points of the hand."
+                id="gui.extension.lepiHandDetect.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Pose Estimation"
+            id="gui.extension.lepiPoseEstimate.name"
+        />),
+        extensionId: 'lepiPoseEstimate',
+        collaborator: 'LEPI',
+        iconURL: poseEstimateIconURL,
+        insetIconURL: poseEstimateInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Identify 33 key points of the body."
+                id="gui.extension.lepiPoseEstimate.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Barcode Scanning"
+            id="gui.extension.lepiBarcodeScan.name"
+        />),
+        extensionId: 'lepiBarcodeScan',
+        collaborator: 'LEPI',
+        iconURL: barcodeScannerIconURL,
+        insetIconURL: barcodeScannerInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Scan the Barcode."
+                id="gui.extension.lepiBarcodeScan.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="WebSerial"
+            id="gui.extension.lepiWebSerial.name"
+        />),
+        extensionId: 'lepiWebSerial',
+        collaborator: 'LEPI',
+        iconURL: lepiWebSerialIconURL,
+        insetIconURL: lepiWebSerialInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Serial Communication via WebSerial."
+                id="gui.extension.lepiWebSerial.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+
+    {
+        name: (<FormattedMessage
+            defaultMessage="Plottor"
+            id="gui.extension.lepiWebPlottor.name"
+        />),
+        extensionId: 'lepiWebPlottor',
+        collaborator: 'LEPI',
+        iconURL: webPlottorIconURL,
+        insetIconURL: webPlottorInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Plot sensor data into graphs."
+                id="gui.extension.lepiWebPlottor.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Echarts"
+            id="gui.extension.lepiEcharts.name"
+        />),
+        extensionId: 'lepiEcharts',
+        collaborator: 'LEPI',
+        iconURL: echartsIconURL,
+        insetIconURL: echartsInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="use echarts to plot sensor data into graphs."
+                id="gui.extension.lepiEcharts.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Color Detection"
+            id="gui.extension.lepiColorDetect.name"
+        />),
+        extensionId: 'lepiColorDetect',
+        collaborator: 'LEPI',
+        iconURL: colorDetectIconURL,
+        insetIconURL: colorDetectInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Detect various colors in the camera picture."
+                id="gui.extension.lepiColorDetect.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+	{
+        name: (<FormattedMessage
+            defaultMessage="Apriltag Detection"
+            id="gui.extension.lepiApriltagDetect.name"
+        />),
+        extensionId: 'lepiApriltagDetect',
+        collaborator: 'LEPI',
+        iconURL: apriltagIconURL,
+        insetIconURL: apriltagInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Accurate spatial localization combined with apriltags."
+                id="gui.extension.lepiApriltagDetect.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+	{
+        name: (<FormattedMessage
+            defaultMessage="Joystick"
+            id="gui.extension.lepiJoystick.name"
+        />),
+        extensionId: 'lepiJoystick',
+        collaborator: 'LEPI',
+        iconURL: joystickIconURL,
+        insetIconURL: joystickInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Use a joystick as an input control."
+                id="gui.extension.lepiJoystick.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+	 {
+        name: (<FormattedMessage
+            defaultMessage="Balance Car"
+            id="gui.extension.lepiBalanceCar.name"
+        />),
+        extensionId: 'lepiBalanceCar',
+        collaborator: 'LEPI',
+        iconURL: balanceCarIconURL,
+        insetIconURL: balanceCarInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Control the balance car."
+                id="gui.extension.lepiBalanceCar.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+
+    {
+        name: (<FormattedMessage
+            defaultMessage="Pupper Robot"
+            id="gui.extension.lepiPupper.name"
+        />),
+        extensionId: 'lepiPupper',
+        collaborator: 'LEPI',
+        iconURL: pupperIconURL,
+        insetIconURL: pupperInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Control the balance car."
+                id="gui.extension.lepiPupper.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+
+    {
+        name: (<FormattedMessage
+            defaultMessage="Hexapod Robot"
+            id="gui.extension.lepiHexapod.name"
+        />),
+        extensionId: 'lepiHexapod',
+        collaborator: 'LEPI',
+        iconURL: hexapodIconURL,
+        insetIconURL: hexapodInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Control the balance car."
+                id="gui.extension.lepiHexapod.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Host Communication"
+            id="gui.extension.lepiComm.name"
+        />),
+        extensionId: 'lepiComm',
+        collaborator: 'LEPI',
+        iconURL: hostCommunicationIconURL,
+        insetIconURL: hostCommunicationInsetIconURL,
+        internetConnectionRequired: true,
+        description: (
+            <FormattedMessage
+                defaultMessage="communicate with lepi hosts in local network."
+                id="gui.extension.lepiComm.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (
+            <FormattedMessage
+                defaultMessage="Serial Communication"
+                description="Description for the 'lepiSerial' extension"
+                id="gui.extension.lepiSerial.name"
+            />
+        ),
+        extensionId: 'lepiSerial',
+        collaborator: 'LEPI',
+        iconURL: serialIconURL,
+        insetIconURL: serialInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Use Serial Port to comunicate."
+                description="Description for the 'lepiSerial' extension"
+                id="gui.extension.lepiSerial.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (
+            <FormattedMessage
+                defaultMessage="Bluetooth Communication"
+                description="Description for the 'lepiBLE' extension"
+                id="gui.extension.lepiBLE.name"
+            />
+        ),
+        extensionId: 'lepiBLE',
+        collaborator: 'LEPI',
+        iconURL: bleIconURL,
+        insetIconURL: bleInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Use Bluetooth to comunicate."
+                description="Description for the 'lepiBLE' extension"
+                id="gui.extension.lepiBLE.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Shared Variable"
+            id="gui.extension.lepiVariable.name"
+        />),
+        extensionId: 'lepiVariable',
+        collaborator: 'LEPI',
+        iconURL: variableIconURL,
+        insetIconURL: variableInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Share variables across multiple works."
+                id="gui.extension.lepiVariable.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Text Recognition"
+            id="gui.extension.lepiTextRecognize.name"
+        />),
+        extensionId: 'lepiTextRecognize',
+        collaborator: 'LEPI',
+        iconURL: textRecognizeIconURL,
+        insetIconURL: textRecognizeInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Recognize text information."
+                id="gui.extension.lepiTextRecognize.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true,
+    },
+		{
+        name: (
+            <FormattedMessage
+                defaultMessage="Home Assistant"
+                description="Name for the 'Home Assistant' extension"
+                id="gui.extension.homeassistant.name"
+            />
+        ),
+        extensionId: 'homeassistant',
+        collaborator: 'LEPI',
+        iconURL: homeassistantIconURL,
+        insetIconURL: homeassistantInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Home Assistant"
+                description="Description for the 'Home Assistant' extension"
+                id="gui.extension.homeassistant.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+        featured: true
     },
 	{
         name: 'LEGO Duplo Train',
