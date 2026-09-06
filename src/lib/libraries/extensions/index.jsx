@@ -56,6 +56,9 @@ import gameutilsIcon from './gameutils/gameutils.svg'
 import kidsboardIconURL from './kidsboard/kidsboard.svg';
 import kidsboardInsetIconURL from './kidsboard/kidsboard-small.svg';
 
+import roboboImage from './robobo/robobo.png';
+import roboboInsetImage from './robobo/robobo-small.svg';
+
 // ESP32
 import esp32SerialIconURL from './zumiAI/zumiAI.png';
 import esp32SerialInsetIconURL from './zumiAI/zumiAI-small.svg';
@@ -195,6 +198,7 @@ import duploIconURL from './duplotrain/duplo-train-illustration.png';
 import duploforInsetIconURL from './duplotrain/duplo-train-small.svg';
 import poweredupIconURL from './poweredup/poweredup.png';
 import poweredupforInsetIconURL from './poweredup/poweredup-small.svg';
+import shareImage from "./share/share.svg";
 
 //166iwase-lgtm/taichan0123
 import meshImage from './mesh/mesh.png';
@@ -427,6 +431,22 @@ import xiaozhiInsetIconURL from './lepi-banbao-v1/small/小智机器人.png'
 import mcpIconURL from './lepi-banbao-v1/big/mcp工具.jpg'
 import mcpInsetIconURL from './lepi-banbao-v1/small/mcp工具.png'
 
+//For fun!
+import sailormoonThumb from './gaiamod/lolsailormoon.png'
+
+//builders
+import kittenbotThumb from './extension-builders/KittenBot.png';
+import turboBuilderIcon from './extension-builders/turbobuilder.png';
+import turboBuilderDevIcon from './extension-builders/turbobuilder-dev.png';
+import extForgeIcon from './extension-builders/extforge.svg';
+import penguinBuilderIcon from './extension-builders/penguinbuilder.png';
+import dinoBuilderIcon from './extension-builders/dinobuilder.png';
+import electraBuilderIcon from './extension-builders/ElectraBuilder.svg';
+import electraBuilderInsetIcon from './extension-builders/ElectraBuilder-small.png';
+import extCreateIcon from './extension-builders/ExtCreate.svg';
+import extCreateInsetIcon from './extension-builders/ExtCreate-small.svg';
+import gaiaExtEditorIcon from './extension-builders/GaiaExtEditor.svg';
+import gaiaExtEditorInsetIcon from './extension-builders/GaiaExtEditor-small.svg';
 
 // onegpio
 import onegpioArduinoImage from './onegpioArduino/onegpioArduino.png';
@@ -565,6 +585,7 @@ import customExtensionIcon from './custom/custom.svg';
 import customExtIcon from './custom/CustomEx.svg';
 import customExtInsetIcon from './custom/CustomSmall.svg';
 import customURLIcon from './custom/customURL.svg';
+import galleryIconRuby from './gallery/ruby.png';
 import galleryIconCCW from './gallery/cocreaworld.svg';
 import galleryIconNB from './gallery/nitrobolt.svg';
 import galleryIconDash from './gallery/dash.svg';
@@ -578,6 +599,8 @@ import galleryIconSN from './gallery/snailide.png';
 import galleryIconDM from './gallery/dinosaurmod.svg';
 import galleryIconGM from './gallery/gaiamod.png';
 import scratchmegarepoThumb from './gallery/megarepo.png';
+import ampmodgalleryThumb from './gaiamod/AmpMod.svg';
+import obgalleryIcon from './gaiamod/OmniBlocks.svg';
 
 
 import {APP_NAME} from '../../brand';
@@ -1341,7 +1364,7 @@ const menuItems = [
         tags: ['preload', 'new'],
         iconURL: require('../extensions/poseFace/pose-face.png'),
 		insetIconURL: require('../extensions/poseFace/pose-face-small.svg'),
-		collaborator: 'Curriulum',
+		collaborator: 'Raise Playground',
         description: 'Sense face movement with the camera with added emotion detection.',
         featured: true
     },
@@ -1351,7 +1374,7 @@ const menuItems = [
         tags: ['preload', 'new'],
         iconURL: require('../extensions/poseBody/pose-body.png'),
 		insetIconURL: require('../extensions/poseBody/pose-body-small.svg'),
-		collaborator: 'Curriulum',
+		collaborator: 'Raise Playground',
         description: 'Sense body position with the camera.',
         featured: true
     },
@@ -1361,7 +1384,7 @@ const menuItems = [
         tags: ['preload', 'new'],
         iconURL: require('../extensions/poseHand/pose-hand.png'),
 		insetIconURL: require('../extensions/poseHand/pose-hand-small-3.svg'),
-		collaborator: 'Curriulum',
+		collaborator: 'Raise Playground',
         description: 'Sense hand position with the camera.',
         featured: true
     },
@@ -1372,7 +1395,7 @@ const menuItems = [
         iconURL: require('../extensions/objectDetection/objectdetection.png'),
 		insetIconURL: require('../extensions/objectDetection/objectdetectionsmall.svg'),
         description: 'Detect and identify objects in the camera view.',
-		collaborator: 'Curriulum',
+		collaborator: 'Raise Playground',
         featured: true
     },
 	{
@@ -1638,6 +1661,29 @@ const menuItems = [
         internetConnectionRequired: true,
         incompatibleWithScratch: true
     },
+	{
+        name: (
+            <FormattedMessage
+                defaultMessage="Robobo"
+                description="Robobo 3.0 Extension"
+                id="gui.extension.robobo.name"
+            />
+        ),
+        extensionId: 'robobo',
+        iconURL: roboboImage,
+        insetIconURL: roboboInsetImage,
+		tags: ['preload', 'new'],
+		collaborator: 'MINT',
+        description: (
+            <FormattedMessage
+                defaultMessage="Robobo extension."
+                description="Description for the 'Music' extension"
+                id="gui.extension.robobo.description"
+            />
+        ),
+        featured: true,
+        internetConnectionRequired: true
+    },    
 	{
         name: (<FormattedMessage
             defaultMessage="HTTP Communication"
@@ -2754,6 +2800,7 @@ const menuItems = [
         name: 'Scratch Authentication',
         extensionId: 'jgScratchAuthenticate',
         iconURL: jgScratchAuthExtensionIcon,
+		collaborator: 'PenguinMod',
 		tags: ['pm', 'preload'],
         description: "Interact with Scratch Authentication to prove the player is a real scratch user.",
         featured: true
@@ -2785,6 +2832,140 @@ const menuItems = [
         collaborator: 'Fir & silvxrcat',
         featured: true
     },
+	//Builders
+	{
+        name: 'KittenBot Extension Maker',
+        href: 'https://kittenbot.github.io/scratch3-extension/',
+        extensionId: 'kittenBotExtensionMaker',
+        iconURL: kittenbotThumb,
+        description: 'Create extensions with KittenBot!',
+        tags: ['other', 'builders'],
+        featured: true
+    },
+	{
+        name: 'GaiaMod Extension Editor',
+        href: 'https://gaiamod-main.github.io/Extension-Editor/',
+        extensionId: 'GMExtEditor',
+        iconURL: gaiaExtEditorIcon,
+		insetIconURL: gaiaExtEditorInsetIcon,
+        description: 'Either create or edit extensions with a modfication of Astra Editor Extension Editor.',
+        tags: ['gaia', 'builders'],
+        featured: true
+    },
+    {
+        name: 'ExtForge',
+        href: 'https://jwklong.github.io/extforge',
+        extensionId: 'extforge',
+        iconURL: extForgeIcon,
+        description: 'Create extensions with a block-based UI.',
+        collaborator: 'jwklong',
+        tags: ['pm', 'builders'],
+        featured: true
+    },
+    {
+        name: 'TurboBuilder',
+        href: 'https://turbobuilder.vercel.app/',
+        extensionId: 'turboBuilder',
+        iconURL: turboBuilderIcon,
+        description: 'Create your own amazing extensions using a scratch-based UI!',
+        collaborator: 'Started by JeremyGamer13, continued by jwklong',
+        tags: ['tw', 'builders'],
+        featured: true
+    },
+    {
+        name: 'PenguinBuilder',
+        href: 'https://penguinbuilder.github.io/editor/',
+        extensionId: 'penguinBuilder',
+        iconURL: penguinBuilderIcon,
+        description: 'Create your own extensions using Blockly.',
+        collaborator: 'chickencuber',
+        tags: ['pm', 'builders'],
+        featured: true
+    },
+    {
+        name: 'ExtCreate',
+        href: 'https://extcreate.snail-ide.com/',
+        extensionId: 'extCreate',
+        iconURL: extCreateIcon,
+        insetIconURL: extCreateInsetIcon,
+        description: 'Snail IDE version of TurboBuilder. Disabled due to the link not working.',
+        collaborator: 'Started by JeremyGamer13, continued by jwklong, modified by nmsderp.',
+        tags: ['sn', 'builders', 'disabled'],
+        disabled: true,
+        featured: true
+    },
+    {
+        name: 'DinoBuilder',
+        href: 'https://dinobuilder.vercel.app',
+        extensionId: 'dinoBuilder',
+        iconURL: dinoBuilderIcon,
+        description: 'Create your own amazing extensions using a TurboBuilder Mod scratch-based UI!',
+        collaborator: 'Started by JeremyGamer13, continued by jwklong, modified by MrIncredibleMaker',
+        tags: ['dm', 'builders'],
+        featured: true
+    },
+    {
+        name: 'ElectraBuilder',
+        href: 'https://electrabuilder.vercel.app/',
+        extensionId: 'special_electraBuilder',
+        iconURL: electraBuilderIcon,
+        insetIconURL: electraBuilderInsetIcon,
+        collaborator: 'Started by JeremyGamer13, continued by jwklong, modified by Aness6040',
+        tags: ['em', 'builders'],
+        featured: true
+    },
+	//More Ext Galleries besides ones
+	{
+        name: 'Ruby Extension Gallery',
+        href: 'https://ruby-devs.vercel.app/gallery',
+        extensionId: 'rubyextension',
+        iconURL: galleryIconRuby,
+        description: 'View the Useful Ruby Team Extensions!',
+        collaborator: 'Ruby Team',
+        tags: ['other'],
+        featured: true
+    },
+	{
+        name: 'KyleKart\'s Extension Gallery',
+        href: 'https://kylekart.github.io/ScratchExtensions/',
+        extensionId: 'elmobearExtensionLibrary',
+        iconURL: defaultExtensionIcon,
+        description: 'Extensions made by KyleKart',
+		collaborator: 'KyleKart',
+        tags: ['other'],
+        featured: true
+    },
+	{
+        name: 'AppleleMod Extra Extensions',
+        href: 'https://dimixixixiixix.github.io/Applele-extensions-idk-',
+        extensionId: 'applelemodExtensionLibrary',
+        iconURL: defaultExtensionIcon,
+        description: 'See some AppleleMod External extensions. Opens in a new tab.',
+		collaborator: 'Dimix',
+        tags: ['other'],
+        featured: true
+    },
+	{
+        name: 'AmpMod Extra Extensions',
+        href: 'https://ampmod.codeberg.page/extensions/',
+        extensionId: 'ampmodExtensionLibrary',
+        iconURL: ampmodgalleryThumb,
+        description: 'See some AmpMod External extensions. Opens in a new tab.',
+        tags: ['other'],
+        featured: true
+    },
+	{
+        name: 'OmniBlocks Extra Extensions',
+        href: 'https://omniblocks.github.io/extensions/',
+        extensionId: 'omniblocksExtensionLibrary',
+        iconURL: obgalleryIcon,
+        description: 'See some OmniBlocks External extensions. Opens in a new tab.',
+        tags: ['other'],
+        featured: true
+    },
+	//Others!
+	
+	//Turbo
     {
         name: (
             <FormattedMessage
@@ -2800,7 +2981,7 @@ const menuItems = [
         iconURL: ptIcon,
         description: (
             <FormattedMessage
-                defaultMessage="Weird new blocks, with modifications by GaiaWindWave90."
+                defaultMessage="Weird new blocks, with more modifications by GaiaWindWave90."
                 description="Description of the strange 'TurboWarp  Blocks' extension"
                 id="tw.twExtension.description"
             />
@@ -3046,7 +3227,7 @@ export const galleryStatusItems = {
         loading: createGalleryStatusItem('other', 'Loading the Mega Repo extensions...'),
         more: createGalleryStatusItem('other', 'A mega gallery for most of the extensions'),
         error: createGalleryStatusItem('other', 'Error loading Mega Repo extensions.')
-    },
+    }
 };
 
 /*
@@ -3091,6 +3272,16 @@ const livetests = [
             description: 'Opens localhost:8601 in a new tab with this tab as the parent. For developers',
             featured: true
         },
+		 {
+        name: 'TurboBuilder - Dev Branch',
+        href: 'https://dev-turbobuilder.vercel.app/',
+        extensionId: 'turboBuilderDev',
+        iconURL: turboBuilderDevIcon,
+        description: 'Publicly available developer branch, with the latest features.',
+        collaborator: 'Started by JeremyGamer13, continued by jwklong',
+        tags: ['tw', 'builders', 'dev'],
+        featured: true
+    },
 ];
 livetests.forEach(ext => {
         menuItems.push(ext);

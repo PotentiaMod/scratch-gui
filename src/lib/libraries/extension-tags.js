@@ -7,7 +7,6 @@ export default [
         library.select('custom_extension');
     } },
     {type: 'divider'},
-	{type: 'title', intlLabel: 'Sources'},
     {tag: 'scratch', intlLabel: 'Scratch'},
     {tag: 'potentia', intlLabel: 'PotentiaMod'},
     {tag: 'tw', intlLabel: 'TurboWarp'},
@@ -30,7 +29,8 @@ export default [
     {tag: 'other', intlLabel: 'Other Mods'},
     {tag: 'preload', intlLabel: 'Built-In'},
 	{type: 'divider'},
-	{type: 'title', intlLabel: 'Status'},
+    {tag: 'builders', intlLabel: 'Extension Builders'},
+	{type: 'divider'},
     {tag: 'new', intlLabel: 'New!'},
 	{tag: 'disabled', intlLabel: 'Disabled'},
 ];

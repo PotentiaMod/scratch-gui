@@ -10,7 +10,7 @@ const manifest = {
   "tags": [
     "new"
   ],
-  "enabledByDefault": false,
+  "enabledByDefault": true,
   "settings": [
     {
       "dynamic": true,

@@ -162,6 +162,7 @@ const gallerySources = [
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/gm-extensions.json',
         tag: 'gaia'
     },
+	//Others always the end
 	{
         id: 'other',
         baseURL: 'https://potentiamod.github.io/extensions/extensions/other/',
@@ -169,7 +170,7 @@ const gallerySources = [
         baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/other/',
         metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/other-extensions.json',
         tag: 'other'
-    }
+    },
 ];
 
 const messages = defineMessages({

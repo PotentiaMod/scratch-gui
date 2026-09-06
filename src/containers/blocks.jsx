@@ -81,6 +81,11 @@ const messages = defineMessages({
         description: 'Button text to remove an extension from the current project.',
         id: 'tw.blocks.removeExtension'
     },
+	removeAllExtensions: {
+        defaultMessage: 'Remove All Extensions',
+        description: 'Button text to remove all extensions from the current project.',
+        id: 'tw.blocks.removeAllExtensions'
+    },
     removeUnusedExtensions: {
         defaultMessage: 'Remove Unused Extensions',
         description: 'Button text to remove all extensions that are not currently used in the project.',
@@ -110,6 +115,11 @@ class Blocks extends React.Component {
                 text: this.props.intl.formatMessage(messages.removeExtension),
                 enabled: true,
                 callback: ext => this.props.vm.extensionManager.removeExtension(ext)
+            },
+			{
+                text: this.props.intl.formatMessage(messages.removeAllExtensions),
+                enabled: true,
+                callback: ext => this.props.vm.extensionManager.removeAllExtensions(ext)
             }
         ], false);
 		

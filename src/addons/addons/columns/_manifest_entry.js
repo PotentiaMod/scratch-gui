@@ -13,7 +13,7 @@ const manifest = {
   "tags": [
     "theme"
   ],
-  "dynamicDisable": true,
+  "dynamicDisable": false,
   "userscripts": [
     {
       "url": "userscript.js"
