@@ -16,7 +16,7 @@
 	"render-fonts": "rm -rf ../penguinmod-render-fonts/* && cp -r ./src/lib/tw-scratch-render-fonts/* ../penguinmod-render-fonts",
     "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
     "deploy": "touch build/.nojekyll && gh-pages -t -d build -m \"[skip ci] Build for $(git log --pretty=format:%H -n1)\"",
-	"link": "npm link ../scratch-vm ../scratch-blocks ../scratch-paint",
+	"link": "cd ../scratch-vm && npm cache clean --force && git submodule init && git submodule update && npm link && cd ../scratch-paint && npm cache clean --force && git submodule init && git submodule update && npm link && cd ../scratch-blocks && npm cache clean --force && git submodule init && git submodule update && npm link && cd ../scratch-gui && npm cache clean --force && git submodule init && git submodule update && npm link scratch-vm scratch-paint scratch-blocks",
     "prepublish": "node scripts/prepublish.mjs",
     "prune": "./prune-gh-pages.sh",
 	"reinstall": "rm -rf node_modules npm-lock.yaml && npm install --legacy-peer-deps && npm run link",
@@ -162,7 +162,7 @@
       "src/test.js"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
+      "\\.(jpg|jpeg|png|webp|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/test/__mocks__/styleMock.js",
       "editor-msgs(\\.js)?$": "<rootDir>/test/__mocks__/editor-msgs-mock.js"
     }

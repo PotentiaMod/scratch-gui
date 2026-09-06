@@ -2937,7 +2937,7 @@ const menuItems = [
     },
 	{
         name: 'AppleleMod Extra Extensions',
-        href: 'https://dimixixixiixix.github.io/Applele-extensions-idk-',
+        href: 'https://dimixixixiixix.github.io/Applele-extensions-idk-/',
         extensionId: 'applelemodExtensionLibrary',
         iconURL: defaultExtensionIcon,
         description: 'See some AppleleMod External extensions. Opens in a new tab.',
