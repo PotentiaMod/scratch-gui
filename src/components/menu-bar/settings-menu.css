@@ -3,7 +3,9 @@
 @import "../../css/filters.css";
 
 .icon {
-    width: 1.5rem;
+  filter: $icon-style;
+  width: 1.5rem;
+  -webkit-filter: $icon-style;
 }
 
 .theme-label {
@@ -16,8 +18,9 @@
 }
 
 .check {
-    margin: 0 .25rem 0 0;
-    visibility: hidden;
+  filter: $icon-style;
+  margin: 0 0.25rem 0 0;
+  visibility: hidden;
 }
 
 [dir="rtl"] .check {
@@ -99,7 +102,8 @@
 }
 
 .open-link {
-    margin-left: 0.5rem;
+  filter: $icon-style;
+  margin-left: 0.5rem;
 }
 
 /* Wallpaper menu styles */
@@ -475,6 +479,22 @@
     flex-direction: column;
     text-align: center;
     font-size: 0.75rem;
+}
+
+.reset-button {
+    padding: 0.25rem 0.5rem;
+    background-color: $motion-primary;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.reset-button:hover {
+    opacity: 0.8;
 }
 
 .accentLabel {
@@ -1125,4 +1145,543 @@
     border-radius: 50%;
     cursor: pointer;
     border: none;
+}
+
+.directionValue {
+    font-size: 14px;
+    font-weight: 600;
+    color: $text-primary;
+    text-align: center;
+}
+
+.directionPresets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.dirPresetBtn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $ui-white;
+    border: 1px solid $ui-black-transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: $text-primary-transparent;
+    transition: all 0.15s ease;
+}
+
+.dirPresetBtn:hover {
+    border-color: $looks-secondary;
+    background: rgba($looks-secondary, 0.05);
+    color: $looks-secondary;
+}
+
+.dirPresetBtnActive {
+    background: $looks-secondary;
+    color: white;
+    border-color: $looks-secondary;
+}
+
+/* Primary Color Section */
+.primaryColorSection {
+    margin-bottom: 16px;
+}
+
+.primaryColorSection label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: $text-primary-transparent;
+    margin-bottom: 10px;
+}
+
+.primaryColorPicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: $ui-secondary;
+    border: 1px solid $ui-black-transparent;
+    border-radius: 8px;
+}
+
+.primaryColorInput {
+    width: 42px;
+    height: 42px;
+    border: 2px solid $ui-black-transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    transition: border-color 0.15s ease;
+}
+
+.primaryColorInput:hover {
+    border-color: $looks-secondary;
+}
+
+.primaryColorInput::-webkit-color-swatch-wrapper {
+    padding: 3px;
+}
+
+.primaryColorInput::-webkit-color-swatch {
+    border: none;
+    border-radius: 7px;
+}
+
+.primaryColorValue {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.colorPreview {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.colorHex {
+    font-family: 'SF Mono', 'Monaco', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: $text-primary;
+    text-transform: uppercase;
+}
+
+.colorHexInput {
+    font-family: 'SF Mono', 'Monaco', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: $text-primary;
+    text-transform: uppercase;
+    border: 1px solid $ui-black-transparent;
+    border-radius: 6px;
+    padding: 4px 8px;
+    background: $ui-primary;
+    width: 90px;
+    outline: none;
+    transition: border-color 0.15s ease;
+    box-sizing: border-box;
+}
+
+.colorHexInput:focus {
+    border-color: $looks-secondary;
+}
+
+/* Footer */
+.gradientCreatorFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px;
+    border-top: 1px solid $ui-black-transparent;
+    flex-shrink: 0;
+    margin-top: auto;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: $ui-white;
+}
+
+.footerBtn {
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    background: $ui-white;
+    border: 1px solid $ui-black-transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    color: $text-primary;
+    transition: all 0.15s ease;
+}
+
+.footerBtn:hover {
+    background: $ui-secondary;
+    border-color: $ui-black-transparent;
+}
+
+.footerBtnActive {
+    background: $looks-secondary;
+    color: white;
+    border-color: $looks-secondary;
+}
+
+.footerBtnActive:hover {
+    background: darken($looks-secondary, 5%);
+}
+
+.footerBtnPrimary {
+    background: $looks-secondary;
+    color: white;
+    border-color: $looks-secondary;
+}
+
+.footerBtnPrimary:hover {
+    background: lighten($looks-secondary, 8%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($looks-secondary, 0.3);
+}
+
+.footerBtnPrimary:active {
+    transform: translateY(0);
+}
+
+.footerBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.footerBtnActive:disabled {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.menuIcon {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.checkText {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Pixel Editor styles */
+.pixelEditorContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pixelEditorMain {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    margin-bottom: 80px;
+}
+
+.pixelEditorLeft {
+    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    padding-right: 0;
+}
+
+.pixelEditorRight {
+    flex: 1;
+    min-width: 0;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    padding-left: 0;
+}
+
+.pixelCanvasContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    overflow: auto;
+    padding: 0;
+}
+
+.pixelCanvas {
+    display: grid;
+    gap: 0;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.pixel {
+    cursor: crosshair;
+    transition: transform 0.1s ease;
+    border: none;
+    outline: none;
+}
+
+.pixel:hover {
+    transform: scale(1.05);
+}
+
+.colorSection {
+    margin-bottom: 16px;
+}
+
+.colorSection label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: $text-primary-transparent;
+    margin-bottom: 10px;
+}
+
+.colorControls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: $ui-secondary;
+    border: 1px solid $ui-black-transparent;
+    border-radius: 8px;
+}
+
+.pixelControls {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+/* Language Package styles */
+.languagePackageRow {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    border-bottom: 1px solid $ui-black-transparent;
+    margin-bottom: 0.25rem;
+}
+
+.languagePackageRow .menu-item {
+    flex: 1;
+    min-width: 0;
+}
+
+.uploadButton,
+.testButton,
+.helpButton {
+    font-size: 0.875rem;
+    padding: 0.375rem 0.5rem;
+}
+
+.uploadButton:hover,
+.testButton:hover,
+.helpButton:hover {
+    background-color: $ui-black-transparent;
+}
+
+/* Help Modal styles */
+.helpModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.helpModal {
+    background: $ui-white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: calc(100vh - 2rem);
+    max-height: calc(100dvh - 2rem);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.helpModalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid $ui-black-transparent;
+    background: $ui-secondary;
+}
+
+.helpModalTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $text-primary;
+}
+
+.helpModalClose {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    color: $text-primary;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.helpModalClose:hover {
+    background-color: $ui-black-transparent;
+}
+
+.helpModalContent {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem;
+}
+
+.helpSection {
+    margin-bottom: 1.5rem;
+}
+
+.helpSection:last-child {
+    margin-bottom: 0;
+}
+
+.helpSection h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-primary;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.helpSection p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: $text-primary;
+    line-height: 1.6;
+}
+
+.jsonExample {
+    background: $input-background;
+    border: 1px solid $ui-black-transparent;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    font-size: 0.8125rem;
+    color: $text-primary;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+.helpList {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.helpList li {
+    font-size: 0.875rem;
+    color: $text-primary;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.helpList li:last-child {
+    margin-bottom: 0;
+}
+
+.helpModalFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid $ui-black-transparent;
+    background: $ui-secondary;
+}
+
+.downloadSection {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.downloadLabel {
+    font-size: 0.875rem;
+    color: $text-primary;
+    font-weight: 500;
+}
+
+.downloadButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: $looks-secondary;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.downloadButton:hover {
+    background-color: $looks-secondary-dark;
+}
+
+.closeButton {
+    padding: 0.5rem 1rem;
+    background: none;
+    border: 1px solid $ui-black-transparent;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    color: $text-primary;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+    background-color: $ui-black-transparent;
+}
+
+.SettingIcon {
+  filter: $icon-style;
+  width: 20px;
+  height: auto;
+}
+
+.dropdownCaret {
+  filter: $icon-style;
 }

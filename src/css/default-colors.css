@@ -22,6 +22,8 @@ $text-primary-transparent-default: var(--ui-text-primary-transparent-default);
 $motion-primary-default: var(--motion-primary-default);
 $motion-tertiary-default: var(--motion-tertiary-default);
 
+$icon-style-default: var(--icon-style-default);
+
 $looks-secondary-default: var(--looks-secondary-default);
 $looks-secondary-light-default: var(--looks-secondary-light-default);
 $looks-secondary-lighter-default: var(--looks-secondary-lighter-default);

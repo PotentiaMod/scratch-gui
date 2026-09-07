@@ -7,7 +7,7 @@ const guiColors = {
 
     'ui-modal-overlay': '#111111aa',
     'ui-modal-background': '#030303',
-    'ui-modal-foreground': '#e0e0e0',
+    'ui-modal-foreground': 'white',
     'ui-modal-header-background': 'var(--looks-secondary-darker)',
     'ui-modal-header-foreground': '#ffffff',
 

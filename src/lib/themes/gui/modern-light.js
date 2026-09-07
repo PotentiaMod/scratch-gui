@@ -7,9 +7,9 @@ const guiColors = {
 
     'ui-modal-overlay': 'var(--motion-primary-transparent)',
     'ui-modal-background': 'white', /* #FFFFFF */
-    'ui-modal-foreground': 'var(--looks-secondary-dark)', /* #575E75 */
+    'ui-modal-foreground': 'black', /* #575E75 */
     'ui-modal-header-background': 'var(--looks-secondary-lighter)',
-    'ui-modal-header-foreground': 'hsla(0, 100%, 100%, 1)', /* #FFFFFF */
+    'ui-modal-header-foreground': 'black',
 
     'ui-white': 'hsla(0, 100%, 100%, 1)', /* #FFFFFF */
     'ui-white-dim': 'hsla(0, 100%, 100%, 0.75)', /* 25% transparent version of ui-white */
@@ -58,8 +58,8 @@ const guiColors = {
     'menu-bar-background': 'var(--looks-secondary-light)',
 	'menu-bar-foreground': 'black',
     'menu-bar-background-image': 'none',
-    'menu-bar-foreground': '#ffffff',
-	'menu-bar-icon-filter': 'none',
+    'menu-bar-foreground': 'black',
+	'menu-bar-icon-filter': 'invert(100%)',
 	
 	'progress-bar-outer': 'var(--looks-secondary-lighter)',
 

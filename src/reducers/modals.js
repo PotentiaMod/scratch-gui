@@ -24,6 +24,10 @@ const MODAL_CUSTOM_FONTS = 'customFontsModal';
 const SWAP_ID = 'extensionSwapId';
 const MODAL_EXTENSION_MANAGER = 'extensionManagerModal';
 const MODAL_CUSTOM_ACCENT = 'customAccentModal';
+const MODAL_CUSTOM_THEME = 'customtheme';
+const MODAL_README = 'readme';
+const MODAL_PREVIEW_EXT = 'previewExt';
+const MODAL_AE_FEATURES = 'aeFeaturesModal';
 const MODAL_RESTORE_POINTS = 'restorePointModal';
 const MODAL_FONTS = 'fontsModal';
 const MODAL_UNKNOWN_PLATFORM = 'unknownPlatformModal';
@@ -51,6 +55,10 @@ const initialState = {
 	[SWAP_ID]: null,
     [MODAL_EXTENSION_MANAGER]: false,
     [MODAL_CUSTOM_ACCENT]: false,
+    [MODAL_CUSTOM_THEME]: false,
+	[MODAL_README]: false,
+    [MODAL_PREVIEW_EXT]: false,
+    [MODAL_AE_FEATURES]: false,
     [MODAL_RESTORE_POINTS]: false,
     [MODAL_FONTS]: false,
     [MODAL_UNKNOWN_PLATFORM]: false,
@@ -137,6 +145,18 @@ const openSettingsModal = function () {
 const openCustomExtensionModal = function () {
     return openModal(MODAL_CUSTOM_EXTENSION);
 };
+const openCustomTheme = function () {
+  return openModal(MODAL_CUSTOM_THEME);
+};
+const openPreviewExt = function () {
+  return openModal(MODAL_PREVIEW_EXT);
+};
+const openReadme = function () {
+  return openModal(MODAL_README);
+};
+const openAeFeaturesModal = function () {
+  return openModal(MODAL_AE_FEATURES);
+};
 const openCCWExtensionModal = function () {
     return openModal(MODAL_CCW_EXTENSION);
 };
@@ -221,6 +241,18 @@ const closeSettingsModal = function () {
 const closeCustomExtensionModal = function () {
     return closeModal(MODAL_CUSTOM_EXTENSION);
 };
+const closeCustomTheme = function () {
+  return closeModal(MODAL_CUSTOM_THEME);
+};
+const closeReadme = function () {
+  return closeModal(MODAL_README);
+};
+const closePreviewExt = function () {
+  return closeModal(MODAL_PREVIEW_EXT);
+};
+const closeAeFeaturesModal = function () {
+  return closeModal(MODAL_AE_FEATURES);
+};
 const closeCCWExtensionModal = function () {
     return closeModal(MODAL_CCW_EXTENSION);
 };
@@ -270,6 +302,10 @@ export {
     openUsernameModal,
     openSettingsModal,
     openCustomExtensionModal,
+    openCustomTheme,
+    openReadme,
+    openPreviewExt,
+    openAeFeaturesModal,
 	openCCWExtensionModal,
     openExtensionImportMethodModal,
     openExtensionManagerModal,
@@ -296,6 +332,10 @@ export {
     closeUsernameModal,
     closeSettingsModal,
     closeCustomExtensionModal,
+    closeCustomTheme,
+    closeReadme,
+    closeAeFeaturesModal,
+    closePreviewExt,
 	closeCCWExtensionModal,
     closeExtensionImportMethodModal,
     closeCustomGalleryModal,

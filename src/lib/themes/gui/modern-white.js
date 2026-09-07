@@ -75,6 +75,8 @@ const guiColors = {
     "icon-style": "brightness(0.2)",
     "menu-bar-feedback": "#606060",
     "menu-bar-foreground": "#7d7d7d",
+	
+	'menu-bar-icon-filter': 'invert(60%)',
 
     "assets-background": "#ffffff",
 

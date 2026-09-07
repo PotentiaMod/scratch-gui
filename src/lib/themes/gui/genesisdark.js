@@ -15,7 +15,7 @@ const guiColors = {
     'ui-modal-background': 'black',
     'ui-modal-foreground': 'white',
     'ui-modal-header-background': 'black',
-    'ui-modal-header-foreground': 'var(--looks-secondary)',
+    'ui-modal-header-foreground': 'white',
 
     'ui-white': '#000000',
 
@@ -38,7 +38,7 @@ const guiColors = {
     'fullscreen-accent': 'var(--looks-secondary)',
 
     'page-background': 'black',
-    'page-foreground': 'var(--looks-secondary)',
+    'page-foreground': 'white',
 
     'project-title-inactive': 'var(--ui-secondary)',
     'project-title-hover': '#ffffff3f',

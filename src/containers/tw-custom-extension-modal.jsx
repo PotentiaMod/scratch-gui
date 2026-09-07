@@ -6,6 +6,7 @@ import log from '../lib/log';
 import CustomExtensionModalComponent from '../components/tw-custom-extension-modal/custom-extension-modal.jsx';
 import {closeCustomExtensionModal} from '../reducers/modals';
 import {manuallyTrustExtension, isTrustedExtension} from './tw-security-manager.jsx';
+import { setPreviewExtData } from '../reducers/ae-preview-ext-data';
 import {getPersistedUnsandboxed, setPersistedUnsandboxed} from '../lib/tw-persisted-unsandboxed.js';
 
 /**

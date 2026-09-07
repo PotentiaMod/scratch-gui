@@ -15,7 +15,7 @@ const guiColors = {
     'ui-modal-background': 'white', /* #FFFFFF */
     'ui-modal-foreground': 'black', /* #575E75 */
     'ui-modal-header-background': 'white',
-    'ui-modal-header-foreground': 'var(--looks-secondary-dark)', /* #FFFFFF */
+    'ui-modal-header-foreground': 'black',
 
     'ui-white': 'hsla(0, 100%, 100%, 1)', /* #FFFFFF */
     'ui-white-dim': 'hsla(0, 100%, 100%, 0.55)', /* 25% transparent version of ui-white */
@@ -62,8 +62,10 @@ const guiColors = {
     'drop-highlight': 'white', /* lighter than motion-primary */
 
     'menu-bar-background': '#D9D9D9',
-    'menu-bar-background-image': 'var(--looks-secondary)',
+    'menu-bar-background-image': 'none',
     'menu-bar-foreground': '#000000',
+	
+	'menu-bar-icon-filter': 'invert(100%)',
 
     'assets-background': '#ffffff',
 
