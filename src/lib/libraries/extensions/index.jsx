@@ -2848,6 +2848,7 @@ const menuItems = [
         extensionId: 'GMExtEditor',
         iconURL: gaiaExtEditorIcon,
 		insetIconURL: gaiaExtEditorInsetIcon,
+		customInsetColor: '#3D52FF',
         description: 'Either create or edit extensions with a modfication of Astra Editor Extension Editor.',
         tags: ['gaia', 'builders'],
         featured: true
@@ -2888,6 +2889,7 @@ const menuItems = [
         extensionId: 'extCreate',
         iconURL: extCreateIcon,
         insetIconURL: extCreateInsetIcon,
+		customInsetColor: '#ffffff',
         description: 'Snail IDE version of TurboBuilder. Disabled due to the link not working.',
         collaborator: 'Started by JeremyGamer13, continued by jwklong, modified by nmsderp.',
         tags: ['sn', 'builders', 'disabled'],

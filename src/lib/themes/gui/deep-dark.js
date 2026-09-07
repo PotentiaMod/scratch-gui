@@ -77,7 +77,7 @@ const blockColors = {
     buttonActiveBackground: '#222222',
     buttonForeground: '#cccccc',
     zoomIconFilter: 'invert(100%)',
-    gridColor: '#484848'
+    gridColor: 'transparent'
 };
 
 export {

@@ -10,6 +10,16 @@ import SettingsStore from '../../editor-settings/settings-store-singleton';
 
 import bluetoothIconURL from './bluetooth.svg';
 import internetConnectionIconURL from './internet-connection.svg';
+import shipGuyIconURL from './shipguy.svg';
+import nfcIconURL from './nfc.svg';
+import packagedIconURL from './packaged.svg';
+import usbConnectionIconURL from './usb-connection.svg';
+
+import favoritedFilledUrl from './favorite/filled.svg';
+import favoritedOutlineUrl from './favorite/outline.svg';
+import deleteFilledUrl from './delete/filled.svg';
+import downloadFilled from './download/filled.svg';
+
 import favoriteInactiveIcon from './favorite-inactive.svg';
 import favoriteActiveIcon from './favorite-active.svg';
 
@@ -55,7 +65,9 @@ class LibraryItemComponent extends React.PureComponent {
                     styles.libraryItem,
                     styles.featuredItem,
                     {
-                        [styles.disabled]: this.props.disabled
+                        [styles.disabled]: this.props.disabled,
+                        [styles.comingsoon]: this.props.comingsoon,
+                        [styles.new]: this.props.isNew,
                     },
                     typeof this.props.extensionId === 'string' ? styles.libraryItemExtension : null,
                     this.props.hidden ? styles.hidden : null
@@ -64,11 +76,29 @@ class LibraryItemComponent extends React.PureComponent {
             >
                 <div className={styles.featuredImageContainer}>
                     {this.props.disabled ? (
+                        <div className={styles.disabledText}>
+                            <FormattedMessage
+                                defaultMessage="Disabled"
+                                description="Label for extensions that are disabled"
+                                id="gui.extensionLibrary.disabled"
+                            />
+                        </div>
+                    ) : null}
+					{this.props.comingsoon ? (
                         <div className={styles.comingSoonText}>
                             <FormattedMessage
                                 defaultMessage="Coming Soon"
                                 description="Label for extensions that are not yet implemented"
                                 id="gui.extensionLibrary.comingSoon"
+                            />
+                        </div>
+                    ) : null}
+					{this.props.isNew ? (
+                        <div className={styles.newText}>
+                            <FormattedMessage
+                                defaultMessage="New!"
+                                description="Label for extensions that new"
+                                id="gui.extensionLibrary.new"
                             />
                         </div>
                     ) : null}
@@ -79,12 +109,29 @@ class LibraryItemComponent extends React.PureComponent {
                         src={this.props.iconURL}
                     />
                 </div>
-                {this.props.insetIconURL ? (
-                    <div className={styles.libraryItemInsetImageContainer}>
+                {this.props.insetIconURL && !this.props.customInsetColor ? (
+                    <div className={
+                        this.props.twDeveloper ?
+                            classNames(styles.libraryItemInsetImageContainer, styles.twLibraryItemInsetImageContainer)
+                            : styles.libraryItemInsetImageContainer
+                    }
+                    >
                         <img
                             className={styles.libraryItemInsetImage}
                             src={this.props.insetIconURL}
                             draggable={false}
+                        />
+                    </div>
+                ) : null}
+				{this.props.insetIconURL && this.props.customInsetColor ? (
+                    <div className={
+                        styles.libraryItemInsetImageContainerNoBg
+                    }
+                        style={{ backgroundColor: this.props.customInsetColor }}
+                    >
+                        <img
+                            className={styles.libraryItemInsetImage}
+                            src={this.props.insetIconURL}
                         />
                     </div>
                 ) : null}
@@ -136,10 +183,18 @@ class LibraryItemComponent extends React.PureComponent {
                     </div>
                 )}
 
-                {this.props.bluetoothRequired || this.props.internetConnectionRequired || this.props.collaborator || (this.props.credits && this.props.credits.length > 0) ? (
+                {this.props.bluetoothRequired ||
+                 this.props.internetConnectionRequired ||
+                 this.props.gaiaModRequired ||
+                 this.props.nfcRequired ||
+                 this.props.packageRequired ||
+                 this.props.usbConnectionRequired ||
+                 this.props.collaborator ||
+                 this.props.extraLabels ||
+				(this.props.credits && this.props.credits.length > 0) ? (
                     <div className={styles.featuredExtensionMetadata}>
                         <div className={styles.featuredExtensionRequirement}>
-                            {this.props.bluetoothRequired || this.props.internetConnectionRequired ? (
+                            {this.props.bluetoothRequired || this.props.internetConnectionRequired || this.props.gaiaModRequired || this.props.nfcRequired || this.props.packageRequired || this.props.usbConnectionRequired ? (
                                 <div>
                                     <div>
                                         <FormattedMessage
@@ -157,12 +212,42 @@ class LibraryItemComponent extends React.PureComponent {
                                                 draggable={false}
                                             />
                                         ) : null}
+										
                                         {this.props.internetConnectionRequired ? (
                                             <img
                                                 src={internetConnectionIconURL}
                                                 draggable={false}
                                             />
                                         ) : null}
+										
+										{this.props.gaiaModRequired ? (
+                                            <img
+                                                src={shipGuyIconURL}
+                                                draggable={false}
+                                            />
+                                        ) : null}
+										
+										{this.props.nfcRequired ? (
+                                            <img
+                                                src={nfcIconURL}
+                                                draggable={false}
+                                            />
+                                        ) : null}
+										
+										{this.props.usbConnectionRequired ? (
+                                            <img
+                                                src={usbConnectionIconURL}
+                                                draggable={false}
+                                            />
+                                        ) : null}
+										
+										{this.props.packageRequired ? (
+                                            <img
+                                                src={packagedIconURLs}
+                                                draggable={false}
+                                            />
+                                        ) : null}
+
                                     </div>
                                 </div>
                             ) : null}
@@ -178,6 +263,18 @@ class LibraryItemComponent extends React.PureComponent {
                                     </div>
                                 </div>
                             ) : null}
+														
+							{this.props.extraLabels ? (
+                                <div>
+                                    Credits:
+                                    <div
+                                        className={styles.featuredExtensionMetadataDetail}
+                                    >
+                                        {this.props.extraLabels}
+                                    </div>
+                                </div>
+                            ) : null}
+							
                             {this.props.credits && this.props.credits.length > 0 && (
                                 <div>
                                     <div>
@@ -264,6 +361,7 @@ LibraryItemComponent.propTypes = {
         PropTypes.node
     ]),
     disabled: PropTypes.bool,
+    comingSoon: PropTypes.bool,
     extensionId: PropTypes.string,
     featured: PropTypes.bool,
     hidden: PropTypes.bool,
@@ -279,6 +377,30 @@ LibraryItemComponent.propTypes = {
         PropTypes.string,
         PropTypes.node
     ])),
+	twDeveloper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    extDeveloper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    eventSubmittor: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    extraLabels: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.node
+            ]),
+            value: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.node
+            ]),
+        })
+    ),
     docsURI: PropTypes.string,
     samples: PropTypes.arrayOf(PropTypes.shape({
         href: PropTypes.string,
@@ -294,7 +416,18 @@ LibraryItemComponent.propTypes = {
     onMouseLeave: PropTypes.func.isRequired,
     onPlay: PropTypes.func.isRequired,
     onStop: PropTypes.func.isRequired,
-    showPlayButton: PropTypes.bool
+    showPlayButton: PropTypes.bool,
+	overlayURL: PropTypes.string,
+	isNew: PropTypes.bool,
+	overlayURL: PropTypes.string,
+	 _unsandboxed: PropTypes.bool,
+	gaiaModRequired: PropTypes.bool,
+    nfcRequired: PropTypes.bool,
+    packageRequired: PropTypes.bool,
+    usbConnectionRequired: PropTypes.bool,
+	customInsetColor: PropTypes.string,
+	deletable: PropTypes.bool,
+    custom: PropTypes.bool,
 };
 
 LibraryItemComponent.defaultProps = {

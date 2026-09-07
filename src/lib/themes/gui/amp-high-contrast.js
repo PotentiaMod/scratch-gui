@@ -79,7 +79,7 @@ const blockColors = {
     // Scrollbar & Zoom Icons (Solid foreground/backgrounds)
     scrollbar: '#FFFFFF',
     zoomIconFilter: 'none',
-    gridColor: '#FFFFFF',
+    gridColor: 'transparent',
 
     // Value Reports (Solid backgrounds)
     valueReportBackground: '#000000',

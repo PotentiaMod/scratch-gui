@@ -212,7 +212,21 @@ const messages = defineMessages({
         defaultMessage: 'Enter custom extension gallery URL:',
         description: 'Prompt for entering custom extension gallery URL',
         id: 'tw.customExtensionGallery.prompt'
+    },
+	    extensionWarning: {
+        // eslint-disable-next-line max-len
+        defaultMessage: 'This extension is not recommended for real projects. It may be unstable and cause problems with your project later on. Are you sure you want to enable it?',
+        description: 'Confirm loading buggy and unstable extension',
+        id: 'pm.confirmBuggyUnstableExtension'
+    },
+    bugWarning: {
+        // eslint-disable-next-line max-len
+        // Copypasted from GvbvdxxMod2
+        defaultMessage: 'This extension is not trusted, and it has some glitches and bugs, adding this in might make GaiaMod collapse, or some blocks may not work correctly, BACK UP YOUR PROJECT FIRST BEFORE USING THESE. Do you want to add the extension now?',
+        description: 'Confirm loading buggy and unstable extension',
+        id: 'pm.confirmBuggyExtension'
     }
+
 });
 
 const toLibraryItem = extension => {
@@ -358,6 +372,15 @@ class ExtensionLibrary extends React.PureComponent {
     }
 	
     handleItemSelect (item) {
+		
+		if (item.isBuggy && !confirm(this.props.intl.formatMessage(messages.bugWarning))) {
+            return;
+        }
+        // eslint-disable-next-line no-alert
+        if (item.extensionWarningOnImport && !confirm(this.props.intl.formatMessage(messages.extensionWarning))) {
+            return;
+        }
+		
         if (item.href) {
             return;
         }
@@ -365,8 +388,8 @@ class ExtensionLibrary extends React.PureComponent {
 	   
         const extensionId = item.extensionId;
 		
-
-        if (extensionId === 'custom_extension') {
+		
+        if (extensionId === 'custom_extension'){
             this.props.onOpenCustomExtensionModal();
             return;
         }
@@ -385,7 +408,7 @@ class ExtensionLibrary extends React.PureComponent {
 		
 
         const url = item.extensionURL ? item.extensionURL : extensionId;
-        if (!item.disabled) {
+        if (!item.disabled || !item.comingSoon) {
 			//Disabled this below because how stupid GaiaMod fans are thinking of trusting extensions.
 			//if (item.extensionURL) manuallyTrustExtension(url);
             if (this.props.vm.extensionManager.isExtensionLoaded(extensionId)) {

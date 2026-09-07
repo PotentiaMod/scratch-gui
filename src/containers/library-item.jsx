@@ -172,6 +172,24 @@ class LibraryItem extends React.PureComponent {
                 onMouseLeave={this.handleMouseLeave}
                 onPlay={this.handlePlay}
                 onStop={this.handleStop}
+				extensionWarningOnImport={this.props.extensionWarningOnImport} //PM
+                comingSoon={this.props.comingSoon} //PM
+                isBuggy={this.props.isBuggy} //PM
+                extraLabels={this.props.extraLabels} //PM
+				isNew={this.props.isNew} //PM
+				customInsetColor={this.props.customInsetColor} //PM
+				gaiaModRequired={this.props.gaiaModRequired} //PM
+                nfcRequired={this.props.nfcRequired} //PM
+                packageRequired={this.props.packageRequired} //PM
+                usbConnectionRequired={this.props.usbConnectionRequired} //PM
+                iconRawURL={this.props.iconRawURL} //PM
+                overlayURL={this.props.overlayURL} //PM
+				twDeveloper={this.props.twDeveloper} //PM
+				extDeveloper={this.props.extDeveloper} //PM
+                eventSubmittor={this.props.eventSubmittor} //PM
+				deletable={this.props.deletable} //PM
+                custom={this.props.custom} //PM
+				_unsandboxed={this.props._unsandboxed} //PM
             />
         );
     }
@@ -180,12 +198,17 @@ class LibraryItem extends React.PureComponent {
 LibraryItem.propTypes = {
     intl: intlShape,
     bluetoothRequired: PropTypes.bool,
+	gaiaModRequired: PropTypes.bool,
+	nfcRequired: PropTypes.bool,
+	packageRequired: PropTypes.bool,
+	usbConnectionRequired: PropTypes.bool,
     collaborator: PropTypes.string,
     description: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.node
     ]),
     disabled: PropTypes.bool,
+    comingsoon: PropTypes.bool,
     extensionId: PropTypes.string,
     href: PropTypes.string,
     featured: PropTypes.bool,
@@ -201,9 +224,20 @@ LibraryItem.propTypes = {
     id: PropTypes.number.isRequired,
     incompatibleWithScratch: PropTypes.bool,
     insetIconURL: PropTypes.string,
+    overlayURL: PropTypes.string,
     internetConnectionRequired: PropTypes.bool,
     isPlaying: PropTypes.bool,
+	extensionWarningOnImport: PropTypes.bool,
+    isBuggy: PropTypes.bool,
     name: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+	twDeveloper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    extDeveloper: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.node
     ]),
@@ -211,12 +245,31 @@ LibraryItem.propTypes = {
         PropTypes.string,
         PropTypes.node
     ])),
+	eventSubmittor: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    extraLabels: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.node
+            ]),
+            value: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.node
+            ]),
+        })
+    ),
     docsURI: PropTypes.string,
     samples: PropTypes.arrayOf(PropTypes.shape({
         href: PropTypes.string,
         text: PropTypes.string
     })),
     favorite: PropTypes.bool,
+	deletable: PropTypes.bool,
+    custom: PropTypes.bool,
+	_unsandboxed: PropTypes.bool,
     onFavorite: PropTypes.func,
     onMouseEnter: PropTypes.func.isRequired,
     onMouseLeave: PropTypes.func.isRequired,

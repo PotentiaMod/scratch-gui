@@ -112,7 +112,9 @@ const guiColors = {
     "paint-filter-icon-gray": "none",
 };
 
-const blockColors = {};
+const blockColors = {
+	gridColor: 'transparent'
+	};
 
 export {
     name,
