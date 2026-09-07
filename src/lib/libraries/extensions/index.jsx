@@ -957,6 +957,7 @@ const menuItems = [
         name: 'Cozmo',
         extensionId: 'cozmo',
         tags: ['cognimates', 'preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/cognimates/cozmo-ext.png'),
 		insetIconURL: require('../extensions/cognimates/cozmo-small.jpg'),
 		collaborator: 'Anki',
@@ -967,6 +968,7 @@ const menuItems = [
         name: 'Tinkibot',
         extensionId: 'tinkibot',
 		tags: ['preload', 'new'],
+		isNew: true,
         iconURL: tinkibotIconURL,
         insetIconURL: tinkibotInsetIconURL,
 		collaborator: 'Tinkimo',
@@ -1044,6 +1046,7 @@ const menuItems = [
     iconURL: stockInfoImage,
     insetIconURL: stockInfoInsetIconURL,
 	tags: ['preload', 'new'],
+	isNew: true,
     description: 'Information about Taiwan Capitalization Weighted Stock Index (TAXIE).',
     featured: true,
     disabled: false,
@@ -1056,6 +1059,7 @@ const menuItems = [
     extensionId: "googleMap",
     collaborator: "Champierre, TYiC",
 	tags: ['preload', 'new'],
+	isNew: true,
     iconURL: googleMapImage,
     insetIconURL: googleMapInsetIconURL,
     description: 'Display geographic location using the latitude and longitude coordinates (Experimental).',
@@ -1070,6 +1074,7 @@ const menuItems = [
     extensionId: "dataMining",
     collaborator: "TYiC",
 	tags: ['preload', 'new'],
+	isNew: true,
     iconURL: dataMiningImage,
     insetIconURL: dataMiningInsetIconURL,
     description: 'Mining a large amount of data for knowledge exploration and using analytical models to evaluate and predict.',
@@ -1084,6 +1089,7 @@ const menuItems = [
     extensionId: "dataProcessing",
     collaborator: "TYiC",
 	tags: ['preload', 'new'],
+	isNew: true,
     iconURL: dataProcessingImage,
     insetIconURL: dataProcessingInsetIconURL,
     description: 'Number system conversion and string manipulation.',
@@ -1107,6 +1113,7 @@ const menuItems = [
         name: 'Ruby',
         extensionId: 'ruby',
         tags: ['preload', 'new'],
+		isNew: true,
         iconURL: rubyIconURL,
         insetIconURL: rubyInsetIconURL,
 		collaborator: 'SmallRuby',
@@ -1122,6 +1129,7 @@ const menuItems = [
         name: 'Alexa',
         extensionId: 'alexa',
         tags: ['cognimates', 'preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/cognimates/Alexa_extension.png'),
 		collaborator: 'Amazon',
         description: 'Talk to Alexa in PotentiaMod.',
@@ -1131,6 +1139,7 @@ const menuItems = [
         name: 'Ergo',
         extensionId: 'ergo',
         tags: ['cognimates', 'preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/cognimates/Ergo_extension.png'),
 		collaborator: 'Cognimates',
         description: 'Play with Ergo in PotentiaMod.',
@@ -1141,6 +1150,7 @@ const menuItems = [
     extensionId: "urlTXT",
     collaborator: "estea chen",
 	tags: ['preload', 'new'],
+	isNew: true,
     iconURL: urltxtImage,
     insetIconURL: urltxtInsetIconURL,
     description: 'Read and write text files and open a URL.',
@@ -1158,6 +1168,7 @@ const menuItems = [
     extensionId: "rwGoogle",
     collaborator: "estea chen, TYiC",
 	tags: ['preload', 'new'],
+	isNew: true,
     iconURL: rwGoogleImage,
     insetIconURL: rwGoogleInsetIconURL,
     description: 'Read and write Google Sheets and Google Forms.',
@@ -1173,6 +1184,7 @@ const menuItems = [
         name: 'QR Code',
         extensionId: 'qrcode',
         tags: ['preload', 'new'],
+		isNew: true,
         collaborator: 'Sugiura Lab',
         iconURL: require('../extensions/qrcode/qrcode.png'),
 		insetIconURL: require('../extensions/qrcode/qrcode-small.svg'),
@@ -1213,6 +1225,7 @@ const menuItems = [
         name: 'ScratchPro',
         extensionId: 'scratchpro',
 		tags: ['preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/scratchpro/illustration.svg'),
         insetIconURL: require('../extensions/scratchpro/small.svg'),
         collaborator: 'cuiJY',
@@ -1225,6 +1238,7 @@ const menuItems = [
     extensionId: "linenotify",
     collaborator: "estea chen",
 	tags: ['preload', 'new'],
+	isNew: true,
     iconURL: linenotifyImage,
     insetIconURL: linenotifyInsetIconURL,
     description: "Use Line Notify to send messages.",
@@ -1239,6 +1253,7 @@ const menuItems = [
     extensionId: "telegrambot",
     collaborator: "estea chen",
 	tags: ['preload', 'new'],
+	isNew: true,
     iconURL: telegrambotImage,
     insetIconURL: telegrambotInsetIconURL,
     description:"Use TelegramBot to send messages.",
@@ -1253,6 +1268,7 @@ const menuItems = [
     extensionId: "pushnotifyapi",
     collaborator: "estea chen",
 	tags: ['preload', 'new'],
+	isNew: true,
     iconURL: pushnotifyapiImage,
     insetIconURL: pushnotifyapiInsetIconURL,
     description: "Use Push Notify API app to send messages.",
@@ -1269,6 +1285,7 @@ const menuItems = [
         iconURL: kidsboardIconURL,
         insetIconURL: kidsboardInsetIconURL,
 		tags: ['preload', 'new'],
+		isNew: true,
         description: 'Connect KidsBoard via Bluetooth to operate the LEDs, buttons, speaker, and sensors.',
         featured: true,
         bluetoothRequired: true
@@ -1283,6 +1300,7 @@ const menuItems = [
         ),
         extensionId: 'mcremote',
 		tags: ['preload', 'new'],
+		isNew: true,
         iconURL: mcremoteIconURL,
         insetIconURL: mcremoteIconURL,
         description: (
@@ -1303,6 +1321,7 @@ const menuItems = [
         iconURL: require('../extensions/eim/illustration.jpg'),
 		insetIconURL: require('../extensions/eim/small.svg'),
         tags: ['preload', 'new'],
+		isNew: true,
 		collaborator: 'CodeLab',
         description: 'Everything is a mesage! Contains capabilities of all the other extensions.',
         featured: true
@@ -1346,6 +1365,7 @@ const menuItems = [
     name:"DaVinci",
     extensionId: "davinci",
 	tags: ['preload', 'new'],
+	isNew: true,
     collaborator: "estea chen ",
     iconURL: davinciImage,
     insetIconURL: davinciInsetIconURL,
@@ -1362,6 +1382,7 @@ const menuItems = [
         name: 'Face Emotion Sensing',
         extensionId: 'poseFace',
         tags: ['preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/poseFace/pose-face.png'),
 		insetIconURL: require('../extensions/poseFace/pose-face-small.svg'),
 		collaborator: 'Raise Playground',
@@ -1372,6 +1393,7 @@ const menuItems = [
         name: 'Body Sensing',
         extensionId: 'poseBody',
         tags: ['preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/poseBody/pose-body.png'),
 		insetIconURL: require('../extensions/poseBody/pose-body-small.svg'),
 		collaborator: 'Raise Playground',
@@ -1382,6 +1404,7 @@ const menuItems = [
         name: 'Hand Sensing',
         extensionId: 'poseHand',
         tags: ['preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/poseHand/pose-hand.png'),
 		insetIconURL: require('../extensions/poseHand/pose-hand-small-3.svg'),
 		collaborator: 'Raise Playground',
@@ -1392,6 +1415,7 @@ const menuItems = [
         name: 'Object Detection',
         extensionId: 'objectDetection',
 		tags: ['preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/objectDetection/objectdetection.png'),
 		insetIconURL: require('../extensions/objectDetection/objectdetectionsmall.svg'),
         description: 'Detect and identify objects in the camera view.',
@@ -1402,6 +1426,7 @@ const menuItems = [
         name: 'Teachable Machine',
         extensionId: 'teachableMachine',
 		tags: ['preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/teachableMachine/teachable-machine-blocks.png'),
 		insetIconURL: require('../extensions/teachableMachine/teachable-machine-blocks-small.svg'),
         description: 'Use your Teachable Machine models in your Scratch project!',
@@ -1413,6 +1438,7 @@ const menuItems = [
     extensionId: "textSentiment",
     collaborator: "TYiC",
 	tags: ['preload', 'new'],
+	isNew: true,
     iconURL: textSentimentImage,
     insetIconURL: textSentimentInsetIconURL,
     description: "Text Sentiment.",
@@ -1471,6 +1497,7 @@ const menuItems = [
         name: 'Smart Lights',
         extensionId: 'hue',
         tags: ['cognimates', 'preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/cognimates/Hue_extension.png'),
 		collaborator: 'Cognimates',
         description: 'Blocks used for changing and modifying lights.',
@@ -1480,6 +1507,7 @@ const menuItems = [
         name: 'PlayData',
         extensionId: 'dataviewer',
 		tags: ['preload', 'new'],
+		isNew: true,
         collaborator: 'Cassia Fernandez and João Adriano Freitas',
         iconURL: require('../extensions/dataviewer/dataviewer.png'),
 		insetIconURL: require('../extensions/dataviewer/dataviewer-small.svg'),
@@ -1491,6 +1519,7 @@ const menuItems = [
         name: 'Twitter',
         extensionId: 'twitter',
         tags: ['cognimates', 'preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/cognimates/twitter_ext.jpg'),
 		collaborator: 'Twitter',
         description: 'Blocks made for Twitter posts.',
@@ -1520,6 +1549,7 @@ const menuItems = [
         name: 'Feelings',
         extensionId: 'sentiment',
         tags: ['cognimates', 'preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/cognimates/sentiment_ext.png'),
 		insetIconURL: require('../extensions/cognimates/sentiment-small.svg'),
 		collaborator: 'Cognimates',
@@ -1530,6 +1560,7 @@ const menuItems = [
         name: 'Wemo',
         extensionId: 'wemo',
         tags: ['cognimates', 'preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/cognimates/wemo_ext.png'),
 		collaborator: 'Cognimates',
         description: 'Play with Wemo in PotentiaMod.',
@@ -1539,6 +1570,7 @@ const menuItems = [
         name: 'Vision Training',
         extensionId: 'vision',
         tags: ['cognimates', 'preload', 'new'],
+		isNew: true,
         iconURL: require('../extensions/cognimates/vision_ext.png'),
 		collaborator: 'Cognimates',
         description: 'Vision training.',
@@ -1624,6 +1656,7 @@ const menuItems = [
         ),
         extensionId: 'hc',
 		tags: ['preload', 'new'],
+		isNew: true,
 		collaborator: 'Cubix Entertainment',
         iconURL: hcIconURL,
         insetIconURL: hcInsetIconURL,
@@ -1647,6 +1680,7 @@ const menuItems = [
         ),
         extensionId: 'snap',
 		tags: ['preload', 'new'],
+		isNew: true,
 		collaborator: 'Cubix Entertainment',
         iconURL: snapIconURL,
         insetIconURL: snapInsetIconURL,
@@ -1673,6 +1707,7 @@ const menuItems = [
         iconURL: roboboImage,
         insetIconURL: roboboInsetImage,
 		tags: ['preload', 'new'],
+		isNew: true,
 		collaborator: 'MINT',
         description: (
             <FormattedMessage
@@ -1701,6 +1736,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -1719,6 +1755,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -1737,6 +1774,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -1755,6 +1793,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -1773,6 +1812,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -1791,6 +1831,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -1809,6 +1850,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -1827,6 +1869,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -1845,6 +1888,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -1863,6 +1907,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
 
@@ -1882,6 +1927,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -1900,6 +1946,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -1918,6 +1965,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
 	{
@@ -1936,6 +1984,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
 	{
@@ -1954,6 +2003,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
 	 {
@@ -1972,6 +2022,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
 
@@ -1991,6 +2042,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
 
@@ -2010,6 +2062,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -2029,6 +2082,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -2051,6 +2105,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -2073,6 +2128,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -2091,6 +2147,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
     {
@@ -2109,6 +2166,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true,
     },
 		{
@@ -2131,6 +2189,7 @@ const menuItems = [
             />
         ),
         tags: ['lepi', 'preload', 'new'],
+		isNew: true,
         featured: true
     },
 	{
@@ -2185,6 +2244,7 @@ const menuItems = [
     insetIconURL: require('../extensions/legomario/legomario-small.svg'),
     description: 'Know what he\'s doing!',
 	tags: ['preload', 'new'],
+	isNew: true,
     featured: true,
     disabled: false,
     bluetoothRequired: true,
@@ -2205,6 +2265,7 @@ const menuItems = [
     insetIconURL: require('../extensions/legoluigi/legoluigi-small.svg'),
     description: 'Know what he\'s doing!',
 	tags: ['preload', 'new'],
+	isNew: true,
     featured: true,
     disabled: false,
     bluetoothRequired: true,
@@ -2225,6 +2286,7 @@ const menuItems = [
     insetIconURL: require('../extensions/legopeach/legopeach-small.svg'),
     description: 'Know what she\'s doing!',
 	tags: ['preload', 'new'],
+	isNew: true,
     featured: true,
     disabled: false,
     bluetoothRequired: true,
@@ -2851,7 +2913,8 @@ const menuItems = [
 		customInsetColor: '#3D52FF',
         description: 'Either create or edit extensions with a modfication of Astra Editor Extension Editor.',
         tags: ['gaia', 'builders'],
-        featured: true
+        isNew: true,
+        featured: true,
     },
     {
         name: 'ExtForge',
@@ -2945,6 +3008,7 @@ const menuItems = [
         description: 'See some AppleleMod External extensions. Opens in a new tab.',
 		collaborator: 'Dimix',
         tags: ['other'],
+		isNew: true,
         featured: true
     },
 	{

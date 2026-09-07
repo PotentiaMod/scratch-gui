@@ -388,22 +388,22 @@ const GuiOptions = defineMessages({
         id: 'tw.gui.light'
     },
     [GUI_MODERN_LIGHT]: {
-        defaultMessage: 'PotentiaMod - Light',
+        defaultMessage: 'P. Light',
         description: 'Name of PotentiaMod\'s Light color scheme.',
         id: 'tw.gui.modernlight'
     },
     [GUI_GENESIS_LIGHT]: {
-        defaultMessage: 'Genesis Light',
+        defaultMessage: 'G. Light',
         description: 'Name of a light color scheme. Matches the defunct Genesis IDE color.',
         id: 'tw.gui.genesislight'
     },
 	[GUI_AMP_LIGHT]: {
-        defaultMessage: 'AmpMod light',
+        defaultMessage: 'A. light',
         description: 'Name of a light color scheme. Matches AmpMod\'s color.',
         id: 'tw.gui.amplight'
     },
 	[GUI_MODERN_WHITE]: {
-        defaultMessage: 'Astra White',
+        defaultMessage: 'AstraL',
         description: 'Name of a light color scheme. Matches Astra Editor\'s color.',
         id: 'tw.gui.astralight'
     },
@@ -413,22 +413,22 @@ const GuiOptions = defineMessages({
         id: 'tw.gui.dark'
     },
     [GUI_MODERN_DARK]: {
-        defaultMessage: 'PotentiaMod - Dark',
+        defaultMessage: 'P. Dark',
         description: 'Name of PotentiaMod\'s Dark color scheme.',
         id: 'tw.gui.moderndark'
     },
 	[GUI_GENESIS_DARK]: {
-        defaultMessage: 'Genesis Dark',
+        defaultMessage: 'G. Dark',
         description: 'Name of a dark color scheme. Matches the defunct Genesis IDE color.',
         id: 'tw.gui.genesisdark'
     },
 	[GUI_AMP_DARK]: {
-        defaultMessage: 'AmpMod Dark',
+        defaultMessage: 'A. Dark',
         description: 'Name of a dark color scheme. Matches AmpMod\'s color.',
         id: 'tw.gui.ampdark'
     },
 	[GUI_DEEP_DARK]: {
-        defaultMessage: 'Astra Dark',
+        defaultMessage: 'AstraD',
         description: 'Name of a dark color scheme. Matches Astra Editor\'s color.',
         id: 'tw.gui.astradark'
     },
@@ -438,17 +438,17 @@ const GuiOptions = defineMessages({
         id: 'tw.gui.midnight'
     },
 	[GUI_AMOLED]: {
-        defaultMessage: 'Amoled',
+        defaultMessage: 'Amol.',
         description: 'Name of the amoled color scheme.',
         id: 'tw.gui.amoled'
     },
 	[GUI_AMP_AMOLED]: {
-        defaultMessage: 'AmpMod Amoled',
+        defaultMessage: 'A. Amol.',
         description: 'Name of the amoled color scheme. Matches AmpMod\'s color.',
         id: 'tw.gui.ampamoled'
     },
 	[GUI_HIGH_CONTRAST]: {
-        defaultMessage: 'High Contrast',
+        defaultMessage: 'H. Cont.',
         description: 'Name of the color scheme. Matches AmpMod\'s high-contrast color.',
         id: 'tw.gui.highcontrast'
     }

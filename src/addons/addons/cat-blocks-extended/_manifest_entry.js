@@ -3,7 +3,7 @@ const manifest = {
   "editorOnly": true,
   "noTranslations": true,
   "name": "Cat blocks extended",
-  "description": "Get April Fools' Day features that weren't released in RemixWarp editor for April Fools' Day 2026.",
+  "description": "Get April Fools' Day features that weren't released in PotentiaMod editor for April Fools' Day 2026.",
   "credits": [
     {
       "name": "TheColaber",
