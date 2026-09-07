@@ -6,6 +6,8 @@ export default [
     {tag: 'amp', intlLabel: 'AmpMod', color: '#4FA55C'},
     {tag: 'mistium', intlLabel: 'Mistium', color: '#D399E5'},
     {tag: 'ae', intlLabel: 'Astra Editor', color: '#0099FF'},
+    {tag: 'ob', intlLabel: 'OmniBlocks', color: '#59C0C0'},
+    {tag: 'rw', intlLabel: 'RemixWarp', color: '#000000'},
     {tag: 'ztengine', intlLabel: '02Engine', color: '#00BAAD'},
     {tag: 'other', intlLabel: 'Other Mods', color: '#ad4e00'},
     {tag: 'theme', intlLabel: 'Theme', color: '#9ad4cf'},

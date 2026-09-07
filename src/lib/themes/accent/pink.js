@@ -1,0 +1,30 @@
+const guiColors = {
+    'motion-primary': 'hsla(330, 80%, 70%, 1)',
+    'motion-primary-transparent': 'hsla(330, 80%, 70%, 0.9)',
+    'motion-tertiary': 'hsla(330, 60%, 55%, 1)',
+
+    'looks-secondary': 'hsla(330, 80%, 70%, 1)',
+    'looks-tertiary': 'hsla(330, 80%, 60%, 1)',
+    'looks-transparent': 'hsla(330, 80%, 70%, 0.35)',
+    'looks-light-transparent': 'hsla(330, 80%, 70%, 0.15)',
+    'looks-secondary-dark': 'hsla(330, 60%, 55%, 1)',
+	
+	'looks-secondary-light': 'hsla(330, 80%, 82%, 1)', //light
+    'looks-secondary-lighter': 'hsla(330, 80%, 95%, 1)', //lighter
+    'looks-secondary-darker': 'hsla(330, 60%, 43%, 1)', //darker
+    'looks-secondary-deep-dark': 'hsla(330, 60%, 30%, 1)', //darkest
+
+    'extensions-primary': 'hsla(330, 80%, 70%, 1)',
+    'extensions-tertiary': 'hsla(330, 80%, 60%, 1)',
+    'extensions-transparent': 'hsla(330, 80%, 70%, 0.35)',
+    'extensions-light': 'hsla(330, 60%, 55%, 1)',
+
+    'drop-highlight': 'hsla(330, 100%, 80%, 1)'
+};
+
+const blockColors = {};
+
+export {
+    guiColors,
+    blockColors
+};

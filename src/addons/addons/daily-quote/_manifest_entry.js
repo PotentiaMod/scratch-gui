@@ -2,10 +2,14 @@
 const manifest = {
   "editorOnly": true,
   "name": "Quotes",
-  "description": "Displays a \"Quote of the Day\" or a random phrase in the editor's status bar and provides a settings panel to adjust the rotation interval.",
+  "description": "Displays a \"Quote of the Day\" or a random phrase in the editor's status bar and provides a settings panel to adjust the rotation interval. Modified and translated in English by GaiaWindWave90.",
   "credits": [
     {
       "name": "笑小朗",
+      "link": ""
+    },
+    {
+      "name": "GaiaWindWave90 (translator and modifier)",
       "link": ""
     },
     {
@@ -60,7 +64,7 @@ const manifest = {
       ]
     },
     {
-      "dynamic": true,
+      "dynamic": false,
       "name": "Quote Library",
       "id": "quote_library",
       "type": "select",
@@ -85,17 +89,18 @@ const manifest = {
       ]
     },
     {
-      "dynamic": false,
+      "dynamic": true,
       "name": "Custom quotes (one sentence per line)",
       "id": "custom_quotes",
       "type": "string",
       "multiline": true,
       "rows": 10,
-      "default": "Welcome to PotentiaMod. \nYou need to straight out power and responsibility. \nIs that OK that we will use some shampoo? \nFun fact: Dragons ay plan on the WORLD DOMINATION!"
+      "default": "Big challenges, you love it."
     }
   ],
   "tags": [
     "rw",
+    "new",
     "ui",
     "daily",
     "quote"

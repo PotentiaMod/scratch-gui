@@ -316,7 +316,7 @@ const Tags = ({manifest}) => (
             </span>
 			        )}
 					{manifest.tags.includes('rw') && (
-            <span className={classNames(styles.tag, styles.tagRemixWarp)}
+            <span className={classNames(styles.tag, styles.tagRemixwarp)}
                 style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
             >
                 <img
@@ -324,11 +324,11 @@ const Tags = ({manifest}) => (
                     style={{width: "13px", height: "13px"}}
                     alt="RemixWarp Icon"
                 />
-                {settingsTranslations.tagRemixWarp}
+                {settingsTranslations.tagRemixwarp}
             </span>
 			        )}
 					{manifest.tags.includes('ob') && (
-            <span className={classNames(styles.tag, styles.tagOmniBlocks)}
+            <span className={classNames(styles.tag, styles.tagOmniblocks)}
                 style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
             >
                 <img
@@ -336,7 +336,7 @@ const Tags = ({manifest}) => (
                     style={{width: "13px", height: "13px"}}
                     alt="OmniBlocks Icon"
                 />
-                {settingsTranslations.tagOmniBlocks}
+                {settingsTranslations.tagOmniblocks}
             </span>
 			        )}
 	{manifest.tags.includes('pm') && (
@@ -541,12 +541,22 @@ const Setting = ({
             {(setting.type === 'string' || setting.type === 'untranslated') && (
                 <React.Fragment>
                     {label}
-                    <TextInput
-                        id={uniqueId}
-                        type="text"
-                        value={value}
-                        onChange={newValue => SettingsStore.setAddonSetting(addonId, settingId, newValue)}
-                    />
+                    {setting.multiline ? (
+                        <textarea
+                            id={uniqueId}
+                            className={styles.textarea}
+                            value={value}
+                            onChange={e => SettingsStore.setAddonSetting(addonId, settingId, e.target.value)}
+                            rows={setting.rows || 5}
+                        />
+                    ) : (
+                        <TextInput
+                            id={uniqueId}
+                            type="text"
+                            value={value}
+                            onChange={newValue => SettingsStore.setAddonSetting(addonId, settingId, newValue)}
+                        />
+                    )}
                     <ResetButton
                         addonId={addonId}
                         settingId={settingId}

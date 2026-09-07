@@ -18,13 +18,61 @@ import * as accentCottonCandy from './accent/cottoncandy';
 import * as accentRainbow from './accent/rainbow';
 import * as accentHotFuse from './accent/hotfuse';
 import * as accentNitroFire from './accent/nitrofire';
+
+import * as accentGreenTea from './accent/green-tea';
+import * as accentPaleBlue from './accent/pale-blue';
+import * as accentEggplantPurple from './accent/eggplant-purple';
+import * as accentTrans from './accent/trans';
+import * as accentGay from './accent/gay';
+import * as accentBi from './accent/bi';
+import * as accentPan from './accent/pan';
+import * as accentLesbian from './accent/lesbian';
+import * as accentNonbinary from './accent/nonbinary';
+import * as accentAce from './accent/ace';
+import * as accentRotur from './accent/rotur';
+import * as accentPink from './accent/pink';
+import * as accentPinkV2 from './accent/pink(v2)';
+import * as accentSunset from './accent/sunset';
+import * as accentOcean from './accent/ocean';
+import * as accentAurora from './accent/aurora';
+import * as accentCosmic from './accent/cosmic';
+import * as accentFire from './accent/fire';
+import * as accentNebula from './accent/nebula';
+import * as accentLavender from './accent/lavender';
+import * as accentMint from './accent/mint';
+import * as accentCherry from './accent/cherry';
+import * as accentSky from './accent/sky';
+import * as accentForest from './accent/forest';
+import * as accentCoral from './accent/coral';
+import * as accentAstraEditor from './accent/astraeditor';
+import * as accent02 from './accent/02e';
+import * as accentCE from './accent/ce';
+import * as accentMiku from './accent/miku';
+import * as accentTY from './accent/ty';
+import * as accentOubi from './accent/oubi';
+import * as accentOmniBlue from './accent/omnimax-blue';
+import * as accentVaporwave from './accent/vaporwave';
+import * as accentMatrix from './accent/matrix';
+import * as accentHoney from './accent/honey';
+import * as accentYellow from './accent/yellow';
+import * as accentGreenV2 from './accent/green(v2)';
+import * as accentDarkGreen from './accent/dark-green';
 import * as accentCustom from './accent/custom';
 
 import * as guiLight from './gui/light';
 import * as guiModernLight from './gui/modern-light';
+import * as guiAmpLight from './gui/amp-light';
+import * as guiGenesisLight from './gui/genesislight';
+import * as guiModernWhite from './gui/modern-white';
 import * as guiDark from './gui/dark';
+import * as guiAmpDark from './gui/amp-dark';
 import * as guiModernDark from './gui/modern-dark';
+import * as guiGenesisDark from './gui/genesisdark';
+import * as guiDeepDark from './gui/deep-dark';
 import * as guiMidnight from './gui/midnight';
+import * as guiAmoled from './gui/amoled';
+import * as guiAmpAmoled from './gui/amp-amoled';
+import * as guiHighContrast from './gui/amp-high-contrast';
 
 import * as blocksThree from './blocks/three';
 import * as blocksHighContrast from './blocks/high-contrast';
@@ -36,7 +84,7 @@ import starsIcon from './icons/tw-accent-stars.svg';
 
 import lightModeIcon from './icons/tw-sun.svg';
 import darkModeIcon from './icons/tw-moon.svg';
-import midnightModeIcon from './icons/tw-midnight.svg';
+import midnightModeIcon from './icons/tw-star.svg';
 import paletteIcon from './icons/tw-palette.svg';
 
 import threeIcon from './icons/tw-blocks-three.svg';
@@ -63,9 +111,47 @@ const ACCENT_CORRUPTED_BLUE = 'corruptedblue';
 const ACCENT_GAIA_BLUE = 'gaiablue';
 const ACCENT_GREEN = 'green';
 const ACCENT_RAINBOW = 'rainbow';
-const ACCENT_COTTON_CANDY = 'cottoncandy';
+const ACCENT_COTTON_CANDY = 'cottoncandy'; //unique
 const ACCENT_HOT_FUSE = 'stars'; //unique
 const ACCENT_NITRO_FIRE = 'nitrofire'; //unique
+const ACCENT_OMNIBLUE = 'omnimax-blue'; //LOL From my deleted MistWarp mod.
+const ACCENT_GREEN_TEA = 'green-tea'; //Bilup
+const ACCENT_PALE_BLUE = 'pale-blue'; //Bilup
+const ACCENT_EGGPLANT_PURPLE = 'eggplant-purple'; //Bilup
+const ACCENT_TRANS = 'trans'; //MistWarp
+const ACCENT_GAY = 'gay'; //MistWarp
+const ACCENT_BI = 'bi'; //MistWarp
+const ACCENT_LESBIAN = 'lesbian'; //MistWarp
+const ACCENT_PAN = 'pan'; //MistWarp
+const ACCENT_NONBINARY = 'nonbinary'; //MistWarp
+const ACCENT_ACE = 'ace'; //MistWarp
+const ACCENT_ROTUR = 'rotur'; //MistWarp
+const ACCENT_PINK = 'pink'; //MistWarp
+const ACCENT_PINK2 = 'pink(v2)'; //MistWarp
+const ACCENT_GREEN2 = 'greenv2'; //MistWarp
+const ACCENT_YELLOW = 'yellow'; //MistWarp
+const ACCENT_DARK_GREEN = 'dark-green'; //MistWarp
+const ACCENT_SUNSET = 'sunset'; //MistWarp
+const ACCENT_OCEAN = 'ocean'; //MistWarp
+const ACCENT_AURORA = 'aurora'; //MistWarp
+const ACCENT_COSMIC = 'cosmic'; //MistWarp
+const ACCENT_NEBULA = 'nebula'; //MistWarp
+const ACCENT_FIRE = 'fire'; //MistWarp
+const ACCENT_MINT = 'mint'; //MistWarp
+const ACCENT_SKY = 'sky'; //MistWarp
+const ACCENT_FOREST = 'forest'; //MistWarp
+const ACCENT_CHERRY = 'cherry'; //MistWarp
+const ACCENT_LAVENDER = 'lavender'; //MistWarp
+const ACCENT_CORAL = 'coral'; //MistWarp
+const ACCENT_VAPORWAVE = 'vaporwave'; //MistWarp
+const ACCENT_MATRIX = 'matrix'; //MistWarp
+const ACCENT_HONEY = 'honey'; //MistWarp
+const ACCENT_AE = 'astraeditor'; //Astra Editor
+const ACCENT_MIKU = 'miku'; //Astra Editor
+const ACCENT_TY = 'ty'; //Astra Editor
+const ACCENT_OUBI = 'oubi'; //Astra Editor
+const ACCENT_CE = 'ce'; //02Engines
+const ACCENT_02E = '02e'; //02Engine
 const ACCENT_CUSTOM = 'custom';
 const ACCENT_MAP = {
     [ACCENT_PURPLE]: accentPurple,
@@ -84,8 +170,46 @@ const ACCENT_MAP = {
     [ACCENT_RAINBOW]: accentRainbow,
     [ACCENT_HOT_FUSE]: accentHotFuse,
     [ACCENT_NITRO_FIRE]: accentNitroFire,
-    [ACCENT_CUSTOM]: accentCustom,
-    [ACCENT_COTTON_CANDY]: accentCottonCandy
+    [ACCENT_OMNIBLUE]: accentOmniBlue,
+    [ACCENT_COTTON_CANDY]: accentCottonCandy,
+	[ACCENT_GREEN_TEA]: accentGreenTea,
+	[ACCENT_PALE_BLUE]: accentPaleBlue,
+	[ACCENT_EGGPLANT_PURPLE]: accentEggplantPurple,
+	[ACCENT_TRANS]: accentTrans,
+	[ACCENT_GAY]: accentGay,
+	[ACCENT_BI]: accentBi,
+	[ACCENT_PAN]: accentPan,
+	[ACCENT_LESBIAN]: accentLesbian,
+	[ACCENT_NONBINARY]: accentNonbinary,
+	[ACCENT_ACE]: accentAce,
+	[ACCENT_ROTUR]: accentRotur,
+	[ACCENT_PINK]: accentPink,
+	[ACCENT_PINK2]: accentPinkV2,
+	[ACCENT_GREEN2]: accentGreenV2,
+	[ACCENT_YELLOW]: accentYellow,
+	[ACCENT_DARK_GREEN]: accentDarkGreen,
+	[ACCENT_SUNSET]: accentSunset,
+	[ACCENT_OCEAN]: accentOcean,
+	[ACCENT_AURORA]: accentAurora,
+	[ACCENT_COSMIC]: accentCosmic,
+	[ACCENT_FIRE]: accentFire,
+	[ACCENT_FOREST]: accentForest,
+	[ACCENT_NEBULA]: accentNebula,
+	[ACCENT_LAVENDER]: accentLavender,
+	[ACCENT_MINT]: accentMint,
+	[ACCENT_CHERRY]: accentCherry,
+	[ACCENT_SKY]: accentSky,
+	[ACCENT_CORAL]: accentCoral,
+	[ACCENT_AE]: accentAstraEditor,
+	[ACCENT_02E]: accent02,
+	[ACCENT_CE]: accentCE,
+	[ACCENT_MIKU]: accentMiku,
+	[ACCENT_TY]: accentTY,
+	[ACCENT_OUBI]: accentOubi,
+	[ACCENT_VAPORWAVE]: accentVaporwave,
+	[ACCENT_MATRIX]: accentMatrix,
+	[ACCENT_HONEY]: accentHoney,
+    [ACCENT_CUSTOM]: accentCustom
 };
 
 const AccentOptions = defineMessages({
@@ -99,15 +223,30 @@ const AccentOptions = defineMessages({
         description: 'Name of the magenta color scheme.',
         id: 'tw.accent.magenta'
     },
+	[ACCENT_PINK]: {
+        defaultMessage: 'Pink',
+        description: 'Name of the pink color scheme',
+        id: 'tw.accent.pink',
+    },
     [ACCENT_ORANGE]: {
         defaultMessage: 'Orange',
         description: 'Name of the orange color scheme.',
         id: 'tw.accent.orange'
     },
+	[ACCENT_YELLOW]: {
+        defaultMessage: 'Yellow',
+        description: 'Name of the yellow color scheme',
+        id: 'tw.accent.yellow',
+    },
 	[ACCENT_GREEN]: {
         defaultMessage: 'Green',
         description: 'Name of the green color scheme',
         id: 'tw.accent.green'
+    },
+	 [ACCENT_DARK_GREEN]: {
+        defaultMessage: 'Dark Green',
+        description: 'Name of the dark green color scheme',
+        id: 'tw.accent.darkgreen',
     },
     [ACCENT_RED]: {
         defaultMessage: 'Red',
@@ -159,6 +298,11 @@ const AccentOptions = defineMessages({
         description: 'Name of the pastel pink/blue color scheme.',
         id: 'tw.accent.cottoncandy'
     },
+	[ACCENT_OMNIBLUE]: {
+        defaultMessage: 'O. Blue',
+        description: 'Name of color scheme.',
+        id: 'tw.accent.omniblue'
+    },
 	[ACCENT_HOT_FUSE]: {
         defaultMessage: 'H. Fuse',
         description: 'Name of hot pink-purple color scheme.',
@@ -169,11 +313,32 @@ const AccentOptions = defineMessages({
         description: 'Name of orange-red color scheme.',
         id: 'tw.accent.nitrofire'
     },
+	[ACCENT_NEBULA]: {
+        defaultMessage: 'Nebula',
+        description: 'Name of color scheme.',
+        id: 'tw.accent.nebula'
+    },
+	[ACCENT_COSMIC]: {
+        defaultMessage: 'Cosmic',
+        description: 'Name of color scheme.',
+        id: 'tw.accent.cosmic'
+    },
+	[ACCENT_AURORA]: {
+        defaultMessage: 'Aurora',
+        description: 'Name of color scheme.',
+        id: 'tw.accent.aurora'
+    },
+	[ACCENT_MINT]: {
+        defaultMessage: 'Mint',
+        description: 'Name of color scheme.',
+        id: 'tw.accent.mint'
+    },
     [ACCENT_RAINBOW]: {
         defaultMessage: 'Rainbow',
         description: 'Name of color scheme that uses a rainbow.',
         id: 'tw.accent.rainbow'
-    }
+    },
+	
 });
 
 const AccentIcons = {
@@ -185,16 +350,34 @@ const ACCENT_DEFAULT = ACCENT_INDIGO;
 
 const GUI_LIGHT = 'light';
 const GUI_MODERN_LIGHT = 'modern-light';
+const GUI_AMP_LIGHT = 'amp-light';
+const GUI_GENESIS_LIGHT = 'genesislight';
+const GUI_MODERN_WHITE = 'modern-white';
 const GUI_DARK = 'dark';
+const GUI_AMP_DARK = 'amp-dark';
 const GUI_MODERN_DARK = 'modern-dark';
+const GUI_GENESIS_DARK = 'genesisdark';
+const GUI_DEEP_DARK = 'deep-dark';
 const GUI_MIDNIGHT = 'midnight';
+const GUI_AMOLED = 'amoled';
+const GUI_AMP_AMOLED = 'amp-amoled';
+const GUI_HIGH_CONTRAST = 'high-contrast';
 const GUI_CUSTOM = "custom";
 const GUI_MAP = {
     [GUI_LIGHT]: guiLight,
     [GUI_MODERN_LIGHT]: guiModernLight,
+    [GUI_AMP_LIGHT]: guiAmpLight,
+    [GUI_GENESIS_LIGHT]: guiGenesisLight,
+    [GUI_MODERN_WHITE]: guiModernWhite,
     [GUI_DARK]: guiDark,
     [GUI_MODERN_DARK]: guiModernDark,
+    [GUI_GENESIS_DARK]: guiGenesisDark,
+    [GUI_AMP_DARK]: guiModernDark,
+    [GUI_DEEP_DARK]: guiDeepDark,
     [GUI_MIDNIGHT]: guiMidnight,
+    [GUI_AMOLED]: guiAmoled,
+    [GUI_AMP_AMOLED]: guiAmpAmoled,
+    [GUI_HIGH_CONTRAST]: guiHighContrast,
 	// amp-customizable-colours addon
     [GUI_CUSTOM]: {},
 };
@@ -209,6 +392,21 @@ const GuiOptions = defineMessages({
         description: 'Name of PotentiaMod\'s Light color scheme.',
         id: 'tw.gui.modernlight'
     },
+    [GUI_GENESIS_LIGHT]: {
+        defaultMessage: 'Genesis Light',
+        description: 'Name of a light color scheme. Matches the defunct Genesis IDE color.',
+        id: 'tw.gui.genesislight'
+    },
+	[GUI_AMP_LIGHT]: {
+        defaultMessage: 'AmpMod light',
+        description: 'Name of a light color scheme. Matches AmpMod\'s color.',
+        id: 'tw.gui.amplight'
+    },
+	[GUI_MODERN_WHITE]: {
+        defaultMessage: 'Astra White',
+        description: 'Name of a light color scheme. Matches Astra Editor\'s color.',
+        id: 'tw.gui.astralight'
+    },
     [GUI_DARK]: {
         defaultMessage: 'Dark',
         description: 'Name of the dark color scheme.',
@@ -219,19 +417,58 @@ const GuiOptions = defineMessages({
         description: 'Name of PotentiaMod\'s Dark color scheme.',
         id: 'tw.gui.moderndark'
     },
+	[GUI_GENESIS_DARK]: {
+        defaultMessage: 'Genesis Dark',
+        description: 'Name of a dark color scheme. Matches the defunct Genesis IDE color.',
+        id: 'tw.gui.genesisdark'
+    },
+	[GUI_AMP_DARK]: {
+        defaultMessage: 'AmpMod Dark',
+        description: 'Name of a dark color scheme. Matches AmpMod\'s color.',
+        id: 'tw.gui.ampdark'
+    },
+	[GUI_DEEP_DARK]: {
+        defaultMessage: 'Astra Dark',
+        description: 'Name of a dark color scheme. Matches Astra Editor\'s color.',
+        id: 'tw.gui.astradark'
+    },
 	[GUI_MIDNIGHT]: {
+        defaultMessage: 'Midnight',
+        description: 'Name of the midnight color scheme.',
+        id: 'tw.gui.midnight'
+    },
+	[GUI_AMOLED]: {
         defaultMessage: 'Amoled',
         description: 'Name of the amoled color scheme.',
-        id: 'tw.gui.midnight'
+        id: 'tw.gui.amoled'
+    },
+	[GUI_AMP_AMOLED]: {
+        defaultMessage: 'AmpMod Amoled',
+        description: 'Name of the amoled color scheme. Matches AmpMod\'s color.',
+        id: 'tw.gui.ampamoled'
+    },
+	[GUI_HIGH_CONTRAST]: {
+        defaultMessage: 'High Contrast',
+        description: 'Name of the color scheme. Matches AmpMod\'s high-contrast color.',
+        id: 'tw.gui.highcontrast'
     }
 });
 
 const GuiIcons = {
     [GUI_LIGHT]: lightModeIcon,
-	[GUI_MODERN_LIGHT]: paletteIcon,
+	[GUI_MODERN_LIGHT]: lightModeIcon,
+	[GUI_GENESIS_LIGHT]: lightModeIcon,
+	[GUI_MODERN_WHITE]: lightModeIcon,
+	[GUI_AMP_LIGHT]: lightModeIcon,
     [GUI_DARK]: darkModeIcon,
-    [GUI_MODERN_DARK]: paletteIcon,
-    [GUI_MIDNIGHT]: paletteIcon
+    [GUI_MODERN_DARK]: darkModeIcon,
+    [GUI_GENESIS_DARK]: darkModeIcon,
+    [GUI_AMP_DARK]: darkModeIcon,
+    [GUI_DEEP_DARK]: darkModeIcon,
+    [GUI_MIDNIGHT]: midnightModeIcon,
+    [GUI_AMOLED]: midnightModeIcon,
+    [GUI_AMP_AMOLED]: midnightModeIcon,
+    [GUI_HIGH_CONTRAST]: paletteIcon
 };
 
 const GUI_DEFAULT = GUI_LIGHT;

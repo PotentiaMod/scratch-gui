@@ -86,6 +86,9 @@ const addons = [
 
 const newAddons = [
     'expanded-backpack',
+    'cat-blocks-extended',
+    'my-blocks-plus',
+    'daily-quote',
     'paint-default-smoothing',
     'amp-customizable-colours',
     'background',
@@ -94,7 +97,8 @@ const newAddons = [
     'editor-animations',
     'block-pins',
     'undo-redo-buttons',
-    'coder-style'
+    'coder-style',
+    'stage-camera'
 ];
 
 // eslint-disable-next-line import/no-commonjs
