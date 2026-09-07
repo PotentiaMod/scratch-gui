@@ -16,6 +16,30 @@ import extensionIcon from '../components/action-menu/icon--sprite.svg';
 import PMExtensions from '../lib/libraries/extensions/index.jsx';
 import {manuallyTrustExtension} from './tw-security-manager.jsx';
 
+//Take that, MistWarp and Bilup!
+const TAG_STATUS_COLORS = {
+    online: '#4CAF50',
+    local: '#2196F3',
+    loading: '#FFC107',
+    error: '#F44336'
+};
+
+const SidebarStatusDot = ({color, isLoading, className}) => (
+    <span
+        className={classNames(className, {'sidebar-loading-dot': isLoading})}
+        style={{
+            display: 'inline-block',
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            marginRight: '0.5rem',
+            flexShrink: 0,
+            background: color,
+            boxShadow: `0 0 0 2px ${color}40`
+        }}
+    />
+);
+
 const updateGallery = newGallery => {
     cachedGallery = newGallery;
     galleryUpdateListeners.forEach(listener => listener(newGallery));
@@ -213,11 +237,14 @@ const mapGalleryExtension = (extension, source) => ({
     description: extension.description,
     descriptionTranslations: extension.descriptionTranslations || {},
     extensionId: extension.id,
-    extensionURL: `${source.baseURL}${extension.slug}.js`,
-    iconURL: `${source.baseImageURL}${extension.image || 'placeholder.png'}`,
+    extensionURL: `${source.baseURL}${extension.slug || extension.URL || extension.extensionURL || extension.code}.js`,
+    iconURL: `${source.baseImageURL}${extension.image || extension.cover || extension.banner || extension.iconURL || 'placeholder.png'}`,
     tags: [source.tag],
     credits: [
             ...(extension.original || []),
+            ...(extension.creator || []),
+            ...(extension.author || []),
+            ...(extension.publisher || []),
             ...(extension.by || [])
         ].map(credit => {
             if (credit.link) {
@@ -234,7 +261,7 @@ const mapGalleryExtension = (extension, source) => ({
             }
             return credit.name;
         }),
-        docsURI: extension.docs ? `${source.baseURL}${extension.slug}` : null,
+        docsURI: extension.docs ? `${source.baseURL}${extension.slug || extension.URL || extension.extensionURL || extension.code}` : null,
     samples: extension.samples ? extension.samples.map(sample => ({
         href: `${process.env.ROOT}editor?project_url=${source.baseSamplesURL}${encodeURIComponent(sample)}.sb3`,
         text: sample

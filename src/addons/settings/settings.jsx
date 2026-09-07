@@ -315,6 +315,30 @@ const Tags = ({manifest}) => (
                 {settingsTranslations.tagZtEngine}
             </span>
 			        )}
+					{manifest.tags.includes('rw') && (
+            <span className={classNames(styles.tag, styles.tagRemixWarp)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://remixwarp.pages.dev/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="RemixWarp Icon"
+                />
+                {settingsTranslations.tagRemixWarp}
+            </span>
+			        )}
+					{manifest.tags.includes('ob') && (
+            <span className={classNames(styles.tag, styles.tagOmniBlocks)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://omniblocks.github.io/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="OmniBlocks Icon"
+                />
+                {settingsTranslations.tagOmniBlocks}
+            </span>
+			        )}
 	{manifest.tags.includes('pm') && (
             <span className={classNames(styles.tag, styles.tagPenguinmod)}
                 style={{display: "inline-flex", alignItems: "center", gap: "5px"}}

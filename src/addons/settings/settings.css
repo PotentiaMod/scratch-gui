@@ -366,6 +366,16 @@ a:active, a:focus {
     background: #4FA55C;
     border-color: #065712;
 }
+.tag-omniblocks {
+    color: white;
+    background: #59C0C0;
+    border-color: #107070;
+}
+.tag-remixwarp {
+    color: white;
+    background: #000000;
+    border-color: #000000;
+}
 .tag-penguinmod {
     color: white;
     background: #00c3ff;
