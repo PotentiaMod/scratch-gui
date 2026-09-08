@@ -1,5 +1,7 @@
+import {APP_NAME} from '../brand';
 import messages from './tag-messages.js';
 export default [
+    {tag: 'potentia', intlLabel: APP_NAME},
     {tag: 'animals', intlLabel: messages.animals},
     {tag: 'people', intlLabel: messages.people},
     {tag: 'fantasy', intlLabel: messages.fantasy},

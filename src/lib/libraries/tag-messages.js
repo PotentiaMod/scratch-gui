@@ -56,6 +56,11 @@ export default defineMessages({
         description: 'Tag for filtering a library for notes',
         id: 'gui.libraryTags.notes'
     },
+	other: {
+        defaultMessage: 'Other Scratch Mods',
+        description: 'Tag for filtering a library for extensions from other modifications',
+        id: 'pot.libraryTags.other'
+    },
     outdoors: {
         defaultMessage: 'Outdoors',
         description: 'Tag for filtering a library for outdoors',
@@ -75,6 +80,11 @@ export default defineMessages({
         defaultMessage: 'Percussion',
         description: 'Tag for filtering a library for percussion',
         id: 'gui.libraryTags.percussion'
+    },
+	potentia: {
+        defaultMessage: 'PotentiaMod',
+        description: 'Tag for filtering a library for PotentiaMod-created content',
+        id: 'pot.libraryTags.pot'
     },
     space: {
         defaultMessage: 'Space',
@@ -125,5 +135,60 @@ export default defineMessages({
         defaultMessage: 'Letters',
         description: 'Tag for filtering a library for letters',
         id: 'gui.libraryTags.letters'
+    },
+    graphics: {
+        defaultMessage: 'Graphics',
+        description: 'Tag for filtering a library for graphics',
+        id: 'pot.gui.libraryTags.graphics'
+    },
+    sound: {
+        defaultMessage: 'Sound',
+        description: 'Tag for filtering a library for sound',
+        id: 'pot.gui.libraryTags.sound'
+    },
+    math: {
+        defaultMessage: 'Math',
+        description: 'Tag for filtering a library for math',
+        id: 'pot.gui.libraryTags.math'
+    },
+    data: {
+        defaultMessage: 'Data Management',
+        description: 'Tag for filtering a library for data',
+        id: 'pot.gui.libraryTags.data'
+    },
+    hardware: {
+        defaultMessage: 'Hardware',
+        description: 'Tag for filtering a library for hardware',
+        id: 'pot.gui.libraryTags.hardware'
+    },
+    internet: {
+        defaultMessage: 'Internet',
+        description: 'Tag for filtering a library for internet',
+        id: 'pot.gui.libraryTags.internet'
+    },
+    expansion: {
+        defaultMessage: 'Category Expansion',
+        description: 'Tag for filtering a library for expansions',
+        id: 'pot.gui.libraryTags.expansion'
+    },
+    type: {
+        defaultMessage: 'Types',
+        description: 'Tag for filtering a library for data types',
+        id: 'pot.gui.libraryTags.type'
+    },
+    language: {
+        defaultMessage: 'Programming Language',
+        description: 'Tag for filtering a library for programming languages',
+        id: 'pot.gui.libraryTags.language'
+    },
+    library: {
+        defaultMessage: 'Extension Gallery',
+        description: 'Tag for filtering a library for extension libraries',
+        id: 'pot.gui.libraryTags.library'
+    },
+    customextension: {
+        defaultMessage: 'Load Custom Extension',
+        description: 'Button to load a custom extension',
+        id: 'pot.gui.libraryTags.customextension'
     }
 });

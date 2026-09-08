@@ -1,4 +1,4 @@
-import {FormattedMessage} from 'react-intl';
+import {FormattedMessage, intlShape, defineMessages} from 'react-intl';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -6,20 +6,68 @@ import Box from '../box/box.jsx';
 import PlayButton from '../../containers/play-button.jsx';
 import styles from './library-item.css';
 import classNames from 'classnames';
+import SettingsStore from '../../editor-settings/settings-store-singleton';
 
 import bluetoothIconURL from './bluetooth.svg';
 import internetConnectionIconURL from './internet-connection.svg';
+import shipGuyIconURL from './shipguy.svg';
+import nfcIconURL from './nfc.svg';
+import packagedIconURL from './packaged.svg';
+import usbConnectionIconURL from './usb-connection.svg';
+
+import favoritedFilledUrl from './favorite/filled.svg';
+import favoritedOutlineUrl from './favorite/outline.svg';
+import deleteFilledUrl from './delete/filled.svg';
+import downloadFilled from './download/filled.svg';
+
+import favoriteInactiveIcon from './favorite-inactive.svg';
+import favoriteActiveIcon from './favorite-active.svg';
+
+const messages = defineMessages({
+    favorite: {
+        defaultMessage: 'Favorite',
+        description: 'Alt text of icon in costume, sound, and extension libraries to mark an item as favorite.',
+        id: 'tw.favorite'
+    },
+    unfavorite: {
+        defaultMessage: 'Unfavorite',
+        description: 'Alt text of icon in costume, sound, and extension libraries to unmark an item as favorite.',
+        id: 'tw.unfavorite'
+    }
+});
 
 /* eslint-disable react/prefer-stateless-function */
 class LibraryItemComponent extends React.PureComponent {
     render () {
+        const favoriteMessage = this.props.intl.formatMessage(
+            this.props.favorite ? messages.unfavorite : messages.favorite
+        );
+        const favorite = (
+            <button
+                className={classNames(styles.favoriteContainer, {[styles.active]: this.props.favorite})}
+                onClick={this.props.onFavorite}
+            >
+                <img
+                    src={this.props.favorite ? favoriteActiveIcon : favoriteInactiveIcon}
+                    className={styles.favoriteIcon}
+                    draggable={false}
+                    alt={favoriteMessage}
+                    title={favoriteMessage}
+                />
+            </button>
+        );
+
+        const showIDS = SettingsStore.store.showExtensionIds;
+
         return this.props.featured ? (
             <div
                 className={classNames(
                     styles.libraryItem,
                     styles.featuredItem,
                     {
-                        [styles.disabled]: this.props.disabled
+                        [styles.disabled]: this.props.disabled,
+                        [styles.comingsoon]: this.props.comingsoon,
+                        [styles.new]: this.props.isNew,
                     },
                     typeof this.props.extensionId === 'string' ? styles.libraryItemExtension : null,
                     this.props.hidden ? styles.hidden : null
@@ -28,6 +76,15 @@ class LibraryItemComponent extends React.PureComponent {
             >
                 <div className={styles.featuredImageContainer}>
                     {this.props.disabled ? (
+                        <div className={styles.disabledText}>
+                            <FormattedMessage
+                                defaultMessage="Disabled"
+                                description="Label for extensions that are disabled"
+                                id="gui.extensionLibrary.disabled"
+                            />
+                        </div>
+                    ) : null}
+					{this.props.comingsoon ? (
                         <div className={styles.comingSoonText}>
                             <FormattedMessage
                                 defaultMessage="Coming Soon"
@@ -36,13 +93,42 @@ class LibraryItemComponent extends React.PureComponent {
                             />
                         </div>
                     ) : null}
+					{this.props.isNew ? (
+                        <div className={styles.newText}>
+                            <FormattedMessage
+                                defaultMessage="New!"
+                                description="Label for extensions that new"
+                                id="gui.extensionLibrary.new"
+                            />
+                        </div>
+                    ) : null}
                     <img
                         className={styles.featuredImage}
+                        loading="lazy"
+                        draggable={false}
                         src={this.props.iconURL}
                     />
                 </div>
-                {this.props.insetIconURL ? (
-                    <div className={styles.libraryItemInsetImageContainer}>
+                {this.props.insetIconURL && !this.props.customInsetColor ? (
+                    <div className={
+                        this.props.twDeveloper ?
+                            classNames(styles.libraryItemInsetImageContainer, styles.twLibraryItemInsetImageContainer)
+                            : styles.libraryItemInsetImageContainer
+                    }
+                    >
+                        <img
+                            className={styles.libraryItemInsetImage}
+                            src={this.props.insetIconURL}
+                            draggable={false}
+                        />
+                    </div>
+                ) : null}
+				{this.props.insetIconURL && this.props.customInsetColor ? (
+                    <div className={
+                        styles.libraryItemInsetImageContainerNoBg
+                    }
+                        style={{ backgroundColor: this.props.customInsetColor }}
+                    >
                         <img
                             className={styles.libraryItemInsetImage}
                             src={this.props.insetIconURL}
@@ -54,14 +140,61 @@ class LibraryItemComponent extends React.PureComponent {
                         classNames(styles.featuredExtensionText, styles.featuredText) : styles.featuredText
                     }
                 >
-                    <span className={styles.libraryItemName}>{this.props.name}</span>
+                    <span className={styles.libraryItemName}>{this.props.name}{(() => {
+                        if (!showIDS || typeof this.props.extensionId !== 'string') return "";
+                        return <span className={styles.extensionId}> ({this.props.extensionId})</span>;
+                    })()}</span>
                     <br />
+                    
                     <span className={styles.featuredDescription}>{this.props.description}</span>
                 </div>
-                {this.props.bluetoothRequired || this.props.internetConnectionRequired || this.props.collaborator ? (
+
+                {(this.props.docsURI || this.props.samples) && (
+                    <div className={styles.extensionLinks}>
+                        {this.props.docsURI && (
+                            <a
+                                href={this.props.docsURI}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <FormattedMessage
+                                    defaultMessage="Documentation"
+                                    // eslint-disable-next-line max-len
+                                    description="Appears in the extension list. Links to additional extension documentation."
+                                    id="tw.documentation"
+                                />
+                            </a>
+                        )}
+
+                        {this.props.samples && (
+                            <a
+                                href={this.props.samples[0].href}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <FormattedMessage
+                                    defaultMessage="Sample project"
+                                    // eslint-disable-next-line max-len
+                                    description="Appears in the extension list. Links to a sample project for an extension."
+                                    id="tw.sample"
+                                />
+                            </a>
+                        )}
+                    </div>
+                )}
+
+                {this.props.bluetoothRequired ||
+                 this.props.internetConnectionRequired ||
+                 this.props.gaiaModRequired ||
+                 this.props.nfcRequired ||
+                 this.props.packageRequired ||
+                 this.props.usbConnectionRequired ||
+                 this.props.collaborator ||
+                 this.props.extraLabels ||
+				(this.props.credits && this.props.credits.length > 0) ? (
                     <div className={styles.featuredExtensionMetadata}>
                         <div className={styles.featuredExtensionRequirement}>
-                            {this.props.bluetoothRequired || this.props.internetConnectionRequired ? (
+                            {this.props.bluetoothRequired || this.props.internetConnectionRequired || this.props.gaiaModRequired || this.props.nfcRequired || this.props.packageRequired || this.props.usbConnectionRequired ? (
                                 <div>
                                     <div>
                                         <FormattedMessage
@@ -74,11 +207,47 @@ class LibraryItemComponent extends React.PureComponent {
                                         className={styles.featuredExtensionMetadataDetail}
                                     >
                                         {this.props.bluetoothRequired ? (
-                                            <img src={bluetoothIconURL} />
+                                            <img
+                                                src={bluetoothIconURL}
+                                                draggable={false}
+                                            />
                                         ) : null}
+										
                                         {this.props.internetConnectionRequired ? (
-                                            <img src={internetConnectionIconURL} />
+                                            <img
+                                                src={internetConnectionIconURL}
+                                                draggable={false}
+                                            />
                                         ) : null}
+										
+										{this.props.gaiaModRequired ? (
+                                            <img
+                                                src={shipGuyIconURL}
+                                                draggable={false}
+                                            />
+                                        ) : null}
+										
+										{this.props.nfcRequired ? (
+                                            <img
+                                                src={nfcIconURL}
+                                                draggable={false}
+                                            />
+                                        ) : null}
+										
+										{this.props.usbConnectionRequired ? (
+                                            <img
+                                                src={usbConnectionIconURL}
+                                                draggable={false}
+                                            />
+                                        ) : null}
+										
+										{this.props.packageRequired ? (
+                                            <img
+                                                src={packagedIconURLs}
+                                                draggable={false}
+                                            />
+                                        ) : null}
+
                                     </div>
                                 </div>
                             ) : null}
@@ -86,13 +255,7 @@ class LibraryItemComponent extends React.PureComponent {
                         <div className={styles.featuredExtensionCollaboration}>
                             {this.props.collaborator ? (
                                 <div>
-                                    <div>
-                                        <FormattedMessage
-                                            defaultMessage="Collaboration with"
-                                            description="Label for extension collaboration"
-                                            id="gui.extensionLibrary.collaboration"
-                                        />
-                                    </div>
+                                    Credits:
                                     <div
                                         className={styles.featuredExtensionMetadataDetail}
                                     >
@@ -100,19 +263,46 @@ class LibraryItemComponent extends React.PureComponent {
                                     </div>
                                 </div>
                             ) : null}
+														
+							{this.props.extraLabels ? (
+                                <div>
+                                    Credits:
+                                    <div
+                                        className={styles.featuredExtensionMetadataDetail}
+                                    >
+                                        {this.props.extraLabels}
+                                    </div>
+                                </div>
+                            ) : null}
+							
+                            {this.props.credits && this.props.credits.length > 0 && (
+                                <div>
+                                    <div>
+                                        <FormattedMessage
+                                            defaultMessage="Made by:"
+                                            description="Appears in the extension list. Followed by a list of names."
+                                            id="tw.gui.createdBy"
+                                        />
+                                    </div>
+                                    <div
+                                        className={styles.featuredExtensionMetadataDetail}
+                                    >
+                                    {this.props.credits.map((credit, index) => (
+                                        <React.Fragment key={index}>
+                                            {credit}
+                                            {index !== this.props.credits.length - 1 && (
+                                                ', '
+                                            )}
+                                        </React.Fragment>
+                                    ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 ) : null}
-                {this.props.incompatibleWithScratch && (
-                    <div className={styles.incompatibleWithScratch}>
-                        <FormattedMessage
-                            // eslint-disable-next-line max-len
-                            defaultMessage="Not compatible with Scratch."
-                            description="Warning that appears on extensions that won't work in Scratch."
-                            id="tw.extensions.incompatible"
-                        />
-                    </div>
-                )}
+
+                {favorite}
             </div>
         ) : (
             <Box
@@ -141,6 +331,7 @@ class LibraryItemComponent extends React.PureComponent {
                             className={styles.libraryItemImage}
                             loading="lazy"
                             src={this.props.iconURL}
+                            draggable={false}
                         />
                     </Box>
                 </Box>
@@ -152,6 +343,8 @@ class LibraryItemComponent extends React.PureComponent {
                         onStop={this.props.onStop}
                     />
                 ) : null}
+
+                {favorite}
             </Box>
         );
     }
@@ -160,6 +353,7 @@ class LibraryItemComponent extends React.PureComponent {
 
 
 LibraryItemComponent.propTypes = {
+    intl: intlShape,
     bluetoothRequired: PropTypes.bool,
     collaborator: PropTypes.string,
     description: PropTypes.oneOfType([
@@ -167,11 +361,11 @@ LibraryItemComponent.propTypes = {
         PropTypes.node
     ]),
     disabled: PropTypes.bool,
+    comingSoon: PropTypes.bool,
     extensionId: PropTypes.string,
     featured: PropTypes.bool,
     hidden: PropTypes.bool,
     iconURL: PropTypes.string,
-    incompatibleWithScratch: PropTypes.bool,
     insetIconURL: PropTypes.string,
     internetConnectionRequired: PropTypes.bool,
     isPlaying: PropTypes.bool,
@@ -179,6 +373,41 @@ LibraryItemComponent.propTypes = {
         PropTypes.string,
         PropTypes.node
     ]),
+    credits: PropTypes.arrayOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ])),
+	twDeveloper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    extDeveloper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    eventSubmittor: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    extraLabels: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.node
+            ]),
+            value: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.node
+            ]),
+        })
+    ),
+    docsURI: PropTypes.string,
+    samples: PropTypes.arrayOf(PropTypes.shape({
+        href: PropTypes.string,
+        text: PropTypes.string
+    })),
+    favorite: PropTypes.bool,
+    onFavorite: PropTypes.func,
     onBlur: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
     onFocus: PropTypes.func.isRequired,
@@ -187,7 +416,18 @@ LibraryItemComponent.propTypes = {
     onMouseLeave: PropTypes.func.isRequired,
     onPlay: PropTypes.func.isRequired,
     onStop: PropTypes.func.isRequired,
-    showPlayButton: PropTypes.bool
+    showPlayButton: PropTypes.bool,
+	overlayURL: PropTypes.string,
+	isNew: PropTypes.bool,
+	overlayURL: PropTypes.string,
+	 _unsandboxed: PropTypes.bool,
+	gaiaModRequired: PropTypes.bool,
+    nfcRequired: PropTypes.bool,
+    packageRequired: PropTypes.bool,
+    usbConnectionRequired: PropTypes.bool,
+	customInsetColor: PropTypes.string,
+	deletable: PropTypes.bool,
+    custom: PropTypes.bool,
 };
 
 LibraryItemComponent.defaultProps = {

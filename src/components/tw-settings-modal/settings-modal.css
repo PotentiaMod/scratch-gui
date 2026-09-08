@@ -1,19 +1,24 @@
 @import "../../css/colors.css";
+@import "../../css/filters.css";
+@import "../../css/default-colors.css";
 
 .modal-content {
-    max-width: 750px;
+    max-width: max(60%, 750px);
+}
+
+:global(body.disable-blur) * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 .body {
-    background: $ui-white;
+    background: $ui-modal-background;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 1.5rem 2.25rem;
-    min-height: 150px;
+    min-height: 520px; /* Add minimum height */
     max-height: calc(100vh - 250px);
-    overflow-y: auto;
-}
-[theme="dark"] .body {
-    color: $text-primary;
-    background: $ui-primary;
+    overflow: hidden; /* Change from auto to hidden since tab-content will handle scrolling */
 }
 
 /* For small screens, such as in the embed */
@@ -33,19 +38,13 @@
     margin: 0.25rem 0;
     border-radius: 4px;
 }
+
 .setting.active {
-    background: #dbebff;
+    background: $badge-background;
 }
 .setting:hover,
 .setting:focus-within {
-    background: #cadef5;
-}
-[theme="dark"] .setting.active {
-    background: #16202c;
-}
-[theme="dark"] .setting:hover,
-[theme="dark"] .setting:focus-within {
-    background: #202f41;
+    background: $badge-border;
 }
 
 .label {
@@ -55,9 +54,14 @@
     align-items: center;
 }
 
+.label-unset-height {
+    height: initial;
+}
+
 .setting table {
     border-collapse: collapse;
 }
+
 .setting tr,
 .setting td,
 .setting th {
@@ -73,17 +77,19 @@
 .help-icon {
     border: 0;
     background-color: transparent;
-    background-image: url("./help-black.svg");
     width: 20px;
     height: 20px;
     background-size: 100%;
     margin-left: 0.5rem;
     cursor: pointer;
 }
-[theme="dark"] .help-icon {
-    background-image: url("./help-white.svg");
+.help-icon img {
+    filter: $filter-icon-black;
 }
 
+.custom-stage-size {
+    margin-top: 0.5rem;
+}
 .custom-stage-size > * {
     margin-right: 0.5rem;
 }
@@ -91,8 +97,46 @@
     width: 80px;
 }
 
+.swap-button {
+    position: relative;
+    border: 0;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    cursor: pointer;
+    padding: 0;
+}
+.swap-button img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: $filter-icon-black;
+}
+
 .info {
     margin-bottom: 0.25rem;
+}
+
+.content {
+    height: 100%;
+    overflow: auto;
+    flex-grow: 1;
+    position: relative;
+}
+
+.content:not(.escaped) {
+    padding: 1rem 1.5rem;
+}
+
+.content iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
 }
 
 .header {
@@ -102,6 +146,7 @@
     margin: 0.5rem 0 0 0;
     font-weight: bold;
 }
+
 .divider {
     flex-grow: 1;
     margin-left: 1rem;
@@ -111,8 +156,8 @@
 .button {
     font-family: inherit;
     font-size: 14px;
-    background-color: $motion-primary;
-    color: white;
+    background-color: $looks-secondary;
+    color: $text-primary;
     border: none;
     padding: 0.5rem 1rem;
     margin: 0;
@@ -121,16 +166,179 @@
     font-family: inherit;
     font-weight: bold;
 }
+
 .button:active, .button:focus-within {
-    box-shadow: 0 0 0 3px $motion-transparent;
+    box-shadow: 0 0 0 3px $looks-transparent;
 }
 
 .warning {
     padding: 0.5rem 1rem;
     margin: 0.25rem 0;
     border-radius: 4px;
-    background: rgb(233, 233, 53);
+    background: rgb(255, 197, 38);
+    color: black;
 }
-[theme="dark"] .warning {
-    background: rgb(114, 102, 0);
+
+.summary {
+    cursor: pointer;
+}
+
+.dropdown {
+    margin-right: 4px;
+}
+
+details[open] .dropdown {
+    transform: rotate(90deg);
+}
+/* Project Size Tracker Styles */
+.project-size-container {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+    background: rgba(115, 76, 255, 0.1);
+    border: 2px solid rgba(76, 151, 255, 0.3);
+}
+
+.project-size-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-weight: bold;
+}
+
+.project-size-value {
+    font-size: 1.25rem;
+    color: $looks-secondary;
+}
+
+.project-size-bar-container {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.project-size-bar {
+    height: 100%;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.project-size-bar-safe {
+    background: linear-gradient(90deg, #19FF3F, #37FF62);
+}
+
+.project-size-bar-warning {
+    background: linear-gradient(90deg, #ffab19, #ffc837);
+}
+
+.project-size-bar-danger {
+    background: linear-gradient(90deg, #ff6680, #ff8fa3);
+}
+
+.project-size-info {
+    font-size: 0.875rem;
+    color: $text-primary;
+    margin-top: 0.5rem;
+}
+
+.project-size-warning-text {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    background: rgba(255, 171, 25, 0.2);
+    border: 1px solid rgba(255, 171, 25, 0.5);
+}
+
+.project-size-danger-text {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    background: rgba(255, 102, 128, 0.2);
+    border: 1px solid rgba(255, 102, 128, 0.5);
+}
+
+.tab-container {
+    display: flex;
+    gap: 1.5rem;
+    min-height: 400px;
+    height: 100%; /* Make it fill the body */
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 180px;
+    padding-right: 1rem;
+    border-right: 1px solid $ui-tertiary;
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+.tab-button {
+    background: transparent;
+    border: none;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    color: $text-primary;
+    transition: background-color 0.2s ease;
+}
+
+.tab-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.tab-button-active {
+    background: $looks-transparent;
+    color: $text-primary;
+    font-weight: bold;
+}
+
+.tab-content {
+    flex: 1;
+    overflow-y: auto;
+    max-height: none; 
+    padding-right: 0.5rem;
+}
+
+/* For small screens */
+@media (max-width: 1068px) {
+    .tab-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        flex-direction: row;
+        overflow-x: auto;
+        border-right: none;
+        border-bottom: 1px solid $ui-tertiary;
+        padding-right: 0;
+        padding-bottom: 0.5rem;
+        min-width: auto;
+    }
+    
+    .tab-button {
+        white-space: nowrap;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
 }

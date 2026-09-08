@@ -14,16 +14,13 @@
     padding: 1rem 1rem 0 1rem;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: $text-primary;
-    background: white;
+    background: $ui-white;
     border-width: 2px;
     border-style: solid;
     border-color: $ui-black-transparent;
     border-radius: $space;
     text-align: center;
     cursor: pointer;
-}
-[theme="dark"] .library-item {
-    background: $ui-primary;
 }
 
 .library-item-extension {
@@ -32,7 +29,8 @@
 
 .library-item:hover {
     border-width: 2px;
-    border-color: $motion-primary;
+    border-color: $looks-secondary;
+	box-shadow: 0px 0px 25px $looks-secondary, inset 0px 0px 5px $looks-transparent;
 }
 
 .hidden {
@@ -46,6 +44,24 @@
 
 .disabled:hover {
     border-color: $ui-black-transparent;
+}
+
+.coming-soon {
+    opacity: .5;
+    cursor: auto;
+}
+
+.coming-soon:hover {
+    border-color: $ui-black-transparent;
+}
+
+
+.new {
+    cursor: pointer;
+}
+
+.new:hover {
+    border-color: $looks-secondary;
 }
 
 .library-item-image-container-wrapper {
@@ -74,10 +90,28 @@
     border: 0.25rem solid $ui-white;
 }
 
+.library-item-inset-image-container-no-bg {
+   position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2.5rem;
+    align-self: flex-start;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+    border: 0.25rem solid $ui-white;
+}
+
+.tw-library-item-inset-image-container {
+    background-color: hsla(0, 100%, 65%, 1);
+}
+
+[dir="ltr"] .library-item-inset-image-container-no-bg,
 [dir="ltr"] .library-item-inset-image-container {
     margin-left: 1rem;
 }
-
+[dir="rtl"] .library-item-inset-image-container-no-bg,
 [dir="rtl"] .library-item-inset-image-container {
     margin-right: 1rem;
 }
@@ -102,13 +136,12 @@
     */
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
     min-width: 0;
 }
 
 .featured-item {
-    flex-basis: 300px;
-    max-width: 300px;
+    flex-basis: 280px;
+    max-width: 280px;
     height: auto;
     overflow: hidden;
     padding: 0;
@@ -116,10 +149,13 @@
 
 .featured-image-container {
     position: relative;
+    width: 100%;
 }
 
 .featured-image {
     width: 100%;
+    aspect-ratio: 2;
+    object-fit: cover;
 }
 
 .featured-text {
@@ -184,8 +220,24 @@
     font-weight: bold;
 }
 
-.featured-extension-metadata-detail img{
+.featured-extension-metadata-detail img {
     margin-right: 0.25rem;
+    width: 20px;
+    height: 20px;
+}
+
+.extension-links {
+    width: 300px;
+    padding: 0 1.25rem 1rem 1.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    opacity: 0.75;
+    text-align: left;
+}
+.extension-links a {
+    color: inherit !important;
+    text-decoration: underline;
 }
 
 .coming-soon-text {
@@ -207,8 +259,65 @@
     transform: translate(calc(-2 * $space), calc(2 * $space));
 }
 
-.incompatible-with-scratch {
-    padding: 0 1.25rem 1rem 1.25rem;
-    width: 100%;
-    text-align: left;
+.disabled-text {
+    position: absolute;
+    background-color: #787878;
+    border-radius: 1rem;
+    box-shadow: 0 0 .5rem hsla(0, 0%, 0%, .25);
+    padding: .5rem 1rem;
+    font-size: .875rem;
+    font-weight: bold;
+    color: $ui-white;
+}
+
+[dir="ltr"] .disabled-text {
+    transform: translate(calc(2 * $space), calc(2 * $space));
+}
+
+[dir="rtl"] .disabled-text {
+    transform: translate(calc(-2 * $space), calc(2 * $space));
+}
+
+.new-text {
+    position: absolute;
+    background-color: #EB6566;
+    border-radius: 1rem;
+    box-shadow: 0 0 .5rem hsla(0, 0%, 0%, .25);
+    padding: .5rem 1rem;
+    font-size: .875rem;
+    font-weight: bold;
+    color: $ui-white;
+}
+
+[dir="ltr"] .new-text {
+    transform: translate(calc(2 * $space), calc(2 * $space));
+}
+
+[dir="rtl"] .new-text {
+    transform: translate(calc(-2 * $space), calc(2 * $space));
+}
+
+.favorite-container {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+}
+.favorite-icon {
+    width: 32px;
+    height: 32px;
+}
+.favorite-container.active,
+.library-item:hover .favorite-container {
+    display: block;
+}
+
+.extensionId {
+    font-style: italic;
+    font-size: 0.75em;
+    opacity: 0.75;
 }

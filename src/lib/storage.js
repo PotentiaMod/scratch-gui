@@ -1,7 +1,6 @@
-import ScratchStorage from 'scratch-storage';
+import ScratchStorage from '@turbowarp/scratch-storage';
 
 import defaultProject from './default-project';
-import missingProject from './tw-missing-project';
 
 /**
  * Wrapper for ScratchStorage which adds default web sources.
@@ -20,7 +19,7 @@ class Storage extends ScratchStorage {
             this.getProjectUpdateConfig.bind(this)
         );
         this.addWebStore(
-            [this.AssetType.ImageVector, this.AssetType.ImageBitmap, this.AssetType.Sound],
+            [this.AssetType.ImageVector, this.AssetType.ImageBitmap, this.AssetType.Sound, this.AssetType.Font],
             this.getAssetGetConfig.bind(this),
             // We set both the create and update configs to the same method because
             // storage assumes it should update if there is an assetId, but the
@@ -76,13 +75,6 @@ class Storage extends ScratchStorage {
     cacheDefaultProject () {
         const defaultProjectAssets = defaultProject(this.translator);
         defaultProjectAssets.forEach(asset => this.builtinHelper._store(
-            this.AssetType[asset.assetType],
-            this.DataFormat[asset.dataFormat],
-            asset.data,
-            asset.id
-        ));
-        const missingProjectAssets = missingProject(this.translator);
-        missingProjectAssets.forEach(asset => this.builtinHelper._store(
             this.AssetType[asset.assetType],
             this.DataFormat[asset.dataFormat],
             asset.data,

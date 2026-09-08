@@ -9,6 +9,7 @@ import randomizeSpritePosition from '../lib/randomize-sprite-position';
 import spriteTags from '../lib/libraries/sprite-tags';
 
 import LibraryComponent from '../components/library/library.jsx';
+import {handleAssetLoad} from '../lib/libraries/pot-web-libraries';
 
 const messages = defineMessages({
     libraryTitle: {
@@ -24,6 +25,16 @@ class SpriteLibrary extends React.PureComponent {
         bindAll(this, [
             'handleItemSelect'
         ]);
+        this.state = {
+            data: getSpriteLibrary()
+        };
+    }
+    componentDidMount () {
+        if (this.state.data.then) {
+            this.state.data.then(data => this.setState({
+                data
+            }));
+        }
     }
     handleItemSelect (item) {
         // Randomize position of library sprite
@@ -35,10 +46,11 @@ class SpriteLibrary extends React.PureComponent {
     render () {
         return (
             <LibraryComponent
-                data={getSpriteLibrary()}
+                data={this.state.data.then ? null : this.state.data}
                 id="spriteLibrary"
                 tags={spriteTags}
                 title={this.props.intl.formatMessage(messages.libraryTitle)}
+                removedTrademarks
                 onItemSelected={this.handleItemSelect}
                 onRequestClose={this.props.onRequestClose}
             />

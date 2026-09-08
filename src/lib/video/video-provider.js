@@ -50,7 +50,7 @@ class VideoProvider {
      * @type {Array.<number>}
      */
     static get DIMENSIONS () {
-        return [480, 360];
+        return [480, 640];
     }
 
     /**
@@ -207,7 +207,7 @@ class VideoProvider {
 
         this._singleSetup = requestVideoStream({
             width: {min: 480, ideal: 640},
-            height: {min: 360, ideal: 480}
+            height: {min: 640, ideal: 480}
         })
             .then(stream => {
                 this._video = document.createElement('video');

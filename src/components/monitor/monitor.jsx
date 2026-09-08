@@ -10,17 +10,19 @@ import DefaultMonitor from './default-monitor.jsx';
 import LargeMonitor from './large-monitor.jsx';
 import SliderMonitor from '../../containers/slider-monitor.jsx';
 import ListMonitor from '../../containers/list-monitor.jsx';
+import {Theme} from '../../lib/themes/index.js';
 
 import styles from './monitor.css';
 
-const categories = {
-    data: '#FF8C1A',
-    sensing: '#5CB1D6',
-    sound: '#CF63CF',
-    looks: '#9966FF',
-    motion: '#4C97FF',
-    list: '#FC662C',
-    extension: '#0FBD8C'
+// Map category name to color name used in scratch-blocks Blockly.Colours
+const categoryColorMap = {
+    data: 'data',
+    sensing: 'sensing',
+    sound: 'sounds',
+    looks: 'looks',
+    motion: 'motion',
+    list: 'data_lists',
+    extension: 'pen'
 };
 
 const modes = {
@@ -30,12 +32,20 @@ const modes = {
     list: ListMonitor
 };
 
+const getCategoryColor = (theme, category) => {
+    const colors = theme.getStageBlockColors();
+    return {
+        background: colors[categoryColorMap[category]].primary,
+        text: colors.text
+    };
+};
+
 const MonitorComponent = props => (
     <ContextMenuTrigger
         // TW: if export is defined, we always show it, even outside of the editor
         disable={!props.draggable && !props.onExport}
         holdToDisplay={props.mode === 'slider' ? -1 : 1000}
-        id={`monitor-${props.label}`}
+        id={`monitor-${props.id}`}
     >
         <Draggable
             bounds=".monitor-overlay" // Class for monitor container
@@ -43,6 +53,9 @@ const MonitorComponent = props => (
             defaultClassNameDragging={styles.dragging}
             disabled={!props.draggable}
             onStop={props.onDragEnd}
+
+            // https://github.com/TurboWarp/scratch-gui/issues/950
+            enableUserSelectHack={false}
         >
             <Box
                 className={styles.monitorContainer}
@@ -52,7 +65,7 @@ const MonitorComponent = props => (
                 data-opcode={props.opcode}
             >
                 {React.createElement(modes[props.mode], {
-                    categoryColor: categories[props.category],
+                    categoryColor: getCategoryColor(props.theme, props.category),
                     ...props
                 })}
             </Box>
@@ -62,7 +75,7 @@ const MonitorComponent = props => (
             // positioning conflicts between the monitors `transform: scale` and
             // the context menus `position: fixed`. For more details, see
             // http://meyerweb.com/eric/thoughts/2011/09/12/un-fixing-fixed-elements-with-css-transforms/
-            <ContextMenu id={`monitor-${props.label}`}>
+            <ContextMenu id={`monitor-${props.id}`}>
                 {props.draggable && props.onSetModeToDefault &&
                     <MenuItem onClick={props.onSetModeToDefault}>
                         <FormattedMessage
@@ -125,12 +138,10 @@ const MonitorComponent = props => (
 
 );
 
-MonitorComponent.categories = categories;
-
 const monitorModes = Object.keys(modes);
 
 MonitorComponent.propTypes = {
-    category: PropTypes.oneOf(Object.keys(categories)),
+    category: PropTypes.oneOf(Object.keys(categoryColorMap)),
     componentRef: PropTypes.func.isRequired,
     draggable: PropTypes.bool.isRequired,
     id: PropTypes.string.isRequired,
@@ -145,7 +156,8 @@ MonitorComponent.propTypes = {
     onSetModeToDefault: PropTypes.func,
     onSetModeToLarge: PropTypes.func,
     onSetModeToSlider: PropTypes.func,
-    onSliderPromptOpen: PropTypes.func
+    onSliderPromptOpen: PropTypes.func,
+    theme: PropTypes.instanceOf(Theme).isRequired
 };
 
 MonitorComponent.defaultProps = {

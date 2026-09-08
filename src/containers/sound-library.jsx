@@ -4,6 +4,7 @@ import React from 'react';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import VM from 'scratch-vm';
 import AudioEngine from 'scratch-audio';
+import SharedAudioContext from '../lib/audio/shared-audio-context';
 
 import LibraryComponent from '../components/library/library.jsx';
 
@@ -12,6 +13,7 @@ import soundIconRtl from '../components/library-item/lib-icon--sound-rtl.svg';
 
 import {getSoundLibrary} from '../lib/libraries/tw-async-libraries';
 import soundTags from '../lib/libraries/sound-tags';
+import {handleAssetLoad} from '../lib/libraries/pot-web-libraries';
 
 import {connect} from 'react-redux';
 
@@ -64,22 +66,23 @@ class SoundLibrary extends React.PureComponent {
          */
         this.handleStop = null;
 
-        const soundLibrary = getSoundLibrary();
         this.state = {
-            data: Array.isArray(soundLibrary) ?
-                getSoundLibraryThumbnailData(soundLibrary, this.props.isRtl) :
-                soundLibrary
+            data: null
         };
     }
     componentDidMount () {
-        if (this.state.data.then) {
-            this.state.data.then(data => {
-                this.setState({
-                    data: getSoundLibraryThumbnailData(data, this.props.isRtl)
-                });
+        const soundLibrary = getSoundLibrary();
+        if (soundLibrary.then) {
+            soundLibrary.then(data => this.setState({
+                data: getSoundLibraryThumbnailData(data, this.props.isRtl)
+            }));
+        } else {
+            this.setState({
+                data: getSoundLibraryThumbnailData(soundLibrary, this.props.isRtl)
             });
         }
-        this.audioEngine = new AudioEngine();
+
+        this.audioEngine = new AudioEngine(new SharedAudioContext());
         this.playingSoundPromise = null;
     }
     componentWillUnmount () {
@@ -124,9 +127,6 @@ class SoundLibrary extends React.PureComponent {
         }
     }
     handleItemMouseEnter (soundItem) {
-        const md5ext = soundItem._md5;
-        const idParts = md5ext.split('.');
-        const md5 = idParts[0];
         const vm = this.props.vm;
 
         // In case enter is called twice without a corresponding leave
@@ -135,6 +135,37 @@ class SoundLibrary extends React.PureComponent {
 
         // Save the promise so code to stop the sound may queue the stop
         // instruction after the play instruction.
+        if (soundItem._src) {
+            this.playingSoundPromise = handleAssetLoad(soundItem._src.library, soundItem._src.path, (buffer) => buffer)
+                .then(buffer => {
+                    if (buffer) {
+                        const sound = {
+                            data: {
+                                buffer,
+                                length: buffer.byteLength
+                            }
+                        };
+                        return this.audioEngine.decodeSoundPlayer(sound)
+                            .then(soundPlayer => {
+                                soundPlayer.connect(this.audioEngine);
+                                // Play the sound. Playing the sound will always come before a
+                                // paired stop if the sound must stop early.
+                                soundPlayer.play();
+                                soundPlayer.addListener('stop', this.onStop);
+                                // Set that the sound is playing. This affects the type of stop
+                                // instruction given if the sound must stop early.
+                                if (this.playingSoundPromise !== null) {
+                                    this.playingSoundPromise.isPlaying = true;
+                                }
+                                return soundPlayer;
+                            });
+                    }
+                });
+            return;
+        }
+        const md5ext = soundItem._md5;
+        const idParts = md5ext.split('.');
+        const md5 = idParts[0];
         this.playingSoundPromise = vm.runtime.storage.load(vm.runtime.storage.AssetType.Sound, md5)
             .then(soundAsset => {
                 if (soundAsset) {
@@ -164,7 +195,18 @@ class SoundLibrary extends React.PureComponent {
     handleItemMouseLeave () {
         this.stopPlayingSound();
     }
-    handleItemSelected (soundItem) {
+     handleItemSelected (soundItem) {
+        if (soundItem._src) {
+            handleAssetLoad(soundItem._src.library, soundItem._src.path, (buffer, fileType) => {
+                soundUpload(buffer, fileType, this.props.vm.runtime.storage, newSound => {
+                    newSound.name = soundItem.name;
+                    this.props.vm.addSound(newSound).then(() => {
+                        this.props.onNewSound();
+                    });
+                });
+            });
+            return;
+        }
         const vmSound = {
             format: soundItem.format,
             md5: soundItem._md5,

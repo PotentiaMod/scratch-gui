@@ -29,6 +29,8 @@ class UsernameModal extends React.Component {
             'handleWarpTimerChange',
             'handleStageWidthChange',
             'handleStageHeightChange',
+            'handleSelectStageSizePreset',
+            'handleSwapStageSize',
             'handleDisableCompilerChange',
             'handleStoreProjectOptions'
         ]);
@@ -37,8 +39,9 @@ class UsernameModal extends React.Component {
         this.props.vm.setFramerate(e.target.checked ? 60 : 30);
     }
     async handleCustomizeFramerate () {
+        // prompt() returns Promise in desktop app
         // eslint-disable-next-line no-alert
-        const newFramerate = +await prompt(this.props.intl.formatMessage(messages.newFramerate), this.props.framerate);
+        const newFramerate = await prompt(this.props.intl.formatMessage(messages.newFramerate), this.props.framerate);
         const parsed = parseFloat(newFramerate);
         if (isFinite(parsed)) {
             this.props.vm.setFramerate(parsed);
@@ -81,6 +84,12 @@ class UsernameModal extends React.Component {
     handleStageHeightChange (value) {
         this.props.vm.setStageSize(this.props.customStageSize.width, value);
     }
+    handleSelectStageSizePreset (width, height) {
+        this.props.vm.setStageSize(width, height);
+    }
+    handleSwapStageSize () {
+        this.props.vm.setStageSize(this.props.customStageSize.height, this.props.customStageSize.width);
+    }
     handleStoreProjectOptions () {
         this.props.vm.storeProjectOptions();
     }
@@ -105,6 +114,8 @@ class UsernameModal extends React.Component {
                 onWarpTimerChange={this.handleWarpTimerChange}
                 onStageWidthChange={this.handleStageWidthChange}
                 onStageHeightChange={this.handleStageHeightChange}
+                onSelectStageSizePreset={this.handleSelectStageSizePreset}
+                onSwapStageSize={this.handleSwapStageSize}
                 onDisableCompilerChange={this.handleDisableCompilerChange}
                 stageWidth={this.props.customStageSize.width}
                 stageHeight={this.props.customStageSize.height}

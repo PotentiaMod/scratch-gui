@@ -1,16 +1,16 @@
 import './import-first';
 
-import ReactDOM from 'react-dom';
 import React from 'react';
 import {compose} from 'redux';
-import {setAppElement} from 'react-modal';
 import AppStateHOC from '../lib/app-state-hoc.jsx';
 import TWEmbedFullScreenHOC from '../lib/tw-embed-fullscreen-hoc.jsx';
 import TWStateManagerHOC from '../lib/tw-state-manager-hoc.jsx';
 import runAddons from '../addons/entry';
+import {Theme} from '../lib/themes/index.js';
 
 import GUI from './render-gui.jsx';
-import appTarget from './app-target';
+import TWWindchimeSubmitter from '../containers/tw-windchime-submitter.jsx';
+import render from './app-target';
 
 const getProjectId = () => {
     // For compatibility reasons, we first look at the hash.
@@ -44,20 +44,27 @@ const onProjectLoaded = () => {
     }
 };
 
+const Embed = props => (
+    <React.Fragment>
+        <GUI {...props} />
+        <TWWindchimeSubmitter />
+    </React.Fragment>
+);
+
 const WrappedGUI = compose(
     AppStateHOC,
     TWStateManagerHOC,
     TWEmbedFullScreenHOC
-)(GUI);
+)(Embed);
 
-setAppElement(appTarget);
-ReactDOM.render(<WrappedGUI
+render(<WrappedGUI
     isEmbedded
     projectId={projectId}
     onVmInit={onVmInit}
     onProjectLoaded={onProjectLoaded}
     routingStyle="none"
-/>, appTarget);
+    theme={Theme.light}
+/>);
 
 if (urlParams.has('addons')) {
     runAddons();

@@ -1,9 +1,18 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {injectIntl} from 'react-intl';
+import {injectIntl, intlShape, defineMessages} from 'react-intl';
 
 import LibraryItemComponent from '../components/library-item/library-item.jsx';
+
+const messages = defineMessages({
+    incompatible: {
+        // eslint-disable-next-line max-len
+        defaultMessage: 'This extension is incompatible with Scratch. Projects made with it cannot be uploaded to the Scratch website. Are you sure you want to enable it?',
+        description: 'Confirm loading Scratch-incompatible extension',
+        id: 'tw.confirmIncompatibleExtension'
+    }
+});
 
 class LibraryItem extends React.PureComponent {
     constructor (props) {
@@ -11,6 +20,7 @@ class LibraryItem extends React.PureComponent {
         bindAll(this, [
             'handleBlur',
             'handleClick',
+            'handleFavorite',
             'handleFocus',
             'handleKeyPress',
             'handleMouseEnter',
@@ -33,10 +43,33 @@ class LibraryItem extends React.PureComponent {
         this.handleMouseLeave(id);
     }
     handleClick (e) {
+        if (e.target.closest('a')) {
+            // Allow clicking on links inside the item
+            return;
+        }
+
+        if (
+            !this.props.favorite &&
+            this.props.incompatibleWithScratch &&
+            !e.shiftKey &&
+            // eslint-disable-next-line no-alert
+            !confirm(this.props.intl.formatMessage(messages.incompatible))
+        ) {
+            return;
+        }
+
         if (!this.props.disabled) {
-            this.props.onSelect(this.props.id);
+            if (this.props.href) {
+                window.open(this.props.href);
+            } else {
+                this.props.onSelect(this.props.id);
+            }
         }
         e.preventDefault();
+    }
+    handleFavorite (e) {
+        e.stopPropagation();
+        this.props.onFavorite(this.props.id);
     }
     handleFocus (id) {
         if (!this.props.showPlayButton) {
@@ -106,10 +139,11 @@ class LibraryItem extends React.PureComponent {
     render () {
         const iconMd5 = this.curIconMd5();
         const iconURL = iconMd5 ?
-            `tw-library-files://files/${iconMd5}` :
+            `https://cdn.assets.scratch.mit.edu/internalapi/asset/${iconMd5}/get/` :
             this.props.iconRawURL;
         return (
             <LibraryItemComponent
+                intl={this.props.intl}
                 bluetoothRequired={this.props.bluetoothRequired}
                 collaborator={this.props.collaborator}
                 description={this.props.description}
@@ -120,11 +154,15 @@ class LibraryItem extends React.PureComponent {
                 iconURL={iconURL}
                 icons={this.props.icons}
                 id={this.props.id}
-                incompatibleWithScratch={this.props.incompatibleWithScratch}
                 insetIconURL={this.props.insetIconURL}
                 internetConnectionRequired={this.props.internetConnectionRequired}
                 isPlaying={this.props.isPlaying}
                 name={this.props.name}
+                credits={this.props.credits}
+                docsURI={this.props.docsURI}
+                samples={this.props.samples}
+                favorite={this.props.favorite}
+                onFavorite={this.handleFavorite}
                 showPlayButton={this.props.showPlayButton}
                 onBlur={this.handleBlur}
                 onClick={this.handleClick}
@@ -134,23 +172,47 @@ class LibraryItem extends React.PureComponent {
                 onMouseLeave={this.handleMouseLeave}
                 onPlay={this.handlePlay}
                 onStop={this.handleStop}
+				extensionWarningOnImport={this.props.extensionWarningOnImport} //PM
+                comingSoon={this.props.comingSoon} //PM
+                isBuggy={this.props.isBuggy} //PM
+                extraLabels={this.props.extraLabels} //PM
+				isNew={this.props.isNew} //PM
+				customInsetColor={this.props.customInsetColor} //PM
+				gaiaModRequired={this.props.gaiaModRequired} //PM
+                nfcRequired={this.props.nfcRequired} //PM
+                packageRequired={this.props.packageRequired} //PM
+                usbConnectionRequired={this.props.usbConnectionRequired} //PM
+                iconRawURL={this.props.iconRawURL} //PM
+                overlayURL={this.props.overlayURL} //PM
+				twDeveloper={this.props.twDeveloper} //PM
+				extDeveloper={this.props.extDeveloper} //PM
+                eventSubmittor={this.props.eventSubmittor} //PM
+				deletable={this.props.deletable} //PM
+                custom={this.props.custom} //PM
+				_unsandboxed={this.props._unsandboxed} //PM
             />
         );
     }
 }
 
 LibraryItem.propTypes = {
+    intl: intlShape,
     bluetoothRequired: PropTypes.bool,
+	gaiaModRequired: PropTypes.bool,
+	nfcRequired: PropTypes.bool,
+	packageRequired: PropTypes.bool,
+	usbConnectionRequired: PropTypes.bool,
     collaborator: PropTypes.string,
     description: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.node
     ]),
     disabled: PropTypes.bool,
+    comingsoon: PropTypes.bool,
     extensionId: PropTypes.string,
+    href: PropTypes.string,
     featured: PropTypes.bool,
     hidden: PropTypes.bool,
-    href: PropTypes.string,
     iconMd5: PropTypes.string,
     iconRawURL: PropTypes.string,
     icons: PropTypes.arrayOf(
@@ -162,12 +224,53 @@ LibraryItem.propTypes = {
     id: PropTypes.number.isRequired,
     incompatibleWithScratch: PropTypes.bool,
     insetIconURL: PropTypes.string,
+    overlayURL: PropTypes.string,
     internetConnectionRequired: PropTypes.bool,
     isPlaying: PropTypes.bool,
+	extensionWarningOnImport: PropTypes.bool,
+    isBuggy: PropTypes.bool,
     name: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.node
     ]),
+	twDeveloper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    extDeveloper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    credits: PropTypes.arrayOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ])),
+	eventSubmittor: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]),
+    extraLabels: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.node
+            ]),
+            value: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.node
+            ]),
+        })
+    ),
+    docsURI: PropTypes.string,
+    samples: PropTypes.arrayOf(PropTypes.shape({
+        href: PropTypes.string,
+        text: PropTypes.string
+    })),
+    favorite: PropTypes.bool,
+	deletable: PropTypes.bool,
+    custom: PropTypes.bool,
+	_unsandboxed: PropTypes.bool,
+    onFavorite: PropTypes.func,
     onMouseEnter: PropTypes.func.isRequired,
     onMouseLeave: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,

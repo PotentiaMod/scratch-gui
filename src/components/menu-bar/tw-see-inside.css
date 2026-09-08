@@ -8,4 +8,5 @@
 
 .see-inside-button-icon {
     height: 1.25rem;
+	filter: var(--menu-bar-icon-filter);
 }

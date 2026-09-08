@@ -1,31 +1,13 @@
 import storage from './storage';
 import md5 from 'js-md5';
 import {soundThumbnail} from './backpack/sound-payload';
+import {arrayBufferToBase64, base64ToArrayBuffer} from './tw-base64-utils';
+import {requestPersistentStorage} from './tw-persistent-storage';
 
 // Special constants -- do not change without care.
 const DATABASE_NAME = 'TW_Backpack';
 const DATABASE_VERSION = 1;
 const STORE_NAME = 'backpack';
-
-const base64ToArrayBuffer = base64 => {
-    const binaryString = atob(base64);
-    const len = binaryString.length;
-    const array = new Uint8Array(len);
-    for (let i = 0; i < len; i++) {
-        array[i] = binaryString.charCodeAt(i);
-    }
-    return array.buffer;
-};
-
-const arrayBufferToBase64 = buffer => {
-    let binary = '';
-    const bytes = new Uint8Array(buffer);
-    const len = bytes.byteLength;
-    for (let i = 0; i < len; i++) {
-        binary += String.fromCharCode(bytes[i]);
-    }
-    return btoa(binary);
-};
 
 const idbItemToBackpackItem = item => {
     // convert id to string
@@ -86,21 +68,21 @@ const openDB = () => new Promise((resolve, reject) => {
 
     const request = indexedDB.open(DATABASE_NAME, DATABASE_VERSION);
 
-    request.onupgradeneeded = e => {
-        const db = e.target.result;
+    request.onupgradeneeded = event => {
+        const db = event.target.result;
         db.createObjectStore(STORE_NAME, {
             keyPath: 'id',
             autoIncrement: true
         });
     };
 
-    request.onsuccess = e => {
-        _db = e.target.result;
+    request.onsuccess = event => {
+        _db = event.target.result;
         resolve(_db);
     };
 
-    request.onerror = () => {
-        reject(new Error(`DB error: ${request.error}`));
+    request.onerror = event => {
+        reject(new Error(`DB error: ${event.target.error}`));
     };
 });
 
@@ -111,8 +93,8 @@ const getBackpackContents = async ({
     const db = await openDB();
     return new Promise((resolve, reject) => {
         const transaction = db.transaction(STORE_NAME, 'readonly');
-        transaction.onerror = () => {
-            reject(new Error(`Transaction error: ${transaction.error}`));
+        transaction.onerror = event => {
+            reject(new Error(`Getting contents: ${event.target.error}`));
         };
         const store = transaction.objectStore(STORE_NAME);
         const items = [];
@@ -144,11 +126,14 @@ const saveBackpackObject = async ({
     body,
     thumbnail
 }) => {
+    // User interaction -- fine to show a permission dialog
+    requestPersistentStorage();
+
     const db = await openDB();
     return new Promise((resolve, reject) => {
         const transaction = db.transaction(STORE_NAME, 'readwrite');
-        transaction.onerror = () => {
-            reject(new Error(`Transaction error: ${transaction.error}`));
+        transaction.onerror = event => {
+            reject(new Error(`Sving object: ${event.target.error}`));
         };
         const store = transaction.objectStore(STORE_NAME);
         const bodyData = base64ToArrayBuffer(body);
@@ -176,8 +161,8 @@ const deleteBackpackObject = async ({
     const db = await openDB();
     return new Promise((resolve, reject) => {
         const transaction = db.transaction(STORE_NAME, 'readwrite');
-        transaction.onerror = () => {
-            reject(new Error(`Transaction error: ${transaction.error}`));
+        transaction.onerror = event => {
+            reject(new Error(`Deleting object: ${event.target.error}`));
         };
         const store = transaction.objectStore(STORE_NAME);
         // Convert string IDs to number IDs
@@ -196,8 +181,8 @@ const updateBackpackObject = async ({
     const db = await openDB();
     return new Promise((resolve, reject) => {
         const transaction = db.transaction(STORE_NAME, 'readwrite');
-        transaction.onerror = () => {
-            reject(new Error(`Transaction error: ${transaction.error}`));
+        transaction.onerror = event => {
+            reject(new Error(`Updating object: ${event.target.error}`));
         };
         const store = transaction.objectStore(STORE_NAME);
         const getRequest = store.get(id);

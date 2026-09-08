@@ -1,3 +1,4 @@
+//This entire code is taken from NitroBolt.
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -5,11 +6,196 @@ import VM from 'scratch-vm';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import log from '../lib/log';
 
-import extensionLibraryContent from '../lib/libraries/extensions/index.jsx';
-import extensionTags from '../lib/libraries/tw-extension-tags';
+import extensionLibraryContent, {
+    galleryStatusItems
+} from '../lib/libraries/extensions/index.jsx';
+import extensionTags from '../lib/libraries/extension-tags';
 
 import LibraryComponent from '../components/library/library.jsx';
 import extensionIcon from '../components/action-menu/icon--sprite.svg';
+import PMExtensions from '../lib/libraries/extensions/index.jsx';
+import {manuallyTrustExtension} from './tw-security-manager.jsx';
+
+//Take that, MistWarp and Bilup!
+const TAG_STATUS_COLORS = {
+    online: '#4CAF50',
+    local: '#2196F3',
+    loading: '#FFC107',
+    error: '#F44336'
+};
+
+const SidebarStatusDot = ({color, isLoading, className}) => (
+    <span
+        className={classNames(className, {'sidebar-loading-dot': isLoading})}
+        style={{
+            display: 'inline-block',
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            marginRight: '0.5rem',
+            flexShrink: 0,
+            background: color,
+            boxShadow: `0 0 0 2px ${color}40`
+        }}
+    />
+);
+
+const updateGallery = newGallery => {
+    cachedGallery = newGallery;
+    galleryUpdateListeners.forEach(listener => listener(newGallery));
+};
+
+let galleryUpdateListeners = [];
+
+const addGalleryUpdateListener = listener => {
+    galleryUpdateListeners.push(listener);
+    return () => {
+        const index = galleryUpdateListeners.indexOf(listener);
+        if (index > -1) {
+            galleryUpdateListeners.splice(index, 1);
+        }
+    };
+};
+
+const gallerySources = [
+    {
+        id: 'potentiamod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/potentiamod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/potentiamod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/potentiamod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/pot-extensions.json',
+        tag: 'potentia'
+    },		
+    {
+        id: 'turbowarp',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/turbowarp/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/turbowarp/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/turbowarp/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/tw-extensions.json',
+        tag: 'tw'
+    },
+	{
+        id: 'cocreaworld',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/cocreaworld/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/cocreaworld/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/cocreaworld/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ccw-extensions.json',
+        tag: 'ccw'
+    },
+    {
+        id: 'nitrobolt',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/nitrobolt/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/nitrobolt/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/nitrobolt/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/nb-extensions.json',
+        tag: 'nb'
+    },
+    {
+        id: 'astraeditor',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/astraeditor/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/astraeditor/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/astraeditor/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ae-extensions.json',
+        tag: 'ae'
+    },	
+	{
+        id: 'zerotwoengine',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/zerotwoengine/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/zerotwoengine/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/zerotwoengine/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ztengine-extensions.json',
+        tag: 'ztengine'
+    },	
+    {
+        id: 'bilup',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/bilup/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/bilup/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/bilup/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/bilup-extensions.json',
+        tag: 'bilup'
+    },	
+	{
+        id: 'mistium',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/mistium/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/mistium/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/mistium/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/mist-extensions.json',
+        tag: 'mist'
+    },
+	{
+        id: 'dash',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/dash/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/dash/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/dash/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/dash-extensions.json',
+        tag: 'dash'
+    },
+	{
+        id: 'sharkpool',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/sharkpool/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/sharkpool/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/sharkpool/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/sp-extensions.json',
+        tag: 'sp'
+    },
+    {
+        id: 'penguinmod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/penguinmod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/penguinmod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/penguinmod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/pm-extensions.json',
+        tag: 'pm'
+    },
+	{
+        id: 'snailide',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/snailide/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/snailide/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/snailide/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/sn-extensions.json',
+        tag: 'sn'
+    },
+	{
+        id: 'dinosaurmod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/dinosaurmod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/dinosaurmod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/dinosaurmod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/dm-extensions.json',
+        tag: 'dm'
+    },
+	{
+        id: 'electramod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/electramod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/electramod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/electramod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/em-extensions.json',
+        tag: 'em'
+    },
+	{
+        id: 'arkide',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/arkide/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/arkide/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/arkide/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ark-extensions.json',
+        tag: 'ark'
+    },
+    {
+        id: 'gaiamod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/gaiamod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/gaiamod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/gaiamod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/gm-extensions.json',
+        tag: 'gaia'
+    },
+	//Others always the end
+	{
+        id: 'other',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/other/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/other/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/other/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/other-extensions.json',
+        tag: 'other'
+    },
+];
 
 const messages = defineMessages({
     extensionTitle: {
@@ -17,13 +203,129 @@ const messages = defineMessages({
         description: 'Heading for the extension library',
         id: 'gui.extensionLibrary.chooseAnExtension'
     },
-    incompatible: {
+    header: {
+        defaultMessage: 'Extensions',
+        description: 'Header for extension library',
+        id: 'tw.gui.extensionLibrary.header'
+    },
+	 customGalleryPrompt: {
+        defaultMessage: 'Enter custom extension gallery URL:',
+        description: 'Prompt for entering custom extension gallery URL',
+        id: 'tw.customExtensionGallery.prompt'
+    },
+	    extensionWarning: {
         // eslint-disable-next-line max-len
-        defaultMessage: 'This extension is incompatible with Scratch. Projects made with it cannot be uploaded to the Scratch website. Are you sure you want to enable it?',
-        description: 'Confirm loading Scratch-incompatible extension',
-        id: 'tw.confirmIncompatibleExtension'
+        defaultMessage: 'This extension is not recommended for real projects. It may be unstable and cause problems with your project later on. Are you sure you want to enable it?',
+        description: 'Confirm loading buggy and unstable extension',
+        id: 'pm.confirmBuggyUnstableExtension'
+    },
+    bugWarning: {
+        // eslint-disable-next-line max-len
+        // Copypasted from GvbvdxxMod2
+        defaultMessage: 'This extension is not trusted, and it has some glitches and bugs, adding this in might make GaiaMod collapse, or some blocks may not work correctly, BACK UP YOUR PROJECT FIRST BEFORE USING THESE. Do you want to add the extension now?',
+        description: 'Confirm loading buggy and unstable extension',
+        id: 'pm.confirmBuggyExtension'
     }
+
 });
+
+const toLibraryItem = extension => {
+    if (typeof extension === 'object') {
+        return ({
+            rawURL: extension.iconURL || extensionIcon,
+            ...extension
+        });
+    }
+    return extension;
+};
+
+const translateGalleryItem = (extension, locale) => ({
+    ...extension,
+    name: extension.nameTranslations[locale] || extension.name,
+    description: extension.descriptionTranslations[locale] || extension.description
+});
+
+const mapGalleryExtension = (extension, source) => ({
+    name: extension.name,
+    nameTranslations: extension.nameTranslations || {},
+    description: extension.description,
+    descriptionTranslations: extension.descriptionTranslations || {},
+    extensionId: extension.id,
+    extensionURL: `${source.baseURL}${extension.slug || extension.URL || extension.extensionURL || extension.code}.js`,
+    iconURL: `${source.baseImageURL}${extension.image || extension.cover || extension.banner || extension.iconURL || 'placeholder.png'}`,
+    tags: [source.tag],
+    credits: [
+            ...(extension.original || []),
+            ...(extension.creator || []),
+            ...(extension.author || []),
+            ...(extension.publisher || []),
+            ...(extension.by || [])
+        ].map(credit => {
+            if (credit.link) {
+                return (
+                    <a
+                        href={credit.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        key={credit.name}
+                    >
+                        {credit.name}
+                    </a>
+                );
+            }
+            return credit.name;
+        }),
+        docsURI: extension.docs ? `${source.baseURL}${extension.slug || extension.URL || extension.extensionURL || extension.code}` : null,
+    samples: extension.samples ? extension.samples.map(sample => ({
+        href: `${process.env.ROOT}editor?project_url=${source.baseSamplesURL}${encodeURIComponent(sample)}.sb3`,
+        text: sample
+    })) : null,
+    featured: true
+});
+
+let cachedGalleryBySource = null;
+
+const fetchLibrary = async () => {
+    const results = await Promise.allSettled(gallerySources.map(async source => {
+        const res = await fetch(source.metadataURL);
+        if (!res.ok) {
+            throw new Error(`[${source.id}] HTTP status ${res.status}`);
+        }
+        const data = await res.json();
+        return data.extensions.map(extension => mapGalleryExtension(extension, source));
+    }));
+
+    const extensionIds = new Set();
+    const galleryBySource = {};
+
+    for (const [index, result] of results.entries()) {
+        const source = gallerySources[index];
+
+        if (result.status === 'fulfilled') {
+            const extensions = [];
+            for (const extension of result.value) {
+                // Keep first occurrence, so PotentiaMod wins when IDs overlap.
+                if (!extensionIds.has(extension.extensionId)) {
+                    extensionIds.add(extension.extensionId);
+                    extensions.push(extension);
+                }
+            }
+            galleryBySource[source.id] = {
+                status: 'success',
+                extensions
+            };
+        } else {
+            log.error(result.reason);
+            galleryBySource[source.id] = {
+                status: 'error',
+                error: result.reason,
+                extensions: []
+            };
+        }
+    }
+
+    return galleryBySource;
+};
 
 class ExtensionLibrary extends React.PureComponent {
     constructor (props) {
@@ -31,26 +333,84 @@ class ExtensionLibrary extends React.PureComponent {
         bindAll(this, [
             'handleItemSelect'
         ]);
+        this.state = {
+            galleryBySource: cachedGalleryBySource,
+            galleryTimedOut: false
+        };
     }
+    componentDidMount () {
+		this.unsubscribeGalleryUpdate = addGalleryUpdateListener(newGallery => {
+            this.setState({ gallery: newGallery });
+        });
+		
+        if (!this.state.galleryBySource) {
+            const timeout = setTimeout(() => {
+                this.setState({
+                    galleryTimedOut: true
+                });
+            }, 750);
+
+            fetchLibrary()
+                .then(galleryBySource => {
+                    cachedGalleryBySource = galleryBySource;
+                    this.setState({
+                        galleryBySource
+                    });
+                    clearTimeout(timeout);
+                })
+                .catch(error => {
+                    log.error(error);
+                    clearTimeout(timeout);
+                });
+        }
+    }
+
+	componentWillUnmount() {
+        if (this.unsubscribeGalleryUpdate) {
+            this.unsubscribeGalleryUpdate();
+        }
+    }
+	
     handleItemSelect (item) {
+		
+		if (item.isBuggy && !confirm(this.props.intl.formatMessage(messages.bugWarning))) {
+            return;
+        }
+        // eslint-disable-next-line no-alert
+        if (item.extensionWarningOnImport && !confirm(this.props.intl.formatMessage(messages.extensionWarning))) {
+            return;
+        }
+		
         if (item.href) {
             return;
         }
 
+	   
         const extensionId = item.extensionId;
-        const isCustomURL = !item.disabled && !extensionId;
-        if (isCustomURL) {
+		
+		
+        if (extensionId === 'custom_extension'){
             this.props.onOpenCustomExtensionModal();
             return;
         }
-
-        // eslint-disable-next-line no-alert
-        if (item.incompatibleWithScratch && !confirm(this.props.intl.formatMessage(messages.incompatible))) {
+		
+		if (extensionId === 'ccw_extension') {
+            this.props.onOpenCCWExtensionModal();
             return;
         }
+		
+		if (extensionId === 'custom_gallery') {
+            if (this.props.onOpenCustomGalleryModal) {
+                this.props.onOpenCustomGalleryModal();
+            }
+            return;
+        }
+		
 
         const url = item.extensionURL ? item.extensionURL : extensionId;
-        if (!item.disabled) {
+        if (!item.disabled || !item.comingSoon) {
+			//Disabled this below because how stupid GaiaMod fans are thinking of trusting extensions.
+			//if (item.extensionURL) manuallyTrustExtension(url);
             if (this.props.vm.extensionManager.isExtensionLoaded(extensionId)) {
                 this.props.onCategorySelected(extensionId);
             } else {
@@ -67,16 +427,51 @@ class ExtensionLibrary extends React.PureComponent {
         }
     }
     render () {
-        const extensionLibraryThumbnailData = extensionLibraryContent.map(extension => ({
-            rawURL: extension.iconURL || extensionIcon,
-            ...extension
-        }));
+        let library = null;
+        if (this.state.galleryBySource || this.state.galleryTimedOut) {
+            library = extensionLibraryContent.map(toLibraryItem);
+            library.push('---');
+
+            const locale = this.props.intl.locale;
+
+            for (const source of gallerySources) {
+                const sourceGallery = this.state.galleryBySource ? this.state.galleryBySource[source.id] : null;
+                const sourceStatusItems = galleryStatusItems[source.id];
+
+                const extensionsToExclude = [
+                    'polzovatel8787dashApi'
+                ];
+
+                if (sourceGallery && sourceGallery.status === 'success') {
+                    library.push(toLibraryItem(sourceStatusItems.more));
+                    library.push(
+                        ...sourceGallery.extensions
+                            .filter(i => !extensionsToExclude.includes(i.extensionId))
+                            .map(i => translateGalleryItem(i, locale))
+                            .map(toLibraryItem)
+                    );
+                } else if (sourceGallery && sourceGallery.status === 'error') {
+                    library.push(toLibraryItem(sourceStatusItems.error));
+                } else {
+                    library.push(toLibraryItem(sourceStatusItems.loading));
+                }
+
+                library.push('---');
+            }
+
+            if (library[library.length - 1] === '---') {
+                library.pop();
+            }
+        }
+
         return (
             <LibraryComponent
-                data={extensionLibraryThumbnailData}
-                filterable={false}
+                data={library}
+                filterable
+                persistableKey="extensionId"
                 id="extensionLibrary"
                 tags={extensionTags}
+                header={this.props.intl.formatMessage(messages.header)}
                 title={this.props.intl.formatMessage(messages.extensionTitle)}
                 visible={this.props.visible}
                 onItemSelected={this.handleItemSelect}
@@ -90,9 +485,14 @@ ExtensionLibrary.propTypes = {
     intl: intlShape.isRequired,
     onCategorySelected: PropTypes.func,
     onOpenCustomExtensionModal: PropTypes.func,
+    onOpenCustomGalleryModal: PropTypes.func,
     onRequestClose: PropTypes.func,
     visible: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired // eslint-disable-line react/no-unused-prop-types
 };
 
 export default injectIntl(ExtensionLibrary);
+
+export {
+    updateGallery
+};

@@ -7,6 +7,7 @@ import VM from 'scratch-vm';
 import {getCostumeLibrary} from '../lib/libraries/tw-async-libraries';
 import spriteTags from '../lib/libraries/sprite-tags';
 import LibraryComponent from '../components/library/library.jsx';
+import {handleAssetLoad} from '../lib/libraries/pot-web-libraries';
 
 const messages = defineMessages({
     libraryTitle: {
@@ -23,8 +24,29 @@ class CostumeLibrary extends React.PureComponent {
         bindAll(this, [
             'handleItemSelected'
         ]);
+        this.state = {
+            data: getCostumeLibrary()
+        };
+    }
+    componentDidMount () {
+        if (this.state.data.then) {
+            this.state.data.then(data => this.setState({
+                data
+            }));
+        }
     }
     handleItemSelected (item) {
+        if (item.src) {
+            handleAssetLoad(item.src.library, item.src.path, (buffer, fileType) => {
+                costumeUpload(buffer, fileType, this.props.vm, vmCostumes => {
+                    vmCostumes.forEach((costume, i) => {
+                        costume.name = `${item.name}${i ? i + 1 : ''}`;
+                        this.props.vm.addCostume(costume.md5, costume);
+                    });
+                });
+            });
+            return;
+        }
         const vmCostume = {
             name: item.name,
             rotationCenterX: item.rotationCenterX,
@@ -37,10 +59,11 @@ class CostumeLibrary extends React.PureComponent {
     render () {
         return (
             <LibraryComponent
-                data={getCostumeLibrary()}
+                data={this.state.data.then ? null : this.state.data}
                 id="costumeLibrary"
                 tags={spriteTags}
                 title={this.props.intl.formatMessage(messages.libraryTitle)}
+                removedTrademarks
                 onItemSelected={this.handleItemSelected}
                 onRequestClose={this.props.onRequestClose}
             />

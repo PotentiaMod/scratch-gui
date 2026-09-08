@@ -13,6 +13,16 @@ import {
     onLoadedProject,
     projectError
 } from '../reducers/project-state';
+import log from './log';
+
+/**
+ * List of fonts that could be used by security prompts.
+ */
+const SECURITY_CRITICAL_FONTS = [
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial'
+];
 
 /*
  * Higher Order Component to manage events emitted by the VM
@@ -30,8 +40,15 @@ const vmManagerHOC = function (WrappedComponent) {
         componentDidMount () {
             if (!this.props.vm.initialized) {
                 window.vm = this.props.vm;
-                this.audioEngine = new AudioEngine();
-                this.props.vm.attachAudioEngine(this.audioEngine);
+                try {
+                    this.audioEngine = new AudioEngine();
+                    this.props.vm.attachAudioEngine(this.audioEngine);
+                } catch (e) {
+                    log.error('could not create scratch-audio', e);
+                }
+                for (const font of SECURITY_CRITICAL_FONTS) {
+                    this.props.vm.runtime.fontManager.restrictFont(font);
+                }
                 this.props.vm.initialized = true;
                 this.props.vm.setLocale(this.props.locale, this.props.messages);
             }
@@ -53,7 +70,7 @@ const vmManagerHOC = function (WrappedComponent) {
         }
         loadProject () {
             // tw: stop when loading new project
-            this.props.vm.stop();
+            this.props.vm.quit();
             return this.props.vm.loadProject(this.props.projectData)
                 .then(() => {
                     this.props.onLoadedProject(this.props.loadingState, this.props.canSave);

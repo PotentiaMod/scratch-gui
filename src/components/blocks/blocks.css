@@ -18,6 +18,18 @@
     transition: all 0.25s ease;
 }
 
+.hide-grid :global(.blocklyMainBackground) {
+    fill: transparent;
+}
+
+.hide-grid :global([id*="gridPattern"]) {
+    opacity: 0;
+}
+
+.hide-grid :global([id*="grid"]) {
+    opacity: 0;
+}
+
 .blocks :global(.injectionDiv){
     position: absolute;
     top: 0;
@@ -45,7 +57,6 @@
     border-bottom: 1px solid $ui-black-transparent;
     box-sizing: content-box;
     height: calc(100% - 3.25rem) !important;
-    overflow-x: hidden;
 
     /*
         For now, the layout cannot support scrollbars in the category menu.
@@ -83,6 +94,19 @@
     */
     pointer-events: none;
     z-index: $z-index-drag-layer; /* make blocks match gui drag layer */
+}
+
+/* Hide grid when gridVisible is false */
+.blocks.hide-grid :global(.blocklyMainBackground) {
+    fill: transparent;
+}
+
+.blocks.hide-grid :global([id*="gridPattern"]) {
+    opacity: 0;
+}
+
+.blocks.hide-grid :global([id*="grid"]) {
+    opacity: 0;
 }
 
 /*

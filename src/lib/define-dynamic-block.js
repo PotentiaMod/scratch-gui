@@ -2,6 +2,7 @@
 // Should we move these into a new extension support module or something?
 import ArgumentType from 'scratch-vm/src/extension-support/argument-type';
 import BlockType from 'scratch-vm/src/extension-support/block-type';
+import {injectExtensionBlockTheme} from './themes/blockHelpers';
 
 /**
  * Define a block using extension info which has the ability to dynamically determine (and update) its layout.
@@ -12,17 +13,20 @@ import BlockType from 'scratch-vm/src/extension-support/block-type';
  * @param {object} categoryInfo - Information about this block's extension category, including any menus and icons.
  * @param {object} staticBlockInfo - The base block information before any dynamic changes.
  * @param {string} extendedOpcode - The opcode for the block (including the extension ID).
+ * @param {Theme} theme - the current theme
  */
 // TODO: grow this until it can fully replace `_convertForScratchBlocks` in the VM runtime
-const defineDynamicBlock = (ScratchBlocks, categoryInfo, staticBlockInfo, extendedOpcode) => ({
+const defineDynamicBlock = (ScratchBlocks, categoryInfo, staticBlockInfo, extendedOpcode, theme) => ({
     init: function () {
+        const colors = injectExtensionBlockTheme(staticBlockInfo.json, theme);
         const blockJson = {
             type: extendedOpcode,
             inputsInline: true,
             category: categoryInfo.name,
-            colour: categoryInfo.color1,
-            colourSecondary: categoryInfo.color2,
-            colourTertiary: categoryInfo.color3
+            colour: colors.colour,
+            colourSecondary: colors.colourSecondary,
+            colourTertiary: colors.colourTertiary,
+            colourQuaternary: colors.colourQuaternary
         };
         // There is a scratch-blocks / Blockly extension called "scratch_extension" which adjusts the styling of
         // blocks to allow for an icon, a feature of Scratch extension blocks. However, Scratch "core" extension
@@ -93,10 +97,26 @@ const defineDynamicBlock = (ScratchBlocks, categoryInfo, staticBlockInfo, extend
             const arg = blockInfo.arguments[argName];
             switch (arg.type) {
             case ArgumentType.STRING:
+            case ArgumentType.NUMBER:
+            case ArgumentType.ANGLE:
+            case ArgumentType.MATRIX:
+            case ArgumentType.NOTE:
+            case ArgumentType.COLOR:
+            case ArgumentType.COSTUME:
+            case ArgumentType.SOUND:
                 args.push({type: 'input_value', name: argName});
                 break;
             case ArgumentType.BOOLEAN:
                 args.push({type: 'input_value', name: argName, check: 'Boolean'});
+                break;
+            case ArgumentType.IMAGE:
+                args.push({
+                    type: 'field_image',
+                    src: arg.dataURI || '',
+                    width: 24,
+                    height: 24,
+                    flip_rtl: arg.flipRTL || false
+                });
                 break;
             }
             return `%${++argCount}`;

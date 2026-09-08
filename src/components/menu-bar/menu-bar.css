@@ -7,6 +7,7 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
+    gap: 0.5rem;
 
     /*
         For most things, we shouldn't explicitly set height, and let the
@@ -27,11 +28,9 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: $menu-bar-standard-font-size;
     font-weight: bold;
-    background-color: $motion-primary;
-    color: $ui-white;
-}
-[theme="dark"] .menu-bar {
-    background-color: $motion-primary-dark;
+    background-color: $menu-bar-background;
+    background-image: $menu-bar-background-image;
+    color: $menu-bar-foreground;
 }
 
 .main-menu {
@@ -41,37 +40,71 @@
     flex-wrap: nowrap;
     align-items: center;
     flex-grow: 1;
+    gap: 0.5rem;
 }
 
-.scratch-logo {
-    height:  1.6rem;
-    vertical-align: middle;
+/* Menu bar alignment options */
+.main-menu-align-left {
+    justify-content: flex-start;
 }
+.main-menu-align-center {
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    height: 100%;
+    width: max-content
+}
+.main-menu-align-right {
+    justify-content: flex-end;
+}
+	
+.inactive {
+    opacity: 0;
+}
+.scratch-logo {
+    transition: height 0.3s ease;
+    height: 2.25rem;
+    color: inherit;
+	filter: initial;
+}
+
+.scratch-logo img{
+	filter: initial;
+}
+
+/*
+.scratch-logo:hover {
+    height: 2.30rem;
+}
+*/
 
 .scratch-logo.clickable {
     cursor: pointer;
 }
 
-.language-icon {
-    height:  1.5rem;
-    vertical-align: middle;
+.home-link {
+    gap: 6px;
+    padding: 0 10px;
+    color: inherit;
 }
 
-.language-caret {
-    margin: 0 .125rem;
+.home-logo {
+    height: 28px;
+    border-radius: 6px;
+    display: block;
 }
 
-.language-menu {
-    box-sizing: border-box;
-    display: inline-flex;
-    width: $language-selector-width;
+.home-wordmark {
+    font-weight: 800;
+    font-size: 19px;
+    letter-spacing: -0.02em;
 }
 
 .menu-bar-item {
     display: flex;
-    padding: 0 0.25rem;
     text-decoration: none;
-    color: $ui-white;
     user-select: none;
     align-self: center;
     position: relative;
@@ -80,8 +113,9 @@
     height: $menu-bar-height;
 }
 
-.menu-bar-item.hoverable {
+.menu-bar-item.hoverable img {
     cursor: pointer;
+	filter: var(--menu-bar-icon-filter);
 }
 
 .menu-bar-item.active,
@@ -103,13 +137,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 0.5rem;
 }
 
 .file-group .menu-bar-item {
-    padding: 0 0.75rem;
-}
-
-.menu-bar-item.language-menu {
     padding: 0 0.5rem;
 }
 
@@ -119,20 +150,17 @@
 }
 
 .feedback-link {
-    color: $motion-primary !important;
+    color: var(--looks-secondary-darker);
     text-decoration: none;
-}
-[theme="dark"] .feedback-link {
-    color: $motion-primary-dark !important;
 }
 
 .feedback-button {
-    background-color: $ui-white;
+    background-color: white;
+    color: black;
     height: 34px;
 }
 
 .divider {
-    margin: 0 .5rem;
     height: 34px;
 }
 
@@ -164,6 +192,7 @@
 }
 
 .account-info-group .menu-bar-item {
+    margin: 0 .25rem;
     padding: 0 0.75rem;
 }
 
@@ -173,7 +202,11 @@
 }
 
 .help-icon {
-    margin-right: 0.35rem;
+    margin: 0 .25rem 0 0;
+}
+
+[dir="rtl"] .help-icon {
+    margin: 0 0 0 .25rem;
 }
 
 .account-nav-menu, .mystuff-button {
@@ -192,6 +225,15 @@
 .dropdown-caret-icon {
     width: 0.5rem;
     height: 0.5rem;
+	filter: var(--menu-bar-icon-filter);
+}
+
+.settings-button .button-icon,
+.file-button .button-icon,
+.edit-button .button-icon,
+.error-icon,
+.menu-bar-item.logo img {
+    filter: var(--menu-bar-icon-filter);
 }
 
 [dir="ltr"] .dropdown-caret-icon {
@@ -229,10 +271,28 @@
     height: 1.25rem;
     margin: 0.5rem;
     vertical-align: middle;
+	filter: var(--menu-bar-icon-filter);
 }
 
-/* tw: styles to override <a> styles */
+.icon {
+	filter: var(--menu-bar-icon-filter);
+}
+
+.collapsible-label {
+    margin: 0 .25rem;
+}
+
+@media only screen and (max-width: 1124px) {
+    .tutorials-label, .collapsible-label {
+        display: none;
+    }
+
+    .help-icon {
+        margin-right: 0;
+    }
+}
+
 .menu-item-link {
-    color: $ui-white !important;
+    color: inherit;
     text-decoration: none;
 }

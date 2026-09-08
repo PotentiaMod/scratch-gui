@@ -1,24 +1,17 @@
 import React from 'react';
-import {defineMessages, FormattedMessage, intlShape, injectIntl} from 'react-intl';
+import {FormattedMessage, injectIntl, intlShape, defineMessages} from 'react-intl';
+import {connect} from 'react-redux';
 import classNames from 'classnames';
-import styles from './loader.css';
 import PropTypes from 'prop-types';
 import bindAll from 'lodash.bindall';
-
+import styles from './loader.css';
+import logo from './logo.svg';
+import gmlogo from './gaiamod-logo.svg';
+import {getIsLoadingWithId} from '../../reducers/project-state';
 import topBlock from './top-block.svg';
 import middleBlock from './middle-block.svg';
 import bottomBlock from './bottom-block.svg';
-
-// tw:
-// we make some rather large changes here:
-//  - remove random message, replaced with message dependent on what is actually being loaded
-//  - add a progress bar
-//  - bring in intl so that we can translate everything
-// The way of doing this is extremely unusual and weird compared to how things are typically done for performance.
-// This is because react updates are too performance crippling to handle the progress bar rapidly updating.
-
-// tw:
-// progress bar logic removed entirely as it is unneeded in desktop build
+import TWRenderRecoloredImage from '../../lib/tw-recolor/render.jsx';
 
 const mainMessages = {
     'gui.loader.headline': (
@@ -38,101 +31,298 @@ const mainMessages = {
 };
 
 const messages = defineMessages({
-    generic: {
-        defaultMessage: 'Loading project …',
-        description: 'Initial generic loading message',
-        id: 'tw.loader.generic'
-    },
     projectData: {
-        defaultMessage: 'Downloading project data …',
-        description: 'Appears when loading project data',
-        id: 'tw.loader.data'
+        defaultMessage: 'Loading project …',
+        description: 'Appears when loading project data, but not assets yet',
+        id: 'tw.loader.projectData'
     },
-    assetsKnown: {
+    downloadingAssets: {
         defaultMessage: 'Downloading assets ({complete}/{total}) …',
-        description: 'Appears when loading project assets and amount of assets is known',
-        id: 'tw.loader.assets.known'
+        description: 'Appears when loading project assets from a project on a remote website',
+        id: 'tw.loader.downloadingAssets'
     },
-    assetsUnknown: {
-        defaultMessage: 'Downloading assets …',
-        description: 'Appears when loading project assets but amount of assets is unknown',
-        id: 'tw.loader.assets.unknown'
+    loadingAssets: {
+        defaultMessage: 'Loading assets ({complete}/{total}) …',
+        description: 'Appears when loading project assets from a project file on the user\'s computer',
+        id: 'tw.loader.loadingAssets'
     }
 });
+
+const randomMessages = [
+        "Coloring the blocks...",
+        "Loading extensions...",
+        "Making costumes...",
+		"The default character sprite is a dragon named Potentia.",
+        "Restoring the sprites...",
+        "Listening to the sounds...",
+        "Setting up broadcasts...",
+        "Admiring the fonts...",
+        "Watching the birds fly...",
+        "Herding dragons...",
+        "Smashing bricks...",
+        "Smashing cats...",
+        "Inflating Neros...",
+		"Meet PotentiaMod, Mistress of All Scratch Mods!",
+        "old macdonald had a freaking farm lol",
+        "Keeping an eye on Potentia...",
+        "Fixing errors...",
+		"I HEAR EVERY DOOR YOU OPEN!",
+        "YOU ENTERED THIS MOD! PREPARE FOR MAKING GAMES!",
+		"Face blemishes like pimples and moles and warts would always faint at spinach, right?",
+		"I LOVE SNAIL IDE!",
+		"EVERYONE THERE'S A SPINACH HURRICANE COMING TOWARDS US!",
+        "Coming up with ideas...",
+		"Knock knock. Who's there?",
+		"Look! A Poppy Playtime reference!",
+	    "I still think of this when I see UNCLE SUCKER!! lol!",
+		"Caution: A virus has been detected.",
+		"Total Scratching!",
+        "Is that OK that we will use some shampoo?",
+        "Every website recieves your IP address.",
+		"PotentiaMod does not have an article on Wikipedia.",
+        "Harder, Better, Faster, Stronger",
+		"POTENTIA WAITS FOR YOU HERE",
+		"You have seen Potentia. Hug her.",
+        "Waiting for the load to finish...",
+        "PotentiaMod is based off the source code of TurboWarp, which is based off Scratch. Scratchception!",
+        "Fun fact: Dragons look chill, but they're actually not, they're planning WORLD DOMINATION.",
+        "Every copy of PotentiaMod is personalized",
+        "You can create your own PotentiaMod extensions to add new powerful blocks using JavaScript!",
+        "Making new features...",
+		"You have completed the Scratch mission... Nice work. CONTACT YOUR LOCAL RECRUITER.",
+        "All GaiaMod fans should quit now and flee to this mod.",
+        "STOP! HAMMER TIME!",
+        "POTENTIAMAX LOL",
+        "Will Milhouse and I will be living like high school dropouts living off Uncle Sucker?",
+        "Welcome to PotentiaMod!",
+        "Eat my alerts list!",
+		"No chasing the creator of the mod in the halls!",
+		"You need to straight out power and responsibility.",
+		"Did you know? The",
+		"Send in the TurboWarp Squad!",
+		"THIS MOD IS NOT GARBAGE",
+        "Maybe in another universe, PotentiaMod is based on GaiaMod",
+        "Like you calling people \"trolls\"? Listen here.",
+		"Potentia's preparing for your arrival. Run.",
+		"With PotentiaMod, we got a new Scratch experience.",
+        "Ampmod, OmniBlocks and LibreKitten are all nerds lol",
+        "Implementing new round blocks...",
+        "REMIXWARP ADDONS INCOMING!",
+		"Good luck! You'll need it!",
+		"Big challenges, you love it.",
+        "WHOOPS! There Goes Our EDITOR!",
+        "Potentia will hate you if you say that PotentiaMod is a rip-off of GaiaMod and Dash.",
+        "Truth: Cats rule, dogs drool",
+		"Shades of Gaia trying to put her random access humor on this loader.",
+        "You are too slow. Try again.",
+        "Find the REAL PotentiaMod. Don't let it delete itself!",
+		"Guess again, nerd!",
+		"NO. Sit down! ...I don't want Scratch mods in my computer class...",
+		"PotentiaMod is in beta, so there may be bugs and breaking changes.",
+        "Simply the Best",
+        "This isn't even its final form!",
+		"Coming soon... even more modding!",
+		"This isn't even its final form!",
+		"Potentia is reading this message",
+        "Evil Kumquats beware! The project you are loading uses Kumquat Anti-Cheat.",
+        "Patting the cat blocks...",
+        "GaiaMod and PotentiaMod are the duo of Scratch mods.",
+        "Deleting Kiwi Farms... (trying to)",
+        "THE SPRUNKIS WILL RULE",
+		"Find a way out before this mod attacks you!",
+		"Scratch mods are for cats!",
+		"POTENTIAMOD KICKS BUTT!",
+        "*You found the \"67\"*",
+        "GIANT LAVA FARM!",
+        "say (Gotcha!) for (5) seconds",
+		"No, Walmart don't have Scratch! OK?",
+        "Format C: complete!",
+        "We'll buy this mod for a dollar!",
+        "Crashing prod...",
+		"Congratulations! You're about to be erased!",
+        "License has expired!",
+        "SyntaxError: Unexpected token",
+        "Searching for an answer on Stack Overflow...",
+        "Watching dragon videos...",
+        "Investigating the algorithms...",
+        "AHOY! SPINACH!!",
+        "Dave the magical cheese wizard.",
+        "Changing profile picture...",
+        "Writing new profile description...",
+		"FINAL CONFLICT NEAR! YOUR MOD'S CODE GETS SCRAMBLED!",
+		"I LOVE PENGUINMOD!",
+        "Firing projects...",
+        "Searching a project to feature...",
+        "Fact: 07/17/2026 is Potentia's birthday"
+];
 
 class LoaderComponent extends React.Component {
     constructor (props) {
         super(props);
-        this._state = 0;
         bindAll(this, [
-            'messageRef'
+            'handleAssetProgress',
+            'handleProjectLoaded',
+            'barInnerRef',
+            'messageRef',
+            'randomMessageRef',
+            'updateRandomMessage'
         ]);
+        this.barInnerEl = null;
+        this.messageEl = null;
+        this.randomMessageEl = null;
+        this.ignoreProgress = false;
+        this.randomMessageInterval = null;
+        this.lastRandomMessageIndex = -1;
     }
     componentDidMount () {
-        this.updateMessage();
+        this.handleAssetProgress(
+            this.props.vm.runtime.finishedAssetRequests,
+            this.props.vm.runtime.totalAssetRequests
+        );
+        this.props.vm.on('ASSET_PROGRESS', this.handleAssetProgress);
+        this.props.vm.runtime.on('PROJECT_LOADED', this.handleProjectLoaded);
+        this.updateRandomMessage();
+        this.randomMessageInterval = setInterval(this.updateRandomMessage, 3000);
     }
-    updateMessage () {
-        if (this._state === 0) {
-            this.message.textContent = this.props.intl.formatMessage(messages.generic);
-        } else if (this._state === 1) {
-            this.message.textContent = this.props.intl.formatMessage(messages.projectData);
-        } else if (this.total > 0) {
-            this.message.textContent = this.props.intl.formatMessage(messages.assetsKnown, {
-                complete: this.complete,
-                total: this.total
-            });
-        } else {
-            this.message.textContent = this.props.intl.formatMessage(messages.assetsUnknown);
+    componentWillUnmount () {
+        this.props.vm.off('ASSET_PROGRESS', this.handleAssetProgress);
+        this.props.vm.runtime.off('PROJECT_LOADED', this.handleProjectLoaded);
+        clearInterval(this.randomMessageInterval);
+    }
+    updateRandomMessage () {
+        if (this.randomMessageEl) {
+            this.randomMessageEl.classList.remove(styles.randomMessageSlideIn);
+            void this.randomMessageEl.offsetWidth; // Trigger reflow
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * randomMessages.length);
+            } while (randomIndex === this.lastRandomMessageIndex);
+            this.lastRandomMessageIndex = randomIndex;
+            const randomFact = randomMessages[randomIndex];
+            this.randomMessageEl.textContent = randomFact;
+            this.randomMessageEl.classList.add(styles.randomMessageSlideIn);
+            this.randomMessageEl.classList.add(styles.randomMessageRoulette);
         }
     }
-    messageRef (element) {
-        this.message = element;
+    handleAssetProgress (finished, total) {
+        if (this.ignoreProgress || !this.barInnerEl || !this.messageEl) {
+            return;
+        }
+
+        if (total === 0) {
+            // Started loading a new project.
+            this.barInnerEl.style.width = '0';
+            this.messageEl.textContent = this.props.intl.formatMessage(messages.projectData);
+        } else {
+            this.barInnerEl.style.width = `${finished / total * 100}%`;
+            const message = this.props.isRemote ? messages.downloadingAssets : messages.loadingAssets;
+            this.messageEl.textContent = this.props.intl.formatMessage(message, {
+                complete: finished,
+                total
+            });
+        }
+    }
+    handleProjectLoaded () {
+        if (this.ignoreProgress || !this.barInnerEl || !this.messageEl) {
+            return;
+        }
+
+        this.ignoreProgress = true;
+        this.props.vm.runtime.resetProgress();
+    }
+    barInnerRef (barInner) {
+        this.barInnerEl = barInner;
+    }
+    messageRef (message) {
+        this.messageEl = message;
+    }
+    randomMessageRef (randomMessage) {
+        this.randomMessageEl = randomMessage;
     }
     render () {
         return (
             <div
-                className={classNames(styles.background, {
-                    [styles.fullscreen]: this.props.isFullScreen
-                })}
+            className={classNames(styles.background, {
+                [styles.fullscreen]: this.props.isFullScreen
+            })}
             >
-                <div className={styles.container}>
-                    <div className={styles.blockAnimation}>
-                        <img
-                            className={styles.topBlock}
-                            src={topBlock}
-                        />
-                        <img
-                            className={styles.middleBlock}
-                            src={middleBlock}
-                        />
-                        <img
-                            className={styles.bottomBlock}
-                            src={bottomBlock}
-                        />
+            
+            <div className={styles.container}>
+                <div className={styles.blockAnimation}>
+                        <img src={logo} />
                     </div>
-                    <div className={styles.title}>
-                        {mainMessages[this.props.messageId]}
-                    </div>
-                    <div className={styles.messageContainerOuter}>
-                        <div
-                            className={styles.messageContainerInner}
-                            ref={this.messageRef}
-                        />
-                    </div>
+                <div className={styles.title}>
+                {mainMessages[this.props.messageId]}
                 </div>
+               <div
+                className={styles.tips}
+                ref={this.randomMessageRef}
+                />
+                <div
+                className={styles.message}
+                ref={this.messageRef}
+                />
+
+                <div className={styles.barOuter}>
+                <div
+                    className={styles.barInner}
+                    ref={this.barInnerRef}
+                />
+                </div>
+				
+				<a
+                            className={styles.githubCta}
+                            href="https://gaiamod-main.github.io/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            <img
+                            width="100px"
+                            src={gmlogo}
+                            draggable={false}
+                        />
+                            <FormattedMessage
+                                defaultMessage="🢀 Also, check out GaiaMod!"
+                                description="Link on the loading screen to the GaiaMod page"
+                                id="pot.loader.gaiamod"
+                            />
+							</a>
+            </div>
             </div>
         );
     }
 }
 
 LoaderComponent.propTypes = {
+    intl: intlShape,
     isFullScreen: PropTypes.bool,
-    intl: intlShape.isRequired,
-    messageId: PropTypes.string
+    isRemote: PropTypes.bool,
+    messageId: PropTypes.string,
+    vm: PropTypes.shape({
+        on: PropTypes.func,
+        off: PropTypes.func,
+        runtime: PropTypes.shape({
+            totalAssetRequests: PropTypes.number,
+            finishedAssetRequests: PropTypes.number,
+            resetProgress: PropTypes.func,
+            on: PropTypes.func,
+            off: PropTypes.func
+        })
+    })
 };
 LoaderComponent.defaultProps = {
     isFullScreen: false,
     messageId: 'gui.loader.headline'
 };
 
-export default injectIntl(LoaderComponent);
+const mapStateToProps = state => ({
+    isRemote: getIsLoadingWithId(state.scratchGui.projectState.loadingState),
+    vm: state.scratchGui.vm
+});
+
+const mapDispatchToProps = () => ({});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(injectIntl(LoaderComponent));

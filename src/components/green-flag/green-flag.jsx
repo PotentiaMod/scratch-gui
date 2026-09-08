@@ -2,7 +2,9 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import greenFlagIcon from './icon--green-flag.svg';
+import TWRenderRecoloredImage from '../../lib/tw-recolor/render.jsx';
+
+import greenFlagIcon from '!../../lib/tw-recolor/build!./icon--green-flag.svg';
 import styles from './green-flag.css';
 
 const GreenFlagComponent = function (props) {
@@ -14,7 +16,7 @@ const GreenFlagComponent = function (props) {
         ...componentProps
     } = props;
     return (
-        <img
+        <TWRenderRecoloredImage
             className={classNames(
                 className,
                 styles.greenFlag,

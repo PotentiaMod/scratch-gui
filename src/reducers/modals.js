@@ -1,5 +1,7 @@
 const OPEN_MODAL = 'scratch-gui/modals/OPEN_MODAL';
 const CLOSE_MODAL = 'scratch-gui/modals/CLOSE_MODAL';
+const SET_SELECTED_EXTENSION = 'scratch-gui/modals/SET_SELECTED_EXTENSION';
+const SET_SELECTED_EXTENSIONS = 'scratch-gui/modals/SET_SELECTED_EXTENSIONS';
 
 const MODAL_BACKDROP_LIBRARY = 'backdropLibrary';
 const MODAL_COSTUME_LIBRARY = 'costumeLibrary';
@@ -14,6 +16,22 @@ const MODAL_TIPS_LIBRARY = 'tipsLibrary';
 const MODAL_USERNAME = 'usernameModal';
 const MODAL_SETTINGS = 'settingsModal';
 const MODAL_CUSTOM_EXTENSION = 'customExtensionModal';
+const MODAL_CCW_EXTENSION = 'ccwExtensionModal';
+const MODAL_EXTENSION_IMPORT_METHOD = 'extensionImportMethodModal';
+const MODAL_CUSTOM_GALLERY = 'customGalleryModal';
+const MODAL_WALLPAPER = 'wallpaperModal';
+const MODAL_CUSTOM_FONTS = 'customFontsModal';
+const SWAP_ID = 'extensionSwapId';
+const MODAL_EXTENSION_MANAGER = 'extensionManagerModal';
+const MODAL_CUSTOM_ACCENT = 'customAccentModal';
+const MODAL_CUSTOM_THEME = 'customtheme';
+const MODAL_README = 'readme';
+const MODAL_PREVIEW_EXT = 'previewExt';
+const MODAL_AE_FEATURES = 'aeFeaturesModal';
+const MODAL_RESTORE_POINTS = 'restorePointModal';
+const MODAL_FONTS = 'fontsModal';
+const MODAL_UNKNOWN_PLATFORM = 'unknownPlatformModal';
+const MODAL_INVALID_PROJECT = 'invalidProjectModal';
 
 const initialState = {
     [MODAL_BACKDROP_LIBRARY]: false,
@@ -28,28 +46,58 @@ const initialState = {
     [MODAL_TIPS_LIBRARY]: false,
     [MODAL_USERNAME]: false,
     [MODAL_SETTINGS]: false,
-    [MODAL_CUSTOM_EXTENSION]: false
+    [MODAL_CUSTOM_EXTENSION]: false,
+	[MODAL_CCW_EXTENSION]: false,
+    [MODAL_EXTENSION_IMPORT_METHOD]: false,
+    [MODAL_CUSTOM_GALLERY]: false,
+    [MODAL_WALLPAPER]: false,
+    [MODAL_CUSTOM_FONTS]: false,
+	[SWAP_ID]: null,
+    [MODAL_EXTENSION_MANAGER]: false,
+    [MODAL_CUSTOM_ACCENT]: false,
+    [MODAL_CUSTOM_THEME]: false,
+	[MODAL_README]: false,
+    [MODAL_PREVIEW_EXT]: false,
+    [MODAL_AE_FEATURES]: false,
+    [MODAL_RESTORE_POINTS]: false,
+    [MODAL_FONTS]: false,
+    [MODAL_UNKNOWN_PLATFORM]: false,
+    [MODAL_INVALID_PROJECT]: false,
+	selectedExtension: null,
+    selectedExtensions: []
 };
 
 const reducer = function (state, action) {
     if (typeof state === 'undefined') state = initialState;
     switch (action.type) {
-    case OPEN_MODAL:
-        return Object.assign({}, state, {
+    case OPEN_MODAL: {
+        const makeState =  {
             [action.modal]: true
-        });
+        };
+        if (action.extensionSwapId) makeState.extensionSwapId = action.extensionSwapId;
+        return Object.assign({}, state, makeState);
+    }
     case CLOSE_MODAL:
         return Object.assign({}, state, {
             [action.modal]: false
+        });
+		case SET_SELECTED_EXTENSION:
+        return Object.assign({}, state, {
+            selectedExtension: action.extension
+        });
+    case SET_SELECTED_EXTENSIONS:
+        return Object.assign({}, state, {
+            selectedExtensions: action.extensions
         });
     default:
         return state;
     }
 };
-const openModal = function (modal) {
+const openModal = function (modal, extensionSwapId) {
     return {
         type: OPEN_MODAL,
-        modal: modal
+        modal: modal,
+        extensionSwapId: extensionSwapId
     };
 };
 const closeModal = function (modal) {
@@ -97,6 +145,63 @@ const openSettingsModal = function () {
 const openCustomExtensionModal = function () {
     return openModal(MODAL_CUSTOM_EXTENSION);
 };
+const openCustomTheme = function () {
+  return openModal(MODAL_CUSTOM_THEME);
+};
+const openPreviewExt = function () {
+  return openModal(MODAL_PREVIEW_EXT);
+};
+const openReadme = function () {
+  return openModal(MODAL_README);
+};
+const openAeFeaturesModal = function () {
+  return openModal(MODAL_AE_FEATURES);
+};
+const openCCWExtensionModal = function () {
+    return openModal(MODAL_CCW_EXTENSION);
+};
+const openExtensionImportMethodModal = function () {
+    return openModal(MODAL_EXTENSION_IMPORT_METHOD);
+};
+const setSelectedExtension = function (extension) {
+    return {
+        type: SET_SELECTED_EXTENSION,
+        extension: extension
+    };
+};
+const setSelectedExtensions = function (extensions) {
+    return {
+        type: SET_SELECTED_EXTENSIONS,
+        extensions
+    };
+};
+const openCustomGalleryModal = function () {
+    return openModal(MODAL_CUSTOM_GALLERY);
+};
+const openWallpaperModal = function () {
+    return openModal(MODAL_WALLPAPER);
+};
+const openCustomFontsModal = function () {
+    return openModal(MODAL_CUSTOM_FONTS);
+};
+const openExtensionManagerModal = function () {
+    return openModal(MODAL_EXTENSION_MANAGER);
+};
+const openCustomAccentModal = function () {
+    return openModal(MODAL_CUSTOM_ACCENT);
+};
+const openRestorePointModal = function () {
+    return openModal(MODAL_RESTORE_POINTS);
+};
+const openFontsModal = function () {
+    return openModal(MODAL_FONTS);
+};
+const openUnknownPlatformModal = function () {
+    return openModal(MODAL_UNKNOWN_PLATFORM);
+};
+const openInvalidProjectModal = function () {
+    return openModal(MODAL_INVALID_PROJECT);
+};
 const closeBackdropLibrary = function () {
     return closeModal(MODAL_BACKDROP_LIBRARY);
 };
@@ -136,6 +241,51 @@ const closeSettingsModal = function () {
 const closeCustomExtensionModal = function () {
     return closeModal(MODAL_CUSTOM_EXTENSION);
 };
+const closeCustomTheme = function () {
+  return closeModal(MODAL_CUSTOM_THEME);
+};
+const closeReadme = function () {
+  return closeModal(MODAL_README);
+};
+const closePreviewExt = function () {
+  return closeModal(MODAL_PREVIEW_EXT);
+};
+const closeAeFeaturesModal = function () {
+  return closeModal(MODAL_AE_FEATURES);
+};
+const closeCCWExtensionModal = function () {
+    return closeModal(MODAL_CCW_EXTENSION);
+};
+const closeExtensionImportMethodModal = function () {
+    return closeModal(MODAL_EXTENSION_IMPORT_METHOD);
+};
+const closeExtensionManagerModal = function () {
+    return closeModal(MODAL_EXTENSION_MANAGER);
+};
+const closeCustomGalleryModal = function () {
+    return closeModal(MODAL_CUSTOM_GALLERY);
+};
+const closeWallpaperModal = function () {
+    return closeModal(MODAL_WALLPAPER);
+};
+const closeCustomFontsModal = function () {
+    return closeModal(MODAL_CUSTOM_FONTS);
+};
+const closeCustomAccentModal = function () {
+    return closeModal(MODAL_CUSTOM_ACCENT);
+};
+const closeRestorePointModal = function () {
+    return closeModal(MODAL_RESTORE_POINTS);
+};
+const closeFontsModal = function () {
+    return closeModal(MODAL_FONTS);
+};
+const closeUnknownPlatformModal = function () {
+    return closeModal(MODAL_UNKNOWN_PLATFORM);
+};
+const closeInvalidProjectModal = function () {
+    return closeModal(MODAL_INVALID_PROJECT);
+};
 export {
     reducer as default,
     initialState as modalsInitialState,
@@ -152,6 +302,23 @@ export {
     openUsernameModal,
     openSettingsModal,
     openCustomExtensionModal,
+    openCustomTheme,
+    openReadme,
+    openPreviewExt,
+    openAeFeaturesModal,
+	openCCWExtensionModal,
+    openExtensionImportMethodModal,
+    openExtensionManagerModal,
+	openCustomGalleryModal,
+	openWallpaperModal,
+	openCustomFontsModal,
+	openCustomAccentModal,
+    openRestorePointModal,
+	setSelectedExtension,
+    setSelectedExtensions,
+    openFontsModal,
+    openUnknownPlatformModal,
+    openInvalidProjectModal,
     closeBackdropLibrary,
     closeCostumeLibrary,
     closeExtensionLibrary,
@@ -164,5 +331,20 @@ export {
     closeConnectionModal,
     closeUsernameModal,
     closeSettingsModal,
-    closeCustomExtensionModal
+    closeCustomExtensionModal,
+    closeCustomTheme,
+    closeReadme,
+    closeAeFeaturesModal,
+    closePreviewExt,
+	closeCCWExtensionModal,
+    closeExtensionImportMethodModal,
+    closeCustomGalleryModal,
+    closeWallpaperModal,
+    closeCustomFontsModal,
+    closeExtensionManagerModal,
+    closeCustomAccentModal,
+    closeRestorePointModal,
+    closeFontsModal,
+    closeUnknownPlatformModal,
+    closeInvalidProjectModal
 };

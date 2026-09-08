@@ -1,0 +1,161 @@
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
+import {FormattedMessage, defineMessages} from 'react-intl';
+import {connect} from 'react-redux';
+
+import check from './check.svg';
+import dropdownCaret from './dropdown-caret.svg';
+import {gradientDataToCSS} from '../../lib/gradient-to-css.js';
+import {openCustomAccentModal} from '../../reducers/modals.js';
+import {MenuItem, MenuSection, Submenu} from '../menu/menu.jsx';
+import {ACCENT_CUSTOM, ACCENT_MAP, AccentIcons, AccentOptions, Theme} from '../../lib/themes/index.js';
+import {openAccentMenu, accentMenuOpen, closeSettingsMenu} from '../../reducers/menus.js';
+import {setTheme} from '../../reducers/theme.js';
+import {persistTheme} from '../../lib/themes/themePersistance.js';
+import rainbowIcon from './tw-accent-rainbow.svg';
+import styles from './settings-menu.css';
+import settingsIcon from '../menu-bar/icon--settings.svg';
+
+
+const ColorIcon = props => (
+    AccentIcons[props.id] ? (
+        <img
+            className={styles.accentIconOuter}
+            src={AccentIcons[props.id]}
+            draggable={false}
+            // Image is decorative
+            alt=""
+        />
+    ) : (
+        <div
+            className={styles.accentIconOuter}
+            style={{
+                // menu-bar-background is var(...), don't want to evaluate with the current values
+                backgroundColor: props.id === ACCENT_CUSTOM ? 'var(--looks-secondary)' :
+                    ACCENT_MAP[props.id].guiColors['looks-secondary'],
+                backgroundImage: props.id === ACCENT_CUSTOM ? props.isGradient && props.gradient ?
+                    gradientDataToCSS(props.gradient.colors, props.gradient.direction) :
+                    'none' :
+                    ACCENT_MAP[props.id].guiColors['menu-bar-background-image']
+            }}
+        />
+    )
+);
+
+ColorIcon.propTypes = {
+    id: PropTypes.string,
+    isGradient: PropTypes.bool,
+    gradient: PropTypes.any
+};
+
+const AccentMenuItem = props => (
+    <MenuItem onClick={props.onClick}>
+        <div className={styles.option}>
+            <img
+                className={classNames(styles.check, {[styles.selected]: props.isSelected})}
+                width={15}
+                height={12}
+                src={check}
+                draggable={false}
+            />
+            <ColorIcon id={props.id} />
+            <FormattedMessage {...AccentOptions[props.id]} />
+        </div>
+    </MenuItem>
+);
+
+AccentMenuItem.propTypes = {
+    id: PropTypes.string,
+    isSelected: PropTypes.bool,
+    onClick: PropTypes.func
+};
+
+const AccentThemeMenu = ({
+    isOpen,
+    isRtl,
+    onClickCustomAccent,
+    onChangeTheme,
+    onOpen,
+    theme
+}) => {
+    if (!localStorage.getItem('pot:custom-accents')) localStorage.setItem('pot:custom-accents', '[]');
+    /**
+     * @type {any[]}
+     */
+    const themes = JSON.parse(localStorage.getItem('pot:custom-accents'));
+
+    return (
+       <MenuItem expanded={isOpen}>
+        <div
+            className={styles.option}
+            onClick={onOpen}
+        >
+            <ColorIcon
+                    id={Object.hasOwn(theme.accent, 'primaryColor') ? ACCENT_CUSTOM : theme.accent}
+                    isGradient={theme.accent?.isGradient}
+                    gradient={theme.accent?.gradient}
+                />
+            <span className={styles.submenuLabel}>
+                <FormattedMessage
+                    defaultMessage="Accent"
+                    description="Label for menu to choose accent color (eg. PotentiaMod's indigo, TurboWarp's red, Scratch's purple)"
+                    id="tw.menuBar.accent"
+                />
+            </span>
+            <img
+                    className={styles.expandCaret}
+                    src={dropdownCaret}
+                    draggable={false}
+                />
+        </div>
+        <Submenu 
+            place={isRtl ? 'left' : 'right'}
+            className={styles.accentSubmenu}
+        >
+            {Object.keys(AccentOptions).map(item => (
+                    <AccentMenuItem
+                        key={item}
+                        id={item}
+                        isSelected={theme.accent === item}
+                        // eslint-disable-next-line react/jsx-no-bind
+                        onClick={() => onChangeTheme(theme.set('accent', item))}
+                    />
+                ))}
+        </Submenu>
+    </MenuItem>
+    );
+};
+
+AccentThemeMenu.propTypes = {
+    isOpen: PropTypes.bool,
+    isRtl: PropTypes.bool,
+    onClickCustomAccent: PropTypes.func,
+    onChangeTheme: PropTypes.func,
+    onOpen: PropTypes.func,
+    theme: PropTypes.instanceOf(Theme)
+};
+
+const mapStateToProps = state => ({
+    isOpen: accentMenuOpen(state),
+    isRtl: state.locales.isRtl,
+    theme: state.scratchGui.theme.theme
+});
+
+const mapDispatchToProps = dispatch => ({
+    onClickCustomAccent: () => {
+        dispatch(openCustomAccentModal());
+        dispatch(closeSettingsMenu());
+    },
+    onChangeTheme: theme => {
+        dispatch(setTheme(theme));
+        dispatch(closeSettingsMenu());
+        persistTheme(theme);
+    },
+    onOpen: () => dispatch(openAccentMenu())
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AccentThemeMenu);

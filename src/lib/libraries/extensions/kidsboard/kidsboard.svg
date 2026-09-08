@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="372" viewBox="0 0 600 372">
+  <rect width="600" height="372" fill="#FFF3E0"/>
+  <!-- board with cat ears -->
+  <g>
+    <!-- ears -->
+    <polygon points="215,110 235,45 285,90" fill="#FF8C1A"/>
+    <polygon points="385,110 365,45 315,90" fill="#FF8C1A"/>
+    <polygon points="228,98 238,63 262,85" fill="#FFD9A8"/>
+    <polygon points="372,98 362,63 338,85" fill="#FFD9A8"/>
+    <!-- PCB -->
+    <rect x="180" y="90" width="240" height="200" rx="24" fill="#FF8C1A"/>
+    <rect x="196" y="106" width="208" height="168" rx="16" fill="#FFA94D"/>
+    <!-- corner connectors -->
+    <rect x="168" y="102" width="24" height="36" rx="4" fill="#8D6E63"/>
+    <rect x="408" y="102" width="24" height="36" rx="4" fill="#8D6E63"/>
+    <rect x="168" y="234" width="24" height="36" rx="4" fill="#8D6E63"/>
+    <rect x="408" y="234" width="24" height="36" rx="4" fill="#8D6E63"/>
+    <!-- face: eyes = LED + button -->
+    <circle cx="258" cy="170" r="16" fill="#FFFFFF"/>
+    <circle cx="342" cy="170" r="16" fill="#FFFFFF"/>
+    <circle cx="258" cy="170" r="8" fill="#5D4037"/>
+    <circle cx="342" cy="170" r="8" fill="#5D4037"/>
+    <!-- mouth / speaker -->
+    <path d="M 272 210 Q 300 236 328 210" stroke="#FFFFFF" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <!-- LED dot -->
+    <circle cx="222" cy="128" r="8" fill="#FFEB3B"/>
+    <!-- bluetooth mark -->
+    <g transform="translate(465,120)">
+      <circle cx="0" cy="0" r="30" fill="#4C97FF"/>
+      <path d="M -8 -10 L 8 6 L 0 13 L 0 -13 L 8 -6 L -8 10" stroke="#FFFFFF" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

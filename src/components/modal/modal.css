@@ -10,6 +10,7 @@
     bottom: 0;
     z-index: $z-index-modal;
     background-color: $ui-modal-overlay;
+    color: $ui-modal-foreground;
 }
 
 .modal-content * {
@@ -25,7 +26,6 @@
     user-select: none;
 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: $text-primary-light;
     overflow: hidden;
 }
 
@@ -67,17 +67,12 @@ $sides: 20rem;
 
     box-sizing: border-box;
     width: 100%;
-    background-color: $motion-primary;
-    
+    background-color: $ui-modal-header-background;
+    color: $ui-modal-header-foreground;
+
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1rem;
     font-weight: normal;
-}
-[theme="dark"] .header {
-    background-color: $motion-primary-dark;
-}
-[theme="dark"] .full-screen .header {
-    background-color: $motion-primary;
 }
 
 .header-item {
@@ -85,7 +80,6 @@ $sides: 20rem;
     align-items: center;
     padding: 1rem;
     text-decoration: none;
-    color: $ui-white;
     user-select: none;
 }
 
@@ -134,6 +128,10 @@ $sides: 20rem;
     z-index: 1;
 }
 
+.header-item-close img {
+	filter: var(--menu-bar-icon-filter);
+}
+
 .full-screen .header-item-close {
     order: -1;
     justify-content: flex-start;
@@ -147,6 +145,7 @@ $sides: 20rem;
 
 [dir="rtl"] .back-button img {
     transform: scaleX(-1);
+	
 }
 
 .header-item-help {
@@ -173,4 +172,22 @@ $sides: 20rem;
 
 [dir="rtl"] .help-button {
     padding-left: 0;
+}
+
+/* Specific styles for extension library only */
+#extensionLibrary .modal-overlay {
+    background-color: $ui-modal-overlay;
+}
+
+#extensionLibrary .modal-content {
+    background-color: $ui-modal-overlay;
+}
+
+/* Specific styles for extension library only */
+[id="extensionLibrary"] .modal-overlay {
+    background-color: $ui-modal-overlay;
+}
+
+[id="extensionLibrary"] .modal-content.full-screen {
+    background-color: $ui-modal-overlay;
 }

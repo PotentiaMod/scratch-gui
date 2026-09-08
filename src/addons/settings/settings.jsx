@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2021 Thomas Weber
+ * Copyright (C) 2021-2023 Thomas Weber
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as
@@ -25,7 +25,6 @@ import settingsTranslationsEnglish from './en.json';
 import settingsTranslationsOther from './translations.json';
 import upstreamMeta from '../generated/upstream-meta.json';
 import {detectLocale} from '../../lib/detect-locale';
-import {getInitialDarkMode} from '../../lib/tw-theme-hoc.jsx';
 import SettingsStore from '../settings-store-singleton';
 import Channels from '../channels';
 import extensionImage from './icons/extension.svg';
@@ -33,16 +32,23 @@ import brushImage from './icons/brush.svg';
 import undoImage from './icons/undo.svg';
 import expandImageBlack from './icons/expand.svg';
 import infoImage from './icons/info.svg';
+import TWFancyCheckbox from '../../components/tw-fancy-checkbox/checkbox.jsx';
 import styles from './settings.css';
-import '../polyfill';
+import {detectTheme} from '../../lib/themes/themePersistance.js';
+import {applyGuiColors} from '../../lib/themes/guiHelpers.js';
+import {APP_NAME} from '../../lib/brand.js';
 import '../../lib/normalize.css';
+import TagButton from '../../containers/tag-button.jsx';
+import addonTags from './addon-tags.js';
 
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 /* eslint-disable react/no-multi-comp */
 /* eslint-disable react/jsx-no-bind */
 
-const locale = detectLocale(Object.keys(messagesByLocale));
+// messagesByLocale only has the non-English strings, so we have to add English as a supported
+// locale so that a non-English device with their editor language set to English gets English.
+const locale = detectLocale(['en', ...Object.keys(messagesByLocale)]);
 document.documentElement.lang = locale;
 
 const addonTranslations = messagesByLocale[locale] ? messagesByLocale[locale]() : {};
@@ -55,10 +61,9 @@ if (locale !== 'en') {
     }
 }
 
-document.title = `${settingsTranslations.title} - TurboWarp`;
-
-const theme = getInitialDarkMode() ? 'dark' : 'light';
-document.body.setAttribute('theme', theme);
+document.title = `${settingsTranslations.title} - ${APP_NAME}`;
+const theme = detectTheme();
+applyGuiColors(theme);
 
 let _throttleTimeout;
 const postThrottledSettingsChange = store => {
@@ -122,6 +127,27 @@ const groupAddons = () => {
     return groups;
 };
 const groupedAddons = groupAddons();
+
+const getInitialSearch = () => {
+    const hash = location.hash.substring(1);
+    
+    // If the query is an addon ID, it's a better user experience to show the name of the addon
+    // in the search bar instead of a ID they won't understand.
+    if (Object.prototype.hasOwnProperty.call(importedAddons, hash)) {
+        const manifest = importedAddons[hash];
+        return addonTranslations[`${hash}/@name`] || manifest.name;
+    }
+
+    return hash;
+};
+
+const clearHash = () => {
+    // Don't want to insert unnecssary history entry
+    // location.hash = ''; leaves a # in the URL
+    if (location.hash !== '') {
+        history.replaceState(null, null, `${location.pathname}${location.search}`);
+    }
+};
 
 const CreditList = ({credits}) => (
     credits.map((author, index) => {
@@ -229,6 +255,119 @@ const Tags = ({manifest}) => (
                 {settingsTranslations.tagDanger}
             </span>
         )}
+		{manifest.tags.includes('pot') && (
+            <span className={classNames(styles.tag, styles.tagPotentiamod)} 
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://potentiamod.github.io/online/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="PotentiaMod Icon"
+                />
+                {settingsTranslations.tagPotentiamod}
+            </span>
+			 )}
+     {manifest.tags.includes('amp') && (
+            <span className={classNames(styles.tag, styles.tagAmpmod)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://ampmod.codeberg.page/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="AmpMod Icon"
+                />
+                {settingsTranslations.tagAmpmod}
+            </span>
+			        )}
+	{manifest.tags.includes('mistium') && (
+            <span className={classNames(styles.tag, styles.tagMistium)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://warp.mistium.com/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="MistWarp Icon"
+                />
+                {settingsTranslations.tagMistium}
+            </span>
+			        )}
+	{manifest.tags.includes('ae') && (
+            <span className={classNames(styles.tag, styles.tagAstraeditor)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://editors.astras.top/online/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="AstraEditor Icon"
+                />
+                {settingsTranslations.tagAstraEditor}
+            </span>
+			        )}
+		{manifest.tags.includes('ztengine') && (
+            <span className={classNames(styles.tag, styles.tagEngine)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://editor.02engine.org/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="02Engine Icon"
+                />
+                {settingsTranslations.tagZtEngine}
+            </span>
+			        )}
+					{manifest.tags.includes('rw') && (
+            <span className={classNames(styles.tag, styles.tagRemixwarp)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://remixwarp.pages.dev/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="RemixWarp Icon"
+                />
+                {settingsTranslations.tagRemixwarp}
+            </span>
+			        )}
+					{manifest.tags.includes('ob') && (
+            <span className={classNames(styles.tag, styles.tagOmniblocks)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://omniblocks.github.io/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="OmniBlocks Icon"
+                />
+                {settingsTranslations.tagOmniblocks}
+            </span>
+			        )}
+	{manifest.tags.includes('pm') && (
+            <span className={classNames(styles.tag, styles.tagPenguinmod)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://studio.penguinmod.com/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="PenguinMod Icon"
+                />
+                {settingsTranslations.tagPenguinmod}
+            </span>
+			        )}
+        {manifest.tags.includes('dm') && (
+            <span className={classNames(styles.tag, styles.tagDinosaurmod)} 
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://dinosaurmod.github.io/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="DinosaurMod Icon"
+                />
+                {settingsTranslations.tagDinosaurmod}
+            </span>
+			 )}
+        {manifest.tags.includes('other') && (
+            <span className={classNames(styles.tag, styles.tagOtherMods)}>
+                {settingsTranslations.tagOtherMods}
+            </span>
+           )}
     </span>
 );
 Tags.propTypes = {
@@ -337,6 +476,7 @@ const ResetButton = ({
         <img
             src={undoImage}
             alt={settingsTranslations.reset}
+            draggable={false}
         />
     </button>
 );
@@ -372,26 +512,51 @@ const Setting = ({
             {setting.type === 'boolean' && (
                 <React.Fragment>
                     {label}
-                    <input
+                    <TWFancyCheckbox
                         id={uniqueId}
-                        type="checkbox"
                         checked={value}
                         onChange={e => SettingsStore.setAddonSetting(addonId, settingId, e.target.checked)}
                     />
                 </React.Fragment>
             )}
-            {setting.type === 'integer' && (
+            {(setting.type === 'integer' || setting.type === 'positive_integer') && (
                 <React.Fragment>
                     {label}
                     <TextInput
                         id={uniqueId}
                         type="number"
-                        min={setting.min}
+                        min={setting.type === 'positive_integer' ? '0' : setting.min}
                         max={setting.max}
                         step="1"
                         value={value}
                         onChange={newValue => SettingsStore.setAddonSetting(addonId, settingId, newValue)}
                     />
+                    <ResetButton
+                        addonId={addonId}
+                        settingId={settingId}
+                        forTextInput
+                    />
+                </React.Fragment>
+            )}
+            {(setting.type === 'string' || setting.type === 'untranslated') && (
+                <React.Fragment>
+                    {label}
+                    {setting.multiline ? (
+                        <textarea
+                            id={uniqueId}
+                            className={styles.textarea}
+                            value={value}
+                            onChange={e => SettingsStore.setAddonSetting(addonId, settingId, e.target.value)}
+                            rows={setting.rows || 5}
+                        />
+                    ) : (
+                        <TextInput
+                            id={uniqueId}
+                            type="text"
+                            value={value}
+                            onChange={newValue => SettingsStore.setAddonSetting(addonId, settingId, newValue)}
+                        />
+                    )}
                     <ResetButton
                         addonId={addonId}
                         settingId={settingId}
@@ -460,14 +625,12 @@ const Notice = ({
         className={styles.notice}
         type={type}
     >
-        <div>
-            <img
-                className={styles.noticeIcon}
-                src={infoImage}
-                alt=""
-                draggable={false}
-            />
-        </div>
+        <img
+            className={styles.noticeIcon}
+            src={infoImage}
+            alt=""
+            draggable={false}
+        />
         <div>
             {text}
         </div>
@@ -735,12 +898,16 @@ class AddonGroup extends React.Component {
                         });
                     }}
                 >
-                    <img
-                        className={styles.addonGroupExpand}
-                        src={expandImageBlack}
-                        data-open={this.state.open}
-                        alt=""
-                    />
+                    <div
+                        className={styles.addonGroupExpandContainer}
+                    >
+                        <img
+                            className={styles.addonGroupExpandIcon}
+                            src={expandImageBlack}
+                            data-open={this.state.open}
+                            alt=""
+                        />
+                    </div>
                     {this.props.label.replace('{number}', this.props.addons.length)}
                 </button>
                 {this.state.open && (
@@ -877,7 +1044,7 @@ class AddonSettingsComponent extends React.Component {
         this.state = {
             loading: false,
             dirty: false,
-            search: location.hash ? location.hash.substr(1) : '',
+            search: getInitialSearch(),
             extended: false,
             ...this.readFullAddonState()
         };
@@ -891,6 +1058,11 @@ class AddonSettingsComponent extends React.Component {
     componentDidMount () {
         SettingsStore.addEventListener('setting-changed', this.handleSettingStoreChanged);
         document.body.addEventListener('keydown', this.handleKeyDown);
+    }
+    componentDidUpdate (prevProps, prevState) {
+        if (this.state.search !== prevState.search) {
+            clearHash();
+        }
     }
     componentWillUnmount () {
         SettingsStore.removeEventListener('setting-changed', this.handleSettingStoreChanged);
@@ -1009,6 +1181,11 @@ class AddonSettingsComponent extends React.Component {
     }
     searchRef (searchBar) {
         this.searchBar = searchBar;
+
+        // Only focus search bar if we have no initial search
+        if (searchBar && this.state.search === '') {
+            searchBar.focus();
+        }
     }
     handleKeyDown (e) {
         const key = e.key;
@@ -1045,7 +1222,6 @@ class AddonSettingsComponent extends React.Component {
                                 aria-label={settingsTranslations.search}
                                 ref={this.searchRef}
                                 spellCheck="false"
-                                autoFocus
                             />
                             <div
                                 className={styles.searchButton}
@@ -1053,7 +1229,7 @@ class AddonSettingsComponent extends React.Component {
                             />
                         </div>
                         <a
-                            href="https://scratch.mit.edu/users/GarboMuffin/#comments"
+                            href="https://com.bilup.org/users/GaiaKitty"
                             target="_blank"
                             rel="noreferrer"
                             className={styles.feedbackButtonOuter}
