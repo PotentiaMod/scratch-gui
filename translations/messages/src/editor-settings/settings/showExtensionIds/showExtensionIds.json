@@ -1,0 +1,10 @@
+[
+  {
+    "id": "pm.editorSettings.showExtensionIds.primary",
+    "defaultMessage": "Show Extension IDs"
+  },
+  {
+    "id": "pm.editorSettings.showExtensionIds.help",
+    "defaultMessage": "Makes extension IDs visible inside the extension gallery."
+  }
+]

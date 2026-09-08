@@ -1,0 +1,10 @@
+[
+  {
+    "id": "pm.editorSettings.test.primary",
+    "defaultMessage": "Bumpscosity"
+  },
+  {
+    "id": "pm.editorSettings.test.help",
+    "defaultMessage": "Changes the level of bumpscosity."
+  }
+]

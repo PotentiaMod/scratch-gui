@@ -1,0 +1,7 @@
+[
+  {
+    "id": "tw.installPwa",
+    "description": "Button to install the PotentiaMod Progressive Web App.",
+    "defaultMessage": "Install app (beta)"
+  }
+]

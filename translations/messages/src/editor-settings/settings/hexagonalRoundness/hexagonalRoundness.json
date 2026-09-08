@@ -1,0 +1,10 @@
+[
+  {
+    "id": "pm.editorSettings.hexagonalRoundness.primary",
+    "defaultMessage": "Shape Curvature"
+  },
+  {
+    "id": "pm.editorSettings.hexagonalRoundness.help",
+    "defaultMessage": "Makes shapes with pointy edges (hexagonal, indented, slanted) more rounded."
+  }
+]

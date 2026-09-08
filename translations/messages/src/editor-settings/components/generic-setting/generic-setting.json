@@ -1,0 +1,16 @@
+[
+  {
+    "id": "tw.settingsModal.help",
+    "description": "Hover text of help icon in settings",
+    "defaultMessage": "Click for help"
+  },
+  {
+    "id": "pm.gui.settingsModal.reset",
+    "description": "Hover text of reset icon in settings",
+    "defaultMessage": "Reset to Default"
+  },
+  {
+    "id": "pm.gui.placeholder",
+    "defaultMessage": "Placeholder"
+  }
+]

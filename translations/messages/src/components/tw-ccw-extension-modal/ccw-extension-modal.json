@@ -1,0 +1,52 @@
+[
+  {
+    "id": "tw.ccwExtensionModal.title",
+    "description": "Title of CCW extension loader modal",
+    "defaultMessage": "Load CCW Extension"
+  },
+  {
+    "id": "tw.ccwExtensionModal.description",
+    "description": "Description of CCW extension loader modal",
+    "defaultMessage": "Load the extension from the Cocrea World, which can be obtained from https://assets.ccw.site/extensions."
+  },
+  {
+    "id": "tw.ccwExtensionModal.prompt",
+    "description": "Label that appears when loading a CCW extension by ID",
+    "defaultMessage": "Enter CCW extension ID："
+  },
+  {
+    "id": "tw.ccwExtensionModal.lookup",
+    "description": "Button to fetch CCW extension metadata",
+    "defaultMessage": "Fetch"
+  },
+  {
+    "id": "tw.ccwExtensionModal.publisher",
+    "description": "Publisher label in CCW extension loader",
+    "defaultMessage": "Author"
+  },
+  {
+    "id": "tw.ccwExtensionModal.version",
+    "description": "Version selector label in CCW extension loader",
+    "defaultMessage": "Version"
+  },
+  {
+    "id": "tw.ccwExtensionModal.latest",
+    "description": "Latest version marker in CCW extension loader",
+    "defaultMessage": "Latest version"
+  },
+  {
+    "id": "tw.ccwExtensionModal.asset",
+    "description": "Asset URL label in CCW extension loader",
+    "defaultMessage": "Asset"
+  },
+  {
+    "id": "tw.ccwExtensionModal.cancel",
+    "description": "Button that cancels loading a CCW extension",
+    "defaultMessage": "Cancel"
+  },
+  {
+    "id": "tw.ccwExtensionModal.confirm",
+    "description": "Button that confirms loading a CCW extension",
+    "defaultMessage": "Confirm"
+  }
+]

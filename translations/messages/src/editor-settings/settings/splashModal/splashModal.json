@@ -1,0 +1,10 @@
+[
+  {
+    "id": "pm.editorSettings.splashModal.primary",
+    "defaultMessage": "Splash Screen"
+  },
+  {
+    "id": "pm.editorSettings.splashModal.help",
+    "defaultMessage": "Shows a modal when launching the editor with easy options on what to do."
+  }
+]

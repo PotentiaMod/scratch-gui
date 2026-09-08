@@ -1,0 +1,10 @@
+[
+  {
+    "id": "pm.editorSettings.cascadeProcedureColors.primary",
+    "defaultMessage": "Disable custom block color cascading"
+  },
+  {
+    "id": "pm.editorSettings.cascadeProcedureColors.help",
+    "defaultMessage": "Disables custom block colors from cascading down the define block stack. If disabled, only the block inside the define block keeps its color."
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "pm.editorSettings.paintMultiTool.primary",
+    "defaultMessage": "Group Tools"
+  },
+  {
+    "id": "pm.editorSettings.paintMultiTool.help",
+    "defaultMessage": "Similar tools in the paint editor are grouped together."
+  }
+]

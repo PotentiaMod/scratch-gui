@@ -1,0 +1,10 @@
+[
+  {
+    "id": "pm.editorSettings.paintScrollZoom.primary",
+    "defaultMessage": "Scroll Zoom Amount"
+  },
+  {
+    "id": "pm.editorSettings.paintScrollZoom.help",
+    "defaultMessage": "Determines how much you zoom in/out by using the scroll wheel."
+  }
+]

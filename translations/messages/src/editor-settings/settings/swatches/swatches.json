@@ -1,0 +1,10 @@
+[
+  {
+    "id": "pm.editorSettings.swatches.primary",
+    "defaultMessage": "Swatches"
+  },
+  {
+    "id": "pm.editorSettings.swatches.help",
+    "defaultMessage": "Adds options to the block context menu to switch a block with another similar block."
+  }
+]

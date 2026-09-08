@@ -1,0 +1,50 @@
+[
+  {
+    "id": "pm.editorSettings.blockColors.motion",
+    "defaultMessage": "Motion"
+  },
+  {
+    "id": "pm.editorSettings.blockColors.looks",
+    "defaultMessage": "Looks"
+  },
+  {
+    "id": "pm.editorSettings.blockColors.sounds",
+    "defaultMessage": "Sound"
+  },
+  {
+    "id": "pm.editorSettings.blockColors.control",
+    "defaultMessage": "Control"
+  },
+  {
+    "id": "pm.editorSettings.blockColors.event",
+    "defaultMessage": "Events"
+  },
+  {
+    "id": "pm.editorSettings.blockColors.sensing",
+    "defaultMessage": "Sensing"
+  },
+  {
+    "id": "pm.editorSettings.blockColors.operators",
+    "defaultMessage": "Operators"
+  },
+  {
+    "id": "pm.editorSettings.blockColors.data",
+    "defaultMessage": "Variables"
+  },
+  {
+    "id": "pm.editorSettings.blockColors.data_lists",
+    "defaultMessage": "Lists"
+  },
+  {
+    "id": "pm.editorSettings.blockColors.more",
+    "defaultMessage": "My Blocks"
+  },
+  {
+    "id": "pm.editorSettings.blockColors.primary",
+    "defaultMessage": "Category Colors"
+  },
+  {
+    "id": "pm.editorSettings.blockColors.help",
+    "defaultMessage": "Choose what colors you want for certain blocks."
+  }
+]

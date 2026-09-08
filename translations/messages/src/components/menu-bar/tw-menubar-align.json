@@ -1,0 +1,7 @@
+[
+  {
+    "id": "tw.menuBar.menuBarAlign",
+    "description": "Label for menu to choose menu bar alignment (left, center, right)",
+    "defaultMessage": "MenuBar Alignment"
+  }
+]
