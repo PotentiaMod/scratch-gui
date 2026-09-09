@@ -23,7 +23,7 @@ document.documentElement.lang = 'en';
 import screenshotLight from './screencap-light.png';
 import screenshotDark from './screencap-dark.png';
 
-const RELEASES_DOWNLOAD_URL = `https://github.com/PotentiaMod/desktop/releases/download/v.${DESKTOP_VERSION}`;
+const RELEASES_DOWNLOAD_URL = `https://github.com/PotentiaMod/desktop/releases/download/v${DESKTOP_VERSION}/`;
 const DESKTOP_REPO_URL = 'https://github.com/PotentiaMod/desktop/';
 const DESKTOP_RELEASE_URL = `https://github.com/PotentiaMod/desktop/releases/tag/v${DESKTOP_VERSION}`;
 
@@ -89,7 +89,7 @@ const Desktop = () => (
                 <div className={styles.downloadList}>
                     <Button
                         className={styles.downloadButton}
-                        onClick={() => openFile(`https://github.com/PotentiaMod/desktop/releases/download/v${DESKTOP_VERSION}/PotentiaMod-linux-x86_64-${DESKTOP_VERSION}.AppImage`)}
+                        onClick={() => openFile(`PotentiaMod-linux-x86_64-${DESKTOP_VERSION}.AppImage`)}
                     >
                         Download .AppImage
                     </Button>
