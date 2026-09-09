@@ -68,7 +68,7 @@ const Desktop = () => (
             </section>
             <section>
                 <h2>Windows 10 and later</h2>
-                If a Windows SmartScreen alert appears, click "More info" then "Run anyways".
+                <p>If a Windows SmartScreen alert appears, click "More info" then "Run anyways".</p>
                 <div className={styles.downloadList}>
                     <Button
                         className={styles.downloadButton}
@@ -81,6 +81,17 @@ const Desktop = () => (
                         onClick={() => openFile(`PotentiaMod.Portable.${DESKTOP_VERSION}.x64.exe`)}
                     >
                         Download portable (64-bit)
+                    </Button>
+                </div>
+				 </section>
+				 <section>
+                <h2>Linux</h2>
+                <div className={styles.downloadList}>
+                    <Button
+                        className={styles.downloadButton}
+                        onClick={() => openFile(`https://github.com/PotentiaMod/desktop/releases/download/v${DESKTOP_VERSION}/PotentiaMod-linux-x86_64-${DESKTOP_VERSION}.AppImage`)}
+                    >
+                        Download .AppImage
                     </Button>
                 </div>
 				 </section>
