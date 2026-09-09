@@ -24,10 +24,30 @@ import screenshotLight from './screencap-light.png';
 import screenshotDark from './screencap-dark.png';
 
 const RELEASES_DOWNLOAD_URL = `https://github.com/PotentiaMod/desktop/releases/download/v.${DESKTOP_VERSION}`;
+const DESKTOP_REPO_URL = 'https://github.com/PotentiaMod/desktop/';
+const DESKTOP_RELEASE_URL = `https://github.com/PotentiaMod/desktop/releases/tag/v${DESKTOP_VERSION}`;
 
 const openFile = (file) => {
         window.open(`${RELEASES_DOWNLOAD_URL}/${file}`, '_blank', 'noreferrer');
     };
+	
+// Android's user agent also contains "Linux", so it has to be ruled out first.
+const detectPlatform = () => {
+    if (typeof navigator === 'undefined') {
+        return 'unknown';
+    }
+    const ua = navigator.userAgent || '';
+    if (/android/i.test(ua)) {
+        return 'unknown';
+    }
+    if (/windows/i.test(ua)) {
+        return 'windows';
+    }
+    if (/linux/i.test(ua)) {
+        return 'linux';
+    }
+    return 'unknown';
+};
 
 const Desktop = () => (
 <main className={styles.main}>
@@ -58,45 +78,25 @@ const Desktop = () => (
                     </Button>
                     <Button
                         className={styles.downloadButton}
-                        onClick={() => openFile(`PotentiaMod-Setup-${DESKTOP_VERSION}-ia32.exe`)}
-                    >
-                        32-bit
-                    </Button>
-                    <Button
-                        className={styles.downloadButton}
-                        onClick={() => openFile(`PotentiaMod-Setup-${DESKTOP_VERSION}-arm64.exe`)}
-                    >
-                        ARM 64-bit
-                    </Button>
-                    <Button
-                        className={styles.downloadButton}
                         onClick={() => openFile(`PotentiaMod.Portable.${DESKTOP_VERSION}.x64.exe`)}
                     >
                         Download portable (64-bit)
                     </Button>
                 </div>
+				 </section>
+				 <section>
+				<a
+                    className={styles.allDownloadsLink}
+                    href={DESKTOP_RELEASE_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    {'View all download options on GitHub'}
+                </a>
             </section>
-            <section>
-                <h2>Windows 7, 8, and 8.1</h2>
-                These versions of the app have the same features but are slower and less secure. Support will be removed at an unknown time in the future. If a Windows SmartScreen alert appears, click "More info" then "Run anyways".
-                <div className={styles.downloadList}>
-                    <Button
-                        className={styles.downloadButton}
-                        onClick={() => openFile(`PotentiaMod-Legacy-Setup-${DESKTOP_VERSION}-x64.exe`)}
-                    >
-                        Download legacy installer (64-bit, recommended)
-                    </Button>
-                    <Button
-                        className={styles.downloadButton}
-                        onClick={() => openFile(`PotentiaMod-Legacy-Setup-${DESKTOP_VERSION}-ia32.exe`)}
-                    >
-                        32-bit
-                    </Button>
-                </div>
-            </section>
-               <section>
+				<section>
 				<i>
-                    This page is based on Dash's Desktop page.
+                    This page is based on Dash and Nyx IDE's Desktop page.
                 </i>
             </section>
 		<Footer />

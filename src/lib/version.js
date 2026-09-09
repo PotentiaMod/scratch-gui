@@ -2,5 +2,5 @@
 // eslint-disable-next-line import/no-commonjs
 module.exports = {
     APP_VERSION: '1.2.0',
-    DESKTOP_VERSION: '1.1.9'
+    DESKTOP_VERSION: '1.2.0'
 };
