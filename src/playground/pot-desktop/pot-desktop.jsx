@@ -23,12 +23,11 @@ document.documentElement.lang = 'en';
 import screenshotLight from './screencap-light.png';
 import screenshotDark from './screencap-dark.png';
 
-const RELEASES_DOWNLOAD_URL = `https://github.com/PotentiaMod/desktop/releases/download/v${DESKTOP_VERSION}/`;
 const DESKTOP_REPO_URL = 'https://github.com/PotentiaMod/desktop/';
-const DESKTOP_RELEASE_URL = `https://github.com/PotentiaMod/desktop/releases/tag/v${DESKTOP_VERSION}`;
+const DESKTOP_RELEASE_URL = `https://github.com/PotentiaMod/desktop/releases/download/v.${DESKTOP_VERSION}/`;
 
 const openFile = (file) => {
-        window.open(`${RELEASES_DOWNLOAD_URL}/${file}`, '_blank', 'noreferrer');
+        window.open(`${DESKTOP_RELEASE_URL}/${file}`, '_blank', 'noreferrer');
     };
 	
 // Android's user agent also contains "Linux", so it has to be ruled out first.
