@@ -217,14 +217,14 @@ const messages = defineMessages({
         // eslint-disable-next-line max-len
         defaultMessage: 'This extension is not recommended for real projects. It may be unstable and cause problems with your project later on. Are you sure you want to enable it?',
         description: 'Confirm loading buggy and unstable extension',
-        id: 'pm.confirmBuggyUnstableExtension'
+        id: 'tw.confirmBuggyUnstableExtension'
     },
     bugWarning: {
         // eslint-disable-next-line max-len
         // Copypasted from GvbvdxxMod2
         defaultMessage: 'This extension is not trusted, and it has some glitches and bugs, adding this in might make GaiaMod collapse, or some blocks may not work correctly, BACK UP YOUR PROJECT FIRST BEFORE USING THESE. Do you want to add the extension now?',
         description: 'Confirm loading buggy and unstable extension',
-        id: 'pm.confirmBuggyExtension'
+        id: 'tw.confirmBuggyExtension'
     }
 
 });

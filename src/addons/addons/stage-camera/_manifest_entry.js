@@ -34,7 +34,7 @@ const manifest = {
             "default": false
         }
     ],
-    "tags": ["editor", "stage"],
+    "tags": ["editor", "stage", "rw", "new"],
     "enabledByDefault": false
 };
 

@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import bindAll from 'lodash.bindall';
 import {connect} from 'react-redux';
-import log from '../lib/log';
+import log from '../lib/utils/log';
 import CustomExtensionModalComponent from '../components/tw-custom-extension-modal/custom-extension-modal.jsx';
 import {closeCustomExtensionModal} from '../reducers/modals';
 import {manuallyTrustExtension, isTrustedExtension} from './tw-security-manager.jsx';
-import { setPreviewExtData } from '../reducers/ae-preview-ext-data';
-import {getPersistedUnsandboxed, setPersistedUnsandboxed} from '../lib/tw-persisted-unsandboxed.js';
+import {getPersistedUnsandboxed, setPersistedUnsandboxed} from '../lib/persistence/tw-unsandboxed.js';
 
 /**
  * @param {Blob} blob Blob
@@ -126,7 +125,7 @@ class CustomExtensionModal extends React.Component {
         try {
             const urls = await this.getExtensionURLs();
 
-            if (this.state.type !== 'url') {
+            if (true) {
                 setPersistedUnsandboxed(this.state.unsandboxed);
                 if (this.state.unsandboxed) {
                     for (const url of urls) {
@@ -192,14 +191,11 @@ class CustomExtensionModal extends React.Component {
     }
 
     isUnsandboxed () {
-        if (this.state.type === 'url') {
-            return isTrustedExtension(this.state.url);
-        }
-        return this.state.unsandboxed;
+        return this.state.unsandboxed || isTrustedExtension(this.state.url);
     }
 
     canChangeUnsandboxed () {
-        return this.state.type !== 'url';
+        return true;
     }
 
     handleChangeUnsandboxed (e) {

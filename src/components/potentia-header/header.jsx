@@ -34,13 +34,13 @@ const Header = () => (
                         </span>
             </a>		
             <a
-                href="/editor.html"
+                href="https://potentiamod.github.io/online/editor.html"
                 className={classNames(styles.headerItem, styles.hoverable)}
             >
                 Create
             </a>
             <a
-                href="/credits.html"
+                href="https://potentiamod.github.io/online/credits.html"
                 className={classNames(styles.headerItem, styles.hoverable)}
             >
                 Credits
@@ -55,7 +55,7 @@ const Header = () => (
                     {/* todo: icon */}
                     <Button className={styles.feedbackButton}>
                         <FormattedMessage
-                            defaultMessage="{APP_NAME} issues and bugs"
+                            defaultMessage="Feedback"
                             description="Button to give feedback in the menu bar"
                             id="tw.GHissues"
                             values={{

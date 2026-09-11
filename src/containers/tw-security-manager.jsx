@@ -15,13 +15,14 @@ const manuallyTrustExtension = url => {
     extensionsTrustedByUser.add(url);
 };
 
+
 /**
  * Trusted extensions are loaded automatically and without a sandbox.
  * @param {string} url URL as a string.
  * @returns {boolean} True if the extension can is trusted
  */
 const isTrustedExtension = () => true;
-// always trust all extensions because this mod isnt for morons
+// always trust all extensions because this mod isn't for morons
 
 /**
  * @param {string} url Original URL string

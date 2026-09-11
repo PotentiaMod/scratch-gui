@@ -95,7 +95,7 @@ const manifest = {
       "type": "string",
       "multiline": true,
       "rows": 10,
-      "default": "Big challenges, you love it."
+      "default": "Welcome to PotentiaMod.\nRemember to read the rules\nIs that OK that we will use some shampoo?\nDave the magical cheese wizard.\nBig challenges, you love it.\nEvery copy of PotentiaMod is personalized\nYou have seen Potentia. Hug her.\nTotal Scratching!\nI LOVE ELECTRAMOD!!!\nMaybe in another universe, PotentiaMod is based on GaiaMod\nWith PotentiaMod, we got a new Scratch experience.\nWe'll buy this mod for a dollar!\nEat my alerts list!\nCongratulations! You're about to be erased!\nThis isn't even its final form!\nEAT AT JOES\nSend in the TurboWarp Squad!\nTHE SPRUNKIS WILL RULE\nGaiaMod and PotentiaMod are the duo of Scratch mods.\nFINAL CONFLICT NEAR! YOUR MOD'S CODE GETS SCRAMBLED!\nFind the REAL PotentiaMod. Don't let it delete itself!\nBingo! Try this URL parameter: \"?allpowerscombined\"\nKiwi Farms users saw this website. Shoo the scumbags!\nFind a way out before this mod attacks you!\nREMIXWARP ADDONS INCOMING!\nScratch mods are for cats!"
     }
   ],
   "tags": [

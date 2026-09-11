@@ -24,6 +24,7 @@ import screenshotLight from './screencap-light.png';
 import screenshotDark from './screencap-dark.png';
 
 const DESKTOP_REPO_URL = 'https://github.com/PotentiaMod/desktop/';
+const ALL_RELEASES_URL = `https://github.com/PotentiaMod/desktop/releases#release-v.${DESKTOP_VERSION}`;
 const DESKTOP_RELEASE_URL = `https://github.com/PotentiaMod/desktop/releases/download/v.${DESKTOP_VERSION}/`;
 
 const openFile = (file) => {
@@ -97,7 +98,7 @@ const Desktop = () => (
 				 <section>
 				<a
                     className={styles.allDownloadsLink}
-                    href={DESKTOP_RELEASE_URL}
+                    href={ALL_RELEASES_URL}
                     target="_blank"
                     rel="noreferrer"
                 >
