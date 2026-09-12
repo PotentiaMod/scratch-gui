@@ -64,7 +64,7 @@ const manifest = {
       }
     }
   ],
-  "dynamicDisable": true,
-  "enabledByDefault": false
+  "dynamicDisable": false,
+  "enabledByDefault": true
 };
 export default manifest;

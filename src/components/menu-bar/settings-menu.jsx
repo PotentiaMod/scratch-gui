@@ -4,7 +4,7 @@ import {FormattedMessage} from 'react-intl';
 
 import LanguageMenu from './language-menu.jsx';
 import MenuBarMenu from './menu-bar-menu.jsx';
-import {MenuSection} from '../menu/menu.jsx';
+import {MenuItem, MenuSection} from '../menu/menu.jsx';
 import MenuLabel from './tw-menu-label.jsx';
 import TWAccentThemeMenu from './tw-theme-accent.jsx';
 import TWGuiThemeMenu from './tw-theme-gui.jsx';
@@ -33,7 +33,9 @@ const SettingsMenu = ({
     onOpenAltCustomSettings,
     onRequestClose,
     onRequestOpen,
-    settingsMenuOpen
+    settingsMenuOpen,
+	onSetDefaultProject,
+    onRestoreDefaultProject
 }) => (
     <MenuLabel
         open={settingsMenuOpen}
@@ -73,24 +75,6 @@ const SettingsMenu = ({
                          <TWAccentThemeMenu />
                     </React.Fragment>
                 )}
-				 <TWGoIcon
-                        isOpen={settingsMenuOpen}
-                        isRtl={isRtl}
-                        onRequestClose={onRequestClose}
-                        onCloseOtherMenus={() => {
-                            if (accentIsOpen) {
-                                closeAccentMenu();
-                            }
-
-                            if (blocksThemeIsOpen) {
-                                closeBlocksThemeMenu();
-                            }
-
-                            if (languageIsOpen) {
-                                closeLanguageMenu();
-                            }
-                        }}
-                    />
             </MenuSection>
 			<MenuSection>
 			{onClickDesktopSettings && <TWDesktopSettings onClick={onClickDesktopSettings} />}
@@ -113,7 +97,9 @@ SettingsMenu.propTypes = {
     onOpenCustomSettings: PropTypes.func,
     onRequestClose: PropTypes.func,
     onRequestOpen: PropTypes.func,
-    settingsMenuOpen: PropTypes.bool
+    settingsMenuOpen: PropTypes.bool,
+	onSetDefaultProject: PropTypes.func,
+    onRestoreDefaultProject: PropTypes.func
 };
 
 export default SettingsMenu;

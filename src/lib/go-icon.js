@@ -10,13 +10,17 @@ import POTBLOCKS from '!./tw-recolor/build!./go-icon/flag-icon.svg';
 import POTFLAG from '!./tw-recolor/build!./go-icon/flag-icon.svg';
 import POTARROW from '!./tw-recolor/build!./go-icon/arrow-icon.svg';
 
-const POTENTIA_PLAY = './go-icon/play-icon.svg';
+const POTENTIA_PLAY =
+    'https://potentiamod.github.io/img/go-icon/play-icon.svg';
 
-const FLAG_BLOCKS = './go-icon/flag-icon.svg';
+const FLAG_BLOCKS =
+    'https://potentiamod.github.io/img/go-icon/flag-icon.svg';
 
-const FLAG = './go-icon/flag-icon.svg';
+const FLAG =
+    'https://potentiamod.github.io/img/go-icon/flag-icon.svg';
 	
-const ARROW = './go-icon/arrow-icon.svg';
+const ARROW =
+    'https://potentiamod.github.io/img/go-icon/arrow-icon.svg';
 
 const isFileProtocol = () =>
     typeof window !== 'undefined' &&
@@ -116,7 +120,7 @@ export const replaceGreenFlags = mode => {
         /*
          * Replace normal <img> green flags.
          */
-        document.querySelectorAll('img').forEach(e => {
+        document.querySelectorAll('TWRenderRecoloredImage').forEach(e => {
             try {
                 const className =
                     typeof e.className === 'string' ?
