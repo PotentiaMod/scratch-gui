@@ -42,6 +42,6 @@ GreenFlagComponent.propTypes = {
 };
 GreenFlagComponent.defaultProps = {
     active: false,
-    title: 'Go'
+    title: 'Play'
 };
 export default GreenFlagComponent;

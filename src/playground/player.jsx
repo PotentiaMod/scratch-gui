@@ -16,11 +16,28 @@
 
 import './import-first';
 
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import Interface from './render-interface.jsx';
 import render from './app-target.js';
 
-render(<Interface
-    isPlayerOnly
-/>);
+import {initializeGoIcon} from '../lib/go-icon';
+import {initializeCustomDefaultProject} from '../lib/customDefaultProject';
+
+const GoIconInterface = props => {
+    useEffect(() => {
+        const cleanupGoIcon = initializeGoIcon();
+
+        initializeCustomDefaultProject();
+
+        return cleanupGoIcon;
+    }, []);
+
+    return <Interface {...props} />;
+};
+
+render(
+    <GoIconInterface
+        isPlayerOnly
+    />
+);

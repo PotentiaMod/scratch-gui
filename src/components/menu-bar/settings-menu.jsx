@@ -13,6 +13,7 @@ import TWFontThemeMenu from './tw-theme-font.jsx';
 import TWMenuBarAlignMenu from './tw-menubar-align.jsx';
 import TWBlocksThemeMenu from './tw-theme-blocks.jsx';
 import TWDesktopSettings from './tw-desktop-settings.jsx';
+import TWGoIcon from './tw-go-icon.jsx';
 import InstallPWA from './install-pwa.jsx';
 import {APP_NAME, MOTTO} from '../../lib/brand.js';
 import {APP_VERSION} from '../../lib/version.js';
@@ -72,6 +73,24 @@ const SettingsMenu = ({
                          <TWAccentThemeMenu />
                     </React.Fragment>
                 )}
+				 <TWGoIcon
+                        isOpen={settingsMenuOpen}
+                        isRtl={isRtl}
+                        onRequestClose={onRequestClose}
+                        onCloseOtherMenus={() => {
+                            if (accentIsOpen) {
+                                closeAccentMenu();
+                            }
+
+                            if (blocksThemeIsOpen) {
+                                closeBlocksThemeMenu();
+                            }
+
+                            if (languageIsOpen) {
+                                closeLanguageMenu();
+                            }
+                        }}
+                    />
             </MenuSection>
 			<MenuSection>
 			{onClickDesktopSettings && <TWDesktopSettings onClick={onClickDesktopSettings} />}
