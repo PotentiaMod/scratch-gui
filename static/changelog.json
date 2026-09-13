@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.2.1",
+    "date": "2026-9-12",
+    "notes": [
+      "Added extension packs from NitroBolt",
+      "Added icons for every extension group",
+      "Certain stuff"
+    ]
+  },
+  {
     "version": "1.2.0",
     "date": "2026-9-9",
     "notes": [
