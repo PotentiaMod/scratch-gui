@@ -86,7 +86,8 @@ class LibraryComponent extends React.Component {
     }
     handleSelect (id) {
         this.handleClose();
-        this.props.onItemSelected(this.getFilteredData()[id]);
+		const item = this.getFilteredData()[id];
+        this.props.onItemSelected(item);
     }
     readFavoritesFromStorage () {
         let data;
@@ -325,6 +326,15 @@ class LibraryComponent extends React.Component {
                         )}
                         {this.props.tags &&
                             <div>
+							{this.props.onTagManager && (
+                                    <TagButton
+                                        active={false}
+                                        className={classNames(styles.filterBarItem, styles.tagButton)}
+                                        intlLabel="Add your own Extension Pack!"
+                                        tag="manage"
+                                        onClick={this.props.onTagManager}
+                                    />
+                                )}
                                 {tagListPrefix.concat(this.props.tags).map((tagProps, id) => {
                                     let onclick = this.handleTagClick;
                                     if (tagProps.type === 'divider') {
@@ -390,7 +400,7 @@ class LibraryComponent extends React.Component {
                         className={styles.libraryScrollGrid}
                         ref={this.setFilteredDataRef}
                     >
-                        {filteredData && this.getFilteredData().map((dataItem, index) => (
+                        {filteredData && filteredData.map((dataItem, index) => (
                             dataItem === '---' ? (
                                 <Separator key={index} />
                             ) : (
@@ -413,10 +423,11 @@ class LibraryComponent extends React.Component {
                                     insetIconURL={dataItem.insetIconURL}
                                     internetConnectionRequired={dataItem.internetConnectionRequired}
                                     isPlaying={this.state.playingItem === index}
-                                    key={dataItem.key || (
-                                        typeof dataItem.name === 'string' ?
-                                            dataItem.name :
-                                            dataItem.rawURL
+                                    key={dataItem.key ||
+                                    dataItem.extensionURL ||
+                                    dataItem.extensionId ||
+                                    dataItem.rawURL || (
+                                    typeof dataItem.name === 'string' ? dataItem.name : index
                                     )}
                                     name={dataItem.name}
                                     credits={dataItem.credits}
@@ -479,6 +490,7 @@ LibraryComponent.propTypes = {
     onItemMouseLeave: PropTypes.func,
     onItemSelected: PropTypes.func,
     onRequestClose: PropTypes.func,
+	onTagManager: PropTypes.func,
     setStopHandler: PropTypes.func,
     showPlayButton: PropTypes.bool,
     tags: PropTypes.arrayOf(PropTypes.object),

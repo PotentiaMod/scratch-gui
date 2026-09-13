@@ -3,6 +3,7 @@ import messages from './tag-messages.js';
 
 /// Because there are all brand names, it is unnecessary for them to be translatable.
 export default [
+   {type: 'divider'},
     {type: 'custom', intlLabel: messages.customextension, func: (library) => {
         library.select('custom_extension');
     } },
@@ -33,4 +34,5 @@ export default [
 	{type: 'divider'},
     {tag: 'new', intlLabel: 'New!'},
 	{tag: 'disabled', intlLabel: 'Disabled'},
+	{type: 'divider'},
 ];

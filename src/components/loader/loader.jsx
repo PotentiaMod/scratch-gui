@@ -120,6 +120,8 @@ const randomMessages = [
 		"NO. Sit down! ...I don't want Scratch mods in my computer class...",
 		"PotentiaMod is in beta, so there may be bugs and breaking changes.",
         "Simply the Best",
+        "♪I love Buddy, yes I do♪\n♪I’m so glad you love me, too♪",
+        "♪I hate Buddy, yes I do♪\n♪I hate, I hate, I hate you♪",
         "This isn't even its final form!",
 		"Coming soon... even more modding!",
 		"This isn't even its final form!",

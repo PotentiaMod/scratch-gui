@@ -578,6 +578,7 @@ import hcInsetIconURL from './hc/hc-small.svg';
 import snapIconURL from './snap/snap.svg'
 import snapInsetIconURL from './snap/snap-small.svg'
 
+
 import ptIcon from './tw/tw.svg';
 import TWgalleryIcon from './gallery/TWgallery.svg';
 import returnIcon from './custom/return.svg';
@@ -601,6 +602,8 @@ import galleryIconGM from './gallery/gaiamod.png';
 import scratchmegarepoThumb from './gallery/megarepo.png';
 import ampmodgalleryThumb from './gaiamod/AmpMod.svg';
 import obgalleryIcon from './gaiamod/OmniBlocks.svg';
+import SCIcon from './icons/scratch.svg';
+import PMIcon from './icons/penguinmod.svg';
 
 
 import {APP_NAME} from '../../brand';
@@ -2835,6 +2838,7 @@ const menuItems = [
         name: 'PenguinMod Runtime',
         extensionId: 'jgRuntime',
         iconURL: require('../extensions/penguinmod/extensions/runtime.svg'),
+		insetIconURL: PMIcon,
         description:'Blocks for modifying project data and settings from PenguinMod itself.',
         collaborator: 'PenguinMod',
         tags: ['pm', 'preload'],
@@ -2845,6 +2849,7 @@ const menuItems = [
         extensionId: 'jgPrism',
         tags: ['pm', 'preload'],
         iconURL: require('../extensions/penguinmod/extensions/prism.png'),
+		insetIconURL: PMIcon,
 		collaborator: 'PenguinMod',
         description: 'Blocks for specific use-cases or major convenience.',
         featured: true
@@ -2853,6 +2858,7 @@ const menuItems = [
         name: 'Motion Expansion',
         extensionId: 'pmMotionExpansion',
         iconURL: require('../extensions/penguinmod/extensions/motion_expanded.png'),
+		insetIconURL: PMIcon,
         description: 'More small motion blocks for movement or collision.',
         tags: ['pm', 'preload'],
 		collaborator: 'PenguinMod',
@@ -2862,6 +2868,7 @@ const menuItems = [
         name: 'Scratch Authentication',
         extensionId: 'jgScratchAuthenticate',
         iconURL: jgScratchAuthExtensionIcon,
+		insetIconURL: PMIcon,
 		collaborator: 'PenguinMod',
 		tags: ['pm', 'preload'],
         description: "Interact with Scratch Authentication to prove the player is a real scratch user.",
@@ -2871,6 +2878,7 @@ const menuItems = [
         name: 'JSON (PM)',
         extensionId: 'jgJSON',
         iconURL: require('../extensions/penguinmod/extensions/json.png'),
+		insetIconURL: PMIcon,
         tags: ['pm', 'preload'],
 		collaborator: 'PenguinMod',
         description: 'Blocks for handling JSON objects and Arrays.',
@@ -2882,6 +2890,7 @@ const menuItems = [
         collaborator: 'easings.net, Arrow & GarboMuffin',
         description: 'Smoothly animating values using different easing functions and directions.',
         iconURL: require('../extensions/penguinmod/jgTween.svg'),
+		insetIconURL: PMIcon,
         tags: ['pm', 'tw', 'preload'],
         featured: true
     },
@@ -2889,6 +2898,7 @@ const menuItems = [
         name: 'Storage',
         extensionId: 'jgStorage',
         iconURL: require('../extensions/penguinmod/jgStorage.svg'),
+		insetIconURL: PMIcon,
         tags: ['pm', 'preload'],
         description: 'Store data after PenguinMod has already been closed out. Basic Server Storage is also included.',
         collaborator: 'Fir & silvxrcat',
@@ -3068,7 +3078,7 @@ const menuItems = [
         iconURL: customURLIcon,
         description: (
             <FormattedMessage
-                defaultMessage="Load extensions from a custom extension gallery URL."
+                defaultMessage="Load extension gallery packs from an URL or file."
                 description="Description of library item to load extensions from a custom gallery source"
                 id="tw.customExtensionGallery.description"
             />
