@@ -297,13 +297,13 @@ const translateGalleryItem = (extension, locale) => ({
 });
 
 const mapGalleryExtension = (extension, source) => ({
-    name: extension.name,
+    name: extension.name || extension.eid,
     nameTranslations: extension.nameTranslations || {},
     description: extension.description,
     descriptionTranslations: extension.descriptionTranslations || {},
-    extensionId: extension.id,
-    extensionURL: `${source.baseURL}${extension.slug || extension.URL || extension.extensionURL || extension.code}.js`,
-    iconURL: extension.image ? `${source.baseImageURL}${extension.image || extension.cover || extension.banner || extension.iconURL}` : 'placeholder.png',
+    extensionId: extension.id || extension.extensionId || extension.eid,
+    extensionURL: `${source.baseURL}${extension.slug || extension.URL || extension.url || extension.extensionURL || extension.code}.js`,
+    iconURL: extension.image ? `${source.baseImageURL}${extension.image || extension.cover || extension.thumb || extension.banner || extension.iconURL}` : 'placeholder.png',
     tags: [source.tag],
 	insetIconURL: [source.icon] || defaultICON,
     credits: [
@@ -327,7 +327,7 @@ const mapGalleryExtension = (extension, source) => ({
             }
             return credit.name;
         }),
-        docsURI: extension.docs ? `${source.baseURL}${extension.slug || extension.URL || extension.extensionURL || extension.code}` : null,
+        docsURI: extension.docs ? `${source.baseURL}${extension.slug || extension.URL || extension.url || extension.extensionURL || extension.code}` : null,
     samples: extension.samples ? extension.samples.map(sample => ({
         href: `${process.env.ROOT}editor?project_url=${source.baseSamplesURL}${encodeURIComponent(sample)}.sb3`,
         text: sample
@@ -336,16 +336,16 @@ const mapGalleryExtension = (extension, source) => ({
 });
 
 const mapPackExtension = (extension, pack) => ({
-    name: extension.name,
+    name: extension.name || extension.eid,
     nameTranslations: extension.nameTranslations || {},
     description: extension.description || '',
     descriptionTranslations: extension.descriptionTranslations || {},
-    extensionId: extension.id,
+    extensionId: extension.id || extension.extensionId || extension.eid,
     extensionURL: resolveURL(
-        extension.slug.endsWith('.js') ? extension.slug : `${extension.slug}.js`,
+        extension.slug.endsWith('.js') ? extension.slug : `${extension.slug || extension.URL || extension.url || extension.extensionURL || extension.code}.js`,
         pack.information.source
     ),
-    iconURL: extension.image ? resolveURL(extension.image, pack.information.source) : defaultExtensionBanner,
+    iconURL: extension.image ? resolveURL(extension.image || extension.cover || extension.thumb || extension.banner || extension.iconURL, pack.information.source) : defaultExtensionBanner,
     tags: [pack.information.tag],
     credits: [
         ...(extension.original || []),
