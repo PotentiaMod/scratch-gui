@@ -303,7 +303,7 @@ const mapGalleryExtension = (extension, source) => ({
     descriptionTranslations: extension.descriptionTranslations || {},
     extensionId: extension.id || extension.extensionId || extension.eid,
     extensionURL: `${source.baseURL}${extension.slug || extension.URL || extension.url || extension.extensionURL || extension.code}.js`,
-    iconURL: extension.image ? `${source.baseImageURL}${extension.image || extension.cover || extension.thumb || extension.banner || extension.iconURL}` : 'placeholder.png',
+    iconURL: extension.image ? `${source.baseImageURL}${extension.image}` : extension.cover ? `${source.baseImageURL}${extension.cover}` : extension.banner ? `${source.baseImageURL}${extension.banner}` : extension.thumb ? `${source.baseImageURL}${extension.thumb}` : extension.iconURL ? `${source.baseImageURL}${extension.iconURL}` : defaultExtensionBanner,
     tags: [source.tag],
 	insetIconURL: [source.icon] || defaultICON,
     credits: [
