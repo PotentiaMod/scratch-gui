@@ -300,7 +300,7 @@ const AccentOptions = defineMessages({
     },
 	[ACCENT_OMNIBLUE]: {
         defaultMessage: 'O. Blue',
-        description: 'Name of color scheme. Matches OmniMAX IDE.',
+        description: 'Name of color scheme. Matches defunct OmniMAX IDE\'s color.',
         id: 'tw.accent.omniblue'
     },
 	[ACCENT_HOT_FUSE]: {
