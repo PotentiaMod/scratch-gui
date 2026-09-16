@@ -297,13 +297,13 @@
     function getEditorURL() {
       const url = new URL(window.location.href);
 
-      const tabsIndex = url.pathname.indexOf("/tabs");
+      const tabsIndex = url.pathname.indexOf("/online/tabs");
 
       if (tabsIndex !== -1) {
-        url.pathname = url.pathname.slice(0, tabsIndex) + "/editor";
+        url.pathname = url.pathname.slice(0, tabsIndex) + "/online/editor";
       } else {
         // Fallback if this page somehow isn't under /tabs
-        url.pathname = url.pathname.replace(/\/?$/, "/editor");
+        url.pathname = url.pathname.replace(/\/?$/, "/online/editor");
       }
 
       url.search = "?showprojectpage";
@@ -313,7 +313,7 @@
     }
 
     const HOME_URL = new URL(
-      window.location.pathname.replace(/\/tabs(?:\/.*)?$/, "/"),
+      window.location.pathname.replace(/\/online/tabs(?:\/.*)?$/, "/online/"),
       window.location.origin
     ).href;
 

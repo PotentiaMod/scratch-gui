@@ -36,11 +36,9 @@
     }
   },
   "dependencies": {
-    "@bilup/extensions": "github:Bilup/extensions#master",
 	"@ffmpeg/ffmpeg": "^0.12.15",
     "@ffmpeg/util": "^0.12.2",
     "@microbit/microbit-universal-hex": "0.2.2",
-    "@nitro-bolt/extensions": "github:Nitro-Bolt/extensions#master",
     "@turbowarp/extensions": "github:TurboWarp/extensions#master",
     "@turbowarp/jszip": "^3.11.1",
     "@turbowarp/nanolog": "^1.0.1",
