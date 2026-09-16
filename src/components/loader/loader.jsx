@@ -13,6 +13,16 @@ import middleBlock from './middle-block.svg';
 import bottomBlock from './bottom-block.svg';
 import TWRenderRecoloredImage from '../../lib/tw-recolor/render.jsx';
 
+// Returns true when PotentiaMod is running inside an iframe.
+const isInIframe = () => {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        // If window.top cannot be accessed, assume we are inside an iframe.
+        return true;
+    }
+};
+
 const mainMessages = {
     'gui.loader.headline': (
         <FormattedMessage
