@@ -109,29 +109,12 @@ class LibraryItemComponent extends React.PureComponent {
                         src={this.props.iconURL}
                     />
                 </div>
-                {this.props.insetIconURL && !this.props.customInsetColor ? (
-                    <div className={
-                        this.props.twDeveloper ?
-                            classNames(styles.libraryItemInsetImageContainer, styles.twLibraryItemInsetImageContainer)
-                            : styles.libraryItemInsetImageContainer
-                    }
-                    >
+                {this.props.insetIconURL ? (
+                    <div className={styles.libraryItemInsetImageContainer}>
                         <img
                             className={styles.libraryItemInsetImage}
                             src={this.props.insetIconURL}
                             draggable={false}
-                        />
-                    </div>
-                ) : null}
-				{this.props.insetIconURL && this.props.customInsetColor ? (
-                    <div className={
-                        styles.libraryItemInsetImageContainerNoBg
-                    }
-                        style={{ backgroundColor: this.props.customInsetColor }}
-                    >
-                        <img
-                            className={styles.libraryItemInsetImage}
-                            src={this.props.insetIconURL}
                         />
                     </div>
                 ) : null}

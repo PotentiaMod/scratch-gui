@@ -340,13 +340,14 @@ const mapPackExtension = (extension, pack) => ({
     nameTranslations: extension.nameTranslations || {},
     description: extension.description || '',
     descriptionTranslations: extension.descriptionTranslations || {},
-    extensionId: extension.id || extension.extensionId || extension.eid,
+    extensionId: extension.id,
     extensionURL: resolveURL(
-        extension.slug.endsWith('.js') ? extension.slug : `${extension.slug || extension.URL || extension.url || extension.extensionURL || extension.code}.js`,
+        extension.slug.endsWith('.js') ? extension.slug : `${extension.slug}.js`,
         pack.information.source
     ),
-    iconURL: extension.image ? resolveURL(extension.image || extension.cover || extension.thumb || extension.banner || extension.iconURL, pack.information.source) : defaultExtensionBanner,
+    iconURL: extension.image ? resolveURL(extension.image, pack.information.source) : defaultExtensionBanner,
     tags: [pack.information.tag],
+    insetIconURL: defaultICON,
     credits: [
         ...(extension.original || []),
         ...(extension.by || [])
@@ -643,20 +644,7 @@ class ExtensionLibrary extends React.PureComponent {
         if (extensionId === 'custom_extension'){
             this.props.onOpenCustomExtensionModal();
             return;
-        }
-		
-		if (extensionId === 'ccw_extension') {
-            this.props.onOpenCCWExtensionModal();
-            return;
-        }
-		
-		if (extensionId === 'custom_gallery') {
-            if (this.props.onOpenCustomGalleryModal) {
-                this.props.onOpenCustomGalleryModal();
-            }
-            return;
-        }
-		
+        }	
 
         const url = item.extensionURL ? item.extensionURL : extensionId;
         if (!item.disabled || !item.comingSoon) {
@@ -788,6 +776,7 @@ ExtensionLibrary.propTypes = {
     onCategorySelected: PropTypes.func,
     onOpenCustomExtensionModal: PropTypes.func,
     onOpenCustomGalleryModal: PropTypes.func,
+    onTagManager: PropTypes.func,
     onRequestClose: PropTypes.func,
     visible: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired // eslint-disable-line react/no-unused-prop-types

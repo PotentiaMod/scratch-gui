@@ -3039,8 +3039,6 @@ const menuItems = [
         tags: ['other'],
         featured: true
     },
-	//Others!
-	
 	//Turbo
     {
         name: (
@@ -3065,38 +3063,6 @@ const menuItems = [
         tags: ['tw'],
         featured: true
     },
-	/*
-	{
-        name: (
-            <FormattedMessage
-                defaultMessage="Custom Extension Gallery"
-                description="Name of library item to load a custom extension gallery from a URL"
-                id="tw.customExtensionGallery.name"
-            />
-        ),
-        extensionId: 'custom_gallery',
-        iconURL: customURLIcon,
-        description: (
-            <FormattedMessage
-                defaultMessage="Load extension gallery packs from an URL or file."
-                description="Description of library item to load extensions from a custom gallery source"
-                id="tw.customExtensionGallery.description"
-            />
-        ),
-        tags: ['bilup'],
-        featured: true
-    },
-	{
-        name: 'CCW Extension Loader',
-        extensionId: 'ccw_extension',
-        iconURL: require('../extensions/02engine/ccw.svg'),
-        description: 'Load custom extensions from Cocrea World.',
-        tags: ['ztengine'],
-        featured: true
-        // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
-    },
-	*/
-	
 ];
 
 

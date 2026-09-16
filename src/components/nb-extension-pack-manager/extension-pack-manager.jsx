@@ -94,11 +94,11 @@ class ExtensionPackManager extends React.Component {
                         <div className={styles.packHelp}>
                             Find extension packs at{' '}
                             <a
-                                href="https://packs.nitrobolt.org/"
+                                href="https://potentiamod.github.io/extensions/ext-packs.html"
                                 rel="noreferrer"
                                 target="_blank"
                             >
-                                packs.nitrobolt.org
+                                potentiamod.github.io/extensions/ext-packs.html
                             </a>
                             , or ask your favorite extension gallery to support the{' '}
                             <a
