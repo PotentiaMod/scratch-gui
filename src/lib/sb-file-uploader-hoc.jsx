@@ -91,6 +91,114 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                                         // fault of their own.
                                         '*/*': ['.sb', '.sb2', '.sb3']
                                     }
+                                },
+                                {
+                                    description: 'ScratchX Project',
+                                    accept: {
+                                        '*/*': ['.sbx']
+                                    }
+                                },
+								{
+                                    description: 'PotentiaMod Project',
+                                    accept: {
+                                        '*/*': ['.pot']
+                                    }
+                                },
+								{
+                                    description: 'CodeTorch Project',
+                                    accept: {
+                                        '*/*': ['.torch']
+                                    }
+                                },
+								{
+                                    description: 'PenguinMod Project',
+                                    accept: {
+                                        '*/*': ['.pm', '.pmp']
+                                    }
+                                },
+								{
+                                    description: 'MistWarp Project',
+                                    accept: {
+                                        '*/*': ['.mwp']
+                                    }
+                                },
+								{
+                                    description: 'Itch Project',
+                                    accept: {
+                                        '*/*': ['.ich']
+                                    }
+                                },
+								{
+                                    description: 'DashBlocks Project',
+                                    accept: {
+                                        '*/*': ['.dbp']
+                                    }
+                                },
+								{
+                                    description: 'Espresso Project',
+                                    accept: {
+                                        '*/*': ['.coffee']
+                                    }
+                                },								
+								{
+                                    description: 'Ark IDE Project',
+                                    accept: {
+                                        '*/*': ['.arkide']
+                                    }
+                                },
+								{
+                                    description: 'BananaMod Project',
+                                    accept: {
+                                        '*/*': ['.bm']
+                                    }
+                                },
+								{
+                                    description: 'TeraMod Project',
+                                    accept: {
+                                        '*/*': ['.tera']
+                                    }
+                                },
+								{
+                                    description: 'Zinc Coding Project',
+                                    accept: {
+                                        '*/*': ['.zinc']
+                                    }
+                                },
+								{
+                                    description: 'FalconMod Project',
+                                    accept: {
+                                        '*/*': ['.falcon']
+                                    }
+                                },
+								{
+                                    description: 'Cattiest World Project',
+                                    accept: {
+                                        '*/*': ['.cw']
+                                    }
+                                },
+								{
+                                    description: 'DinosaurMod Project',
+                                    accept: {
+                                        '*/*': ['.dino']
+                                    }
+                                },
+								{
+                                    description: 'Snail IDE Project',
+                                    accept: {
+                                        '*/*': ['.snail']
+                                    }
+                                },
+								{
+                                    description: 'ElectraMod Project',
+                                    accept: {
+                                        '*/*': ['.electra']
+                                    }
+                                },
+								{
+                                    description: 'GaiaMod Project',
+                                    accept: {
+                                        '*/*': ['.gaia']
+                                    }
                                 }
                             ]
                         });
@@ -112,7 +220,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
             } else {
                 // create <input> element and add it to DOM
                 this.inputElement = document.createElement('input');
-                this.inputElement.accept = '.sb,.sb2,.sb3';
+                this.inputElement.accept = '.sb,.sb2,.sb3,.pot,.pm,.pmp,.mwp,.dbp,.coffee,.arkide,.zinc,.cw,.bm,.falcon,.ich,.sbx,.dino,.electra,.snail,.gaia,.torch';
                 this.inputElement.style = 'display: none;';
                 this.inputElement.type = 'file';
                 this.inputElement.onchange = this.handleChange; // connects to step 3
@@ -149,7 +257,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                     // Don't update file handle until after confirming replace.
                     const handle = thisFileInput.handle;
                     if (handle) {
-                        if (this.fileToUpload.name.endsWith('.sb3')) {
+                        if (this.fileToUpload.name.endsWith('.pot')) {
                             this.props.onSetFileHandle(handle);
                         } else {
                             this.props.onSetFileHandle(null);
@@ -185,7 +293,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
         getProjectTitleFromFilename (fileInputFilename) {
             if (!fileInputFilename) return '';
             // only parse title with valid scratch project extensions
-            // (.sb, .sb2, and .sb3)
+            // (.sb, .sb2, and .sb3, .pm, and so on)
             const matches = fileInputFilename.match(/^(.*)\.sb[23]?$/);
             if (!matches) return '';
             return matches[1].substring(0, 100); // truncate project title to max 100 chars

@@ -27,6 +27,7 @@ const eraseData = async () => {
         indexedDB.deleteDatabase('TW_Backpack');
         indexedDB.deleteDatabase('p4-local-settings');
         indexedDB.deleteDatabase('p4-large-assets');
+        indexedDB.deleteDatabase('tw:library-favorites:extensionLibrary');
         location.reload();
     }
 };
@@ -50,9 +51,10 @@ const Footer = () => (
                 <div className={styles.column}>
                     <span className={styles.columnTitle}>Website</span>
                     <a href="editor.html">Editor</a>
+                    <a href="?livetest">Live Test</a>
                     <a href="pot-desktop.html">PotentiaMod Desktop</a>
                     <a href="https://potentiamod.github.io/packager">PotentiaMod Packager</a>
-                    <a href="?livetest">Live Test</a>
+                    <a href="https://gaiamod-main.github.io/GaiaMod-Packager">GaiaMod Packager</a>
 					 <a
                         href="https://github.com/PotentiaMod"
                         target="_blank"
@@ -69,13 +71,18 @@ const Footer = () => (
 					<a href="credits.html">Credits</a>
 					<a href="privacy.html">Privacy Policy</a>
                     <a
-                        href="https://com.bilup.org/users/GaiaKitty"
+                        href="https://www.facebook.com/CrystalMae1990/"
                         target="_blank"
                         rel="noreferrer"
                     >Report a bug</a>
                 </div>
                 <div className={styles.column}>
                     <span className={styles.columnTitle}>Donate</span>
+					<a
+                        href="https://penguinmod.com/donate"
+                        target="_blank"
+                        rel="noreferrer"
+                    >Donate to PenguinMod</a>
 					<a
                         href="https://github.com/sponsors/GarboMuffin"
                         target="_blank"

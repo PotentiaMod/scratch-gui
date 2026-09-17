@@ -32,7 +32,11 @@ class UsernameModal extends React.Component {
             'handleSelectStageSizePreset',
             'handleSwapStageSize',
             'handleDisableCompilerChange',
-            'handleStoreProjectOptions'
+            'handleStoreProjectOptions',
+			'handleLoadUnsandboxedExtensions',
+            'handleEnableDangerousOptimizationsChange',
+            'handleDisableOffscreenRenderingChange',
+            'handleDisableDirectionClamping'
         ]);
     }
     handleFramerateChange (e) {
@@ -66,6 +70,26 @@ class UsernameModal extends React.Component {
     handleRemoveLimitsChange (e) {
         this.props.vm.setRuntimeOptions({
             miscLimits: !e.target.checked
+        });
+    }
+	handleEnableDangerousOptimizationsChange (e) {
+        this.props.vm.setRuntimeOptions({
+            dangerousOptimizations: e.target.checked
+        });
+    }
+    handleDisableOffscreenRenderingChange (e) {
+        this.props.vm.setRuntimeOptions({
+            disableOffscreenRendering: e.target.checked
+        });
+    }
+    handleDisableDirectionClamping (e) {
+        this.props.vm.setRuntimeOptions({
+            disableDirectionClamping: e.target.checked
+        });
+    }
+	 handleLoadUnsandboxedExtensions (e) {
+        this.props.vm.setCompilerOptions({
+            loadUnsandboxedExtensions: e.target.checked
         });
     }
     handleWarpTimerChange (e) {
@@ -104,6 +128,10 @@ class UsernameModal extends React.Component {
         return (
             <SettingsModalComponent
                 onClose={this.props.onClose}
+				onLoadUnsandboxedExtensions={this.handleLoadUnsandboxedExtensions}
+				onEnableDangerousOptimizationsChange={this.handleEnableDangerousOptimizationsChange}
+                onDisableOffscreenRenderingChange={this.handleDisableOffscreenRenderingChange}
+                onDisableDirectionClamping={this.handleDisableDirectionClamping}
                 onFramerateChange={this.handleFramerateChange}
                 onCustomizeFramerate={this.handleCustomizeFramerate}
                 onHighQualityPenChange={this.handleHighQualityPenChange}
@@ -152,6 +180,8 @@ UsernameModal.propTypes = {
     removeFencing: PropTypes.bool,
     removeLimits: PropTypes.bool,
     warpTimer: PropTypes.bool,
+	dangerousOptimizations: PropTypes.bool,
+	loadUnsandboxedExtensions: PropTypes.bool,
     customStageSize: PropTypes.shape({
         width: PropTypes.number,
         height: PropTypes.number
@@ -170,6 +200,10 @@ const mapStateToProps = state => ({
     removeLimits: !state.scratchGui.tw.runtimeOptions.miscLimits,
     warpTimer: state.scratchGui.tw.compilerOptions.warpTimer,
     customStageSize: state.scratchGui.customStageSize,
+	disableOffscreenRendering: state.scratchGui.tw.runtimeOptions.disableOffscreenRendering,
+    disableDirectionClamping: state.scratchGui.tw.runtimeOptions.disableDirectionClamping,
+    dangerousOptimizations: state.scratchGui.tw.runtimeOptions.dangerousOptimizations,
+	loadUnsandboxedExtensions: state.scratchGui.tw.compilerOptions.loadUnsandboxedExtensions,
     disableCompiler: !state.scratchGui.tw.compilerOptions.enabled
 });
 

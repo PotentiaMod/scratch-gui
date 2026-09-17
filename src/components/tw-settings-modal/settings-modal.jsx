@@ -25,12 +25,11 @@ const BufferedInput = BufferedInputHOC(Input);
 
 // Copied from Nyx IDE
 const STAGE_SIZE_PRESETS = [
-    {label: '1:1', width: 360, height: 360},
-    {label: '4:3', width: 480, height: 360},
-	{label: '16:9', width: 640, height: 360},
-    {label: '4:5', width: 360, height: 450},
-    {label: '9:16', width: 360, height: 640},
-    {label: '9:18', width: 360, height: 720}
+    {label: '360x360', width: 360, height: 360},
+    {label: '480x360', width: 480, height: 360},
+	{label: '640x360', width: 640, height: 360},
+    {label: '360x480', width: 360, height: 480},
+    {label: '360x640', width: 360, height: 640}
 ];
 const messages = defineMessages({
     title: {

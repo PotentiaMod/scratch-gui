@@ -104,6 +104,127 @@ class SB3Downloader extends React.Component {
                         accept: {
                             'application/octet-stream': '.sb3'
                         }
+                    },
+                    {
+                        description: 'Scratch 2 Project',
+                        accept: {
+                            'application/octet-stream': '.sb2'
+                        }
+                    },
+					{
+                        description: 'Scratch Project',
+                        accept: {
+                            'application/octet-stream': '.sb'
+                        }
+                    },
+					{
+                        description: 'Scratch X Project',
+                        accept: {
+                            'application/octet-stream': '.sbx'
+                        }
+                    },
+					{
+                        description: 'PotentiaMod Project',
+                        accept: {
+                            'application/octet-stream': '.pot'
+                        }
+                    },
+					{
+                        description: 'CodeTorch Project',
+                        accept: {
+                            'application/octet-stream': '.torch'
+                        }
+                    },
+					{
+                        description: 'MistWarp Project',
+                        accept: {
+                            'application/octet-stream': '.mwp'
+                        }
+                    },
+					{
+                        description: 'DashBlocks Project',
+                        accept: {
+                            'application/octet-stream': '.dbp'
+                        }
+                    },
+					{
+                        description: 'PenguinMod Project',
+                        accept: {
+                            'application/octet-stream': '.pm',
+                            'application/octet-stream': '.pmp'
+                        }
+                    },
+					{
+                        description: 'DinosaurMod Project',
+                        accept: {
+                            'application/octet-stream': '.dino'
+                        }
+                    },
+					{
+                        description: 'Snail IDE Project',
+                        accept: {
+                            'application/octet-stream': '.snail'
+                        }
+                    },
+					{
+                        description: 'Ark IDE Project',
+                        accept: {
+                            'application/octet-stream': '.arkide'
+                        }
+                    },
+					{
+                        description: 'ElectraMod Project',
+                        accept: {
+                            'application/octet-stream': '.electra'
+                        }
+                    },
+					{
+                        description: 'GaiaMod Project',
+                        accept: {
+                            'application/octet-stream': '.gaia'
+                        }
+                    },
+					{
+                        description: 'Cattiest World Project',
+                        accept: {
+                            'application/octet-stream': '.cw'
+                        }
+                    },
+					{
+                        description: 'Zinc Coding Project',
+                        accept: {
+                            'application/octet-stream': '.zinc'
+                        }
+                    },
+					{
+                        description: 'FalconMod Project',
+                        accept: {
+                            'application/octet-stream': '.falcon'
+                        }
+                    },
+					{
+                        description: 'BananaMod Project',
+                        accept: {
+                            'application/octet-stream': '.banana'
+                        }
+                    },
+					{
+                        description: 'Espresso Project',
+                        accept: {
+                            'application/octet-stream': '.coffee'
+                        }
+                    },
+					{
+                        description: 'TeraMod Project',
+                        accept: {
+                            'application/octet-stream': '.tera'
+                        }
+                    },
+					{
+                        description: 'Itch Project',
+                        accept: {
+                            'application/octet-stream': '.ich'
+                        }
                     }
                 ],
                 excludeAcceptAllOption: true
@@ -271,7 +392,7 @@ const getProjectFilename = (curTitle, defaultTitle) => {
     if (!filenameTitle || filenameTitle.length === 0) {
         filenameTitle = defaultTitle;
     }
-    return `${filenameTitle.substring(0, 100)}.sb3`;
+    return `${filenameTitle.substring(0, 100)}.pot`;
 };
 
 SB3Downloader.propTypes = {
