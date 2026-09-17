@@ -645,6 +645,12 @@ class ExtensionLibrary extends React.PureComponent {
             this.props.onOpenCustomExtensionModal();
             return;
         }	
+		
+		if (extensionId === 'procedures_enable_return') {
+            this.props.onEnableProcedureReturns();
+            this.props.onCategorySelected('myBlocks');
+            return;
+        }
 
         const url = item.extensionURL ? item.extensionURL : extensionId;
         if (!item.disabled || !item.comingSoon) {
