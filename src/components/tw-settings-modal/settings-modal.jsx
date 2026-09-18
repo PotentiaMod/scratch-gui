@@ -27,9 +27,7 @@ const BufferedInput = BufferedInputHOC(Input);
 const STAGE_SIZE_PRESETS = [
     {label: '360x360', width: 360, height: 360},
     {label: '480x360', width: 480, height: 360},
-	{label: '640x360', width: 640, height: 360},
-    {label: '360x480', width: 360, height: 480},
-    {label: '360x640', width: 360, height: 640}
+	{label: '640x360', width: 640, height: 360}
 ];
 const messages = defineMessages({
     title: {

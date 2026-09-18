@@ -199,6 +199,8 @@ import duploforInsetIconURL from './duplotrain/duplo-train-small.svg';
 import poweredupIconURL from './poweredup/poweredup.png';
 import poweredupforInsetIconURL from './poweredup/poweredup-small.svg';
 import shareImage from "./share/share.svg";
+import lineBlockImage from './line/line.png';
+import lineBlockButtonImage from './line/line-small.png';
 
 //166iwase-lgtm/taichan0123
 import meshImage from './mesh/mesh.png';
@@ -1380,6 +1382,19 @@ const menuItems = [
         iconURL: emoBlockImage,
         insetIconURL: emoBlockInsertIconImage,
         description: 'Play with BOCCO emo!',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+    },
+	{
+        name: 'Line',
+        extensionId: 'line',
+        collaborator: 'Ankurugranpa',
+        iconURL: lineBlockImage,
+        insetIconURL: lineBlockButtonImage,
+		tags: ['special', 'othermods'],
+        description: 'Connect to LINE message API!',
         featured: true,
         disabled: false,
         internetConnectionRequired: true,
