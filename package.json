@@ -10,7 +10,6 @@
     "url": "https://github.com/LLK/scratch-gui.git"
   },
   "main": "./dist/scratch-gui.js",
-  "packageManager": "pnpm@10.28.2",
   "scripts": {
     "build": "cross-env NODE_ENV=production npm run clean && webpack --colors --bail",
     "build:prepublish": "rm -rf ../potentiamod.github.io* && cp -r ./build/* ../potentiamod.github.io",
@@ -76,7 +75,6 @@
     "monaco-editor": "^0.34.1",
     "omggif": "1.0.9",
     "papaparse": "5.3.0",
-    "npm": "^12.4.2",
     "postcss-import": "^12.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-simple-vars": "^5.0.1",

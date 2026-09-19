@@ -1154,7 +1154,7 @@ class MenuBar extends React.Component {
                     <div className={styles.menuBarItem}>
                         <a
                             className={styles.feedbackLink}
-                            href="https://potentiamod.github.io/"
+                            href="https://potentiamod.github.io/home"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
