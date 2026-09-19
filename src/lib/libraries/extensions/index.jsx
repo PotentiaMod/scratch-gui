@@ -3027,6 +3027,16 @@ const menuItems = [
     },
 	//More Ext Galleries besides ones
 	{
+        name: 'Former VM Extension Collection',
+        href: 'https://gaiawindwave90.github.io/VM-to-JS-Extensions/?originPot=true',
+        extensionId: 'VMExtLibrary',
+        iconURL: require('../extensions/potentiamod/vm_library.svg'),
+        description: 'Tons of extensions converted from built-ins.\n\nClick on an extension while this menu is open to add it to your project.',
+        collaborator: 'Listed in the site',
+        tags: ['potentia'],
+        featured: true
+    },
+	{
         name: 'Ruby Extension Gallery',
         href: 'https://ruby-devs.vercel.app/gallery',
         extensionId: 'rubyextension',
