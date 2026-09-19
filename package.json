@@ -10,16 +10,17 @@
     "url": "https://github.com/LLK/scratch-gui.git"
   },
   "main": "./dist/scratch-gui.js",
+  "packageManager": "pnpm@10.28.2",
   "scripts": {
     "build": "cross-env NODE_ENV=production npm run clean && webpack --colors --bail",
-	"build:prepublish": "rm -rf ../potentiamod.github.io/online/* && cp -r ./build/* ../potentiamod.github.io/online",
-	"render-fonts": "rm -rf ../penguinmod-render-fonts/* && cp -r ./src/lib/tw-scratch-render-fonts/* ../penguinmod-render-fonts",
+    "build:prepublish": "rm -rf ../potentiamod.github.io* && cp -r ./build/* ../potentiamod.github.io",
+    "render-fonts": "rm -rf ../penguinmod-render-fonts/* && cp -r ./src/lib/tw-scratch-render-fonts/* ../penguinmod-render-fonts",
     "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
     "deploy": "touch build/.nojekyll && gh-pages -t -d build -m \"[skip ci] Build for $(git log --pretty=format:%H -n1)\"",
-	"link": "cd ../scratch-vm && npm cache clean --force && git submodule init && git submodule update && npm link && cd ../scratch-paint && npm cache clean --force && git submodule init && git submodule update && npm link && cd ../scratch-blocks && npm cache clean --force && git submodule init && git submodule update && npm link && cd ../scratch-gui && npm cache clean --force && git submodule init && git submodule update && npm link scratch-vm scratch-paint scratch-blocks",
+    "link": "cd ../scratch-vm && npm cache clean --force && git submodule init && git submodule update && npm link && cd ../scratch-paint && npm cache clean --force && git submodule init && git submodule update && npm link && cd ../scratch-blocks && npm cache clean --force && git submodule init && git submodule update && npm link && cd ../scratch-gui && npm cache clean --force && git submodule init && git submodule update && npm link scratch-vm scratch-paint scratch-blocks",
     "prepublish": "node scripts/prepublish.mjs",
     "prune": "./prune-gh-pages.sh",
-	"reinstall": "rm -rf node_modules npm-lock.yaml && npm install --legacy-peer-deps && npm run link",
+    "reinstall": "rm -rf node_modules npm-lock.yaml && npm install --legacy-peer-deps && npm run link",
     "i18n:push": "tx-push-src scratch-editor interface translations/en.json",
     "i18n:src": "rimraf ./translations/messages/src && babel src > tmp.js && rimraf tmp.js && build-i18n-src ./translations/messages/src ./translations/",
     "start": "webpack-dev-server",
@@ -36,7 +37,7 @@
     }
   },
   "dependencies": {
-	"@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/ffmpeg": "^0.12.15",
     "@ffmpeg/util": "^0.12.2",
     "@microbit/microbit-universal-hex": "0.2.2",
     "@turbowarp/extensions": "github:TurboWarp/extensions#master",
@@ -70,11 +71,12 @@
     "lodash.defaultsdeep": "4.6.1",
     "lodash.omit": "4.5.0",
     "lodash.throttle": "4.0.1",
-	"lucide-react": "^0.562.0",
-	"modern-normalize": "^3.0.1",
+    "lucide-react": "^0.562.0",
+    "modern-normalize": "^3.0.1",
     "monaco-editor": "^0.34.1",
     "omggif": "1.0.9",
     "papaparse": "5.3.0",
+    "npm": "^12.4.2",
     "postcss-import": "^12.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-simple-vars": "^5.0.1",
@@ -98,13 +100,13 @@
     "react-virtualized": "9.20.1",
     "redux": "3.7.2",
     "redux-throttle": "0.1.1",
-     "scratch-audio": "github:TurboWarp/scratch-audio#develop",
+    "scratch-audio": "github:TurboWarp/scratch-audio#develop",
     "scratch-blocks": "github:PotentiaMod/scratch-blocks#develop-builds",
     "scratch-paint": "github:PotentiaMod/scratch-paint#develop",
     "scratch-render": "github:PotentiaMod/scratch-render#develop",
     "scratch-vm": "github:PotentiaMod/scratch-vm#develop",
     "style-loader": "^0.23.0",
-	"sweetalert2": "^11.10.8",
+    "sweetalert2": "^11.10.8",
     "text-encoding": "0.7.0",
     "to-style": "1.3.3",
     "wav-encoder": "1.3.0",
@@ -168,6 +170,8 @@
     }
   },
   "overrides": {
-      "webpack@4.47.0": {"terser-webpack-plugin": "^4.2.3"}
+    "webpack@4.47.0": {
+      "terser-webpack-plugin": "^4.2.3"
+    }
   }
 }
