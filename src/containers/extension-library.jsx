@@ -519,7 +519,8 @@ class ExtensionLibrary extends React.PureComponent {
         if (!this.state.galleryBySource) {
             const timeout = setTimeout(() => {
                 this.setState({
-                    galleryTimedOut: true
+                    galleryTimedOut: true,
+					externalGalleryListenerAttached: false
                 });
             }, 750);
 

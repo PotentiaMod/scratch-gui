@@ -58,6 +58,11 @@ let allowedVideo = false;
 let allowedReadClipboard = false;
 let allowedNotify = false;
 let allowedGeolocation = false;
+let loadingExtensionsRemember = false;
+let rememberedExtensionInfo = {
+    unsandboxed: false,
+    loaded: false
+};
 
 const SECURITY_MANAGER_METHODS = [
     'getSandboxMode',
@@ -78,7 +83,8 @@ class TWSecurityManagerComponent extends React.Component {
         super(props);
         bindAll(this, [
             'handleAllowed',
-            'handleDenied'
+            'handleDenied',
+            'projectWillChange'
         ]);
         bindAll(this, SECURITY_MANAGER_METHODS);
         this.nextModalCallbacks = [];
@@ -90,6 +96,14 @@ class TWSecurityManagerComponent extends React.Component {
             modalCount: 0
         };
     }
+	
+	projectWillChange() {
+        loadingExtensionsRemember = false;
+        rememberedExtensionInfo = {
+            unsandboxed: false,
+            loaded: false
+        };
+    }
 
     componentDidMount () {
         const vmSecurityManager = this.props.vm.extensionManager.securityManager;
@@ -97,6 +111,11 @@ class TWSecurityManagerComponent extends React.Component {
         for (const method of SECURITY_MANAGER_METHODS) {
             vmSecurityManager[method] = propsSecurityManager[method] || this[method];
         }
+		
+		this.props.vm.runtime.on('RUNTIME_DISPOSED', this.projectWillChange);
+    }
+    componentWillUnmount() {
+        this.props.vm.runtime.off('RUNTIME_DISPOSED', this.projectWillChange);
     }
 
     // eslint-disable-next-line valid-jsdoc
@@ -175,14 +194,38 @@ class TWSecurityManagerComponent extends React.Component {
             }
         }));
     }
+	
+	handleChangeRemember(e) {
+        const checked = e.target.checked;
+        this.setState(oldState => ({
+            data: {
+                ...oldState.data,
+                remember: checked
+            }
+        }));
+    }
 
     /**
      * @param {string} url The extension's URL
      * @returns {Promise<boolean>} Whether the extension can be loaded
      */
     async canLoadExtensionFromProject (url) {
-        return true;
+        log.info(`Loading extension ${url} automatically`);
+         return true;
     }
+	
+	if (loadingExtensionsRemember) {
+            // TODO: find some way to identify these, custom extensions have too long of URLs
+            if (!rememberedExtensionInfo.loaded) {
+                console.warn('An extension was not loaded');
+                return false;
+            }
+            if (rememberedExtensionInfo.unsandboxed) {
+                console.log('An extension was loaded unsandboxed');
+                manuallyTrustExtension(url);
+            }
+            return true;
+        }
 
     /**
      * @param {string} url The resource to fetch
@@ -269,6 +312,7 @@ class TWSecurityManagerComponent extends React.Component {
 
 TWSecurityManagerComponent.propTypes = {
     vm: PropTypes.shape({
+		runtime: PropTypes.any.isRequired,
         extensionManager: PropTypes.shape({
             securityManager: PropTypes.shape(
                 SECURITY_MANAGER_METHODS.reduce((obj, method) => {
