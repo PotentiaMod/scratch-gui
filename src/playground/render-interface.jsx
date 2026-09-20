@@ -249,7 +249,7 @@ class Interface extends React.Component {
                                 {`You're using a development version of ${APP_NAME}. Please don't use test extensions for your projects. I'm dead serious!`}
 								</p>
 								<p>
-                                <a href="https://potentiamod.github.io/online">{'Click here to visit the normal version.'}</a>
+                                <a href="https://potentiamod.github.io/">{'Click here to visit the normal version.'}</a>
                             </p>
                                 </div>
                             )}

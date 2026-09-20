@@ -11,16 +11,16 @@ import POTFLAG from '!./tw-recolor/build!./go-icon/flag-icon.svg';
 import POTARROW from '!./tw-recolor/build!./go-icon/arrow-icon.svg';
 
 const POTENTIA_PLAY =
-    'https://potentiamod.github.io/img/go-icon/play-icon.svg';
+    'https://potentiamod.github.io/home/img/go-icon/play-icon.svg';
 
 const FLAG_BLOCKS =
-    'https://potentiamod.github.io/img/go-icon/flag-icon.svg';
+    'https://potentiamod.github.io/home/img/go-icon/flag-icon.svg';
 
 const FLAG =
-    'https://potentiamod.github.io/img/go-icon/flag-icon.svg';
+    'https://potentiamod.github.io/home/img/go-icon/flag-icon.svg';
 	
 const ARROW =
-    'https://potentiamod.github.io/img/go-icon/arrow-icon.svg';
+    'https://potentiamod.github.io/home/img/go-icon/arrow-icon.svg';
 
 const isFileProtocol = () =>
     typeof window !== 'undefined' &&
