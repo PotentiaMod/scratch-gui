@@ -1,0 +1,11 @@
+[class*="home-wordmark"] {
+  display: none;
+}
+
+[class*="home-logo"] {
+  display: none;
+}
+
+img[class*="scratch-logo"] {
+  display: none;
+}

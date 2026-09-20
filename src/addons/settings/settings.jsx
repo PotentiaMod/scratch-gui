@@ -260,7 +260,7 @@ const Tags = ({manifest}) => (
                 style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
             >
                 <img
-                    src="https://potentiamod.github.io/online/favicon.ico"
+                    src="https://potentiamod.github.io/favicon.ico"
                     style={{width: "13px", height: "13px"}}
                     alt="PotentiaMod Icon"
                 />

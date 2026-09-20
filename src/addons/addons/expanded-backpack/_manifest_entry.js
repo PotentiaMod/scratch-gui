@@ -8,7 +8,7 @@ const manifest = {
     }
   ],
   "tags": [
-    "new"
+    "tw"
   ],
   "enabledByDefault": true,
   "settings": [
@@ -18,7 +18,7 @@ const manifest = {
       "id": "rows",
       "type": "integer",
       "min": 1,
-      "max": 4,
+      "max": 6,
       "default": 2
     },
     {
@@ -38,8 +38,8 @@ const manifest = {
           "type": "settingValue",
           "settingId": "upscale"
         },
-        "true": "95%",
-        "false": "32px"
+        "true": "125%",
+        "false": "40px"
       }
     },
     {

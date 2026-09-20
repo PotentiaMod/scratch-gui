@@ -66,6 +66,7 @@ const addons = [
     'disable-paste-offset',
     'block-duplicate',
     'rename-broadcasts',
+    'expanded-backpack',
     'swap-local-global',
     'editor-comment-previews',
     'columns',
@@ -85,20 +86,20 @@ const addons = [
 ];
 
 const newAddons = [
-    'expanded-backpack',
-    'cat-blocks-extended',
-    'my-blocks-plus',
-    'daily-quote',
+    'pot-hide-logo',
     'paint-default-smoothing',
-    'amp-customizable-colours',
-    'background',
     'paint-gradient-maker',
-    'canvas-screenshot',
     'editor-animations',
     'block-pins',
+    'background',
+    'cat-blocks-extended',
+    'canvas-screenshot',
     'undo-redo-buttons',
-    'coder-style',
+    'daily-quote',
     'stage-camera'
+    'coder-style',
+    'amp-customizable-colours',
+    'my-blocks-plus',
 ];
 
 // eslint-disable-next-line import/no-commonjs

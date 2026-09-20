@@ -23,6 +23,7 @@ import defineDynamicBlock from '../lib/define-dynamic-block';
 import {Theme} from '../lib/themes';
 import {injectExtensionBlockTheme, injectExtensionCategoryTheme} from '../lib/themes/blockHelpers';
 import eurekaloader from './bp-eureka-loader.js';
+import uid from "../lib/uid.js";
 
 import {connect} from 'react-redux';
 import {updateToolbox} from '../reducers/toolbox';
