@@ -26,6 +26,7 @@ const Selector = props => {
         onDeleteClick,
         onDuplicateClick,
         onExportClick,
+		onExportBitmapClick,
         onItemClick
     } = props;
 
@@ -74,6 +75,7 @@ const Selector = props => {
                             dragType={dragType}
                             id={index}
                             index={index}
+							isBitmap={item.isBitmap}
                             name={item.name}
                             number={index + 1 /* 1-indexed */}
                             selected={index === selectedItemIndex}
@@ -109,6 +111,7 @@ Selector.propTypes = {
     onDeleteClick: PropTypes.func,
     onDuplicateClick: PropTypes.func,
     onExportClick: PropTypes.func,
+	onExportBitmapClick: PropTypes.func,
     onItemClick: PropTypes.func.isRequired,
     onRemoveSortable: PropTypes.func,
     ordering: PropTypes.arrayOf(PropTypes.number),

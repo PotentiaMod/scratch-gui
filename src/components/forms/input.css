@@ -46,6 +46,7 @@
     padding: 0 0.5rem;
     text-overflow: clip;
     text-align: center;
+	border-radius: 1.7rem;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -59,3 +60,5 @@
 .input-form[type=number] {
     -moz-appearance: textfield;
 }
+
+

@@ -80,6 +80,7 @@ class CostumeTab extends React.Component {
             'handleDeleteCostume',
             'handleDuplicateCostume',
             'handleExportCostume',
+            'handleExportBitmapCostume',
             'handleNewCostume',
             'handleNewBlankCostume',
             'handleSurpriseCostume',
@@ -150,6 +151,28 @@ class CostumeTab extends React.Component {
             this.props.vm.getExportedCostume(item)
         ], {type: item.asset.assetType.contentType});
         downloadBlob(`${item.name}.${item.asset.dataFormat}`, blob);
+    }
+	handleExportBitmapCostume (costumeIndex, scale = 1) {
+        const item = this.props.vm.editingTarget.sprite.costumes[costumeIndex];
+        const data = this.props.vm.getExportedCostume(item);
+        const contentType = item.asset.assetType.contentType;
+
+        const blob = new Blob([data], {type: contentType});
+        const url = URL.createObjectURL(blob);
+
+        const img = new Image();
+        img.onload = () => {
+            URL.revokeObjectURL(url);
+            const canvas = document.createElement('canvas');
+            canvas.width = (img.naturalWidth || img.width) * scale;
+            canvas.height = (img.naturalHeight || img.height) * scale;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            canvas.toBlob(pngBlob => {
+                downloadBlob(`${item.name}${scale > 1 ? `@${scale}x` : ''}.png`, pngBlob);
+            }, 'image/png');
+        };
+        img.src = url;
     }
     handleNewCostume (costume, fromCostumeLibrary, targetId) {
         const costumes = Array.isArray(costume) ? costume : [costume];
@@ -294,6 +317,7 @@ class CostumeTab extends React.Component {
         const costumeData = target.costumes ? target.costumes.map(costume => ({
             name: costume.name,
             asset: costume.asset,
+			isBitmap: costume.asset && costume.asset.dataFormat !== 'svg',
             details: costume.size ? this.formatCostumeDetails(costume.size, costume.bitmapResolution) : null,
             dragPayload: costume
         })) : [];
@@ -339,6 +363,7 @@ class CostumeTab extends React.Component {
                 onDrop={this.handleDrop}
                 onDuplicateClick={this.handleDuplicateCostume}
                 onExportClick={this.handleExportCostume}
+				onExportBitmapClick={this.handleExportBitmapCostume}
                 onItemClick={this.handleSelectCostume}
             >
                 {target.costumes ?

@@ -5,11 +5,40 @@ import React from 'react';
 import DeleteButton from '../delete-button/delete-button.jsx';
 import styles from './sprite-selector-item.css';
 import {ContextMenuTrigger} from 'react-contextmenu';
-import {DangerousMenuItem, ContextMenu, MenuItem} from '../context-menu/context-menu.jsx';
+import {
+    DangerousMenuItem,
+    UnborderedDangerousMenuItem,
+    ContextMenu,
+    MenuItem,
+    SubMenu,
+    subMenuProps
+} from '../context-menu/context-menu.jsx';
 import {FormattedMessage} from 'react-intl';
 
 // react-contextmenu requires unique id to match trigger and context menu
 let contextMenuId = 0;
+
+// eslint-disable-next-line react/no-multi-comp
+class ExportScaleMenuItem extends React.PureComponent {
+    constructor (props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick (e) {
+        this.props.onSelect(this.props.scale, e);
+    }
+    render () {
+        return <MenuItem onClick={this.handleClick}>{this.props.children}</MenuItem>;
+    }
+}
+
+ExportScaleMenuItem.propTypes = {
+    children: PropTypes.node,
+    onSelect: PropTypes.func.isRequired,
+    scale: PropTypes.number.isRequired
+};
+
+
 
 const SpriteSelectorItem = props => (
     <ContextMenuTrigger
@@ -54,7 +83,7 @@ const SpriteSelectorItem = props => (
                 onClick={props.onDeleteButtonClick}
             />
         ) : null }
-        {props.onDuplicateButtonClick || props.onDeleteButtonClick || props.onExportButtonClick ? (
+        {props.onDuplicateButtonClick || props.onDeleteButtonClick || props.onExportButtonClick || props.onExportBitmapButtonClick ? (
             <ContextMenu id={`${props.name}-${contextMenuId++}`}>
                 {props.onDuplicateButtonClick ? (
                     <MenuItem onClick={props.onDuplicateButtonClick}>
@@ -73,6 +102,34 @@ const SpriteSelectorItem = props => (
                             id="gui.spriteSelectorItem.contextMenuExport"
                         />
                     </MenuItem>
+                 ) : null }
+                {props.onExportBitmapButtonClick && !props.isBitmap ? (
+                    <SubMenu
+                        {...subMenuProps}
+                        hoverDelay={150}
+                        title={(
+                            <FormattedMessage
+                                defaultMessage="export as bitmap"
+                                description="Menu item to bitmap export the selected item"
+                                id="gui.spriteSelectorItem.contextMenuExportBitmap"
+                            />
+                        )}
+                    >
+                        {[1, 2, 4].map(scale => (
+                            <ExportScaleMenuItem
+                                key={scale}
+                                onSelect={props.onExportBitmapButtonClick}
+                                scale={scale}
+                            >
+                                <FormattedMessage
+                                    defaultMessage="{scale}x"
+                                    description="Menu item to bitmap export the selected item at a specific scale"
+                                    id="tw.spriteSelectorItem.contextMenuExportBitmapScale"
+                                    values={{scale}}
+                                />
+                            </ExportScaleMenuItem>
+                        ))}
+                    </SubMenu>
                 ) : null }
                 {props.onRenameButtonClick ? (
                     <MenuItem onClick={props.onRenameButtonClick}>
@@ -109,6 +166,8 @@ SpriteSelectorItem.propTypes = {
     onDeleteButtonClick: PropTypes.func,
     onDuplicateButtonClick: PropTypes.func,
     onExportButtonClick: PropTypes.func,
+	onExportBitmapButtonClick: PropTypes.func,
+    isBitmap: PropTypes.bool,
     onRenameButtonClick: PropTypes.func,
     onMouseDown: PropTypes.func,
     onMouseEnter: PropTypes.func,

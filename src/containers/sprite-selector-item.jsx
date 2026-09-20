@@ -22,6 +22,7 @@ class SpriteSelectorItem extends React.PureComponent {
             'handleDelete',
             'handleDuplicate',
             'handleExport',
+			'handleExportBitmap',
             'handleRename',
             'handleMouseEnter',
             'handleMouseLeave',
@@ -102,6 +103,10 @@ class SpriteSelectorItem extends React.PureComponent {
         e.stopPropagation();
         this.props.onExportButtonClick(this.props.id);
     }
+	handleExportBitmap (scale, e) {
+        e.stopPropagation();
+        this.props.onExportBitmapButtonClick(this.props.id, scale);
+    }
     handleRename (e) {
         e.stopPropagation();
         this.props.onRenameButtonClick(this.props.id);
@@ -126,8 +131,10 @@ class SpriteSelectorItem extends React.PureComponent {
             onDeleteButtonClick,
             onDuplicateButtonClick,
             onExportButtonClick,
+			onExportBitmapButtonClick,
             onRenameButtonClick,
             dragPayload,
+			isBitmap,
             receivedBlocks,
             costumeURL,
             vm,
@@ -143,6 +150,8 @@ class SpriteSelectorItem extends React.PureComponent {
                 onDeleteButtonClick={onDeleteButtonClick ? this.handleDelete : null}
                 onDuplicateButtonClick={onDuplicateButtonClick ? this.handleDuplicate : null}
                 onExportButtonClick={onExportButtonClick ? this.handleExport : null}
+				onExportBitmapButtonClick={onExportBitmapButtonClick ? this.handleExportBitmap : null}
+                isBitmap={isBitmap}
                 onRenameButtonClick={onRenameButtonClick ? this.handleRename : null}
                 onMouseDown={this.handleMouseDown}
                 onMouseEnter={this.handleMouseEnter}
@@ -173,6 +182,7 @@ SpriteSelectorItem.propTypes = {
     onDrag: PropTypes.func.isRequired,
     onDuplicateButtonClick: PropTypes.func,
     onExportButtonClick: PropTypes.func,
+	onExportBitmapButtonClick: PropTypes.func,
     receivedBlocks: PropTypes.bool.isRequired,
     selected: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired
