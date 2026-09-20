@@ -425,6 +425,7 @@ const initialPackLoad = fetchSavedPacks().then(packs => {
 });
 
 let cachedGalleryBySource = null;
+let externalGalleryListenerAttached = false;
 
 const fetchLibrary = async () => {
     const results = await Promise.allSettled(gallerySources.map(async source => {
@@ -473,6 +474,7 @@ class ExtensionLibrary extends React.PureComponent {
         super(props);
         bindAll(this, [
             'handleItemSelect',
+			'wrapperEventHandler',
             'handleAddPack',
             'handleAddExtension',
             'handleRemoveExtension',
@@ -509,6 +511,10 @@ class ExtensionLibrary extends React.PureComponent {
 		this.unsubscribeGalleryUpdate = addGalleryUpdateListener(newGallery => {
             this.setState({ gallery: newGallery });
         });
+		
+		if (!externalGalleryListenerAttached) {
+            window.addEventListener('message', this.wrapperEventHandler);
+        }
 		
         if (!this.state.galleryBySource) {
             const timeout = setTimeout(() => {
@@ -671,6 +677,81 @@ class ExtensionLibrary extends React.PureComponent {
             }
         }
     }
+	
+	async wrapperEventHandler(e) {
+        /**
+         * External gallery support.
+         * 
+         * Supports galleries outside the editor to automatically load extensions without
+         * having to manually input the extension code.
+         */
+        // Don't recursively try to run this event.
+        if (e.origin === window.origin) return;
+
+        // 'isTrustedExtension' checks the extension url.
+        if (!isTrustedExtension(e.origin)) {
+            e.source.postMessage({
+                p4: {
+                    type: 'error',
+                    error: 'not_trusted'
+                }
+            }, e.origin);
+            return;
+        }
+
+        const extensionSource = e.data.loadExt;
+        if (!extensionSource || typeof extensionSource !== 'string') {
+            e.source.postMessage({
+                p4: {
+                    type: 'error',
+                    error: 'no_extension_source_string'
+                }
+            }, e.origin);
+            return;
+        }
+
+        // Load the extension like any other custom extension url (this means sandboxing for some urls)
+        if (
+            this.props.vm.extensionManager.isExtensionLoaded(extensionSource) ||
+            this.props.vm.extensionManager.workerURLs.includes(extensionSource)
+        ) {
+            this.props.onCategorySelected(extensionSource);
+            e.source.postMessage({
+                p4: {
+                    type: 'success'
+                }
+            }, e.origin);
+        } else {
+            if (this.pendingExtensions.has(extensionSource)) {
+                // Prevent dual loading.
+                return;
+            }
+
+            this.pendingExtensions.add(extensionSource);
+            this.props.vm.extensionManager.loadExtensionURL(extensionSource)
+                .then(() => {
+                    this.pendingExtensions.delete(extensionSource);
+                    this.props.onCategorySelected(extensionSource);
+                    e.source.postMessage({
+                        p4: {
+                            type: 'success'
+                        }
+                    }, e.origin);
+                })
+                .catch(err => {
+                    log.error(err);
+                    // The source website is expected to display the error
+                    e.source.postMessage({
+                        p4: {
+                            type: 'error',
+                            error: 'couldnt_load',
+                            pmerror: String(err.stack ? err.stack : err)
+                        }
+                    }, e.origin);
+                });
+        }
+    }
+	
     render () {
         let library = null;
 		let tags = extensionTags;
