@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.2.3",
+    "date": "2026-9-19",
+    "notes": [
+      "Added Former VM Extension Collection",
+      "Certain stuff"
+    ]
+  },
+  {
     "version": "1.2.2",
     "date": "2026-9-18",
     "notes": [
