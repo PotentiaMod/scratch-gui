@@ -484,6 +484,7 @@ class ExtensionLibrary extends React.PureComponent {
             'handleOpenManager',
             'handleCloseManager'
         ]);
+		this.pendingExtensions = new Set();
         this.state = {
             galleryBySource: cachedGalleryBySource,
             galleryTimedOut: false,
@@ -519,8 +520,7 @@ class ExtensionLibrary extends React.PureComponent {
         if (!this.state.galleryBySource) {
             const timeout = setTimeout(() => {
                 this.setState({
-                    galleryTimedOut: true,
-					externalGalleryListenerAttached: false
+                    galleryTimedOut: true
                 });
             }, 750);
 
@@ -689,6 +689,8 @@ class ExtensionLibrary extends React.PureComponent {
         // Don't recursively try to run this event.
         if (e.origin === window.origin) return;
 
+
+       /*
         // 'isTrustedExtension' checks the extension url.
         if (!isTrustedExtension(e.origin)) {
             e.source.postMessage({
@@ -699,6 +701,7 @@ class ExtensionLibrary extends React.PureComponent {
             }, e.origin);
             return;
         }
+		*/
 
         const extensionSource = e.data.loadExt;
         if (!extensionSource || typeof extensionSource !== 'string') {
