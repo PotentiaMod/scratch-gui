@@ -210,7 +210,6 @@ class TWSecurityManagerComponent extends React.Component {
      * @returns {Promise<boolean>} Whether the extension can be loaded
      */
     async canLoadExtensionFromProject (url) {
-        log.info(`Loading extension ${url} automatically`);
          return true;
     }
 	
@@ -221,7 +220,6 @@ class TWSecurityManagerComponent extends React.Component {
                 return false;
             }
             if (rememberedExtensionInfo.unsandboxed) {
-                console.log('An extension was loaded unsandboxed');
                 manuallyTrustExtension(url);
             }
             return true;

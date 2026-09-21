@@ -22,7 +22,7 @@ import {highlightTarget} from '../reducers/targets';
 import {fetchSprite, fetchCode} from '../lib/backpack-api';
 import randomizeSpritePosition from '../lib/randomize-sprite-position';
 import downloadBlob from '../lib/download-blob';
-import log from '../lib/log';
+import log from '../lib/log.js';
 import {placeInViewport} from '../lib/backpack/code-payload.js';
 
 class TargetPane extends React.Component {
