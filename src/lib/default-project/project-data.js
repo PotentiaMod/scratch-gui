@@ -2,18 +2,7 @@ import { defineMessages } from 'react-intl';
 import sharedMessages from '../shared-messages';
 
 const defaultMsg_README = `
-#README #Welocome
-
-# Welcome to **GaiaMod**, a Scratch editor based on PenguinMod, with features that served as ultimate experiences to coders eevrywhere!
-
-Here, we put thi README feature from Astra Editor in here. Don't tell us that we stole those features because we are just lowkey people.
-
-For its source code, pelase visit our [code repository](https://github.com/GaiaMod-Main).
-
-Got a bug? Go to [this link](https://github.com/GaiaMod-Main/gaiamod-main.github.io/issues) to report it for us!
-
-> [!NOTE]
-> [Follow the head developer's profile on YouTube](https://www.youtube.com/@GaiaWindWave90)`;
+Hi there! Welcome to PotentiaMod!`;
 
 let messages = defineMessages({
     variable: {

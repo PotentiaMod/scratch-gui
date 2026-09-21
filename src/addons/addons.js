@@ -87,6 +87,7 @@ const addons = [
 
 const newAddons = [
     'pot-hide-logo',
+    'santa',
     'paint-default-smoothing',
     'paint-gradient-maker',
     'editor-animations',

@@ -70,6 +70,7 @@ import * as guiModernDark from './gui/modern-dark';
 import * as guiGenesisDark from './gui/genesisdark';
 import * as guiDeepDark from './gui/deep-dark';
 import * as guiMidnight from './gui/midnight';
+import * as guiCattyMidnight from './gui/catty-midnight';
 import * as guiAmoled from './gui/amoled';
 import * as guiAmpAmoled from './gui/amp-amoled';
 import * as guiHighContrast from './gui/amp-high-contrast';
@@ -359,6 +360,7 @@ const GUI_MODERN_DARK = 'modern-dark';
 const GUI_GENESIS_DARK = 'genesisdark';
 const GUI_DEEP_DARK = 'deep-dark';
 const GUI_MIDNIGHT = 'midnight';
+const GUI_CATTY_MIDNIGHT = 'catty-midnight';
 const GUI_AMOLED = 'amoled';
 const GUI_AMP_AMOLED = 'amp-amoled';
 const GUI_HIGH_CONTRAST = 'high-contrast';
@@ -375,6 +377,7 @@ const GUI_MAP = {
     [GUI_AMP_DARK]: guiModernDark,
     [GUI_DEEP_DARK]: guiDeepDark,
     [GUI_MIDNIGHT]: guiMidnight,
+    [GUI_CATTY_MIDNIGHT]: guiCattyMidnight,
     [GUI_AMOLED]: guiAmoled,
     [GUI_AMP_AMOLED]: guiAmpAmoled,
     [GUI_HIGH_CONTRAST]: guiHighContrast,
@@ -437,6 +440,11 @@ const GuiOptions = defineMessages({
         description: 'Name of the midnight color scheme.',
         id: 'tw.gui.midnight'
     },
+	[GUI_CATTY_MIDNIGHT]: {
+        defaultMessage: 'C. Midnight',
+        description: 'Name of the midnight color scheme. Matches CattyMod\'s new midnight color.',
+        id: 'tw.gui.cattymidnight'
+    },
 	[GUI_AMOLED]: {
         defaultMessage: 'Amol.',
         description: 'Name of the amoled color scheme.',
@@ -465,6 +473,7 @@ const GuiIcons = {
     [GUI_GENESIS_DARK]: darkModeIcon,
     [GUI_AMP_DARK]: darkModeIcon,
     [GUI_DEEP_DARK]: darkModeIcon,
+    [GUI_CATTY_MIDNIGHT]: midnightModeIcon,
     [GUI_MIDNIGHT]: midnightModeIcon,
     [GUI_AMOLED]: midnightModeIcon,
     [GUI_AMP_AMOLED]: midnightModeIcon,
@@ -717,6 +726,7 @@ export {
     GUI_DARK,
     GUI_MODERN_DARK,
     GUI_MIDNIGHT,
+    GUI_CATTY_MIDNIGHT,
     GUI_CUSTOM,
     GUI_MAP,
 	GuiIcons,
