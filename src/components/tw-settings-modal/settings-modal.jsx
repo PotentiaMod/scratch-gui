@@ -25,9 +25,10 @@ const BufferedInput = BufferedInputHOC(Input);
 
 // Copied from Nyx IDE
 const STAGE_SIZE_PRESETS = [
-    {label: '360x360', width: 360, height: 360},
-    {label: '480x360', width: 480, height: 360},
-	{label: '640x360', width: 640, height: 360}
+    {label: 'Square', width: 360, height: 360},
+    {label: 'Standard', width: 480, height: 360},
+	{label: 'Widescreen', width: 640, height: 360},
+	{label: 'Ext. Thumbnail', width: 600, height: 300}
 ];
 const messages = defineMessages({
     title: {
@@ -537,7 +538,7 @@ const CustomStageSize = ({
         help={(
             <FormattedMessage
                 // eslint-disable-next-line max-len
-                defaultMessage="Changes the size of the Scratch stage from 480x360 to something else. Try 640x360 to make the stage widescreen. Very few projects will handle this properly."
+                defaultMessage="Changes the size of the Scratch stage from its standard size to something else. Try the widescreen option. Very few projects will handle this properly."
                 description="Custom Stage Size option"
                 id="tw.settingsModal.customStageSizeHelp"
             />
@@ -809,6 +810,18 @@ const SettingsModalComponent = props => {
                                 id="tw.settingsModal.projectInfo"
                             />
                         </button>
+						<button
+                            className={classNames(styles.tabButton, {
+                                [styles.tabButtonActive]: activeTab === 'themes'
+                            })}
+                            onClick={() => setActiveTab('themes')}
+                        >
+                            <FormattedMessage
+                                defaultMessage="Themes"
+                                description="Settings tab"
+                                id="pm.settingsModal.themes"
+                            />
+                        </button>
                     </div>
 
                     <div className={styles.tabContent}>
@@ -875,6 +888,11 @@ const SettingsModalComponent = props => {
                         {activeTab === 'projectInfo' && (
                             <div>
                                 <ProjectSizeTracker vm={props.vm} />
+                            </div>
+                        )}
+						{activeTab === 'themes' && (
+                            <div>
+                                <h1>Coming Soon!</h1>
                             </div>
                         )}
                     </div>
