@@ -867,18 +867,6 @@ const SettingsModalComponent = props => {
 
                         {activeTab === 'optimization' && (
                             <div>
-                                <DisableOffscreenRendering
-                                    value={props.disableOffscreenRendering}
-                                    onChange={props.onDisableOffscreenRenderingChange}
-                                />
-                                <EnableDangerousOptimizations
-                                    value={props.dangerousOptimizations}
-                                    onChange={props.onEnableDangerousOptimizationsChange}
-                                />
-                                <DisableDirectionClamping
-                                    value={props.disableDirectionClamping}
-                                    onChange={props.onDisableDirectionClamping}
-                                />
                                 <Interpolation
                                     value={props.interpolation}
                                     onChange={props.onInterpolationChange}
