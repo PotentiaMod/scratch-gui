@@ -38,6 +38,7 @@
   "dependencies": {
     "@ffmpeg/ffmpeg": "^0.12.15",
     "@ffmpeg/util": "^0.12.2",
+    "@google/genai": "^2.24.0",
     "@microbit/microbit-universal-hex": "0.2.2",
     "@turbowarp/extensions": "github:TurboWarp/extensions#master",
     "@turbowarp/jszip": "^3.11.1",
