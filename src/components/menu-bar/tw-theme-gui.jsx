@@ -17,12 +17,12 @@ import midnightModeIcon from './tw-star.svg';
 import styles from './settings-menu.css';
 
 const ThemeIcon = props => (
-        <img
-            src={GuiIcons[props.id]}
-            draggable={false}
-            // Image is decorative
-            alt=""
-        />
+    <div
+        className={styles.accentIconOuter}
+        style={{
+            backgroundColor: GUI_MAP[props.id].guiColors['ui-secondary'],
+        }}
+    />
 );
 
 ThemeIcon.propTypes = {
