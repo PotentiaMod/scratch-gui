@@ -45,6 +45,8 @@ const base = {
                 {from: /^\/\d+\/fullscreen\/?$/, to: '/fullscreen.html'},
                 {from: /^\/\d+\/editor\/?$/, to: '/editor.html'},
                 {from: /^\/\d+\/embed\/?$/, to: '/embed.html'},
+                {from: /^\/\d+\/404\/?$/, to: '/404.html'},
+                {from: /^\/\d+\/pot-desktop\/?$/, to: '/pot-desktop.html'},
                 {from: /^\/addons\/?$/, to: '/addons.html'}
             ]
         }
