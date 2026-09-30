@@ -150,8 +150,7 @@ module.exports = [
             'addon-settings': './src/playground/addon-settings.jsx',
             'credits': './src/playground/credits/credits.jsx',
             '404': './src/playground/404/404.jsx',
-            'pot-desktop': './src/playground/pot-desktop/pot-desktop.jsx',
-            'index': './src/playground/index/index.jsx'
+            'pot-desktop': './src/playground/pot-desktop/pot-desktop.jsx'
         },
         output: {
             path: path.resolve(__dirname, 'build')
