@@ -49,11 +49,12 @@ const Footer = () => (
 
             <div className={styles.columns}>
                 <div className={styles.column}>
-                    <span className={styles.columnTitle}>Website</span>
+                    <span className={styles.columnTitle}>Websites</span>
                     <a href="editor.html">Editor</a>
                     <a href="?livetest">Live Test</a>
                     <a href="pot-desktop.html">PotentiaMod Desktop</a>
                     <a href="https://potentiamod.github.io/packager">PotentiaMod Packager</a>
+                    <a href="https://potentiamod.github.io/pot-extensions">PotentiaMod Extension Gallery</a>
                     <a href="https://gaiamod-main.github.io/GaiaMod-Packager">GaiaMod Packager</a>
 					 <a
                         href="https://github.com/PotentiaMod"
@@ -63,11 +64,13 @@ const Footer = () => (
                     >
                         GitHub Source Code
                     </a>
-					<a href="https://gaiamod-main.github.io/">GaiaMod</a>
+					<a href="https://spinachmod.github.io/">SpinachMod</a>
+					<a href="https://gaiawindwave90.github.io/GaiaMod">GaiaMod</a>
+					<a href="https://gaiamod-main.github.io/">GaiaMod (Legacy)</a>
 					<a href="https://gaiawindwave90.github.io/">Gaia Zone</a>
                 </div>
                 <div className={styles.column}>
-                    <span className={styles.columnTitle}>Community</span>
+                    <span className={styles.columnTitle}>Other</span>
 					<a href="credits.html">Credits</a>
 					<a href="privacy.html">Privacy Policy</a>
                     <a

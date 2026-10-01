@@ -718,11 +718,10 @@ const menuItems = [
         tags: ['scratch'],
         featured: true
     },
-	/*
     {
         name: (
             <FormattedMessage
-                defaultMessage="Face Sensor"
+                defaultMessage="Face Sensing (Built-In)"
                 description="Name for the 'Face Sensing' extension"
                 id="tw.extension.faceSensing.name"
             />
@@ -741,7 +740,6 @@ const menuItems = [
         tags: ['scratch'],
         featured: true
     },
-	*/
     {
         name: (
             <FormattedMessage
@@ -1004,6 +1002,84 @@ const menuItems = [
         featured: true,
         internetConnectionRequired: false
     },
+	{
+        name: 'Kori Assistant',
+        extensionId: 'kori',
+        collaborator: 'OpenAI',
+        iconURL: koriIconURL,
+        insetIconURL: koriInsetIconURL,
+		connectionIconURL: koriConnectionIconURL,
+        connectionSmallIconURL: koriConnectionSmallIconURL,
+		connectingMessage: 'Connecting',
+        tags: ['preload'],
+        description: 'Experiment with Generative AI.',
+        bluetoothRequired: true,
+        internetConnectionRequired: true,
+		launchPeripheralConnectionFlow: true,
+		useAutoScan: false,
+		helpLink: 'https://scratch.mit.edu/kori',
+        featured: true
+    },
+	{
+        name: 'UglyBot',
+        extensionId: 'uglybot',
+        collaborator: 'Junilab Inc.',
+        iconURL: uglybotIconURL,
+        insetIconURL: uglybotInsetIconURL,
+        description: 'UglyBot with PotentiaMod',
+        featured: true,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: true,
+		tags: ['preload'],
+        useAutoScan: false,
+        connectionIconURL: uglybotConnectionIconURL,
+        connectionSmallIconURL: uglybotConnectionSmallIconURL,
+        connectingMessage: 'Connecting',
+        helpLink: 'http://www.junilab.co.kr/sub/uglybot.php'
+    },
+    {
+        name: 'Robodog',
+        extensionId: 'robodog',
+        collaborator: 'Junilab Inc.',
+        iconURL: robodogIconURL,
+        insetIconURL: robodogInsetIconURL,
+        description: 'RoboDog with PotentiaMod',
+        featured: true,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: true,
+		tags: ['preload'],
+        useAutoScan: false,
+        connectionIconURL: robodogConnectionIconURL,
+        connectionSmallIconURL: robodogConnectionSmallIconURL,
+        connectingMessage: 'Connecting',
+        helpLink: 'http://jcblock.co.kr'
+    },
+	{
+        name: 'SenCu',
+        extensionId: 'sencu',
+        iconURL: sencuIconURL,
+        description: 'Play with a SenCu Extension for PotentiaMod!',
+		tags: ['preload'],
+        featured: true,
+        disabled: false,
+    },
+	{
+    name: 'TAIEX',
+    extensionId: "stockInfo",
+    collaborator: "TYiC",
+    iconURL: stockInfoImage,
+    insetIconURL: stockInfoInsetIconURL,
+	tags: ['preload', 'new'],
+	isNew: true,
+    description: 'Information about Taiwan Capitalization Weighted Stock Index (TAXIE).',
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    useAutoScan: false,
+    helpLink: "https://github.com/estea8968/scratch3-internet",
+  },
   {
     name: 'Google Maps',
     extensionId: "googleMap",
@@ -1019,6 +1095,46 @@ const menuItems = [
     useAutoScan: false,
     helpLink: "https://github.com/estea8968/scratch3-internet",
   },
+  {
+    name:'Data Mining',
+    extensionId: "dataMining",
+    collaborator: "TYiC",
+	tags: ['preload', 'new'],
+	isNew: true,
+    iconURL: dataMiningImage,
+    insetIconURL: dataMiningInsetIconURL,
+    description: 'Mining a large amount of data for knowledge exploration and using analytical models to evaluate and predict.',
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    useAutoScan: false,
+    helpLink: "https://github.com/estea8968/scratch3-internet",
+  },
+  {
+    name:'Data Processing',
+    extensionId: "dataProcessing",
+    collaborator: "TYiC",
+	tags: ['preload', 'new'],
+	isNew: true,
+    iconURL: dataProcessingImage,
+    insetIconURL: dataProcessingInsetIconURL,
+    description: 'Number system conversion and string manipulation.',
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    useAutoScan: false,
+    helpLink: "https://github.com/estea8968/scratch3-internet",
+  },
+	{
+        name: 'Body Blocks',
+        extensionId: 'bodyblocks',
+        iconURL: bodyblocksIconURL,
+        insetIconURL: bodyblocksInsetIconURL,
+		collaborator: 'Stephen Howell',
+		tags: ['preload'],
+        description: 'Control sprites with body movements.\nRequires Android phone app.',
+        featured: true
+    },
 	{
         name: 'Ruby',
         extensionId: 'ruby',
@@ -1045,6 +1161,34 @@ const menuItems = [
         description: 'Talk to Alexa in PotentiaMod.',
         featured: true
     },
+	{
+        name: 'Ergo',
+        extensionId: 'ergo',
+        tags: ['cognimates', 'preload', 'new'],
+		isNew: true,
+        iconURL: require('../extensions/cognimates/Ergo_extension.png'),
+		collaborator: 'Cognimates',
+        description: 'Play with Ergo in PotentiaMod.',
+        featured: true
+    },
+	{
+    name: "URL & Text File",
+    extensionId: "urlTXT",
+    collaborator: "estea chen",
+	tags: ['preload', 'new'],
+	isNew: true,
+    iconURL: urltxtImage,
+    insetIconURL: urltxtInsetIconURL,
+    description: 'Read and write text files and open a URL.',
+    featured: true,
+    disabled: false,
+    // bluetoothRequired: false,
+    internetConnectionRequired: true,
+    // launchPeripheralConnectionFlow: false,
+    useAutoScan: false,
+    helpLink: "https://github.com/estea8968/scratch3-internet",
+  },
+
   {
     name:'Google Sheets',
     extensionId: "rwGoogle",
@@ -1076,6 +1220,45 @@ const menuItems = [
         internetConnectionRequired: false,
         bluetoothRequired: false,
     },
+	 {
+        name: 'Utilites',
+        tags: ['other', 'preload'],
+        extensionId: 'utils',
+        iconURL: utilsIcon,
+        description: 'Utilites for Scratch',
+        featured: true,
+        collaborator: 'The_Mad_Punter'
+    },
+	{
+        name: 'ShredSDK',
+        tags: ['other', 'preload'],
+        extensionId: 'shredsdk',
+        iconURL: shredsdkIcon,
+        description: 'A development kit for making good web games',
+        featured: true,
+        collaborator: 'The_Mad_Punter'
+    },
+	{
+        name: 'GameUtils',
+        tags: ['other', 'preload'],
+        extensionId: 'gameutils',
+        iconURL: gameutilsIcon,
+        description: 'The Extension that Loads Sprites, costumes, etc.',
+        featured: true,
+        collaborator: 'showierdata9978'
+    },
+	{
+        name: 'ScratchPro',
+        extensionId: 'scratchpro',
+		tags: ['preload', 'new'],
+		isNew: true,
+        iconURL: require('../extensions/scratchpro/illustration.svg'),
+        insetIconURL: require('../extensions/scratchpro/small.svg'),
+        collaborator: 'cuiJY',
+        description:'Advanced blocks: HTTP, JSON, arrays, color, utilities.',
+        featured: true,
+        internetConnectionRequired: false
+    },
 	{
     name: "LineNotify",
     extensionId: "linenotify",
@@ -1085,6 +1268,36 @@ const menuItems = [
     iconURL: linenotifyImage,
     insetIconURL: linenotifyInsetIconURL,
     description: "Use Line Notify to send messages.",
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    bluetoothRequired: false,
+    //helpLink: ''
+  },
+  {
+    name: "TelegramBot",
+    extensionId: "telegrambot",
+    collaborator: "estea chen",
+	tags: ['preload', 'new'],
+	isNew: true,
+    iconURL: telegrambotImage,
+    insetIconURL: telegrambotInsetIconURL,
+    description:"Use TelegramBot to send messages.",
+    featured: true,
+    disabled: false,
+    internetConnectionRequired: true,
+    bluetoothRequired: false,
+    //helpLink: ''
+  },
+  {
+    name: "Push Notify API",
+    extensionId: "pushnotifyapi",
+    collaborator: "estea chen",
+	tags: ['preload', 'new'],
+	isNew: true,
+    iconURL: pushnotifyapiImage,
+    insetIconURL: pushnotifyapiInsetIconURL,
+    description: "Use Push Notify API app to send messages.",
     featured: true,
     disabled: false,
     internetConnectionRequired: true,
@@ -1102,6 +1315,31 @@ const menuItems = [
         description: 'Connect KidsBoard via Bluetooth to operate the LEDs, buttons, speaker, and sensors.',
         featured: true,
         bluetoothRequired: true
+    },
+	{
+        name: (
+            <FormattedMessage
+                defaultMessage="McRemote"
+                description="Name for the 'McRemote' extension"
+                id="gui.extension.mcremote.name"
+            />
+        ),
+        extensionId: 'mcremote',
+		tags: ['preload', 'new'],
+		isNew: true,
+        iconURL: mcremoteIconURL,
+        insetIconURL: mcremoteIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage={
+                    'Control Minecraft from Scratch blocks. Full lightning can cause damage, fire, ' +
+                    'lightning rod and copper reactions, events, and entity changes.'
+                }
+                description="Description for the 'McRemote' extension"
+                id="gui.extension.mcremote.description"
+            />
+        ),
+        featured: true
     },
 	{
         name: 'EIM Messaging',
@@ -1137,6 +1375,19 @@ const menuItems = [
         featured: true
     },
 	{
+        name: 'Scratch Emo',
+        extensionId: 'emo',
+        collaborator: 'Yukai Engineering Inc.',
+		tags: ['preload'],
+        iconURL: emoBlockImage,
+        insetIconURL: emoBlockInsertIconImage,
+        description: 'Play with BOCCO emo!',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+    },
+	{
         name: 'Line',
         extensionId: 'line',
         collaborator: 'Ankurugranpa',
@@ -1148,7 +1399,24 @@ const menuItems = [
         disabled: false,
         internetConnectionRequired: true,
         bluetoothRequired: false,
-    },  
+    },
+	{
+    name:"DaVinci",
+    extensionId: "davinci",
+	tags: ['preload', 'new'],
+	isNew: true,
+    collaborator: "estea chen ",
+    iconURL: davinciImage,
+    insetIconURL: davinciInsetIconURL,
+    description: "MediaTek DaVinci AI.",
+    featured: true,
+    disabled: false,
+    // bluetoothRequired: false,
+    internetConnectionRequired: true,
+    // launchPeripheralConnectionFlow: false,
+    useAutoScan: false,
+    helpLink: "https://prod.dvcbot.net/",
+    },   
 	{
         name: 'Face Emotion Sensing',
         extensionId: 'poseFace',
@@ -1194,6 +1462,17 @@ const menuItems = [
         featured: true
     },
 	{
+        name: 'Teachable Machine',
+        extensionId: 'teachableMachine',
+		tags: ['preload', 'new'],
+		isNew: true,
+        iconURL: require('../extensions/teachableMachine/teachable-machine-blocks.png'),
+		insetIconURL: require('../extensions/teachableMachine/teachable-machine-blocks-small.svg'),
+        description: 'Use your Teachable Machine models in your Scratch project!',
+		collaborator: 'Custom',
+        featured: true
+    },
+	{
     name: "Text Sentiment",
     extensionId: "textSentiment",
     collaborator: "TYiC",
@@ -1208,25 +1487,22 @@ const menuItems = [
     useAutoScan: false,
     helpLink: "https://github.com/estea8968/scratch3-internet",
   },
-  	{
-        name: 'Smart Lumies',
-        extensionId: 'smartLumies',
-        collaborator: 'PlusPlus',
-        iconURL: smartLumiesIconURL,
-        insetIconURL: smartLumiesInsetIconURL,
-        description: 'Have fun with Smart Lumies Cube in PotentiaMod!',
-		tags: ['preload'],
+	{
+        name: 'Echidna',
+        extensionId: 'echidna',
+        collaborator: 'echidna',
+        iconURL: echidnaIconURL,
+        insetIconURL: echidnaInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Connect your projects with the world."
+                description="Description for the 'echidna' extension"
+                id="gui.extension.echidna.description"
+            />
+        ),
         featured: true,
-        disabled: false,
-        bluetoothRequired: true,
-        internetConnectionRequired: false,
-        launchPeripheralConnectionFlow: false,
-        useAutoScan: false,
-        connectionIconURL: smartLumiesConnectionIconURL,
-        connectionSmallIconURL: smartLumiesConnectionSmallIconURL,
-        connectionTipIconURL: smartLumiesConnectionTipIconURL,
-        connectingMessage: 'Have your Cube nearby.',
-        helpLink: 'https://smartlumies.com'
+		tags: ['preload'],
+        helpLink: 'http://echidna.es/'
     },
 	{
         name: 'Magic Blue UU',
@@ -1266,6 +1542,48 @@ const menuItems = [
         description: 'Blocks used for changing and modifying lights.',
         featured: true
     },
+	 {
+        name: 'PlayData',
+        extensionId: 'dataviewer',
+		tags: ['preload', 'new'],
+		isNew: true,
+        collaborator: 'Cassia Fernandez and João Adriano Freitas',
+        iconURL: require('../extensions/dataviewer/dataviewer.png'),
+		insetIconURL: require('../extensions/dataviewer/dataviewer-small.svg'),
+        description: 'Play with your data.',
+        featured: true,
+        disabled: false
+    },
+		{
+        name: 'Twitter',
+        extensionId: 'twitter',
+        tags: ['cognimates', 'preload', 'new'],
+		isNew: true,
+        iconURL: require('../extensions/cognimates/twitter_ext.jpg'),
+		collaborator: 'Twitter',
+        description: 'Blocks made for Twitter posts.',
+        featured: true
+    },
+	{
+        name: 'Smart Lumies',
+        extensionId: 'smartLumies',
+        collaborator: 'PlusPlus',
+        iconURL: smartLumiesIconURL,
+        insetIconURL: smartLumiesInsetIconURL,
+        description: 'Have fun with Smart Lumies Cube in PotentiaMod!',
+		tags: ['preload'],
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        connectionIconURL: smartLumiesConnectionIconURL,
+        connectionSmallIconURL: smartLumiesConnectionSmallIconURL,
+        connectionTipIconURL: smartLumiesConnectionTipIconURL,
+        connectingMessage: 'Have your Cube nearby.',
+        helpLink: 'https://smartlumies.com'
+    },
 	{
         name: 'Feelings',
         extensionId: 'sentiment',
@@ -1286,6 +1604,86 @@ const menuItems = [
 		collaborator: 'Cognimates',
         description: 'Play with Wemo in PotentiaMod.',
         featured: true
+    },
+	{
+        name: 'Vision Training',
+        extensionId: 'vision',
+        tags: ['cognimates', 'preload', 'new'],
+		isNew: true,
+        iconURL: require('../extensions/cognimates/vision_ext.png'),
+		collaborator: 'Cognimates',
+        description: 'Vision training.',
+        featured: true
+    },
+	{
+        name: 'Libra',
+        collaborator: 'Clipteam',
+        extensionId: 'libra',
+        iconURL: libraImage,
+        insetIconURL: libraInsetImage,
+        description: 'Libra Redlist extension.',
+        featured: true,
+		tags: ['other', 'preload'],
+    },
+	{
+        name: 'ClipCC Blocks',
+        collaborator: 'Clipteam',
+        extensionId: 'clipblocks',
+        iconURL: 'https://github.com/SoilZhu/clipcc-gui/blob/master/src/lib/libraries/extensions/clipcc/CCUnknownExtension.jpg?raw=true',
+		insetIconURL: 'https://raw.githubusercontent.com/SoilZhu/clipcc-gui/5005874fe09e4431c5c7b4c006fcfc80db4d0eb8/src/lib/libraries/extensions/clipcc/CCUnknownExtension.svg',
+        description: 'Clip Blocks extension.',
+        featured: true,
+		tags: ['other', 'preload'],
+    },
+	{
+        name: 'Zumi AI (with dongle)',
+        extensionId: 'zumiAIS',
+        collaborator: 'ROBOLINK',
+        iconURL: esp32SerialIconURL,
+        insetIconURL: esp32SerialInsetIconURL,
+        description: (
+            <FormattedMessage
+                id='gui.extension.zumiAIS.description'
+                defaultMessage='Zumi AI for Scratch 3 with Bluetooth'
+            />
+        ),
+        featured: true,
+        disabled: false,
+        bluetoothRequired: false,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+		tags: ['preload'],
+        connectionIconURL: esp32SerialConnectionIconURL,
+        connectionSmallIconURL: esp32SerialConnectionSmallIconURL,
+        connectingMessage: 'connecting...', //
+
+        helpLink: 'https://your-custom-help-link.com'
+    },
+    {
+        name: 'Zumi AI (with bluetooth)',
+        extensionId: 'zumiAIB',
+        collaborator: 'ROBOLINK',
+        iconURL: esp32BluetoothIconURL,
+        insetIconURL: esp32BluetoothInsetIconURL,
+        description: (
+            <FormattedMessage
+                id='gui.extension.zumiAIB.description'
+                defaultMessage='Zumi AI for Scratch 3 with Bluetooth'
+            />
+        ),
+        featured: true,
+        disabled: false,
+        bluetoothRequired: false,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+		tags: ['preload'],
+        connectionIconURL: esp32BluetoothConnectionIconURL,
+        connectionSmallIconURL: esp32BluetoothConnectionSmallIconURL,
+        connectingMessage: 'connecting...', // 👈
+
+        helpLink: 'https://your-custom-help-link.com'
     },
 	{
         name: (
@@ -1361,6 +1759,523 @@ const menuItems = [
         internetConnectionRequired: true
     },    
 	{
+        name: (<FormattedMessage
+            defaultMessage="HTTP Communication"
+            id="gui.extension.lepiHttp.name"
+        />),
+        extensionId: 'lepiHttp',
+		collaborator: 'LEPI',
+        iconURL: httpIconURL,
+        insetIconURL: httpInsetIconURL,
+        internetConnectionRequired: true,
+        description: (
+            <FormattedMessage
+                defaultMessage="Network communication using HTTP/HTTPS."
+                id="gui.extension.lepiHttp.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Sensor"
+            id="gui.extension.lepiSensor.name"
+        />),
+        extensionId: 'lepiSensor',
+        collaborator: 'LEPI',
+        iconURL: sensorIconURL,
+        insetIconURL: sensorInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Ultrasonic, infrared, acceleration, gyroscope, geomagnetic, etc., to perceive the world."
+                id="gui.extension.lepiSensor.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="ScienceSensor"
+            id="gui.extension.lepiScienceSensor.name"
+        />),
+        extensionId: 'lepiScienceSensor',
+        collaborator: 'LEPI',
+        iconURL: scienceSensorIconURL,
+        insetIconURL: scienceSensorInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Force, spectrum, aduio, temperature, voltage, etc., to explore science."
+                id="gui.extension.lepiScienceSensor.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Actuator"
+            id="gui.extension.lepiActuator.name"
+        />),
+        extensionId: 'lepiActuator',
+        collaborator: 'LEPI',
+        iconURL: actuatorIconURL,
+        insetIconURL: actuatorInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Large motor, medium motor, steering gear, make your work move."
+                id="gui.extension.lepiActuator.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Camera"
+            id="gui.extension.lepiCamera.name"
+        />),
+        extensionId: 'lepiCamera',
+        collaborator: 'LEPI',
+        iconURL: cameraIconURL,
+        insetIconURL: cameraInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="See the world."
+                id="gui.extension.lepiCamera.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Face Recognize"
+            id="gui.extension.lepiFaceRecognize.name"
+        />),
+        extensionId: 'lepiFaceRecognize',
+        collaborator: 'LEPI',
+        iconURL: faceRecognizeIconURL,
+        insetIconURL: faceRecognizeInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Detect faces and mark them as well."
+                id="gui.extension.lepiFaceRecognize.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Gesture Detection"
+            id="gui.extension.lepiHandDetect.name"
+        />),
+        extensionId: 'lepiHandDetect',
+        collaborator: 'LEPI',
+        iconURL: handDetectIconURL,
+        insetIconURL: handDetectInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Identify 21 key points of the hand."
+                id="gui.extension.lepiHandDetect.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Pose Estimation"
+            id="gui.extension.lepiPoseEstimate.name"
+        />),
+        extensionId: 'lepiPoseEstimate',
+        collaborator: 'LEPI',
+        iconURL: poseEstimateIconURL,
+        insetIconURL: poseEstimateInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Identify 33 key points of the body."
+                id="gui.extension.lepiPoseEstimate.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Barcode Scanning"
+            id="gui.extension.lepiBarcodeScan.name"
+        />),
+        extensionId: 'lepiBarcodeScan',
+        collaborator: 'LEPI',
+        iconURL: barcodeScannerIconURL,
+        insetIconURL: barcodeScannerInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Scan the Barcode."
+                id="gui.extension.lepiBarcodeScan.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="WebSerial"
+            id="gui.extension.lepiWebSerial.name"
+        />),
+        extensionId: 'lepiWebSerial',
+        collaborator: 'LEPI',
+        iconURL: lepiWebSerialIconURL,
+        insetIconURL: lepiWebSerialInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Serial Communication via WebSerial."
+                id="gui.extension.lepiWebSerial.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+
+    {
+        name: (<FormattedMessage
+            defaultMessage="Plottor"
+            id="gui.extension.lepiWebPlottor.name"
+        />),
+        extensionId: 'lepiWebPlottor',
+        collaborator: 'LEPI',
+        iconURL: webPlottorIconURL,
+        insetIconURL: webPlottorInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Plot sensor data into graphs."
+                id="gui.extension.lepiWebPlottor.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Echarts"
+            id="gui.extension.lepiEcharts.name"
+        />),
+        extensionId: 'lepiEcharts',
+        collaborator: 'LEPI',
+        iconURL: echartsIconURL,
+        insetIconURL: echartsInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="use echarts to plot sensor data into graphs."
+                id="gui.extension.lepiEcharts.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Color Detection"
+            id="gui.extension.lepiColorDetect.name"
+        />),
+        extensionId: 'lepiColorDetect',
+        collaborator: 'LEPI',
+        iconURL: colorDetectIconURL,
+        insetIconURL: colorDetectInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Detect various colors in the camera picture."
+                id="gui.extension.lepiColorDetect.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+	{
+        name: (<FormattedMessage
+            defaultMessage="Apriltag Detection"
+            id="gui.extension.lepiApriltagDetect.name"
+        />),
+        extensionId: 'lepiApriltagDetect',
+        collaborator: 'LEPI',
+        iconURL: apriltagIconURL,
+        insetIconURL: apriltagInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Accurate spatial localization combined with apriltags."
+                id="gui.extension.lepiApriltagDetect.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+	{
+        name: (<FormattedMessage
+            defaultMessage="Joystick"
+            id="gui.extension.lepiJoystick.name"
+        />),
+        extensionId: 'lepiJoystick',
+        collaborator: 'LEPI',
+        iconURL: joystickIconURL,
+        insetIconURL: joystickInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Use a joystick as an input control."
+                id="gui.extension.lepiJoystick.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+	 {
+        name: (<FormattedMessage
+            defaultMessage="Balance Car"
+            id="gui.extension.lepiBalanceCar.name"
+        />),
+        extensionId: 'lepiBalanceCar',
+        collaborator: 'LEPI',
+        iconURL: balanceCarIconURL,
+        insetIconURL: balanceCarInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Control the balance car."
+                id="gui.extension.lepiBalanceCar.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+
+    {
+        name: (<FormattedMessage
+            defaultMessage="Pupper Robot"
+            id="gui.extension.lepiPupper.name"
+        />),
+        extensionId: 'lepiPupper',
+        collaborator: 'LEPI',
+        iconURL: pupperIconURL,
+        insetIconURL: pupperInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Control the balance car."
+                id="gui.extension.lepiPupper.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+
+    {
+        name: (<FormattedMessage
+            defaultMessage="Hexapod Robot"
+            id="gui.extension.lepiHexapod.name"
+        />),
+        extensionId: 'lepiHexapod',
+        collaborator: 'LEPI',
+        iconURL: hexapodIconURL,
+        insetIconURL: hexapodInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Control the balance car."
+                id="gui.extension.lepiHexapod.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Host Communication"
+            id="gui.extension.lepiComm.name"
+        />),
+        extensionId: 'lepiComm',
+        collaborator: 'LEPI',
+        iconURL: hostCommunicationIconURL,
+        insetIconURL: hostCommunicationInsetIconURL,
+        internetConnectionRequired: true,
+        description: (
+            <FormattedMessage
+                defaultMessage="communicate with lepi hosts in local network."
+                id="gui.extension.lepiComm.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (
+            <FormattedMessage
+                defaultMessage="Serial Communication"
+                description="Description for the 'lepiSerial' extension"
+                id="gui.extension.lepiSerial.name"
+            />
+        ),
+        extensionId: 'lepiSerial',
+        collaborator: 'LEPI',
+        iconURL: serialIconURL,
+        insetIconURL: serialInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Use Serial Port to comunicate."
+                description="Description for the 'lepiSerial' extension"
+                id="gui.extension.lepiSerial.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (
+            <FormattedMessage
+                defaultMessage="Bluetooth Communication"
+                description="Description for the 'lepiBLE' extension"
+                id="gui.extension.lepiBLE.name"
+            />
+        ),
+        extensionId: 'lepiBLE',
+        collaborator: 'LEPI',
+        iconURL: bleIconURL,
+        insetIconURL: bleInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Use Bluetooth to comunicate."
+                description="Description for the 'lepiBLE' extension"
+                id="gui.extension.lepiBLE.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Shared Variable"
+            id="gui.extension.lepiVariable.name"
+        />),
+        extensionId: 'lepiVariable',
+        collaborator: 'LEPI',
+        iconURL: variableIconURL,
+        insetIconURL: variableInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Share variables across multiple works."
+                id="gui.extension.lepiVariable.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+    {
+        name: (<FormattedMessage
+            defaultMessage="Text Recognition"
+            id="gui.extension.lepiTextRecognize.name"
+        />),
+        extensionId: 'lepiTextRecognize',
+        collaborator: 'LEPI',
+        iconURL: textRecognizeIconURL,
+        insetIconURL: textRecognizeInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Recognize text information."
+                id="gui.extension.lepiTextRecognize.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true,
+    },
+		{
+        name: (
+            <FormattedMessage
+                defaultMessage="Home Assistant"
+                description="Name for the 'Home Assistant' extension"
+                id="gui.extension.homeassistant.name"
+            />
+        ),
+        extensionId: 'homeassistant',
+        collaborator: 'LEPI',
+        iconURL: homeassistantIconURL,
+        insetIconURL: homeassistantInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Home Assistant"
+                description="Description for the 'Home Assistant' extension"
+                id="gui.extension.homeassistant.description"
+            />
+        ),
+        tags: ['lepi', 'preload', 'new'],
+		isNew: true,
+        featured: true
+    },
+	{
+        name: 'LEGO Duplo Train',
+        extensionId: 'duploTrain',
+        collaborator: 'bricklife',
+        iconURL: 'https://bricklife.com/scratch-gui/static/assets/12fd44910fedc5b99761e024ddf05c59.png',
+        insetIconURL: 'https://bricklife.com/scratch-gui/static/assets/4e8df03eb146bd7f93b355c62450029b.svg',
+        description: 'Build and control your train!',
+        tags: ['preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: true
+
+    },
+{
+        name: 'LEGO Powered Up',
+        extensionId: 'poweredUp',
+        collaborator: 'bricklife',
+        iconURL: 'https://bricklife.com/scratch-gui/static/assets/27d60d6cf54cf80ce2bbb8493e43262e.png',
+        insetIconURL: 'https://bricklife.com/scratch-gui/static/assets/9a7b1e04a4d5afda42d2d4bb2de61247.svg',
+        description: 'Build with motors and sensors!',
+        tags: ['preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: true
+    },
+	{
+        name: 'LEGO SPIKE Prime',
+        extensionId: 'spikePrime',
+        collaborator: 'bricklife',
+        iconURL: spikePrimeIconURL,
+        insetIconURL: spikePrimeInsetIconURL,
+        description: 'LEGO SPIKE Prime extension.',
+		tags: ['preload'],
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: true,
+        useAutoScan: false,
+        connectionIconURL: spikePrimeConnectionIconURL,
+        connectionSmallIconURL: spikePrimeConnectionSmallIconURL,
+        connectingMessage: 'Connecting',
+        helpLink: 'https://github.com/bricklife/scratch-lego-bluetooth-extensions'
+    },
+	{
     name: 'LEGO Mario',
     extensionId: 'legoMario',
     collaborator: 'bricklife',
@@ -1422,6 +2337,49 @@ const menuItems = [
     connectionTipIconURL: require('../extensions/legopeach/legopeach-button-illustration.svg'),
     connectingMessage: 'Connecting',
     helpLink: 'https://scratch.mit.edu/boost'
+    },
+	{        
+        name: 'PlayGo',
+        extensionId: 'playgo',
+        collaborator: 'tdrobotica',
+        iconURL: playgoIconURL,
+        insetIconURL: playgoInsetIconURL,
+        description: 'Playgo Scratch extension',
+		tags: ['preload'],
+		internetConnectionRequired: true,
+		bluetoothRequired: true,
+        featured: true,        
+    }, 
+    {
+        name: 'PlayIoT',
+        extensionId: 'playiot',
+        collaborator: 'tdrobotica',
+        iconURL: playIoTIconURL,
+        insetIconURL: playIoTInsetIconURL,
+		description: 'PlayIoT Scratch extension',
+		tags: ['preload'],
+		internetConnectionRequired: true,
+		bluetoothRequired: true,
+        featured: true,        
+    },
+	{
+        name: 'MatataBot',
+        extensionId: 'matatabot',
+        collaborator: 'matatalab',
+        iconURL: matatabotIconURL,
+        insetIconURL: matatabotInsetIconURL,
+		tags: ['preload'],
+        description: 'Connect your projects with the MatataBot.',
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: false,
+        launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        connectionIconURL: matatabotConnectionIconURL,
+        connectionSmallIconURL: matatabotConnectionSmallIconURL,
+        connectingMessage: 'Connecting',
+        helpLink: 'https://matatalab.com/'
     },
 	{
         name: 'OneGpio Arduino',
@@ -1505,6 +2463,82 @@ const menuItems = [
         bluetoothRequired: false,
         helpLink: 'https://mryslab.github.io/s3-extend/'
 
+    },
+	{
+        name: 'Future Board',
+        extensionId: 'futureBoard',
+        collaborator: 'PlusPlus',
+        iconURL: futureBoardIconURL,
+        insetIconURL: futureBoardInsetIconURL,
+		tags: ['preload'],
+        description: (
+            <FormattedMessage
+                defaultMessage='Future Board extension.'
+                description='Description for the Future Board extension'
+                id='gui.extension.futureBoard.description'
+            />
+        ),
+        featured: true,
+        disabled: false
+    },
+	 {
+        name: 'ELLabs Extension',
+        extensionId: 'ellabsextension',
+        iconURL: ExtensionIconURL,
+        insetIconURL: ExtensionInsetIconURL,
+		collaborator: 'ishakboufatah',
+        description: 'ELLabs Scratch extension',
+		tags: ['preload'],
+        featured: true,
+        disabled: false
+    },
+	{
+        name: 'AKARI Blocks',
+        extensionId: 'akariblocks',
+        collaborator: 'AKARI Groups',
+        iconURL: akariBlocksImage,
+        insetIconURL: akariBlocksButtonImage,
+        description: 'AKARI control block',
+		tags: ['preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: false
+    },
+    {
+        name: 'AKARI Camera',
+        extensionId: 'akaricamera',
+        collaborator: 'AKARI Groups',
+        iconURL: akariCameraImage,
+        insetIconURL: akariCameraButtonImage,
+        description: 'AKARI camera block',
+		tags: ['preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: false
+    },
+    {
+        name: 'AKARI Blocks(Simple)',
+        extensionId: 'akariblockssimple',
+        collaborator: 'AKARI Groups',
+        iconURL: akariBlocksSimpleImage,
+        insetIconURL: akariBlocksSimpleButtonImage,
+        description: 'Simple Akari blocks.',
+		tags: ['preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: false
+    },
+    {
+        name: 'AKARI Camera(Simple)',
+        extensionId: 'akaricamerasimple',
+        collaborator: 'AKARI Groups',
+        iconURL: akariCameraSimpleImage,
+        insetIconURL: akariCameraSimpleButtonImage,
+        description: 'Simple Akari camera blocks.',
+		tags: ['preload'],
+        featured: true,
+        internetConnectionRequired: true,
+        bluetoothRequired: false
     },
 	//Champierre
 	{
@@ -1652,6 +2686,36 @@ const menuItems = [
         featured: true
     },
 {
+        name: 'Ada Vision',
+        extensionId: 'adavision',
+        tags: ['adacraft', 'ai', 'preload'],
+        iconURL: 'https://www.adacraft.org/studio/static/assets/e0dbaa558a96f981dd0a34c25b4b4b84.png',
+        insetIconURL: 'https://www.adacraft.org/studio/static/assets/327aa5322c2e9cd1cd90cb69efa1c15a.svg',
+        description: 'Use TeachableMachine models to detect things in images.',
+        collaborator: 'Adacraft',
+        featured: true
+    },
+    {
+        name: 'Ada Sound',
+        extensionId: 'adasound',
+        tags: ['adacraft', 'ai', 'preload'],
+        iconURL: 'https://www.adacraft.org/studio/static/assets/3aa7424034ffdc3bd8027132a5b1b5b9.png',
+        insetIconURL: 'https://www.adacraft.org/studio/static/assets/21800acf6e3a345f805d74d75e32bb2d.png',
+        description: 'Use TeachableMachine models to detect things in sounds.',
+        collaborator: 'Adacraft',
+        featured: true
+    },
+    {
+        name: 'Adacraft Runtime',
+        extensionId: 'adaruntime',
+        tags: ['adacraft', 'preload'],
+        iconURL: 'https://www.adacraft.org/studio/static/assets/53d3dbd30eb60a7860a3ffdb4753a43f.png',
+        insetIconURL: 'https://www.adacraft.org/studio/static/assets/e91bb243062b53cc04ac11d1c7e381d6.svg',
+        description: 'Some new blocks to interact with the adacraft runtime (renderer, VM, etc.)',
+        collaborator: 'Adacraft',
+        featured: true
+    },
+{
         name: 'Ada Browser',
         tags: ['adacraft', 'preload'],
         extensionId: 'adabrowser',
@@ -1659,6 +2723,16 @@ const menuItems = [
         insetIconURL: 'https://www.adacraft.org/studio/static/assets/f1fe0bbe960a0d60c783b111c84b837e.svg',
         description: 'Some new blocks to interact with the browser',
         collaborator: 'Adacraft',
+        featured: true
+    },
+    {
+        name: 'Croquet',
+        extensionId: 'croquet',
+        tags: ['adacraft', 'preload'],
+        iconURL: 'https://www.adacraft.org/studio/static/assets/05479b8bc697d26fee9740d868c2a30e.png',
+        insetIconURL: 'https://www.adacraft.org/studio/static/assets/3ebaeec3436fd9dd59d325a879e1a0dc.svg',
+        description: 'Croquet Collaboration Library',
+        collaborator: 'Croquet Corporation',
         featured: true
     },
 	
@@ -1703,6 +2777,16 @@ const menuItems = [
         collaborator: 'Gvbvdxx',
         tags: ['gvbvdxxmod', 'preload']
     },
+{
+        name: 'Websockets',
+        extensionId: 'websocket',
+        iconURL: wsbig,
+        insetIconURL: wssmall,
+        description: 'Connect to servers!',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+    },
 	{
         name: 'NES Emulator',
         extensionId: 'nesemulator', // update reference once file names are updated
@@ -1717,11 +2801,70 @@ const menuItems = [
         collaborator: 'Gvbvdxx'
     },
 	{
+        name: 'Sound Analyser',
+        extensionId: 'sndanalyser',
+        iconURL: sndanalyserBig,
+        description: 'Read the information about sounds playing from the project.',
+        featured: true,
+		collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+    },
+	{
         name: 'User Data',
         extensionId: 'userdata',
         iconURL: userdatabig,
         insetIconURL: userdatasmall,
         description: 'Get The User\'s Data',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+	},
+	{
+        name: 'Audio Context',
+        extensionId: 'audioctx',
+        iconURL: audioctxbig,
+        insetIconURL: audioctxsmall,
+        description: 'Play 8-bit sounds',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+	},
+{
+        name: 'Beepbox Synth',
+        extensionId: 'beepboxsynth',
+        iconURL: beepboxbig,
+        insetIconURL: beepboxsmall,
+        description: 'Play beepbox songs',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+	},
+	 {
+        name: 'Better Audio',
+        extensionId: 'betteraudio',
+        iconURL: betteraudioBigIcon,
+        insetIconURL: betteraudioSmallIcon,
+        description: 'etter Audio For Scratch',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+	},
+	 {
+        name: 'JS (GM2)',
+        extensionId: 'dialogs',
+        iconURL: jsDialogsBigIcon,
+        insetIconURL: jsDialogsSmallIcon,
+        description: 'JS Blocks',
+        featured: true,
+        collaborator: 'Gvbvdxx',
+        tags: ['gvbvdxxmod', 'preload']
+	},
+    {
+        name: 'speech4pc',
+        extensionId: 'speech4pc',
+        iconURL: speech4pcDialogsBigIcon,
+        insetIconURL: speech4pcDialogsSmallIcon,
+        description: 'Pc Version Of Text To Speech.',
         featured: true,
         collaborator: 'Gvbvdxx',
         tags: ['gvbvdxxmod', 'preload']
@@ -1760,11 +2903,41 @@ const menuItems = [
 	{
         name: 'Scratch Authentication',
         extensionId: 'jgScratchAuthenticate',
-        iconURL: require('./penguinmod/extensions/scratchauth2.svg'),
+        iconURL: jgScratchAuthExtensionIcon,
 		insetIconURL: PMIcon,
 		collaborator: 'PenguinMod',
 		tags: ['pm', 'preload'],
         description: "Interact with Scratch Authentication to prove the player is a real scratch user.",
+        featured: true
+    },
+	{
+        name: 'JSON (PM)',
+        extensionId: 'jgJSON',
+        iconURL: require('../extensions/penguinmod/extensions/json.png'),
+		insetIconURL: PMIcon,
+        tags: ['pm', 'preload'],
+		collaborator: 'PenguinMod',
+        description: 'Blocks for handling JSON objects and Arrays.',
+        featured: true
+    },
+	{
+        name: 'Tweening',
+        extensionId: 'jgTween',
+        collaborator: 'easings.net, Arrow & GarboMuffin',
+        description: 'Smoothly animating values using different easing functions and directions.',
+        iconURL: require('../extensions/penguinmod/jgTween.svg'),
+		insetIconURL: PMIcon,
+        tags: ['pm', 'tw', 'preload'],
+        featured: true
+    },
+	{
+        name: 'Storage',
+        extensionId: 'jgStorage',
+        iconURL: require('../extensions/penguinmod/jgStorage.svg'),
+		insetIconURL: PMIcon,
+        tags: ['pm', 'preload'],
+        description: 'Store data after PenguinMod has already been closed out. Basic Server Storage is also included.',
+        collaborator: 'Fir & silvxrcat',
         featured: true
     },
 	//Builders
@@ -1808,6 +2981,48 @@ const menuItems = [
         tags: ['tw', 'builders'],
         featured: true
     },
+    {
+        name: 'PenguinBuilder',
+        href: 'https://penguinbuilder.github.io/editor/',
+        extensionId: 'penguinBuilder',
+        iconURL: penguinBuilderIcon,
+        description: 'Create your own extensions using Blockly.',
+        collaborator: 'chickencuber',
+        tags: ['pm', 'builders'],
+        featured: true
+    },
+    {
+        name: 'ExtCreate',
+        href: 'https://extcreate.snail-ide.com/',
+        extensionId: 'extCreate',
+        iconURL: extCreateIcon,
+        insetIconURL: extCreateInsetIcon,
+        description: 'Snail IDE version of TurboBuilder. Disabled due to the link not working.',
+        collaborator: 'Started by JeremyGamer13, continued by jwklong, modified by nmsderp.',
+        tags: ['sn', 'builders', 'disabled'],
+        disabled: true,
+        featured: true
+    },
+    {
+        name: 'DinoBuilder',
+        href: 'https://dinobuilder.vercel.app',
+        extensionId: 'dinoBuilder',
+        iconURL: dinoBuilderIcon,
+        description: 'Create your own amazing extensions using a TurboBuilder Mod scratch-based UI!',
+        collaborator: 'Started by JeremyGamer13, continued by jwklong, modified by MrIncredibleMaker',
+        tags: ['dm', 'builders'],
+        featured: true
+    },
+    {
+        name: 'ElectraBuilder',
+        href: 'https://electrabuilder.vercel.app/',
+        extensionId: 'special_electraBuilder',
+        iconURL: electraBuilderIcon,
+        insetIconURL: electraBuilderInsetIcon,
+        collaborator: 'Started by JeremyGamer13, continued by jwklong, modified by Aness6040',
+        tags: ['em', 'builders'],
+        featured: true
+    },
 	//More Ext Galleries besides ones
 	{
         name: 'Former VM Extension Collection',
@@ -1817,6 +3032,55 @@ const menuItems = [
         description: 'Tons of extensions converted from built-ins.\n\nClick on an extension to add it to your project.',
         collaborator: 'Listed in the site',
         tags: ['potentia'],
+        featured: true
+    },
+	{
+        name: 'Ruby Extension Gallery',
+        href: 'https://ruby-devs.vercel.app/gallery',
+        extensionId: 'rubyextension',
+        iconURL: galleryIconRuby,
+        description: 'View the Useful Ruby Team Extensions!',
+        collaborator: 'Ruby Team',
+        tags: ['other'],
+        featured: true
+    },
+	{
+        name: 'KyleKart\'s Extension Gallery',
+        href: 'https://kylekart.github.io/ScratchExtensions/',
+        extensionId: 'elmobearExtensionLibrary',
+        iconURL: defaultExtensionIcon,
+        description: 'Extensions made by KyleKart',
+		collaborator: 'KyleKart',
+        tags: ['other'],
+        featured: true
+    },
+	{
+        name: 'AppleleMod Extra Extensions',
+        href: 'https://dimixixixiixix.github.io/Applele-extensions-idk-/',
+        extensionId: 'applelemodExtensionLibrary',
+        iconURL: defaultExtensionIcon,
+        description: 'See some AppleleMod External extensions. Opens in a new tab.',
+		collaborator: 'Dimix',
+        tags: ['other'],
+		isNew: true,
+        featured: true
+    },
+	{
+        name: 'AmpMod Extra Extensions',
+        href: 'https://ampmod.codeberg.page/extensions/',
+        extensionId: 'ampmodExtensionLibrary',
+        iconURL: ampmodgalleryThumb,
+        description: 'See some AmpMod External extensions. Opens in a new tab.',
+        tags: ['other'],
+        featured: true
+    },
+	{
+        name: 'OmniBlocks Extra Extensions',
+        href: 'https://omniblocks.github.io/extensions/',
+        extensionId: 'omniblocksExtensionLibrary',
+        iconURL: obgalleryIcon,
+        description: 'See some OmniBlocks External extensions. Opens in a new tab.',
+        tags: ['other'],
         featured: true
     },
 	//Turbo
@@ -1848,22 +3112,106 @@ const menuItems = [
 
 const gallerySourceDisplay = {
     potentiamod: {
-        name: 'PotentiaMod Extension Gallery',
-        href: 'https://potentiamod.github.io/pot-extensions/',
+        name: 'PotentiaMod Extension Bonanza!',
+        href: 'https://potentiamod.github.io/extensions/',
         iconURL: galleryIconPT,
         tag: 'potentia'
-    },
-	 gaiamod: {
-        name: 'GaiaMod Extension Gallery',
-        href: 'https://gaiawindwave90.github.io/gm-extensions/',
-        iconURL: galleryIconGM,
-        tag: 'gaia'
     },
     turbowarp: {
         name: 'TurboWarp Extension Gallery',
         href: 'https://extensions.turbowarp.org/',
         iconURL: galleryIconTW,
         tag: 'tw'
+    },
+	 cocreaworld: {
+        name: 'Cocrea World Extension Marketplace',
+        href: 'https://assets.ccw.site/extensions/',
+        iconURL: galleryIconCCW,
+        tag: 'ccw'
+    },
+	 nitrobolt: {
+        name: 'NitroBolt Extension Gallery',
+        href: 'https://extensions.nitrobolt.org/',
+        iconURL: galleryIconNB,
+        tag: 'nb'
+    },
+	 mistium: {
+        name: 'Mistium Extension Gallery',
+        href: 'https://extensions.mistium.com/',
+        iconURL: galleryIconMist,
+        tag: 'mist'
+    },
+    astraeditor: {
+        name: 'AstraEditor Extension Gallery',
+        href: 'https://editors.astras.top/extensions/',
+        iconURL: 'https://github.com/AstraEditor/scratch-gui/blob/develop/src/lib/libraries/extensions/gallery/aegallery.png?raw=true',
+        tag: 'ae'
+    },
+    zerotwoengine: {
+        name: '02Engine Extension Collection',
+        href: 'https://github.com/DDguan2010/02engine-extensions/tree/master/extension',
+        iconURL: galleryIconZT,
+        tag: 'ztengine'
+    },
+    bilup: {
+        name: 'Bilup Extension Gallery',
+        href: 'https://extensions.bilup.org/',
+        iconURL: 'https://com.bilup.org/static/assets/5b5e7dd645a0e3891de6e5d937cca6a6.svg',
+        tag: 'bilup'
+    },
+	 dash: {
+        name: 'Dash Extension Gallery',
+        href: 'https://dashblocks.org/extensions/',
+        iconURL: galleryIconDash,
+        tag: 'dash'
+    },
+	sharkpool: {
+        name: 'SharkPool\'s Extension Collection',
+        href: 'https://sharkpools-extensions.vercel.app/',
+        iconURL: 'https://studio.penguinmod.com/static/assets/93259f95026260bc06f83d29d3b89115.svg',
+        tag: 'sp'
+    },
+    penguinmod: {
+        name: 'PenguinMod Extra Extensions',
+        href: 'https://extensions.penguinmod.com/',
+        iconURL: galleryIconPM,
+        tag: 'pm'
+    },
+	snailide: {
+        name: 'Snail-IDE Extra Extensions',
+        href: 'https://snail-ide-extensions-gallery.vercel.app/',
+        iconURL: galleryIconSN,
+        tag: 'sn'
+    },
+	dinosaurmod: {
+        name: 'DinosaurMod Extra Extensions',
+        href: 'https://dinosaurmod.github.io/extensions/',
+        iconURL: galleryIconDM,
+        tag: 'dm'
+    },
+	electramod: {
+        name: 'ElectraMod Extra Extensions',
+        href: 'https://electramod-extensions-gallery.vercel.app/',
+        iconURL: 'https://electramod.vercel.app/static/assets/c5353140b7d13c3beceb811ad943bd20.svg',
+        tag: 'em'
+    },
+	arkide: {
+        name: 'Ark IDE Extra Extensions',
+        href: 'https://extensions.arkide.site',
+        iconURL: 'https://studio.arkide.site/static/assets/ec6c0b201605163f47d10636142e36b9.svg',
+        tag: 'ark'
+    },
+    gaiamod: {
+        name: 'GaiaMod Extra Extensions',
+        href: 'https://gaiamod-main.github.io/GaiaMod-ExtensionsGallery/',
+        iconURL: galleryIconGM,
+        tag: 'gaia'
+    },
+	other: {
+        name: 'Scratch Repo Mega Extension Gallery',
+        href: 'https://scratchmegarepo.pages.dev/extensions',
+        iconURL: scratchmegarepoThumb,
+        tag: 'other'
     }
 };
 
@@ -1883,18 +3231,88 @@ const createGalleryStatusItem = (sourceId, description) => {
 export const galleryStatusItems = {
 	potentiamod: {
         loading: createGalleryStatusItem('potentiamod', 'Loading PotentiaMod extension gallery...'),
-        more: createGalleryStatusItem('potentiamod', 'See some user-submitted extensions.'),
+        more: createGalleryStatusItem('potentiamod', 'See the glory of extensions!'),
         error: createGalleryStatusItem('potentiamod', 'Error loading PotentiaMod extension gallery.')
-    },
-    gaiamod: {
-        loading: createGalleryStatusItem('gaiamod', 'Loading GaiaMod extension gallery...'),
-        more: createGalleryStatusItem('gaiamod', 'See some user-submitted extensions.'),
-        error: createGalleryStatusItem('gaiamod', 'Error loading GaiaMod extension gallery.')
     },
     turbowarp: {
         loading: createGalleryStatusItem('turbowarp', 'Loading TurboWarp extension gallery...'),
         more: createGalleryStatusItem('turbowarp', 'Learn more about extensions at extensions.turbowarp.org.'),
         error: createGalleryStatusItem('turbowarp', 'Error loading TurboWarp extension gallery. Visit extensions.turbowarp.org to find more extensions.')
+    },
+    cocreaworld: {
+        loading: createGalleryStatusItem('cocreaworld', 'Loading CCW extensions...'),
+        more: createGalleryStatusItem('cocreaworld', 'See some extensions at the Cocrea World Extension Marketplace.'),
+        error: createGalleryStatusItem('cocreaworld', 'Error loading CCW extensions.')
+    },
+    nitrobolt: {
+        loading: createGalleryStatusItem('nitrobolt', 'Loading NitroBolt extension gallery...'),
+        more: createGalleryStatusItem('nitrobolt', 'Learn more about extensions at extensions.nitrobolt.org.'),
+        error: createGalleryStatusItem('nitrobolt', 'Error loading NitroBolt extension gallery. Visit extensions.nitrobolt.org to find more extensions.')
+    },
+    astraeditor: {
+        loading: createGalleryStatusItem('astraeditor', 'Loading AstraEditor extension gallery...'),
+        more: createGalleryStatusItem('astraeditor', 'Learn more about extensions at editors.astras.top/extensions.'),
+        error: createGalleryStatusItem('astraeditor', 'Error loading AstraEditor extension gallery. Visit editors.astras.top/extensions to find more extensions.')
+    },
+	zerotwoengine: {
+        loading: createGalleryStatusItem('zerotwoengine', 'Loading 02Engine extension collection...'),
+        more: createGalleryStatusItem('zerotwoengine', 'See 02Engine extensions at GitHub.'),
+        error: createGalleryStatusItem('zerotwoengine', 'Error loading 02Engine extension collection.')
+    },
+    bilup: {
+        loading: createGalleryStatusItem('bilup', 'Loading Bilup extension gallery...'),
+        more: createGalleryStatusItem('bilup', 'Learn more about extensions at extensions.bilup.org.'),
+        error: createGalleryStatusItem('bilup', 'Error loading Bilup extension gallery. Visit extensions.bilup.org to find more extensions.')
+    },
+    mistium: {
+        loading: createGalleryStatusItem('mistium', 'Loading Mistium extension gallery...'),
+        more: createGalleryStatusItem('mistium', 'Learn more about Mistium at extensions.mistium.com.'),
+        error: createGalleryStatusItem('mistium', 'Error loading Mistium extension gallery. Visit extensions.mistium.com to find more extensions.')
+    },
+	dash: {
+        loading: createGalleryStatusItem('dash', 'Loading Dash extension gallery...'),
+        more: createGalleryStatusItem('dash', 'Learn more about extensions at dashblocks.org/extensions.'),
+        error: createGalleryStatusItem('dash', 'Error loading Dash extension gallery. Visit dashblocks.org/extensions to find more extensions.')
+    },
+	sharkpool: {
+        loading: createGalleryStatusItem('sharkpool', 'Loading SharkPool\'s extension collection...'),
+        more: createGalleryStatusItem('sharkpool', 'Tons of extensions created by SharkPool.'),
+        error: createGalleryStatusItem('sharkpool', 'Error loading SharkPool\'s extension collection.')
+    },
+    penguinmod: {
+        loading: createGalleryStatusItem('penguinmod', 'Loading PenguinMod Extra Extensions...'),
+        more: createGalleryStatusItem('penguinmod', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('penguinmod', 'Error loading PenguinMod Extra Extensions.')
+    },
+	snailide: {
+        loading: createGalleryStatusItem('snailide', 'Loading Snail-IDE Extra Extensions...'),
+        more: createGalleryStatusItem('snailide', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('snailide', 'Error loading Snail-IDE Extra Extensions.')
+    },
+	dinosaurmod: {
+        loading: createGalleryStatusItem('dinosaurmod', 'Loading DinosaurMod Extra Extensions...'),
+        more: createGalleryStatusItem('dinosaurmod', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('dinosaurmod', 'Error loading DinosaurMod Extra Extensions.')
+    },
+	electramod: {
+        loading: createGalleryStatusItem('electramod', 'Loading ElectraMod Extra Extensions...'),
+        more: createGalleryStatusItem('electramod', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('electramod', 'Error loading ElectraMod Extra Extensions.')
+    },
+	arkide: {
+        loading: createGalleryStatusItem('arkide', 'Loading Ark IDE Extra Extensions...'),
+        more: createGalleryStatusItem('arkide', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('arkide', 'Error loading Ark IDE Extra Extensions.')
+    },
+    gaiamod: {
+        loading: createGalleryStatusItem('gaiamod', 'Loading GaiaMod Extra Extensions...'),
+        more: createGalleryStatusItem('gaiamod', 'See some user-submitted extensions.'),
+        error: createGalleryStatusItem('gaiamod', 'Error loading GaiaMod Extra Extensions.')
+    },
+	other: {
+        loading: createGalleryStatusItem('other', 'Loading the Mega Repo extensions...'),
+        more: createGalleryStatusItem('other', 'A mega gallery for most of the extensions'),
+        error: createGalleryStatusItem('other', 'Error loading Mega Repo extensions.')
     }
 };
 

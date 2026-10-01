@@ -34,13 +34,13 @@ const Header = () => (
                         </span>
             </a>		
             <a
-                href="https://potentiamod.github.io/online/editor.html"
+                href="editor.html"
                 className={classNames(styles.headerItem, styles.hoverable)}
             >
                 Create
             </a>
             <a
-                href="https://potentiamod.github.io/online/credits.html"
+                href="credits.html"
                 className={classNames(styles.headerItem, styles.hoverable)}
             >
                 Credits

@@ -35,7 +35,20 @@ import defaultExtensionBanner from '../lib/libraries/extensions/potentiamod/plac
 import defaultICON from '../lib/libraries/extensions/icons/placeholder.svg';
 import POTIcon from '../lib/libraries/extensions/icons/potentiamod.svg';
 import TWIcon from '../lib/libraries/extensions/icons/turbowarp.svg';
+import CCWIcon from '../lib/libraries/extensions/icons/ccw.png';
+import NBIcon from '../lib/libraries/extensions/icons/nitrobolt.svg';
+import MWIcon from '../lib/libraries/extensions/icons/mistwarp.svg';
+import AEIcon from '../lib/libraries/extensions/icons/astraeditor.png';
+import ZTIcon from '../lib/libraries/extensions/icons/02engine.png';
+import BLIcon from '../lib/libraries/extensions/icons/bilup.svg';
+import DBIcon from '../lib/libraries/extensions/icons/dashblocks.svg';
+import PMIcon from '../lib/libraries/extensions/icons/penguinmod.svg';
+import ARKIcon from '../lib/libraries/extensions/icons/arkide.png';
+import SNIcon from '../lib/libraries/extensions/icons/snailide.png';
+import DMIcon from '../lib/libraries/extensions/icons/dinosaurmod.svg';
+import EMIcon from '../lib/libraries/extensions/icons/electramod.svg';
 import GMIcon from '../lib/libraries/extensions/icons/gaiamod.png';
+import SPIcon from '../lib/libraries/extensions/icons/sharkpool.svg';
 
 //Take that, MistWarp and Bilup!
 const TAG_STATUS_COLORS = {
@@ -81,24 +94,157 @@ const addGalleryUpdateListener = listener => {
 const gallerySources = [
     {
         id: 'potentiamod',
-        baseURL: 'https://potentiamod.github.io/pot-extensions/',
-        metadataURL: 'https://potentiamod.github.io/pot-extensions/generated-metadata/extensions-v0.json',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/potentiamod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/potentiamod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/potentiamod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/pot-extensions.json',
         icon: POTIcon,
         tag: 'potentia'
+    },		
+    {
+        id: 'turbowarp',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/turbowarp/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/turbowarp/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/turbowarp/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/tw-extensions.json',
+        icon: TWIcon,
+        tag: 'tw',
+    },
+	{
+        id: 'cocreaworld',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/cocreaworld/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/cocreaworld/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/cocreaworld/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ccw-extensions.json',
+        icon: CCWIcon,
+        tag: 'ccw'
+    },
+    {
+        id: 'nitrobolt',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/nitrobolt/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/nitrobolt/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/nitrobolt/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/nb-extensions.json',
+        icon: NBIcon,
+        tag: 'nb'
+    },
+    {
+        id: 'astraeditor',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/astraeditor/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/astraeditor/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/astraeditor/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ae-extensions.json',
+        icon: AEIcon,
+        tag: 'ae'
+    },	
+	{
+        id: 'zerotwoengine',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/zerotwoengine/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/zerotwoengine/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/zerotwoengine/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ztengine-extensions.json',
+        icon: ZTIcon,
+        tag: 'ztengine'
     },	
     {
+        id: 'bilup',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/bilup/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/bilup/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/bilup/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/bilup-extensions.json',
+        icon: BLIcon,
+        tag: 'bilup'
+    },	
+	{
+        id: 'mistium',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/mistium/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/mistium/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/mistium/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/mist-extensions.json',
+        icon: MWIcon,
+        tag: 'mist'
+    },
+	{
+        id: 'dash',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/dash/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/dash/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/dash/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/dash-extensions.json',
+        icon: DBIcon,
+        tag: 'dash'
+    },
+	{
+        id: 'sharkpool',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/sharkpool/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/sharkpool/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/sharkpool/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/sp-extensions.json',
+		icon: SPIcon,
+        tag: 'sp'
+    },
+    {
+        id: 'penguinmod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/penguinmod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/penguinmod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/penguinmod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/pm-extensions.json',
+		icon: PMIcon,
+        tag: 'pm'
+    },
+	{
+        id: 'snailide',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/snailide/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/snailide/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/snailide/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/sn-extensions.json',
+        icon: SNIcon,
+        tag: 'sn'
+    },
+	{
+        id: 'dinosaurmod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/dinosaurmod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/dinosaurmod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/dinosaurmod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/dm-extensions.json',
+        icon: DMIcon,
+        tag: 'dm'
+    },
+	{
+        id: 'electramod',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/electramod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/electramod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/electramod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/em-extensions.json',
+        icon: EMIcon,
+        tag: 'em'
+    },
+	{
+        id: 'arkide',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/arkide/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/arkide/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/arkide/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/ark-extensions.json',
+        icon: ARKIcon,
+        tag: 'ark'
+    },
+    {
         id: 'gaiamod',
-        baseURL: 'https://gaiawindwave90.github.io/gm-extensions/',
-        metadataURL: 'https://gaiawindwave90.github.io/gm-extensions/generated-metadata/extensions-v0.json',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/gaiamod/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/gaiamod/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/gaiamod/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/gm-extensions.json',
         icon: GMIcon,
         tag: 'gaia'
     },
-    {
-        id: 'turbowarp',
-        baseURL: 'https://extensions.turbowarp.org/',
-        metadataURL: 'https://extensions.turbowarp.org/generated-metadata/extensions-v0.json',
-        icon: TWIcon,
-        tag: 'tw',
+	//Others always the end
+	{
+        id: 'other',
+        baseURL: 'https://potentiamod.github.io/extensions/extensions/other/',
+        baseImageURL: 'https://potentiamod.github.io/extensions/img/other/',
+        baseSamplesURL: 'https://potentiamod.github.io/extensions/samples/other/',
+        metadataURL: 'https://potentiamod.github.io/extensions/data/metadata/other-extensions.json',
+        icon: defaultICON,
+        tag: 'other'
     },
 ];
 
@@ -157,7 +303,7 @@ const mapGalleryExtension = (extension, source) => ({
     descriptionTranslations: extension.descriptionTranslations || {},
     extensionId: extension.id || extension.extensionId || extension.eid,
     extensionURL: `${source.baseURL}${extension.slug || extension.URL || extension.url || extension.extensionURL || extension.code}.js`,
-    iconURL: extension.image ? `${source.baseURL}${extension.image}` : extension.cover ? `${source.baseURL}${extension.cover}` : extension.banner ? `${source.baseURL}${extension.banner}` : extension.thumb ? `${source.baseURL}${extension.thumb}` : extension.iconURL ? `${source.baseURL}${extension.iconURL}` : defaultExtensionBanner,
+    iconURL: extension.image ? `${source.baseImageURL}${extension.image}` : extension.cover ? `${source.baseImageURL}${extension.cover}` : extension.banner ? `${source.baseImageURL}${extension.banner}` : extension.thumb ? `${source.baseImageURL}${extension.thumb}` : extension.iconURL ? `${source.baseImageURL}${extension.iconURL}` : defaultExtensionBanner,
     tags: [source.tag],
 	insetIconURL: [source.icon] || defaultICON,
     credits: [
@@ -183,7 +329,7 @@ const mapGalleryExtension = (extension, source) => ({
         }),
         docsURI: extension.docs ? `${source.baseURL}${extension.slug || extension.URL || extension.url || extension.extensionURL || extension.code}` : null,
     samples: extension.samples ? extension.samples.map(sample => ({
-        href: `${process.env.ROOT}editor?project_url=${source.baseURL}samples/${encodeURIComponent(sample)}.sb3`,
+        href: `${process.env.ROOT}editor?project_url=${source.baseSamplesURL}${encodeURIComponent(sample)}.sb3`,
         text: sample
     })) : null,
     featured: true
