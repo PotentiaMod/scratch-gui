@@ -288,7 +288,7 @@ module.exports = [
                         test: /\.(svg|png|wav|mp3|gif|jpg|webp|woff2|ttf|otf|hex)$/,
                         loader: 'url-loader',
                         options: {
-                            limit: 2048,
+                            limit: 3048,
                             outputPath: 'static/assets/',
                             publicPath: `${STATIC_PATH}/assets/`,
                             esModule: false

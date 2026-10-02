@@ -213,6 +213,22 @@ const ACCENT_MAP = {
     [ACCENT_CUSTOM]: accentCustom
 };
 
+const ACCENT_GROUPS = [
+    {
+        label: {id: 'tw.accentGroup.colorsOriginal', defaultMessage: 'Original Colors'},
+        accents: ['indigo', 'magenta', 'pink', 'orange', 'yellow', 'green', 'dark-green', 'red', 'purple', 'blue']
+    },
+    {
+        label: {id: 'tw.accentGroup.colorsSpecial', defaultMessage: 'Special Colors'},
+        accents: ['cyan', 'lime', 'magenta-purple', 'indigo-blue', 'corrupted-blue', 'gaia-blue']
+    },
+    {
+        label: {id: 'tw.accentGroup.gradients', defaultMessage: 'Gradients'},
+        accents: ['cottoncandy', 'omnimax-blue', 'hotfuse', 'nitrofire', 'nebula', 'cosmic',
+		          'aurora', 'mint', 'rainbow']
+    }
+];
+
 const AccentOptions = defineMessages({
     [ACCENT_INDIGO]: {
         defaultMessage: 'Indigo',
@@ -718,6 +734,7 @@ export {
     ACCENT_HOT_FUSE,
 	ACCENT_CUSTOM,
     ACCENT_MAP,
+    ACCENT_GROUPS,
 	AccentIcons,
     AccentOptions,
 

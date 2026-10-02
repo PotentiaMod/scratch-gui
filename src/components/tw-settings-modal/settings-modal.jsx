@@ -15,9 +15,11 @@ import swapIcon from './swap-icon.svg';
 import {APP_NAME} from '../../lib/brand.js';
 import VM from 'scratch-vm';
 import AddonSettingsComponent from '../../addons/settings/settings.jsx';
+import {onExportSettings} from '../../playground/addon-settings.jsx';
+import {closeEditorSettingsModal, openCustomAccentModal} from '../../reducers/modals.js';
 import {setTheme} from '../../reducers/theme.js';
 import {persistTheme, detectTheme} from '../../lib/themes/themePersistance.js';
-import {GUI_DARK, GUI_LIGHT, Theme} from '../../lib/themes/index.js';
+import {GUI_CUSTOM, GUI_MAP, ACCENT_CUSTOM, ACCENT_MAP, ACCENT_GROUPS, AccentIcons, AccentOptions, Theme} from '../../lib/themes/index.js';
 
 /* eslint-disable react/no-multi-comp */
 
@@ -25,9 +27,10 @@ const BufferedInput = BufferedInputHOC(Input);
 
 // Copied from Nyx IDE
 const STAGE_SIZE_PRESETS = [
-    {label: '360x360', width: 360, height: 360},
-    {label: '480x360', width: 480, height: 360},
-	{label: '640x360', width: 640, height: 360}
+    {label: 'Square', width: 360, height: 360},
+    {label: 'Standard', width: 480, height: 360},
+	{label: 'Widescreen', width: 640, height: 360},
+	{label: 'Ex. Thumbnail', width: 600, height: 300}
 ];
 const messages = defineMessages({
     title: {
@@ -537,7 +540,7 @@ const CustomStageSize = ({
         help={(
             <FormattedMessage
                 // eslint-disable-next-line max-len
-                defaultMessage="Changes the size of the Scratch stage from 480x360 to something else. Try 640x360 to make the stage widescreen. Very few projects will handle this properly."
+                defaultMessage="Changes the size of the PotentiaMod stage from its standard size to something else. Try widescreen. Very few projects will handle this properly."
                 description="Custom Stage Size option"
                 id="tw.settingsModal.customStageSizeHelp"
             />
@@ -741,7 +744,6 @@ ProjectSizeTracker.propTypes = {
 };
 
 
-
 const SettingsModalComponent = props => {
     const [activeTab, setActiveTab] = React.useState('render');
 	const [dirty, setDirty] = useState(false);
@@ -795,18 +797,6 @@ const SettingsModalComponent = props => {
                                 defaultMessage="Optimization"
                                 description="Settings tab"
                                 id="tw.settingsModal.optimization"
-                            />
-                        </button>
-                        <button
-                            className={classNames(styles.tabButton, {
-                                [styles.tabButtonActive]: activeTab === 'projectInfo'
-                            })}
-                            onClick={() => setActiveTab('projectInfo')}
-                        >
-                            <FormattedMessage
-                                defaultMessage="Project Information"
-                                description="Settings tab"
-                                id="tw.settingsModal.projectInfo"
                             />
                         </button>
                     </div>
@@ -872,11 +862,7 @@ const SettingsModalComponent = props => {
                                 />
                             </div>
                         )}
-                        {activeTab === 'projectInfo' && (
-                            <div>
-                                <ProjectSizeTracker vm={props.vm} />
-                            </div>
-                        )}
+						
                     </div>
                 </div>
             </Box>
@@ -910,7 +896,9 @@ SettingsModalComponent.propTypes = {
     disableOffscreenRendering: PropTypes.bool,
     onDisableOffscreenRenderingChange: PropTypes.func,
     disableBlur: PropTypes.bool,
-    onDisableBlurChange: PropTypes.func
+    onDisableBlurChange: PropTypes.func,
+    addons: PropTypes.bool,
+    onaddonsChange: PropTypes.func
 };
 
 export default injectIntl(SettingsModalComponent);
