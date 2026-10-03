@@ -45,9 +45,9 @@ const base = {
                 {from: /^\/\d+\/fullscreen\/?$/, to: '/fullscreen.html'},
                 {from: /^\/\d+\/editor\/?$/, to: '/editor.html'},
                 {from: /^\/\d+\/embed\/?$/, to: '/embed.html'},
-                {from: /^\/\d+\/404\/?$/, to: '/404.html'},
-                {from: /^\/\d+\/pot-desktop\/?$/, to: '/pot-desktop.html'},
-                {from: /^\/addons\/?$/, to: '/addons.html'}
+                {from: /^\/addons\/?$/, to: '/addons.html'},
+				{from: /^\/\d+\/404\/?$/, to: '/404.html'},
+                {from: /^\/\d+\/pot-desktop\/?$/, to: '/pot-desktop.html'}
             ]
         }
     },
@@ -288,7 +288,7 @@ module.exports = [
                         test: /\.(svg|png|wav|mp3|gif|jpg|webp|woff2|ttf|otf|hex)$/,
                         loader: 'url-loader',
                         options: {
-                            limit: 3048,
+                            limit: 2048,
                             outputPath: 'static/assets/',
                             publicPath: `${STATIC_PATH}/assets/`,
                             esModule: false
