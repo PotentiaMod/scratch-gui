@@ -1648,7 +1648,7 @@ const menuItems = [
 	//More Ext Galleries besides ones
 	{
         name: 'Former VM Extension Collection',
-        href: 'https://gaiawindwave90.github.io/VM-to-JS-Extensions/?originPot=true',
+        href: 'https://gaiawindwave90.github.io/VM-to-JS-Extensions/?originSpecial=true',
         extensionId: 'VMExtLibrary',
         iconURL: require('../extensions/potentiamod/vm_library.svg'),
         description: 'Tons of extensions converted from built-ins.\n\nClick on an extension to add it to your project.',
