@@ -20,7 +20,7 @@ const manifest = {
       "type": "integer",
       "min": 0,
       "max": 10000,
-      "default": 250
+      "default": 50
     },
     {
       "name": "Eraser Smoothing",
@@ -28,7 +28,7 @@ const manifest = {
       "type": "integer",
       "min": 0,
       "max": 10000,
-      "default": 250
+      "default": 50
     },
     {
       "name": "Pen Smoothing",
@@ -36,7 +36,7 @@ const manifest = {
       "type": "integer",
       "min": 0,
       "max": 10000,
-      "default": 250
+      "default": 50
     },
   ],
   "dynamicEnable": true,

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {connect} from 'react-redux';
 
 import LanguageMenu from './language-menu.jsx';
 import MenuBarMenu from './menu-bar-menu.jsx';
@@ -17,6 +18,8 @@ import TWGoIcon from './tw-go-icon.jsx';
 import InstallPWA from './install-pwa.jsx';
 import {APP_NAME, MOTTO} from '../../lib/brand.js';
 import {APP_VERSION} from '../../lib/version.js';
+import {closeSettingsMenu} from '../../reducers/menus.js';
+import {openTipsLibrary, openExtensionManagerModal, openSettingsModal, openRestorePointModal, openCustomExtensionModal} from '../../reducers/modals';
 
 import menuBarStyles from './menu-bar.css';
 import styles from './settings-menu.css';
@@ -31,6 +34,7 @@ const SettingsMenu = ({
     onClickDesktopSettings,
     onOpenCustomSettings,
     onOpenAltCustomSettings,
+	onClickSettings,
     onRequestClose,
     onRequestOpen,
     settingsMenuOpen,
@@ -76,6 +80,26 @@ const SettingsMenu = ({
                     </React.Fragment>
                 )}
             </MenuSection>
+				<MenuSection>
+                <MenuItem>
+                    <div
+                        className={styles.option}
+                        onClick={onClickSettings}
+                    >
+                        <img
+                            src={settingsIcon}
+                            draggable={false}
+                            width={24}
+                            height={24}
+                        />
+                        <FormattedMessage
+                            defaultMessage="More Settings"
+                            description="Settings menu"
+                            id="gui.menuBar.editorSettings"
+                        />
+                    </div>
+                </MenuItem>
+            </MenuSection>
 			<MenuSection>
 			{onClickDesktopSettings && <TWDesktopSettings onClick={onClickDesktopSettings} />}
                <InstallPWA />
@@ -95,6 +119,7 @@ SettingsMenu.propTypes = {
     isRtl: PropTypes.bool,
     onClickDesktopSettings: PropTypes.func,
     onOpenCustomSettings: PropTypes.func,
+	onClickSettings: PropTypes.func,
     onRequestClose: PropTypes.func,
     onRequestOpen: PropTypes.func,
     settingsMenuOpen: PropTypes.bool,
@@ -102,4 +127,16 @@ SettingsMenu.propTypes = {
     onRestoreDefaultProject: PropTypes.func
 };
 
-export default SettingsMenu;
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = dispatch => ({
+    onClickSettings: () => {
+        dispatch(openSettingsModal());
+        dispatch(closeSettingsMenu());
+    }
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SettingsMenu);

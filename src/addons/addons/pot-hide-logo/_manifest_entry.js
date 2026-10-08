@@ -15,7 +15,7 @@ const manifest = {
     }
   ],
   "enabledByDefault": false,
-  "dynamicDisable": true,
+  "dynamicDisable": false,
   "userstyles": [
     {
       "url": "hide-logo.css"

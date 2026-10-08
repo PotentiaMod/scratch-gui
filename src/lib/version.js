@@ -1,6 +1,6 @@
 // Legacy export format because this is used by some build-time scripts stuck in the past.
 // eslint-disable-next-line import/no-commonjs
 module.exports = {
-    APP_VERSION: '1.2.4',
+    APP_VERSION: '1.2.5',
     DESKTOP_VERSION: '1.2.1'
 };

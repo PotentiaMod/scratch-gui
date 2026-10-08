@@ -953,15 +953,6 @@ class MenuBar extends React.Component {
                                         </MenuItem>
                                     )}</CloudVariablesToggler>
                                 </MenuSection>
-                                <MenuSection>
-                                    <MenuItem onClick={this.props.onClickSettingsModal}>
-                                        <FormattedMessage
-                                            defaultMessage="Project Settings"
-                                            description="Menu bar item for project settings"
-                                            id="tw.menuBar.moreSettings"
-                                        />
-                                    </MenuItem>
-                                </MenuSection>
 								<MenuSection>
 								<MenuItem onClick={this.props.onClickCustomExtensionModal}>
                                         <FormattedMessage
@@ -1024,26 +1015,6 @@ class MenuBar extends React.Component {
                             </MenuLabel>
                         )}
 
-                        {this.props.onClickAddonSettings && (
-                            <div
-                                className={classNames(styles.menuBarItem, styles.hoverable)}
-                                onClick={this.props.onClickAddonSettings}
-                            >
-                                <img
-                                    src={addonsIcon}
-                                    draggable={false}
-                                    width={20}
-                                    height={20}
-                                />
-                                <span className={styles.collapsibleLabel}>
-                                    <FormattedMessage
-                                        defaultMessage="Addons"
-                                        description="Button to open addon settings"
-                                        id="tw.menuBar.addons"
-                                    />
-                                </span>
-                            </div>
-                        )}
                     </div>
 
                     <Divider className={styles.divider} />

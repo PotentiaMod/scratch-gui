@@ -11,7 +11,6 @@ import DocumentationLink from '../tw-documentation-link/documentation-link.jsx';
 import FancyCheckbox from '../tw-fancy-checkbox/checkbox.jsx';
 import Input from '../forms/input.jsx';
 import BufferedInputHOC from '../forms/buffered-input-hoc.jsx';
-import {onExportSettings} from '../../playground/addon-settings-pot.jsx';
 import {connect} from 'react-redux';
 import helpIcon from './help-icon.svg';
 import swapIcon from './swap-icon.svg';
@@ -26,6 +25,10 @@ import {setTheme} from '../../reducers/theme.js';
 import {persistTheme, detectTheme} from '../../lib/themes/themePersistance.js';
 import {GUI_CUSTOM, GUI_MAP, ACCENT_CUSTOM, ACCENT_MAP, ACCENT_GROUPS, AccentIcons, AccentOptions, Theme} from '../../lib/themes/index.js';
 
+/* eslint-disable react/no-multi-comp */
+
+const BufferedInput = BufferedInputHOC(Input);
+
 // Copied from Nyx IDE
 const STAGE_SIZE_PRESETS = [
     {label: 'Square', width: 360, height: 360},
@@ -33,53 +36,69 @@ const STAGE_SIZE_PRESETS = [
 	{label: 'Widescreen', width: 640, height: 360},
 	{label: 'Ex. Thumbnail', width: 600, height: 300}
 ];
-
 const messages = defineMessages({
     title: {
-        defaultMessage: 'Settings',
+        defaultMessage: 'Editor Settings',
         description: 'Title of editor settings modal',
-        id: 'tw.editorSettings.title'
+        id: 'nb.editorSettings.title'
     },
     help: {
         defaultMessage: 'Click for help',
         description: 'Hover text of help icon in settings',
-        id: 'tw.editorSettings.help'
+        id: 'nb.editorSettings.help'
     },
     general: {
-        id: 'tw.editorSettings.generalSection',
+        id: 'nb.editorSettings.generalSection',
         defaultMessage: 'General'
     },
-    limits: {
-        id: 'tw.editorSettings.limitsSection',
-        defaultMessage: 'Limits'
-    },
-    optimization: {
-        id: 'tw.editorSettings.optimizationSection',
-        defaultMessage: 'Pptimization'
-    },
-    projectsize: {
-        id: 'tw.editorSettings.projectsizeSection',
-        defaultMessage: 'Project Size'
-    },
     security: {
-        id: 'tw.editorSettings.securitySection',
+        id: 'nb.editorSettings.securitySection',
         defaultMessage: 'Security'
     },
-    other: {
-        id: 'tw.editorSettings.otherSection',
-        defaultMessage: 'Other'
-    },
     addons: {
-        id: 'tw.editorSettings.addonsSection',
+        id: 'nb.editorSettings.addonsSection',
         defaultMessage: 'Addons'
     },
-	danger: {
-        id: 'tw.editorSettings.dangerSection',
-        defaultMessage: 'Danger Zone!'
+    display: {
+        id: 'nb.editorSettings.displaySection',
+        defaultMessage: 'Display'
     }
 });
 
-const BufferedInput = BufferedInputHOC(Input);
+const hexToRgb = hex => {
+    const h = hex.replace('#', '');
+    return {
+        r: parseInt(h.slice(0, 2), 16),
+        g: parseInt(h.slice(2, 4), 16),
+        b: parseInt(h.slice(4, 6), 16)
+    };
+};
+
+const rgbToHex = ({r, g, b}) =>
+    `#${[r, g, b]
+        .map(v => Math.round(Math.max(0, Math.min(255, v)))
+            .toString(16)
+            .padStart(2, '0')
+        )
+        .join('')}`;
+
+const mixTowardWhite = (hex, fraction) => {
+    const {r, g, b} = hexToRgb(hex);
+    return rgbToHex({
+        r: r + ((255 - r) * fraction),
+        g: g + ((255 - g) * fraction),
+        b: b + ((255 - b) * fraction)
+    });
+};
+
+const colorBrightness = hex => {
+    const {r, g, b} = hexToRgb(hex);
+    return ((299 * r) + (587 * g) + (114 * b)) / 1000;
+};
+
+const labelContrastDefault = 190;
+const labelContrastShades = [-0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.75, 0.9];
+const labelDarkColor = '#575E75';
 
 const LearnMore = props => (
     <React.Fragment>
@@ -179,7 +198,6 @@ BooleanSetting.propTypes = {
     label: PropTypes.node.isRequired
 };
 
-///////////////////////////////////////////
 const HighQualityPen = props => (
     <BooleanSetting
         {...props}
@@ -528,7 +546,7 @@ const StoreProjectOptions = ({onStoreProjectOptions}) => (
             <p>
                 <FormattedMessage
                     // eslint-disable-next-line max-len
-                    defaultMessage="Stores the selected settings in the project so they will be automatically applied when PotentiaMod loads this project. Warp timer and disable compiler will not be saved."
+                    defaultMessage="Stores the selected settings in the project so they will be automatically applied when TurboWarp loads this project. Warp timer and disable compiler will not be saved."
                     description="Help text for the store settings in project button"
                     id="tw.settingsModal.storeProjectOptionsHelp"
                 />
@@ -539,7 +557,17 @@ const StoreProjectOptions = ({onStoreProjectOptions}) => (
 StoreProjectOptions.propTypes = {
     onStoreProjectOptions: PropTypes.func
 };
-///////////////////////////////////////////
+
+const Header = props => (
+    <div className={styles.header}>
+        {props.children}
+        <div className={styles.divider} />
+    </div>
+);
+Header.propTypes = {
+    children: PropTypes.node
+};
+
 const ProjectSizeTracker = ({ vm }) => {
     const [projectSize, setProjectSize] = React.useState(0);
 
@@ -645,13 +673,13 @@ const ProjectSizeTracker = ({ vm }) => {
                 </div>
             </div>
                 <FormattedMessage
-                    defaultMessage="This is a tracker to make sure that your project stays under the upload limit for the PotentiaMod/Scratch web."
+                    defaultMessage="This is a tracker to make sure that your project stays under the upload limit for the PotentiaMod web."
                     description="Project size tracker header"
                     id="tw.settingsModal.sizedisc"
                 />
             <div className={styles.projectSizeInfo}>
                 <FormattedMessage
-                    defaultMessage="Upload limit for Scratch: {limit}"
+                    defaultMessage="Upload limit for PotentiaMod: {limit}"
                     description="Upload limit info"
                     id="tw.settingsModal.uploadLimit"
                     values={{
@@ -663,7 +691,7 @@ const ProjectSizeTracker = ({ vm }) => {
             {isOverLimit && (
                 <div className={styles.projectSizeDangerText}>
                     <FormattedMessage
-                        defaultMessage=" Your project is over the 64MB upload limit. You won't be able to upload this project to the PotentiaMod/Scratch website until you reduce its size by removing unused costumes or sounds."
+                        defaultMessage=" Your project is over the 64MB upload limit. You won't be able to upload this project to the PotentiaMod website until you reduce its size by removing unused costumes or sounds."
                         description="Over limit warning"
                         id="tw.settingsModal.overLimitWarning"
                     />
@@ -686,181 +714,74 @@ const ProjectSizeTracker = ({ vm }) => {
 ProjectSizeTracker.propTypes = {
     vm: PropTypes.instanceOf(VM).isRequired
 };
-///////////////////////////////////////////
 
-const Section = ({title, children}) => {
-    const [expanded, setExpanded] = useState(true);
+
+const SettingsModalComponent = props => {
+    const [activeTab, setActiveTab] = React.useState('render');
+	const [dirty, setDirty] = useState(false);
+
     return (
-        <div className={styles.section}>
-            <div
-                className={styles.sectionTitle}
-                // eslint-disable-next-line react/jsx-no-bind
-                onClick={() => setExpanded(e => !e)}
-            >
-                <span>{title}</span>
-                <button className={styles.sectionDropdownCaret}>
-                    <img
-                        className={classNames(styles.collapseArrow, {
-                            [styles.collapseArrowExpanded]: expanded
-                        })}
-                        src={dropdownCaret}
-                        draggable={false}
-                    />
-                </button>
-                <div className={styles.sectionDivider} />
-            </div>
-            {expanded && (
-                <div className={styles.sectionBody}>
-                    {children}
-                </div>
-            )}
-        </div>
-    );
-};
-Section.propTypes = {
-    title: PropTypes.node.isRequired,
-    children: PropTypes.node
-};
+        <Modal
+            className={styles.modalContent}
+            onRequestClose={(...args) => {
+                if (!props.isEmbedded) {
+                    props.onStoreProjectOptions();
+                }
+                props.onClose(...args)
+            }}
+            contentLabel={props.intl.formatMessage(messages.title)}
+            id="settingsModal"
+        >
+            <Box className={styles.body}>
+                <div className={styles.tabContainer}>
+                    <div className={styles.sidebar}>
+                        <button
+                            className={classNames(styles.tabButton, {
+                                [styles.tabButtonActive]: activeTab === 'render'
+                            })}
+                            onClick={() => setActiveTab('render')}
+                        >
+                            <FormattedMessage
+                                defaultMessage="Render"
+                                description="Settings tab"
+                                id="tw.settingsModal.render"
+                            />
+                        </button>
+                        <button
+                            className={classNames(styles.tabButton, {
+                                [styles.tabButtonActive]: activeTab === 'limits'
+                            })}
+                            onClick={() => setActiveTab('limits')}
+                        >
+                            <FormattedMessage
+                                defaultMessage="Limits"
+                                description="Settings tab"
+                                id="tw.settingsModal.limits"
+                            />
+                        </button>
+                        <button
+                            className={classNames(styles.tabButton, {
+                                [styles.tabButtonActive]: activeTab === 'optimization'
+                            })}
+                            onClick={() => setActiveTab('optimization')}
+                        >
+                            <FormattedMessage
+                                defaultMessage="Optimization"
+                                description="Settings tab"
+                                id="tw.settingsModal.optimization"
+                            />
+                        </button>
+                    </div>
 
-const CollapsibleSetting = ({label, help, children}) => {
-    const [expanded, setExpanded] = useState(false);
-    return (
-        <Setting
-            help={help}
-            primary={
-                <button
-                    className={classNames(styles.label, styles.collapseButton)}
-                    onClick={() => setExpanded(e => !e)}
-                >
-                    {label}
-                    <img
-                        className={classNames(styles.collapseArrow, {
-                            [styles.collapseArrowExpanded]: expanded
-                        })}
-                        src={dropdownCaret}
-                    />
-                </button>
-            }
-            secondary={
-                expanded && children
-            }
-        />
-    );
-};
-CollapsibleSetting.propTypes = {
-    label: PropTypes.node.isRequired,
-    help: PropTypes.node,
-    children: PropTypes.node
-};
-
-
-const EditorSettingsModal = props => {
-    const [selectedSectionIndex, setSelectedSectionIndex] = useState(props.activeTab ?? 0);
-    const [windchimeOptOut, setWindchimeOptOut] = useState(localStorage.getItem('tw:windchime_opt_out') === 'true');
-    const [dirty, setDirty] = useState(false);
-
-    const sections = [
-        {
-            title: messages.general,
-            content: <Box>
-                <Section
-                    title={<FormattedMessage
-                        id="tw.editorSettings.personal"
-                        defaultMessage="Personal"
-                    />}
-                >
-                    {props.usernameInvalid && <p className={classNames(styles.helpText, styles.mustChange)}>
-                        <FormattedMessage
-                        // eslint-disable-next-line max-len
-                            defaultMessage="Sorry, the cloud variable server thinks your username may be unsafe. Please change it to something else or {resetIt}."
-                            id="tw.editorSettings.username.mustChange"
-                            values={{
-                                resetIt: (
-                                    <a
-                                        className={styles.resetLink}
-                                        // eslint-disable-next-line react/jsx-no-bind
-                                        onClick={() => props.onSetUsername(isScratchDesktop() ? 'player' : generateRandomUsername())}
-                                    >
-                                        <FormattedMessage
-                                            defaultMessage="reset it (recommended)"
-                                            description="link to reset username"
-                                            id="tw.editorSettings.username.mustChange.resetIt"
-                                        />
-                                    </a>
-                                )
-                            }}
-                        />
-                    </p>}
-					
-                    <Setting
-                        primary={(
-                            <div className={classNames(styles.label, styles.customStageSize)}>
-                                <FormattedMessage
-                                    defaultMessage="Username:"
-                                    id="tw.editorSettings.username"
+                    <div className={styles.tabContent}>
+                    {activeTab === 'render' && (
+                        <div>
+                            {!props.isEmbedded && (
+                                <CustomStageSize
+                                    {...props}
                                 />
-                                <BufferedInput
-                                    value={props.username}
-                                    // eslint-disable-next-line react/jsx-no-bind
-                                    onSubmit={value => {
-                                        props.onSetUsername(value);
-                                    }}
-                                    type="text"
-                                    pattern="[a-zA-Z0-9_\-]*"
-                                    maxLength="20"
-                                    spellCheck="false"
-                                />
-                            </div>
-                        )}
-                        help={<>
-                            <p>
-                                <FormattedMessage
-                                    id="tw.editorSettings.usernameHelp"
-                                    defaultMessage="This value will be stored in your browser's storage. It may be logged when you interact with projects that contain cloud variables. It will also be used for Live Collaboration."
-                                />
-                            </p>
-							
-                            <p>
-                                <FormattedMessage
-                                    id="tw.editorSettings.usernameHelp2"
-                                    defaultMessage="Values that do not correspond to a valid Scratch account will typically be rejected by the cloud variable server. We recommend leaving it as-is or changing it to your Scratch username."
-                                />
-                            </p>
-                        </>}
-                    />
-					</Section>
-					
-                    <Box>
-                        <BooleanSetting
-                            value={!windchimeOptOut}
-                            label={<FormattedMessage
-                                id="tw.editorSettings.viewCounter"
-                                defaultMessage="Allow counting my views"
-                            />}
-                            help={<>
-                                <FormattedMessage
-                                    id="tw.editorSettings.viewCounterHelp"
-                                    defaultMessage="When you start a project that is loaded from Scratch, this may be logged so that a view counter can be incremented over time. Views are anonymous and can not be tied back to any user."
-                                /> <a
-                                    href="/privacy.html"
-                                    target="_blank"
-                                >
-                                    <FormattedMessage
-                                        id="tw.editorSettings.viewCounterPrivacyLink"
-                                        defaultMessage="Privacy policy"
-                                    />
-                                </a>
-                            </>}
-                            // eslint-disable-next-line react/jsx-no-bind
-                            onChange={e => {
-                                localStorage.setItem('tw:windchime_opt_out', !e.target.checked);
-                                setWindchimeOptOut(!e.target.checked);
-                            }}
-                        />
-                    </Box>
-					
-					 <Box>
-                       <CustomFPS
+                            )}
+                            <CustomFPS
                                 framerate={props.framerate}
                                 onChange={props.onFramerateChange}
                                 onCustomizeFramerate={props.onCustomizeFramerate}
@@ -869,14 +790,12 @@ const EditorSettingsModal = props => {
                                 value={props.highQualityPen}
                                 onChange={props.onHighQualityPenChange}
                             />
-                    </Box>
-					
-            </Box>
-        },
-		{
-            title: messages.limits,
-            content: <Box>
-                <InfiniteClones
+                        </div>
+                    )}
+
+                        {activeTab === 'limits' && (
+                            <div>
+                                <InfiniteClones
                                     value={props.infiniteClones}
                                     onChange={props.onInfiniteClonesChange}
                                 />
@@ -892,143 +811,49 @@ const EditorSettingsModal = props => {
                                     value={props.warpTimer}
                                     onChange={props.onWarpTimerChange}
                                 />
-            </Box>
-        },
-		{
-            title: messages.addons,
-            content: <AddonSettingsComponent
-                // eslint-disable-next-line react/jsx-no-bind
-                onDirty={d => setDirty(d)}
-                onExportSettings={onExportSettings}
-            />,
-            escaped: true
-        },
-		{
-            title: messages.danger,
-            content: <Box>
-			{!props.isEmbedded && (
-                                <CustomStageSize
-                                    {...props}
-                                />
-                            )}
-                <DisableCompiler
-                value={props.disableCompiler}
-                onChange={props.onDisableCompilerChange}
-            />
-            {!props.isEmbedded && (
-                <StoreProjectOptions
-                    {...props}
-                />
-            )}
-            </Box>
-        },
-		{
-            title: messages.projectsize,
-            content: <Box>
-			<ProjectSizeTracker vm={props.vm} />
-            </Box>
-        }
+                            </div>
+                        )}
 
-   ];
-
-    return (
-        <Modal
-            className={styles.modalContent}
-            onRequestClose={props.onClose}
-            contentLabel={props.intl.formatMessage(messages.title)}
-            id="editorSettingsModal"
-        >
-            <Box className={styles.body}>
-                <div className={styles.topicList}>
-                    <div className={styles.navigation}>
-                        {sections.map((section, index) => (
-                            <div
-                                key={index}
-                                className={classNames(styles.topicItem, {
-                                    [styles.active]: selectedSectionIndex === index
-                                })}
-                                // eslint-disable-next-line react/jsx-no-bind
-                                onClick={() => setSelectedSectionIndex(index)}
-                            >
-                                {section.icon &&
-                                    <img
-                                        src={section.icon}
-                                        width="20"
-                                        height="20"
-                                    />
-                                }
-                                <FormattedMessage
-                                    {...section.title}
+                        {activeTab === 'optimization' && (
+                            <div>
+                                <Interpolation
+                                    value={props.interpolation}
+                                    onChange={props.onInterpolationChange}
                                 />
                             </div>
-                        ))}
-                    </div>
-                    {dirty && (
-                        <button
-                            className={classNames(styles.button, styles.dirtyButton)}
-                            // eslint-disable-next-line react/jsx-handler-names
-                            onClick={() => location.reload()}
-                        >
-                            <FormattedMessage
-                                id="tw.editorSettings.dirty"
-                                defaultMessage="Refresh to apply settings"
-                            />
-                        </button>
-                    )}
-                </div>
-                {sections[selectedSectionIndex].escaped ?
-                    <div
-                        className={classNames(
-                            styles.content,
-                            styles.escaped
                         )}
-                    >
-                        {sections[selectedSectionIndex].content}
-                    </div> :
-                    <div className={styles.content}>
-                        <h1><FormattedMessage {...sections[selectedSectionIndex].title} /></h1>
-                        {sections[selectedSectionIndex].content}
+						
                     </div>
-                }
+                </div>
             </Box>
         </Modal>
     );
 };
-
-EditorSettingsModal.propTypes = {
-    intl: intlShape,
-    // eslint-disable-next-line react/no-unused-prop-types
-    isRtl: PropTypes.bool,
-    onClose: PropTypes.func.isRequired,
-    onSetUsername: PropTypes.func,
-    preferences: PropTypes.object.isRequired,
-    onSetPreference: PropTypes.func.isRequired,
-    vm: PropTypes.object,
-    username: PropTypes.string,
-    usernameInvalid: PropTypes.bool,
-    activeTab: PropTypes.number
+SettingsModalComponent.propTypes = {
+     intl: intlShape,
+    onClose: PropTypes.func,
+    isEmbedded: PropTypes.bool,
+    vm: PropTypes.instanceOf(VM), 
+    framerate: PropTypes.number,
+    onFramerateChange: PropTypes.func,
+    onCustomizeFramerate: PropTypes.func,
+    highQualityPen: PropTypes.bool,
+    onHighQualityPenChange: PropTypes.func,
+    interpolation: PropTypes.bool,
+    onInterpolationChange: PropTypes.func,
+    infiniteClones: PropTypes.bool,
+    onInfiniteClonesChange: PropTypes.func,
+    removeFencing: PropTypes.bool,
+    onRemoveFencingChange: PropTypes.func,
+    removeLimits: PropTypes.bool,
+    onRemoveLimitsChange: PropTypes.func,
+    warpTimer: PropTypes.bool,
+    onWarpTimerChange: PropTypes.func,
+    disableCompiler: PropTypes.bool,
+    dangerousOptimizations: PropTypes.bool,
+    onDisableCompilerChange: PropTypes.func,
+    addons: PropTypes.bool,
+    onaddonsChange: PropTypes.func
 };
 
-EditorSettingsModal.defaultProps = {
-};
-
-const mapStateToProps = state => ({
-    username: state.scratchGui.tw.username,
-    usernameInvalid: state.scratchGui.tw.usernameInvalid,
-    activeTab: state.scratchGui.modals.editorSettingsModalTab,
-    preferences: state.scratchGui.preferences,
-    vm: state.scratchGui.vm
-});
-
-const mapDispatchToProps = dispatch => ({
-    onSetPreference: (key, value) => dispatch(setPreference(key, value)),
-    onSetUsername: username => {
-        dispatch(setUsername(username));
-        dispatch(setUsernameInvalid(false));
-    }
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(injectIntl(EditorSettingsModal));
+export default injectIntl(SettingsModalComponent);
