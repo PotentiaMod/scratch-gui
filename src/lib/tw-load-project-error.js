@@ -46,7 +46,6 @@ class ProjectUnavailableLegalReasons extends LoadProjectError {
 export {
     LoadProjectError,
     ProjectUnsharedError,
-    ProjectFetchError
     ProjectFetchError,
     ProjectUnavailableLegalReasons
 };
