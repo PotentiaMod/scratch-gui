@@ -1,4 +1,20 @@
 [
+{
+    "version": "1.2.5",
+    "date": "2026-10-9",
+    "notes": [
+      "Altered the settings menu by using NitroBolt's source code and addons are now included.",
+      "Removes certain extension sources, leaving out TurboWarp, PotentiaMod, and GaiaMod. Some build-in extensions are also removed.",
+      "Certain stuff"
+    ]
+  },
+{
+    "version": "1.2.4",
+    "date": "2026-10-1",
+    "notes": [
+      "Certain stuff"
+    ]
+  },
   {
     "version": "1.2.3",
     "date": "2026-9-19",
