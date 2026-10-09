@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PotentiaMod Desktop</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/9159e3acb3.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+<link rel="stylesheet" href="https://gaiawindwave90.github.io/css/bounce.css">
+<link rel="stylesheet" href="https://potentiamod.github.io/home/css/footer.css">
+<link rel="stylesheet" href="https://potentiamod.github.io/home/css/header.css">
+<link rel="stylesheet" href="https://potentiamod.github.io/home/css/main.css">
+<script src="https://embed.rotur.dev/embed.js"></script>
+
+<style>
+.main-section {
+    max-width: 900px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.download-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.screenshot {
+    filter: drop-shadow(0 0 1rem #825ACC);
+    border-radius: 0.5rem;
+    width: 100%;
+}
+
+.download-button {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	border: 1px solid #4800CC;
+    display: inline-flex;
+	font-weight: 600;
+    align-items: center;
+    gap: 0.6rem;
+    background: #4800CC;
+    color: black;
+    padding: 0.9rem 1.75rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 14px #4800CC0A;
+}
+
+.download-button:hover {
+    text-decoration: none;
+    box-shadow: 0 6px 18px #4800CC0A;
+}
+
+.page {
+    max-width: 62rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.card {
+    max-width: 34rem;
+    margin: 0 auto 1.25rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #4800CC0A;
+    background: #906FCC0A;
+    text-align: center;
+}
+
+.download-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.download-icon {
+    flex-shrink: 0;
+}
+
+.download-button-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.3;
+}
+
+.download-label {
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.download-size {
+    font-size: 0.75rem;
+    opacity: 0.85;
+}
+
+.mac-prompt {
+    font-weight: bold;
+    margin-bottom: 0.9rem;
+}
+
+.mac-choices {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.unknown-platform {
+    color: $text-primary;
+    opacity: 0.75;
+}
+
+.version {
+    margin-top: 1.25rem;
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #4800CC;
+    background: #906FCC0A;
+    border: 1px solid #4800CC0A;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+}
+
+.screenshots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.screenshot {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.6rem;
+    border: 1px solid #825ACC;
+    box-shadow: 0 4px 16px $shadow;
+}
+
+@media (max-width: 40rem) {
+    .screenshots {
+        grid-template-columns: 1fr;
+    }
+}
+
+.all-downloads-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+<noscript>
+  <h1>You must enable Javascript to view the page.</h1>
+</noscript>
+
+<script>
+function openFileWindows() {
+  window.open("https://github.com/PotentiaMod/desktop/releases/download/v1.2.2/PotentiaMod-Setup-1.2.2-x64.exe");
+}
+function openFilePortable() {
+  window.open("https://github.com/PotentiaMod/desktop/releases/download/v1.2.2/PotentiaMod.Portable.1.2.2.x64.exe");
+}
+function openFileLinux() {
+  window.open("https://github.com/PotentiaMod/desktop/releases/download/v1.2.2/PotentiaMod-linux-x86_64-1.2.2.AppImage");
+}
+</script>
+
+
+<!-- Header -->
+<div class="header">
+        <div class="main-group">
+            <a href="/" class="header-item">
+                 <img src="https://potentiamod.github.io/home/previous/img/logo.png" alt="PotentiaMod" class="home-logo" />
+                        <span class="home-wordmark"> PotentiaMod </span>
+            </a>
+            <a href="https://potentiamod.github.io/editor.html" class="header-item">
+                Create
+            </a>
+            <a href="https://potentiamod.github.io/home/explore.html" class="header-item">
+                Explore
+            </a>
+            <div class="header-item">
+                <a btnclass="feedback-link" href="https://github.com/PotentiaMod/potentiamod.github.io/issues" rel="noopener noreferrer" target="_blank" >
+                    <button>
+                        PotentiaMod Feedback
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- Header -->
+
+
+<div class="container-fluid text-center">
+  <h1>PotentiaMod Desktop</h1>
+<div class="main-section">
+                <p>PotentiaMod as a desktop app.</p>
+                <center>
+                <img
+                    class="screenshot"
+                    loading="lazy"
+                    src="https://potentiamod.github.io/images/screencap-dark.png"
+                />
+                </center>
+            </div>
+            <div class="main-section">
+                <h2>Install PotentiaMod Desktop 1.2.2:</h2>
+            </div>
+            <div class="main-section">
+                <h2>Windows 10 and later</h2>
+                <p>If a Windows SmartScreen alert appears, click "More info" then "Run anyways".</p>
+                <div class="download-list">
+                    <Button
+                        class="download-button"
+                        onClick="openFileWindows();"
+                    >
+                        Download installer (64-bit, recommended)
+                    </Button>
+                    <Button
+                        class="download-button"
+                        onClick="openFilePortable();"
+                    >
+                        Download portable (64-bit)
+                    </Button>
+                </div>
+				 </div>
+				 <div class="main-section">
+                <h2>Linux</h2>
+                <div class="download-list">
+                    <Button
+                        class="download-button"
+                        onClick="openFileLinux();"
+                    >
+                        Download .AppImage
+                    </Button>
+                </div>
+				 </div>
+				 <div class="main-section">
+				<a
+                    class="all-downloads-link"
+                    href="https://github.com/PotentiaMod/desktop/releases/tag/v1.2.2"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    {'View all download options on GitHub'}
+                </a>
+            </div>
+				<div class="main-section">
+				<i>
+                    This page is based on Dash and Nyx IDE's Desktop page.
+                </i>
+            </div>
+</div>
+<!-- Footer -->
+<footer class="container-fluid footer bg-footer">
+<div class="inner">
+<div class="brand"> <img style="width: 70px;" src="https://potentiamod.github.io/home/previous/img/logo.png"
+alt="PotentiaMod">
+<div> <span class="wordmark">PotentiaMod</span>
+<p class="tagline">It makes the very best!</p>
+</div>
+</div>
+<div class="columns">
+<div class="column">
+<span class="column-title">Website</span>
+<a href="https://potentiamod.github.io/editor.html">Editor</a>
+<a href="https://potentiamod.github.io/pot-desktop.html">PotentiaMod Desktop</a>
+<a href="https://potentiamod.github.io/packager">PotentiaMod
+Packager</a>
+<a href="https://potentiamod.github.io?livetest">Live Test</a>
+<a href="https://github.com/PotentiaMod" target="_blank" rel="noreferrer"
+class="icon-row"> GitHub Source Code</a>
+</div>
+<div class="column">
+<span class="column-title">Community</span>
+<a href="https://potentiamod.github.io/credits.html">Credits</a>
+<a href="https://potentiamod.github.io/privacy.html">Privacy Policy</a>
+<a href="https://www.facebook.com/CrystalMae1990/" target="_blank" rel="noreferrer">Report a bug</a>
+</div>
+<div class="column"> <span class="column-title">Donate</span>
+<a href="https://github.com/sponsors/GarboMuffin" target="_blank" rel="noreferrer">Donate to TurboWarp</a>
+<a href="https://www.scratchfoundation.org/donate" target="_blank" rel="noreferrer">Donate to Scratch</a> </div>
+</div>
+
+<div class="legal"> PotentiaMod is a mod of TurboWarp and
+Scratch. Not affiliated with Scratch or the Scratch Foundation. </div>
+</div>
+</footer>
+<!-- Footer -->
+</body>
+</html>

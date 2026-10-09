@@ -45,9 +45,7 @@ const base = {
                 {from: /^\/\d+\/fullscreen\/?$/, to: '/fullscreen.html'},
                 {from: /^\/\d+\/editor\/?$/, to: '/editor.html'},
                 {from: /^\/\d+\/embed\/?$/, to: '/embed.html'},
-                {from: /^\/addons\/?$/, to: '/addons.html'},
-				{from: /^\/\d+\/404\/?$/, to: '/404.html'},
-                {from: /^\/\d+\/pot-desktop\/?$/, to: '/pot-desktop.html'}
+                {from: /^\/addons\/?$/, to: '/addons.html'}
             ]
         }
     },
@@ -150,9 +148,7 @@ module.exports = [
             'fullscreen': './src/playground/fullscreen.jsx',
             'embed': './src/playground/embed.jsx',
             'addon-settings': './src/playground/addon-settings.jsx',
-            'credits': './src/playground/credits/credits.jsx',
-            '404': './src/playground/404/404.jsx',
-            'pot-desktop': './src/playground/pot-desktop/pot-desktop.jsx'
+            'credits': './src/playground/credits/credits.jsx'
         },
         output: {
             path: path.resolve(__dirname, 'build')
@@ -228,20 +224,6 @@ module.exports = [
                 template: 'src/playground/simple.ejs',
                 filename: 'credits.html',
                 title: `${APP_NAME} Credits`,
-                ...htmlWebpackPluginCommon
-            }),
-			new HtmlWebpackPlugin({
-                chunks: ['pot-desktop'],
-                template: 'src/playground/simple.ejs',
-                filename: 'pot-desktop.html',
-                title: `${APP_NAME} Desktop`,
-                ...htmlWebpackPluginCommon
-            }),
-            new HtmlWebpackPlugin({
-                chunks: ['404'],
-                template: 'src/playground/simple.ejs',
-                filename: '404.html',
-                title: `404!`,
                 ...htmlWebpackPluginCommon
             }),
             new CopyWebpackPlugin({
