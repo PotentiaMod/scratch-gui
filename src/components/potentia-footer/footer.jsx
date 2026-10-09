@@ -52,7 +52,7 @@ const Footer = () => (
                     <span className={styles.columnTitle}>Websites</span>
                     <a href="editor.html">Editor</a>
                     <a href="?livetest">Live Test</a>
-                    <a href="pot-desktop.html">PotentiaMod Desktop</a>
+                    <a href="desktop.html">PotentiaMod Desktop</a>
                     <a href="https://potentiamod.github.io/packager">PotentiaMod Packager</a>
                     <a href="https://potentiamod.github.io/pot-extensions">PotentiaMod Extension Gallery</a>
                     <a href="https://gaiamod-main.github.io/GaiaMod-Packager">GaiaMod Packager</a>
