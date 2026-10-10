@@ -62,10 +62,10 @@ const blockColors = {
         quaternary: '#E64D00'
     },
     more: {
-        primary: '#FF6680',
-        secondary: '#FF4D6A',
-        tertiary: '#FF3355',
-        quaternary: '#FF3355'
+        primary: '#9466FF',
+        secondary: '#824DFF',
+        tertiary: '#7033FF',
+        quaternary: '#7033FF'
     },
     addons: {
         primary: '#29beb8',

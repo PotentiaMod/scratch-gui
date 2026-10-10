@@ -70,10 +70,10 @@ const blockColors = {
         quaternary: '#FFDDCC'
     },
     more: {
-        primary: '#FF99AA',
-        secondary: '#FFCCD5',
-        tertiary: '#FF3355',
-        quaternary: '#FFE5EA'
+        primary: '#B899FF',
+        secondary: '#DBCCFF',
+        tertiary: '#7033FF',
+        quaternary: '#EDE5FF'
     },
     addons: {
         primary: '#34e4d0',

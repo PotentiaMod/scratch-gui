@@ -49,400 +49,8 @@ import gdxforInsetIconURL from './gdxfor/gdxfor-small.svg';
 import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
-import shredsdkIcon from './shredsdk/shredsdk.svg'
-import utilsIcon from './utils/utilites.svg';
-import gameutilsIcon from './gameutils/gameutils.svg'
-
-import kidsboardIconURL from './kidsboard/kidsboard.svg';
-import kidsboardInsetIconURL from './kidsboard/kidsboard-small.svg';
-
-import roboboImage from './robobo/robobo.png';
-import roboboInsetImage from './robobo/robobo-small.svg';
-
-// ESP32
-import esp32SerialIconURL from './zumiAI/zumiAI.png';
-import esp32SerialInsetIconURL from './zumiAI/zumiAI-small.svg';
-import esp32SerialConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
-import esp32SerialConnectionSmallIconURL from './zumiAI/zumiAI-small.svg';
-
-// ESP32
-import esp32BluetoothIconURL from './zumiAI/zumiAI.png';
-import esp32BluetoothInsetIconURL from './zumiAI/zumiAI_bluetooth-small.svg';
-import esp32BluetoothConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
-import esp32BluetoothConnectionSmallIconURL from './zumiAI/zumiAI_bluetooth-small.svg'; //
-
-//champierre
-import chatgpt2scratchIconURL from './chatgpt2scratch/chatgpt2scratch.png';
-import chatgpt2scratchInsetIconURL from './chatgpt2scratch/chatgpt2scratch-small.png';
-import facemesh2scratchIconURL from './facemesh2scratch/facemesh2scratch.png';
-import facemesh2scratchInsetIconURL from './facemesh2scratch/facemesh2scratch-small.png';
-import scratch2webserialapiIconURL from './scratch2webserialapi/scratch2webserialapi.png';
-import scratch2webserialapiInsetIconURL from './scratch2webserialapi/scratch2webserialapi-small.png';
-import handpose2scratchIconURL from './handpose2scratch/handpose2scratch.png';
-import handpose2scratchInsetIconURL from './handpose2scratch/handpose2scratch-small.png';
-import ic2scratchIconURL from './ic2scratch/ic2scratch.png';
-import ic2scratchInsetIconURL from './ic2scratch/ic2scratch-small.png';
-import posenet2scratchIconURL from './posenet2scratch/posenet2scratch.png';
-import posenet2scratchInsetIconURL from './posenet2scratch/posenet2scratch-small.png';
-import ml2scratchIconURL from './ml2scratch/ml2scratch.png';
-import ml2scratchInsetIconURL from './ml2scratch/ml2scratch-small.png';
-import tm2scratchIconURL from './tm2scratch/tm2scratch.png';
-import tm2scratchInsetIconURL from './tm2scratch/tm2scratch-small.png';
-import tmpose2scratchIconURL from './tmpose2scratch/tmpose2scratch.png';
-import tmpose2scratchInsetIconURL from './tmpose2scratch/tmpose2scratch-small.png';
-import scratch2maqueenIconURL from './scratch2maqueen/scratch2maqueen.png';
-import scratch2maqueenInsetIconURL from './scratch2maqueen/scratch2maqueen-small.png';
-
-//AkariGroup
-import akariBlocksImage from './akariBlocks/logo320.jpg';
-import akariBlocksButtonImage from './akariBlocks/logo320_ex.jpg';
-import akariCameraImage from './akariCamera/logo320.jpg';
-import akariCameraButtonImage from './akariCamera/logo320_ex.jpg';
-import akariBlocksSimpleImage from './akariBlocksSimple/logo320.jpg';
-import akariBlocksSimpleButtonImage from './akariBlocksSimple/logo320_ex.jpg';
-import akariCameraSimpleImage from './akariCameraSimple/logo320.jpg';
-import akariCameraSimpleButtonImage from './akariCameraSimple/logo320_ex.jpg';
-
-import playgoIconURL from './playgo/playgo.png';
-import playgoInsetIconURL from './playgo/playgo-small.svg';
-import playgoConnectionIconURL from './wedo2/wedo-illustration.svg';
-import playgoConnectionSmallIconURL from './wedo2/wedo-small.svg';
-import playgoConnectionTipIconURL from './wedo2/wedo-button-illustration.svg';
-
-import playIoTIconURL from './playiot/playiot.png';
-import playIoTInsetIconURL from './playiot/playiot-small.svg';
-import playIoTConnectionIconURL from './wedo2/wedo-illustration.svg';
-import playIoTConnectionSmallIconURL from './wedo2/wedo-small.svg';
-import playIoTConnectionTipIconURL from './wedo2/wedo-button-illustration.svg';
-
-import playMeIconURL from './playme/playme.png';
-import playMeInsetIconURL from './playme/playme-small.svg';
-import playMeConnectionIconURL from './wedo2/wedo-illustration.svg';
-import playMeConnectionSmallIconURL from './wedo2/wedo-small.svg';
-import playMeConnectionTipIconURL from './wedo2/wedo-button-illustration.svg';
-
-// default icon if one is not made yet...
-import defaultExtensionIcon from './potentiamod/placeholder.png';
-
-//junilab
-import jdcodeIconURL from './jdcode/jdcode.png';
-import jdcodeInsetIconURL from './jdcode/jdcode-small.png';
-import jdcodeConnectionIconURL from './jdcode/jdcode-illustration.png';
-import jdcodeConnectionSmallIconURL from './jdcode/jdcode-small.png';
-import robodogIconURL from './robodog/robodog.png';
-import robodogInsetIconURL from './robodog/robodog-small.png';
-import robodogConnectionIconURL from './robodog/robodog-illustration.png';
-import robodogConnectionSmallIconURL from './robodog/robodog-small.png';
-import jcboardIconURL from './jcboard/jcboard.png';
-import jcboardInsetIconURL from './jcboard/jcboard-small.png';
-import jcboardConnectionIconURL from './jcboard/jcboard-illustration.png';
-import jcboardConnectionSmallIconURL from './jcboard/jcboard-small.png';
-import uglybotIconURL from './uglybot/uglybot.png';
-import uglybotInsetIconURL from './uglybot/uglybot-small.png';
-import uglybotConnectionIconURL from './uglybot/uglybot-illustration.png';
-import uglybotConnectionSmallIconURL from './uglybot/uglybot-small.png';
-import firmtechIconURL from './firmtech/firmtech.png';
-import firmtechInsetIconURL from './firmtech/firmtech-small.png';
-import firmtechConnectionIconURL from './firmtech/firmtech-illustration.png';
-import firmtechConnectionSmallIconURL from './firmtech/firmtech-small.png';
-import aidroneIconURL from './aidrone/aidrone.png';
-import aidroneInsetIconURL from './aidrone/aidrone-small.png';
-import aidroneConnectionIconURL from './aidrone/aidrone-illustration.png';
-import aidroneConnectionSmallIconURL from './aidrone/aidrone-small.png';
-import aicobotIconURL from './aicobot/aicobot.png';
-import aicobotInsetIconURL from './aicobot/aicobot-small.png';
-import aicobotConnectionIconURL from './aicobot/aicobot-illustration.png';
-import aicobotConnectionSmallIconURL from './aicobot/aicobot-small.png';
-
-//garragames
-import koriIconURL from './kori/kori.png';
-import koriInsetIconURL from './kori/kori-small.svg';
-import koriConnectionIconURL from './kori/kori-illustration.svg';
-import koriConnectionSmallIconURL from './kori/kori-small.svg'
-
-//other
-import appMakerIconURL from './librekitten/appmaker/appmaker.svg';
-import appMakerInsetIconURL from './librekitten/appmaker/software-small.svg';
-import mbotIconURL from './mbot/mbot-header.png';
-import mbotInsetIconURL from './mbot/mbot.svg';
-import roku from './roku/big.jpg';
-import rokuSmall from './roku/small.png';
-import axerAIIconURL from './other/AxerAI.svg';
-import axerAIInsetIconURL from './other/InsetAxerAI.png';
-import nftIconURL from './nft/nft.png';
-import nftInsetIconURL from './nft/nft-small.svg';
-import toonco1ImageURL from './webKit/webKit.png';
-import toonco1ImageSmallURL from './webKit/webKit-small.png';
-import bodyblocksIconURL from './bodyblocks/background.png';
-import bodyblocksInsetIconURL from './bodyblocks/inset-small.svg';
-import PictoBloxMathIconURL from './PictoBloxMath/PictoBloxMath.png';
-import PictoBloxMathInsetIconURL from './PictoBloxMath/PictoBloxMath-small.svg';
-import PictoBloxStringIconURL from './PictoBloxString/PictoBloxString.png';
-import PictoBloxStringInsetIconURL from './PictoBloxString/PictoBloxString-small.svg';
-import wonderBlocksIcon from './gaiamod/WonderBlocks.png';
-import martyIconURL from './marty/marty.png';
-import martyInsetIconURL from './marty/marty-small.svg';
-import ohbotIconURL from './ohbot/ohbot.png';
-import ohbotInsetIconURL from './ohbot/ohbot-small.svg';
-import webmidiIconURL from './webmidi/webmidi.png';
-import webmidiInsetIconURL from './webmidi/webmidi-small.png';
-import newBlockImage from './newblocks/newblocks.png';
-import newBlockButtonImage from './newblocks/newblocks-small.png';
-import newMicrobitImage from './newmicrobit/newmicrobit.png';
-import newMicrobitButtonImage from './newmicrobit/newmicrobit-small.png';
-import ExtensionInsetIconURL from './ellabsextension/extension-icon.png';
-import ExtensionIconURL from './ellabsextension/extension-background.png';
-import maikaIconURL from './olliMaika/maika.png';
-import maikaforInsetIconURL from './olliMaika/maika-small.png';
-import duploIconURL from './duplotrain/duplo-train-illustration.png';
-import duploforInsetIconURL from './duplotrain/duplo-train-small.svg';
-import poweredupIconURL from './poweredup/poweredup.png';
-import poweredupforInsetIconURL from './poweredup/poweredup-small.svg';
-import shareImage from "./share/share.svg";
-import lineBlockImage from './line/line.png';
-import lineBlockButtonImage from './line/line-small.png';
-
-//166iwase-lgtm/taichan0123
-import meshImage from './mesh/mesh.png';
-import ledButtonImage from './led/led-small.png';
-import brightnessButtonImage from './brightness/brightness-small.png';
-import motionButtonImage from './motion/motion-small.png';
-import gpioButtonImage from './gpio/gpio-small.png';
-
-//GvbvdxxMod2
-import NESEmuThumb from './nes_emulator/nes.svg';
-import NESInsetIcon from './nes_emulator/nes-small.svg';
-import gm2HTML5Small from './html5/small.svg';
-import gm2HTML5Large from './html5/large.svg';
-import sndanalyserBig from './sound_analyser/big.svg';
-import jsDialogsBigIcon from './dialog/dialogs.png';
-import jsDialogsSmallIcon from './dialog/small.png';
-import speech4pcDialogsBigIcon from './speech4pc/speech.png';
-import speech4pcDialogsSmallIcon from './speech4pc/small.png';
-import websitesBigIcon from './websites/websites.png';
-import websitesSmallIcon from './websites/small.png';
-import scratchBigIcon from './control/scratch.png';
-import scratchSmallIcon from './control/small.png';
-import wssmall from './websockets/small.png';
-import wsbig from './websockets/big.png';
-import audioctxsmall from './audio_context/small.png';
-import audioctxbig from './audio_context/big.png';
-import userdatasmall from './userdata/small.png';
-import userdatabig from './userdata/big.png';
-import beepboxsmall from './beepbox_synth/small.png';
-import beepboxbig from './beepbox_synth/big.png';
-import betteraudioBigIcon from './better_audio/big.png';
-import betteraudioSmallIcon from './better_audio/small.png';
-
-// Open Webserial...
-import chartImage from "./chart/chart.png";
-import chartInsetIconURL from "./chart/chart-small.png";
-import stockInfoImage from "./stockInfo/stockInfo.png";
-import stockInfoInsetIconURL from "./stockInfo/stockInfo-small.png";
-import googleMapImage from "./googleMap/googleMap.png";
-import googleMapInsetIconURL from "./googleMap/googleMap-small.png";
-import dataMiningImage from "./dataMining/dataMining.png";
-import dataMiningInsetIconURL from "./dataMining/dataMining-small.png";
-import dataProcessingImage from "./dataProcessing/dataProcessing.png";
-import dataProcessingInsetIconURL from "./dataProcessing/dataProcessing-small.png";
-import voicetotextImage from "./voicetotext/voicetotext.png";
-import voicetotextInsetIconURL from "./voicetotext/voicetotext.svg";
-import urltxtImage from "./urltxt/urltxt.png";
-import urltxtInsetIconURL from "./urltxt/clound-small.png";
-import rwGoogleImage from "./rwgoogle/rwgoogle.png";
-import rwGoogleInsetIconURL from "./rwgoogle/clound-small.png";
-import linenotifyImage from "./linenotify/linenotify.svg";
-import linenotifyInsetIconURL from "./linenotify/linenotify_small.svg";
-import telegrambotImage from "./telegrambot/telegrambot.svg";
-import telegrambotInsetIconURL from "./telegrambot/telegrambot_small.svg";
-import pushnotifyapiImage from "./pushnotifyapi/pushnotifyapi.svg";
-import pushnotifyapiInsetIconURL from "./pushnotifyapi/pushnotifyapi_small.png";
-import openaiImage from "./openai/openai.png";
-import openaiInsetIconURL from "./openai/openai-small.svg";
-import geminiImage from "./gemini/gemini.png";
-import geminiInsetIconURL from "./gemini/gemini-small.svg";
-import davinciImage from "./davinci/davinci.png";
-import davinciInsetIconURL from "./davinci/davinci-small.png";
-import llmstudioImage from "./llmstudio/llmstudio.svg";
-import llmstudioInsetIconURL from "./llmstudio/llmstudio-small.png";
-import textSentimentImage from "./textSentiment/textSentiment.png";
-import textSentimentInsetIconURL from "./textSentiment/textSentiment-small.png";
-import faceExpressionRecogintionImage from "./faceExpressionRecogintion/faceExpressionRecogintion.png";
-import faceExpressionRecogintionIconURL from "./faceExpressionRecogintion/faceExpressionRecogintion-small.png";
-
-//For fun!
-import sailormoonThumb from './gaiamod/lolsailormoon.png'
-
-//builders
-import kittenbotThumb from './extension-builders/KittenBot.png';
-import turboBuilderIcon from './extension-builders/turbobuilder.png';
-import turboBuilderDevIcon from './extension-builders/turbobuilder-dev.png';
-import extForgeIcon from './extension-builders/extforge.svg';
-import penguinBuilderIcon from './extension-builders/penguinbuilder.png';
-import dinoBuilderIcon from './extension-builders/dinobuilder.png';
-import electraBuilderIcon from './extension-builders/ElectraBuilder.svg';
-import electraBuilderInsetIcon from './extension-builders/ElectraBuilder-small.png';
-import extCreateIcon from './extension-builders/ExtCreate.svg';
-import extCreateInsetIcon from './extension-builders/ExtCreate-small.svg';
-import gaiaExtEditorIcon from './extension-builders/GaiaExtEditor.svg';
-import gaiaExtEditorInsetIcon from './extension-builders/GaiaExtEditor-small.svg';
-
-// onegpio
-import onegpioArduinoImage from './onegpioArduino/onegpioArduino.png';
-import onegpioArduinoInsetIconURL from './onegpioArduino/onegpioArduino-small.png';
-import onegpioRpiImage from './onegpioRpi/onegpioRpi.png';
-import onegpioRpiInsetIconURL from './onegpioRpi/onegpioRpi-small.png';
-import onegpioEspImage from './onegpioEsp/onegpioEsp.png';
-import onegpioEspInsetIconURL from './onegpioEsp/onegpioEsp-small.png';
-import onegpioPicoboardImage from './onegpioPicoboard/onegpioPicoboard.jpg';
-import onegpioPicoboardInsetIconURL from './onegpioPicoboard/onegpioPicoboard-small.png';
-import onegpioCpxImage from './onegpioCpx/onegpioCpx.jpg';
-import onegpioCpxInsetIconURL from './onegpioCpx/onegpioCpx-small.png';
-import onegpioRoboHATImage from './onegpioRoboHAT/onegpioRoboHAT.png';
-import onegpioRoboHATInsetIconURL from './onegpioRoboHAT/onegpioRoboHAT-small.png';
-import onegpioRpiPicoImage from './onegpioRpiPico/onegpioRpiPico.png';
-import onegpioRpiPicoInsetIconURL from './onegpioRpiPico/onegpioRpiPico-small.png';
-
-import lassImage from "./lass/lass.png";
-import iftttImage from "./ifttt/ifttt.png";
-import thingspeakImage from "./thingspeak/thingspeak.png";
-
-import rosIconURL from './ros/ros.png';
-import rosInsetIconURL from './ros/ros-small.svg';
-import rosConnectionIconURL from './ros/ros-illustration.svg';
-import rosConnectionSmallIconURL from './ros/ros-small.svg';
-
-import pr2RobotIconURL from './pr2robot/pr2.png';
-import pr2RobotInsetIconURL from './pr2robot/pr2-small.svg';
-import pr2RobotConnectionSmallIconURL from './pr2robot/pr2-small.svg';
-
-import fetchRobotIconURL from './fetchrobot/fetch.png';
-import fetchRobotInsetIconURL from './fetchrobot/fetch-small.svg';
-import fetchRobotConnectionSmallIconURL from './fetchrobot/fetch-small.svg';
-
-import spotRobotIconURL from './spotrobot/spot.png';
-import spotRobotInsetIconURL from './spotrobot/spot-small.svg';
-import spotRobotConnectionSmallIconURL from './spotrobot/spot-small.svg';
-
-import go1RobotIconURL from './go1robot/go1.png';
-import go1RobotInsetIconURL from './go1robot/go1-small.svg';
-import go1RobotConnectionSmallIconURL from './go1robot/go1-small.svg';
-
-import pepperRobotIconURL from './pepperrobot/pepper.png';
-import pepperRobotInsetIconURL from './pepperrobot/pepper-small.svg';
-import pepperRobotConnectionSmallIconURL from './pepperrobot/pepper-small.svg';
-
-import sencuIconURL from "./sencu/sencu.jpg";
-
-import kakaIconURL from './kaka/kaka.png';
-import kakaInsetIconURL from './kaka/kaka-small.svg';
-import kakaConnectionIconURL from './kaka/kaka-illustration.svg';
-import kakaConnectionSmallIconURL from './kaka/kaka-small.svg';
-import kakaHelpLink from './kaka/kakaHelpLink.png';
-
-import galaxyRVRIconURL from './galaxyRVR/galaxyRVR.jpg';
-import galaxyRVRInsetIconURL from './galaxyRVR/galaxyRVR-small.svg';
-import galaxyRVRConnectionIconURL from './galaxyRVR/galaxyRVR-illustration.svg';
-import galaxyRVRConnectionSmallIconURL from './galaxyRVR/galaxyRVR-small.svg';
-import galaxyRVRHelpLink from './galaxyRVR/galaxyRVRHelpLink.png';
-
-import zeusCarIconURL from './zeusCar/zeusCar.jpg';
-import zeusCarInsetIconURL from './zeusCar/zeusCar-small.svg';
-import zeusCarConnectionIconURL from './zeusCar/zeusCar-illustration.svg';
-import zeusCarConnectionSmallIconURL from './zeusCar/zeusCar-small.svg';
-import zeusCarHelpLink from './zeusCar/zeusCarHelpLink.png';
-
-import piCarXIconURL from './picar-x/piCarX.png';
-import piCarXInsetIconURL from './picar-x/piCarX-small.svg';
-import piCarXConnectionIconURL from './picar-x/piCarX-illustration.svg';
-import piCarXConnectionSmallIconURL from './picar-x/piCarX-small.svg';
-import piCarXHelpLink from './picar-x/piCarXHelpLink.png';
-
-import gsaTempVariablesExtensionIcon from './penguinmod/extensions/tempvariables.svg';
-import jgIframeExtensionIcon from './penguinmod/extensions/iframe.png';
-import jgExtendedAudioExtensionIcon from './penguinmod/extensions/extendedaudio.png';
-import jgScratchAuthExtensionIcon from './penguinmod/extensions/scratchauth2.svg';
-import jgPermissionExtensionIcon from './penguinmod/extensions/permissions.png';
-import jgCloneManagerExtensionIcon from './penguinmod/extensions/clonemanager.png';
-import pmInlineBlocksExtensionIcon from './penguinmod/extensions/inlineblocks.png';
-import jgPackagerApplicationsExtensionIcon from './penguinmod/extensions/packagedApplications.png';
-import jgPackagerApplicationsInsetExtensionIcon from './penguinmod/extensions/packagedApplications_inset.png';
-import spJSONExtensionIcon from './penguinmod/extensions/sp_json.svg';
-
-import smartLumiesIconURL from './smart-lumies/smart-lumies.png';
-import smartLumiesInsetIconURL from './smart-lumies/smart-lumies-small.svg';
-import smartLumiesConnectionIconURL from './smart-lumies/smart-lumies-illustration.svg';
-import smartLumiesConnectionSmallIconURL from './smart-lumies/smart-lumies-small.svg';
-import smartLumiesConnectionTipIconURL from './smart-lumies/smart-lumies-button-illustration.svg';
-import matatabotIconURL from './matatabot/matatabot.png';
-import matatabotInsetIconURL from './matatabot/matatabot-small.svg';
-import matatabotConnectionIconURL from './matatabot/matatabot-illustration.svg';
-import matatabotConnectionSmallIconURL from './matatabot/matatabot-small.svg';
-import midiIconURL from './midi/midi.png';
-import midiInsetIconURL from './midi/midi-small.svg';
-import spikePrimeIconURL from './spikePrime/spikePrime.png';
-import spikePrimeInsetIconURL from './spikePrime/spikePrime-small.svg';
-import spikePrimeConnectionIconURL from './spikePrime/spikePrime-illustration.svg';
-import spikePrimeConnectionSmallIconURL from './spikePrime/spikePrime-small.svg';
-import futureBoardIconURL from './futureBoard/futureBoard.png';
-import futureBoardInsetIconURL from './futureBoard/futureBoard-small.svg';
-import minecraftIconURL from './minecraft/minecraft.png';
-import minecraftInsetIconURL from './minecraft/minecraft-small.svg';
-import toolboxIconURL from './toolbox/toolbox.png';
-import toolboxInsetIconURL from './toolbox/toolbox-small.svg';
-import iCarProIconURL from './iCarPro/iCarPro.png';
-import iCarProInsetIconURL from './iCarPro/iCarPro-small.svg';
-import snapCircuitsU33IconURL from './snapCircuitsU33/snapCircuitsU33.png';
-import snapCircuitsU33InsetIconURL from './snapCircuitsU33/snapCircuitsU33-small.svg';
-import magicBlueUUIconURL from './magicBlueUU/magicBlueUU.png';
-import magicBlueUUInsetIconURL from './magicBlueUU/magicBlueUU-small.svg';
-import emoBlockImage from './emo/Scratch_emo.png';
-import emoBlockInsertIconImage from './emo/bocco-emo_body.png';
-import missmixalotIconURL from "./missmixalot/missmixalot.png";
-import missmixalotInsetIconURL from "./missmixalot/missmixalot-small.svg";
-import echidnaIconURL from './echidna/echidna.png';
-import echidnaInsetIconURL from './echidna/erizo.png';
-import echidnaConnectionIconURL from './echidna/echidna-illustration.svg';
-import echidnaConnectionSmallIconURL from './echidna/echidna-small.svg';
-import tinkibotIconURL from './tinkibot/tinkibot.png';
-import tinkibotInsetIconURL from './tinkibot/tinkimo-small.png';
-import mcremoteIconURL from './mcremote/mcremote.svg';
-import libraImage from './libra/Libra.png';
-import libraInsetImage from './libra/Libra-small.svg';
-import rubyIconURL from './smalruby-ruby/smalruby-ruby.svg';
-import rubyInsetIconURL from './smalruby-ruby/smalruby-ruby-small.svg';
-import translations from './smalruby-ruby/translations.json';
-import hcIconURL from './hc/hc.svg';
-import hcInsetIconURL from './hc/hc-small.svg';
-import snapIconURL from './snap/snap.svg'
-import snapInsetIconURL from './snap/snap-small.svg'
-
-
-import ptIcon from './tw/tw.svg';
-import TWgalleryIcon from './gallery/TWgallery.svg';
-import returnIcon from './custom/return.svg';
 import customExtensionIcon from './custom/custom.svg';
-import customExtIcon from './custom/CustomEx.svg';
-import customExtInsetIcon from './custom/CustomSmall.svg';
 import customURLIcon from './custom/customURL.svg';
-import galleryIconRuby from './gallery/ruby.png';
-import galleryIconCCW from './gallery/cocreaworld.svg';
-import galleryIconNB from './gallery/nitrobolt.svg';
-import galleryIconDash from './gallery/dash.svg';
-import galleryIconMist from './mistium/library.svg';
-import galleryIconMW from './gallery/mistwarp.svg';;
-import galleryIconTW from './gallery/turbowarp.svg';
-import galleryIconPT from './gallery/potentiamod.svg';
-import galleryIconZT from './gallery/02engine.svg';
-import galleryIconPM from './gallery/penguinmod.svg';
-import galleryIconSN from './gallery/snailide.png';
-import galleryIconDM from './gallery/dinosaurmod.svg';
-import galleryIconGM from './gallery/gaiamod.png';
-import scratchmegarepoThumb from './gallery/megarepo.png';
-import ampmodgalleryThumb from './gaiamod/AmpMod.svg';
-import obgalleryIcon from './gaiamod/OmniBlocks.svg';
-import SCIcon from './icons/scratch.svg';
-import PMIcon from './icons/penguinmod.svg';
 
 
 import {APP_NAME} from '../../brand';
@@ -464,8 +72,8 @@ const menuItems = [
     {
         name: 'Custom Extension',
         extensionId: 'custom_extension',
-        iconURL: customExtIcon,
-		insetIconURL: customExtInsetIcon,
+		iconURL: require('../extensions/custom/CustomEx.svg'),
+	    insetIconURL: require('../extensions/custom/CustomSmall.svg'),
         description: 'Load custom extensions from URLs, files, or JavaScript source code.',
         tags: ['custom'],
         featured: true
@@ -481,7 +89,7 @@ const menuItems = [
             />
         ),
         extensionId: 'procedures_enable_return',
-        iconURL: returnIcon,
+        iconURL: require('../extensions/custom/return.svg'),
         description: (
             <FormattedMessage
                 defaultMessage="Allow custom blocks to output values and be used as inputs."
@@ -802,7 +410,8 @@ const menuItems = [
 	{
         name: 'Wonder Blocks',
         extensionId: 'wonderblocks',
-        iconURL: wonderBlocksIcon,
+        iconURL: require('../extensions/gaiamod/WonderBlocks.png'),
+	    insetIconURL: require('../extensions/gaiamod/gaiamod_icon.png'),
         tags: ['gm', 'preload'],
         description: 'Some mysterious blocks.',
         collaborator: 'GaiaWindWave90',
@@ -811,8 +420,8 @@ const menuItems = [
 	 {
         name: 'App Utilities',
         extensionId: 'appmaker',
-        iconURL: appMakerIconURL,
-		insetIconURL: appMakerInsetIconURL,
+        iconURL: require('../extensions/librekitten/appmaker/appmaker.svg'),
+	    insetIconURL: require('../extensions/librekitten/appmaker/software-small.svg'),
         tags: ['other', 'preload'],
 		collaborator: 'LibreKitten',
         description: 'Develop apps in PotentiaMod.',
@@ -834,8 +443,8 @@ const menuItems = [
         extensionId: 'tinkibot',
 		tags: ['preload', 'new'],
 		isNew: true,
-        iconURL: tinkibotIconURL,
-        insetIconURL: tinkibotInsetIconURL,
+        iconURL: require('../extensions/tinkibot/tinkibot.png'),
+		insetIconURL: require('../extensions/tinkibot/tinkimo-small.png'),
 		collaborator: 'Tinkimo',
         description: 'Control one or more Tinkibots',
         featured: true,
@@ -847,8 +456,8 @@ const menuItems = [
     collaborator: "Champierre, TYiC",
 	tags: ['preload', 'new'],
 	isNew: true,
-    iconURL: googleMapImage,
-    insetIconURL: googleMapInsetIconURL,
+	iconURL: require('../extensions/googleMap/googleMap.png'),
+	insetIconURL: require('../extensions/googleMap/googleMap-small.png'),
     description: 'Display geographic location using the latitude and longitude coordinates (Experimental).',
     featured: true,
     disabled: false,
@@ -861,8 +470,8 @@ const menuItems = [
         extensionId: 'ruby',
         tags: ['preload', 'new'],
 		isNew: true,
-        iconURL: rubyIconURL,
-        insetIconURL: rubyInsetIconURL,
+        iconURL: require('../extensions/smalruby-ruby/smalruby-ruby.svg'),
+	    insetIconURL: require('../extensions/smalruby-ruby/smalruby-ruby-small.svg'),
 		collaborator: 'SmallRuby',
         description: 'Use Ruby methods in PotentiaMod.',
         featured: true,
@@ -888,8 +497,8 @@ const menuItems = [
     collaborator: "estea chen, TYiC",
 	tags: ['preload', 'new'],
 	isNew: true,
-    iconURL: rwGoogleImage,
-    insetIconURL: rwGoogleInsetIconURL,
+    iconURL: require('../extensions/rwgoogle/rwgoogle.png'),
+	insetIconURL: require('../extensions/rwgoogle/clound-small.png'),
     description: 'Read and write Google Sheets and Google Forms.',
     featured: true,
     disabled: false,
@@ -919,8 +528,8 @@ const menuItems = [
     collaborator: "estea chen",
 	tags: ['preload', 'new'],
 	isNew: true,
-    iconURL: linenotifyImage,
-    insetIconURL: linenotifyInsetIconURL,
+    iconURL: require('../extensions/linenotify/linenotify.svg'),
+	insetIconURL: require('../extensions/linenotify/linenotify_small.svg'),
     description: "Use Line Notify to send messages.",
     featured: true,
     disabled: false,
@@ -932,8 +541,8 @@ const menuItems = [
         name: 'KidsBoard',
         extensionId: 'kidsboard',
         collaborator: 'Nekoma Manufacturing',
-        iconURL: kidsboardIconURL,
-        insetIconURL: kidsboardInsetIconURL,
+        iconURL: require('../extensions/kidsboard/kidsboard.svg'),
+	    insetIconURL: require('../extensions/kidsboard/kidsboard-small.svg'),
 		tags: ['preload', 'new'],
 		isNew: true,
         description: 'Connect KidsBoard via Bluetooth to operate the LEDs, buttons, speaker, and sensors.',
@@ -951,12 +560,12 @@ const menuItems = [
         description: 'Everything is a mesage! Contains capabilities of all the other extensions.',
         featured: true
     },
-	{
+{
         name: 'Marty the Robot',
         extensionId: 'marty',
         collaborator: 'Robotical',
-        iconURL: martyIconURL,
-        insetIconURL: martyInsetIconURL,
+        iconURL: require('../extensions/marty/marty.png'),
+	    insetIconURL: require('../extensions/marty/marty-small.svg'),
         description: 'Play and program with Marty.',
         tags: ['preload'],
         featured: true,
@@ -966,8 +575,8 @@ const menuItems = [
 	{
         name: 'Ohbot',
         extensionId: 'ohbot',
-        iconURL: ohbotIconURL,
-        insetIconURL: ohbotInsetIconURL,
+        iconURL: require('../extensions/ohbot/ohbot.png'),
+	    insetIconURL: require('../extensions/ohbot/ohbot-small.svg'),
 		collaborator: 'Ohbot',
 		tags: ['preload'],
         description: 'Control your Ohbot',
@@ -977,15 +586,15 @@ const menuItems = [
         name: 'Line',
         extensionId: 'line',
         collaborator: 'Ankurugranpa',
-        iconURL: lineBlockImage,
-        insetIconURL: lineBlockButtonImage,
+        iconURL: require('../extensions/line/line.png'),
+	    insetIconURL: require('../extensions/line/line-small.png'),
 		tags: ['special', 'othermods'],
         description: 'Connect to LINE message API!',
         featured: true,
         disabled: false,
         internetConnectionRequired: true,
         bluetoothRequired: false,
-    },  
+    }, 
 	{
         name: 'Face Emotion Sensing',
         extensionId: 'poseFace',
@@ -1036,8 +645,8 @@ const menuItems = [
     collaborator: "TYiC",
 	tags: ['preload', 'new'],
 	isNew: true,
-    iconURL: textSentimentImage,
-    insetIconURL: textSentimentInsetIconURL,
+    iconURL: require('../extensions/textSentiment/textSentiment.png'),
+	insetIconURL: require('../extensions/textSentiment/textSentiment-small.png'),
     description: "Text Sentiment.",
     featured: true,
     disabled: false,
@@ -1049,8 +658,8 @@ const menuItems = [
         name: 'Smart Lumies',
         extensionId: 'smartLumies',
         collaborator: 'PlusPlus',
-        iconURL: smartLumiesIconURL,
-        insetIconURL: smartLumiesInsetIconURL,
+        iconURL: require('../extensions/smart-lumies/smart-lumies.png'),
+	    insetIconURL: require('../extensions/smart-lumies/smart-lumies-small.svg'),
         description: 'Have fun with Smart Lumies Cube in PotentiaMod!',
 		tags: ['preload'],
         featured: true,
@@ -1059,9 +668,9 @@ const menuItems = [
         internetConnectionRequired: false,
         launchPeripheralConnectionFlow: false,
         useAutoScan: false,
-        connectionIconURL: smartLumiesConnectionIconURL,
-        connectionSmallIconURL: smartLumiesConnectionSmallIconURL,
-        connectionTipIconURL: smartLumiesConnectionTipIconURL,
+		connectionIconURL: require('../extensions/smart-lumies/smart-lumies-illustration.svg'),
+        connectionSmallIconURL: require('../extensions/smart-lumies/smart-lumies-small.svg'),
+        connectionTipIconURL: require('../extensions/smart-lumies/smart-lumies-button-illustration.svg'),
         connectingMessage: 'Have your Cube nearby.',
         helpLink: 'https://smartlumies.com'
     },
@@ -1069,8 +678,8 @@ const menuItems = [
         name: 'Magic Blue UU',
         extensionId: 'magicBlueUU',
         collaborator: 'PlusPlus',
-        iconURL: magicBlueUUIconURL,
-        insetIconURL: magicBlueUUInsetIconURL,
+        iconURL: require('../extensions/magicBlueUU/magicBlueUU.png'),
+	    insetIconURL: require('../extensions/magicBlueUU/magicBlueUU-small.svg'),
 		tags: ['preload'],
         description: (
             <FormattedMessage
@@ -1136,8 +745,8 @@ const menuItems = [
 		tags: ['preload', 'new'],
 		isNew: true,
 		collaborator: 'Cubix Entertainment',
-        iconURL: hcIconURL,
-        insetIconURL: hcInsetIconURL,
+        iconURL: require('../extensions/hc/hc.svg'),
+	    insetIconURL: require('../extensions/hc/hc-small.svg'),
         description: (
             <FormattedMessage
                 defaultMessage="Special Blocks that make development alot easier. Also compatible with PotentiaMod."
@@ -1160,8 +769,8 @@ const menuItems = [
 		tags: ['preload', 'new'],
 		isNew: true,
 		collaborator: 'Cubix Entertainment',
-        iconURL: snapIconURL,
-        insetIconURL: snapInsetIconURL,
+        iconURL: require('../extensions/snap/snap.svg'),
+	    insetIconURL: require('../extensions/snap/snap-small.svg'),
         description: (
             <FormattedMessage
                 defaultMessage="SNext Audio Player or SNAP is an extension developed to allow developers to play audio from an external source."
@@ -1182,8 +791,8 @@ const menuItems = [
             />
         ),
         extensionId: 'robobo',
-        iconURL: roboboImage,
-        insetIconURL: roboboInsetImage,
+        iconURL: require('../extensions/robobo/robobo.png'),
+	    insetIconURL: require('../extensions/robobo/robobo-small.svg'),
 		tags: ['preload', 'new'],
 		isNew: true,
 		collaborator: 'MINT',
@@ -1264,8 +873,8 @@ const menuItems = [
         name: 'OneGpio Arduino',
         extensionId: 'onegpioArduino',
         collaborator: 'Mr. Y\'s Lab',
-        iconURL: onegpioArduinoImage,
-        insetIconURL: onegpioArduinoInsetIconURL,
+        iconURL: require('../extensions/onegpioArduino/onegpioArduino.png'),
+	    insetIconURL: require('../extensions/onegpioArduino/onegpioArduino-small.png'),
         description: 'OneGPIOArduino',
         tags: ['preload'],
         featured: true,
@@ -1277,8 +886,8 @@ const menuItems = [
         name: 'OneGpio Raspberry Pi',
         extensionId: 'onegpioRpi',
         collaborator: 'Mr. Y\'s Lab',
-        iconURL: onegpioRpiImage,
-        insetIconURL: onegpioRpiInsetIconURL,
+        iconURL: require('../extensions/onegpioRpi/onegpioRpi.png'),
+	    insetIconURL: require('../extensions/onegpioRpi/onegpioRpi-small.png'),
         description: 'OneGPIORpi',
         tags: ['preload'],
         featured: true,
@@ -1291,8 +900,8 @@ const menuItems = [
         name: 'OneGpio Picoboard',
         extensionId: 'onegpioPicoboard',
         collaborator: 'Mr. Y\'s Lab',
-        iconURL: onegpioPicoboardImage,
-        insetIconURL: onegpioPicoboardInsetIconURL,
+		iconURL: require('../extensions/onegpioPicoboard/onegpioPicoboard.jpg'),
+	    insetIconURL: require('../extensions/onegpioPicoboard/onegpioPicoboard-small.png'),
         description: 'OneGPIOPicoboard',
         tags: ['preload'],
         featured: true,
@@ -1305,8 +914,8 @@ const menuItems = [
         name: 'OneGpio Playground Express',
         extensionId: 'onegpioCpx',
         collaborator: 'Mr. Y\'s Lab',
-        iconURL: onegpioCpxImage,
-        insetIconURL: onegpioCpxInsetIconURL,
+		iconURL: require('../extensions/onegpioCpx/onegpioCpx.jpg'),
+	    insetIconURL: require('../extensions/onegpioCpx/onegpioCpx-small.png'),
         description: 'OneGPIOCpx',
         tags: ['preload'],
         featured: true,
@@ -1319,8 +928,8 @@ const menuItems = [
         name: 'OneGpio RoboHAT MM1',
         extensionId: 'onegpioRoboHAT',
         collaborator: 'Mr. Y\'s Lab',
-        iconURL: onegpioRoboHATImage,
-        insetIconURL: onegpioRoboHATInsetIconURL,
+		iconURL: require('../extensions/onegpioRoboHAT/onegpioRoboHAT.png'),
+	    insetIconURL: require('../extensions/onegpioRoboHAT/onegpioRoboHAT-small.png'),
         description: 'OneGPIORoboHAT',
         tags: ['preload'],
         featured: true,
@@ -1333,8 +942,8 @@ const menuItems = [
         name: 'OneGpio Raspberry Pi Pico',
         extensionId: 'onegpioRpiPico',
         collaborator: 'Mr. Y\'s Lab',
-        iconURL: onegpioRpiPicoImage,
-        insetIconURL: onegpioRpiPicoInsetIconURL,
+		iconURL: require('../extensions/onegpioRpiPico/onegpioRpiPico.png'),
+	    insetIconURL: require('../extensions/onegpioRpiPico/onegpioRpiPico-small.png'),
         description: 'onegpioRpiPico',
         tags: ['preload'],
         featured: true,
@@ -1347,8 +956,8 @@ const menuItems = [
 	{
         name: 'ChatGPT2Scratch',
         extensionId: 'chatgpt2scratch',
-        iconURL: chatgpt2scratchIconURL,
-        insetIconURL: chatgpt2scratchInsetIconURL,
+		iconURL: require('../extensions/chatgpt2scratch/chatgpt2scratch.png'),
+	    insetIconURL: require('../extensions/chatgpt2scratch/chatgpt2scratch-small.png'),
         collaborator: 'ichiroc',
         featured: true,
         bluetoothRequired: false,
@@ -1360,8 +969,8 @@ const menuItems = [
     {
         name: 'ML2Scratch',
         extensionId: 'ml2scratch',
-        iconURL: ml2scratchIconURL,
-        insetIconURL: ml2scratchInsetIconURL,
+		iconURL: require('../extensions/ml2scratch/ml2scratch.png'),
+	    insetIconURL: require('../extensions/ml2scratch/ml2scratch-small.png'),
 		collaborator: 'champierre',
         featured: true,
         bluetoothRequired: false,
@@ -1373,8 +982,8 @@ const menuItems = [
     {
         name: 'TM2Scratch',
         extensionId: 'tm2scratch',
-        iconURL: tm2scratchIconURL,
-        insetIconURL: tm2scratchInsetIconURL,
+        iconURL: require('../extensions/tm2scratch/tm2scratch.png'),
+	    insetIconURL: require('../extensions/tmpose2scratch/tmpose2scratch.png'),
 		collaborator: 'Tsukurusha, YengawaLab and Google',
         featured: true,
         bluetoothRequired: false,
@@ -1386,8 +995,8 @@ const menuItems = [
     {
         name: 'TMPose2Scratch',
         extensionId: 'tmpose2scratch',
-        iconURL: tmpose2scratchIconURL,
-        insetIconURL: tmpose2scratchInsetIconURL,
+        iconURL: require('../extensions/tmpose2scratch/tmpose2scratch.png'),
+	    insetIconURL: require('../extensions/tmpose2scratch/tmpose2scratch-small.png'),
 		collaborator: 'champierre',
         featured: true,
         bluetoothRequired: false,
@@ -1401,8 +1010,8 @@ const menuItems = [
         extensionId: 'handpose2scratch',
         collaborator: 'champierre',
         description: 'Hand tracking in Scratch.',
-        iconURL: handpose2scratchIconURL,
-        insetIconURL: handpose2scratchInsetIconURL,
+        iconURL: require('../extensions/handpose2scratch/handpose2scratch.png'),
+	    insetIconURL: require('../extensions/handpose2scratch/handpose2scratch-small.png'),
         tags: ['preload', 'ai'],
         internetConnectionRequired: true,
         featured: true
@@ -1410,8 +1019,8 @@ const menuItems = [
     {
         name: 'Posenet2Scratch',
         extensionId: 'posenet2scratch',
-        iconURL: posenet2scratchIconURL,
-        insetIconURL: posenet2scratchInsetIconURL,
+        iconURL: require('../extensions/posenet2scratch/posenet2scratch.png'),
+	    insetIconURL: require('../extensions/posenet2scratch/posenet2scratch-small.png'),
         collaborator: 'champierre',
         featured: true,
         bluetoothRequired: false,
@@ -1423,8 +1032,8 @@ const menuItems = [
     {
         name: 'Facemesh2scratch',
         extensionId: 'facemesh2scratch',
-        iconURL: facemesh2scratchIconURL,
-        insetIconURL: facemesh2scratchInsetIconURL,
+        iconURL: require('../extensions/facemesh2scratch/facemesh2scratch.png'),
+	    insetIconURL: require('../extensions/facemesh2scratch/facemesh2scratch-small.png'),
         collaborator: 'champierre',
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
@@ -1434,8 +1043,8 @@ const menuItems = [
     {
         name: 'Scratch2WebSerialAPI',
         extensionId: 'scratch2webserialapi',
-        iconURL: scratch2webserialapiIconURL,
-        insetIconURL: scratch2webserialapiInsetIconURL,
+        iconURL: require('../extensions/scratch2webserialapi/scratch2webserialapi.png'),
+	    insetIconURL: require('../extensions/scratch2webserialapi/scratch2webserialapi-small.png'),
         collaborator: 'champierre',
         internetConnectionRequired: true,
         tags: ['preload', 'iot'],
@@ -1445,8 +1054,8 @@ const menuItems = [
     {
         name: 'ImageClassifer2Scratch',
         extensionId: 'ic2scratch',
-        iconURL: ic2scratchIconURL,
-        insetIconURL: ic2scratchInsetIconURL,
+        iconURL: require('../extensions/ic2scratch/ic2scratch.png'),
+	    insetIconURL: require('../extensions/ic2scratch/ic2scratch-small.png'),
         collaborator: 'champierre',
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
@@ -1461,8 +1070,8 @@ const menuItems = [
         internetConnectionRequired: true,
         launchPeripheralConnectionFlow: true,
         useAutoScan: true,
-        iconURL: scratch2maqueenIconURL,
-        insetIconURL: scratch2maqueenInsetIconURL,
+        iconURL: require('../extensions/scratch2maqueen/scratch2maqueen.png'),
+	    insetIconURL: require('../extensions/scratch2maqueen/scratch2maqueen-small.png'),
         description: 'Control DFRobot Maqueen.',
         featured: true,
         collaborator: 'Vernier',
@@ -1472,8 +1081,8 @@ const menuItems = [
         name: 'Adacraft HTTP',
         extensionId: 'adahttp',
         tags: ['adacraft', 'preload'],
-        iconURL: 'https://www.adacraft.org/studio/static/assets/dea779e4ed4e0d1e4d553755f0beea24.png',
-        insetIconURL: 'https://www.adacraft.org/studio/static/assets/c82f3fea945be86f2c208f2e3d799c8e.svg',
+        iconURL: require('../extensions/adacraft/http.png'),
+	    insetIconURL: require('../extensions/adacraft/http-small.svg'),
         description: 'Some new blocks to send HTTP requests ad manage results.',
         collaborator: 'Adacraft',
         featured: true
@@ -1482,8 +1091,8 @@ const menuItems = [
         name: 'Adacraft GIF',
         extensionId: 'gif',
         tags: ['adacraft', 'preload'],
-        iconURL: 'https://www.adacraft.org/studio/static/assets/e482db7668b6f6bbc8ce5223e4427e96.png',
-        insetIconURL: 'https://www.adacraft.org/studio/static/assets/bbb78885842b3cd65078881647f674f2.svg',
+        iconURL: require('../extensions/adacraft/gif.png'),
+	    insetIconURL: require('../extensions/adacraft/gif-small.svg'),
         description: 'Some new blocks to encode GIF files.',
         collaborator: 'Adacraft',
         featured: true
@@ -1492,8 +1101,8 @@ const menuItems = [
         name: 'Ada Browser',
         tags: ['adacraft', 'preload'],
         extensionId: 'adabrowser',
-        iconURL: 'https://www.adacraft.org/studio/static/assets/40998229311219c2117265d5e4bd9745.png',
-        insetIconURL: 'https://www.adacraft.org/studio/static/assets/f1fe0bbe960a0d60c783b111c84b837e.svg',
+        iconURL: require('../extensions/adacraft/browser.png'),
+	    insetIconURL: require('../extensions/adacraft/browser-small.svg'),
         description: 'Some new blocks to interact with the browser',
         collaborator: 'Adacraft',
         featured: true
@@ -1505,8 +1114,8 @@ const menuItems = [
         extensionId: 'roku',
         internetConnectionRequired: true,
         collaborator: 'Gvbvdxx',
-        iconURL: roku,
-		insetIconURL: rokuSmall,
+		iconURL: require('../extensions/roku/big.jpg'),
+	    insetIconURL: require('../extensions/roku/small.png'),
         tags: ['gvbvdxxmod', 'preload'],
         description: 'Interact with your Roku tv via the GM2Helper software!',
         featured: true
@@ -1514,8 +1123,8 @@ const menuItems = [
 	{
         name: 'HTML5 Elements',
         extensionId: 'html5',
-		insetIconURL: gm2HTML5Small,
-        iconURL: gm2HTML5Large,
+		iconURL: require('../extensions/html5/small.svg'),
+	    insetIconURL: require('../extensions/html5/large.svg'),
         description: 'Create HTMl5 elements. Display sprite costumes out of the stage!',
         featured: true,
         collaborator: 'Gvbvdxx',
@@ -1524,7 +1133,7 @@ const menuItems = [
 {
         name: 'Gvbvdxx Extras',
         extensionId: 'extra',
-		iconURL: defaultExtensionIcon,
+		iconURL: require('../extensions/potentiamod/placeholder.png'),
         description: 'Unfinished Gvbvdxx Mod Helper App.',
         featured: true,
         collaborator: 'Gvbvdxx',
@@ -1533,8 +1142,8 @@ const menuItems = [
 {
         name: 'Website API',
         extensionId: 'websites',
-		iconURL: websitesBigIcon,
-        insetIconURL: websitesSmallIcon,
+		iconURL: require('../extensions/websites/websites.png'),
+	    insetIconURL: require('../extensions/websites/small.png'),
         description: 'Website API',
         featured: true,
         collaborator: 'Gvbvdxx',
@@ -1543,21 +1152,21 @@ const menuItems = [
 	{
         name: 'NES Emulator',
         extensionId: 'nesemulator', // update reference once file names are updated
-        tags: ['gvbvdxxmod', 'preload'],
-        bluetoothRequired: false,
+		iconURL: require('../extensions/nes_emulator/nes.svg'),
+	    insetIconURL: require('../extensions/nes_emulator/nes-small.svg'),
+        description: 'Use the power of the NES emulation in PotentiaMod!',
         internetConnectionRequired: true,
         launchPeripheralConnectionFlow: false,
-        iconURL: NESEmuThumb,
-        insetIconURL: NESInsetIcon,
-        description: 'Use the power of the NES emulation in PotentiaMod!',
+        bluetoothRequired: false,
+        tags: ['gvbvdxxmod', 'preload'],
         featured: true,
         collaborator: 'Gvbvdxx'
     },
 	{
         name: 'User Data',
         extensionId: 'userdata',
-        iconURL: userdatabig,
-        insetIconURL: userdatasmall,
+		iconURL: require('../extensions/userdata/small.png'),
+	    insetIconURL: require('../extensions/userdata/big.png'),
         description: 'Get The User\'s Data',
         featured: true,
         collaborator: 'Gvbvdxx',
@@ -1568,7 +1177,7 @@ const menuItems = [
         name: 'PenguinMod Runtime',
         extensionId: 'jgRuntime',
         iconURL: require('../extensions/penguinmod/extensions/runtime.svg'),
-		insetIconURL: PMIcon,
+		insetIconURL: require('../extensions/icons/penguinmod.svg'),
         description:'Blocks for modifying project data and settings from PenguinMod itself.',
         collaborator: 'PenguinMod',
         tags: ['pm', 'preload'],
@@ -1579,7 +1188,7 @@ const menuItems = [
         extensionId: 'jgPrism',
         tags: ['pm', 'preload'],
         iconURL: require('../extensions/penguinmod/extensions/prism.png'),
-		insetIconURL: PMIcon,
+		insetIconURL: require('../extensions/icons/penguinmod.svg'),
 		collaborator: 'PenguinMod',
         description: 'Blocks for specific use-cases or major convenience.',
         featured: true
@@ -1588,7 +1197,7 @@ const menuItems = [
         name: 'Motion Expansion',
         extensionId: 'pmMotionExpansion',
         iconURL: require('../extensions/penguinmod/extensions/motion_expanded.png'),
-		insetIconURL: PMIcon,
+		insetIconURL: require('../extensions/icons/penguinmod.svg'),
         description: 'More small motion blocks for movement or collision.',
         tags: ['pm', 'preload'],
 		collaborator: 'PenguinMod',
@@ -1598,7 +1207,7 @@ const menuItems = [
         name: 'Scratch Authentication',
         extensionId: 'jgScratchAuthenticate',
         iconURL: require('./penguinmod/extensions/scratchauth2.svg'),
-		insetIconURL: PMIcon,
+		insetIconURL: require('../extensions/icons/penguinmod.svg'),
 		collaborator: 'PenguinMod',
 		tags: ['pm', 'preload'],
         description: "Interact with Scratch Authentication to prove the player is a real scratch user.",
@@ -1609,7 +1218,7 @@ const menuItems = [
         name: 'KittenBot Extension Maker',
         href: 'https://kittenbot.github.io/scratch3-extension/',
         extensionId: 'kittenBotExtensionMaker',
-        iconURL: kittenbotThumb,
+		iconURL: require('../extensions/extension-builders/KittenBot.png'),
         description: 'Create extensions with KittenBot!',
         tags: ['other', 'builders'],
         featured: true
@@ -1618,8 +1227,8 @@ const menuItems = [
         name: 'GaiaMod Extension Editor',
         href: 'https://gaiamod-main.github.io/Extension-Editor/',
         extensionId: 'GMExtEditor',
-        iconURL: gaiaExtEditorIcon,
-		insetIconURL: gaiaExtEditorInsetIcon,
+		iconURL: require('../extensions/extension-builders/GaiaExtEditor.svg'),
+	    insetIconURL: require('../extensions/extension-builders/GaiaExtEditor-small.svg'),
         description: 'Either create or edit extensions with a modfication of Astra Editor Extension Editor.',
         tags: ['gaia', 'builders'],
         isNew: true,
@@ -1629,7 +1238,7 @@ const menuItems = [
         name: 'ExtForge',
         href: 'https://jwklong.github.io/extforge',
         extensionId: 'extforge',
-        iconURL: extForgeIcon,
+        iconURL: require('../extensions/extension-builders/extforge.svg'),
         description: 'Create extensions with a block-based UI.',
         collaborator: 'jwklong',
         tags: ['pm', 'builders'],
@@ -1639,7 +1248,7 @@ const menuItems = [
         name: 'TurboBuilder',
         href: 'https://turbobuilder.vercel.app/',
         extensionId: 'turboBuilder',
-        iconURL: turboBuilderIcon,
+        iconURL: require('../extensions/extension-builders/turbobuilder.png'),
         description: 'Create your own amazing extensions using a scratch-based UI!',
         collaborator: 'Started by JeremyGamer13, continued by jwklong',
         tags: ['tw', 'builders'],
@@ -1669,7 +1278,7 @@ const menuItems = [
             />
         ),
         extensionId: 'tw',
-        iconURL: ptIcon,
+        iconURL: require('../extensions/tw/tw.svg'),
         description: (
             <FormattedMessage
                 defaultMessage="Weird new blocks, with more modifications by GaiaWindWave90."
@@ -1687,19 +1296,19 @@ const gallerySourceDisplay = {
     potentiamod: {
         name: 'PotentiaMod Extension Gallery',
         href: 'https://potentiamod.github.io/pot-extensions/',
-        iconURL: galleryIconPT,
+        iconURL: require('../extensions/gallery/potentiamod.svg'),
         tag: 'potentia'
     },
 	 gaiamod: {
         name: 'GaiaMod Extension Gallery',
         href: 'https://gaiawindwave90.github.io/gm-extensions/',
-        iconURL: galleryIconGM,
+        iconURL: require('../extensions/gallery/gaiamod.png'),
         tag: 'gaia'
     },
     turbowarp: {
         name: 'TurboWarp Extension Gallery',
         href: 'https://extensions.turbowarp.org/',
-        iconURL: galleryIconTW,
+        iconURL: require('../extensions/gallery/turbowarp.svg'),
         tag: 'tw'
     }
 };
@@ -1754,7 +1363,7 @@ const livetests = [
 	{
         name: 'Test Extension',
         extensionId: 'test',
-        iconURL: defaultExtensionIcon,
+        iconURL: require('../extensions/potentiamod/placeholder.png'),
         tags: ['potentia', 'preload', 'dev'],
         description: 'A test extension to see if possible. For developers only.',
         featured: true
@@ -1763,7 +1372,7 @@ const livetests = [
             name: 'Editor',
             href: 'https://potentiamod.github.io/editor.html',
             extensionId: 'gallery_potentiamodEditor',
-            iconURL: galleryIconPT,
+            iconURL: require('../extensions/gallery/potentiamod.svg'),
 			tags: ['potentia', 'preload', 'dev'],
             description: 'Opens the editor with this tab as the parent, still with the library opened. For developers.',
             featured: true
@@ -1772,7 +1381,7 @@ const livetests = [
             name: 'localhost:8601',
             href: 'http://localhost:8601',
             extensionId: 'gallery_potentiamodLocalhost8601',
-            iconURL: defaultExtensionIcon,
+            iconURL: require('../extensions/potentiamod/placeholder.png'),
 			tags: ['potentia', 'preload', 'dev'],
             description: 'Opens localhost:8601 in a new tab with this tab as the parent. For developers',
             featured: true
@@ -1781,7 +1390,7 @@ const livetests = [
         name: 'TurboBuilder - Dev Branch',
         href: 'https://dev-turbobuilder.vercel.app/',
         extensionId: 'turboBuilderDev',
-        iconURL: turboBuilderDevIcon,
+        iconURL: require('../extensions/extension-builders/turbobuilder-dev.png'),
         description: 'Publicly available developer branch, with the latest features.',
         collaborator: 'Started by JeremyGamer13, continued by jwklong',
         tags: ['tw', 'builders', 'dev'],
