@@ -1285,6 +1285,29 @@ const menuItems = [
         tags: ['tw'],
         featured: true
     },
+	{
+        name: (
+            <FormattedMessage
+                defaultMessage="PotentiaMod Extra Blocks"
+                description="Name of the 'PotentiaMod  Blocks' extension"
+                id="tw.potExtension.name"
+                values={{
+                    APP_NAME
+                }}
+            />
+        ),
+        extensionId: 'pot',
+        iconURL: require('../extensions/potentiamod/pot.svg'),
+        description: (
+            <FormattedMessage
+                defaultMessage="Fantastic-looking blocks."
+                description="Description of the 'PotentiaMod Blocks' extension"
+                id="tw.potExtension.description"
+            />
+        ),
+        tags: ['potentia'],
+        featured: true
+    },
 ];
 
 

@@ -746,21 +746,20 @@ const myBlocks = function (isInitialSetup, isStage, targetId, colors) {
     `;
 };
 
+const turboWarpBlocksColours = `colourmutprimary="#ff4c4c" colourmutsecondary="#e64444" colourmuttertiary="#c73a3a" colourmutquaternary="#c73a3a"`;
 
-const extraTurboWarpBlocks = function (isInitialSetup, isStage, targetId, colors) {
-    // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
-    return `
-<block type="argument_reporter_boolean"><field name="VALUE">is compiled?</field></block>
-<block type="argument_reporter_boolean"><field name="VALUE">is TurboWarp?</field></block>
+const potentiaModBlocksColours = `colourmutprimary="#4800cc" colourmutsecondary="#37009d" colourmuttertiary="#5600f5" colourmutquaternary="#5600f5"`;
+
+const extraTurboWarpBlocks = `
+<block type="argument_reporter_boolean"><field name="VALUE">is compiled?</field><mutation ${turboWarpBlocksColours}></mutation></block>
+<block type="argument_reporter_boolean"><field name="VALUE">is TurboWarp?</field><mutation ${turboWarpBlocksColours}></mutation></block>
 `;
-};
 
-
-const extraPotentiaModBlocks = function (isInitialSetup, isStage, targetId, colors) {`
-<block type="argument_reporter_boolean"><field name="VALUE">is compiled?</field></block>
-<block type="argument_reporter_boolean"><field name="VALUE">is PotentiaMod?</field></block>
+const extraPotentiaModBlocks = `
+<block type="argument_reporter_boolean"><field name="VALUE">is compiled?</field><mutation ${potentiaModBlocksColours}></mutation></block>
+<block type="argument_reporter_boolean"><field name="VALUE">is PotentiaMod?</field><mutation ${potentiaModBlocksColours}></mutation></block>
 `;
-};
+
 /* eslint-enable no-unused-vars */
 
 const xmlOpen = '<xml style="display: none">';
