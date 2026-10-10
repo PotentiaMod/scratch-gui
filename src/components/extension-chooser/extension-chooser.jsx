@@ -103,12 +103,12 @@ const ExtensionChooser = props => {
     /*
     *这里下载的文件实际上为html
     */
-    const TurboWarp_IncludeExts = ['ev3', 'makeymakey', 'translate', 'music', 'pen', 'videoSensing', 'text2speech', 'translate', 'microbit', 'boost', 'wedo2', 'gdxfor', 'tw']
+    const TurboWarp_IncludeExts = ['ev3', 'makeymakey', 'translate', 'music', 'pen', 'videoSensing', 'text2speech', 'translate', 'microbit', 'boost', 'wedo2', 'gdxfor', 'tw', 'pot']
     // 删除扩展
     const handleRemoveExtension = (extensionId) => {
         if (!vm || !vm.extensionManager) return;
 
-        vm.extensionManager.unloadExtension(extensionId);
+        vm.extensionManager.removeExtension(extensionId);
 
     };
 
@@ -125,7 +125,8 @@ const ExtensionChooser = props => {
         const fetchGallery = async () => {
             const extensionsLibs = [
                 { id: "tw", url: "https://extensions.turbowarp.org/" },
-                { id: "ae", url: "https://editors.astras.top/extensions" },
+                { id: "potentia", url: "https://potentiamod.github.io/pot-extensions/" },
+                { id: "gaia", url: "https://gaiawindwave90.github.io/gm-extensions/" },
             ]
             try {
                 const getExtLists = extensionsLibs.map(async (item) => {
@@ -271,7 +272,7 @@ const ExtensionChooser = props => {
 
     const getOpcodefromExt = (Ext) => {
         const AllOpcode = [];
-        const color = Ext.color1 || '#0099ff'
+        const color = Ext.color1 || '#4800CC'
         Ext.blocks.forEach((item, index) => {
             if (item.info.opcode == undefined) return;
             if (item.info.blockType == "label") {

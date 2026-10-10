@@ -4,7 +4,8 @@ import bindAll from 'lodash.bindall';
 import {connect} from 'react-redux';
 import log from '../lib/utils/log';
 import CustomExtensionModalComponent from '../components/tw-custom-extension-modal/custom-extension-modal.jsx';
-import {closeCustomExtensionModal} from '../reducers/modals';
+import {closeCustomExtensionModal, openPreviewExt} from '../reducers/modals';
+import { setPreviewExtData } from '../reducers/ae-preview-ext-data';
 import {manuallyTrustExtension, isTrustedExtension} from './tw-security-manager.jsx';
 import {getPersistedUnsandboxed, setPersistedUnsandboxed} from '../lib/persistence/tw-unsandboxed.js';
 

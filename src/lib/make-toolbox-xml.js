@@ -746,10 +746,21 @@ const myBlocks = function (isInitialSetup, isStage, targetId, colors) {
     `;
 };
 
-const extraTurboWarpBlocks = `
+
+const extraTurboWarpBlocks = function (isInitialSetup, isStage, targetId, colors) {
+    // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
+    return `
+<block type="argument_reporter_boolean"><field name="VALUE">is compiled?</field></block>
+<block type="argument_reporter_boolean"><field name="VALUE">is TurboWarp?</field></block>
+`;
+};
+
+
+const extraPotentiaModBlocks = function (isInitialSetup, isStage, targetId, colors) {`
 <block type="argument_reporter_boolean"><field name="VALUE">is compiled?</field></block>
 <block type="argument_reporter_boolean"><field name="VALUE">is PotentiaMod?</field></block>
 `;
+};
 /* eslint-enable no-unused-vars */
 
 const xmlOpen = '<xml style="display: none">';
@@ -804,8 +815,14 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
     // Always display TurboWarp blocks as the first extension, if it exists,
     // and also add an "is compiled?" block to the top.
     let turbowarpXML = moveCategory('tw');
+    let potentiamodXML = moveCategory('potentia');
+
     if (turbowarpXML && !turbowarpXML.includes(extraTurboWarpBlocks)) {
         turbowarpXML = turbowarpXML.replace('<block', `${extraTurboWarpBlocks}<block`);
+    }
+	
+	    if (potentiamodXML && !potentiamodXML.includes(extraPotentiaModBlocks)) {
+        potentiamodXML = potentiamodXML.replace('<block', `${extraPotentiaModBlocks}<block`);
     }
 
     const everything = [
@@ -823,6 +840,10 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
 
     if (turbowarpXML) {
         everything.push(gap, turbowarpXML);
+    }
+	
+    if (potentiamodXML) {
+        everything.push(gap, potentiamodXML);
     }
 
     for (const extensionCategory of categoriesXML) {
