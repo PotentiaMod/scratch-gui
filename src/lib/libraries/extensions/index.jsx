@@ -1080,7 +1080,7 @@ const menuItems = [
 	{
         name: 'Adacraft HTTP',
         extensionId: 'adahttp',
-        tags: ['adacraft', 'preload'],
+        tags: ['other', 'preload'],
         iconURL: require('../extensions/adacraft/http.png'),
 	    insetIconURL: require('../extensions/adacraft/http-small.svg'),
         description: 'Some new blocks to send HTTP requests ad manage results.',
@@ -1090,7 +1090,7 @@ const menuItems = [
     {
         name: 'Adacraft GIF',
         extensionId: 'gif',
-        tags: ['adacraft', 'preload'],
+        tags: ['other', 'preload'],
         iconURL: require('../extensions/adacraft/gif.png'),
 	    insetIconURL: require('../extensions/adacraft/gif-small.svg'),
         description: 'Some new blocks to encode GIF files.',
@@ -1099,7 +1099,7 @@ const menuItems = [
     },
 {
         name: 'Ada Browser',
-        tags: ['adacraft', 'preload'],
+        tags: ['other', 'preload'],
         extensionId: 'adabrowser',
         iconURL: require('../extensions/adacraft/browser.png'),
 	    insetIconURL: require('../extensions/adacraft/browser-small.svg'),
@@ -1116,7 +1116,7 @@ const menuItems = [
         collaborator: 'Gvbvdxx',
 		iconURL: require('../extensions/roku/big.jpg'),
 	    insetIconURL: require('../extensions/roku/small.png'),
-        tags: ['gvbvdxxmod', 'preload'],
+        tags: ['other', 'preload'],
         description: 'Interact with your Roku tv via the GM2Helper software!',
         featured: true
     },
@@ -1128,7 +1128,7 @@ const menuItems = [
         description: 'Create HTMl5 elements. Display sprite costumes out of the stage!',
         featured: true,
         collaborator: 'Gvbvdxx',
-        tags: ['gvbvdxxmod', 'preload']
+        tags: ['other', 'preload']
     },
 {
         name: 'Gvbvdxx Extras',
@@ -1137,7 +1137,7 @@ const menuItems = [
         description: 'Unfinished Gvbvdxx Mod Helper App.',
         featured: true,
         collaborator: 'Gvbvdxx',
-        tags: ['gvbvdxxmod', 'preload']
+        tags: ['other', 'preload']
     },
 {
         name: 'Website API',
@@ -1147,7 +1147,7 @@ const menuItems = [
         description: 'Website API',
         featured: true,
         collaborator: 'Gvbvdxx',
-        tags: ['gvbvdxxmod', 'preload']
+        tags: ['other', 'preload']
     },
 	{
         name: 'NES Emulator',
@@ -1158,7 +1158,7 @@ const menuItems = [
         internetConnectionRequired: true,
         launchPeripheralConnectionFlow: false,
         bluetoothRequired: false,
-        tags: ['gvbvdxxmod', 'preload'],
+        tags: ['other', 'preload'],
         featured: true,
         collaborator: 'Gvbvdxx'
     },
@@ -1170,25 +1170,23 @@ const menuItems = [
         description: 'Get The User\'s Data',
         featured: true,
         collaborator: 'Gvbvdxx',
-        tags: ['gvbvdxxmod', 'preload']
+        tags: ['other', 'preload']
 	},
 	//PenguinMod Preloads
 	{
         name: 'PenguinMod Runtime',
         extensionId: 'jgRuntime',
         iconURL: require('../extensions/penguinmod/extensions/runtime.svg'),
-		insetIconURL: require('../extensions/icons/penguinmod.svg'),
         description:'Blocks for modifying project data and settings from PenguinMod itself.',
         collaborator: 'PenguinMod',
-        tags: ['pm', 'preload'],
+        tags: ['other', 'preload'],
 		featured: true
     },
 	 {
         name: 'Prism',
         extensionId: 'jgPrism',
-        tags: ['pm', 'preload'],
+        tags: ['other', 'preload'],
         iconURL: require('../extensions/penguinmod/extensions/prism.png'),
-		insetIconURL: require('../extensions/icons/penguinmod.svg'),
 		collaborator: 'PenguinMod',
         description: 'Blocks for specific use-cases or major convenience.',
         featured: true
@@ -1197,9 +1195,8 @@ const menuItems = [
         name: 'Motion Expansion',
         extensionId: 'pmMotionExpansion',
         iconURL: require('../extensions/penguinmod/extensions/motion_expanded.png'),
-		insetIconURL: require('../extensions/icons/penguinmod.svg'),
         description: 'More small motion blocks for movement or collision.',
-        tags: ['pm', 'preload'],
+        tags: ['other', 'preload'],
 		collaborator: 'PenguinMod',
 		featured: true
     },
@@ -1207,9 +1204,8 @@ const menuItems = [
         name: 'Scratch Authentication',
         extensionId: 'jgScratchAuthenticate',
         iconURL: require('./penguinmod/extensions/scratchauth2.svg'),
-		insetIconURL: require('../extensions/icons/penguinmod.svg'),
 		collaborator: 'PenguinMod',
-		tags: ['pm', 'preload'],
+		tags: ['other', 'preload'],
         description: "Interact with Scratch Authentication to prove the player is a real scratch user.",
         featured: true
     },
@@ -1241,7 +1237,7 @@ const menuItems = [
         iconURL: require('../extensions/extension-builders/extforge.svg'),
         description: 'Create extensions with a block-based UI.',
         collaborator: 'jwklong',
-        tags: ['pm', 'builders'],
+        tags: ['other', 'builders'],
         featured: true
     },
     {
