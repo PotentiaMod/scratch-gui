@@ -34,24 +34,26 @@ const eraseData = async () => {
 
 const Footer = () => (
     <footer className={styles.footer}>
-        <div className={styles.inner}>
-            <div className={styles.brand}>
-                <img
-                    width="70px"
+        <div className={styles.footerContent}>
+		<center>
+          <img
+                    width="120px"
                     src={logo}
                     alt="PotentiaMod"
                 />
-                <div>
-				   <span className={styles.wordmark}>{APP_NAME}</span>
-                    <p className={styles.tagline}>{MOTTO}</p>
-                </div>
-            </div>
+                <span className={styles.logomark}>{APP_NAME}</span>
+                    <p className={styles.slogan}>{MOTTO}</p>
+					</center>
+					
+					<hr></hr>
 
-            <div className={styles.columns}>
-                <div className={styles.column}>
-                    <span className={styles.columnTitle}>Websites</span>
-                    <a href="editor.html">Editor</a>
+            <div className={styles.footerColumns}>
+                <div className={styles.footerSection}>
+				<h2>Websites</h2>
+				
+                   <a href="editor.html">Editor</a>
                     <a href="?livetest">Live Test</a>
+                    <a href="https://potentiamod.github.io/home">Homepage</a>
                     <a href="desktop.html">PotentiaMod Desktop</a>
                     <a href="https://potentiamod.github.io/packager">PotentiaMod Packager</a>
                     <a href="https://potentiamod.github.io/pot-extensions">PotentiaMod Extension Gallery</a>
@@ -64,24 +66,27 @@ const Footer = () => (
                     >
                         GitHub Source Code
                     </a>
-					<a href="https://spinachmod.github.io/">SpinachMod</a>
 					<a href="https://gaiawindwave90.github.io/GaiaMod">GaiaMod</a>
 					<a href="https://gaiamod-main.github.io/">GaiaMod (Legacy)</a>
 					<a href="https://gaiawindwave90.github.io/">Gaia Zone</a>
+					
                 </div>
-                <div className={styles.column}>
-                    <span className={styles.columnTitle}>Other</span>
-					<a href="credits.html">Credits</a>
+                <div className={styles.footerSection}>
+				<h2>Comunity</h2>
+				
+                    <a href="credits.html">Credits</a>
 					<a href="privacy.html">Privacy Policy</a>
                     <a
                         href="https://www.facebook.com/CrystalMae1990/"
                         target="_blank"
                         rel="noreferrer"
                     >Report a bug</a>
+					
                 </div>
-                <div className={styles.column}>
-                    <span className={styles.columnTitle}>Donate</span>
-					<a
+                <div className={styles.footerSection}>
+				<h2>Donate</h2>
+				
+                    <a
                         href="https://penguinmod.com/donate"
                         target="_blank"
                         rel="noreferrer"
@@ -98,11 +103,44 @@ const Footer = () => (
                     >Donate to Scratch</a>
                 </div>
             </div>
-        </div>
-        <div className={styles.legal}>
-            {APP_NAME} is a mod of TurboWarp and Scratch. Not affiliated with Scratch or the Scratch Foundation.
-        </div>
-       <div className={styles.legal} style={{textAlign: 'center'}}>
+			
+			 <div className={styles.footerText}>
+                <FormattedMessage
+                    // eslint-disable-next-line max-len
+                    defaultMessage="{APP_NAME} is not affiliated with Scratch, the Scratch Team, or the Scratch Foundation."
+                    description="Disclaimer that TurboWarp is not connected to Scratch"
+                    id="tw.footer.disclaimer"
+                    values={{
+                        APP_NAME
+                    }}
+                />
+            </div>
+			
+           <hr></hr>
+		   
+            <div className={styles.footerText}>
+                <FormattedMessage
+                    // eslint-disable-next-line max-len
+                    defaultMessage="Scratch is a project of the Scratch Foundation. It is available for free at {scratchDotOrg}."
+                    description="A disclaimer that Scratch requires when referring to Scratch. {scratchDotOrg} is a link with text 'https://scratch.org/'"
+                    id="tw.footer.scratchDisclaimer"
+                    values={{
+                        scratchDotOrg: (
+                            <a
+                                href="https://scratch.org/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                {'https://scratch.org/'}
+                            </a>
+                        )
+                    }}
+                />
+            </div>
+			
+			<hr></hr>
+			
+	<div className={styles.footerText} style={{textAlign: 'center'}}>
 	   <p>
 	   <a
                             href="https://gaiamod-main.github.io/"
@@ -129,12 +167,13 @@ const Footer = () => (
 							</b>
 							</p>		
             <p className={styles.info}>
-			{(LiveTests || Local) ? 'Dev.' : `v${APP_VERSION}`}| 
-				 <a
+			{(LiveTests || Local) ? 'Dev.' : `v${APP_VERSION}`} | <a
                     onClick={eraseData}
                     style={{color: 'red'}}
                 >Erase data</a>
             </p>
+        </div>
+			
         </div>
     </footer>
 );

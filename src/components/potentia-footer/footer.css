@@ -3,99 +3,114 @@
 @import "../../css/filters.css";
 @import "../../css/units.css";
 @import "../../css/typography.css";
-.footer {
-    margin-top: 60px;
-    background: var(--menu-bar-background);
-    background-image: var(--menu-bar-background-image);
-    border-top: 1px solid $ui-black-transparent;
+
+/* Base styles used by Scratch https://github.com/LLK/scratch-www/blob/develop/src/main.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: bold;
+    line-height: 1.7em;
+}
+h1 {
+    font-weight: 2.5rem;
+}
+h2 {
+    font-weight: 2rem;
+}
+h3 {
+    font-size: 1.4rem;
+}
+h4 {
+    font-size: 1rem;
+}
+a {
+    color: $link-color;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
-.inner {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 36px 22px 28px;
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $page-background;
+}
+
+.editor {
+    height: 100%;
+}
+.editor .center {
+    height: 100%;
+}
+
+.player-only .center {
+    margin: auto;
+}
+.menu {
+    margin-bottom: 8px;
+}
+.section {
+    margin: 8px 0 8px 0;
+}
+
+.footer {
+	background: var(--menu-bar-background);
+    background-image: var(--menu-bar-background-image);
+    color: var(--menu-bar-foreground);
+    padding: 10px 0;
+    margin-top: 10px;
+    border-top: 2px solid $ui-black-transparent;
+}
+.footer a {
+    font-weight: bold;
+    text-decoration: none;
+}
+.footer-content {
+    max-width: 600px;
+    margin: auto;
+}
+.footer-text {
+    text-align: center;
+    margin: 5px 0 10px 0;
+}
+.footer-columns {
     display: flex;
-    justify-content: space-between;
-    gap: 30px;
+    justify-content: center;
+    justify-items: center;
     flex-wrap: wrap;
 }
-
-.brand {
+.footer-section {
     display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    max-width: 320px;
+    flex-direction: column;
+    width: 200px;
+    margin-bottom: 10px;
 }
-
-.logo {
-    width: 800px;
-    height: 50px;
-    border-radius: 10px;
-    display: block;
+.footer-section > * {
+    margin-bottom: 10px;
 }
-
-.wordmark {
+.logomark {
 	color: var(--menu-bar-foreground);
     font-weight: 800;
-    font-size: 18px;
+    font-size: 50px;
     letter-spacing: -0.02em;
 }
 
-.tagline {
-    margin: 5px 0 0;
+.slogan {
     color: var(--menu-bar-foreground);
-    font-size: 13px;
+    font-size: 25px;
     line-height: 1.5;
-}
-
-.columns {
-    display: flex;
-    gap: 56px;
-    flex-wrap: wrap;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    min-width: 110px;
-}
-
-.column a {
-    color: var(--menu-bar-foreground);
-    font-size: 13.5px;
-}
-
-.columnTitle {
-    font-weight: 700;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--menu-bar-foreground);
-    margin-bottom: 2px;
-}
-
-.iconRow {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.legal {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 0 22px 26px;
-    color: var(--menu-bar-foreground);
-    font-size: 12.5px;
-}
-
-@media (max-width: 620px) {
-    .inner {
-        flex-direction: column;
-        gap: 26px;
-    }
-
-    .columns {
-        gap: 30px;
-    }
+    padding-left: 25%;
 }

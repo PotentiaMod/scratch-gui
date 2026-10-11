@@ -216,7 +216,7 @@ const ACCENT_MAP = {
 const ACCENT_GROUPS = [
     {
         label: {id: 'tw.accentGroup.colorsOriginal', defaultMessage: 'Original Colors'},
-        accents: ['indigo', 'magenta', 'pink', 'orange', 'yellow', 'green', 'dark-green', 'red', 'purple', 'blue']
+        accents: ['indigo', 'magenta', 'pink', 'orange', 'yellow', 'green', 'red', 'purple', 'blue']
     },
     {
         label: {id: 'tw.accentGroup.colorsSpecial', defaultMessage: 'Special Colors'},
@@ -259,11 +259,6 @@ const AccentOptions = defineMessages({
         defaultMessage: 'Green',
         description: 'Name of the green color scheme',
         id: 'tw.accent.green'
-    },
-	 [ACCENT_DARK_GREEN]: {
-        defaultMessage: 'Dark Green',
-        description: 'Name of the dark green color scheme',
-        id: 'tw.accent.darkgreen',
     },
     [ACCENT_RED]: {
         defaultMessage: 'Red',
