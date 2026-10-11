@@ -19,13 +19,36 @@ const decorate = text => {
 
     // Make links clickable
     const linkRegex = /(https?:\/\/[\w\d_\-.]{1,256}(?:\/(?:\S*[\w:/#[\]@$&'()*+=])?)?(?![^?!,:;\w\s]\S))/g;
-    text = reactStringReplace(text, linkRegex, (match, i) => (
-        <a
-            href={match}
-            rel="noreferrer"
-            key={match + i}
-        >{match}</a>
-    ));
+     text = reactStringReplace(text, linkRegex, (match, i) => {
+        let href = match;
+
+        try {
+            const url = new URL(match);
+            const projectMatch = url.pathname.match(
+                /^\/projects\/(\d+)\/?$/
+            );
+
+            if (
+                (
+                    url.hostname === 'scratch.mit.edu' ||
+                    url.hostname === 'www.scratch.mit.edu'
+                ) &&
+                projectMatch
+            ) {
+                href = `#${projectMatch[1]}`;
+            }
+        } catch (e) {
+            // Keep the original URL if it cannot be parsed.
+        }
+
+        return (
+            <a
+                href={href}
+                rel="noreferrer"
+                key={match + i}
+            >{match}</a>
+        );
+    });
 
     // Make hashtags clickable
     text = reactStringReplace(text, /#([\w-]+)/g, (match, i) => (
@@ -46,13 +69,13 @@ const Description = ({
     <div className={styles.description}>
         <div className={styles.projectLink}>
             <a
-                href={`https://scratch.mit.edu/projects/${projectId}/`}
+                href={`https://reflective.cattymod.app/#${projectId}`}
                 target="_blank"
                 rel="noreferrer"
             >
                 <FormattedMessage
-                    defaultMessage="View project on Scratch"
-                    description="Link to view project on Scratch"
+                    defaultMessage="View project on PotentiaMod/CattyMod Reflective"
+                    description="Link to view project on PotentiaMod/CattyMod Reflective"
                     id="tw.viewOnScratch"
                 />
             </a>

@@ -32,6 +32,7 @@ import DeletionRestorer from '../../containers/deletion-restorer.jsx';
 import TurboMode from '../../containers/turbo-mode.jsx';
 import MenuBarHOC from '../../containers/menu-bar-hoc.jsx';
 import SettingsMenu from './settings-menu.jsx';
+import openStagePiP from '../../lib/stage-pip.js';
 //import TWRenderRecoloredImage from '../../lib/tw-recolor/render.jsx';
 
 import FramerateChanger from '../../containers/tw-framerate-changer.jsx';
@@ -236,7 +237,10 @@ class MenuBar extends React.Component {
             'getSaveToComputerHandler',
             'restoreOptionMessage',
             'handleSetDefaultProject',
-            'handleRestoreDefaultProject'
+            'handleRestoreDefaultProject',
+			'handleClickGpt',
+			'handleClickPiP',
+            'isPiPButtonVisible'
         ]);
     }
     componentDidMount () {
@@ -244,6 +248,60 @@ class MenuBar extends React.Component {
     }
     componentWillUnmount () {
         document.removeEventListener('keydown', this.handleKeyPress);
+    }
+	// Show Copilot by default unless explicitly disabled.
+    // Never show it inside an embedded editor.
+    isGptButtonVisible () {
+        if (window.parent !== window) {
+            return false;
+        }
+
+        try {
+            const enabled = window.localStorage.getItem('potentiamod:gptEnabled');
+            return enabled === null || enabled === 'true';
+        } catch (e) {
+            return false;
+        }
+    }
+
+    
+    // Show Picture in Picture by default unless explicitly disabled.
+    // Never show it inside an embedded editor.
+    isPiPButtonVisible () {
+        if (window.parent !== window) {
+            return false;
+        }
+
+        try {
+            const enabled = window.localStorage.getItem(
+                'potentiamod:pipEnabled'
+            );
+            return enabled === null || enabled === 'true';
+        } catch (e) {
+            return false;
+        }
+    }
+
+    handleClickPiP () {
+        if (!this.isPiPButtonVisible()) {
+            return;
+        }
+
+        openStagePiP(this.props.vm);
+        this.props.onRequestCloseEdit();
+    }
+
+    
+    handleClickGpt () {
+        if (!this.isGptButtonVisible()) {
+            return;
+        }
+
+        window.open(
+            'https://chatgpt.com/',
+            '_blank',
+            'noopener,noreferrer'
+        );
     }
     handleClickNew () {
         // if the project is dirty, and user owns the project, we will autosave.
@@ -923,6 +981,28 @@ class MenuBar extends React.Component {
                                             />
                                         </MenuItem>
                                     )}</ChangeUsername>
+									
+									{/* GPT */}
+                                    {this.isGptButtonVisible() && (
+                                        <MenuItem
+                                            isRtl={this.props.isRtl}
+                                            onClick={this.handleClickGpt}
+                                        >
+                                            Open ChatGPT
+                                        </MenuItem>
+                                        
+                                    )}
+
+                                    {/* Picture in Picture. Got it from CattyMod */}
+                                    {this.isPiPButtonVisible() && (
+                                        <MenuItem
+                                            isRtl={this.props.isRtl}
+                                            onClick={this.handleClickPiP}
+                                        >
+                                            Open Picture in Picture
+                                        </MenuItem>
+                                    )}
+									
                                     <CloudVariablesToggler>{(toggleCloudVariables, {enabled, canUseCloudVariables}) => (
                                         <MenuItem
                                             className={classNames({[styles.disabled]: !canUseCloudVariables})}
