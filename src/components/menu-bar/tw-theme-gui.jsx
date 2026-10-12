@@ -82,7 +82,6 @@ const GuiThemeMenu = ({
         </div>
         <Submenu
             place={isRtl ? 'left' : 'right'}
-            className={styles.guiSubmenu}
         >
             {Object.keys(GuiOptions).map(item => (
                     <GuiMenuItem

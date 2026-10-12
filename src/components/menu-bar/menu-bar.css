@@ -59,6 +59,18 @@
 .main-menu-align-right {
     justify-content: flex-end;
 }
+
+.navPosLeft .main-menu {
+    justify-content: flex-start;
+}
+
+.navPosMiddle .main-menu {
+    justify-content: center;
+}
+
+.navPosRight .main-menu {
+    justify-content: flex-end;
+}
 	
 .inactive {
     opacity: 0;

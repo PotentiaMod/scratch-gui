@@ -105,7 +105,7 @@ const ACCENT_CYAN = 'cyan';
 const ACCENT_LIME = 'lime';
 const ACCENT_ORANGE = 'orange';
 const ACCENT_MAGENTA = 'magenta';
-const ACCENT_FUCHSIA = 'fuchsia';
+const ACCENT_FUCHSIA = 'magenta-purple';
 const ACCENT_INDIGO = 'indigo';
 const ACCENT_INDIGO_BLUE = 'indigo-blue';
 const ACCENT_CORRUPTED_BLUE = 'corrupted-blue';
@@ -411,16 +411,6 @@ const GuiOptions = defineMessages({
         description: 'Name of a light color scheme. Matches the defunct Genesis IDE color.',
         id: 'tw.gui.genesislight'
     },
-	[GUI_AMP_LIGHT]: {
-        defaultMessage: 'A. light',
-        description: 'Name of a light color scheme. Matches AmpMod\'s color.',
-        id: 'tw.gui.amplight'
-    },
-	[GUI_MODERN_WHITE]: {
-        defaultMessage: 'AstraL',
-        description: 'Name of a light color scheme. Matches Astra Editor\'s color.',
-        id: 'tw.gui.astralight'
-    },
     [GUI_DARK]: {
         defaultMessage: 'Dark',
         description: 'Name of the dark color scheme.',
@@ -436,16 +426,6 @@ const GuiOptions = defineMessages({
         description: 'Name of a dark color scheme. Matches the defunct Genesis IDE color.',
         id: 'tw.gui.genesisdark'
     },
-	[GUI_AMP_DARK]: {
-        defaultMessage: 'A. Dark',
-        description: 'Name of a dark color scheme. Matches AmpMod\'s color.',
-        id: 'tw.gui.ampdark'
-    },
-	[GUI_DEEP_DARK]: {
-        defaultMessage: 'AstraD',
-        description: 'Name of a dark color scheme. Matches Astra Editor\'s color.',
-        id: 'tw.gui.astradark'
-    },
 	[GUI_MIDNIGHT]: {
         defaultMessage: 'Midnight',
         description: 'Name of the midnight color scheme.',
@@ -455,16 +435,6 @@ const GuiOptions = defineMessages({
         defaultMessage: 'C. Midnight',
         description: 'Name of the midnight color scheme. Matches CattyMod\'s new midnight color.',
         id: 'tw.gui.cattymidnight'
-    },
-	[GUI_AMOLED]: {
-        defaultMessage: 'Amol.',
-        description: 'Name of the amoled color scheme.',
-        id: 'tw.gui.amoled'
-    },
-	[GUI_AMP_AMOLED]: {
-        defaultMessage: 'A. Amol.',
-        description: 'Name of the amoled color scheme. Matches AmpMod\'s color.',
-        id: 'tw.gui.ampamoled'
     },
 	[GUI_HIGH_CONTRAST]: {
         defaultMessage: 'H. Cont.',

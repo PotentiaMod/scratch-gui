@@ -598,6 +598,16 @@ class MenuBar extends React.Component {
         };
     }
     render () {
+		
+		const navPos = (() => {
+    try {
+        const value = window.localStorage.getItem('potentiamod:navPos');
+        return ['Left', 'Middle', 'Right'].includes(value) ? value : 'Middle';
+    } catch (e) {
+        return 'Middle';
+    }
+})();
+		
         const saveNowMessage = (
             <FormattedMessage
                 defaultMessage="Save now"
@@ -641,19 +651,26 @@ class MenuBar extends React.Component {
         );
         // Show the About button only if we have a handler for it (like in the desktop app)
         const aboutButton = this.buildAboutMenu(this.props.onClickAbout);
-        const menuBar = (
-            <Box
-                className={classNames(
-                    this.props.className,
-                    styles.menuBar
-                )}
-            >
+		
+		
+    const navPosClass = {
+        Left: styles.navPosLeft,
+        Middle: styles.navPosMiddle,
+       Right: styles.navPosRight
+      }[navPos];
+
+       const menuBar = (
+        <Box
+        className={classNames(
+            this.props.className,
+            styles.menuBar,
+            navPosClass
+               )}
+              >
+			
                 <div
                     className={classNames(
-                        styles.mainMenu,
-                        {
-                            [styles[`main-menu-align-${this.props.theme.menuBarAlign || 'left'}`]]: true
-                        }
+                        styles.mainMenu
                     )}
                 >
                     <div className={styles.fileGroup}>
@@ -667,6 +684,7 @@ class MenuBar extends React.Component {
                             {'PotentiaMod'}
                         </span>
                         </div>
+						
                         {this.props.errors.length > 0 && <div>
                             <MenuLabel
                                 open={this.props.errorsMenuOpen}

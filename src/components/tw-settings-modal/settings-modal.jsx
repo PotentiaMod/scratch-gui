@@ -76,6 +76,10 @@ const messages = defineMessages({
 	danger: {
         id: 'tw.editorSettings.dangerSection',
         defaultMessage: 'Danger Zone!'
+    },
+	about: {
+        id: 'tw.editorSettings.aboutSection',
+        defaultMessage: 'About'
     }
 });
 
