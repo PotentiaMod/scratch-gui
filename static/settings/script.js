@@ -15,7 +15,7 @@
 
       document.getElementById(settingName).style.display = "block";
       evt.currentTarget.className += " active";
-}
+      }
 	  
 	  
       /* ------------------------- Settings ------------------------- */

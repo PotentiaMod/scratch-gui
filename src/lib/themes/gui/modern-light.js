@@ -81,12 +81,12 @@ const guiColors = {
     'fullscreen-accent': '#e8edf1',
 
     'page-background': '#ffffff',
-    'page-foreground': 'var(--looks-secondary-dark)',
+    'page-foreground': '#000000',
 
     'project-title-inactive': 'var(--ui-white-transparent)',
     'project-title-hover': '#ffffff7f',
 
-    'link-color': '#2255dd',
+    'link-color': 'var(--looks-secondary-darker)',
 
     'filter-icon-black': 'none',
     'filter-icon-gray': 'grayscale(100%)',

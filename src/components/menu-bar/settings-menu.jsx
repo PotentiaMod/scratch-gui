@@ -21,6 +21,11 @@ import {APP_VERSION} from '../../lib/version.js';
 import {closeSettingsMenu} from '../../reducers/menus.js';
 import {openTipsLibrary, openExtensionManagerModal, openSettingsModal, openRestorePointModal, openCustomExtensionModal} from '../../reducers/modals';
 
+import {Palette, Expand, FilePen, PencilRuler, TriangleAlert, ChevronDown, Info, Shuffle,
+    FilePlusCorner, Wrench, Upload, RefreshCcw, ClockPlus, Package, FileInput,
+    Save, ArchiveRestore, UserPen, Cloud, Settings, PackagePlus, Puzzle,
+    Bookmark, GitBranch, FileCog, Bug, Database, Undo, Redo, Handshake} from 'lucide-react';
+
 import menuBarStyles from './menu-bar.css';
 import styles from './settings-menu.css';
 
@@ -46,12 +51,11 @@ const SettingsMenu = ({
         onOpen={onRequestOpen}
         onClose={onRequestClose}
     >
-        <img
-            src={settingsIcon}
-            draggable={false}
-            width={20}
-            height={20}
-        />
+        <Settings
+                                    width={20}
+                                    height={20}
+                                    size={20}
+                                />
         <span className={styles.dropdownLabel}>
             <FormattedMessage
                 defaultMessage="Settings"
@@ -59,12 +63,7 @@ const SettingsMenu = ({
                 id="gui.menuBar.settings"
             />
         </span>
-        <img
-            src={dropdownCaret}
-            draggable={false}
-            width={8}
-            height={5}
-        />
+        <ChevronDown size={8} />
         <MenuBarMenu
             className={menuBarStyles.menuBarMenu}
             open={settingsMenuOpen}
@@ -86,20 +85,44 @@ const SettingsMenu = ({
                         className={styles.option}
                         onClick={onClickSettings}
                     >
-                        <img
-                            src={settingsIcon}
-                            draggable={false}
-                            width={24}
-                            height={24}
-                        />
+                        <Wrench
+                          width={20}
+                           height={20}
+                           size={20}
+                           />
                         <FormattedMessage
-                            defaultMessage="More Settings"
+                            defaultMessage="Editor Settings"
                             description="Settings menu"
                             id="gui.menuBar.editorSettings"
                         />
                     </div>
                 </MenuItem>
+				<MenuItem>
+                            <div
+                                className={styles.option}
+                                // eslint-disable-next-line react/jsx-no-bind
+                                onClick={() => {
+                                    window.location.href =
+                                        '/settings';
+                                    onRequestClose();
+                                }}
+                            >
+                                <Expand
+                                    width={20}
+                                    height={20}
+                                    size={20}
+                                />
+                                <span className={styles.submenuLabel}>
+                                    <FormattedMessage
+                                        defaultMessage="Expand"
+                                        description="Menu item to open more settings"
+                                        id="tw.moreSettings"
+                                    />
+                                </span>
+                            </div>
+                        </MenuItem>
             </MenuSection>
+			
 			<MenuSection>
 			{onClickDesktopSettings && <TWDesktopSettings onClick={onClickDesktopSettings} />}
                <InstallPWA />

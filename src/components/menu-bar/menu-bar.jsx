@@ -14,6 +14,17 @@ import VM from 'scratch-vm';
 import storage from '../../lib/storage';
 import JSZip from '@turbowarp/jszip';
 
+import {
+    FilePen, UserPen, Gauge, PictureInPicture, PictureInPicture2, PencilRuler,
+	TriangleAlert, ChevronDown, Info, Shuffle, CloudOff, 
+    FilePlusCorner, Blocks, Upload, DatabasePlus, RefreshCcw,
+	Zap, ClockPlus, Package, FileInput, RotateCw,
+    Bot, Download, ArchiveRestore, House, Cloud,
+	Settings, PackagePlus, Puzzle, AppWindow,
+    Bookmark, SlidersHorizontal, Save, GitBranch, UserGroup,
+	FileCog, Bug, Database, Undo, Redo, Handshake
+} from 'lucide-react';
+
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import CommunityButton from './community-button.jsx';
@@ -566,10 +577,9 @@ class MenuBar extends React.Component {
                 onOpen={this.props.onRequestOpenAbout}
                 onClose={this.props.onRequestCloseAbout}
             >
-                <img
+                <Info
                     className={styles.aboutIcon}
-                    src={aboutIcon}
-                    draggable={false}
+                    size={20}
                 />
                 <MenuBarMenu
                     className={classNames(styles.menuBarMenu)}
@@ -691,18 +701,8 @@ class MenuBar extends React.Component {
                                 onOpen={this.props.onClickErrors}
                                 onClose={this.props.onRequestCloseErrors}
                             >
-                                <img
-                                    src={errorIcon}
-                                    draggable={false}
-                                    width={20}
-                                    height={20}
-                                />
-                                <img
-                                    src={dropdownCaret}
-                                    draggable={false}
-                                    width={8}
-                                    height={5}
-                                />
+                                <TriangleAlert size={20} />
+                                <ChevronDown size={8} />
                                 <MenuBarMenu
                                     className={classNames(styles.menuBarMenu)}
                                     open={this.props.errorsMenuOpen}
@@ -766,12 +766,7 @@ class MenuBar extends React.Component {
                                 onOpen={this.props.onClickFile}
                                 onClose={this.props.onRequestCloseFile}
                             >
-                                <img
-                                    src={fileIcon}
-                                    draggable={false}
-                                    width={20}
-                                    height={20}
-                                />
+                                <FilePen size={20} />
                                 <span className={styles.collapsibleLabel}>
                                     <FormattedMessage
                                         defaultMessage="File"
@@ -779,12 +774,7 @@ class MenuBar extends React.Component {
                                         id="gui.menuBar.file"
                                     />
                                 </span>
-                                <img
-                                    src={dropdownCaret}
-                                    draggable={false}
-                                    width={8}
-                                    height={5}
-                                />
+                                <ChevronDown size={8} />
                                 <MenuBarMenu
                                     className={classNames(styles.menuBarMenu)}
                                     open={this.props.fileMenuOpen}
@@ -794,6 +784,7 @@ class MenuBar extends React.Component {
                                         isRtl={this.props.isRtl}
                                         onClick={this.handleClickNew}
                                     >
+									<FilePlusCorner size={20} />
                                         {newProjectMessage}
                                     </MenuItem>
                                     {this.props.onClickNewWindow && (
@@ -801,6 +792,7 @@ class MenuBar extends React.Component {
                                             isRtl={this.props.isRtl}
                                             onClick={this.handleClickNewWindow}
                                         >
+										<AppWindow size={20} />
                                             <FormattedMessage
                                                 defaultMessage="New window"
                                                 // eslint-disable-next-line max-len
@@ -811,6 +803,7 @@ class MenuBar extends React.Component {
                                     )}
                                     {(this.props.canSave || this.props.canCreateCopy || this.props.canRemix) && (
                                         <MenuSection>
+										<Save size={20} />
                                             {this.props.canSave && (
                                                 <MenuItem onClick={this.handleClickSave}>
                                                     {saveNowMessage}
@@ -832,6 +825,8 @@ class MenuBar extends React.Component {
                                         <MenuItem
                                             onClick={this.props.onStartSelectingFileUpload}
                                         >
+										<Upload size={20}
+										/>
                                             {this.props.intl.formatMessage(sharedMessages.loadFromComputerTitle)}
                                         </MenuItem>
                                         <SB3Downloader
@@ -844,6 +839,7 @@ class MenuBar extends React.Component {
                                                             {extended.name !== null && (
                                                                 // eslint-disable-next-line max-len
                                                                 <MenuItem onClick={this.getSaveToComputerHandler(extended.saveToLastFile)}>
+																<Save size={20} />
                                                                     <FormattedMessage
                                                                         defaultMessage="Save to {file}"
                                                                         // eslint-disable-next-line max-len
@@ -857,6 +853,7 @@ class MenuBar extends React.Component {
                                                             )}
                                                             {/* eslint-disable-next-line max-len */}
                                                             <MenuItem onClick={this.getSaveToComputerHandler(extended.saveAsNew)}>
+															<Save size={20} />
                                                                 <FormattedMessage
                                                                     defaultMessage="Save as..."
                                                                     // eslint-disable-next-line max-len
@@ -870,6 +867,7 @@ class MenuBar extends React.Component {
                                                         <MenuItem
                                                             onClick={this.getSaveToComputerHandler(downloadProject)}
                                                         >
+														<Download size={20} />
                                                             {extended.available ? (
                                                                 <FormattedMessage
                                                                     defaultMessage="Save to separate file..."
@@ -895,6 +893,7 @@ class MenuBar extends React.Component {
                                             <MenuItem
                                                 onClick={this.handleClickPackager}
                                             >
+											<Package size={20} />
                                                 <FormattedMessage
                                                     defaultMessage="Package project"
                                                     // eslint-disable-next-line max-len
@@ -906,6 +905,7 @@ class MenuBar extends React.Component {
                                     )}
                                     <MenuSection>
                                         <MenuItem onClick={this.handleClickRestorePoints}>
+										<RotateCw size={20} />
                                             <FormattedMessage
                                                 defaultMessage="Restore points"
                                                 description="Menu bar item to manage restore points"
@@ -921,12 +921,7 @@ class MenuBar extends React.Component {
                             onOpen={this.props.onClickEdit}
                             onClose={this.props.onRequestCloseEdit}
                         >
-                            <img
-                                src={editIcon}
-                                draggable={false}
-                                width={20}
-                                height={20}
-                            />
+                            <PencilRuler size={20} />
                             <span className={styles.collapsibleLabel}>
                                 <FormattedMessage
                                     defaultMessage="Edit"
@@ -934,12 +929,7 @@ class MenuBar extends React.Component {
                                     id="gui.menuBar.edit"
                                 />
                             </span>
-                            <img
-                                src={dropdownCaret}
-                                draggable={false}
-                                width={8}
-                                height={5}
-                            />
+                            <ChevronDown size={8} />
                             <MenuBarMenu
                                 className={classNames(styles.menuBarMenu)}
                                 open={this.props.editMenuOpen}
@@ -951,6 +941,7 @@ class MenuBar extends React.Component {
                                             className={classNames({[styles.disabled]: !restorable})}
                                             onClick={this.handleRestoreOption(handleRestore)}
                                         >
+										<RefreshCcw size={20} />
                                             {this.restoreOptionMessage(deletedItem)}
                                         </MenuItem>
                                     )}</DeletionRestorer>
@@ -958,6 +949,7 @@ class MenuBar extends React.Component {
                                 <MenuSection>
                                     <TurboMode>{(toggleTurboMode, {turboMode}) => (
                                         <MenuItem onClick={toggleTurboMode}>
+										<Zap size={20} />
                                             {turboMode ? (
                                                 <FormattedMessage
                                                     defaultMessage="Turn off Turbo Mode"
@@ -975,6 +967,7 @@ class MenuBar extends React.Component {
                                     )}</TurboMode>
                                     <FramerateChanger>{(changeFramerate, {framerate}) => (
                                         <MenuItem onClick={changeFramerate}>
+										<Gauge size={20} />
                                             {framerate === 60 ? (
                                                 <FormattedMessage
                                                     defaultMessage="Turn off 60 FPS Mode"
@@ -992,6 +985,7 @@ class MenuBar extends React.Component {
                                     )}</FramerateChanger>
                                     <ChangeUsername>{changeUsername => (
                                         <MenuItem onClick={changeUsername}>
+										<UserPen size={20} />
                                             <FormattedMessage
                                                 defaultMessage="Change Username"
                                                 description="Menu bar item for changing the username"
@@ -1006,6 +1000,7 @@ class MenuBar extends React.Component {
                                             isRtl={this.props.isRtl}
                                             onClick={this.handleClickGpt}
                                         >
+										<Bot size={20} />
                                             Open ChatGPT
                                         </MenuItem>
                                         
@@ -1017,6 +1012,7 @@ class MenuBar extends React.Component {
                                             isRtl={this.props.isRtl}
                                             onClick={this.handleClickPiP}
                                         >
+										<PictureInPicture2 size={20} />
                                             Open Picture in Picture
                                         </MenuItem>
                                     )}
@@ -1026,6 +1022,7 @@ class MenuBar extends React.Component {
                                             className={classNames({[styles.disabled]: !canUseCloudVariables})}
                                             onClick={toggleCloudVariables}
                                         >
+										<CloudOff size={20} />
                                             {canUseCloudVariables ? (
                                                 enabled ? (
                                                     <FormattedMessage
@@ -1053,6 +1050,7 @@ class MenuBar extends React.Component {
                                 </MenuSection>
 								<MenuSection>
 								<MenuItem onClick={this.props.onClickCustomExtensionModal}>
+								<Database size={20} />
                                         <FormattedMessage
                                             defaultMessage="Add custom extension"
                                             description="Menu bar item for the custom extension"
@@ -1060,6 +1058,7 @@ class MenuBar extends React.Component {
                                         />
                                     </MenuItem>
 									<MenuItem onClick={this.props.onClickExtensionManagerModal}>
+									<Blocks size={20} />
                                         <FormattedMessage
                                             defaultMessage="Extension Manager"
                                             description="Menu bar item for the extension manager"

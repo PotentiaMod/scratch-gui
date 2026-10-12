@@ -20,7 +20,7 @@ const hardRefresh = () => {
 };
 
 const eraseData = async () => {
-    if (confirm('Please be aware that this will reset all your local data, including the Restore Points and backpack. Are you sure you want to continue?')) {
+    if (confirm('Please be aware that this will reset all your local data, including the menu positions, custom default projects, Restore Points and backpack. Are you sure you want to continue?')) {
         
         localStorage.clear();
         indexedDB.deleteDatabase('TW_RestorePoints');
@@ -28,6 +28,11 @@ const eraseData = async () => {
         indexedDB.deleteDatabase('p4-local-settings');
         indexedDB.deleteDatabase('p4-large-assets');
         indexedDB.deleteDatabase('tw:library-favorites:extensionLibrary');
+        indexedDB.deleteDatabase('tw:theme');
+        indexedDB.deleteDatabase('potentiamod:navPos');
+        indexedDB.deleteDatabase('potentiamod:gptEnabled');
+        indexedDB.deleteDatabase('potentiamod:pipEnabled');
+        indexedDB.deleteDatabase('potentiamod:customDefaultProjects');
         location.reload();
     }
 };

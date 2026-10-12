@@ -5,7 +5,7 @@ const guiColors = {
     'ui-secondary': '#080808',
     'ui-tertiary': 'var(--looks-secondary-darker)',
 
-    'ui-modal-overlay': '#111111aa',
+    'ui-modal-overlay': '#060606aa',
     'ui-modal-background': '#030303',
     'ui-modal-foreground': 'white',
     'ui-modal-header-background': 'var(--looks-secondary-darker)',
@@ -17,12 +17,11 @@ const guiColors = {
 
     'text-primary': '#eeeeee',
 
-
     'assets-background': '#030303',
 
-    'input-background': 'var(--looks-secondary-darker)',
+    'input-background': '#050505',
 
-    'popover-background': 'var(--looks-secondary-darker)',
+    'popover-background': '#050505',
 
     'badge-background': '#16202c',
     'badge-border': '#203652',
@@ -31,17 +30,19 @@ const guiColors = {
     'menu-bar-foreground': 'white',
     'menu-bar-background-image': 'none',
 	'menu-bar-icon-filter': 'none',
+	
+	'progress-bar-outer': 'var(--looks-secondary-darker)',
 
     'fullscreen-background': '#030303',
     'fullscreen-accent': '#030303',
 
     'page-background': 'black',
-    'page-foreground': 'var(--looks-secondary)',
+    'page-foreground': 'white',
 
     'project-title-inactive': 'var(--ui-secondary)',
     'project-title-hover': '#ffffff3f',
 
-    'link-color': '#44aaff',
+    'link-color': 'var(--looks-secondary-lighter)',
 
     'filter-icon-black': 'invert(100%)',
     'filter-icon-gray': 'grayscale(100%) brightness(1.7)',
