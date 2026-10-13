@@ -12,8 +12,7 @@ const postcssVars = require('postcss-simple-vars');
 const postcssImport = require('postcss-import');
 
 const STATIC_PATH = process.env.STATIC_PATH || '/static';
-const {APP_NAME, MOTTO} = require('./src/lib/brand');
-const {APP_VERSION} = require('./src/lib/version');
+const {APP_NAME} = require('./src/lib/brand');
 
 const root = process.env.ROOT || '';
 if (root.length > 0 && !root.endsWith('/')) {
@@ -187,7 +186,7 @@ module.exports = [
                 chunks: ['editor'],
                 template: 'src/playground/index.ejs',
                 filename: 'editor.html',
-                title: `${APP_NAME} - ${MOTTO}`,
+                title: `${APP_NAME} - It Makes the Very Best!`,
                 isEditor: true,
                 ...htmlWebpackPluginCommon
             }),
@@ -195,14 +194,14 @@ module.exports = [
                 chunks: ['player'],
                 template: 'src/playground/index.ejs',
                 filename: 'index.html',
-                title: `${APP_NAME} - ${MOTTO}`,
+                title: `${APP_NAME} - It Makes the Very Best!`,
                 ...htmlWebpackPluginCommon
             }),
             new HtmlWebpackPlugin({
                 chunks: ['fullscreen'],
                 template: 'src/playground/index.ejs',
                 filename: 'fullscreen.html',
-                title: `${APP_NAME} - ${MOTTO}`,
+                title: `${APP_NAME} - It Makes the Very Best!`,
                 ...htmlWebpackPluginCommon
             }),
             new HtmlWebpackPlugin({
