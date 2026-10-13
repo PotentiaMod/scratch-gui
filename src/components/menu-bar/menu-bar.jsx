@@ -20,7 +20,7 @@ import {
     FilePlusCorner, Blocks, Upload, DatabasePlus, RefreshCcw,
 	Zap, ClockPlus, Package, FileInput, RotateCw,
     Bot, Download, ArchiveRestore, House, Cloud,
-	Settings, PackagePlus, Puzzle, AppWindow,
+	Settings, PackagePlus, Puzzle, AppWindow, Laptop,
     Bookmark, SlidersHorizontal, Save, GitBranch, UserGroup,
 	FileCog, Bug, Database, Undo, Redo, Handshake
 } from 'lucide-react';
@@ -51,6 +51,10 @@ import ChangeUsername from '../../containers/tw-change-username.jsx';
 import CloudVariablesToggler from '../../containers/tw-cloud-toggler.jsx';
 import TWSaveStatus from './tw-save-status.jsx';
 import TWNews from './tw-news.jsx';
+import {
+    getCustomDefaultProject,
+    onNewClick
+} from '../../lib/customDefaultProject.js';
 
 import {openTipsLibrary, openExtensionManagerModal, openSettingsModal, openRestorePointModal, openCustomExtensionModal} from '../../reducers/modals';
 import {setPlayer} from '../../reducers/mode';
@@ -247,8 +251,7 @@ class MenuBar extends React.Component {
             'handleRestoreOption',
             'getSaveToComputerHandler',
             'restoreOptionMessage',
-            'handleSetDefaultProject',
-            'handleRestoreDefaultProject',
+			'handleClickScratch2',
 			'handleClickGpt',
 			'handleClickPiP',
             'isPiPButtonVisible'
@@ -301,6 +304,7 @@ class MenuBar extends React.Component {
         openStagePiP(this.props.vm);
         this.props.onRequestCloseEdit();
     }
+	
 
     
     handleClickGpt () {
@@ -314,20 +318,48 @@ class MenuBar extends React.Component {
             'noopener,noreferrer'
         );
     }
+	
+	handleClickScratch2 () {
+        window.open(
+            'https://potentiamod.github.io/scratch2',
+            '_blank',
+            'noopener,noreferrer'
+        );
+    }
+	
     handleClickNew () {
-        // if the project is dirty, and user owns the project, we will autosave.
+		// if the project is dirty, and user owns the project, we will autosave.
         // but if they are not logged in and can't save, user should consider
         // downloading or logging in first.
         // Note that if user is logged in and editing someone else's project,
         // they'll lose their work.
-        const readyToReplaceProject = this.props.confirmReadyToReplaceProject(
-            this.props.intl.formatMessage(sharedMessages.replaceProjectWarning)
-        );
+        const readyToReplaceProject =
+            this.props.confirmReadyToReplaceProject(
+                this.props.intl.formatMessage(
+                    sharedMessages.replaceProjectWarning
+                )
+            );
+
         this.props.onRequestCloseFile();
+
         if (readyToReplaceProject) {
-            this.props.onClickNew(this.props.canSave && this.props.canCreateNew);
+            this.props.onClickNew(
+                this.props.canSave &&
+                this.props.canCreateNew
+            );
         }
+
         this.props.onRequestCloseFile();
+
+        if (getCustomDefaultProject()) {
+            onNewClick()
+                .catch(e => {
+                    console.error(
+                        '❌ Failed to load custom default project:',
+                        e
+                    );
+                });
+        }
     }
     handleClickNewWindow () {
         this.props.onClickNewWindow();
@@ -468,97 +500,7 @@ class MenuBar extends React.Component {
     handleClickSeeInside () {
         this.props.onClickSeeInside();
     }
-	async handleSetDefaultProject () {
-        // Save current project as default
-        if (!this.props.vm) {
-            console.error('VM not available');
-            alert('Cannot save default project: VM not available');
-            return;
-        }
-
-        try {
-            // Check if VM has targets
-            if (!this.props.vm.runtime || !this.props.vm.runtime.targets || this.props.vm.runtime.targets.length === 0) {
-                console.warn('VM has no targets, project may be empty');
-            }
-
-            // Check if saveProjectSb3 method exists
-            if (typeof this.props.vm.saveProjectSb3 !== 'function') {
-                console.error('saveProjectSb3 is not a function on VM');
-                throw new Error('saveProjectSb3 method not available');
-            }
-
-            console.log('Calling saveProjectSb3 with arraybuffer parameter...');
-            
-
-            let arrayBuffer;
-            try {
-
-                if (this.props.vm.saveProjectSb3.length > 0) {
-
-                    arrayBuffer = await this.props.vm.saveProjectSb3('arraybuffer');
-                } else {
-
-                    arrayBuffer = await this.props.vm.saveProjectSb3();
-                }
-                console.log('saveProjectSb3 returned:', typeof arrayBuffer, arrayBuffer ? arrayBuffer.byteLength : 'undefined');
-                
-                if (!arrayBuffer || arrayBuffer.byteLength === 0) {
-                    console.warn('saveProjectSb3 returned empty or undefined, trying saveProjectSb3DontZip');
-                    throw new Error('Empty project data from saveProjectSb3');
-                }
-                
-
-                storage.setCustomDefaultProject(arrayBuffer);
-                console.log('Current project saved as default via saveProjectSb3, size:', arrayBuffer.byteLength);
-                alert('The current project has been set as the default project; it will be loaded the next time the application starts.');
-                
-            } catch (firstError) {
-                console.warn('First method failed, trying saveProjectSb3DontZip:', firstError.message);
-                
-                // Try alternative method using saveProjectSb3DontZip (tw-restore-point-api.js)
-                if (typeof this.props.vm.saveProjectSb3DontZip === 'function') {
-                    const projectFiles = this.props.vm.saveProjectSb3DontZip();
-                    console.log('saveProjectSb3DontZip returned files:', Object.keys(projectFiles));
-                    
-                    if (!projectFiles || Object.keys(projectFiles).length === 0) {
-                        throw new Error('No project files returned from saveProjectSb3DontZip');
-                    }
-                    
-                    // Convert to SB3 using jszip
-                    const zip = new JSZip();
-                    for (const [filename, data] of Object.entries(projectFiles)) {
-                        zip.file(filename, data);
-                    }
-                    const sb3Buffer = await zip.generateAsync({type: 'arraybuffer'});
-                    console.log('Generated SB3 buffer size:', sb3Buffer.byteLength);
-                    
-                    storage.setCustomDefaultProject(sb3Buffer);
-                    console.log('Current project saved as default via saveProjectSb3DontZip, size:', sb3Buffer.byteLength);
-                    alert('The current project has been set as the default project; it will be loaded the next time the application starts.');
-                } else {
-                    throw new Error('Both saveProjectSb3 and saveProjectSb3DontZip methods failed');
-                }
-            }
-            
-        } catch (error) {
-            console.error('Failed to save project as default:', error);
-            alert('Failed to save the default project: ' + error.message);
-        }
-        
-        if (this.props.onSetDefaultProject) {
-            this.props.onSetDefaultProject();
-        }
-    }
-    handleRestoreDefaultProject () {
-        // Restore to original default project
-        storage.removeCustomDefaultProject();
-        console.log('Restored to original default project');
-        alert('Default project has been restored to original. It will load on next startup.');
-        if (this.props.onRestoreDefaultProject) {
-            this.props.onRestoreDefaultProject();
-        }
-    }
+	
     buildAboutMenu (onClickAbout) {
         if (!onClickAbout) {
             // hide the button
@@ -756,8 +698,6 @@ class MenuBar extends React.Component {
                                 }
                             onRequestClose={this.props.onRequestCloseSettings}
                             onRequestOpen={this.props.onClickSettings}
-							onSetDefaultProject={this.handleSetDefaultProject}
-                            onRestoreDefaultProject={this.handleRestoreDefaultProject}
                             settingsMenuOpen={this.props.settingsMenuOpen}
                         />)}
                         {(this.props.canManageFiles) && (
@@ -1017,12 +957,22 @@ class MenuBar extends React.Component {
                                         </MenuItem>
                                     )}
 									
+									{/* Scratch 2 (Mmmmmm...) */}
+                                        <MenuItem
+                                            isRtl={this.props.isRtl}
+                                            onClick={this.handleClickScratch2}
+                                        >
+										<Laptop size={20} />
+                                            Open Scratch 2 Legacy
+                                        </MenuItem>
+									
+									
                                     <CloudVariablesToggler>{(toggleCloudVariables, {enabled, canUseCloudVariables}) => (
                                         <MenuItem
                                             className={classNames({[styles.disabled]: !canUseCloudVariables})}
                                             onClick={toggleCloudVariables}
                                         >
-										<CloudOff size={20} />
+										<Cloud size={20} />
                                             {canUseCloudVariables ? (
                                                 enabled ? (
                                                     <FormattedMessage
@@ -1301,8 +1251,6 @@ MenuBar.propTypes = {
     onClickAccount: PropTypes.func,
     onClickAddonSettings: PropTypes.func,
     onClickDesktopSettings: PropTypes.func,
-	onSetDefaultProject: PropTypes.func,
-    onRestoreDefaultProject: PropTypes.func,
     onClickPackager: PropTypes.func,
     onClickRestorePoints: PropTypes.func,
     onClickEdit: PropTypes.func,

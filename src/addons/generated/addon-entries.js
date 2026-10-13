@@ -14,7 +14,6 @@ export default {
   "data-category-tweaks-v2": () => import(/* webpackChunkName: "addon-entry-data-category-tweaks-v2" */ "../addons/data-category-tweaks-v2/_runtime_entry.js"),
   "background": () => import(/* webpackChunkName: "addon-entry-background" */ "../addons/background/_runtime_entry.js"),
   "amp-customizable-colours": () => import(/* webpackChunkName: "addon-entry-amp-customizable-colours" */ "../addons/amp-customizable-colours/_runtime_entry.js"),
-  "my-blocks-plus": () => import(/* webpackChunkName: "addon-entry-my-blocks-plus" */ "../addons/my-blocks-plus/_runtime_entry.js"),
   "paint-default-smoothing": () => import(/* webpackChunkName: "addon-entry-paint-default-smoothing" */ "../addons/paint-default-smoothing/_runtime_entry.js"),
   "paint-gradient-maker": () => import(/* webpackChunkName: "addon-entry-paint-gradient-maker" */ "../addons/paint-gradient-maker/_runtime_entry.js"),
   "canvas-screenshot": () => import(/* webpackChunkName: "addon-entry-canvas-screenshot" */ "../addons/canvas-screenshot/_runtime_entry.js"),

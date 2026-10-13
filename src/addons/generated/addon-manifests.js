@@ -3,11 +3,9 @@ import _pot_hide_logo from "../addons/pot-hide-logo/_manifest_entry.js";
 import _santa from "../addons/santa/_manifest_entry.js";
 import _cat_blocks from "../addons/cat-blocks/_manifest_entry.js";
 import _cat_blocks_extended from "../addons/cat-blocks-extended/_manifest_entry.js";
-import _dev_inspector from "../addons/dev-inspector/_manifest_entry.js";
 import _background from '../addons/background/_manifest_entry.js';
 import _editor_devtools from "../addons/editor-devtools/_manifest_entry.js";
 import _daily_quote from "../addons/daily-quote/_manifest_entry.js";
-import _my_blocks_plus from "../addons/my-blocks-plus/_manifest_entry.js";
 import _amp_customizable_colours from "../addons/amp-customizable-colours/_manifest_entry.js";
 import _paint_default_smoothing from "../addons/paint-default-smoothing/_manifest_entry.js";
 import _paint_gradient_maker from "../addons/paint-gradient-maker/_manifest_entry.js";
@@ -101,10 +99,8 @@ export default {
   "santa": _santa,
   "cat-blocks": _cat_blocks,
   "cat-blocks-extended": _cat_blocks_extended,
-  "dev-inspector": _dev_inspector,
   "background": _background,
   "daily-quote": _daily_quote,
-  "my-blocks-plus": _my_blocks_plus,
   "editor-devtools": _editor_devtools,
   "amp-customizable-colours": _amp_customizable_colours,
   "paint-default-smoothing": _paint_default_smoothing,

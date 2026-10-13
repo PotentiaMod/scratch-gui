@@ -774,6 +774,84 @@
       const PIP_ENABLED_KEY = "potentiamod:pipEnabled";
 
 
+ /* ------------------------- Theme ------------------------- */
+      const darkModeSelect = document.getElementById("dark-mode-select");
+
+      function readTheme() {
+        const raw = localStorage.getItem(THEME_KEY);
+        if (!raw) return null;
+
+        try {
+          const parsed = JSON.parse(raw);
+
+          if (parsed && typeof parsed === "object") {
+            return parsed;
+          }
+
+          if (typeof parsed === "string") {
+            return { gui: parsed };
+          }
+        } catch {
+          if (raw === "dark" || raw === "light" || raw === "midnight") {
+            return { gui: raw };
+          }
+        }
+
+        return null;
+      }
+
+      function systemIsDark() {
+        return window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+      }
+
+      function getCurrentGuiTheme() {
+        const theme = readTheme();
+
+        if (theme && (
+          theme.gui === "dark" ||
+          theme.gui === "light" ||
+          theme.gui === "midnight"
+        )) {
+          return theme.gui;
+        }
+
+        return systemIsDark() ? "dark" : "light";
+      }
+
+      function applyTheme() {
+        const theme = getCurrentGuiTheme();
+
+        document.body.classList.toggle("dark", theme === "dark");
+        document.body.classList.toggle("midnight", theme === "midnight");
+
+        if (darkModeSelect) {
+          darkModeSelect.value = theme;
+        }
+      }
+
+      function updateTheme(updater) {
+        const current = readTheme() || {};
+        const newTheme = { ...current };
+
+        updater(newTheme);
+
+        localStorage.setItem(THEME_KEY, JSON.stringify(newTheme));
+
+        applyTheme();
+        loadBlockStyle();
+      }
+
+      function setGuiTheme(gui) {
+        if (!["light", "dark", "midnight"].includes(gui)) {
+          gui = "midnight";
+        }
+
+        updateTheme(theme => {
+          theme.gui = gui;
+        });
+      }
+	  
       /* ------------------------- Block Style ------------------------- */
       const blockStyleSelect = document.getElementById("block-style-select");
 
@@ -825,7 +903,6 @@
         if (!gptEnabledToggle) return;
 
         gptEnabledToggle.checked = getGptEnabled();
-        applySettingsAccent();
       }
 
       function setGptEnabled(enabled) {
@@ -852,7 +929,6 @@
         if (!pipEnabledToggle) return;
 
         pipEnabledToggle.checked = getPipEnabled();
-        applySettingsAccent();
       }
 
       function setPipEnabled(enabled) {
@@ -914,7 +990,6 @@
           }
 
           updateCustomProjectVisibility();
-          applySettingsAccent();
         });
       }
 
@@ -949,7 +1024,6 @@
           localStorage.setItem(CUSTOM_PROJECT_KEY, id);
 
           updateCustomProjectVisibility();
-          applySettingsAccent();
         });
       });
 
@@ -980,7 +1054,6 @@
           history.replaceState(null, "", "#" + pageName);
         }
 
-        applySettingsAccent();
       }
 
       function loadPageFromHash() {
@@ -1065,6 +1138,7 @@
       }
 
       /* ------------------------- Start ------------------------- */
+      applyTheme();
       loadBlockStyle();
       loadCustomProject();
       loadGptEnabled();

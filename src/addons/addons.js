@@ -99,8 +99,7 @@ const newAddons = [
     'daily-quote',
     'stage-camera'
     'coder-style',
-    'amp-customizable-colours',
-    'my-blocks-plus',
+    'amp-customizable-colours'
 ];
 
 // eslint-disable-next-line import/no-commonjs

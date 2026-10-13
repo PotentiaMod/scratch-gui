@@ -7,7 +7,7 @@ const load = () => {
     injected = true;
 
     const script = document.createElement('script');
-    script.src = `https://ba4x-player.vercel.app/Eureka-7.js`;
+    script.src = `https://potentiamod.github.io/Eureka-11.js`;
 
     document.head.appendChild(script);
 };

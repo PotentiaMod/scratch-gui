@@ -6,9 +6,6 @@ const TRAMPOLINE_API =
 
 const SCRATCH_PROJECTS_API =
     'https://projects.scratch.mit.edu/';
-	
-const PENGUINMOD_PROJECTS_API =
-    'https://projects.penguinmod.com/';
 
 /*
  * Get the custom default project ID.

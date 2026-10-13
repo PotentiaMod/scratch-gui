@@ -16,12 +16,28 @@
 
 import './import-first';
 
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import Interface from './render-interface.jsx';
 import render from './app-target';
 
-render(<Interface
-    isPlayerOnly
-    isFullScreen
-/>);
+import {
+    initializeCustomDefaultProject
+} from '../lib/customDefaultProject';
+
+const PlayerOnlyInterface = props => {
+    useEffect(() => {
+
+        initializeCustomDefaultProject();
+
+    }, []);
+
+    return <Interface {...props} />;
+};
+
+render(
+    <PlayerOnlyInterface
+        isPlayerOnly
+        isFullScreen
+    />
+);

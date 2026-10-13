@@ -43,31 +43,23 @@ import {loadServiceWorker} from './load-service-worker';
 import runAddons from '../addons/entry';
 import InvalidEmbed from '../components/tw-invalid-embed/invalid-embed.jsx';
 import {APP_NAME, MOTTO} from '../lib/brand.js';
-import Footer from '../components/potentia-footer/footer.jsx';
-import TWRenderRecoloredImage from '../lib/tw-recolor/render.jsx';
-import Swal from 'sweetalert2';
 
 import styles from './interface.css';
+import Swal from 'sweetalert2';
+import Footer from '../components/potentia-footer/footer.jsx';
+
+const isInvalidEmbed = window.parent !== window;
 
 const urlParams = new URLSearchParams(location.search);
 const Local = String(window.location.href).startsWith(`http://localhost:`);
 const LiveTests = urlParams.has('livetest');
 const Secrets = urlParams.has('allpowerscombined');
 
-const isInvalidEmbed = window.parent !== window;
-
-let announcement = null;
-if (process.env.ANNOUNCEMENT) {
-    announcement = document.createElement('p');
-    // This is safe because process.env.ANNOUNCEMENT is set at build time.
-    announcement.innerHTML = process.env.ANNOUNCEMENT;
-}
-
 const Toast = Swal.mixin({
     toast: true,
     position: 'bottom-start',
     iconColor: 'indigo',
-	draggable: true,
+	draggable: false,
     customClass: {
       popup: 'colored-toast',
     },
@@ -90,7 +82,7 @@ const handleClickAddonSettings = addonId => {
 
 const messages = defineMessages({
     defaultTitle: {
-        defaultMessage: '${MOTTO}',
+        defaultMessage: 'Run Scratch projects faster',
         description: 'Title of homepage',
         id: 'tw.guiDefaultTitle'
     }

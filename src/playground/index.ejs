@@ -29,7 +29,7 @@
         display: none;
       }
       .splash-screen[data-theme="dark"] {
-        background-color: $looks-secondary-dark;
+        background-color: #333;
         color: white;
       }
       .splash-screen > * {
@@ -80,8 +80,7 @@
       <div class="splash-screen">
         <div>
           <h1><%= htmlWebpackPlugin.options.APP_NAME %> requires JavaScript</h1>
-          <p>Consider using <a href="https://potentiamod.github.io/desktop.html">PotentiaMod Desktop</a> if you are scared of a remote JavaScript.</p>
-          <p>No way! I'm scared of the remote Javascript! >:(</p>
+          <p>Consider using <a href="https://potentiamod.github.io/desktop.html">PotentiaMod Desktop</a> if you are afraid of remote JavaScript.</p>
         </div>
       </div>
     </noscript>
@@ -89,7 +88,7 @@
     <div class="splash-screen spash-waiting-for-js" hidden>
       <div class="splash-spinner"></div>
 
-      <div class="splash-error-title" hidden>Whoops! Something goes wrong! <a href="https://github.com/PotentiaMod/scratch-gui/issues" target="_blank" rel="noreferrer">Please report</a> with the information below.</div>
+      <div class="splash-error-title" hidden>Something went wrong. <a href="https://scratch.mit.edu/users/GarboMuffin/#comments" target="_blank" rel="noreferrer">Please report</a> with the information below.</div>
       <div class="splash-errors" hidden></div>
       <button class="splash-reset" hidden>Click here to reset caches (can fix some errors)</button>
     </div>
@@ -99,7 +98,7 @@
         'use strict';
 
         var theme = '';
-        var accent = '#4800cc';
+        var accent = '#4800CC';
 
         try {
           var themeSetting = localStorage.getItem('tw:theme');
@@ -113,6 +112,11 @@
         } else if (themeSetting) {
           try {
             var parsed = JSON.parse(themeSetting);
+            if (parsed.accent === 'purple') {
+              accent = '#855cd6';
+            } else if (parsed.accent === 'blue') {
+              accent = '#4c97ff';
+            }
             if (parsed.gui === 'dark' || parsed.gui === 'light') {
               theme = parsed.gui;
             }
