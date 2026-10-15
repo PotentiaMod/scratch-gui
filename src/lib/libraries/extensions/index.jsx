@@ -52,7 +52,6 @@ import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 import customExtensionIcon from './custom/custom.svg';
 import customURLIcon from './custom/customURL.svg';
 
-
 import {APP_NAME} from '../../brand';
 
 let platform = "browsers";
@@ -90,6 +89,8 @@ const menuItems = [
         ),
         extensionId: 'procedures_enable_return',
         iconURL: require('../extensions/custom/return.svg'),
+		insetIconURL: require('../extensions/icons/turbowarp.svg'),
+		customInsetColor: '#ff4d4d',
         description: (
             <FormattedMessage
                 defaultMessage="Allow custom blocks to output values and be used as inputs."
@@ -98,7 +99,8 @@ const menuItems = [
             />
         ),
         tags: ['tw'],
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
     {
         name: (
@@ -111,6 +113,7 @@ const menuItems = [
         extensionId: 'music',
         iconURL: musicIconURL,
         insetIconURL: musicInsetIconURL,
+		customInsetColor: '#CF63CF',
         description: (
             <FormattedMessage
                 defaultMessage="Play instruments and drums."
@@ -153,6 +156,7 @@ const menuItems = [
         extensionId: 'videoSensing',
         iconURL: videoSensingIconURL,
         insetIconURL: videoSensingInsetIconURL,
+		customInsetColor: '#74BDDC',
         description: (
             <FormattedMessage
                 defaultMessage="Sense motion with the camera."
@@ -199,6 +203,7 @@ const menuItems = [
         collaborator: 'Amazon Web Services',
         iconURL: text2speechIconURL,
         insetIconURL: text2speechInsetIconURL,
+		customInsetColor: '#9966FF',
         description: (
             <FormattedMessage
                 defaultMessage="Make your projects talk."
@@ -222,6 +227,7 @@ const menuItems = [
         collaborator: 'Google',
         iconURL: translateIconURL,
         insetIconURL: translateInsetIconURL,
+		customInsetColor: '#5CB1D6',
         description: (
             <FormattedMessage
                 defaultMessage="Translate text into many languages."
@@ -239,6 +245,7 @@ const menuItems = [
         collaborator: 'JoyLabz',
         iconURL: makeymakeyIconURL,
         insetIconURL: makeymakeyInsetIconURL,
+		customInsetColor: '#E64D00',
         description: (
             <FormattedMessage
                 defaultMessage="Make anything into a key."
@@ -286,6 +293,7 @@ const menuItems = [
         collaborator: 'LEGO',
         iconURL: ev3IconURL,
         insetIconURL: ev3InsetIconURL,
+		customInsetColor: '#FFBF00',
         description: (
             <FormattedMessage
                 defaultMessage="Build interactive robots and more."
@@ -317,6 +325,7 @@ const menuItems = [
         collaborator: 'LEGO',
         iconURL: boostIconURL,
         insetIconURL: boostInsetIconURL,
+		customInsetColor: '#FFAB19',
         description: (
             <FormattedMessage
                 defaultMessage="Bring robotic creations to life."
@@ -349,6 +358,7 @@ const menuItems = [
         collaborator: 'LEGO',
         iconURL: wedo2IconURL,
         insetIconURL: wedo2InsetIconURL,
+		customInsetColor: '#FF6680',
         description: (
             <FormattedMessage
                 defaultMessage="Build with motors and sensors."
@@ -381,6 +391,7 @@ const menuItems = [
         collaborator: 'Vernier',
         iconURL: gdxforIconURL,
         insetIconURL: gdxforInsetIconURL,
+		customInsetColor: '#4C97FF',
         description: (
             <FormattedMessage
                 defaultMessage="Sense push, pull, motion, and spin."
@@ -411,11 +422,13 @@ const menuItems = [
         name: 'Wonder Blocks',
         extensionId: 'wonderblocks',
         iconURL: require('../extensions/gaiamod/WonderBlocks.png'),
-	    insetIconURL: require('../extensions/gaiamod/gaiamod_icon.png'),
+	    insetIconURL: require('../extensions/icons/gaiamod.png'),
+		customInsetColor: '#2D2DD2',
         tags: ['gm', 'preload'],
         description: 'Some mysterious blocks.',
         collaborator: 'GaiaWindWave90',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	 {
         name: 'App Utilities',
@@ -425,37 +438,42 @@ const menuItems = [
         tags: ['other', 'preload'],
 		collaborator: 'LibreKitten',
         description: 'Develop apps in PotentiaMod.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'Cozmo',
         extensionId: 'cozmo',
-        tags: ['cognimates', 'preload', 'new'],
-		isNew: true,
+        tags: ['cognimates', 'preload'],
+		isNew: false,
         iconURL: require('../extensions/cognimates/cozmo-ext.png'),
 		insetIconURL: require('../extensions/cognimates/cozmo-small.jpg'),
+		customInsetColor: '#FFFFFF',
 		collaborator: 'Anki',
         description: 'Play with Cozmo in PotentiaMod.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'Tinkibot',
         extensionId: 'tinkibot',
-		tags: ['preload', 'new'],
-		isNew: true,
+		tags: ['preload'],
+		isNew: false,
         iconURL: require('../extensions/tinkibot/tinkibot.png'),
 		insetIconURL: require('../extensions/tinkibot/tinkimo-small.png'),
+		customInsetColor: '#FFFFFF',
 		collaborator: 'Tinkimo',
         description: 'Control one or more Tinkibots',
         featured: true,
-        internetConnectionRequired: false
+        internetConnectionRequired: false,
+        incompatibleWithScratch: true
     },
   {
     name: 'Google Maps',
     extensionId: "googleMap",
     collaborator: "Champierre, TYiC",
-	tags: ['preload', 'new'],
-	isNew: true,
+	tags: ['preload'],
+	isNew: false,
 	iconURL: require('../extensions/googleMap/googleMap.png'),
 	insetIconURL: require('../extensions/googleMap/googleMap-small.png'),
     description: 'Display geographic location using the latitude and longitude coordinates (Experimental).',
@@ -464,12 +482,13 @@ const menuItems = [
     internetConnectionRequired: true,
     useAutoScan: false,
     helpLink: "https://github.com/estea8968/scratch3-internet",
+        incompatibleWithScratch: true
   },
 	{
         name: 'Ruby',
         extensionId: 'ruby',
-        tags: ['preload', 'new'],
-		isNew: true,
+        tags: ['preload'],
+		isNew: false,
         iconURL: require('../extensions/smalruby-ruby/smalruby-ruby.svg'),
 	    insetIconURL: require('../extensions/smalruby-ruby/smalruby-ruby-small.svg'),
 		collaborator: 'SmallRuby',
@@ -480,23 +499,25 @@ const menuItems = [
         internetConnectionRequired: false,
         launchPeripheralConnectionFlow: false,
         useAutoScan: false,
+        incompatibleWithScratch: true
     },
 	{
         name: 'Alexa',
         extensionId: 'alexa',
-        tags: ['cognimates', 'preload', 'new'],
-		isNew: true,
+        tags: ['cognimates', 'preload'],
+		isNew: false,
         iconURL: require('../extensions/cognimates/Alexa_extension.png'),
 		collaborator: 'Amazon',
         description: 'Talk to Alexa in PotentiaMod.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
   {
     name:'Google Sheets',
     extensionId: "rwGoogle",
     collaborator: "estea chen, TYiC",
-	tags: ['preload', 'new'],
-	isNew: true,
+	tags: ['preload'],
+	isNew: false,
     iconURL: require('../extensions/rwgoogle/rwgoogle.png'),
 	insetIconURL: require('../extensions/rwgoogle/clound-small.png'),
     description: 'Read and write Google Sheets and Google Forms.',
@@ -507,12 +528,13 @@ const menuItems = [
     // launchPeripheralConnectionFlow: false,
     useAutoScan: false,
     helpLink: "https://github.com/estea8968/scratch3-internet",
+        incompatibleWithScratch: true
   },
 	{
         name: 'QR Code',
         extensionId: 'qrcode',
-        tags: ['preload', 'new'],
-		isNew: true,
+        tags: ['preload'],
+		isNew: false,
         collaborator: 'Sugiura Lab',
         iconURL: require('../extensions/qrcode/qrcode.png'),
 		insetIconURL: require('../extensions/qrcode/qrcode-small.svg'),
@@ -521,13 +543,14 @@ const menuItems = [
         disabled: false,
         internetConnectionRequired: false,
         bluetoothRequired: false,
+        incompatibleWithScratch: true
     },
 	{
     name: "LineNotify",
     extensionId: "linenotify",
     collaborator: "estea chen",
-	tags: ['preload', 'new'],
-	isNew: true,
+	tags: ['preload'],
+	isNew: false,
     iconURL: require('../extensions/linenotify/linenotify.svg'),
 	insetIconURL: require('../extensions/linenotify/linenotify_small.svg'),
     description: "Use Line Notify to send messages.",
@@ -535,7 +558,7 @@ const menuItems = [
     disabled: false,
     internetConnectionRequired: true,
     bluetoothRequired: false,
-    //helpLink: ''
+    incompatibleWithScratch: true
   },
 	{
         name: 'KidsBoard',
@@ -543,22 +566,24 @@ const menuItems = [
         collaborator: 'Nekoma Manufacturing',
         iconURL: require('../extensions/kidsboard/kidsboard.svg'),
 	    insetIconURL: require('../extensions/kidsboard/kidsboard-small.svg'),
-		tags: ['preload', 'new'],
-		isNew: true,
+		tags: ['preload'],
+		isNew: false,
         description: 'Connect KidsBoard via Bluetooth to operate the LEDs, buttons, speaker, and sensors.',
         featured: true,
-        bluetoothRequired: true
+        bluetoothRequired: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'EIM Messaging',
         extensionId: 'eim',
         iconURL: require('../extensions/eim/illustration.jpg'),
 		insetIconURL: require('../extensions/eim/small.svg'),
-        tags: ['preload', 'new'],
-		isNew: true,
+        tags: ['preload'],
+		isNew: false,
 		collaborator: 'CodeLab',
         description: 'Everything is a mesage! Contains capabilities of all the other extensions.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 {
         name: 'Marty the Robot',
@@ -570,7 +595,8 @@ const menuItems = [
         tags: ['preload'],
         featured: true,
         internetConnectionRequired: true,
-        bluetoothRequired: true
+        bluetoothRequired: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'Ohbot',
@@ -580,7 +606,8 @@ const menuItems = [
 		collaborator: 'Ohbot',
 		tags: ['preload'],
         description: 'Control your Ohbot',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'Line',
@@ -588,63 +615,69 @@ const menuItems = [
         collaborator: 'Ankurugranpa',
         iconURL: require('../extensions/line/line.png'),
 	    insetIconURL: require('../extensions/line/line-small.png'),
+		customInsetColor: '#45C505',
 		tags: ['special', 'othermods'],
         description: 'Connect to LINE message API!',
         featured: true,
         disabled: false,
         internetConnectionRequired: true,
         bluetoothRequired: false,
+        incompatibleWithScratch: true
     }, 
 	{
         name: 'Face Emotion Sensing',
         extensionId: 'poseFace',
-        tags: ['preload', 'new'],
-		isNew: true,
+        tags: ['preload'],
+		isNew: false,
         iconURL: require('../extensions/poseFace/pose-face.png'),
 		insetIconURL: require('../extensions/poseFace/pose-face-small.svg'),
 		collaborator: 'Raise Playground',
         description: 'Sense face movement with the camera with added emotion detection.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'Body Sensing',
         extensionId: 'poseBody',
-        tags: ['preload', 'new'],
-		isNew: true,
+        tags: ['preload'],
+		isNew: false,
         iconURL: require('../extensions/poseBody/pose-body.png'),
 		insetIconURL: require('../extensions/poseBody/pose-body-small.svg'),
 		collaborator: 'Raise Playground',
         description: 'Sense body position with the camera.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'Hand Sensing',
         extensionId: 'poseHand',
-        tags: ['preload', 'new'],
-		isNew: true,
+        tags: ['preload'],
+		isNew: false,
         iconURL: require('../extensions/poseHand/pose-hand.png'),
 		insetIconURL: require('../extensions/poseHand/pose-hand-small-3.svg'),
 		collaborator: 'Raise Playground',
         description: 'Sense hand position with the camera.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'Object Detection',
         extensionId: 'objectDetection',
-		tags: ['preload', 'new'],
-		isNew: true,
+		tags: ['preload'],
+		isNew: false,
         iconURL: require('../extensions/objectDetection/objectdetection.png'),
 		insetIconURL: require('../extensions/objectDetection/objectdetectionsmall.svg'),
         description: 'Detect and identify objects in the camera view.',
 		collaborator: 'Raise Playground',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
     name: "Text Sentiment",
     extensionId: "textSentiment",
     collaborator: "TYiC",
-	tags: ['preload', 'new'],
-	isNew: true,
+	tags: ['preload'],
+	isNew: false,
     iconURL: require('../extensions/textSentiment/textSentiment.png'),
 	insetIconURL: require('../extensions/textSentiment/textSentiment-small.png'),
     description: "Text Sentiment.",
@@ -653,6 +686,7 @@ const menuItems = [
     internetConnectionRequired: true,
     useAutoScan: false,
     helpLink: "https://github.com/estea8968/scratch3-internet",
+    incompatibleWithScratch: true
   },
   	{
         name: 'Smart Lumies',
@@ -672,7 +706,8 @@ const menuItems = [
         connectionSmallIconURL: require('../extensions/smart-lumies/smart-lumies-small.svg'),
         connectionTipIconURL: require('../extensions/smart-lumies/smart-lumies-button-illustration.svg'),
         connectingMessage: 'Have your Cube nearby.',
-        helpLink: 'https://smartlumies.com'
+        helpLink: 'https://smartlumies.com',
+        incompatibleWithScratch: true
     },
 	{
         name: 'Magic Blue UU',
@@ -705,33 +740,36 @@ const menuItems = [
 	{
         name: 'Smart Lights',
         extensionId: 'hue',
-        tags: ['cognimates', 'preload', 'new'],
-		isNew: true,
+        tags: ['cognimates', 'preload'],
+		isNew: false,
         iconURL: require('../extensions/cognimates/Hue_extension.png'),
 		collaborator: 'Cognimates',
         description: 'Blocks used for changing and modifying lights.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'Feelings',
         extensionId: 'sentiment',
-        tags: ['cognimates', 'preload', 'new'],
-		isNew: true,
+        tags: ['cognimates', 'preload'],
+		isNew: false,
         iconURL: require('../extensions/cognimates/sentiment_ext.png'),
 		insetIconURL: require('../extensions/cognimates/sentiment-small.svg'),
 		collaborator: 'Cognimates',
         description: 'Detects feelings',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'Wemo',
         extensionId: 'wemo',
-        tags: ['cognimates', 'preload', 'new'],
-		isNew: true,
+        tags: ['cognimates', 'preload'],
+		isNew: false,
         iconURL: require('../extensions/cognimates/wemo_ext.png'),
 		collaborator: 'Cognimates',
         description: 'Play with Wemo in PotentiaMod.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: (
@@ -742,8 +780,8 @@ const menuItems = [
             />
         ),
         extensionId: 'hc',
-		tags: ['preload', 'new'],
-		isNew: true,
+		tags: ['preload'],
+		isNew: false,
 		collaborator: 'Cubix Entertainment',
         iconURL: require('../extensions/hc/hc.svg'),
 	    insetIconURL: require('../extensions/hc/hc-small.svg'),
@@ -766,8 +804,8 @@ const menuItems = [
             />
         ),
         extensionId: 'snap',
-		tags: ['preload', 'new'],
-		isNew: true,
+		tags: ['preload'],
+		isNew: false,
 		collaborator: 'Cubix Entertainment',
         iconURL: require('../extensions/snap/snap.svg'),
 	    insetIconURL: require('../extensions/snap/snap-small.svg'),
@@ -793,8 +831,8 @@ const menuItems = [
         extensionId: 'robobo',
         iconURL: require('../extensions/robobo/robobo.png'),
 	    insetIconURL: require('../extensions/robobo/robobo-small.svg'),
-		tags: ['preload', 'new'],
-		isNew: true,
+		tags: ['preload'],
+		isNew: false,
 		collaborator: 'MINT',
         description: (
             <FormattedMessage
@@ -804,7 +842,8 @@ const menuItems = [
             />
         ),
         featured: true,
-        internetConnectionRequired: true
+        internetConnectionRequired: true,
+        incompatibleWithScratch: true
     },    
 	{
     name: 'LEGO Mario',
@@ -813,8 +852,8 @@ const menuItems = [
     iconURL: require('../extensions/legomario/legomario.png'),
     insetIconURL: require('../extensions/legomario/legomario-small.svg'),
     description: 'Know what he\'s doing!',
-	tags: ['preload', 'new'],
-	isNew: true,
+	tags: ['preload'],
+	isNew: false,
     featured: true,
     disabled: false,
     bluetoothRequired: true,
@@ -825,7 +864,8 @@ const menuItems = [
     connectionSmallIconURL: require('../extensions/legomario/legomario-small.svg'),
     connectionTipIconURL: require('../extensions/legomario/legomario-button-illustration.svg'),
     connectingMessage: 'Connecting',
-    helpLink: 'https://scratch.mit.edu/boost'
+    helpLink: 'https://scratch.mit.edu/boost',
+    incompatibleWithScratch: true
     },
 	{
     name: 'LEGO Luigi',
@@ -834,8 +874,8 @@ const menuItems = [
     iconURL: require('../extensions/legoluigi/legoluigi.png'),
     insetIconURL: require('../extensions/legoluigi/legoluigi-small.svg'),
     description: 'Know what he\'s doing!',
-	tags: ['preload', 'new'],
-	isNew: true,
+	tags: ['preload'],
+	isNew: false,
     featured: true,
     disabled: false,
     bluetoothRequired: true,
@@ -846,7 +886,8 @@ const menuItems = [
     connectionSmallIconURL: require('../extensions/legoluigi/legoluigi-small.svg'),
     connectionTipIconURL: require('../extensions/legoluigi/legoluigi-button-illustration.svg'),
     connectingMessage: 'Connecting',
-    helpLink: 'https://scratch.mit.edu/boost'
+    helpLink: 'https://scratch.mit.edu/boost',
+    incompatibleWithScratch: true
     },
 	{
     name: 'LEGO Peach',
@@ -855,8 +896,8 @@ const menuItems = [
     iconURL: require('../extensions/legopeach/legopeach.png'),
     insetIconURL: require('../extensions/legopeach/legopeach-small.svg'),
     description: 'Know what she\'s doing!',
-	tags: ['preload', 'new'],
-	isNew: true,
+	tags: ['preload'],
+	isNew: false,
     featured: true,
     disabled: false,
     bluetoothRequired: true,
@@ -867,7 +908,8 @@ const menuItems = [
     connectionSmallIconURL: require('../extensions/legopeach/legopeach-small.svg'),
     connectionTipIconURL: require('../extensions/legopeach/legopeach-button-illustration.svg'),
     connectingMessage: 'Connecting',
-    helpLink: 'https://scratch.mit.edu/boost'
+    helpLink: 'https://scratch.mit.edu/boost',
+    incompatibleWithScratch: true
     },
 	{
         name: 'OneGpio Arduino',
@@ -880,7 +922,8 @@ const menuItems = [
         featured: true,
         internetConnectionRequired: true,
         bluetoothRequired: false,
-        helpLink: 'https://mryslab.github.io/s3-extend/'
+        helpLink: 'https://mryslab.github.io/s3-extend/',
+        incompatibleWithScratch: true
     },
     {
         name: 'OneGpio Raspberry Pi',
@@ -893,7 +936,8 @@ const menuItems = [
         featured: true,
         internetConnectionRequired: true,
         bluetoothRequired: false,
-        helpLink: 'https://mryslab.github.io/s3-extend/'
+        helpLink: 'https://mryslab.github.io/s3-extend/',
+        incompatibleWithScratch: true
 
     },
     {
@@ -907,7 +951,8 @@ const menuItems = [
         featured: true,
         internetConnectionRequired: true,
         bluetoothRequired: false,
-        helpLink: 'https://mryslab.github.io/s3-extend/'
+        helpLink: 'https://mryslab.github.io/s3-extend/',
+        incompatibleWithScratch: true
 
     },
     {
@@ -921,7 +966,8 @@ const menuItems = [
         featured: true,
         internetConnectionRequired: true,
         bluetoothRequired: false,
-        helpLink: 'https://mryslab.github.io/s3-extend/'
+        helpLink: 'https://mryslab.github.io/s3-extend/',
+        incompatibleWithScratch: true
 
     },
     {
@@ -935,7 +981,8 @@ const menuItems = [
         featured: true,
         internetConnectionRequired: true,
         bluetoothRequired: false,
-        helpLink: 'https://mryslab.github.io/s3-extend/'
+        helpLink: 'https://mryslab.github.io/s3-extend/',
+        incompatibleWithScratch: true
 
     },
     {
@@ -949,7 +996,8 @@ const menuItems = [
         featured: true,
         internetConnectionRequired: true,
         bluetoothRequired: false,
-        helpLink: 'https://mryslab.github.io/s3-extend/'
+        helpLink: 'https://mryslab.github.io/s3-extend/',
+        incompatibleWithScratch: true
 
     },
 	//Champierre
@@ -964,7 +1012,8 @@ const menuItems = [
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
         description: 'Interact with ChatGPT in Scratch!',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
     {
         name: 'ML2Scratch',
@@ -977,7 +1026,8 @@ const menuItems = [
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
         description: 'Lets you train with Machine Learning blocks.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
     {
         name: 'TM2Scratch',
@@ -990,7 +1040,8 @@ const menuItems = [
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
         description: 'Lets you train with images and audio.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
     {
         name: 'TMPose2Scratch',
@@ -1003,7 +1054,8 @@ const menuItems = [
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
         description: 'Lets you train with poses.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
     {
         name: 'HandPose2Scratch',
@@ -1014,7 +1066,8 @@ const menuItems = [
 	    insetIconURL: require('../extensions/handpose2scratch/handpose2scratch-small.png'),
         tags: ['preload', 'ai'],
         internetConnectionRequired: true,
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },	
     {
         name: 'Posenet2Scratch',
@@ -1027,7 +1080,8 @@ const menuItems = [
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
         description: 'Detect human poses quickly and accurately with a normal WebCam without using a special device',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
     {
         name: 'Facemesh2scratch',
@@ -1038,7 +1092,8 @@ const menuItems = [
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
         description: 'Use facetracking in your projects!',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
     {
         name: 'Scratch2WebSerialAPI',
@@ -1049,7 +1104,8 @@ const menuItems = [
         internetConnectionRequired: true,
         tags: ['preload', 'iot'],
         description: 'Do more complex things with hardware via the serial ports.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
     {
         name: 'ImageClassifer2Scratch',
@@ -1060,7 +1116,8 @@ const menuItems = [
         internetConnectionRequired: true,
         tags: ['preload', 'ai'],
         description: 'Image Classification Blocks.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'scratch2maqueen',
@@ -1075,6 +1132,7 @@ const menuItems = [
         description: 'Control DFRobot Maqueen.',
         featured: true,
         collaborator: 'Vernier',
+        incompatibleWithScratch: true
     },
 	//Adacraft
 	{
@@ -1085,7 +1143,8 @@ const menuItems = [
 	    insetIconURL: require('../extensions/adacraft/http-small.svg'),
         description: 'Some new blocks to send HTTP requests ad manage results.',
         collaborator: 'Adacraft',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
     {
         name: 'Adacraft GIF',
@@ -1095,7 +1154,8 @@ const menuItems = [
 	    insetIconURL: require('../extensions/adacraft/gif-small.svg'),
         description: 'Some new blocks to encode GIF files.',
         collaborator: 'Adacraft',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 {
         name: 'Ada Browser',
@@ -1105,7 +1165,8 @@ const menuItems = [
 	    insetIconURL: require('../extensions/adacraft/browser-small.svg'),
         description: 'Some new blocks to interact with the browser',
         collaborator: 'Adacraft',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	
 	//GvbvdxxMod Preloads
@@ -1116,9 +1177,11 @@ const menuItems = [
         collaborator: 'Gvbvdxx',
 		iconURL: require('../extensions/roku/big.jpg'),
 	    insetIconURL: require('../extensions/roku/small.png'),
+		customInsetColor: '#FFFFFF',
         tags: ['other', 'preload'],
         description: 'Interact with your Roku tv via the GM2Helper software!',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'HTML5 Elements',
@@ -1128,7 +1191,8 @@ const menuItems = [
         description: 'Create HTMl5 elements. Display sprite costumes out of the stage!',
         featured: true,
         collaborator: 'Gvbvdxx',
-        tags: ['other', 'preload']
+        tags: ['other', 'preload'],
+        incompatibleWithScratch: true
     },
 {
         name: 'Gvbvdxx Extras',
@@ -1137,77 +1201,84 @@ const menuItems = [
         description: 'Unfinished Gvbvdxx Mod Helper App.',
         featured: true,
         collaborator: 'Gvbvdxx',
-        tags: ['other', 'preload']
+        tags: ['other', 'preload'],
+        incompatibleWithScratch: true
     },
 {
         name: 'Website API',
         extensionId: 'websites',
 		iconURL: require('../extensions/websites/websites.png'),
 	    insetIconURL: require('../extensions/websites/small.png'),
+		customInsetColor: '#FFFFFF',
         description: 'Website API',
         featured: true,
         collaborator: 'Gvbvdxx',
-        tags: ['other', 'preload']
+        tags: ['other', 'preload'],
+        incompatibleWithScratch: true
     },
 	{
         name: 'NES Emulator',
         extensionId: 'nesemulator', // update reference once file names are updated
 		iconURL: require('../extensions/nes_emulator/nes.svg'),
 	    insetIconURL: require('../extensions/nes_emulator/nes-small.svg'),
+		customInsetColor: '#E80000',
         description: 'Use the power of the NES emulation in PotentiaMod!',
         internetConnectionRequired: true,
         launchPeripheralConnectionFlow: false,
         bluetoothRequired: false,
         tags: ['other', 'preload'],
         featured: true,
-        collaborator: 'Gvbvdxx'
-    },
-	{
-        name: 'User Data',
-        extensionId: 'userdata',
-		iconURL: require('../extensions/userdata/small.png'),
-	    insetIconURL: require('../extensions/userdata/big.png'),
-        description: 'Get The User\'s Data',
-        featured: true,
         collaborator: 'Gvbvdxx',
-        tags: ['other', 'preload']
-	},
+        incompatibleWithScratch: true
+    },
 	//PenguinMod Preloads
 	{
         name: 'PenguinMod Runtime',
         extensionId: 'jgRuntime',
         iconURL: require('../extensions/penguinmod/extensions/runtime.svg'),
+		insetIconURL: require('../extensions/icons/penguinmod.svg'),
+		customInsetColor: '#00c3ff',
         description:'Blocks for modifying project data and settings from PenguinMod itself.',
         collaborator: 'PenguinMod',
         tags: ['other', 'preload'],
-		featured: true
+		featured: true,
+        incompatibleWithScratch: true
     },
 	 {
         name: 'Prism',
         extensionId: 'jgPrism',
         tags: ['other', 'preload'],
         iconURL: require('../extensions/penguinmod/extensions/prism.png'),
+		insetIconURL: require('../extensions/icons/penguinmod.svg'),
+		customInsetColor: '#00c3ff',
 		collaborator: 'PenguinMod',
         description: 'Blocks for specific use-cases or major convenience.',
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	 {
         name: 'Motion Expansion',
         extensionId: 'pmMotionExpansion',
         iconURL: require('../extensions/penguinmod/extensions/motion_expanded.png'),
+		insetIconURL: require('../extensions/icons/penguinmod.svg'),
+		customInsetColor: '#00c3ff',
         description: 'More small motion blocks for movement or collision.',
         tags: ['other', 'preload'],
 		collaborator: 'PenguinMod',
-		featured: true
+		featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: 'Scratch Authentication',
         extensionId: 'jgScratchAuthenticate',
         iconURL: require('./penguinmod/extensions/scratchauth2.svg'),
+		insetIconURL: require('../extensions/icons/penguinmod.svg'),
+		customInsetColor: '#00c3ff',
 		collaborator: 'PenguinMod',
 		tags: ['other', 'preload'],
         description: "Interact with Scratch Authentication to prove the player is a real scratch user.",
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	//Builders
 	{
@@ -1227,7 +1298,7 @@ const menuItems = [
 	    insetIconURL: require('../extensions/extension-builders/GaiaExtEditor-small.svg'),
         description: 'Either create or edit extensions with a modfication of Astra Editor Extension Editor.',
         tags: ['gaia', 'builders'],
-        isNew: true,
+        isNew: false,
         featured: true,
     },
     {
@@ -1275,6 +1346,8 @@ const menuItems = [
         ),
         extensionId: 'tw',
         iconURL: require('../extensions/tw/tw.svg'),
+		insetIconURL: require('../extensions/icons/turbowarp.svg'),
+		customInsetColor: '#ff4d4d',
         description: (
             <FormattedMessage
                 defaultMessage="Weird new blocks, with more modifications by GaiaWindWave90."
@@ -1283,7 +1356,8 @@ const menuItems = [
             />
         ),
         tags: ['tw'],
-        featured: true
+        featured: true,
+        incompatibleWithScratch: true
     },
 	{
         name: (
@@ -1298,6 +1372,9 @@ const menuItems = [
         ),
         extensionId: 'pot',
         iconURL: require('../extensions/potentiamod/pot.svg'),
+		insetIconURL: require('../extensions/icons/potentiamod.svg'),
+		customInsetColor: '#4800CC',
+		isNew: true,
         description: (
             <FormattedMessage
                 defaultMessage="Fantastic-looking blocks."
@@ -1305,8 +1382,9 @@ const menuItems = [
                 id="tw.potExtension.description"
             />
         ),
-        tags: ['potentia'],
-        featured: true
+        tags: ['potentia', 'new'],
+        featured: true,
+        incompatibleWithScratch: true
     },
 ];
 

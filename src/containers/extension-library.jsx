@@ -84,14 +84,16 @@ const gallerySources = [
         baseURL: 'https://potentiamod.github.io/pot-extensions/',
         metadataURL: 'https://potentiamod.github.io/pot-extensions/generated-metadata/extensions-v0.json',
         icon: POTIcon,
-        tag: 'potentia'
+        tag: 'potentia',
+		color:'#4800CC'
     },	
     {
         id: 'gaiamod',
         baseURL: 'https://gaiawindwave90.github.io/gm-extensions/',
         metadataURL: 'https://gaiawindwave90.github.io/gm-extensions/generated-metadata/extensions-v0.json',
         icon: GMIcon,
-        tag: 'gaia'
+        tag: 'gaia',
+		color:'#2D2DD2'
     },
     {
         id: 'turbowarp',
@@ -99,6 +101,7 @@ const gallerySources = [
         metadataURL: 'https://extensions.turbowarp.org/generated-metadata/extensions-v0.json',
         icon: TWIcon,
         tag: 'tw',
+		color:'#ff4d4d'
     },
 ];
 
@@ -159,6 +162,7 @@ const mapGalleryExtension = (extension, source) => ({
     extensionURL: `${source.baseURL}${extension.slug || extension.URL || extension.url || extension.extensionURL || extension.code}.js`,
     iconURL: extension.image ? `${source.baseURL}${extension.image}` : extension.cover ? `${source.baseURL}${extension.cover}` : extension.banner ? `${source.baseURL}${extension.banner}` : extension.thumb ? `${source.baseURL}${extension.thumb}` : extension.iconURL ? `${source.baseURL}${extension.iconURL}` : defaultExtensionBanner,
     tags: [source.tag],
+    customInsetColor: [source.color],
 	insetIconURL: [source.icon] || defaultICON,
     credits: [
             ...(extension.original || []),
@@ -186,7 +190,8 @@ const mapGalleryExtension = (extension, source) => ({
         href: `${process.env.ROOT}editor?project_url=${source.baseURL}samples/${encodeURIComponent(sample)}.sb3`,
         text: sample
     })) : null,
-    featured: true
+    featured: true,
+    incompatibleWithScratch: true
 });
 
 const mapPackExtension = (extension, pack) => ({
@@ -201,6 +206,7 @@ const mapPackExtension = (extension, pack) => ({
     ),
     iconURL: extension.image ? resolveURL(extension.image || extension.cover || extension.thumb || extension.banner || extension.iconURL, pack.information.source) : defaultExtensionBanner,
     tags: [pack.information.tag],
+    customInsetColor: [pack.information.color],
     credits: [
         ...(extension.original || []),
         ...(extension.by || [])
@@ -221,7 +227,7 @@ const mapPackExtension = (extension, pack) => ({
         )}`,
         text: sample
     })) : null,
-    incompatibleWithScratch: !extension.scratchCompatible,
+    incompatibleWithScratch: true,
     featured: true
 });
 
@@ -513,7 +519,7 @@ class ExtensionLibrary extends React.PureComponent {
         }
 
         const url = item.extensionURL ? item.extensionURL : extensionId;
-        if (!item.disabled || !item.comingSoon) {
+        if ((!item.disabled) || (!item.comingSoon)) {
 			//Disabled this below because how stupid GaiaMod fans are thinking of trusting extensions.
 			//if (item.extensionURL) manuallyTrustExtension(url);
             if (this.props.vm.extensionManager.isExtensionLoaded(extensionId)) {

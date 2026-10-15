@@ -43,7 +43,9 @@
 }
 
 .disabled:hover {
+	border-width: 0px;
     border-color: $ui-black-transparent;
+	box-shadow: 0px 0px 0px $ui-black-transparent, inset 0px 0px 0px $ui-black-transparent;
 }
 
 .coming-soon {
@@ -52,7 +54,9 @@
 }
 
 .coming-soon:hover {
+	border-width: 0px;
     border-color: $ui-black-transparent;
+	box-shadow: 0px 0px 0px $ui-black-transparent, inset 0px 0px 0px $ui-black-transparent;
 }
 
 
@@ -61,7 +65,9 @@
 }
 
 .new:hover {
-    border-color: $looks-secondary;
+    border-width: 2px;
+    border-color: gold;
+	box-shadow: 0px 0px 25px gold, inset 0px 0px 5px gold;
 }
 
 .library-item-image-container-wrapper {

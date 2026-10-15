@@ -10,11 +10,11 @@ import {APP_NAME} from '../../lib/brand';
 
 const InvalidEmbed = () => (
     <div className={styles.container}>
-        <h1>{`Invalid ${APP_NAME} Embed :(`}</h1>
+        <h1>{`${APP_NAME} Embed Failed! 8(`}</h1>
         <p>
             {'See '}
             <a
-                href="https://docs.turbowarp.org/embedding"
+                href="https://https://potentiamod.github.io/docs/embedding"
                 target="_blank"
                 rel="noreferrer"
             >
@@ -24,22 +24,22 @@ const InvalidEmbed = () => (
             {' for more information. You need to replace the iframe src with the embed page:'}
         </p>
         <p className={styles.code}>
-            {'https://turbowarp.org/<project ID>/embed'}
+            {'https://potentiamod.github.io/embed.html#project'}
         </p>
         <p>
             {'Here\'s an example of a full iframe to embed a project:'}
         </p>
         <p className={styles.code}>
-            {`<iframe src="https://turbowarp.org/60917032/embed" width="482" height="412" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>`}
+            {`<iframe src="https://potentiamod.github.io/embed.html#60917032" width="482" height="412" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>`}
         </p>
         <p>
             {'If you are seeing this page even though you aren\'t embedding anything, let us know on '}
             <a
-                href="https://scratch.mit.edu/users/GarboMuffin/#comments"
+                href="https://www.facebook.com/CrystalMae1990/"
                 target="_blank"
                 rel="noreferrer"
             >
-                {'scratch.mit.edu/users/GarboMuffin'}
+                {'facebook.com/CrystalMae1990'}
             </a>
             {'.'}
         </p>

@@ -36,6 +36,7 @@ const messages = defineMessages({
     }
 });
 
+
 /* eslint-disable react/prefer-stateless-function */
 class LibraryItemComponent extends React.PureComponent {
     render () {
@@ -58,7 +59,7 @@ class LibraryItemComponent extends React.PureComponent {
         );
 
         const showIDS = SettingsStore.store.showExtensionIds;
-
+		
         return this.props.featured ? (
             <div
                 className={classNames(
@@ -66,7 +67,7 @@ class LibraryItemComponent extends React.PureComponent {
                     styles.featuredItem,
                     {
                         [styles.disabled]: this.props.disabled,
-                        [styles.comingsoon]: this.props.comingsoon,
+                        [styles.comingSoon]: this.props.comingSoon,
                         [styles.new]: this.props.isNew,
                     },
                     typeof this.props.extensionId === 'string' ? styles.libraryItemExtension : null,
@@ -84,7 +85,7 @@ class LibraryItemComponent extends React.PureComponent {
                             />
                         </div>
                     ) : null}
-					{this.props.comingsoon ? (
+					{this.props.comingSoon ? (
                         <div className={styles.comingSoonText}>
                             <FormattedMessage
                                 defaultMessage="Coming Soon"
@@ -109,12 +110,24 @@ class LibraryItemComponent extends React.PureComponent {
                         src={this.props.iconURL}
                     />
                 </div>
-                {this.props.insetIconURL ? (
+                {(this.props.insetIconURL && !this.props.customInsetColor) ? (
                     <div className={styles.libraryItemInsetImageContainer}>
                         <img
                             className={styles.libraryItemInsetImage}
                             src={this.props.insetIconURL}
                             draggable={false}
+                        />
+                    </div>
+                ) : null}
+                {(this.props.insetIconURL && this.props.customInsetColor) ? (
+                    <div className={
+                        styles.libraryItemInsetImageContainerNoBg
+                    }
+                        style={{ backgroundColor: this.props.customInsetColor }}
+                    >
+                        <img
+                            className={styles.libraryItemInsetImage}
+                            src={this.props.insetIconURL}
                         />
                     </div>
                 ) : null}

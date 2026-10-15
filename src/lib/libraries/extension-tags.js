@@ -18,6 +18,7 @@ export default [
     {tag: 'builders', intlLabel: 'Extension Builders'},
 	{type: 'divider'},
     {tag: 'new', intlLabel: 'New!'},
+	{tag: 'comingsoon', intlLabel: 'Coming Soon'},
 	{tag: 'disabled', intlLabel: 'Disabled'},
 	{type: 'divider'},
 ];
