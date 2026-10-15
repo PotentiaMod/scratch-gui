@@ -205,6 +205,7 @@ const mapPackExtension = (extension, pack) => ({
         pack.information.source
     ),
     iconURL: extension.image ? resolveURL(extension.image || extension.cover || extension.thumb || extension.banner || extension.iconURL, pack.information.source) : defaultExtensionBanner,
+	insetIconURL: [pack.information.icon] || defaultICON,
     tags: [pack.information.tag],
     customInsetColor: [pack.information.color],
     credits: [
