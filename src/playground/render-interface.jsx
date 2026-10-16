@@ -48,7 +48,8 @@ import styles from './interface.css';
 import Swal from 'sweetalert2';
 import Footer from '../components/potentia-footer/footer.jsx';
 
-const isInvalidEmbed = window.parent !== window;
+//const isInvalidEmbed = window.parent !== window;
+const isInvalidEmbed = false
 
 const urlParams = new URLSearchParams(location.search);
 const Local = String(window.location.href).startsWith(`http://localhost:`);
@@ -126,9 +127,11 @@ class Interface extends React.Component {
         }
     }
     render () {
+		/*
         if (isInvalidEmbed) {
             return <InvalidEmbed />;
         }
+		*/
 
         const {
             /* eslint-disable no-unused-vars */
