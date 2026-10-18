@@ -12,7 +12,7 @@ const postcssVars = require('postcss-simple-vars');
 const postcssImport = require('postcss-import');
 
 const STATIC_PATH = process.env.STATIC_PATH || '/static';
-const {APP_NAME} = require('./src/lib/brand');
+const {APP_NAME, MOTTO} = require('./src/lib/brand');
 
 const root = process.env.ROOT || '';
 if (root.length > 0 && !root.endsWith('/')) {
@@ -22,7 +22,8 @@ if (root.length > 0 && !root.endsWith('/')) {
 const htmlWebpackPluginCommon = {
     root: root,
     meta: JSON.parse(process.env.EXTRA_META || '{}'),
-    APP_NAME
+    APP_NAME,
+    MOTTO
 };
 
 // When this changes, the path for all JS files will change, bypassing any HTTP caches
@@ -186,7 +187,7 @@ module.exports = [
                 chunks: ['editor'],
                 template: 'src/playground/index.ejs',
                 filename: 'editor.html',
-                title: `${APP_NAME} - It Makes the Very Best!`,
+                title: `${APP_NAME} - ${MOTTO}`,
                 isEditor: true,
                 ...htmlWebpackPluginCommon
             }),
@@ -194,14 +195,14 @@ module.exports = [
                 chunks: ['player'],
                 template: 'src/playground/index.ejs',
                 filename: 'index.html',
-                title: `${APP_NAME} - It Makes the Very Best!`,
+                title: `${APP_NAME} - ${MOTTO}`,
                 ...htmlWebpackPluginCommon
             }),
             new HtmlWebpackPlugin({
                 chunks: ['fullscreen'],
                 template: 'src/playground/index.ejs',
                 filename: 'fullscreen.html',
-                title: `${APP_NAME} - It Makes the Very Best!`,
+                title: `${APP_NAME} - ${MOTTO}`,
                 ...htmlWebpackPluginCommon
             }),
             new HtmlWebpackPlugin({
