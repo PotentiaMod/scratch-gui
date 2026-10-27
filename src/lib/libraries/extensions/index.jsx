@@ -1362,7 +1362,7 @@ const menuItems = [
 	{
         name: (
             <FormattedMessage
-                defaultMessage="PotentiaMod Extra Blocks"
+                defaultMessage="PotentiaMod Blocks"
                 description="Name of the 'PotentiaMod  Blocks' extension"
                 id="tw.potExtension.name"
                 values={{
