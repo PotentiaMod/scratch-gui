@@ -345,16 +345,7 @@ const GUIComponent = props => {
                     onStartSelectingFileUpload={onStartSelectingFileUpload}
                     onToggleLoginOpen={onToggleLoginOpen}
                 />
-                <Box
-                    className={styles.bodyWrapper}
-                    style={props.theme.wallpaper.url === null ? {} : {
-                        backgroundImage: `url("${props.theme.wallpaper.url}")`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundAttachment: 'fixed'
-                    }}
-                >
+                <Box className={styles.bodyWrapper}>
                     <Box className={styles.flexWrapper}>
                         <Box className={styles.editorWrapper}>
                             <Tabs

@@ -570,7 +570,7 @@ const MENUBAR_ALIGN_DEFAULT = 'left';
 let themeObjectsCreated = 0;
 
 class Theme {
-    constructor (accent, gui, blocks, menuBarAlign, wallpaper, font) {
+    constructor (accent, gui, blocks) {
         // do not modify these directly
         /** @readonly */
         this.id = ++themeObjectsCreated;
@@ -580,16 +580,6 @@ class Theme {
         this.gui = Object.prototype.hasOwnProperty.call(GUI_MAP, gui) ? gui : GUI_DEFAULT;
         /** @readonly */
         this.blocks = Object.prototype.hasOwnProperty.call(BLOCKS_MAP, blocks) ? blocks : BLOCKS_DEFAULT;
-		/** @readonly */
-        this.menuBarAlign = Object
-            .keys(MENUBAR_ALIGN)
-            .includes(menuBarAlign) ?
-            menuBarAlign : MENUBAR_ALIGN_DEFAULT;
-    
-        /** @readonly */
-        this.wallpaper = wallpaper || {url: null, opaque: 0.6};
-        /** @readonly */
-        this.font = font || {font: null}
     }
 
     static light = new Theme(ACCENT_DEFAULT, GUI_LIGHT, BLOCKS_DEFAULT, null, null);
@@ -598,17 +588,11 @@ class Theme {
 
     set (what, to) {
         if (what === 'accent') {
-            return new Theme(to, this.gui, this.blocks, this.menuBarAlign, this.wallpaper, this.font);
+            return new Theme(to, this.gui, this.blocks);
         } else if (what === 'gui') {
-            return new Theme(this.accent, to, this.blocks, this.wallpaper, this.menuBarAlign, this.font);
+            return new Theme(this.accent, to, this.blocks);
         } else if (what === 'blocks') {
-            return new Theme(this.accent, this.gui, to, this.wallpaper, this.menuBarAlign, this.font);
-        } else if (what === 'wallpaper') {
-            return new Theme(this.accent, this.gui, this.blocks, to, this.menuBarAlign, this.font);
-        } else if (what === 'menuBarAlign') {
-            return new Theme(this.accent, this.gui, this.blocks, this.wallpaper, to, this.font);
-        }else if (what === 'font') {
-            return new Theme(this.accent, this.gui, this.blocks, this.wallpaper, this.menuBarAlign, to);
+            return new Theme(this.accent, this.gui, to);
         }
         throw new Error(`Unknown theme property: ${what}`);
     }
@@ -647,12 +631,6 @@ class Theme {
             GUI_MAP[this.gui].blockColors,
             BLOCKS_MAP[this.blocks].colors
         );
-        if (this.wallpaper.url !== null) {
-            blockColors = defaultsDeep(
-                {workspace: blockColors.workspace + Math.round(this.wallpaper.opaque * 255).toString(16).padStart(2, 0)},
-                blockColors
-            )
-        }
         return blockColors;
     }
 
