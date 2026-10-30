@@ -277,7 +277,7 @@
     width: 250px;
     height: 8px;
     border-radius: 8px;
-    background-color: $ui-white-transparent-default;
+    background-color: $progress-bar-outer;
     overflow: hidden;
     position: relative;
     margin: auto;
@@ -288,7 +288,7 @@
     left: 0;
     width: 0;
     height: 100%;
-    background-color: $ui-white-default;
+    background-color: $menu-bar-foreground;
     transition: width 0.15s ease-out;
     overflow: hidden;
 }

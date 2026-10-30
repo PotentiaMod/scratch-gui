@@ -3,7 +3,7 @@ import React from 'react';
 import {defineMessages, FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import logo from './logo.svg';
 import gaiamod from './gaiamod-logo.svg';
-import {APP_NAME, MOTTO} from '../../lib/brand.js';
+import {APP_NAME, MOTTO, SLOGAN} from '../../lib/brand.js';
 import {APP_VERSION} from '../../lib/version.js';
 import styles from './footer.css';
 import Swal from 'sweetalert2';
@@ -47,7 +47,7 @@ const Footer = () => (
                     alt="PotentiaMod"
                 />
                 <span className={styles.logomark}>{APP_NAME}</span>
-                    <p className={styles.slogan}>{MOTTO}</p>
+                    <p className={styles.slogan}>{SLOGAN}</p>
 					</center>
 					
 					<hr></hr>

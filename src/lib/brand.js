@@ -3,6 +3,7 @@
 module.exports = {
     APP_NAME: 'PotentiaMod',
     MOTTO: 'TurboWarp, Supercharged',
+    SLOGAN: 'It Makes the Very Best',
     LINK: 'https://potentiamod.github.io',
     HOME_LINK: 'https://potentiamod.github.io/home',
     LIBRARY_SITE: 'https://potentiamod.github.io/scratch-library/'

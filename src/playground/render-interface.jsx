@@ -42,7 +42,7 @@ import AddonChannels from '../addons/channels';
 import {loadServiceWorker} from './load-service-worker';
 import runAddons from '../addons/entry';
 import InvalidEmbed from '../components/tw-invalid-embed/invalid-embed.jsx';
-import {APP_NAME, MOTTO} from '../lib/brand.js';
+import {APP_NAME, MOTTO, SLOGAN} from '../lib/brand.js';
 
 import styles from './interface.css';
 import Swal from 'sweetalert2';
