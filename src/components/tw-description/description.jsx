@@ -69,13 +69,13 @@ const Description = ({
     <div className={styles.description}>
         <div className={styles.projectLink}>
             <a
-                href={`https://reflective.cattymod.app/#${projectId}`}
+                href={`https://scratch.mit.edu/projects/${projectId}/`}
                 target="_blank"
                 rel="noreferrer"
             >
                 <FormattedMessage
-                    defaultMessage="View project on PotentiaMod/CattyMod Reflective"
-                    description="Link to view project on PotentiaMod/CattyMod Reflective"
+                    defaultMessage="View project on Scratch"
+                    description="Link to view project on Scratch"
                     id="tw.viewOnScratch"
                 />
             </a>
