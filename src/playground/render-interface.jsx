@@ -218,7 +218,7 @@ class Interface extends React.Component {
                                 <p>
                                     <FormattedMessage
                                         // eslint-disable-next-line max-len
-                                        defaultMessage="{potentiaMod} is a mod of {turboWarp} that adds powerful new features in extensions and anything. {turboWarp} is a {scratch} mod that compiles projects to JavaScript to make them run really fast. Try it out by inputting a project ID or URL above or choosing a featured project below."
+                                        defaultMessage="{potentiaMod} is a supercharged mod of {turboWarp} that adds powerful new features in extensions and anything. {turboWarp} is a {scratch} mod that compiles projects to JavaScript to make them run really fast. Try it out by inputting a project ID or URL above or choosing a featured project below."
                                         description="Description of PotentiaMod on the homepage"
                                         id="tw.home.description"
                                         values={{

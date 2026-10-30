@@ -15,7 +15,37 @@
     background-color: $menu-bar-background;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
-    color: $menu-bar-foreground;
+  animation-duration: 0.25s;
+  animation-iteration-count: 1;
+  animation-name: BG_SHOW;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  overflow: hidden;
+}
+.fadeOut {
+  animation-name: BG_HIDE;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+@keyframes BG_SHOW {
+  from{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes BG_HIDE {
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+    transform: translateY(20px);
+  }
 }
 
 .fullscreen {
@@ -35,13 +65,46 @@
     display: block;
     position: relative;
     margin-top: -4px;
-    animation-name: bouncing;
+    animation-name: beating;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
     animation-duration: 1s;
     animation-delay: 0s;
 }
 
+
+/*floating*/
+.logo-float {
+  animation: floating 3s ease-in-out infinite;
+  margin: 50px auto 0px;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); } /* Moves up */
+  100% { transform: translateY(0px); } /* Returns home */
+}
+
+/*beating*/
+@keyframes beating {
+  0% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 15px #fff);
+   }
+   15% {
+      transform: scale(1.22) rotate(-4deg); /* Sudden punch/impact */
+      filter: drop-shadow(0 0 35px #fff);
+   }
+   40% {
+      transform: scale(1.15) rotate(2deg);  /* Slight bounce back */
+   }
+   100% {
+      transform: scale(1);
+     filter: drop-shadow(0 0 15px #fff);
+   }
+  }
+
+/*bouncing*/
 @keyframes bouncing {
   0% {
       left: 0;
@@ -74,6 +137,7 @@
   }
 }
 
+/*classic block animations*/
 .top-block {
     animation: top-slide-in 1.5s ease infinite;
 }
@@ -213,7 +277,7 @@
     width: 250px;
     height: 8px;
     border-radius: 8px;
-    background-color: $progress-bar-outer;
+    background-color: $ui-white-transparent-default;
     overflow: hidden;
     position: relative;
     margin: auto;
@@ -224,7 +288,49 @@
     left: 0;
     width: 0;
     height: 100%;
-    background-color: $menu-bar-foreground;
+    background-color: $ui-white-default;
+    transition: width 0.15s ease-out;
+    overflow: hidden;
+}
+
+.bar-inner.indeterminate {
+    width: 30% !important;
+    animation: bar-indeterminate 1.2s ease-in-out infinite;
+}
+
+@keyframes bar-indeterminate {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(333%);
+    }
+}
+
+/* A light sweeping across the bar, so it still looks alive during a stage that
+   cannot report progress. */
+.bar-inner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.55) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: translateX(-100%);
+    animation: bar-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes bar-shimmer {
+    to {
+        transform: translateX(100%);
+    }
 }
 
 .message-container-outer {
