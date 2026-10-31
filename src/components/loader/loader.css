@@ -266,11 +266,13 @@
     font-size: 2rem;
     font-weight: bold;
     margin: 0.75rem 0;
+	color: $menu-bar-foreground;
 }
 
 .message {
     height: 20px;
     margin: 5px 0;
+	color: $menu-bar-foreground;
 }
 
 .bar-outer {
@@ -308,30 +310,6 @@
     }
 }
 
-/* A light sweeping across the bar, so it still looks alive during a stage that
-   cannot report progress. */
-.bar-inner::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.55) 50%,
-        rgba(255, 255, 255, 0) 100%
-    );
-    transform: translateX(-100%);
-    animation: bar-shimmer 1.4s ease-in-out infinite;
-}
-
-@keyframes bar-shimmer {
-    to {
-        transform: translateX(100%);
-    }
-}
 
 .message-container-outer {
     height: 30px;
@@ -360,7 +338,7 @@
 }
 
 .tips {
-  color: $ui-modal-header-foreground;
+  color: $menu-bar-foreground;
   font-style: italic;
   font-weight: bold;
   font-size: 0.75rem;
