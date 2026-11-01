@@ -1,4 +1,3 @@
-// this was made by dumo i yoinked it from https://github.com/thepython555/ba4x-player
 
 let injected = false;
 
