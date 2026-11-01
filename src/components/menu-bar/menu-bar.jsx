@@ -630,7 +630,7 @@ class MenuBar extends React.Component {
                     )}
                 >
                     <div className={styles.fileGroup}>
-					 <div className={classNames(styles.menuBarItem)}>
+					 {this.props.logoVisible && <div className={classNames(styles.menuBarItem)}>
                             <img
                             src={logo}
                             alt="PotentiaMod"
@@ -639,7 +639,7 @@ class MenuBar extends React.Component {
                         <span className={styles.homeWordmark}>
                             {'PotentiaMod'}
                         </span>
-                        </div>
+					 </div>}
 						
                         {this.props.errors.length > 0 && <div>
                             <MenuLabel
@@ -1229,6 +1229,7 @@ MenuBar.propTypes = {
 	pipButtonVisible: PropTypes.bool,
 	gptButtonVisible: PropTypes.bool,
 	scratch2Visible: PropTypes.bool,
+	logoVisible: PropTypes.bool,
     fileMenuOpen: PropTypes.bool,
     handleSaveProject: PropTypes.func,
     intl: intlShape,

@@ -901,6 +901,22 @@ const EditorSettingsModal = props => {
                     />
 					</Box>
 					
+					<Box>
+					<BooleanSetting
+                        value={!!props.preferences['hide-logo']}
+                        label={<FormattedMessage
+                            id="tw.editorSettings.hideLogo"
+                            defaultMessage="Hide Logo"
+                        />}
+                        help={<FormattedMessage
+                            id="tw.editorSettings.hideLogoHelp"
+                            defaultMessage="Hides the logo on the top of the screen."
+                        />}
+                        // eslint-disable-next-line react/jsx-no-bind
+                        onChange={e => props.onSetPreference('hide-logo', e.target.checked)}
+                    />
+					</Box>
+					
                     <Box>
 					<BooleanSetting
                         value={!!props.preferences['hide-backpack']}

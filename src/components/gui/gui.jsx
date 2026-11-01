@@ -194,6 +194,9 @@ const GUIComponent = props => {
 	
 	// Show Scratch 2 Legacy by default unless explicitly disabled.
 	const scratch2Visible = !props.preferences['hide-scratch2'];
+	
+	// Shows a logo by default unless explicitly disabled.
+	const logoVisible = !props.preferences['hide-logo'];
 
     const tabClassNames = {
         tabs: styles.tabs,
@@ -342,6 +345,7 @@ const GUIComponent = props => {
 					pipButtonVisible={pipButtonVisible}
 					gptButtonVisible={gptButtonVisible}
 					scratch2Visible={scratch2Visible}
+					logoVisible={logoVisible}
                     isShared={isShared}
                     isTotallyNormal={isTotallyNormal}
                     isSecret={isSecret}

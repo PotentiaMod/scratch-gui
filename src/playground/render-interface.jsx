@@ -43,6 +43,7 @@ import {loadServiceWorker} from './load-service-worker';
 import runAddons from '../addons/entry';
 import InvalidEmbed from '../components/tw-invalid-embed/invalid-embed.jsx';
 import {APP_NAME, MOTTO, SLOGAN} from '../lib/brand.js';
+import { setPreference } from '../reducers/preferences.js';
 
 import styles from './interface.css';
 import Swal from 'sweetalert2';
@@ -114,6 +115,8 @@ class Interface extends React.Component {
         super(props);
         this.handleUpdateProjectTitle = this.handleUpdateProjectTitle.bind(this);
     }
+	
+	
     componentDidUpdate (prevProps) {
         if (prevProps.isLoading && !this.props.isLoading) {
             loadServiceWorker();
