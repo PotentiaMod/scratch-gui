@@ -684,6 +684,7 @@
                 </div>
 
                 <!-- Picture in Picture -->
+				<!--
                 <div class="setting-row">
                   <div class="setting-info">
                     <div class="setting-title">Picture in Picture</div>
@@ -700,8 +701,10 @@
                 </div>
               </div>
             </div>
+			-->
 
             <!-- AI -->
+			<!--
             <div class="section">
               <div class="section-title">AI</div>
               <div class="card">
@@ -718,6 +721,7 @@
               </div>
             </div>
           </section>
+		  -->
 
           <!-- ABOUT -->
           <section id="page-about" class="page" style="display: none;">
@@ -1105,9 +1109,9 @@
 
           return ["Left", "Middle", "Right"].includes(saved)
             ? saved
-            : "Middle";
+            : "Left";
         } catch {
-          return "Middle";
+          return "Left";
         }
       }
 
@@ -1119,7 +1123,7 @@
 
       function setNavPosition(position) {
         if (!["Left", "Middle", "Right"].includes(position)) {
-          position = "Left";
+          position = "Middle";
         }
 
         try {
@@ -1141,8 +1145,8 @@
       applyTheme();
       loadBlockStyle();
       loadCustomProject();
-      loadGptEnabled();
-      loadPipEnabled();
+      //loadGptEnabled();
+      //loadPipEnabled();
       loadNavPosition();
       loadPageFromHash();
     </script>

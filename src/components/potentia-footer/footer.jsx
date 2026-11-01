@@ -29,9 +29,10 @@ const eraseData = async () => {
         indexedDB.deleteDatabase('p4-large-assets');
         indexedDB.deleteDatabase('tw:library-favorites:extensionLibrary');
         indexedDB.deleteDatabase('tw:theme');
+        indexedDB.deleteDatabase('potentiamod:preferences');
         indexedDB.deleteDatabase('potentiamod:navPos');
-        indexedDB.deleteDatabase('potentiamod:gptEnabled');
-        indexedDB.deleteDatabase('potentiamod:pipEnabled');
+        //indexedDB.deleteDatabase('potentiamod:gptEnabled');
+        //indexedDB.deleteDatabase('potentiamod:pipEnabled');
         indexedDB.deleteDatabase('potentiamod:customDefaultProjects');
         location.reload();
     }

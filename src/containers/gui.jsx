@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import ReactModal from 'react-modal';
 import VM from 'scratch-vm';
 import {injectIntl, intlShape} from 'react-intl';
+import { setPreference } from '../reducers/preferences.js';
 
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
 import ProjectLoadErrorComponent, {
@@ -137,6 +138,7 @@ GUI.propTypes = {
     loadingStateVisible: PropTypes.bool,
     onProjectLoaded: PropTypes.func,
     onSeeCommunity: PropTypes.func,
+	onSetPreference: PropTypes.func,
     onStorageInit: PropTypes.func,
     onUpdateProjectId: PropTypes.func,
     onVmInit: PropTypes.func,
@@ -205,7 +207,8 @@ const mapDispatchToProps = dispatch => ({
 	onOpenCustomGalleryModal: () => dispatch(openCustomGalleryModal()),
     onRequestCloseBackdropLibrary: () => dispatch(closeBackdropLibrary()),
     onRequestCloseCostumeLibrary: () => dispatch(closeCostumeLibrary()),
-    onRequestCloseTelemetryModal: () => dispatch(closeTelemetryModal())
+    onRequestCloseTelemetryModal: () => dispatch(closeTelemetryModal()),
+	onSetPreference: (key, value) => dispatch(setPreference(key, value))
 });
 
 const ConnectedGUI = injectIntl(connect(

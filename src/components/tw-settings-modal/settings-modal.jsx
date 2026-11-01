@@ -17,6 +17,7 @@ import helpIcon from './help-icon.svg';
 import swapIcon from './swap-icon.svg';
 import {APP_NAME} from '../../lib/brand.js';
 import {setUsername, setUsernameInvalid} from '../../reducers/tw.js';
+import {setPreference} from '../../reducers/preferences.js';
 import isScratchDesktop from '../../lib/isScratchDesktop.js';
 import {generateRandomUsername} from '../../lib/tw-username.js';
 import dropdownCaret from '../menu-bar/dropdown-caret.svg';
@@ -49,6 +50,10 @@ const messages = defineMessages({
         id: 'tw.editorSettings.generalSection',
         defaultMessage: 'General'
     },
+	features: {
+        id: 'tw.editorSettings.featuresSection',
+        defaultMessage: 'Features'
+    },
     limits: {
         id: 'tw.editorSettings.limitsSection',
         defaultMessage: 'Limits'
@@ -71,7 +76,7 @@ const messages = defineMessages({
     },
     addons: {
         id: 'tw.editorSettings.addonsSection',
-        defaultMessage: 'Addons'
+        defaultMessage: 'Mods'
     },
 	danger: {
         id: 'tw.editorSettings.dangerSection',
@@ -874,6 +879,95 @@ const EditorSettingsModal = props => {
                                 onChange={props.onHighQualityPenChange}
                             />
                     </Box>
+					
+            </Box>
+        },
+		{
+            title: messages.features,
+            content: <Box>
+			<Box>
+					<BooleanSetting
+                        value={!!props.preferences['hide-homepage']}
+                        label={<FormattedMessage
+                            id="tw.editorSettings.hideHomePage"
+                            defaultMessage="Hide 'Back to Home' button"
+                        />}
+                        help={<FormattedMessage
+                            id="tw.editorSettings.hideHomePageHelp"
+                            defaultMessage="Removes the 'Back to Home' button from the top of the screen."
+                        />}
+                        // eslint-disable-next-line react/jsx-no-bind
+                        onChange={e => props.onSetPreference('hide-homepage', e.target.checked)}
+                    />
+					</Box>
+					
+                    <Box>
+					<BooleanSetting
+                        value={!!props.preferences['hide-backpack']}
+                        label={<FormattedMessage
+                            id="tw.editorSettings.hideBackpack"
+                            defaultMessage="Hide backpack"
+                        />}
+                        help={<FormattedMessage
+                            id="tw.editorSettings.hideBackpackHelp"
+                            defaultMessage="Removes the backpack from the bottom of the screen."
+                        />}
+                        // eslint-disable-next-line react/jsx-no-bind
+                        onChange={e => {
+                            props.onSetPreference('hide-backpack', e.target.checked);
+                            // resizes block palette and stuff
+                            requestAnimationFrame(() => dispatchEvent(new Event('resize')));
+                        }}
+                    />
+					</Box>
+					
+					<Box>
+					<BooleanSetting
+                        value={!!props.preferences['hide-pip']}
+                        label={<FormattedMessage
+                            id="tw.editorSettings.hidePIP"
+                            defaultMessage="Hide Picture-In-Picture"
+                        />}
+                        help={<FormattedMessage
+                            id="tw.editorSettings.hidePIPHelp"
+                            defaultMessage="Disables the Picture-In-Picture feature in the menu."
+                        />}
+                        // eslint-disable-next-line react/jsx-no-bind
+                        onChange={e => props.onSetPreference('hide-pip', e.target.checked)}
+                    />
+					</Box>
+					
+					<Box>
+					<BooleanSetting
+                        value={!!props.preferences['hide-gpt']}
+                        label={<FormattedMessage
+                            id="tw.editorSettings.hideAI"
+                            defaultMessage="Hide ChatGPT"
+                        />}
+                        help={<FormattedMessage
+                            id="tw.editorSettings.hideAIHelp"
+                            defaultMessage="Disables the ChatGPT feature in the menu."
+                        />}
+                        // eslint-disable-next-line react/jsx-no-bind
+                        onChange={e => props.onSetPreference('hide-gpt', e.target.checked)}
+                    />
+					</Box>
+					
+					<Box>
+					<BooleanSetting
+                        value={!!props.preferences['hide-scratch2']}
+                        label={<FormattedMessage
+                            id="tw.editorSettings.hideScratch2"
+                            defaultMessage="Hide Scratch 2 Legacy"
+                        />}
+                        help={<FormattedMessage
+                            id="tw.editorSettings.hideScratch2Help"
+                            defaultMessage="Disables the Scratch 2 Legacy feature in the menu."
+                        />}
+                        // eslint-disable-next-line react/jsx-no-bind
+                        onChange={e => props.onSetPreference('hide-scratch2', e.target.checked)}
+                    />
+					</Box>
 					
             </Box>
         },

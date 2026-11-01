@@ -87,7 +87,7 @@ const GUIComponent = props => {
         basePath,
         backdropLibraryVisible,
         backpackHost,
-        backpackVisible,
+        backpackVisible: _backpackVisible,
         blocksId,
         blocksTabVisible,
         cardsVisible,
@@ -107,6 +107,7 @@ const GUIComponent = props => {
         costumesTabVisible,
         customStageSize,
         enableCommunity,
+		homePageVisible,
         intl,
         isCreating,
         isEmbedded,
@@ -151,6 +152,7 @@ const GUIComponent = props => {
         onTelemetryModalCancel,
         onTelemetryModalOptIn,
         onTelemetryModalOptOut,
+		preferences,
         securityManager,
         showComingSoon,
         showOpenFilePicker,
@@ -178,6 +180,20 @@ const GUIComponent = props => {
     if (children) {
         return <Box {...componentProps}>{children}</Box>;
     }
+	
+    const homeVisible = !props.preferences['hide-homepage'];
+	const backpackVisible = (_backpackVisible ?? true) && !props.preferences['hide-backpack'];
+	
+	// Show Picture in Picture by default unless explicitly disabled.
+	// Apparently shows it inside an embedded editor.
+	const pipButtonVisible = !props.preferences['hide-pip'];
+	
+	// Show Copilot by default unless explicitly disabled.
+	// Apparently shows it inside an embedded editor.
+	const gptButtonVisible = !props.preferences['hide-gpt'];
+	
+	// Show Scratch 2 Legacy by default unless explicitly disabled.
+	const scratch2Visible = !props.preferences['hide-scratch2'];
 
     const tabClassNames = {
         tabs: styles.tabs,
@@ -235,6 +251,7 @@ const GUIComponent = props => {
                     loading={loading}
                     stageSize={STAGE_SIZE_MODES.full}
                     vm={vm}
+					preferences={props.preferences}
                 >
                     {alertsVisible ? (
                         <Alerts className={styles.alertsContainer} />
@@ -247,7 +264,7 @@ const GUIComponent = props => {
                 className={styles.pageWrapper}
                 dir={isRtl ? 'rtl' : 'ltr'}
                 style={{
-                    minWidth: 1024 + Math.max(0, customStageSize.width - 480),
+                    minWidth: 1024 + Math.max(0, customStageSize.width - 640),
                     minHeight: 640 + Math.max(0, customStageSize.height - 360)
                 }}
                 {...componentProps}
@@ -321,6 +338,10 @@ const GUIComponent = props => {
                     canShare={canShare}
                     className={styles.menuBarPosition}
                     enableCommunity={enableCommunity}
+					homeVisible={homeVisible}
+					pipButtonVisible={pipButtonVisible}
+					gptButtonVisible={gptButtonVisible}
+					scratch2Visible={scratch2Visible}
                     isShared={isShared}
                     isTotallyNormal={isTotallyNormal}
                     isSecret={isSecret}
@@ -422,6 +443,7 @@ const GUIComponent = props => {
                                             onOpenCustomGalleryModal={onOpenCustomGalleryModal}
                                             theme={theme}
                                             vm={vm}
+											preferences={props.preferences}
                                         />
                                     </Box>
                                     <Box className={styles.extensionButtonContainer}>
@@ -447,11 +469,18 @@ const GUIComponent = props => {
                                     /> : null}
                                 </TabPanel>
                                 <TabPanel className={tabClassNames.tabPanel}>
-                                    {soundsTabVisible ? <SoundTab vm={vm} /> : null}
+                                    {soundsTabVisible ? <SoundTab
+									vm={vm}
+									preferences={props.preferences}
+									/> : null}
+									
                                 </TabPanel>
                             </Tabs>
                             {backpackVisible ? (
-                                <Backpack host={backpackHost} />
+                                <Backpack
+								host={backpackHost}
+								preferences={props.preferences}
+								/>
                             ) : null}
                         </Box>
 
@@ -467,6 +496,7 @@ const GUIComponent = props => {
                                 <TargetPane
                                     stageSize={stageSize}
                                     vm={vm}
+									preferences={props.preferences}
                                 />
                             </Box>
                         </Box>
@@ -550,6 +580,7 @@ GUIComponent.propTypes = {
     onTelemetryModalOptIn: PropTypes.func,
     onTelemetryModalOptOut: PropTypes.func,
     onToggleLoginOpen: PropTypes.func,
+	preferences: PropTypes.object,
     renderLogin: PropTypes.func,
     securityManager: PropTypes.shape({}),
     showComingSoon: PropTypes.bool,
@@ -605,7 +636,8 @@ const mapStateToProps = state => ({
     // This is the button's mode, as opposed to the actual current state
     blocksId: state.scratchGui.timeTravel.year.toString(),
     stageSizeMode: state.scratchGui.stageSize.stageSize,
-    theme: state.scratchGui.theme.theme
+    theme: state.scratchGui.theme.theme,
+	preferences: state.scratchGui.preferences
 });
 
 export default injectIntl(connect(

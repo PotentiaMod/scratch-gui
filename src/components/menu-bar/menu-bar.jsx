@@ -270,12 +270,14 @@ class MenuBar extends React.Component {
             return false;
         }
 
+     /*
         try {
             const enabled = window.localStorage.getItem('potentiamod:gptEnabled');
             return enabled === null || enabled === 'true';
         } catch (e) {
             return false;
         }
+	  */
     }
 
     
@@ -286,7 +288,8 @@ class MenuBar extends React.Component {
             return false;
         }
 
-        try {
+     /*       
+	   try {
             const enabled = window.localStorage.getItem(
                 'potentiamod:pipEnabled'
             );
@@ -294,12 +297,13 @@ class MenuBar extends React.Component {
         } catch (e) {
             return false;
         }
+	  */
     }
 
     handleClickPiP () {
-        if (!this.isPiPButtonVisible()) {
+        /*if (!this.isPiPButtonVisible()) {
             return;
-        }
+        }*/
 
         openStagePiP(this.props.vm);
         this.props.onRequestCloseEdit();
@@ -308,9 +312,9 @@ class MenuBar extends React.Component {
 
     
     handleClickGpt () {
-        if (!this.isGptButtonVisible()) {
+        /*if (!this.isGptButtonVisible()) {
             return;
-        }
+        }*/
 
         window.open(
             'https://chatgpt.com/',
@@ -554,9 +558,9 @@ class MenuBar extends React.Component {
 		const navPos = (() => {
     try {
         const value = window.localStorage.getItem('potentiamod:navPos');
-        return ['Left', 'Middle', 'Right'].includes(value) ? value : 'Middle';
+        return ['Left', 'Middle', 'Right'].includes(value) ? value : 'Left';
     } catch (e) {
-        return 'Middle';
+        return 'Left';
     }
 })();
 		
@@ -935,7 +939,7 @@ class MenuBar extends React.Component {
                                     )}</ChangeUsername>
 									
 									{/* GPT */}
-                                    {this.isGptButtonVisible() && (
+                                    {this.props.gptButtonVisible && (
                                         <MenuItem
                                             isRtl={this.props.isRtl}
                                             onClick={this.handleClickGpt}
@@ -947,7 +951,7 @@ class MenuBar extends React.Component {
                                     )}
 
                                     {/* Picture in Picture. Got it from CattyMod */}
-                                    {this.isPiPButtonVisible() && (
+                                    {this.props.pipButtonVisible && (
                                         <MenuItem
                                             isRtl={this.props.isRtl}
                                             onClick={this.handleClickPiP}
@@ -958,13 +962,13 @@ class MenuBar extends React.Component {
                                     )}
 									
 									{/* Scratch 2 (Mmmmmm...) */}
-                                        <MenuItem
+                                        {this.props.scratch2Visible && <MenuItem
                                             isRtl={this.props.isRtl}
                                             onClick={this.handleClickScratch2}
                                         >
 										<Laptop size={20} />
                                             Open Scratch 2 Legacy
-                                        </MenuItem>
+                                        </MenuItem>}
 									
 									
                                     <CloudVariablesToggler>{(toggleCloudVariables, {enabled, canUseCloudVariables}) => (
@@ -1149,7 +1153,7 @@ class MenuBar extends React.Component {
                         ) : []))}
                     </div>
                     {/* tw: add a feedback button */}
-                    <div className={styles.menuBarItem}>
+                    {this.props.homeVisible && <div className={styles.menuBarItem}>
                         <a
                             className={styles.feedbackLink}
                             href="https://potentiamod.github.io/home"
@@ -1166,9 +1170,9 @@ class MenuBar extends React.Component {
                                         APP_NAME
                                     }}
                                 />
-                            </Button>
+                             </Button>
                         </a>
-                    </div>
+                    </div>}
                 </div>
 
                 <div className={styles.accountInfoGroup}>
@@ -1221,6 +1225,10 @@ MenuBar.propTypes = {
     currentLocale: PropTypes.string.isRequired,
     editMenuOpen: PropTypes.bool,
     enableCommunity: PropTypes.bool,
+	homeVisible: PropTypes.bool,
+	pipButtonVisible: PropTypes.bool,
+	gptButtonVisible: PropTypes.bool,
+	scratch2Visible: PropTypes.bool,
     fileMenuOpen: PropTypes.bool,
     handleSaveProject: PropTypes.func,
     intl: intlShape,

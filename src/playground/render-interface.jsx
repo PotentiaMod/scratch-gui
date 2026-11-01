@@ -143,6 +143,7 @@ class Interface extends React.Component {
             isPlayerOnly,
             isRtl,
             projectId,
+			preferences,
             /* eslint-enable no-unused-vars */
             ...props
         } = this.props;
@@ -293,7 +294,8 @@ Interface.propTypes = {
     isLoading: PropTypes.bool,
     isPlayerOnly: PropTypes.bool,
     isRtl: PropTypes.bool,
-    projectId: PropTypes.string
+    projectId: PropTypes.string,
+	preferences: PropTypes.object
 };
 
 const mapStateToProps = state => ({
@@ -304,7 +306,8 @@ const mapStateToProps = state => ({
     isLoading: getIsLoading(state.scratchGui.projectState.loadingState),
     isPlayerOnly: state.scratchGui.mode.isPlayerOnly,
     isRtl: state.locales.isRtl,
-    projectId: state.scratchGui.projectState.projectId
+    projectId: state.scratchGui.projectState.projectId,
+	preferences: state.scratchGui.preferences
 });
 
 const mapDispatchToProps = () => ({});

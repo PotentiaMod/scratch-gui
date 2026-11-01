@@ -55,7 +55,8 @@ const Backpack = ({
     onRename,
     onMouseEnter,
     onMouseLeave,
-    onMore
+    onMore,
+	preferences
 }) => (
     <div className={styles.backpackContainer}>
         <div
@@ -178,6 +179,7 @@ Backpack.propTypes = {
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     onToggle: PropTypes.func,
+	preferences: PropTypes.object,
     showMore: PropTypes.bool
 };
 
