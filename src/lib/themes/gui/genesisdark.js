@@ -11,7 +11,7 @@ const guiColors = {
     'ui-secondary': '#0e0e0e',
     'ui-tertiary': '#0F0F0F',
 
-    'ui-modal-overlay': 'var(--looks-secondary-dark)',
+    'ui-modal-overlay': '#000000aa',
     'ui-modal-background': 'black',
     'ui-modal-foreground': 'white',
     'ui-modal-header-background': 'black',
