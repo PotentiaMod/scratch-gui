@@ -521,7 +521,8 @@ class ExtensionLibrary extends React.PureComponent {
 
         const url = item.extensionURL ? item.extensionURL : extensionId;
         if ((!item.disabled) || (!item.comingSoon)) {
-			if (item.extensionURL) manuallyTrustExtension(url);
+			//Disabled this below because how stupid GaiaMod fans are thinking of trusting extensions.
+			//if (item.extensionURL) manuallyTrustExtension(url);
             if (this.props.vm.extensionManager.isExtensionLoaded(extensionId)) {
                 this.props.onCategorySelected(extensionId);
             } else {
