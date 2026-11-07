@@ -194,7 +194,7 @@ class Interface extends React.Component {
                             <div className={styles.section}>
                                 <ProjectInput />
                             </div>
-							{(LiveTests || Local) && (
+							{/*(LiveTests || Local) && (
                                 <div className={styles.newInfobox, styles.newUpdate}>
                                     <p>
                                 {`You're using a development version of ${APP_NAME}. Please don't use test extensions for your projects. I'm dead serious!`}
@@ -203,7 +203,7 @@ class Interface extends React.Component {
                                 <a href="https://potentiamod.github.io/">{'Click here to visit the normal version.'}</a>
                             </p>
                                 </div>
-                            )}
+                            )*/}
                             {hasCloudVariables && projectId !== '0' && (
                                 <div className={styles.section}>
                                     <CloudVariableBadge />
