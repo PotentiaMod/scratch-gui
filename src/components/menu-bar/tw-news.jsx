@@ -5,7 +5,7 @@ import styles from './tw-news.css';
 
 const urlParams = new URLSearchParams(location.search);
 const Local = String(window.location.href).startsWith(`http://localhost:`);
-const LiveTest = urlParams.has('livetest');
+const LiveTests = urlParams.has('livetest');
 const Secrets = urlParams.has('allpowerscombined');
 
 // Set to true by the PotentiaMod Mirror workflow before compiling.
@@ -39,11 +39,11 @@ const NEWS_ITEMS = {
 };
 
 const getCurrentNews = () => {
-    if (mirrored === true && hostname === 'potentiamod.github.io/mirror') {
+    if (mirrored === true) {
         return NEWS_ITEMS.mirrored;
     }
 
-    if (LiveTest || Local)  {
+    if (Local || LiveTests) {
         return NEWS_ITEMS.test;
     }
 
@@ -101,6 +101,11 @@ class TWNews extends React.Component {
             return null;
         }
 
+        // The official studio must not display any banner.
+        if (hostname === 'potentiamod.github.io') {
+            return null;
+        }
+
         // Show the mirror or test banner when applicable.
         const news = getCurrentNews();
 
@@ -123,7 +128,18 @@ class TWNews extends React.Component {
             );
         }
 
-
+        // Other hosted pages are not official PotentiaMod pages.
+        return (
+            <div className={styles.news}>
+                <div className={styles.body}>
+                    This page may be an unauthorized mod of PotentiaMod.{' '}
+                    <a href="https://potentiamod.github.io/">
+                        <strong>Please go to potentiamod.github.io</strong>
+                    </a>
+                    {' '}to get a superpowerful Scratch mod.
+                </div>
+            </div>
+        );
     }
 }
 

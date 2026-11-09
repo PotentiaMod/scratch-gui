@@ -696,7 +696,6 @@ class MenuBar extends React.Component {
                                 this.props.onClickAddonSettings &&
                                 this.props.onClickAddonSettings.bind(null, 'editor-theme3')
                             }
-
 							onOpenAltCustomSettings={
                                     this.props.onClickAddonSettings &&
                                     this.props.onClickAddonSettings.bind(null, 'amp-customizable-colours')
