@@ -5,7 +5,7 @@ import styles from './tw-news.css';
 
 const urlParams = new URLSearchParams(location.search);
 const Local = String(window.location.href).startsWith(`http://localhost:`);
-const LiveTests = urlParams.has('livetest');
+const LiveTest = urlParams.has('livetest');
 const Secrets = urlParams.has('allpowerscombined');
 
 // Set to true by the PotentiaMod Mirror workflow before compiling.
@@ -39,11 +39,11 @@ const NEWS_ITEMS = {
 };
 
 const getCurrentNews = () => {
-    if (mirrored === true) {
+    if (mirrored === true && hostname === 'potentiamod.github.io/mirror') {
         return NEWS_ITEMS.mirrored;
     }
 
-    if (Local || LiveTests) {
+    if (LiveTest || Local)  {
         return NEWS_ITEMS.test;
     }
 
@@ -98,11 +98,6 @@ class TWNews extends React.Component {
 
         // Never show banners in Scratch Desktop or local files.
         if (isScratchDesktop() || protocol === 'file:') {
-            return null;
-        }
-
-        // The official studio must not display any banner.
-        if (hostname === 'potentiamod.github.io') {
             return null;
         }
 

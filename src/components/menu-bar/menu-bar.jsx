@@ -655,14 +655,14 @@ class MenuBar extends React.Component {
                                     place={this.props.isRtl ? 'left' : 'right'}
                                 >
                                     <MenuSection>
-                                        <MenuItemLink href="https://accounts.bilup.org/profile/GaiaKitty">
+                                        <MenuItemLink href="https://www.facebook.com/CrystalMae1990/">
                                             <FormattedMessage
                                                 defaultMessage="Some scripts encountered errors."
                                                 description="Link in error menu"
                                                 id="tw.menuBar.reportError1"
                                             />
                                         </MenuItemLink>
-                                        <MenuItemLink href="https://accounts.bilup.org/profile/GaiaKitty">
+                                        <MenuItemLink href="https://www.facebook.com/CrystalMae1990/">
                                             <FormattedMessage
                                                 defaultMessage="This is a bug. Please report it."
                                                 description="Link in error menu"
@@ -696,6 +696,7 @@ class MenuBar extends React.Component {
                                 this.props.onClickAddonSettings &&
                                 this.props.onClickAddonSettings.bind(null, 'editor-theme3')
                             }
+
 							onOpenAltCustomSettings={
                                     this.props.onClickAddonSettings &&
                                     this.props.onClickAddonSettings.bind(null, 'amp-customizable-colours')

@@ -10,18 +10,18 @@ import * as accentMagenta from './accent/magenta';
 import * as accentOrange from './accent/orange';
 import * as accentGreen from './accent/green';
 import * as accentIndigo from './accent/indigo';
-import * as accentIndigoBlue from './accent/indigo-blue';
-import * as accentCorruptedBlue from './accent/corrupted-blue';
-import * as accentGaiaBlue from './accent/gaia-blue';
-import * as accentFuchsia from './accent/magenta-purple';
+import * as accentIndigoBlue from './accent/indigoblue';
+import * as accentCorruptedBlue from './accent/corruptedblue';
+import * as accentGaiaBlue from './accent/gaiablue';
+import * as accentFuchsia from './accent/magentapurple';
 import * as accentCottonCandy from './accent/cottoncandy';
 import * as accentRainbow from './accent/rainbow';
 import * as accentHotFuse from './accent/hotfuse';
 import * as accentNitroFire from './accent/nitrofire';
 
-import * as accentGreenTea from './accent/green-tea';
-import * as accentPaleBlue from './accent/pale-blue';
-import * as accentEggplantPurple from './accent/eggplant-purple';
+import * as accentGreenTea from './accent/greentea';
+import * as accentPaleBlue from './accent/paleblue';
+import * as accentEggplantPurple from './accent/eggplantpurple';
 import * as accentTrans from './accent/trans';
 import * as accentGay from './accent/gay';
 import * as accentBi from './accent/bi';
@@ -50,13 +50,13 @@ import * as accentCE from './accent/ce';
 import * as accentMiku from './accent/miku';
 import * as accentTY from './accent/ty';
 import * as accentOubi from './accent/oubi';
-import * as accentOmniBlue from './accent/omnimax-blue';
+import * as accentOmniBlue from './accent/omnimaxblue';
 import * as accentVaporwave from './accent/vaporwave';
 import * as accentMatrix from './accent/matrix';
 import * as accentHoney from './accent/honey';
 import * as accentYellow from './accent/yellow';
 import * as accentGreenV2 from './accent/green(v2)';
-import * as accentDarkGreen from './accent/dark-green';
+import * as accentDarkGreen from './accent/darkgreen';
 import * as accentCustom from './accent/custom';
 
 import * as guiLight from './gui/light';
@@ -105,20 +105,20 @@ const ACCENT_CYAN = 'cyan';
 const ACCENT_LIME = 'lime';
 const ACCENT_ORANGE = 'orange';
 const ACCENT_MAGENTA = 'magenta';
-const ACCENT_FUCHSIA = 'magenta-purple';
+const ACCENT_FUCHSIA = 'magentapurple';
 const ACCENT_INDIGO = 'indigo';
-const ACCENT_INDIGO_BLUE = 'indigo-blue';
-const ACCENT_CORRUPTED_BLUE = 'corrupted-blue';
-const ACCENT_GAIA_BLUE = 'gaia-blue';
+const ACCENT_INDIGO_BLUE = 'indigoblue';
+const ACCENT_CORRUPTED_BLUE = 'corruptedblue';
+const ACCENT_GAIA_BLUE = 'gaiablue';
 const ACCENT_GREEN = 'green';
 const ACCENT_RAINBOW = 'rainbow';
 const ACCENT_COTTON_CANDY = 'cottoncandy'; //unique
 const ACCENT_HOT_FUSE = 'stars'; //unique
 const ACCENT_NITRO_FIRE = 'nitrofire'; //unique
-const ACCENT_OMNIBLUE = 'omnimax-blue'; //LOL From my deleted MistWarp mod.
-const ACCENT_GREEN_TEA = 'green-tea'; //Bilup
-const ACCENT_PALE_BLUE = 'pale-blue'; //Bilup
-const ACCENT_EGGPLANT_PURPLE = 'eggplant-purple'; //Bilup
+const ACCENT_OMNIBLUE = 'omnimaxblue'; //LOL From my deleted MistWarp mod.
+const ACCENT_GREEN_TEA = 'greentea'; //Bilup
+const ACCENT_PALE_BLUE = 'paleblue'; //Bilup
+const ACCENT_EGGPLANT_PURPLE = 'eggplantpurple'; //Bilup
 const ACCENT_TRANS = 'trans'; //MistWarp
 const ACCENT_GAY = 'gay'; //MistWarp
 const ACCENT_BI = 'bi'; //MistWarp
@@ -131,7 +131,7 @@ const ACCENT_PINK = 'pink'; //MistWarp
 const ACCENT_PINK2 = 'pink(v2)'; //MistWarp
 const ACCENT_GREEN2 = 'greenv2'; //MistWarp
 const ACCENT_YELLOW = 'yellow'; //MistWarp
-const ACCENT_DARK_GREEN = 'dark-green'; //MistWarp
+const ACCENT_DARK_GREEN = 'darkgreen'; //MistWarp
 const ACCENT_SUNSET = 'sunset'; //MistWarp
 const ACCENT_OCEAN = 'ocean'; //MistWarp
 const ACCENT_AURORA = 'aurora'; //MistWarp
@@ -220,12 +220,11 @@ const ACCENT_GROUPS = [
     },
     {
         label: {id: 'tw.accentGroup.colorsSpecial', defaultMessage: 'Special Colors'},
-        accents: ['cyan', 'lime', 'magenta-purple', 'indigo-blue', 'corrupted-blue', 'gaia-blue']
+        accents: ['cyan', 'lime', 'magentapurple', 'indigoblue', 'corruptedblue', 'gaiablue', 'omnimaxblue']
     },
     {
         label: {id: 'tw.accentGroup.gradients', defaultMessage: 'Gradients'},
-        accents: ['cottoncandy', 'omnimax-blue', 'hotfuse', 'nitrofire', 'nebula', 'cosmic',
-		          'aurora', 'mint', 'rainbow']
+        accents: ['cottoncandy', 'hotfuse', 'nitrofire', 'nebula', 'cosmic', 'aurora', 'mint', 'rainbow']
     }
 ];
 

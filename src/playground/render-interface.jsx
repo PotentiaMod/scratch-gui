@@ -44,12 +44,16 @@ import runAddons from '../addons/entry';
 import InvalidEmbed from '../components/tw-invalid-embed/invalid-embed.jsx';
 import {APP_NAME, MOTTO, SLOGAN} from '../lib/brand.js';
 import { setPreference } from '../reducers/preferences.js';
+import {removeScratch} from '../lib/removeScratch.js';
 
 import styles from './interface.css';
 import Swal from 'sweetalert2';
 import Footer from '../components/potentia-footer/footer.jsx';
 
 //const isInvalidEmbed = window.parent !== window;
+const isEmbedded = window.parent !== window;
+const isEditor = window.location.pathname.includes('editor');
+
 const isInvalidEmbed = false
 
 const urlParams = new URLSearchParams(location.search);
@@ -77,7 +81,7 @@ Toast.fire({
 
 const handleClickAddonSettings = addonId => {
     // addonId might be a string of the addon to focus on, undefined, or an event (treat like undefined)
-    const path = process.env.ROUTING_STYLE === 'wildcard' ? 'addons' : 'addons.html';
+    const path = process.env.ROUTING_STYLE === 'wildcard' ? 'addons' : 'addons';
     const url = `${process.env.ROOT}${path}${typeof addonId === 'string' ? `#${addonId}` : ''}`;
     window.open(url);
 };
@@ -108,8 +112,6 @@ if (AddonChannels.changeChannel) {
 }
 
 runAddons();
-
-
 class Interface extends React.Component {
     constructor (props) {
         super(props);
@@ -122,6 +124,25 @@ class Interface extends React.Component {
             loadServiceWorker();
         }
     }
+	
+componentDidMount () {
+    if (localStorage.getItem('potentiamod:removeScratch') === 'true') {
+        this.cleanupScratchRemoval = removeScratch();
+    }
+}
+    componentDidUpdate (prevProps) {
+    if (prevProps.isLoading && !this.props.isLoading) {
+        loadServiceWorker();
+    }
+}
+    
+    componentWillUnmount () {
+
+    if (this.cleanupScratchRemoval) {
+        this.cleanupScratchRemoval();
+    }
+}
+	
     handleUpdateProjectTitle (title, isDefault) {
         if (isDefault || !title) {
             document.title = `${APP_NAME} - ${MOTTO}`;
@@ -130,11 +151,9 @@ class Interface extends React.Component {
         }
     }
     render () {
-		/*
-        if (isInvalidEmbed) {
+		if (isInvalidEmbed) {
             return <InvalidEmbed />;
         }
-		*/
 
         const {
             /* eslint-disable no-unused-vars */
@@ -222,7 +241,7 @@ class Interface extends React.Component {
                                 <p>
                                     <FormattedMessage
                                         // eslint-disable-next-line max-len
-                                        defaultMessage="{potentiaMod} is a supercharged mod of {turboWarp} that adds powerful new features in extensions and anything. {turboWarp} is a {scratch} mod that compiles projects to JavaScript to make them run really fast. Try it out by inputting a project ID or URL above or choosing a featured project below."
+                                        defaultMessage="{potentiaMod} is a supercharged mod of {turboWarp} that adds powerful new features in extensions and anything. {turboWarp} is a {scratch} mod that compiles projects to JavaScript to make them run really fast."
                                         description="Description of PotentiaMod on the homepage"
                                         id="tw.home.description"
                                         values={{
@@ -268,6 +287,8 @@ class Interface extends React.Component {
                                                ),
                                             }}
                                     />
+									{localStorage.getItem('potentiamod:removeScratch') !== 'true' &&
+            ' Try it out by inputting a project ID or URL above or choosing a featured project below.'}
                                 </p>
                             </div>
                             <div className={styles.section}>

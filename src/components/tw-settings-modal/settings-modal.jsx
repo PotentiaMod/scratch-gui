@@ -985,6 +985,20 @@ const EditorSettingsModal = props => {
                     />
 					</Box>
 					
+					<Box>
+                    <p>
+                        <button
+                            className={styles.button}
+                            onClick={() => {window.location.href = '/settings#mods';}}
+                        >
+                            <FormattedMessage
+                                id="nb.editorSettings.openMods"
+                                defaultMessage="Open Mods"
+                            />
+                        </button>
+                    </p>
+					</Box>
+					
             </Box>
         },
 		{
@@ -1007,15 +1021,6 @@ const EditorSettingsModal = props => {
                                     onChange={props.onWarpTimerChange}
                                 />
             </Box>
-        },
-		{
-            title: messages.addons,
-            content: <AddonSettingsComponent
-                // eslint-disable-next-line react/jsx-no-bind
-                onDirty={d => setDirty(d)}
-                onExportSettings={onExportSettings}
-            />,
-            escaped: true
         },
 		{
             title: messages.danger,

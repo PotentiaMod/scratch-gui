@@ -30,10 +30,7 @@ const eraseData = async () => {
         indexedDB.deleteDatabase('tw:library-favorites:extensionLibrary');
         indexedDB.deleteDatabase('tw:theme');
         indexedDB.deleteDatabase('potentiamod:preferences');
-        indexedDB.deleteDatabase('potentiamod:navPos');
-        //indexedDB.deleteDatabase('potentiamod:gptEnabled');
-        //indexedDB.deleteDatabase('potentiamod:pipEnabled');
-        indexedDB.deleteDatabase('potentiamod:customDefaultProjects');
+        indexedDB.deleteDatabase('potentiamod:closedNews');
         location.reload();
     }
 };

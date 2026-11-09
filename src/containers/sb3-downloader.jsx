@@ -13,11 +13,14 @@ import log from '../lib/log';
 // from sb-file-uploader-hoc.jsx
 const getProjectTitleFromFilename = fileInputFilename => {
     if (!fileInputFilename) return '';
-    // only parse title with valid scratch project extensions
-    // (.sb, .sb2, and .sb3)
-    const matches = fileInputFilename.match(/^(.*)\.sb[23]?$/);
+
+    const matches = fileInputFilename.match(
+        /^(.*)\.(?:pot|zip|cmp|mwp|dbp|torch|pmp|cw|dino|ich|bm|arkide|zinc|falcon|coffee|snail|electra|gaia|sbx|sb3|sb2|sb)$/i
+    );
+
     if (!matches) return '';
-    return matches[1].substring(0, 100); // truncate project title to max 100 chars
+
+    return matches[1].substring(0, 100);
 };
 
 /**
@@ -48,18 +51,7 @@ const concatenateByteArrays = arrays => {
 };
 
 /**
- * Project saver component passes a downloadProject function to its child.
- * It expects this child to be a function with the signature
- *     function (downloadProject, props) {}
- * The component can then be used to attach project saving functionality
- * to any other component:
- *
- * <SB3Downloader>{(downloadProject, props) => (
- *     <MyCoolComponent
- *         onClick={downloadProject}
- *         {...props}
- *     />
- * )}</SB3Downloader>
+ * CattyMod Project saver component passes a downloadProject function to its child.
  */
 class SB3Downloader extends React.Component {
     constructor (props) {
@@ -71,9 +63,11 @@ class SB3Downloader extends React.Component {
             'saveToLastFileOrNew'
         ]);
     }
+
     startedSaving () {
         this.props.onShowSavingAlert();
     }
+
     finishedSaving () {
         this.props.onProjectUnchanged();
         this.props.onShowSaveSuccessAlert();
@@ -81,6 +75,7 @@ class SB3Downloader extends React.Component {
             this.props.onSaveFinished();
         }
     }
+
     downloadProject () {
         if (!this.props.canSaveProject) {
             return;
@@ -89,141 +84,47 @@ class SB3Downloader extends React.Component {
         this.props.saveProjectSb3().then(content => {
             this.finishedSaving();
             downloadBlob(this.props.projectFilename, content);
+        }).catch(error => {
+            this.handleSaveError(error);
         });
     }
+
     async saveAsNew () {
         if (!this.props.canSaveProject) {
             return;
         }
         try {
+            const fileType = getPreferredFileType();
             const handle = await this.props.showSaveFilePicker({
                 suggestedName: this.props.projectFilename,
                 types: [
                     {
-                        description: 'Scratch 3 Project',
+                        description: ({
+                            pot: 'PotentiaMod Project',
+                            mwp: 'MistWarp Project',
+                            cmp: 'CattyMod Project',
+                            dbp: 'DashBlocks Project',
+                            torch: 'CodeTorch Project',
+                            sb3: 'Scratch Project',
+                            sbx: 'ScratchX Project',
+                            pmp: 'PenguinMod Project',
+                            cw: 'Cattiest World Project',
+                            dino: 'DinosaurMod Project',
+                            ich: 'Itch Project',
+                            bm: 'BananaMod Project',
+                            arkide: 'Ark IDE Project',
+                            zinc: 'Zinc Coding Project',
+                            falcon: 'FalconMod Project',
+                            coffee: 'Espresso Project',
+                            snail: 'Snail IDE Project',
+                            electra: 'ElectraMod Project',
+                            gaia: 'GaiaMod Project',
+                            zip: 'Generic Project'
+                        })[fileType] || 'PotentiaMod',
                         accept: {
-                            'application/octet-stream': '.sb3'
-                        }
-                    },
-                    {
-                        description: 'Scratch 2 Project',
-                        accept: {
-                            'application/octet-stream': '.sb2'
-                        }
-                    },
-					{
-                        description: 'Scratch Project',
-                        accept: {
-                            'application/octet-stream': '.sb'
-                        }
-                    },
-					{
-                        description: 'Scratch X Project',
-                        accept: {
-                            'application/octet-stream': '.sbx'
-                        }
-                    },
-					{
-                        description: 'PotentiaMod Project',
-                        accept: {
-                            'application/octet-stream': '.pot'
-                        }
-                    },
-					{
-                        description: 'CodeTorch Project',
-                        accept: {
-                            'application/octet-stream': '.torch'
-                        }
-                    },
-					{
-                        description: 'MistWarp Project',
-                        accept: {
-                            'application/octet-stream': '.mwp'
-                        }
-                    },
-					{
-                        description: 'DashBlocks Project',
-                        accept: {
-                            'application/octet-stream': '.dbp'
-                        }
-                    },
-					{
-                        description: 'PenguinMod Project',
-                        accept: {
-                            'application/octet-stream': '.pm',
-                            'application/octet-stream': '.pmp'
-                        }
-                    },
-					{
-                        description: 'DinosaurMod Project',
-                        accept: {
-                            'application/octet-stream': '.dino'
-                        }
-                    },
-					{
-                        description: 'Snail IDE Project',
-                        accept: {
-                            'application/octet-stream': '.snail'
-                        }
-                    },
-					{
-                        description: 'Ark IDE Project',
-                        accept: {
-                            'application/octet-stream': '.arkide'
-                        }
-                    },
-					{
-                        description: 'ElectraMod Project',
-                        accept: {
-                            'application/octet-stream': '.electra'
-                        }
-                    },
-					{
-                        description: 'GaiaMod Project',
-                        accept: {
-                            'application/octet-stream': '.gaia'
-                        }
-                    },
-					{
-                        description: 'Cattiest World Project',
-                        accept: {
-                            'application/octet-stream': '.cw'
-                        }
-                    },
-					{
-                        description: 'Zinc Coding Project',
-                        accept: {
-                            'application/octet-stream': '.zinc'
-                        }
-                    },
-					{
-                        description: 'FalconMod Project',
-                        accept: {
-                            'application/octet-stream': '.falcon'
-                        }
-                    },
-					{
-                        description: 'BananaMod Project',
-                        accept: {
-                            'application/octet-stream': '.banana'
-                        }
-                    },
-					{
-                        description: 'Espresso Project',
-                        accept: {
-                            'application/octet-stream': '.coffee'
-                        }
-                    },
-					{
-                        description: 'TeraMod Project',
-                        accept: {
-                            'application/octet-stream': '.tera'
-                        }
-                    },
-					{
-                        description: 'Itch Project',
-                        accept: {
-                            'application/octet-stream': '.ich'
+                            'application/octet-stream': [
+                                `.${fileType}`
+                            ]
                         }
                     }
                 ],
@@ -239,6 +140,7 @@ class SB3Downloader extends React.Component {
             this.handleSaveError(e);
         }
     }
+
     async saveToLastFile () {
         try {
             await this.saveToHandle(this.props.fileHandle);
@@ -246,41 +148,61 @@ class SB3Downloader extends React.Component {
             this.handleSaveError(e);
         }
     }
+
     saveToLastFileOrNew () {
         if (this.props.fileHandle) {
             return this.saveToLastFile();
         }
+
         return this.saveAsNew();
     }
+
     async saveToHandle (handle) {
         if (!this.props.canSaveProject) {
             return;
         }
 
-        const writable = await handle.createWritable();
-        this.startedSaving();
+        if (!handle) {
+            throw new Error('No file handle is available.');
+        }
 
-        await new Promise((resolve, reject) => {
-            // Projects can be very large, so we'll utilize JSZip's stream API to avoid having the
-            // entire sb3 in memory at the same time.
+        let writable = null;
+
+        try {
+            let permission = await handle.queryPermission({
+                mode: 'readwrite'
+            });
+
+            if (permission !== 'granted') {
+                permission = await handle.requestPermission({
+                    mode: 'readwrite'
+                });
+            }
+
+            if (permission !== 'granted') {
+                throw new Error('Write permission was not granted.');
+            }
+
+            writable = await handle.createWritable();
+
+            this.startedSaving();
+
             const jszipStream = this.props.saveProjectSb3Stream();
-
             const abortController = new AbortController();
+
             jszipStream.on('error', error => {
                 abortController.abort(error);
             });
 
-            // JSZip's stream pause() and resume() methods are not necessarily completely no-ops
-            // if they are already paused or resumed. These also make it easier to add debug
-            // logging of when we actually pause or resume.
-            // Note that JSZip will keep sending some data after you ask it to pause.
             let jszipStreamRunning = false;
+
             const pauseJSZipStream = () => {
                 if (jszipStreamRunning) {
                     jszipStreamRunning = false;
                     jszipStream.pause();
                 }
             };
+
             const resumeJSZipStream = () => {
                 if (!jszipStreamRunning) {
                     jszipStreamRunning = true;
@@ -288,30 +210,34 @@ class SB3Downloader extends React.Component {
                 }
             };
 
-            // Allow the JSZip stream to run quite a bit ahead of file writing. This helps
-            // reduce zip stream pauses on systems with high latency storage.
             const HIGH_WATER_MARK_BYTES = 1024 * 1024 * 5;
-
-            // Minimum size of buffer to pass into write(). Small buffers will be queued and
-            // written in batches as they reach or exceed this size.
             const WRITE_BUFFER_TARGET_SIZE_BYTES = 1024 * 1024;
 
             const zipStream = new ReadableStream({
                 start: controller => {
                     jszipStream.on('data', data => {
                         controller.enqueue(data);
+
                         if (controller.desiredSize <= 0) {
                             pauseJSZipStream();
                         }
                     });
+
                     jszipStream.on('end', () => {
                         controller.close();
                     });
+
+                    jszipStream.on('error', error => {
+                        controller.error(error);
+                    });
+
                     resumeJSZipStream();
                 },
+
                 pull: () => {
                     resumeJSZipStream();
                 },
+
                 cancel: () => {
                     pauseJSZipStream();
                 }
@@ -320,51 +246,66 @@ class SB3Downloader extends React.Component {
             }));
 
             const queuedChunks = [];
+
             const fileStream = new WritableStream({
-                write: chunk => {
+                write: async chunk => {
                     queuedChunks.push(chunk);
+
                     const currentSize = getLengthOfByteArrays(queuedChunks);
+
                     if (currentSize >= WRITE_BUFFER_TARGET_SIZE_BYTES) {
                         const newBuffer = concatenateByteArrays(queuedChunks);
                         queuedChunks.length = 0;
-                        return writable.write(newBuffer);
+
+                        await writable.write(newBuffer);
                     }
-                    // Otherwise wait for more data
                 },
+
                 close: async () => {
-                    // Write the last batch of data.
                     const lastBuffer = concatenateByteArrays(queuedChunks);
-                    if (lastBuffer.byteLength) {
+
+                    if (lastBuffer.byteLength > 0) {
                         await writable.write(lastBuffer);
                     }
-                    // File handle must be closed at the end to actually save the file.
+
                     await writable.close();
+                    writable = null;
                 },
-                abort: async () => {
-                    await writable.abort();
+
+                abort: async reason => {
+                    if (writable) {
+                        await writable.abort(reason);
+                        writable = null;
+                    }
                 }
             });
 
-            zipStream.pipeTo(fileStream, {
+            await zipStream.pipeTo(fileStream, {
                 signal: abortController.signal
-            })
-                .then(() => {
-                    this.finishedSaving();
-                    resolve();
-                })
-                .catch(error => {
-                    reject(error);
-                });
-        });
+            });
+
+            this.finishedSaving();
+        } catch (error) {
+            if (writable) {
+                try {
+                    await writable.abort(error);
+                } catch (abortError) {
+                    log.error(abortError);
+                }
+            }
+
+            throw error;
+        }
     }
+
     handleSaveError (e) {
-        // AbortError can happen when someone cancels the file selector dialog
         if (e && e.name === 'AbortError') {
             return;
         }
         log.error(e);
         this.props.onShowSaveErrorAlert();
     }
+
     render () {
         const {
             children
@@ -387,13 +328,33 @@ class SB3Downloader extends React.Component {
     }
 }
 
+const getPreferredFileType = () => {
+    const validTypes = ['pot', 'cmp', 'mwp', 'dbp', 'torch', 'pmp', 'cw', 'dino', 'ich', 'bm', 'arkide',
+	                    'zinc', 'falcon', 'coffee', 'snail', 'electra', 'gaia', 'sbx', 'sb3', 'zip'];
+    const savedType = localStorage.getItem('potentiamod:saveFileType');
+
+    return validTypes.includes(savedType) ? savedType : 'pot';
+};
+
+
 const getProjectFilename = (curTitle, defaultTitle) => {
     let filenameTitle = curTitle;
+
     if (!filenameTitle || filenameTitle.length === 0) {
         filenameTitle = defaultTitle;
     }
-    return `${filenameTitle.substring(0, 100)}.pot`;
+
+    const fileType = getPreferredFileType();
+
+    // Remove an existing supported project extension.
+    filenameTitle = filenameTitle.replace(
+        /\.(?:pot|zip|cmp|mwp|dbp|torch|pmp|cw|dino|ich|bm|arkide|zinc|falcon|coffee|snail|electra|gaia|sbx|sb3|sb2|sb)$/i,
+        ''
+    );
+
+    return `${filenameTitle.substring(0, 100)}.${fileType}`;
 };
+
 
 SB3Downloader.propTypes = {
     children: PropTypes.func,
@@ -414,6 +375,7 @@ SB3Downloader.propTypes = {
     onProjectUnchanged: PropTypes.func,
     showSaveFilePicker: PropTypes.func
 };
+
 SB3Downloader.defaultProps = {
     className: '',
     showSaveFilePicker: typeof showSaveFilePicker === 'function' && !navigator.userAgent.includes('Android') ?
