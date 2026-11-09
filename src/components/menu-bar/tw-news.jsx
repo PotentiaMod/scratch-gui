@@ -102,7 +102,7 @@ class TWNews extends React.Component {
         }
 
         // The official studio must not display any banner.
-        if (hostname === 'potentiamod.github.io') {
+        if (hostname === 'potentiamod.github.io' || hostname === 'potentiamod.github.io/editor') {
             return null;
         }
 

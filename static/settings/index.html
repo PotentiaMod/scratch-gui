@@ -1288,10 +1288,6 @@
             <i data-lucide="box"></i>
             <span class="nav-text">Mods</span>
           </button>
-          <button class="nav-button" data-page="labs">
-            <i data-lucide="flask-conical"></i>
-            <span class="nav-text">Labs</span>
-          </button>
           <button class="nav-button" data-page="about">
             <i data-lucide="info"></i>
             <span class="nav-text">About</span>
@@ -1376,16 +1372,6 @@
                   <div class="dashboard-link-info">
                     <div class="dashboard-link-title">Mods</div>
                     <div class="dashboard-link-description"> Browse and manage available mods. </div>
-                  </div>
-                  <i class="dashboard-link-arrow" data-lucide="chevron-right"></i>
-                </button>
-                <button class="dashboard-link" onclick="showPage('labs')">
-                  <div class="dashboard-link-icon">
-                    <i data-lucide="flask-conical"></i>
-                  </div>
-                  <div class="dashboard-link-info">
-                    <div class="dashboard-link-title">Labs</div>
-                    <div class="dashboard-link-description"> Try experimental and upcoming features. </div>
                   </div>
                   <i class="dashboard-link-arrow" data-lucide="chevron-right"></i>
                 </button>
@@ -1750,25 +1736,6 @@
             </div>
             <div class="mods-container">
               <iframe src="/addons.html" class="mods-frame" title="PotentiaMod Mods" loading="lazy" allow="clipboard-read; clipboard-write"></iframe>
-            </div>
-          </section>
-          <!-- LABS -->
-          <section id="page-labs" class="page" style="display:none;">
-            <div class="page-header">
-              <h1>Labs</h1>
-              <p>Try upcoming PotentiaMod features and help shape the experience.</p>
-            </div>
-            <div class="section">
-              <div class="section-title">Development</div>
-              <div class="card about-card">
-                <div class="setting-title card-title" style="font-size:19px;"> Would you like to help test upcoming PotentiaMod Features? </div>
-                <div class="setting-description card-desc" style="font-size:14px;margin-top:6px;"> Try experimental features and help shape what comes next. </div>
-                <button class="primary-button" id="beta-button">
-                  <i data-lucide="flask-conical"></i>
-                  <span id="beta-button-text">Try Development Mode!</span>
-                </button>
-                <div class="setting-description card-desc" style="font-size:13px;margin-top:14px;"> You can click <strong>PotentiaMod Feedback</strong> in the navbar to provide feedback anytime! </div>
-              </div>
             </div>
           </section>
           <!-- ABOUT -->
@@ -2404,39 +2371,10 @@
           setNavPosition(navPositionSelect.value);
         });
       }
-      /* ------------------------- Labs / Beta ------------------------- */
-      const betaButton = document.getElementById("beta-button");
-      const betaButtonText = document.getElementById("beta-button-text");
-      const urlParams = new URLSearchParams(location.search);
-      const Local = String(window.location.href).startsWith("http://localhost:");
-      const LiveTests = urlParams.has('livetest');
-      const isBeta = (window.location.hostname === "https://potentiamod.github.io/?livetest" || "https://potentiamod.github.io/scratch-gui/?livetest" || LiveTests);
-      if (isBeta) {
-        const cardTitle = document.querySelector("#page-labs .card-title");
-        const cardDescriptions = document.querySelectorAll("#page-labs .card-desc");
-        if (cardTitle) {
-          cardTitle.textContent = "You're on the development version.";
-        }
-        if (cardDescriptions[0]) {
-          cardDescriptions[0].textContent = "Is Development Mode not working for you? Try going back to the normal version of PotentiaMod!";
-        }
-        if (betaButtonText) {
-          betaButtonText.textContent = "Exit Development Mode";
-        }
-        if (betaButton) {
-          betaButton.addEventListener("click", () => {
-            window.location.href = "https://potentiamod.github.io/settings#labs";
-          });
-        }
-      } else if (betaButton) {
-        betaButton.addEventListener("click", () => {
-          window.location.href = "https://potentiamod.github.io/scratch-gui/settings/?livetest#labs";
-        });
-      }
       /* ------------------------- Navigation ------------------------- */
       const navButtons = document.querySelectorAll(".nav-button[data-page]");
       const pages = document.querySelectorAll(".page");
-      const VALID_PAGES = ["general", "appearance", "projects", "navbar", "features", "mods", "labs", "about"];
+      const VALID_PAGES = ["general", "appearance", "projects", "navbar", "features", "mods", "about"];
 
       function showPage(pageName, updateHash = true) {
         if (!VALID_PAGES.includes(pageName)) {
