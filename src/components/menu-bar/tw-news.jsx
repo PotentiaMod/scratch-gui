@@ -123,18 +123,7 @@ class TWNews extends React.Component {
             );
         }
 
-        // Other hosted pages are not official PotentiaMod pages.
-        return (
-            <div className={styles.news}>
-                <div className={styles.body}>
-                    This page may be an unauthorized or knockoff mod of PotentiaMod.{' '}
-                    <a href="https://potentiamod.github.io/">
-                        <strong>Please go to potentiamod.github.io</strong>
-                    </a>
-                    {' '}to get a superpowerful Scratch mod.
-                </div>
-            </div>
-        );
+
     }
 }
 
