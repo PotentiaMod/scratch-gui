@@ -1574,6 +1574,16 @@
                     <option value="zip">ZIP (Generic Project)</option>
                   </select>
                 </div>
+				<div class="setting-row">
+                  <div class="setting-info">
+                    <div class="setting-title">Force HTML File Picker</div>
+                    <div class="setting-description"> Use the browser's HTML file picker when opening and saving project files. </div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="html-file-picker-toggle" aria-label="Use HTML File Picker">
+                    <span class="slider"></span>
+                  </label>
+                </div>
               </div>
           </section>
           <!-- NAVBAR -->
@@ -1811,6 +1821,7 @@
       //const GPT_ENABLED_KEY = "potentiamod:gptEnabled";
       //const LOGO_VISIBLE_KEY = "potentiamod:logoVisible";
       //const PIP_ENABLED_KEY = "potentiamod:pipEnabled";
+	  const HTML_FILE_PICKER_KEY = "potentiamod:htmlpicker";
       // Keep the original storage key for backwards compatibility.
       //const MODS_SHOW_KEY = "potentiamod:addonsShow";
       //const ADVANCED_SHOW_KEY = "potentiamod:advancedShow";
@@ -2276,6 +2287,27 @@
           setPreferredProjectFileType(projectFileTypeSelect.value);
         });
       }
+	  /* ------------------------- HTML File Picker ------------------------- */
+      const htmlFilePickerToggle = document.getElementById("html-file-picker-toggle");
+
+      function getHtmlFilePickerEnabled() {
+        return localStorage.getItem(HTML_FILE_PICKER_KEY) === "true";
+      }
+
+      function loadHtmlFilePicker() {
+        if (!htmlFilePickerToggle) return;
+        htmlFilePickerToggle.checked = getHtmlFilePickerEnabled();
+      }
+
+      function setHtmlFilePickerEnabled(enabled) {
+        localStorage.setItem(HTML_FILE_PICKER_KEY, enabled ? "true" : "false");
+        loadHtmlFilePicker();
+      }
+      if (htmlFilePickerToggle) {
+        htmlFilePickerToggle.addEventListener("change", () => {
+          setHtmlFilePickerEnabled(htmlFilePickerToggle.checked);
+        });
+      }
       /* ------------------------- Custom Default Project ------------------------- */
       const customProjectToggle = document.getElementById("custom-project-toggle");
       const customProjectOptions = document.getElementById("custom-project-options");
@@ -2448,6 +2480,9 @@
         if (event.key === SCRATCH_REMOVE_KEY || event.key === null) {
           loadScratchElements();
         }
+		if (event.key === HTML_FILE_PICKER_KEY || event.key === null) {
+          loadHtmlFilePicker();
+        }
       });
       /* ------------------------- Danger Zone ------------------------- */
       const dangerZoneToggle = document.getElementById("danger-zone-toggle");
@@ -2574,6 +2609,7 @@
       //loadLogoVisible();
       //loadPipEnabled();
       loadPreferredProjectFileType();
+	  loadHtmlFilePicker();
       //loadMenuOptionVisibility();
       loadNavPosition();
       loadPageFromHash();
