@@ -95,7 +95,7 @@ import _tw_disable_cloud_variables from "../addons/tw-disable-cloud-variables/_m
 import _tw_disable_compiler from "../addons/tw-disable-compiler/_manifest_entry.js";
 import _editor_stepping from "../addons/editor-stepping/_manifest_entry.js";
 export default {
-  "pot-hide-logo": _pot_hide_logo,
+  //"pot-hide-logo": _pot_hide_logo,
   "santa": _santa,
   "cat-blocks": _cat_blocks,
   "cat-blocks-extended": _cat_blocks_extended,
@@ -109,7 +109,7 @@ export default {
   "editor-animations": _editor_animations,
   "block-pins": _block_pins,
   "undo-redo-buttons": _undo_redo_buttons,
-  "coder-style": _coder_style,
+  //"coder-style": _coder_style,
   "stage-camera": _stage_camera,
   "find-bar": _find_bar,
   "middle-click-popup": _middle_click_popup,

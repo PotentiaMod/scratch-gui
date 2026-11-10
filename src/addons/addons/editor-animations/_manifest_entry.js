@@ -100,6 +100,6 @@ const manifest = {
 	"pm",
     "new"
   ],
-  "enabledByDefault": true
+  "enabledByDefault": false
 };
 export default manifest;

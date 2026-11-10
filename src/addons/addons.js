@@ -86,7 +86,7 @@ const addons = [
 ];
 
 const newAddons = [
-    'pot-hide-logo',
+    //'pot-hide-logo',
     'santa',
     'paint-default-smoothing',
     'paint-gradient-maker',
@@ -98,7 +98,7 @@ const newAddons = [
     'undo-redo-buttons',
     'daily-quote',
     'stage-camera'
-    'coder-style',
+    //'coder-style',
     'amp-customizable-colours'
 ];
 
