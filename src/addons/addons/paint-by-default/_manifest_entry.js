@@ -31,7 +31,7 @@ const manifest = {
         },
         {
           "id": "surprise",
-          "name": "Surprise"
+          "name": "Random"
         },
         {
           "id": "upload",
@@ -56,7 +56,7 @@ const manifest = {
         },
         {
           "id": "surprise",
-          "name": "Surprise"
+          "name": "Random"
         },
         {
           "id": "upload",
@@ -81,7 +81,7 @@ const manifest = {
         },
         {
           "id": "surprise",
-          "name": "Surprise"
+          "name": "Random"
         },
         {
           "id": "upload",
@@ -106,7 +106,7 @@ const manifest = {
         },
         {
           "id": "surprise",
-          "name": "Surprise"
+          "name": "Random"
         },
         {
           "id": "upload",

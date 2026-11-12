@@ -64,6 +64,17 @@
     cursor: pointer;
 }
 
+.extension-url {
+    display: block;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.5;
+    color: inherit !important;
+    text-decoration: underline;
+}
+
 .new:hover {
     border-width: 2px;
     border-color: gold;

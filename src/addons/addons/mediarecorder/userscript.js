@@ -1,5 +1,5 @@
 import downloadBlob from "../../libraries/common/cs/download-blob.js";
-import recordIcon from "./record.svg";
+import recordIcon from "./camera.svg";
 
 export default async ({ addon, console, msg }) => {
   const MAX_RECORD_TIME = 1000; // seconds

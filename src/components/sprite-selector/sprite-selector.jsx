@@ -16,6 +16,7 @@ import paintIcon from '../action-menu/icon--paint.svg';
 import spriteIcon from '../action-menu/icon--sprite.svg';
 import surpriseIcon from '../action-menu/icon--surprise.svg';
 import searchIcon from '../action-menu/icon--search.svg';
+import {Upload, Paintbrush, Shuffle, Search} from 'lucide-react';
 
 const messages = defineMessages({
     addSpriteFromLibrary: {
@@ -31,7 +32,7 @@ const messages = defineMessages({
     addSpriteFromSurprise: {
         id: 'gui.spriteSelector.addSpriteFromSurprise',
         description: 'Button to add a random sprite in the target pane',
-        defaultMessage: 'Surprise'
+        defaultMessage: 'Random'
     },
     addSpriteFromFile: {
         id: 'gui.spriteSelector.addSpriteFromFile',
@@ -117,28 +118,28 @@ const SpriteSelectorComponent = function (props) {
                 img={spriteIcon}
                 moreButtons={[
                     {
-                        title: intl.formatMessage(messages.addSpriteFromFile),
+                        title: 'Upload Sprite',
                         img: fileUploadIcon,
                         onClick: onFileUploadClick,
-                        fileAccept: '.svg, .png, .bmp, .jpg, .jpeg, .jfif, .webp, .sprite2, .sprite3, .gif',
+                        fileAccept: '.svg, .png, .bmp, .jpg, .jpeg, .jfif, .webp, .sprite2, .sprite3, .gif, .avif',
                         fileChange: onSpriteUpload,
                         fileInput: spriteFileInput,
                         fileMultiple: true
                     }, {
-                        title: intl.formatMessage(messages.addSpriteFromSurprise),
+                        title: 'Random',
                         img: surpriseIcon,
                         onClick: onSurpriseSpriteClick // TODO need real function for this
                     }, {
-                        title: intl.formatMessage(messages.addSpriteFromPaint),
+                        title: 'Paint',
                         img: paintIcon,
                         onClick: onPaintSpriteClick // TODO need real function for this
                     }, {
-                        title: intl.formatMessage(messages.addSpriteFromLibrary),
+                        title: 'Choose a Sprite',
                         img: searchIcon,
                         onClick: onNewSpriteClick
                     }
                 ]}
-                title={intl.formatMessage(messages.addSpriteFromLibrary)}
+                title={'Choose a Sprite'}
                 tooltipPlace={isRtl(intl.locale) ? 'right' : 'left'}
                 onClick={onNewSpriteClick}
             />

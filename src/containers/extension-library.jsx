@@ -191,6 +191,7 @@ const mapGalleryExtension = (extension, source) => ({
         text: sample
     })) : null,
     featured: true,
+	showURL: true,
     incompatibleWithScratch: true
 });
 
@@ -229,7 +230,8 @@ const mapPackExtension = (extension, pack) => ({
         text: sample
     })) : null,
     incompatibleWithScratch: true,
-    featured: true
+    featured: true,
+	showURL: true
 });
 
 const preparePack = (packURL, pack, error) => ({
@@ -669,7 +671,8 @@ class ExtensionLibrary extends React.PureComponent {
                     iconURL: defaultExtensionBanner,
                     tags: ['individual'],
                     incompatibleWithScratch: true,
-                    featured: true
+                    featured: true,
+					showURL: true
                 })));
                 library.push('---');
             }
@@ -678,7 +681,7 @@ class ExtensionLibrary extends React.PureComponent {
                 if (!pack.extensions.length) continue;
                 library.push(...pack.extensions
                     .map(i => translateGalleryItem(i, locale))
-                    .map(toLibraryItem));
+                    .map(i => toLibraryItem({showURL: true, ...i})));
                 library.push('---');
             }
 

@@ -54,8 +54,8 @@ let messages = defineMessages({
         id: 'gui.costumeTab.addBlankCostume'
     },
     addSurpriseCostumeMsg: {
-        defaultMessage: 'Surprise',
-        description: 'Button to add a surprise costume in the editor tab',
+        defaultMessage: 'Random',
+        description: 'Button to add a random costume in the editor tab',
         id: 'gui.costumeTab.addSurpriseCostume'
     },
     addFileBackdropMsg: {
@@ -308,8 +308,8 @@ class CostumeTab extends React.Component {
         const isStage = vm.editingTarget.isStage;
         const target = vm.editingTarget.sprite;
 
-        const addLibraryMessage = isStage ? messages.addLibraryBackdropMsg : messages.addLibraryCostumeMsg;
-        const addFileMessage = isStage ? messages.addFileBackdropMsg : messages.addFileCostumeMsg;
+        const addLibraryMessage = isStage ? 'Choose a Backdrop' : 'Choose a Costume';
+        const addFileMessage = isStage ? 'Upload Backdrop' : 'Upload Costume';
         const addSurpriseFunc = isStage ? this.handleSurpriseBackdrop : this.handleSurpriseCostume;
         const addLibraryFunc = isStage ? onNewLibraryBackdropClick : onNewLibraryCostumeClick;
         const addLibraryIcon = isStage ? addLibraryBackdropIcon : addLibraryCostumeIcon;
@@ -325,12 +325,12 @@ class CostumeTab extends React.Component {
             <AssetPanel
                 buttons={[
                     {
-                        title: intl.formatMessage(addLibraryMessage),
+                        title: addLibraryMessage,
                         img: addLibraryIcon,
                         onClick: addLibraryFunc
                     },
                     {
-                        title: intl.formatMessage(addFileMessage),
+                        title: addFileMessage,
                         img: fileUploadIcon,
                         onClick: this.handleFileUploadClick,
                         fileAccept: '.svg, .png, .bmp, .jpg, .jpeg, .jfif, .webp, .gif',
@@ -339,17 +339,17 @@ class CostumeTab extends React.Component {
                         fileMultiple: true
                     },
                     {
-                        title: intl.formatMessage(messages.addSurpriseCostumeMsg),
+                        title: 'Random',
                         img: surpriseIcon,
                         onClick: addSurpriseFunc
                     },
                     {
-                        title: intl.formatMessage(messages.addBlankCostumeMsg),
+                        title: 'Paint',
                         img: paintIcon,
                         onClick: this.handleNewBlankCostume
                     },
                     {
-                        title: intl.formatMessage(addLibraryMessage),
+                        title: addLibraryMessage,
                         img: searchIcon,
                         onClick: addLibraryFunc
                     }

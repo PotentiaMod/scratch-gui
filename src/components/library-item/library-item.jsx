@@ -36,6 +36,18 @@ const messages = defineMessages({
     }
 });
 
+/**
+ * @param {string} url The URL to clean.
+ * @returns {string} The cleaned URL.
+ */
+const cleanURL = url => {
+    if (typeof url !== 'string') return url ?? 'Unknown URL';
+    return url
+        .replace('https://', '')
+        .replace('http://', '')
+        .split('/')[0]
+        .trim();
+};
 
 /* eslint-disable react/prefer-stateless-function */
 class LibraryItemComponent extends React.PureComponent {
@@ -143,6 +155,16 @@ class LibraryItemComponent extends React.PureComponent {
                     <br />
                     
                     <span className={styles.featuredDescription}>{this.props.description}</span>
+					{this.props.showURL && this.props.extensionURL ? (
+                        <a
+                            className={styles.extensionUrl}
+                            href={this.props.extensionURL}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            {cleanURL(this.props.extensionURL)}
+                        </a>
+                    ) : null}
                 </div>
 
                 {(this.props.docsURI || this.props.samples) && (
@@ -359,7 +381,9 @@ LibraryItemComponent.propTypes = {
     disabled: PropTypes.bool,
     comingSoon: PropTypes.bool,
     extensionId: PropTypes.string,
+	extensionURL: PropTypes.string,
     featured: PropTypes.bool,
+	showURL: PropTypes.bool,
     hidden: PropTypes.bool,
     iconURL: PropTypes.string,
     insetIconURL: PropTypes.string,

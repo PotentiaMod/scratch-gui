@@ -417,8 +417,10 @@ class LibraryComponent extends React.Component {
 	 								extraLabels={dataItem.extraLabels}
                                     customInsetColor={dataItem.customInsetColor}
                                     extensionId={dataItem.extensionId}
+									extensionURL={dataItem.extensionURL}
                                     href={dataItem.href}
                                     featured={dataItem.featured}
+									showURL={dataItem.showURL}
                                     hidden={dataItem.hidden}
                                     iconMd5={dataItem.costumes ? dataItem.costumes[0].md5ext : dataItem.md5ext}
                                     iconRawURL={this.props.actor === "CostumeLibrary" ? `${LIBRARY_SITE}files/${dataItem.libraryFilePage}` : dataItem.rawURL}

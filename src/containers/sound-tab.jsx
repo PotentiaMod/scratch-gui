@@ -227,7 +227,7 @@ class SoundTab extends React.Component {
                 id: 'gui.soundTab.fileUploadSound'
             },
             surpriseSound: {
-                defaultMessage: 'Surprise',
+                defaultMessage: 'Random',
                 description: 'Button to get a random sound in the editor tab',
                 id: 'gui.soundTab.surpriseSound'
             },
@@ -250,7 +250,7 @@ class SoundTab extends React.Component {
                     img: addSoundFromLibraryIcon,
                     onClick: onNewSoundFromLibraryClick
                 }, {
-                    title: intl.formatMessage(messages.fileUploadSound),
+                    title: 'Upload Sound',
                     img: fileUploadIcon,
                     onClick: this.handleFileUploadClick,
                     fileAccept: '.wav, .mp3, .ogg, .flac, .aac, .m4a',
@@ -258,15 +258,15 @@ class SoundTab extends React.Component {
                     fileInput: this.setFileInput,
                     fileMultiple: true
                 }, {
-                    title: intl.formatMessage(messages.surpriseSound),
+                    title: 'Random',
                     img: surpriseIcon,
                     onClick: this.handleSurpriseSound
                 }, {
-                    title: intl.formatMessage(messages.recordSound),
+                    title: 'Record',
                     img: addSoundFromRecordingIcon,
                     onClick: onNewSoundFromRecordingClick
                 }, {
-                    title: intl.formatMessage(messages.addSound),
+                    title: 'Choose a Sound',
                     img: searchIcon,
                     onClick: onNewSoundFromLibraryClick
                 }] : []}

@@ -246,13 +246,7 @@ const menuItems = [
         iconURL: makeymakeyIconURL,
         insetIconURL: makeymakeyInsetIconURL,
 		customInsetColor: '#E64D00',
-        description: (
-            <FormattedMessage
-                defaultMessage="Make anything into a key."
-                description="Description for the 'Makey Makey' extension"
-                id="gui.extension.makeymakey.description"
-            />
-        ),
+        description: 'Make anything into a key, with more modifications by GaiaWindWave90.',
         tags: ['scratch'],
         featured: true
     },
@@ -1377,7 +1371,7 @@ const menuItems = [
 		isNew: true,
         description: (
             <FormattedMessage
-                defaultMessage="Fantastic-looking blocks."
+                defaultMessage="A collection of useful, PotentiaMod-exclusive blocks."
                 description="Description of the 'PotentiaMod Blocks' extension"
                 id="tw.potExtension.description"
             />

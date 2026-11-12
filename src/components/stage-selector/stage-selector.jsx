@@ -13,6 +13,7 @@ import fileUploadIcon from '../action-menu/icon--file-upload.svg';
 import paintIcon from '../action-menu/icon--paint.svg';
 import surpriseIcon from '../action-menu/icon--surprise.svg';
 import searchIcon from '../action-menu/icon--search.svg';
+import {Upload, Paintbrush, Shuffle, Search} from 'lucide-react';
 
 const messages = defineMessages({
     addBackdropFromLibrary: {
@@ -28,7 +29,7 @@ const messages = defineMessages({
     addBackdropFromSurprise: {
         id: 'gui.stageSelector.addBackdropFromSurprise',
         description: 'Button to add a random stage in the target pane',
-        defaultMessage: 'Surprise'
+        defaultMessage: 'Random'
     },
     addBackdropFromFile: {
         id: 'gui.stageSelector.addBackdropFromFile',
@@ -100,29 +101,29 @@ const StageSelector = props => {
                 img={backdropIcon}
                 moreButtons={[
                     {
-                        title: intl.formatMessage(messages.addBackdropFromFile),
+                        title: 'Upload Backdrop',
                         img: fileUploadIcon,
                         onClick: onBackdropFileUploadClick,
-                        fileAccept: '.svg, .png, .bmp, .jpg, .jpeg, .jfif, .webp, .gif',
+                        fileAccept: '.svg, .png, .bmp, .jpg, .jpeg, .jfif, .webp, .gif, .avif',
                         fileChange: onBackdropFileUpload,
                         fileInput: fileInputRef,
                         fileMultiple: true
                     }, {
-                        title: intl.formatMessage(messages.addBackdropFromSurprise),
+                        title: 'Random',
                         img: surpriseIcon,
                         onClick: onSurpriseBackdropClick
 
                     }, {
-                        title: intl.formatMessage(messages.addBackdropFromPaint),
+                        title: 'Paint',
                         img: paintIcon,
                         onClick: onEmptyBackdropClick
                     }, {
-                        title: intl.formatMessage(messages.addBackdropFromLibrary),
+                        title: 'Choose a Backdrop',
                         img: searchIcon,
                         onClick: onNewBackdropClick
                     }
                 ]}
-                title={intl.formatMessage(messages.addBackdropFromLibrary)}
+                title={'Choose a Backdrop'}
                 tooltipPlace={isRtl(intl.locale) ? 'right' : 'left'}
                 onClick={onNewBackdropClick}
             />

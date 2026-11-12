@@ -1,5 +1,6 @@
 import React from 'react';
 import {isScratchDesktop} from '../../lib/isScratchDesktop';
+import {hasChromium157FilePickerBug} from '../../lib/tw-file-system-access';
 import CloseButton from '../close-button/close-button.jsx';
 import styles from './tw-news.css';
 
@@ -14,8 +15,8 @@ const mirrored = false;
 const LOCAL_STORAGE_KEY = 'potentiamod:closedNews';
 
 const NEWS_ITEMS = {
-    test: {
-        id: 'potentiamod-test',
+    beta: {
+        id: 'potentiamod-beta',
         body: (
             <>
                 You are currently on the development version of PotentiaMod. Do NOT use test extensions for your projects. Try visiting the normal version of {' '}
@@ -38,13 +39,28 @@ const NEWS_ITEMS = {
     }
 };
 
+const newsAppliesToUser = () => hasChromium157FilePickerBug();
+
+const FilePickerNewsBody = () => (
+    <div className={styles.body}>
+        <div>
+            {/* eslint-disable-next-line max-len */}
+            {'The latest version of Chrome and Edge has a bug that broke our open and save file dialogs.'}
+        </div>
+        <div>
+            {/* eslint-disable-next-line max-len */}
+            {'If you\'re affected, you can go to Settings → Expand → Projects → Force HTML File Picker to fix this issue.'}
+        </div>
+    </div>
+);
+
 const getCurrentNews = () => {
     if (mirrored === true) {
         return NEWS_ITEMS.mirrored;
     }
 
-    if (Local || LiveTests) {
-        return NEWS_ITEMS.test;
+    if (LiveTests || Local) {
+        return NEWS_ITEMS.beta;
     }
 
     return null;
@@ -71,9 +87,13 @@ class TWNews extends React.Component {
         super(props);
 
         const news = getCurrentNews();
+        const filePickerNewsApplies = newsAppliesToUser();
 
         this.state = {
-            closed: news ? getIsClosedInLocalStorage(news.id) : false
+            closed: news
+                ? getIsClosedInLocalStorage(news.id)
+                : getIsClosedInLocalStorage('chromium-file-pickers'),
+            filePickerNewsApplies
         };
 
         this.handleClose = this.handleClose.bind(this);
@@ -81,10 +101,9 @@ class TWNews extends React.Component {
 
     handleClose() {
         const news = getCurrentNews();
+        const newsId = news ? news.id : 'chromium-file-pickers';
 
-        if (!news) return;
-
-        markAsClosedInLocalStorage(news.id);
+        markAsClosedInLocalStorage(newsId);
 
         this.setState({
             closed: true
@@ -101,14 +120,9 @@ class TWNews extends React.Component {
             return null;
         }
 
-        // The official studio must not display any banner.
-        if (hostname === 'potentiamod.github.io' || hostname === 'potentiamod.github.io/editor') {
-            return null;
-        }
-
-        // Show the mirror or test banner when applicable.
         const news = getCurrentNews();
 
+        // Show the mirror or beta banner when applicable.
         if (news) {
             if (this.state.closed) {
                 return null;
@@ -128,18 +142,40 @@ class TWNews extends React.Component {
             );
         }
 
-        // Other hosted pages are not official PotentiaMod pages.
-        return (
-            <div className={styles.news}>
-                <div className={styles.body}>
-                    This page may be an unauthorized mod of PotentiaMod.{' '}
-                    <a href="https://potentiamod.github.io/">
-                        <strong>Please go to potentiamod.github.io</strong>
-                    </a>
-                    {' '}to get a superpowerful Scratch mod.
+        // Show the Chromium file picker warning only to affected users.
+        if (this.state.filePickerNewsApplies) {
+            if (this.state.closed) {
+                return null;
+            }
+
+            return (
+                <div className={styles.news}>
+                    <CloseButton
+                        className={styles.closeButton}
+                        onClick={this.handleClose}
+                    />
+
+                    <FilePickerNewsBody />
                 </div>
-            </div>
-        );
+            );
+        }
+
+        // Other hosted pages are not official PotentiaMod pages.
+        if (hostname !== 'potentiamod.github.io') {
+            return (
+                <div className={styles.news}>
+                    <div className={styles.body}>
+                        This page may be an unauthorized mod of PotentiaMod.{' '}
+                        <a href="https://potentiamod.github.io/home">
+                            <strong>Please go to potentiamod.github.io</strong>
+                        </a>
+                        {' '}to get a superpowerful Scratch mod.
+                    </div>
+                </div>
+            );
+        }
+
+        return null;
     }
 }
 
