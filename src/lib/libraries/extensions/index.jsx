@@ -1457,7 +1457,8 @@ const livetests = [
         iconURL: require('../extensions/potentiamod/placeholder.png'),
         tags: ['potentia', 'preload', 'dev'],
         description: 'A test extension to see if possible. For developers only.',
-        featured: true
+        featured: true,
+		extensionWarning: true
     },
 	{
             name: 'Editor',
