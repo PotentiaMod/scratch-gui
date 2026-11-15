@@ -1364,7 +1364,7 @@ const menuItems = [
                 }}
             />
         ),
-        extensionId: 'pot',
+        extensionId: 'potentia',
         iconURL: require('../extensions/potentiamod/pot.svg'),
 		insetIconURL: require('../extensions/icons/potentiamod.svg'),
 		customInsetColor: '#4800CC',
