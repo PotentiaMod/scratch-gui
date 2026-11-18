@@ -310,6 +310,14 @@
       .setting-options+.setting-row {
         border-top: 1px solid var(--border);
       }
+	  
+	   #trampoline-custom-options {
+        max-height: 180px;
+      }
+
+      #trampoline-custom-options.collapsed {
+        max-height: 0;
+      }
 
       .setting-info {
         min-width: 0;
@@ -1568,6 +1576,10 @@
             <i data-lucide="box"></i>
             <span class="nav-text">Mods</span>
           </button>
+		  <button class="nav-button" data-page="servers">
+            <i data-lucide="server"></i>
+            <span class="nav-text">Servers</span>
+          </button>
           <button class="nav-button" data-page="about">
             <i data-lucide="info"></i>
             <span class="nav-text">About</span>
@@ -1655,6 +1667,16 @@
                   </div>
                   <i class="dashboard-link-arrow" data-lucide="chevron-right"></i>
                 </button>
+				<button class="dashboard-link" onclick="showPage('servers')">
+                  <div class="dashboard-link-icon">
+                    <i data-lucide="server"></i>
+                  </div>
+                  <div class="dashboard-link-info">
+                    <div class="dashboard-link-title">Servers</div>
+                    <div class="dashboard-link-description"> Customize your servers. </div>
+                  </div>
+                  <i class="dashboard-link-arrow" data-lucide="chevron-right"></i>
+                </button>
                 <button class="dashboard-link" onclick="showPage('about')">
                   <div class="dashboard-link-icon">
                     <i data-lucide="info"></i>
@@ -1718,7 +1740,7 @@
                     <option value="modern-dark">PotentiaMod Dark</option>
                     <option value="genesis-dark">Genesis Dark</option>
                     <option value="midnight">Midnight</option>
-                    <option value="catty-midnight">PotentiaMod Midnight</option>
+                    <option value="catty-midnight">CattyMod Midnight</option>
                     <option value="high-contrast">High-Contrast</option>
                   </select>
                 </div>
@@ -1947,7 +1969,7 @@
               </div>
             </div>-->
 			
-            <!--<div class="section">
+            <div class="section">
               <div class="section-title">Tabs</div>
               <div class="card">
                 <div class="setting-row">
@@ -1961,7 +1983,7 @@
                   </label>
                 </div>
               </div>
-            </div>-->
+            </div>
 			
             <!--<div class="section">
               <div class="section-title">AI</div>
@@ -2122,6 +2144,35 @@
               </div>
             </div>
 			
+          </section>
+		  
+		  <!-- SERVERS -->
+          <section id="page-servers" class="page" style="display:none;">
+            <div class="page-header">
+              <h1>Servers</h1>
+              <p>Configure the servers PotentiaMod uses.</p>
+            </div>
+            <div class="section">
+              <div class="section-title">Trampoline</div>
+              <div class="card">
+                <div class="setting-row">
+                  <div class="setting-info">
+                    <div class="setting-title">Trampoline Server</div>
+                    <div class="setting-description"> Choose which TurboWarp Trampoline server PotentiaMod should use for project metadata, thumbnails, and other supported requests. </div>
+                  </div>
+                  <select id="trampoline-server-select" class="setting-select" aria-label="Trampoline Server">
+                    <option value="https://trampoline.turbowarp.org"> TurboWarp </option>
+                    <option value="https://trampoline.turbowarp.xyz"> TurboWarp Mirror </option>
+                    <option value="custom">Custom URL</option>
+                  </select>
+                </div>
+                <div id="trampoline-custom-options" class="setting-options collapsed">
+                  <label class="input-label" for="trampoline-custom-url"> Custom Server URL </label>
+                  <input id="trampoline-custom-url" class="text-input" type="url" placeholder="https://example.com" autocomplete="url" spellcheck="false">
+                  <div class="setting-description"> Enter the base URL of your Trampoline-compatible server. Do not include an API path. </div>
+                </div>
+              </div>
+            </div>
           </section>
 		  
           <!-- ABOUT -->
@@ -2292,7 +2343,7 @@
       const commitLink = document.getElementById("commit-link");
       if (commitLink && commitVersion) {
         const shortCommit = commitVersion.slice(0, 7);
-        const repo = window.location.hostname === "beta.cattymod.app" ? "cattymod/beta-gui" : "cattymod/scratch-gui";
+        const repo = window.location.hostname === "potentiamod/scratch-gui";
         commitLink.textContent = shortCommit;
         commitLink.href = `https://github.com/${repo}/commit/${commitVersion}`;
       }
@@ -2473,7 +2524,7 @@
           setMobileTouchControlsEnabled(mobileTouchControlsToggle.checked);
         });
       }*/
-      /* ------------------------- Vertical Tabs ------------------------- 
+      /* ------------------------- Vertical Tabs -------------------------*/
       const verticalTabsToggle = document.getElementById("vertical-tabs-toggle");
 
       function getVerticalTabsEnabled() {
@@ -2494,7 +2545,7 @@
         verticalTabsToggle.addEventListener("change", () => {
           setVerticalTabsEnabled(verticalTabsToggle.checked);
         });
-      }*/
+      }
       /* ------------------------- AI / Copilot ------------------------- 
       const gptEnabledToggle = document.getElementById("gpt-enabled-toggle");
 
@@ -2744,6 +2795,79 @@
           applySettingsAccent();
         });
       });
+	  /* ------------------------- Trampoline Server ------------------------- */
+      const TRAMPOLINE_SERVER_KEY = "cattymod:server";
+      const trampolineServerSelect = document.getElementById("trampoline-server-select");
+      const trampolineCustomOptions = document.getElementById("trampoline-custom-options");
+      const trampolineCustomUrl = document.getElementById("trampoline-custom-url");
+
+      function normalizeTrampolineUrl(url) {
+        return url.trim().replace(/\/+$/, "");
+      }
+
+      function getTrampolineServer() {
+        return localStorage.getItem(TRAMPOLINE_SERVER_KEY) || "https://trampoline.turbowarp.org";
+      }
+
+      function updateTrampolineCustomVisibility() {
+        if (!trampolineCustomOptions || !trampolineServerSelect) return;
+        trampolineCustomOptions.classList.toggle("collapsed", trampolineServerSelect.value !== "custom");
+      }
+
+      function loadTrampolineServer() {
+        if (!trampolineServerSelect) return;
+        const saved = getTrampolineServer();
+        const presets = ["https://trampoline.turbowarp.org", "https://trampoline.turbowarp.xyz"];
+        if (presets.includes(saved)) {
+          trampolineServerSelect.value = saved;
+          trampolineCustomUrl.value = "";
+        } else {
+          trampolineServerSelect.value = "custom";
+          trampolineCustomUrl.value = saved;
+        }
+        updateTrampolineCustomVisibility();
+      }
+
+      function setTrampolineServer(url) {
+        try {
+          const parsed = new URL(url);
+          if (!["http:", "https:"].includes(parsed.protocol)) {
+            throw new Error("Only HTTP and HTTPS URLs are supported.");
+          }
+          if (parsed.username || parsed.password) {
+            throw new Error("URLs containing login credentials are not supported.");
+          }
+          const normalized = normalizeTrampolineUrl(parsed.origin + parsed.pathname);
+          localStorage.setItem(TRAMPOLINE_SERVER_KEY, normalized);
+          loadTrampolineServer();
+        } catch (error) {
+          alert(error.message || "Please enter a valid server URL.");
+        }
+      }
+      if (trampolineServerSelect) {
+        trampolineServerSelect.addEventListener("change", () => {
+          if (trampolineServerSelect.value === "custom") {
+            updateTrampolineCustomVisibility();
+            trampolineCustomUrl.focus();
+            return;
+          }
+          setTrampolineServer(trampolineServerSelect.value);
+        });
+      }
+      if (trampolineCustomUrl) {
+        trampolineCustomUrl.addEventListener("change", () => {
+          const url = trampolineCustomUrl.value.trim();
+          if (url) {
+            setTrampolineServer(url);
+          }
+        });
+        trampolineCustomUrl.addEventListener("keydown", event => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            trampolineCustomUrl.blur();
+          }
+        });
+      }
 	  /* ------------------------- Mods ------------------------- */
       const BOOKMARKLET_LIST_KEY = "potentiamod:bookmarklet";
       let currentModsView = "packs";
@@ -2788,7 +2912,7 @@
         const pageInfo = {
           packs: {
             title: "Mods",
-            description: "Choose how you want to customize PotentiaMod."
+            description: "Discover and manage your PotentiaMod mods."
           },
           turbowarp: {
             title: "TurboWarp Mods",
@@ -3033,7 +3157,7 @@
       /* ------------------------- Navigation ------------------------- */
       const navButtons = document.querySelectorAll(".nav-button[data-page]");
       const pages = document.querySelectorAll(".page");
-      const VALID_PAGES = ["general", "appearance", "projects", "navbar", "features", "mods", "about"];
+      const VALID_PAGES = ["general", "appearance", "projects", "navbar", "features", "mods", "servers", "about"];
 
       function showPage(pageName, updateHash = true) {
         if (!VALID_PAGES.includes(pageName)) {
@@ -3112,9 +3236,9 @@
         /*if (event.key === MOBILE_TOUCH_CONTROLS_KEY) {
           loadMobileTouchControls();
         }*/
-        /*if (event.key === TABS_MODE_KEY || event.key === null) {
+        if (event.key === TABS_MODE_KEY || event.key === null) {
           loadVerticalTabs();
-        }*/
+        }
         /*if (event.key === GPT_ENABLED_KEY) {
           loadGptEnabled();
         }*/
@@ -3138,6 +3262,9 @@
         }
 		if (event.key === HTML_FILE_PICKER_KEY || event.key === null) {
           loadHtmlFilePicker();
+        }
+		if (event.key === TRAMPOLINE_SERVER_KEY || event.key === null) {
+          loadTrampolineServer();
         }
       });
       /* ------------------------- Danger Zone ------------------------- */
@@ -3259,18 +3386,19 @@
       loadCustomProject();
       //loadGoIcon();
       //loadMobileTouchControls();
-      //loadVerticalTabs();
       //loadGptEnabled();
       //loadCommunityEnabled();
       //loadLogoVisible();
       //loadPipEnabled();
       loadPreferredProjectFileType();
 	  loadHtmlFilePicker();
+      loadVerticalTabs();
       //loadMenuOptionVisibility();
       loadNavPosition();
       loadPageFromHash();
       loadScratchElements();
 	  renderCustomMods();
+	  loadTrampolineServer();
       /* ------------------------- Lucide Icons ------------------------- */
       lucide.createIcons();
     </script>

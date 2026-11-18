@@ -8,6 +8,23 @@
 import styles from './studioview.css';
 import classNames from 'classnames';
 
+/*
+ * Get the configured PotentiaMod server.
+ */
+const getServer = () => {
+    try {
+        const server = window.localStorage.getItem('potentiamod:server');
+
+        if (server && server.trim()) {
+            return server.trim().replace(/\/+$/, '');
+        }
+    } catch (e) {
+        // Ignore localStorage errors.
+    }
+
+    return 'https://trampoline.turbowarp.org';
+};
+
 /**
  * @class
  */
@@ -25,12 +42,19 @@ var StudioView = function (studioId) {
     this.root.appendChild(this.projectList);
 
     if ('IntersectionObserver' in window) {
-        this.intersectionObserver = new IntersectionObserver(this.handleIntersection.bind(this), {
-            root: this.projectList
-        });
-        this.loadNextPageObserver = new IntersectionObserver(this.handleLoadNextPageIntersection.bind(this), {
-            root: this.projectList
-        });
+        this.intersectionObserver = new IntersectionObserver(
+            this.handleIntersection.bind(this),
+            {
+                root: this.projectList
+            }
+        );
+
+        this.loadNextPageObserver = new IntersectionObserver(
+            this.handleLoadNextPageIntersection.bind(this),
+            {
+                root: this.projectList
+            }
+        );
     } else {
         this.intersectionObserver = null;
         this.loadNextPageObserver = null;
@@ -56,7 +80,12 @@ StudioView.prototype.addProject = function (details) {
         el = this.createPlaceholder();
         this.projectList.appendChild(el);
     }
-    this.placeholderToProject(el, details.id, details.title, details.author);
+    this.placeholderToProject(
+        el,
+        details.id,
+        details.title,
+        details.author
+    );
 };
 
 /**
@@ -75,11 +104,14 @@ StudioView.prototype.createLazyImage = function (src) {
 };
 
 /**
- * Create a placeholder or placeholder element.
+ * Create a placeholder element.
  */
 StudioView.prototype.createPlaceholder = function () {
     var el = document.createElement('a');
-    el.className = classNames(styles.studioviewProject, styles.studioviewPlaceholder);
+    el.className = classNames(
+        styles.studioviewProject,
+        styles.studioviewPlaceholder
+    );
 
     var thumbnail = document.createElement('div');
     thumbnail.className = styles.studioviewThumbnail;
@@ -105,11 +137,19 @@ StudioView.prototype.createPlaceholder = function () {
  * Convert a placeholder element made by createPlaceholder to a project element.
  */
 StudioView.prototype.placeholderToProject = function (el, id, title, author) {
-    el.className = classNames(styles.studioviewProject, styles.studioviewLoaded);
+    el.className = classNames(
+        styles.studioviewProject,
+        styles.studioviewLoaded
+    );
+	
     el.dataset.id = id;
     el.dataset.title = title;
     el.dataset.author = author;
-    el.title = this.messages.PROJECT_HOVER_TEXT.replace('$author', author).replace('$title', title);
+	
+    el.title = this.messages.PROJECT_HOVER_TEXT
+        .replace('$author', author)
+        .replace('$title', title);
+	
     el.href = StudioView.PROJECT_PAGE.replace('$id', id);
 
     var thumbnailSrc = StudioView.THUMBNAIL_SRC.replace('$id', id);
@@ -117,7 +157,8 @@ StudioView.prototype.placeholderToProject = function (el, id, title, author) {
     el.thumbnailEl.appendChild(thumbnailImg);
 
     el.titleEl.innerText = title;
-    el.authorEl.innerText = this.messages.AUTHOR_ATTRIBUTION.replace('$author', author);
+    el.authorEl.innerText = this.messages.AUTHOR_ATTRIBUTION
+        .replace('$author', author);
 
     el.addEventListener('click', this.handleClick.bind(this), true);
     el.addEventListener('keydown', this.handleKeyDown.bind(this), true);
@@ -199,7 +240,7 @@ StudioView.prototype.cleanupPlaceholders = function () {
 };
 
 /**
- * Add placeholder placeholder elements.
+ * Add placeholder elements.
  */
 StudioView.prototype.addPlaceholders = function () {
     for (var i = 0; i < StudioView.PLACEHOLDER_COUNT; i++) {
@@ -251,7 +292,7 @@ StudioView.prototype.loadNextPage = function () {
             projects.push({
                 id: p.id,
                 title: p.title,
-                author: p.username,
+                author: p.username
             });
         }
         projects = this.shuffler(projects);
@@ -262,7 +303,9 @@ StudioView.prototype.loadNextPage = function () {
 
         if (rawProjects.length === 40) {
             if (this.loadNextPageObserver) {
-                this.loadNextPageObserver.observe(this.projectList.lastChild);
+                this.loadNextPageObserver.observe(
+                    this.projectList.lastChild
+                );
             }
         } else {
             this.ended = true;
@@ -281,6 +324,7 @@ StudioView.prototype.loadNextPage = function () {
         this.cleanupPlaceholders();
         this.addErrorElement();
         this.ended = true;
+		this.loadingPage = false;
     }.bind(this);
 
     var url = StudioView.STUDIO_API
@@ -294,25 +338,40 @@ StudioView.prototype.getURL = function () {
     return StudioView.STUDIO_PAGE.replace('$id', this.studioId);
 };
 
-StudioView.prototype.onselect = function (id, el) { };
-StudioView.prototype.onpageload = function () { };
-StudioView.prototype.onend = function () { };
+StudioView.prototype.onselect = function (id, el) {};
+StudioView.prototype.onpageload = function () {};
+StudioView.prototype.onend = function () {};
 
-StudioView.STUDIO_API = 'https://trampoline.turbowarp.org/api/studios/$id/projects?offset=$offset';
+/*
+ * Studio API URL.
+ */
+StudioView.STUDIO_API =
+    `${getServer()}/api/studios/$id/projects?offset=$offset`;
 
-// The URL to download thumbnails from.
-// $id is replaced with the project's ID.
-StudioView.THUMBNAIL_SRC = 'https://trampoline.turbowarp.org/thumbnails/$id?width=144&height=108';
+/*
+ * Thumbnail URL.
+ * $id is replaced with the project's ID.
+ */
+StudioView.THUMBNAIL_SRC =
+    `${getServer()}/thumbnails/$id?width=144&height=108`;
 
-// The URL for project pages.
-// $id is replaced with the project ID.
-StudioView.PROJECT_PAGE = 'https://turbowarp.org/$id';
+/*
+ * Project page URL.
+ * $id is replaced with the project ID.
+ */
+StudioView.PROJECT_PAGE =
+    'https://potentiamod.github.io/#$id';
 
-// The URL for studio pages.
-// $id is replaced with the studio ID.
-StudioView.STUDIO_PAGE = 'https://scratch.mit.edu/studios/$id/';
+/*
+ * Studio page URL.
+ * $id is replaced with the studio ID.
+ */
+StudioView.STUDIO_PAGE =
+    'https://scratch.mit.edu/studios/$id/';
 
-// The amount of "placeholders" to insert before the next page loads.
-StudioView.PLACEHOLDER_COUNT = 24;
+/*
+ * The amount of placeholders to insert before the next page loads.
+ */
+StudioView.PLACEHOLDER_COUNT = 9;
 
 export default StudioView;
