@@ -327,6 +327,18 @@ const Tags = ({manifest}) => (
                 {settingsTranslations.tagRemixwarp}
             </span>
 			        )}
+					{manifest.tags.includes('hm') && (
+            <span className={classNames(styles.tag, styles.tagHyperMimic)}
+                style={{display: "inline-flex", alignItems: "center", gap: "5px"}}
+            >
+                <img
+                    src="https://hypermimic.netlify.app/favicon.ico"
+                    style={{width: "13px", height: "13px"}}
+                    alt="HyperMimic Icon"
+                />
+                {settingsTranslations.tagHyperMimic}
+            </span>
+			        )}
 					{manifest.tags.includes('ob') && (
             <span className={classNames(styles.tag, styles.tagOmniblocks)}
                 style={{display: "inline-flex", alignItems: "center", gap: "5px"}}

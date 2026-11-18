@@ -1,0 +1,1674 @@
+/* 插件预览共享样式（跟随 preview.jsx 组件加载）
+   用 :global 包装避开 css-loader 的 modules 哈希。
+   custom-editor-theme 预览样式 = 原版 ScratchAddons
+   webpages/settings/components/previews/editor-dark-mode.html 的 <style> 原样搬入 */
+
+.apv-inline {
+  margin: 12px 0 4px;
+}
+
+.apv-preview {
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 620px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+}
+
+.apv-menubar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 30px;
+  padding: 0 12px;
+}
+
+.apv-logo {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.apv-menubar-text {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.apv-menubar-spacer {
+  flex: 1;
+}
+
+.apv-fullscreen-btn {
+  font-size: 11px;
+  background: transparent;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+  color: inherit;
+}
+
+.apv-tabs {
+  display: flex;
+  gap: 3px;
+  padding: 4px 8px 0;
+}
+
+.apv-tab {
+  font-size: 11px;
+  padding: 4px 12px;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+}
+
+.apv-body {
+  position: relative;
+}
+
+.apv-border-strip {
+  height: 3px;
+}
+
+.apv-main {
+  display: flex;
+  height: 240px;
+}
+
+.apv-category {
+  width: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding-top: 12px;
+  flex-shrink: 0;
+}
+
+.apv-workspace {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  padding: 14px 16px;
+  overflow: hidden;
+}
+
+.apv-workspace-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.apv-block {
+  font-size: 11px;
+  padding: 5px 10px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.apv-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.apv-stack-indent {
+  margin-left: 22px;
+}
+
+.apv-stage-col {
+  width: 136px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.apv-stage {
+  width: 104px;
+  height: 78px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apv-stage-sprite {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.apv-stage-sprite-large {
+  width: 52px;
+  height: 52px;
+}
+
+.apv-stage-label {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.apv-paint {
+  display: flex;
+  flex-direction: column;
+  height: 240px;
+}
+
+.apv-artboard {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apv-artboard-item {
+  width: 190px;
+  height: 120px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apv-artboard-sprite {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.apv-sprite-pane {
+  display: flex;
+  gap: 8px;
+  padding: 8px 10px;
+}
+
+.apv-sprite-thumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+}
+
+.apv-sounds {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 240px;
+  overflow: hidden;
+}
+
+.apv-sound-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 6px;
+}
+
+.apv-sound-bar {
+  width: 66px;
+  height: 22px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0 6px;
+}
+
+.apv-sound-bar span {
+  width: 3px;
+  background: currentColor;
+  opacity: 0.85;
+  border-radius: 2px;
+}
+
+.apv-sound-name {
+  font-size: 11px;
+}
+
+.apv-fullscreen {
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+}
+
+.apv-fullscreen-header {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 11px;
+}
+
+.apv-fullscreen-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- custom-block-shape 预览 ---- */
+/* 不再有外框 .apv-block-shape-preview：只保留开关行 + 真正的预览舞台。 */
+
+.apv-block-shape-stage {
+  width: 100%;
+  max-width: 640px;
+  height: 440px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.apv-block-shape-root[data-splash-theme="dark"] .apv-block-shape-stage {
+  background: #262a31;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.apv-block-shape-stage .blocklySvg {
+  display: block;
+}
+
+.apv-block-shape-info {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #75777c;
+}
+
+.apv-block-shape-root[data-splash-theme="dark"] .apv-block-shape-info {
+  color: #9aa0ab;
+}
+
+/* 预览上方的「显示/隐藏」开关行：左对齐，与下方舞台留间距 */
+.apv-block-shape-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* 亮色模式（默认/基础值）：文字与开关轨道都用明显的深色，避免浅灰看不清 */
+.apv-block-shape-toggle-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1c1e21;
+}
+
+.apv-block-shape-root[data-splash-theme="dark"] .apv-block-shape-toggle-label {
+  color: #d6dae0;
+}
+
+/* 视觉开关（track + knob），跟随主题强调色 --looks-secondary */
+.apv-toggle {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease;
+  flex: none;
+}
+
+.apv-block-shape-root[data-splash-theme="dark"] .apv-toggle {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.apv-toggle-on {
+  background: var(--looks-secondary);
+}
+
+.apv-toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease;
+}
+
+.apv-toggle-on .apv-toggle-knob {
+  transform: translateX(18px);
+}
+
+
+/* ===== 原版 editor-dark-mode 预览样式（照搬 ScratchAddons） ===== */
+.edm-preview {
+  /* 高亮色跟随主题 accent（--looks-secondary 由 applyGuiColors 注入） */
+  --orange: var(--looks-secondary);
+  --control-border: #000;
+}
+
+.edm-preview {
+  margin-top: 10px;
+  width: 512px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--page);
+  border: 1px solid var(--control-border);
+  border-radius: 4px;
+  transition: box-shadow 0.2s ease;
+}
+
+.edm-preview * {
+  transition:
+    box-shadow 0.2s ease,
+    filter 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.edm-preview[data-setting-hovered="page"],
+.edm-preview[data-setting-hovered="menuBar"] .edm-menu-bar,
+.edm-preview[data-setting-hovered="accent"] .edm-asset-editor,
+.edm-preview[data-setting-hovered="accent"] .edm-sprite-info,
+.edm-preview[data-setting-hovered="accent"] .edm-stage-selector,
+.edm-preview[data-setting-hovered="selector"] .edm-sprite-list-container,
+.edm-preview[data-setting-hovered="selector2"] .edm-asset-list,
+.edm-preview[data-setting-hovered="workspace"] .edm-workspace-hover-target,
+.edm-preview[data-setting-hovered="categoryMenu"] .edm-category-menu,
+.edm-preview[data-setting-hovered="palette"] .edm-palette,
+.edm-preview[data-setting-hovered="fullscreen"] .edm-fullscreen-view,
+.edm-preview[data-setting-hovered="stageHeader"] .edm-fullscreen-controls,
+/* 造型编辑器画布 → 绑定暗色模式设置项（悬停 darkMode 时高亮画布，反之亦然）；
+   同时保留原 affectPaper（更改造型编辑器背景）对该画布的高亮，避免回归 */
+.edm-preview[data-setting-hovered="darkMode"] .edm-paint-canvas,
+.edm-preview[data-setting-hovered="affectPaper"] .edm-paint-canvas {
+  box-shadow: 0 0 8px inset var(--orange);
+}
+
+.edm-preview[data-setting-hovered="page"] .edm-menu-bar,
+.edm-preview[data-setting-hovered="accentColor"] .edm-button,
+.edm-preview[data-setting-hovered="accentColor"] .edm-add-extension,
+.edm-preview[data-setting-hovered="accentColor"] .edm-asset-selected,
+.edm-preview[data-setting-hovered="accentColor"] .edm-asset-delete,
+.edm-preview[data-setting-hovered="accentColor"] .edm-asset-new,
+.edm-preview[data-setting-hovered="accentColor"] .edm-paint-tool-selected,
+.edm-preview[data-setting-hovered="accentColor"] .edm-play-button,
+.edm-preview[data-setting-hovered="accentColor"] .edm-tab-selected :is(.edm-text-placeholder, .edm-icon-placeholder),
+.edm-preview[data-setting-hovered="accentColor"] .edm-outlined-button-colored-icon .edm-icon-placeholder,
+.edm-preview[data-setting-hovered="accentColor"] .edm-outlined-button-selected .edm-icon-placeholder,
+/* sounds 标签页 sound-effects 的 tool-button 图标为 20px，悬停 accent color 时不发光（与真实编辑器行为一致，该处不随强调色高亮） */
+.edm-preview[data-setting-hovered="accentColor"] .edm-tool-button .edm-icon-placeholder:not(.edm-icon-placeholder-20px),
+.edm-preview[data-setting-hovered="accent"] .edm-outlined-button,
+.edm-preview[data-setting-hovered="accent"] .edm-backpack,
+/* .edm-preview[data-setting-hovered="input"] .edm-input, 这个已经使用另外一个选择器进行控制样式*/
+.edm-preview[data-setting-hovered="tab"] .edm-tab:not(.edm-tab-selected),
+.edm-preview[data-setting-hovered="activeTab"] .edm-tab-selected,
+.edm-preview[data-setting-hovered="selectorSelection"] .edm-asset-selected,
+.edm-preview[data-setting-hovered="fullscreen"] .edm-fullscreen-controls {
+  filter: drop-shadow(0 0 4px var(--orange));
+}
+
+.edm-icon-placeholder {
+  background-color: currentColor;
+  border-radius: 50%;
+  /* circle */
+  opacity: 0.75;
+}
+
+.edm-icon-placeholder-20px {
+  width: 10px;
+  height: 10px;
+}
+
+.edm-icon-placeholder-24px {
+  width: 12px;
+  height: 12px;
+}
+
+.edm-text-placeholder {
+  width: calc(3px * var(--length));
+  min-width: 4px;
+  height: 4px;
+  background-color: currentColor;
+  border-radius: 2px;
+  opacity: 0.75;
+}
+
+.edm-text-placeholder-small {
+  width: calc(2px * var(--length));
+  min-width: 3px;
+  height: 3px;
+}
+
+.edm-icon-placeholder + .edm-text-placeholder,
+.edm-text-placeholder + .edm-text-placeholder {
+  margin-inline-start: 3px;
+}
+
+.edm-text-placeholder-small + .edm-text-placeholder-small {
+  margin-inline-start: 2px;
+}
+
+.edm-spacer {
+  flex-grow: 1;
+}
+
+.edm-button {
+  height: 18px;
+  display: flex;
+  align-items: center;
+  padding-inline: 4px;
+  background-color: var(--primary);
+  border-radius: 3px;
+  color: var(--primary-text);
+}
+
+.edm-outlined-button-group {
+  display: flex;
+  background-color: var(--accent);
+  border-radius: 3px;
+}
+
+.edm-outlined-button {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--accent-text);
+}
+
+.edm-outlined-button-colored-icon {
+  color: var(--highlightText);
+}
+
+.edm-outlined-button-selected {
+  color: var(--highlightText);
+  background-color: var(--primary-transparent15);
+}
+
+.edm-outlined-button-unselected {
+  color: var(--accent-transparentText);
+}
+
+.edm-outlined-button-change-theme {
+  border-radius: 3px;
+}
+
+.edm-outlined-button-first {
+  border-radius: 3px 0 0 3px;
+}
+
+[dir="rtl"] .edm-outlined-button-first {
+  border-radius: 0 3px 3px 0;
+}
+
+.edm-outlined-button-middle {
+  border-inline-start: none;
+  border-radius: 0;
+}
+
+.edm-outlined-button-last {
+  border-inline-start: none;
+  border-radius: 0 3px 3px 0;
+}
+
+[dir="rtl"] .edm-outlined-button-last {
+  border-radius: 3px 0 0 3px;
+}
+
+.edm-outlined-button + .edm-outlined-button:not(.edm-outlined-button-middle):not(.edm-outlined-button-last),
+.edm-outlined-button-group + .edm-outlined-button-group {
+  margin-inline-start: 3px;
+}
+
+.edm-icon-placeholder + .edm-outlined-button,
+.edm-text-placeholder + .edm-outlined-button,
+.edm-input + .edm-outlined-button {
+  margin-inline-start: 4px;
+}
+
+.edm-input {
+  width: 50px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  padding-inline: 6px;
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--input-text);
+}
+
+.edm-input-number {
+  width: auto;
+  padding-inline: 8px;
+}
+
+.edm-icon-placeholder + .edm-input,
+.edm-text-placeholder + .edm-input,
+.edm-outlined-button + .edm-input {
+  margin-inline-start: 4px;
+}
+
+.edm-asset {
+  margin: 2px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.edm-asset-image {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edm-asset:first-child .edm-asset-image {
+  color: #ffab19;
+}
+
+.edm-asset:nth-child(2) .edm-asset-image {
+  color: #ec1c2c;
+}
+
+.edm-asset:nth-child(3) .edm-asset-image {
+  color: #e29339;
+}
+
+.edm-asset-name {
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+}
+
+.edm-asset-delete {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  border-radius: 7px;
+  color: var(--primary-text);
+  box-shadow: 0 0 0 1px var(--primary-transparent35);
+}
+
+[dir="rtl"] .edm-asset-delete {
+  right: auto;
+  left: -5px;
+}
+
+.edm-asset-selected {
+  background-color: var(--selectorSelection);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-transparent35);
+}
+
+.edm-asset-selected .edm-asset-name {
+  background-color: var(--primary);
+  color: var(--primary-text);
+}
+
+.edm-asset-new {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  border-radius: 11px;
+  color: var(--primary-text);
+  box-shadow: 0 0 0 2px var(--primary-transparent35);
+}
+
+.edm-menu-bar {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  background-color: var(--menuBar);
+  color: var(--menuBar-text);
+}
+
+.edm-logo-placeholder {
+  margin-inline: 8px;
+  width: 35px;
+  height: 12px;
+  box-sizing: border-box;
+  background-color: #f9a83a;
+  border: 3px solid white;
+  border-radius: 6px;
+}
+
+.edm-menu-bar-menu {
+  margin-inline: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.edm-menu-bar-button,
+.edm-menu-bar-input {
+  margin-inline: 2px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  padding-inline: 4px;
+  border-radius: 3px;
+}
+
+.edm-menu-bar-button {
+  border: 1px solid var(--menuBar-border);
+}
+
+.edm-menu-bar-share {
+  background-color: #ff8c1a;
+  border-color: #ff8c1a;
+  color: white;
+}
+
+.edm-avatar-placeholder {
+  width: 7px;
+  margin-inline-start: 0;
+  margin-inline-end: 3px;
+}
+
+.edm-menu-bar-input {
+  width: 86px;
+  background-color: var(--input-transparent);
+  border: 1px dashed var(--menuBar-border);
+}
+
+.edm-menu-bar-separator {
+  margin-inline: 4px;
+  height: 17px;
+  border-left: 1px dashed var(--menuBar-border);
+}
+
+.edm-main {
+  height: calc(100% - 24px);
+  display: flex;
+}
+
+.edm-left {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.edm-tabs {
+  height: 22px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.edm-tab {
+  position: relative;
+  margin-inline-start: -4px;
+  /* overlap */
+  margin-bottom: -1px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  padding-inline: 10px;
+  background-color: var(--tab);
+  border: 1px solid var(--border);
+  border-radius: 8px 8px 0 0;
+  color: var(--tab-text);
+  cursor: pointer;
+}
+
+.edm-tab:first-child {
+  z-index: 3;
+  margin-inline-start: 0;
+  border-inline-start: none;
+}
+
+.edm-tab:nth-child(2) {
+  z-index: 2;
+}
+
+.edm-tab:nth-child(3) {
+  z-index: 1;
+}
+
+.edm-tab:hover {
+  background-color: var(--page);
+  color: var(--page-text);
+}
+
+.edm-tab.edm-tab-selected {
+  height: 18px;
+  z-index: 4;
+  background-color: var(--activeTab);
+  color: var(--highlightText);
+}
+
+.edm-tab-content {
+  flex-grow: 1;
+  border: 1px solid var(--border);
+  border-inline-start: none;
+  border-radius: 0 4px 4px 0;
+}
+
+[dir="rtl"] .edm-tab-content {
+  border-radius: 4px 0 0 4px;
+}
+
+.edm-backpack {
+  margin-top: 4px;
+  height: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-top-right-radius: 4px;
+  color: var(--accent-text);
+}
+
+[dir="rtl"] .edm-backpack {
+  border-top-right-radius: 0;
+  border-top-left-radius: 4px;
+}
+
+.edm-workspace {
+  background-color: var(--workspace);
+  display: flex;
+  overflow: hidden;
+}
+
+.edm-category-menu {
+  width: 29px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--categoryMenu);
+  border-inline-end: 1px solid var(--border);
+}
+
+.edm-category {
+  padding-block: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edm-category-bubble {
+  margin-bottom: 3px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.edm-category-label {
+  display: flex;
+  color: var(--categoryMenu-text);
+}
+
+.edm-category-selected {
+  background-color: var(--categoryMenu-selection);
+}
+
+.edm-add-extension {
+  width: 30px;
+  height: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  color: var(--primary-text);
+  cursor: pointer;
+}
+
+.edm-palette {
+  width: 124px;
+  background-color: var(--palette);
+  border-inline-end: 1px solid var(--border);
+}
+
+.edm-workspace-hover-target {
+  flex-grow: 1;
+}
+
+.edm-asset-tab {
+  display: flex;
+  background-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.edm-asset-list {
+  display: flex;
+  flex-direction: column;
+  padding-block: 2px;
+  padding-inline: 14px;
+  position: relative;
+  background-color: var(--selector2);
+  color: var(--selector2-text);
+  border-inline-end: 1px solid var(--border);
+}
+
+.edm-sound-list .edm-asset .edm-asset-image {
+  color: inherit;
+}
+
+.edm-asset-editor {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+
+.edm-toolbar,
+.edm-toolbar > * {
+  display: flex;
+  align-items: center;
+}
+
+.edm-toolbar > * + * {
+  margin-inline-start: 6px;
+}
+
+.edm-toolbar + .edm-toolbar {
+  margin-top: 4px;
+}
+
+.edm-tool-button {
+  min-width: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2px 3px;
+}
+
+.edm-tool-button .edm-icon-placeholder {
+  margin-bottom: 2px;
+  color: var(--highlightText);
+}
+
+.edm-tool-button > .edm-text-placeholder {
+  margin: 0;
+}
+
+.edm-tool-button > * {
+  display: flex;
+}
+
+.edm-toolbar-separator {
+  align-self: stretch;
+  border-inline-start: 1px dashed var(--border);
+}
+
+.edm-paint-picker-color {
+  width: 14px;
+}
+
+.edm-paint-picker-arrow {
+  width: 7px;
+}
+
+.edm-paint-bottom {
+  margin-top: 4px;
+  flex-grow: 1;
+  display: flex;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+
+.edm-paint-tool-column {
+  margin-inline-end: 6px;
+}
+
+.edm-paint-tool {
+  margin-bottom: 4px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.edm-paint-tool-selected {
+  background-color: var(--primary);
+  color: var(--primary-text);
+}
+
+.edm-paint-canvas-and-controls {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.edm-paint-canvas {
+  position: relative;  /* 让选区框相对画布定位 */
+  flex-grow: 1;
+  background-color: var(--accent-artboard);
+  background-image: linear-gradient(45deg, var(--accent-checkerboard) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--accent-checkerboard) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--accent-checkerboard) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--accent-checkerboard) 75%);
+  background-size: 16px 16px;
+  background-position:
+    0 0,
+    0 8px,
+    8px -8px,
+    -8px 0;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  /* 画布容器 color 绑定到 paper.css 的 --customEditorTheme-accent-text，
+     使画布内使用 currentColor 的元素（网格/选区等）随强调文字色变化 */
+  color: var(--customEditorTheme-accent-text);
+}
+
+/* 画布内的选区框：使用 currentColor，随 paper.css 绑定的 --customEditorTheme-accent-text 变化，
+   作为 paper.css 效果在预览里的可见代表（真实编辑器网格/选区同理用 currentColor） */
+.edm-paint-canvas-selection {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  width: 44px;
+  height: 32px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+}
+
+.edm-paint-controls {
+  margin-top: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.edm-paint-zoom {
+  display: flex;
+}
+
+.edm-waveform {
+  margin-top: 16px;
+  aspect-ratio: 15 / 4;
+  background-color: rgba(207, 99, 207, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+.edm-sound-effects {
+  margin-top: 16px;
+}
+
+.edm-sound-effects .edm-tool-button .edm-icon-placeholder {
+  color: #cf63cf;
+}
+
+.edm-play-button {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  background-clip: padding-box;
+  border: 2px solid var(--primary-transparent35);
+  border-radius: 50%;
+  color: var(--primary-text);
+}
+
+.edm-right {
+  width: 130px;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 4px;
+}
+
+.edm-stage-header {
+  height: 22px;
+  display: flex;
+  align-items: center;
+}
+
+.edm-green-flag {
+  margin-inline: 3px;
+  color: #4cbf56;
+}
+
+.edm-stop-sign {
+  margin-inline: 3px;
+  color: #e8a4ac;
+}
+
+.edm-fullscreen-toggle {
+  cursor: pointer;
+}
+
+.edm-fullscreen-toggle:active {
+  background-color: var(--primary-transparent35);
+}
+
+.edm-stage {
+  height: 90px;
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.edm-targets {
+  flex-grow: 1;
+  margin-top: 4px;
+  display: flex;
+}
+
+.edm-sprite-selector {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+}
+
+.edm-sprite-info {
+  padding: 6px;
+  background-color: var(--accent);
+  border-bottom: 1px solid var(--border);
+  color: var(--accent-text);
+}
+
+.edm-sprite-info-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edm-sprite-info-row + .edm-sprite-info-row {
+  margin-top: 4px;
+}
+
+.edm-sprite-info-row > * {
+  display: flex;
+  align-items: center;
+}
+
+.edm-sprite-list-container {
+  flex-grow: 1;
+  padding: 2px;
+  position: relative;
+  background-color: var(--selector);
+  color: var(--selector-text);
+}
+
+.edm-sprite-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.edm-sprite-list-container .edm-asset-new {
+  left: auto;
+  right: 6px;
+  transform: none;
+}
+
+.edm-stage-selector {
+  margin-inline-start: 4px;
+  position: relative;
+  background-color: var(--accent);
+  background-clip: padding-box;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  color: var(--accent-text);
+}
+
+.edm-stage-title {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.edm-stage-image {
+  margin: 2px;
+  width: 32px;
+  height: 24px;
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  box-shadow: 0 0 2px inset rgba(0, 0, 0, 0.15);
+}
+
+.edm-stage-info {
+  display: flex;
+  justify-content: center;
+  padding-block: 3px;
+}
+
+.edm-fullscreen-view {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--fullscreen);
+}
+
+.edm-fullscreen-controls {
+  width: 100%;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--stageHeader);
+}
+
+.edm-fullscreen-controls-inner {
+  width: 427px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edm-fullscreen-controls-inner > * {
+  display: flex;
+}
+
+.edm-fullscreen-stage {
+  flex-grow: 1;
+  width: 427px;
+  margin-block: 2px;
+  background-color: white;
+  background-clip: padding-box;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+}
+
+
+
+/* ===== 扩展视图样式 ===== */
+
+
+.edm-extension-view {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  /* 拓展库背景 = "Sprite pane/Extension library background" 设置项（selector，默认 #202020），
+     而非页面背景（page）。 */
+  background-color: var(--selector);
+  color: var(--selector-text);
+}
+
+/* ===== 顶部导航栏（弹窗头部，跟随 popupHeader） ===== */
+.edm-extension-nav {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--popupHeader);
+  border-bottom: 1px solid var(--menuBar-border);
+  color: var(--menuBar-text);
+  flex-shrink: 0;
+}
+
+.edm-extension-nav-inner {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 左侧：返回按钮 */
+.edm-extension-nav-left {
+  flex-shrink: 0;
+}
+
+.edm-extension-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: var(--menuBar-text);
+}
+
+.edm-extension-back-btn:hover {
+  background-color: transparent;
+}
+
+.edm-extension-back-btn .edm-icon-placeholder {
+  width: 8px;
+  height: 8px;
+  background-color: currentColor;
+  border-radius: 2px;
+  opacity: 0.7;
+  transform: rotate(45deg);
+  position: relative;
+}
+
+/* 中间：标题 */
+.edm-extension-nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* 右侧：搜索框 */
+.edm-extension-search {
+  flex-shrink: 0;
+}
+
+.edm-extension-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 40px 4px 10px;
+  background-color: var(--input);
+  border: 1px solid var(--menuBar-border);
+  border-radius: 14px;
+  color: var(--input-text);
+}
+
+.edm-extension-search .edm-icon-placeholder {
+  width: 7px;
+  height: 7px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  opacity: 0.5;
+  position: relative;
+}
+
+.edm-extension-search .edm-text-placeholder {
+  height: 3px;
+  opacity: 0.5;
+}
+
+/* ===== 分类标签 ===== */
+/* 源码 src/components/library/library.css:28 filterBar 背景 = $looks-transparent
+   = var(--looks-transparent) = MIX(accentColor, 35%, transparent)（accentOverrides.js:41）
+   预览中对应 var(--primary-transparent35)（multiply(accentColor, {a:0.35})，模板根已注入）
+   注意：不能写成 background: 颜色A, 颜色B —— background-color 只能放最后一层，
+   前面层只能放 background-image，否则整条声明非法、背景变透明（会透出页面且阴影渗透）。
+   正确写法：下层 background-color 用不透明弹窗表面(--popupHeader，区别于页面背景 --page)，
+   上层 background-image 用透明强调色渐变叠层，保留"主题强调色+透明"观感且不绑定页面背景。 */
+.edm-extension-categories {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+  background-color: var(--popupHeader);
+  background-image: linear-gradient(var(--primary-transparent35), var(--primary-transparent35));
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.edm-extension-category {
+  padding: 4px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--primary);
+  color: var(--primary-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.edm-extension-category-selected {
+  background-color: #ff8c1a;
+  color: #fff;
+}
+
+.edm-extension-category-selected .edm-text-placeholder {
+  background-color: #fff;
+  opacity: 1;
+}
+
+.edm-extension-category .edm-text-placeholder {
+  height: 4px;
+  background-color: currentColor;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+/* ===== 扩展网格容器 ===== */
+.edm-extension-grid-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  /* 同拓展库背景（selector），与 .edm-extension-view 一致 */
+  background-color: var(--selector);
+}
+
+/* 自定义滚动条 */
+.edm-extension-grid-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.edm-extension-grid-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.edm-extension-grid-container::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+/* ===== 扩展网格 ===== */
+.edm-extension-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ===== 扩展卡片 ===== */
+.edm-extension-grid-item {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--accent);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  color: var(--accent-text);
+  min-height: 120px;
+}
+
+/* 上半部分：填充对应扩展颜色 */
+.edm-extension-item-top {
+  height: 70px;
+  flex-shrink: 0;
+  background-color: #ff8c1a;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* 下半部分：原界面（图标 + 文字） */
+.edm-extension-item-bottom {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+}
+
+/* 不同卡片的上半填充色 */
+.edm-extension-grid-item:nth-child(1) .edm-extension-item-top { background-color: #ffab19; }
+.edm-extension-grid-item:nth-child(2) .edm-extension-item-top { background-color: #ec1c2c; }
+.edm-extension-grid-item:nth-child(3) .edm-extension-item-top { background-color: #e29339; }
+.edm-extension-grid-item:nth-child(4) .edm-extension-item-top { background-color: #4c97ff; }
+.edm-extension-grid-item:nth-child(5) .edm-extension-item-top { background-color: #9966ff; }
+.edm-extension-grid-item:nth-child(6) .edm-extension-item-top { background-color: #cf63cf; }
+.edm-extension-grid-item:nth-child(7) .edm-extension-item-top { background-color: #ffd500; }
+.edm-extension-grid-item:nth-child(8) .edm-extension-item-top { background-color: #ff8c1a; }
+.edm-extension-grid-item:nth-child(9) .edm-extension-item-top { background-color: #5cb1d6; }
+.edm-extension-grid-item:nth-child(10) .edm-extension-item-top { background-color: #59c059; }
+.edm-extension-grid-item:nth-child(11) .edm-extension-item-top { background-color: #ff6680; }
+.edm-extension-grid-item:nth-child(12) .edm-extension-item-top { background-color: #4cbf56; }
+.edm-extension-grid-item:nth-child(13) .edm-extension-item-top { background-color: #ffb366; }
+.edm-extension-grid-item:nth-child(14) .edm-extension-item-top { background-color: #7a4f8c; }
+.edm-extension-grid-item:nth-child(15) .edm-extension-item-top { background-color: #4a8c7a; }
+.edm-extension-grid-item:nth-child(16) .edm-extension-item-top { background-color: #c44f4f; }
+.edm-extension-grid-item:nth-child(17) .edm-extension-item-top { background-color: #4f6fc4; }
+.edm-extension-grid-item:nth-child(18) .edm-extension-item-top { background-color: #c4a84f; }
+
+/* ===== 扩展图标 ===== */
+.edm-extension-item-icon {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edm-extension-item-icon .edm-icon-placeholder {
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  border-radius: 6px;
+  opacity: 0.8;
+}
+
+/* ===== 扩展文字信息 ===== */
+.edm-extension-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.edm-extension-item-title .edm-text-placeholder {
+  height: 5px;
+  background-color: currentColor;
+  border-radius: 2px;
+  opacity: 0.85;
+}
+
+.edm-extension-item-description .edm-text-placeholder {
+  height: 3px;
+  background-color: currentColor;
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+/* 文字占位符大小 */
+.edm-extension-item-title .edm-text-placeholder {
+  width: calc(4px * var(--length));
+}
+
+.edm-extension-item-description .edm-text-placeholder {
+  width: calc(3px * var(--length));
+}
+
+/* ===== 图标占位符尺寸 ===== */
+.edm-icon-placeholder-16px {
+  width: 8px;
+  height: 8px;
+}
+
+.edm-icon-placeholder-14px {
+  width: 7px;
+  height: 7px;
+}
+
+.edm-icon-placeholder-32px {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 540px) {
+  .edm-extension-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .edm-extension-nav-center .edm-text-placeholder {
+    width: calc(3px * var(--length));
+  }
+  
+  .edm-extension-item-title .edm-text-placeholder {
+    width: calc(3px * var(--length));
+  }
+  
+  .edm-extension-item-description .edm-text-placeholder {
+    width: calc(2px * var(--length));
+  }
+}
+
+@media (max-width: 380px) {
+  .edm-extension-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== 悬停高亮 ===== */
+.edm-preview[data-setting-hovered="extension"] .edm-extension-view,
+.edm-preview[data-setting-hovered="selector"] .edm-extension-view,
+.edm-preview[data-setting-hovered="selector"] .edm-extension-grid-container,
+.edm-preview[data-setting-hovered="popupHeader"] .edm-extension-nav {
+  box-shadow: 0 0 8px inset var(--orange);
+}
+
+.edm-preview[data-setting-hovered="accentColor"] .edm-extension-category:not(.edm-extension-category-selected) {
+  filter: drop-shadow(0 0 8px var(--orange));
+}
+
+.edm-preview[data-setting-hovered="input"] .edm-extension-search,
+.edm-preview[data-setting-hovered="input"] .edm-menu-bar-input,
+.edm-preview[data-setting-hovered="input"] .edm-input {
+  box-shadow: 0 0 8px var(--orange);
+}
+
+/* ---- 弹窗预览（菜单栏第 5 个按钮 Advanced 触发，模仿 tw-settings-modal） ---- */
+
+/* 第 5 个菜单按钮*/
+.edm-menu-bar-menu-clickable {
+  position: relative;
+  z-index: 0;          /* 建立层叠上下文，使 ::after 的 z-index:-1 落在菜单栏背景之上、图标之下 */
+  cursor: pointer;
+}
+.edm-menu-bar-menu-clickable::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;         /* = 菜单栏高度 → 竖直撑满菜单栏；宽高相等（正方形） */
+  height: 24px;
+  border-radius: 0;    /* 正方形 hover 背景 */
+  /* 用预览菜单栏自身的主题自适应叠加色（= colors.menuBarBorder：亮菜单栏→黑 15% 叠加，暗菜单栏→白 15% 叠加），
+     而非继承父级的 --ui-black-transparent（它跟随 settings 页面主题，不随预览 darkMode 变化，导致亮色菜单栏上叠加层不可见） */
+  background: var(--customEditorTheme-menuBar-border);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  /* 关键：允许 ::after 的 24×24 区域捕获指针事件，使悬停/点击命中整个方块而非只有圆形图标；
+     图标因 z-index:-1 仍绘制在叠加层之上，可见性不受影响。 */
+  pointer-events: auto;
+  z-index: -1;         /* 放在按钮下层（层级不同，x,y 相同） */
+}
+.edm-menu-bar-menu-clickable:hover::after {
+  opacity: 1;          /* 无过渡动画，悬停即时显示 */
+}
+
+/* 弹窗背景层：覆盖整个预览，背景色绑定 popup（弹窗背景色）设置项 */
+.edm-modal-backdrop {
+  position: absolute;
+  z-index: 101;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--popup);
+}
+
+/* 弹窗容器 */
+.edm-modal {
+  box-sizing: border-box;
+  width: min(300px, calc(100% - 32px));
+  height: min(300px, calc(100% - 32px));
+  max-width: none;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--ui-white-transparent);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* 弹窗头部 */
+.edm-modal-header {
+  position: relative;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 4px 0 8px;  /* 右侧收紧 4px，使关闭按钮整体稍微右移 */
+  border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+/* 标题绝对居中；内部用 flex 横向排列「8 + 1(空格) + 8」三个文字占位符并垂直居中 */
+.edm-modal-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+/* 标题中间的 1 单位空格：仅留 3px 不可见间隙（不是文字占位符横条） */
+.edm-modal-title .edm-title-space {
+  width: 3px;
+  flex: 0 0 3px;
+}
+
+/* 关闭按钮 */
+.edm-modal-close {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--customEditorTheme-menuBar-border);  /* 图标颜色绑定菜单栏边框色（非背景） */
+  transition: transform 0.15s ease;
+}
+.edm-modal-close:hover {
+  transform: scale(1.18);
+}
+/* 关闭按钮内的图标占位符 */
+.edm-modal-close .edm-icon-placeholder {
+  width: 16px;
+  height: 16px;
+}
+
+/* 弹窗内容：背景绑定 darkMode（深色模式）——深色→#1c1c1c，浅色→#ffffff，文字色随背景反算 */
+.edm-modal-body {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* 弹窗元素悬停时，对应设置项在预览内高亮（与全屏/扩展视图一致） */
+.edm-preview[data-setting-hovered="popup"] .edm-modal-backdrop {
+  box-shadow: 0 0 8px inset var(--orange);
+}
+.edm-preview[data-setting-hovered="popupHeader"] .edm-modal-header {
+  box-shadow: 0 0 8px inset var(--orange);
+}
+.edm-preview[data-setting-hovered="darkMode"] .edm-modal-body {
+  box-shadow: 0 0 8px inset var(--orange);
+}

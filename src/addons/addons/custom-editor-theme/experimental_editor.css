@@ -1,0 +1,978 @@
+/* Page background */
+[class*="gui_body-wrapper_"],
+[class*="gui_tab_"]:not([class*="gui_is-selected_"]):hover,
+[class*="backpack_backpack-item_"] > div,
+[class*="custom-procedures_workspace_"] .blocklySvg,
+[class*="record-modal_meter-container_"],
+[class*="meter_mask_"],
+[class*="record-modal_waveform-container_"],
+[class*="gui_stage-and-target-wrapper_"] {
+  background-color: var(--customEditorTheme-page) !important;
+  color: var(--customEditorTheme-page-text) !important;
+  
+}
+[class*="backpack_status-message_"] {
+  color: var(--customEditorTheme-page-text);
+}
+[class*="gui_tab_"]:not([class*="gui_is-selected_"]):hover {
+  color: var(--customEditorTheme-page-transparentText);
+}
+[class*="gui_tab_"]:not([class*="gui_is-selected_"]):hover img {
+  filter: var(--customEditorTheme-page-tabHoverFilter);
+}
+[class*="loader_background_"] {
+  background-color: var(--customEditorTheme-page-loader);
+}
+
+/* Menu bar background */
+[class*="menu-bar_menu-bar_"],
+[class*="menu_menu_"],
+[class*="webgl-modal_illustration"] {
+  background-color: var(--customEditorTheme-menuBar);
+  color: var(--customEditorTheme-menuBar-text);
+}
+[class*="menu-bar_menu-bar-item_"],
+[class*="input_input-form_"][class*="project-title-input_title-field_"],
+[class*="author-info_author-info_"],
+[class*="inline-message_info_"],
+[class*="modal_header-item_"] {
+  color: var(--customEditorTheme-menuBar-text);
+}
+[class*="share-button_share-button_"],
+[class*="menu-bar_remix-button_"] {
+  color: white;
+}
+[class*="inline-message_success_"] {
+  color: var(--customEditorTheme-menuBar-dimText);
+}
+[class*="spinner_spinner_"][class*="spinner_info_"] {
+  border-color: var(--customEditorTheme-menuBar-transparentText);
+}
+[class*="spinner_spinner_"][class*="spinner_info_"]::after {
+  border-top-color: var(--customEditorTheme-menuBar-text);
+}
+/* The HyperMimic wordmark is a white SVG placed before .file-group, so the generic
+   white-icon selectors below do not reach it. It follows the same menuBar-filter:
+   none on a dark bar, brightness(0.4) on a light one. */
+[class*="menu-bar_hm-logo_"],
+[class*="menu-bar_file-group_"] [class*="menu-bar_hoverable_"] > img,
+[class*="menu-bar_menu-bar-menu_"]
+  > [class*="menu_menu_"]
+  > [class*="menu_menu-item_"]:first-child
+  [class*="settings-menu_icon_"] /* language icon */,
+[class*="settings-menu_expand-caret_"],
+[class*="settings-menu_check_"],
+[class*="menu-bar_help-icon_"],
+[class*="community-button_community-button-icon_"],
+[class*="menu-bar_mystuff-icon_"],
+/* "See inside" is a Button (not a MenuLabel), so its <img> is a child of
+   .button_icon_ rather than a direct child of .menu-bar_hoverable_. */
+[class*="see-inside-button-icon"],
+.sa-editormessages::before,
+[class*="account-nav_user-info_"] [class*="account-nav_dropdown-caret-position_"] img,
+[class*="modal_back-button_"] [class*="button_icon_"],
+[class*="modal_header-item-close_"] [class*="close-button_close-icon_"] {
+  filter: var(--customEditorTheme-menuBar-filter);
+}
+/* Popup header close icon follows the popup header background, not the menu bar */
+[class*="modal_header-item-close_"] [class*="close-button_close-icon_"] {
+  filter: var(--customEditorTheme-popupHeader-filter);
+}
+/* Settings-menu special icons (white SVG) follow the menu bar background:
+   - "Switch To Dark/Light Mode" (sun/moon)
+   - "Customize in Addon Settings" in the Accent and Block Colors menus
+     (custom swatch + open-link arrow)
+   The plain color/theme options (Original/High Contrast/Orange/...) are
+   intentionally left untouched. */
+.sa-body-editor img[class*="sa-settings-mode-icon"],
+.sa-body-editor img[class*="sa-settings-custom-icon"],
+.sa-body-editor img[class*="sa-settings-open-link"] {
+  filter: var(--customEditorTheme-menuBar-filter) !important;
+}
+[class*="menu-bar_divider_"],
+[class*="input_input-form_"][class*="project-title-input_title-field_"],
+[class*="project-title-input_title-field_"]:hover:not(:focus),
+[class*="menu_menu-section_"] {
+  border-color: var(--customEditorTheme-menuBar-border);
+}
+/* Desktop Settings Icon 需要在 src\components\menu-bar\tw-desktop-settings.jsx 中定义id：twdesktopsettingsicon， 菜单栏右边的about icon也是差不多 */
+#twdesktopsettingsicon, .twabouticon {
+  filter: var(--customEditorTheme-menuBar-filter);
+}
+
+[class*="menu-bar_feedback-button_"] {
+  background: var(--customEditorTheme-menuBar-text);
+  color: var(--customEditorTheme-menuBar);
+}
+[class*="community-button_community-button_"],
+[class*="user-avatar_user-thumbnail_"] {
+  box-shadow: 0 0 0 1px var(--customEditorTheme-menuBar-border);
+}
+[class*="modal_header_"] [class*="close-button_large_"] {
+  background-color: var(--customEditorTheme-popupHeader-border);
+  box-shadow: 0 0 0 2px var(--customEditorTheme-popupHeader-border);
+}
+[class*="modal_header_"] [class*="close-button_large_"]:hover {
+  box-shadow: 0 0 0 4px var(--customEditorTheme-popupHeader-border);
+}
+/* 弹窗头部（含拓展库头部）跟随"弹窗头部颜色"设置项（从里面去除掉“高级设置”的每个小部分的标题） */
+[class*="modal_header_"]:not([class^="settings-modal_header_"]) {
+  background-color: var(--customEditorTheme-popupHeader) !important;
+}
+[class*="modal_header_"] [class*="header-item-title_"],
+[class*="modal_header_"] [class*="header-item_"],
+[class*="modal_header_"] [class*="header-item-help_"],
+[class*="modal_header_"] [class*="close-button_large_"] {
+  color: var(--customEditorTheme-popupHeader-text);
+}
+[class*="modal_header_"] [class*="close-button_large_"]:hover {
+  background-color: var(--customEditorTheme-popupHeader-border);
+}
+[class*="menu-bar_menu-bar-item_"][class*="menu-bar_active_"],
+[class*="menu-bar_menu-bar-item_"][class*="menu-bar_hoverable_"]:hover,
+[class*="menu_menu-item_"][class*="menu_active_"],
+/* Menu-bar dropdown items only: the right-click menu's items are classed
+   "context-menu_menu-item_<hash>", which contains the substring "menu_menu-item_", so without the
+   :not() this rule would also paint the GUI's right-click menu items with the menu-bar highlight. */
+[class*="menu_menu-item_"]:not([class*="context-menu_"]):hover,
+[class*="menu_menu-item_"][class*="menu_expanded_"] {
+  background-color: var(--customEditorTheme-menuBar-border);
+}
+[class*="menu_submenu_"] > [class*="menu_menu_"] {
+  scrollbar-color: var(--customEditorTheme-menuBar-border) var(--customEditorTheme-menuBar);
+}
+
+/* Active tab background */
+[class*="gui_tab_"][class*="gui_is-selected_"] {
+  background-color: var(--customEditorTheme-activeTab);
+}
+
+/* Inactive tab background */
+[class*="gui_tab_"] {
+  background-color: var(--customEditorTheme-tab);
+  color: var(--customEditorTheme-tab-text);
+}
+[class*="gui_tab_"] img {
+  filter: var(--customEditorTheme-tab-filter);
+}
+
+/* Sprite list background */
+[class*="sprite-selector_sprite-selector_"],
+[class*="modal_modal-content_"][class*="modal_full-screen_"],
+[class*="library_library-scroll-grid_"] {
+  background-color: var(--customEditorTheme-selector);
+  color-scheme: var(--customEditorTheme-selector-colorScheme);
+}
+[class*="sprite-selector-item_sprite-info_"],
+[class*="library_library-category-title_"] {
+  color: var(--customEditorTheme-selector-text);
+}
+[class*="card_card_"] {
+  border-color: var(--customEditorTheme-selector);
+}
+
+/* Asset list background */
+[class*="selector_wrapper_"] {
+  background-color: var(--customEditorTheme-selector2);
+  color-scheme: var(--customEditorTheme-selector2-colorScheme);
+}
+[class*="sprite-selector-item_sprite-selector-item_"],
+[class*="selector_list-item_"] [class*="sprite-selector-item_sprite-info_"] {
+  color: var(--customEditorTheme-selector2-text);
+}
+[class*="gui_tab-panel_"]:nth-child(4) [class*="sprite-selector-item_sprite-image_"] {
+  filter: var(--customEditorTheme-selector2-filter);
+}
+
+/* Selected list item background */
+[class*="sprite-selector-item_sprite-selector-item_"]:hover,
+[class*="sprite-selector-item_sprite-selector-item_"][class*="sprite-selector-item_is-selected_"] {
+  background-color: var(--customEditorTheme-selectorSelection);
+  color: var(--customEditorTheme-selectorSelection-text);
+}
+[class*="sprite-selector-item_sprite-selector-item_"]:not([class*="sprite-selector-item_is-selected_"]):hover
+  [class*="sprite-selector-item_sprite-info_"] {
+  color: var(--customEditorTheme-selectorSelection-text);
+}
+[class*="gui_tab-panel_"]:nth-child(4)
+  [class*="sprite-selector-item_is-selected_"]
+  [class*="sprite-selector-item_sprite-image_"],
+[class*="gui_tab-panel_"]:nth-child(4)
+  [class*="sprite-selector-item_sprite-selector-item_"]:hover
+  [class*="sprite-selector-item_sprite-image_"] {
+  filter: var(--customEditorTheme-selectorSelection-filter);
+}
+
+/* Accent background */
+[class*="backpack_backpack-header_"],
+.sa-body-editor [class*="stage-header_stage-button_"],
+.sa-body-editor [class*="stage-header_stage-size-row_"] > *,
+.sa-body-editor [class*="stage-header_unselect-wrapper_"],
+[class*="sprite-info_sprite-info_"],
+[class*="stage-selector_stage-selector_"],
+[class*="stage-selector_header_"],
+[class*="drag-layer_image_"],
+.blocklyDropDownDiv .goog-slider-horizontal .goog-slider-thumb,
+.scratchColourSlider::-webkit-slider-thumb,
+[class*="asset-panel_wrapper_"],
+[class*="color-button_outline-swatch_"]::after,
+[class*="slider_handle_"],
+[class*="sound-editor_button_"],
+[class*="library-item_library-item_"],
+.sa-find-dropdown-out.visible, /* find-bar style */
+.sa-mcp-container, /* middle-click-popup style */
+[class*="prompt_body_"],
+[class*="custom-procedures_body_"],
+[class*="slider-prompt_body_"],
+[class*="record-modal_body_"],
+[class*="webgl-modal_body_"],
+.sa-debugger-interface,
+.sa-debugger-tabs li.sa-debugger-tab-selected {
+  background-color: var(--customEditorTheme-accent);
+  color: var(--customEditorTheme-accent-text);
+  color-scheme: var(--customEditorTheme-accent-colorScheme);
+}
+/* Modal bodies (new variable / list / block, slider, record, webgl) must follow
+   the global dark/light mode, not the accent color's scheme. Otherwise their
+   native radio/checkbox controls stay dark even after dark mode is turned off,
+   because accent-colorScheme is derived from the (often dark) accent color and
+   overrides the root color-scheme on these containers. */
+[class*="prompt_body_"],
+[class*="custom-procedures_body_"],
+[class*="slider-prompt_body_"],
+[class*="record-modal_body_"],
+[class*="webgl-modal_body_"] {
+  color-scheme: var(--color-scheme) !important;
+}
+[class*="confirmation-prompt_confirm-button_"],
+[class*="confirmation-prompt_cancel-button_"][class*="delete-confirmation-prompt_button-row-button_"] {
+  background-color: var(--customEditorTheme-accent);
+}
+[class*="color-button_color-button-swatch_"][style="background: white;"] {
+  background-color: var(--customEditorTheme-accent) !important;
+}
+[class*="stage-selector_header-title_"],
+[class*="stage-selector_label_"],
+[class*="stage-selector_count_"],
+[class*="color-button_color-button-arrow_"],
+[class*="dropdown_dropdown_"][class*="font-dropdown_font-dropdown_"],
+[class*="sound-editor_tool-button_"],
+[class*="sound-editor_effect-button_"],
+[class*="library-item_featured-extension-metadata_"],
+[class*="record-modal_help-text_"],
+[class*="webgl-modal_body_"] > *,
+.sa-editor-modal-content p,
+.sa-debugger-tab-content h2 {
+  color: var(--customEditorTheme-accent-text);
+}
+.blocklyFlyoutButton:hover {
+  fill: var(--customEditorTheme-accent);
+}
+.blocklyFlyoutButton:hover .blocklyText,
+.scratch-renderer.default-theme .blocklyFlyoutButton:hover .blocklyText {
+  fill: var(--customEditorTheme-accent-text);
+}
+.scratch-renderer.high-contrast-theme .blocklyFlyoutButton:hover .blocklyText {
+  fill: var(--customEditorTheme-accent-text) !important;
+}
+[class*="selector_new-buttons_"]::before {
+  background: linear-gradient(var(--customEditorTheme-accent-gradient-opacity0), var(--customEditorTheme-accent-gradient));
+}
+[class*="library-item_library-item-inset-image-container_"] {
+  border-color: var(--customEditorTheme-accent);
+}
+.sa-float-bar-dropdown > li.sa-boolean::before /* middle-click-popup style */ {
+  border-top: 9px solid var(--customEditorTheme-accent);
+  border-bottom: 10px solid var(--customEditorTheme-accent);
+}
+.sa-float-bar-dropdown > li.sa-boolean::after  /* middle-click-popup style */ {
+  border-top: 9px solid var(--customEditorTheme-accent);
+  border-bottom: 10px solid var(--customEditorTheme-accent);
+}
+[class*="sprite-info_icon-wrapper_"],
+[class*="mode-tools_mode-tools-icon_"],
+[class*="library-item_library-item-image_"][src*="data:"] /* sound icon */,
+[class*="library-item_featured-extension-metadata-detail_"] img {
+  filter: var(--customEditorTheme-accent-filter);
+}
+
+/* Icons in the stage-header buttons follow the accent system, matching the
+   settings-page preview:
+   - The stage-size toggle buttons (small/large/full): the SELECTED one is
+     recolored to the accent color (the generic rule at the "Text and icon
+     highlight color" section applies highlightText-iconFilter =
+     recolorFilter(accentColor) to [aria-pressed="true"] toggles); the
+     UNSELECTED ones pick their shade from the button's background (dark ->
+     white icon, light -> native gray icon). The size-toggle icons are also
+     recolored at build time via tw-recolor (Recolor.primary = orange) so we
+     need !important to win over that fixed orange.
+   - The other stage-header buttons (debugger, full screen, hide-stage) and
+     the paint editor mode-tools icons have fixed-color icons (recolored via
+     tw-recolor), so they pick their shade from the ACCENT BACKGROUND:
+     dark -> white, light -> gray. Unpressed hide-stage uses the same shade;
+     pressed hide-stage follows the accent color via the highlightText-iconFilter
+     group below. We use !important + .sa-body-editor here to win over the
+     build-time recolor of those icons.
+   - The drawing tool selector (tool-select) and the fixed-tools buttons
+     (paint-snap / onion-skinning) are NOT forced here; their SELECTED
+     states are handled separately so the icon shade follows the selected
+     button's accent background. */
+.sa-body-editor [class*="stage-header_stage-size-toggle-group_"] [class*="toggle-buttons_button_"]:not([aria-pressed="true"]) > [class*="stage-header_stage-button-icon_"],
+.sa-body-editor [class*="stage-header_stage-button_"] [class*="stage-header_stage-button-icon_"],
+.sa-body-editor .sa-hide-stage-button:not([aria-pressed="true"]) > [class*="stage-header_stage-button-icon_"],
+.sa-body-editor [class*="mode-tools_mode-tools-icon_"] {
+  filter: var(--customEditorTheme-accent-bgIconFilter) !important;
+}
+[class*="toggle-buttons_button_"] > img {
+  filter: var(--customEditorTheme-accent-desaturateFilter);
+}
+[class*="font-dropdown_font-dropdown_"][class*="dropdown_mod-open_"] {
+  color: var(--customEditorTheme-accent-openFontDropdownText);
+}
+[dir="ltr"] [class*="fixed-tools_mod-dashed-border_"],
+[dir="rtl"] [class*="fixed-tools_mod-dashed-border_"],
+[dir="ltr"] [class*="paint-editor_mod-dashed-border_"],
+[dir="rtl"] [class*="paint-editor_mod-dashed-border_"],
+[dir="ltr"] [class*="mode-tools_mod-dashed-border_"],
+[dir="rtl"] [class*="mode-tools_mod-dashed-border_"],
+[class*="paint-editor_editor-container-top_"],
+[dir="ltr"] [class*="sound-editor_input-group_"],
+[dir="rtl"] [class*="sound-editor_input-group_"],
+[dir="rtl"] [class*="sound-editor_row-reverse_"] > [class*="sound-editor_input-group_"],
+[class*="prompt_cloud-option_"] {
+  border-color: var(--customEditorTheme-accent-divider);
+}
+[class*="sound-editor_round-button_"] {
+  border-color: var(--customEditorTheme-accent-transparent75);
+}
+/* [class*="alert_alert_"][class*="alert_info-blue_"] {
+  background-color: var(--customEditorTheme-accent-info);
+}
+[class*="alert_alert_"][class*="alert_success_"] {
+  background-color: var(--customEditorTheme-accent-success);
+  box-shadow: 0 0 0 2px var(--customEditorTheme-accent-success);
+}
+[class*="alert_alert_"][class*="alert_warn_"] {
+  background-color: var(--customEditorTheme-accent-error);
+} */
+[class*="blocks_drag-over_"]::after,
+[class*="backpack_drag-over_"]::after,
+[class*="sprite-selector_scroll-wrapper-dragging_"],
+[class*="sprite-selector_raised_"],
+[class*="sprite-selector_raised_"]:hover,
+[class*="stage-selector_raised_"],
+[class*="stage-selector_raised_"] [class*="stage-selector_header_"]{
+  background-color: var(--customEditorTheme-accent-dropHighlight);
+}
+/* [class*="alert_alert-message_"] {
+  color: var(--customEditorTheme-accent-text);
+} */
+
+[class*="sa-sprite-properties-info-btn"] {
+  background-color: var(--customEditorTheme-primary) !important;
+}
+
+/* Input background. The searchable-dropdown search bar is NOT styled here: its own stylesheet
+   (addons/editor-searchable-dropdowns/userscript.css) resolves to --customEditorTheme-input /
+   -input-text first and falls back to the GUI theme tokens, so it follows this addon's palette
+   without the two stylesheets racing on the same declarations. */
+[class*="project-title-input_title-field_"]:hover {
+  background-color: var(--customEditorTheme-input-transparent50);
+}
+[class*="language-selector_language-select_"] option,
+[class*="project-title-input_title-field_"]:focus,
+[class*="input_input-form_"],
+[class*="input_input-form_"],
+[class*="context-menu_context-menu_"],
+.blocklyWidgetDiv .goog-menu,
+.blocklyWidgetDiv .blocklyMenu,
+[class*="filter_filter_"],
+[class*="prompt_button-row_"]:where(:not([class*="confirmation-prompt_"])) button,
+[class*="prompt_variable-name-text-input_"],
+[class*="custom-procedures_option-card_"],
+[class*="custom-procedures_button-row_"] button,
+[class*="slider-prompt_button-row_"] button,
+[class*="slider-prompt_min-input_"],
+[class*="slider-prompt_max-input_"],
+[class*="record-modal_button-row_"] button,
+.Popover-body,
+.sa-onion-settings,
+.sa-paint-snap-settings {
+  background-color: var(--customEditorTheme-input);
+  color: var(--customEditorTheme-input-text);
+  color-scheme: var(--customEditorTheme-input-colorScheme);
+}
+[class*="project-title-input_title-field_"] {
+  background-color: var(--customEditorTheme-input-transparent25);
+}
+[class*="color-picker_row-header_"],
+[class*="filter_filter-input_"],
+[class*="filter_filter-input_"]::placeholder,
+[class*="context-menu_menu-item_"],
+.blocklyWidgetDiv .goog-menuitem,
+.blocklyMenuItem,
+.scratchColourPickerLabel,
+.valueReportBox {
+  color: var(--customEditorTheme-input-text);
+}
+.Popover-tipShape,
+.sa-onion-settings-polygon,
+.sa-paint-snap-settings-polygon,
+.blocklyFlyoutCheckbox {
+  fill: var(--customEditorTheme-input);
+}
+.blocklyBlockCanvas g:not(.checked) .blocklyFlyoutCheckboxPath,
+.blocklyBubbleCanvas > g:not(.checked) .blocklyFlyoutCheckboxPath {
+  stroke: var(--customEditorTheme-input);
+}
+.blocklyDropDownDiv[style*="background-color: rgb(255, 255, 255)"] {
+  /* scratch-blocks color pickers and result bubbles */
+  background-color: var(--customEditorTheme-input) !important;
+  color: var(--customEditorTheme-input-text);
+}
+.scratchEyedropper img,
+.sa-paint-snap-settings .sa-paint-snap-image,
+.sa-onion-settings .sa-onion-image {
+  filter: var(--customEditorTheme-input-filter);
+}
+[class*="input_input-form_"]::placeholder,
+[class*="input_input-form_"]::placeholder {
+  color: var(--customEditorTheme-input-transparentText);
+}
+.blocklyWidgetDiv .goog-menuitem-disabled .goog-menuitem-content {
+  color: var(--customEditorTheme-input-transparentText) !important;
+}
+.blocklyMenuItemDisabled,
+/* The GUI's right-click menu marks a disabled item with aria-disabled (react-contextmenu does not
+   give it a class of its own) — see .menu-item[aria-disabled='true'] in context-menu.css.
+   !important next to the Blockly line: both stylesheets declare the same specificity. */
+[class*="context-menu_menu-item_"][aria-disabled="true"] {
+  color: var(--customEditorTheme-input-transparentText) !important;
+}
+.blocklyDropDownDiv .goog-slider-horizontal .goog-slider-thumb,
+.scratchColourSlider::-webkit-slider-thumb,
+[class*="slider_handle_"] {
+  box-shadow: 0 0 0 4px var(--customEditorTheme-input-foregroundShadow);
+}
+/* Blockly's dotted highlight border is painted on the hovered element itself (it carries both
+   goog-menuitem and goog-menuitem-highlight). Its RESTING state deliberately keeps a transparent
+   dotted border -- 1px 0, so hovering never changes the item's box -- which means recolouring the
+   resting state paints a dotted outline on every item at once (the bug this replaced). So only
+   the hovered state gets the divider colour; the resting state stays transparent.
+   The GUI menu's item now keeps the same transparent 1px border at rest (context-menu.css), so the
+   same selector is used for it and its hover border matches the Blockly menu's. !important: the
+   item's own stylesheet sets border-color on :hover with the same specificity. */
+.blocklyWidgetDiv .goog-menuitem-highlight,
+.blocklyWidgetDiv .goog-menuitem-hover,
+[class*="context-menu_menu-item_"]:hover {
+  border-color: var(--customEditorTheme-input-divider) !important;
+}
+/* The hex colour pickers draw their ring on the FRAME rather than the input, so neither rule above
+   reaches them: the editor-side one is the color-picker addon's .sa-color-picker, the costume-side
+   one is scratch-paint's `.picker-row`, whose class is CSS-Module hashed
+   (`color-picker_picker-row_<hash>`), hence the substring match. Repaint both with the theme
+   accent, at the same 0.25rem geometry (and fade-in) their own stylesheets use -- that is what
+   .input-form:focus looks like once this theme takes over. !important: these rules have exactly
+   the same specificity (0,2,0) as the ones they override, and addon stylesheets load in no
+   guaranteed order. */
+.sa-color-picker:focus-within,
+[class*="color-picker_picker-row_"]:focus-within {
+  border-color: var(--customEditorTheme-primary) !important;
+  box-shadow: 0 0 0 0.25rem var(--customEditorTheme-primary-transparent35) !important;
+}
+/* The bookmark addon's fields follow the same ring while this theme is on. It has to live here
+   rather than in that addon's own stylesheet: --customEditorTheme-* is written to <html>'s INLINE
+   style and never cleared when this addon is switched off, so a `var(..., fallback)` over there
+   would keep the theme colour after disabling it. */
+.sa-bookmark-name-input:focus,
+.sa-bookmark-add-form input:focus {
+  border-color: var(--customEditorTheme-primary) !important;
+  box-shadow: 0 0 0 0.25rem var(--customEditorTheme-primary-transparent35) !important;
+}
+[class*="question_question-input_"] [class*="input_input-form_"] {
+  /* Don't affect ask prompt */
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #575e75;
+}
+
+/* Workspace background */
+.blocklySvg {
+  background-color: var(--customEditorTheme-workspace);
+}
+[id^="blocklyGridPattern"] line {
+  stroke: var(--customEditorTheme-workspace-dots);
+}
+.blocklyMainWorkspaceScrollbar .blocklyScrollbarHandle,
+.blocklyMainWorkspaceScrollbar .blocklyScrollbarBackground:hover + .blocklyScrollbarHandle,
+.blocklyMainWorkspaceScrollbar .blocklyScrollbarHandle:hover {
+  fill: var(--customEditorTheme-workspace-scrollbar);
+}
+.blocklyInsertionMarker > .blocklyPath {
+  fill: var(--customEditorTheme-workspace-insertionMarker);
+}
+
+/* Block category menu background */
+.blocklyToolboxDiv,
+.blocklyToolbox,
+.scratchCategoryMenu {
+  background: var(--customEditorTheme-categoryMenu);
+  color: var(--customEditorTheme-categoryMenu-text);
+  --colour-toolboxSelected: var(--customEditorTheme-categoryMenu-selection);
+  --colour-toolboxText: var(--customEditorTheme-categoryMenu-text);
+}
+.scratchCategoryMenuItem.categorySelected {
+  background-color: var(--customEditorTheme-categoryMenu-selection);
+  color: var(--customEditorTheme-categoryMenu-text);
+}
+.scratchCategoryMenuItem:hover {
+  color: var(--customEditorTheme-categoryMenu-hoverText) !important;
+}
+.blocklyToolboxCategory:hover {
+  color: var(--customEditorTheme-categoryMenu-hoverText);
+}
+
+/* Block palette background */
+.blocklyFlyoutBackground {
+  fill: var(--customEditorTheme-palette);
+  fill-opacity: 1;
+}
+.blocklyFlyoutLabelText,
+.scratch-renderer.default-theme .blocklyFlyoutLabelText,
+.scratch-renderer.high-contrast-theme .blocklyFlyoutLabelText,
+.blocklyFlyoutButton .blocklyText,
+.scratch-renderer.default-theme .blocklyFlyoutButton .blocklyText {
+  fill: var(--customEditorTheme-palette-text);
+}
+.scratch-renderer.high-contrast-theme .blocklyFlyoutButton .blocklyText {
+  fill: var(--customEditorTheme-palette-text) !important;
+}
+.blocklyFlyoutScrollbar .blocklyScrollbarHandle,
+.blocklyFlyoutScrollbar .blocklyScrollbarBackground:hover + .blocklyScrollbarHandle,
+.blocklyFlyoutScrollbar .blocklyScrollbarHandle:hover {
+  fill: var(--customEditorTheme-palette-scrollbar);
+}
+
+/* Full screen background */
+[class*="stage-wrapper_stage-wrapper_"][class*="stage-wrapper_full-screen_"] {
+  background-color: var(--customEditorTheme-fullscreen, var(--fullscreen-accent, #1c1c1c));
+}
+
+/* Full screen stage header background */
+[class*="stage-header_stage-header-wrapper-overlay_"] {
+  /* Fallback to the base fullscreen accent, then a solid colour: if a preset omits
+     --customEditorTheme-stageHeader the bar is transparent and the editor GUI shows through its
+     empty left/right margins. */
+  background-color: var(--customEditorTheme-stageHeader, var(--fullscreen-accent, #1c1c1c));
+}
+
+/* Primary color */
+[class*="backpack_more_"],
+[class*="sprite-selector-item_is-selected_"] [class*="sprite-selector-item_sprite-info_"],
+[class*="delete-button_delete-button-visible_"],
+[class*="confirmation-prompt_modal-container_"],
+[class*="confirmation-prompt_cancel-button_"],
+[class*="stage-selector_stage-selector_"][class*="stage-selector_is-selected_"] [class*="stage-selector_header_"],
+[class*="font-dropdown_mod-menu-item_"]:hover:not(:active),
+[class*="tool-select-base_mod-tool-select_"][class*="tool-select-base_is-selected_"],
+[class*="tool-select-base_mod-tool-select_"][class*="tool-select-base_is-selected_"]:active,
+[class*="paint-editor_bitmap-button_"],
+.sa-onion-button[data-enabled="true"],
+.sa-paint-snap-button[data-enabled="true"],
+[class*="sound-editor_round-button_"],
+[class*="audio-trimmer_selection-background_"],
+[class*="tag-button_tag-button_"]:not([class*="tag-button_active_"]),
+[class*="action-menu_button_"] {
+  background-color: var(--customEditorTheme-primary);
+  color: var(--customEditorTheme-primary-text);
+}
+/* The GUI's right-click menu items are NOT painted with the solid accent: they follow the Blockly
+   menu instead (translucent accent, text kept) — see the .goog-menuitem-highlight block below. */
+[class*="delete-button_delete-button-clicked_"],
+[class*="context-menu_menu-item-danger_"]:hover {
+  background-color: hsla(30, 100%, 55%, 1);
+}
+[class*="gui_extension-button-container_"],
+[class*="prompt_button-row_"] button[class*="prompt_ok-button_"],
+[class*="custom-procedures_button-row_"] button[class*="custom-procedures_ok-button_"],
+[class*="record-modal_button-row_"] button[class*="record-modal_ok-button_"],
+[class*="webgl-modal_button-row"] > button {
+  background-color: var(--customEditorTheme-primary);
+  border-color: var(--customEditorTheme-primary);
+}
+[class*="input_input-form_"]:not([class*="project-title-input_title-field_"]):hover,
+[class*="toggle-buttons_button_"]:focus::before,
+[class*="stage_frame_"],
+[class*="sprite-selector-item_sprite-selector-item_"]:hover,
+[class*="stage-selector_stage-selector_"]:hover,
+[class*="drag-layer_image_"],
+[class*="sound-editor_button_"]:focus::before,
+[class*="library-item_library-item_"]:hover {
+  border-color: var(--customEditorTheme-primary);
+}
+/* The accent is deliberately not used to repaint the focus outline of plain inputs. This selector
+   lives on document.body (.sa-body-editor — see src/addons/api.js), so it recoloured the browser's
+   focus ring on every input in the editor that does not set "outline: none" of its own. Leave the
+   ring alone. */
+[class*="green-flag_green-flag_"]:hover,
+[class*="stop-all_stop-all_"]:hover,
+.pause-btn:hover,
+[class*="toggle-buttons_button_"][aria-pressed="true"],
+[class*="icon-button_container_"]:not([class*="tool-select-base_is-selected_"]):active,
+.blocklyWidgetDiv .goog-menuitem-highlight,
+.blocklyWidgetDiv .goog-menuitem-hover,
+/* The GUI's own right-click menu paints the same highlight on its items — it does not use the solid
+   accent from the "Primary color" block above. The destructive item keeps its own fill (see
+   context-menu.css), hence the :not(). Disabled items are excluded too: Blockly never highlights
+   them (goog.ui.Menu skips disabled items), and the GUI's own stylesheet undoes its hover rule for
+   them — without the exclusion this selector would outrank that undo. */
+[class*="context-menu_menu-item_"]:not([class*="context-menu_menu-item-danger_"]):not([aria-disabled="true"]):hover {
+  background-color: var(--customEditorTheme-primary-transparent15);
+}
+
+:root {
+  --colour-contextualMenuHover: var(--customEditorTheme-primary-transparent15);
+}
+[class*="library_filter-bar_"],
+.sa-body-editor [class*="stage-header_stage-button_"]:active,
+[class*="stage_frame_"],
+[class*="toggle-buttons_button_"]:active,
+[class*="button_button_"]:active,
+[class*="fixed-tools_mod-menu-item_"]:not([class*="fixed-tools_mod-disabled_"]):hover,
+[class*="button_highlighted_"][class*="button_button_"],
+.sa-paint-snap-button:active,
+.sa-onion-button:active,
+[class*="sound-editor_button_"]:active {
+  background-color: var(--customEditorTheme-primary-transparent35);
+}
+[class*="button_mod-disabled_"]:active {
+  background-color: transparent;
+}
+[class*="modal_modal-overlay_"] {
+  background-color: var(--customEditorTheme-popup);
+}
+[class*="delete-button_delete-button-visible_"],
+[class*="filter_filter_"]:focus-within {
+  box-shadow: 0 0 0 2px var(--customEditorTheme-primary-transparent35);
+}
+[class*="color-picker_active-swatch_"],
+[class*="question_question-input_"] > input:focus {
+  border-color: var(--customEditorTheme-primary);
+  box-shadow: 0 0 0 3px var(--customEditorTheme-primary-transparent35);
+}
+[class*="action-menu_main-button_"] {
+  box-shadow: 0 0 0 4px var(--customEditorTheme-primary-transparent35);
+}
+[class*="input_input-form_"]:not([class*="project-title-input_title-field_"]):not(
+    .sa-find-input,
+    .sa-float-bar-input
+  ):focus,
+[class*="input_input-form_"]:focus,
+[class*="sprite-selector-item_sprite-selector-item_"][class*="sprite-selector-item_is-selected_"],
+[class*="stage-selector_stage-selector_"][class*="stage-selector_is-selected_"],
+[class*="custom-procedures_option-card_"]:hover {
+  border-color: var(--customEditorTheme-primary);
+  box-shadow: 0 0 0 4px var(--customEditorTheme-primary-transparent35);
+}
+[class*="action-menu_main-button_"]:hover {
+  box-shadow: 0 0 0 6px var(--customEditorTheme-primary-transparent35);
+}
+/* The dial's gauge arc: dial.css paints it from $looks-transparent / $looks-secondary, which this
+   theme does not redefine. !important because both rules are one class (0,1,0) and the module's
+   stylesheet can load after this one. The face and the handle are images, recoloured by dial.js. */
+[class*="dial_gauge-path_"] {
+  fill: var(--customEditorTheme-primary-transparent35) !important;
+  stroke: var(--customEditorTheme-primary) !important;
+}
+[class*="confirmation-prompt_label_"],
+[class*="stage-selector_stage-selector_"][class*="stage-selector_is-selected_"] [class*="stage-selector_header-title_"],
+[class*="prompt_button-row_"] button[class*="prompt_ok-button_"],
+[class*="record-modal_button-row_"] button[class*="record-modal_ok-button_"] {
+  color: var(--customEditorTheme-primary-text);
+}
+[class*="confirmation-prompt_cancel-button_"][class*="delete-confirmation-prompt_button-row-button_"] {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+[class*="gui_extension-button-icon_"] {
+  filter: var(--customEditorTheme-primary-bgIconFilter);
+}
+/* Paint editor top button-group icons (undo/redo/group/ungroup/forward/
+   backward + zoom/theme in paint-editor, and fixed-tools copy/group etc.):
+   follow the accent COLOR at all times (icon color = accentColor). These
+   are <img> elements whose built-in color is set via tw-recolor (orange),
+   so we target the img directly with !important to win over that recolor. */
+/* .sa-body-editor img[class*="paint-editor_button-group-button-icon_"], */
+.sa-body-editor img[class*="fixed-tools_button-group-button-icon_"],
+.sa-body-editor img[class*="fixed-tools_menu-item-icon_"],
+.sa-body-editor img[class*="labeled-icon-button_edit-field-icon_"] {
+  filter: var(--customEditorTheme-primary-iconFilter) !important;
+}
+[class*="delete-button_delete-icon_"],
+[class*="action-menu_main-button_"]:not(:hover) [class*="action-menu_main-icon_"],
+[class*="action-menu_more-button_"]:not(:hover) [class*="action-menu_more-icon_"],
+[class*="paint-editor_bitmap-button-icon_"] {
+  filter: var(--customEditorTheme-primary-filter);
+}
+[class*="delete-button_delete-button-clicked_"] [class*="delete-button_delete-icon_"] {
+  filter: none;
+}
+[class*="tool-select-base_mod-tool-select_"][class*="tool-select-base_is-selected_"]
+  [class*="tool-select-base_tool-select-icon_"],
+.sa-paint-snap-button[data-enabled="true"] .sa-paint-snap-image,
+.sa-onion-button[data-enabled="true"] .sa-onion-image {
+  filter: var(--customEditorTheme-primary-bgIconFilter) !important;
+}
+[class*="modal-with-arrow_arrow_"] {
+  filter: var(--customEditorTheme-primary-iconFilter);
+}
+[class*="action-menu_more-buttons-outer_"],
+[class*="action-menu_more-button_"] {
+  background-color: var(--customEditorTheme-primary-variant);
+}
+[class*="audio-trimmer_selector_"] [class*="audio-trimmer_trim-line_"] {
+  border-color: var(--customEditorTheme-primary-variant);
+}
+/* Don't affect ask prompt: */
+[class*="question_question-input_"] [class*="input_input-form_"]:hover,
+[class*="question_question-container_"] /* <-- specificity */ [class*="question_question-input_"] [class*="input_input-form_"]:focus {
+  /* border-color: #855cd6; */
+}
+[class*="question_question-container_"] /* <-- specificity */ [class*="question_question-input_"] [class*="input_input-form_"]:focus {
+  /* box-shadow: 0 0 0 4px rgba(133, 92, 214, 0.35); */
+}
+
+/* Text and icon highlight color */
+.sa-body-editor a:link,
+[class*="gui_tab_"][class*="gui_is-selected_"],
+[class*="confirmation-prompt_confirm-button_"] span,
+[class*="confirmation-prompt_cancel-button_"][class*="delete-confirmation-prompt_button-row-button_"] span,
+[class*="dropdown_dropdown_"],
+[class*="record-modal_playing-text_"],
+[class*="record-modal_button-row_"] button,
+.sa-debugger-tabs li.sa-debugger-tab-selected {
+  color: var(--customEditorTheme-highlightText);
+}
+[class*="gui_tab_"][class*="gui_is-selected_"] img,
+[class*="toggle-buttons_button_"][aria-pressed="true"] > img,
+.sa-body-editor .sa-hide-stage-button[aria-pressed="true"] > [class*="stage-header_stage-button-icon_"],
+[class*="sprite-info_is-active_"] [class*="sprite-info_icon_"],
+[class*="delete-confirmation-prompt_button-row-button_"] [class*="confirmation-prompt_button-icon_"],
+[class*="color-picker_swap-button_"] [class*="labeled-icon-button_edit-field-icon_"],
+[class*="dropdown_dropdown-icon_"],
+[class*="sound-editor_undo-icon_"],
+[class*="sound-editor_redo-icon_"],
+[class*="sound-editor_tool-button_"] img,
+[class*="audio-trimmer_selector_"] /* <-- don't match record modal */ [class*="audio-trimmer_trim-handle_"] img,
+[class*="filter_filter-icon_"],
+img[src="/static/assets/7911235b3ccae7b7452ba3da6b5e9c7f.svg"] /* record modal play */,
+img[src*="c3RvcC1wbGF5YmFjayI+CiAgICAgICAgICAgICAgICAgICAgICAgIDx1c2UgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMSIgZmlsdGVyPSJ1cmwoI2ZpbHRlci0yKSIgeGxpbms6aHJlZj0iI3BhdGgtMSI+PC91c2U+CiAgICAgICAgICAgICAgICAgICAgICAgIDx1c2UgZmlsbD0iIzg1NUNENiIg"] /* record modal stop */,
+[class*="record-modal_rerecord-button_"] img,
+.sa-debugger-tabs li.sa-debugger-tab-selected img {
+  filter: var(--customEditorTheme-highlightText-iconFilter);
+}
+/* The debugger addon's own style.css sets filter: none on the selected tab
+   image; win the tie so the selected tab icon follows the accent color. */
+.sa-debugger-tabs li.sa-debugger-tab-selected img {
+  filter: var(--customEditorTheme-highlightText-iconFilter) !important;
+}
+/* Debugger variables search box: the addon's own style sets only the search
+   icon as a background-image, leaving the browser-default white input. */
+.sa-debugger-variables-searchbox {
+  background-color: var(--customEditorTheme-input);
+  color: var(--customEditorTheme-input-text);
+  color-scheme: var(--customEditorTheme-input-colorScheme);
+}
+
+/* Border color */
+[class*="gui_tab_"],
+[class*="gui_tab_"][class*="gui_is-selected_"]:focus,
+[class*="blocks_blocks_"] .injectionDiv,
+[class*="blocks_blocks_"] .blocklyToolboxDiv,
+[dir="rtl"] [class*="blocks_blocks_"] .blocklyToolboxDiv,
+[class*="blocks_blocks_"] .blocklyToolbox,
+[dir="rtl"] [class*="blocks_blocks_"] .blocklyToolbox,
+[class*="blocks_blocks_"] .blocklyFlyout,
+[dir="rtl"] [class*="blocks_blocks_"] .blocklyFlyout,
+[class*="backpack_backpack-header_"],
+[class*="backpack_backpack-list_"],
+.sa-body-editor [class*="stage_stage_"],
+.sa-body-editor [class*="stage-header_stage-button_"],
+[class*="toggle-buttons_button_"],
+[dir="rtl"] [class*="toggle-buttons_button_"]:not(:last-child),
+[class*="sprite-selector_sprite-selector_"],
+[class*="input_input-form_"],
+[class*="input_input-form_"],
+[class*="sprite-info_sprite-info_"],
+/* [class*="sprite-selector-item_sprite-selector-item_"], */
+[class*="stage-selector_stage-selector_"],
+[class*="stage-selector_header_"],
+[class*="stage-selector_costume-canvas_"],
+[class*="asset-panel_wrapper_"],
+[dir="ltr"] [class*="asset-panel_detail-area_"],
+[dir="rtl"] [class*="asset-panel_detail-area_"],
+[class*="fixed-tools_button-group-button_"],
+[dir="ltr"] [class*="fixed-tools_button-group-button_"]:first-of-type,
+[dir="rtl"] [class*="fixed-tools_button-group-button_"]:first-of-type,
+[dir="ltr"] [class*="fixed-tools_button-group-button_"][class*="fixed-tools_mod-start-border_"],
+[dir="rtl"] [class*="fixed-tools_button-group-button_"][class*="fixed-tools_mod-start-border_"],
+[class*="color-button_color-button-swatch_"],
+[class*="color-button_outline-swatch_"]::after,
+[class*="color-button_color-button-arrow_"],
+[class*="color-picker_divider_"],
+[class*="color-picker_swatch_"],
+[class*="dropdown_dropdown_"],
+[class*="paint-editor_canvas-container_"],
+[class*="paint-editor_button-group-button_"],
+[dir="ltr"] [class*="paint-editor_button-group-button_"]:first-of-type,
+[dir="rtl"] [class*="paint-editor_button-group-button_"]:first-of-type,
+[class*="sound-editor_button_"],
+[dir="ltr"] [class*="sound-editor_button-group_"] [class*="sound-editor_button_"]:first-of-type,
+[dir="rtl"] [class*="sound-editor_button-group_"] [class*="sound-editor_button_"]:first-of-type,
+.sa-var-manager td,
+[class*="library-item_library-item_"],
+/* The GUI's right-click menu, next to Blockly's own menu on the line below: the class in the
+   selector used to be "context-menu_context-menu-content_", which no element carries. */
+[class*="context-menu_context-menu_"],
+.blocklyWidgetDiv .goog-menu,
+.blocklyWidgetDiv .blocklyMenu,
+.scratchEyedropper,
+.Popover-body,
+.sa-onion-settings,
+.sa-paint-snap-settings,
+[class*="prompt_variable-name-text-input_"],
+[class*="prompt_button-row_"]:where(:not([class*="confirmation-prompt_"])) button,
+[class*="custom-procedures_option-card_"],
+[class*="custom-procedures_button-row_"] button,
+[class*="slider-prompt_min-input_"],
+[class*="slider-prompt_max-input_"],
+[class*="slider-prompt_button-row_"] button,
+[class*="record-modal_waveform-container_"],
+[class*="record-modal_button-row_"] button,
+.sa-debugger-log {
+  border-color: var(--customEditorTheme-border) !important;
+}
+
+[class*="hm-cancel-editor-margins"] [class*="backpack_backpack-header"] {
+    border-top: 1px solid var(--customEditorTheme-border) !important;
+    border-right: 1px solid var(--customEditorTheme-border) !important;
+}
+
+
+.blocklyDropDownDiv[style*="background-color: rgb(255, 255, 255)"] {
+  border-color: var(--customEditorTheme-border) !important;
+}
+.blocklyFlyoutButtonBackground,
+[class*="custom-procedures_workspace_"] .blocklyMainBackground,
+.blocklyFlyoutCheckbox,
+.Popover-tipShape,
+.sa-paint-snap-settings-polygon,
+.sa-onion-settings-polygon {
+  stroke: var(--customEditorTheme-border);
+}
+
+[class*="dropdown_mod-open_"] {
+  background-color: var(--customEditorTheme-border);
+  border-color: transparent;
+}
+
+/* Miscellaneous styles */
+[class*="stage-wrapper_"],
+[class*="paint-editor_canvas-container_"] {
+  color: #575e75;
+}
+[class*="sprite-selector_sprite-selector_"] {
+  /* Remove weird border if accent background
+  and sprite list background are too different. */
+  background-clip: padding-box;
+}
+[class*="backpack_backpack-item_"] img {
+  /* Make backpack items have a white background,
+  otherwise they would be too dark in dark mode. */
+  mix-blend-mode: normal;
+}
+.blocklyToolboxCategory:not(.blocklyToolboxSelected):hover {
+  /* Remove Blockly's default hover highlight from categories. */
+  background-color: transparent;
+}
+/* .blocklyWidgetDiv .goog-menuitem-highlight {
+  border: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+} */
+
+.sa-opacity-slider {
+  background-image: linear-gradient(
+      45deg,
+      var(--customEditorTheme-accent-paintEditorBackground) 25%,
+      transparent 25%,
+      transparent 75%,
+      var(--customEditorTheme-accent-paintEditorBackground) 75%
+    ),
+    linear-gradient(
+      45deg,
+      var(--customEditorTheme-accent-paintEditorBackground) 25%,
+      transparent 25%,
+      transparent 75%,
+      var(--customEditorTheme-accent-paintEditorBackground) 75%
+    );
+}
+.Popover .resize-sensor {
+  /* The <object> gets a white background if color-scheme is dark. */
+  color-scheme: light;
+}
+
+/* Custom accent color (设置里的"主题强调色") drives the whole GUI accent system,
+   exactly like selecting a built-in accent theme in src/lib/themes/accent.
+   These are the CSS variables that applyGuiColors() writes from the accent
+   module's guiColors (components consume them via $looks-secondary etc. in
+   src/css/colors.css); overriding them with !important makes buttons, toggles,
+   sliders, extension buttons and drop-highlight all follow the custom accent.
+   color-mix() derives the transparent/darker/lighter shades from accentColor. */
+:root {
+  --looks-secondary: var(--customEditorTheme-accentColor) !important;
+  --motion-primary: var(--customEditorTheme-accentColor) !important;
+  --motion-primary-transparent: color-mix(in srgb, var(--customEditorTheme-accentColor) 90%, transparent) !important;
+  --motion-tertiary: color-mix(in srgb, var(--customEditorTheme-accentColor) 70%, black) !important;
+  --looks-transparent: color-mix(in srgb, var(--customEditorTheme-accentColor) 35%, transparent) !important;
+  --looks-light-transparent: color-mix(in srgb, var(--customEditorTheme-accentColor) 15%, transparent) !important;
+  --looks-secondary-dark: color-mix(in srgb, var(--customEditorTheme-accentColor) 80%, black) !important;
+  --extensions-primary: var(--customEditorTheme-accentColor) !important;
+  --extensions-tertiary: color-mix(in srgb, var(--customEditorTheme-accentColor) 80%, black) !important;
+  --extensions-transparent: color-mix(in srgb, var(--customEditorTheme-accentColor) 35%, transparent) !important;
+  --extensions-light: color-mix(in srgb, var(--customEditorTheme-accentColor) 75%, white) !important;
+  --drop-highlight: color-mix(in srgb, var(--customEditorTheme-accentColor) 70%, white) !important;
+}
+
+/* Zoom controls in the bottom-right of the code area.
+   zoom_icons.js recolors the .blocklyZoom icons to match the workspace/palette
+   (dark button + light glyph in dark mode). But when the GUI dark theme is
+   active (theme-mode.js → twSetGuiTheme("dark")) the GUI theme also injects
+   `filter: invert(100%)` on `.blocklyZoom > image` (src/lib/themes/gui/dark.js
+   zoomIconFilter), which double-inverts the already-recolored icons back into
+   a LIGHT button on a dark workspace. Force the filter off so the recolored
+   icons render directly. */
+.blocklyZoom > image {
+  filter: none !important;
+}
+
+/* Backpack multi-select mode (components/backpack/backpack.css).
+   The bar is a plain row: only its text and its right border need theme colours.
+   The selectable tiles still have a surface; the selected tile keeps its accent
+   wash, the delete button its red, and the checkbox keeps the settings modal's
+   own FancyCheckbox look, so none of those are repainted here. */
+[class*="backpack_hm-backpack-multi-bar_"],
+[class*="backpack_hm-backpack-select-tile_"]:not([class*="backpack_hm-backpack-selected_"]),
+[class*="backpack_hm-backpack-multi-button_"]:not([class*="backpack_hm-backpack-multi-danger_"]) {
+  border-color: var(--customEditorTheme-border) !important;
+}
+[class*="backpack_hm-backpack-select-tile_"]:not([class*="backpack_hm-backpack-selected_"]) {
+  background-color: var(--customEditorTheme-input) !important;
+}
+[class*="backpack_hm-backpack-multi-bar_"],
+[class*="backpack_hm-backpack-multi-button_"]:not([class*="backpack_hm-backpack-multi-danger_"]),
+[class*="backpack_hm-backpack-select-name_"] {
+  color: var(--customEditorTheme-input-text) !important;
+}
+[class*="backpack_hm-backpack-select-thumb_"] {
+  background-color: var(--customEditorTheme-page) !important;
+}

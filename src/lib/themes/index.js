@@ -57,7 +57,7 @@ import * as accentHoney from './accent/honey';
 import * as accentYellow from './accent/yellow';
 import * as accentGreenV2 from './accent/green(v2)';
 import * as accentDarkGreen from './accent/darkgreen';
-import * as accentCustom from './accent/custom';
+import * as accentCustom from './accent/customnb';
 
 import * as guiLight from './gui/light';
 import * as guiModernLight from './gui/modern-light';

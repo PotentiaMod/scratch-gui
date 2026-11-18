@@ -401,6 +401,11 @@ a:active, a:focus {
     background: #00BAAD;
     border-color: #006E62;
 }
+.tag-hyperimic {
+    color: white;
+    background: #FFA64C;
+    border-color: #914600;
+}
 .tag-othermods {
     color: white;
     background: #ad4e00;

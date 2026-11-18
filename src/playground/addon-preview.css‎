@@ -1,0 +1,247 @@
+{
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+body[data-splash-theme="dark"] .apv-app {
+    background: #16181d;
+    color: #e6e8ee;
+}
+
+body[data-splash-theme="dark"] .apv-panel {
+    background: #1e2126;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body[data-splash-theme="dark"] .apv-header,
+body[data-splash-theme="dark"] .apv-addon-tabs {
+    background: #1e2126;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body[data-splash-theme="dark"] .apv-preset-btn,
+body[data-splash-theme="dark"] .apv-setting-row,
+body[data-splash-theme="dark"] .apv-addon-tab {
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #e6e8ee;
+}
+
+body[data-splash-theme="dark"] .apv-section-title,
+body[data-splash-theme="dark"] .apv-subtitle,
+body[data-splash-theme="dark"] .apv-hint {
+    color: #9aa0ab;
+}
+
+body[data-splash-theme="light"] .apv-app {
+    background: #f2f3f5;
+    color: #4d4f52;
+}
+
+body[data-splash-theme="light"] .apv-panel {
+    background: #ffffff;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body[data-splash-theme="light"] .apv-header,
+body[data-splash-theme="light"] .apv-addon-tabs {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+body[data-splash-theme="light"] .apv-preset-btn,
+body[data-splash-theme="light"] .apv-setting-row,
+body[data-splash-theme="light"] .apv-addon-tab {
+    border-color: rgba(0, 0, 0, 0.14);
+    color: #4d4f52;
+}
+
+body[data-splash-theme="light"] .apv-section-title,
+body[data-splash-theme="light"] .apv-subtitle,
+body[data-splash-theme="light"] .apv-hint {
+    color: #75777c;
+}
+
+.apv-app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.apv-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 18px;
+    flex-shrink: 0;
+    border-bottom: 1px solid transparent;
+}
+
+.apv-title-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.apv-title {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.apv-subtitle {
+    font-size: 12px;
+}
+
+.apv-enable {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.apv-enable input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.apv-addon-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 6px 18px;
+    border-bottom: 1px solid transparent;
+    flex-shrink: 0;
+}
+
+.apv-addon-tab {
+    font-size: 13px;
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.apv-addon-tab:hover {
+    background: rgba(128, 128, 128, 0.1);
+}
+
+.apv-addon-tab-active {
+    background: rgba(96, 84, 235, 0.16) !important;
+    border-color: #855cd6 !important;
+    color: #855cd6 !important;
+    font-weight: 500;
+}
+
+.apv-body-row {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.apv-panel {
+    width: 300px;
+    flex-shrink: 0;
+    overflow-y: auto;
+    padding: 14px;
+}
+
+.apv-section {
+    margin-bottom: 20px;
+}
+
+.apv-section-title {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0 0 10px;
+}
+
+.apv-preset-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 7px 10px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    background: transparent;
+    border: 1px solid;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.apv-preset-btn:hover {
+    background: rgba(128, 128, 128, 0.1);
+}
+
+.apv-setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 8px;
+    margin-bottom: 4px;
+    border: 1px solid;
+    border-radius: 6px;
+    cursor: default;
+}
+
+.apv-setting-name {
+    font-size: 13px;
+    flex: 1;
+}
+
+.apv-color {
+    width: 42px;
+    height: 24px;
+    padding: 0;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.apv-setting-row input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.apv-integer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.apv-integer input[type="range"] {
+    width: 110px;
+}
+
+.apv-integer-value {
+    font-size: 12px;
+    min-width: 28px;
+    text-align: right;
+}
+
+.apv-preview-wrap {
+    flex: 1;
+    min-width: 0;
+    padding: 22px;
+    overflow-y: auto;
+}
+
+.apv-hint {
+    font-size: 12px;
+    margin-top: 14px;
+    max-width: 620px;
+    line-height: 1.6;
+}

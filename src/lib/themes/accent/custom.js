@@ -1,35 +1,19 @@
-import {gradientDataToCSS} from '../../../lib/gradient-to-css.js';
+// Placeholder accent used by the "Customize in Addon Settings" entry that links
+// to the custom-editor-theme addon. The actual colors are provided by the addon
+// itself via CSS variables; this only needs to satisfy the theme system so the
+// menu can render a color swatch.
+const guiColors = {
+    'looks-secondary': '#4d97ff',
+    'looks-secondary-dark': 'hsla(211, 100%, 45%, 1)',
+    'color-scheme': 'dark'
+};
 
-const getGuiColors = (primaryColor, secondaryColor, tertiaryColor, gradient) => ({
-    'motion-primary': '${primaryColor}',
-    'motion-primary-transparent': '${primaryColor}e6',
-    'motion-tertiary': '${secondaryColor}',
-
-    'looks-secondary': '${primaryColor}',
-    'looks-secondary-light': '${primaryColor}',
-    'looks-secondary-lighter': '${primaryColor}',
-    'looks-transparent': '${primaryColor}59',
-    'looks-light-transparent': '${primaryColor}26',
-    'looks-secondary-dark': '${secondaryColor}',
-    'looks-secondary-darker': '${secondaryColor}',
-    'looks-secondary-deep-dark': '${secondaryColor}',
-
-    'extensions-primary': '${tertiaryColor}',
-    'extensions-tertiary': '${tertiaryColor}',
-    'extensions-transparent': '${tertiaryColor}6e',
-    'extensions-light': 'hsla(10, 57%, 85%, 1)',
-
-    'drop-highlight': '${primaryColor}',
-
-    'menu-bar-background-image': `${gradient ? gradientDataToCSS(gradient.colors, gradient.direction) : 'none'}`
-});
-
-const getBlockColors = (primaryColor, secondaryColor) => ({
-    checkboxActiveBackground: primaryColor,
-    checkboxActiveBorder: secondaryColor
-});
+const blockColors = {
+    checkboxActiveBackground: '#4d97ff',
+    checkboxActiveBorder: '#4d97ff'
+};
 
 export {
-    getGuiColors,
-    getBlockColors
+    guiColors,
+    blockColors
 };
