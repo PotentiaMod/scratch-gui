@@ -45,6 +45,7 @@ import InvalidEmbed from '../components/tw-invalid-embed/invalid-embed.jsx';
 import {APP_NAME, MOTTO, SLOGAN} from '../lib/brand.js';
 import { setPreference } from '../reducers/preferences.js';
 import {removeScratch} from '../lib/removeScratch.js';
+import {startAllMods} from '../lib/modRuntime.js';
 
 import styles from './interface.css';
 import Swal from 'sweetalert2';
@@ -126,6 +127,16 @@ class Interface extends React.Component {
     }
 	
 componentDidMount () {
+	// Automatically start custom mods outside embeds.
+    if (
+        !isEmbedded &&
+        !window.location.pathname.includes('/embed')
+    ) {
+        startAllMods().catch(error => {
+            console.error('[PotentiaMod] Failed to start custom mods:', error);
+        });
+    }
+	
     if (localStorage.getItem('potentiamod:removeScratch') === 'true') {
         this.cleanupScratchRemoval = removeScratch();
     }
