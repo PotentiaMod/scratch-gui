@@ -1018,6 +1018,25 @@ const EditorSettingsModal = props => {
             </Box>
         },
 		{
+            title: messages.security,
+            content: <Box>
+                <BooleanSetting
+                    value={!!props.preferences['unrestrict-sandbox']}
+                    label={<FormattedMessage
+                        id="nb.editorSettings.unrestrictUnsandboxed"
+                        defaultMessage="Allow all extensions to load unsandboxed"
+                    />}
+                    help={<FormattedMessage
+                        id="nb.editorSettings.unrestrictUnsandboxedHelp"
+                        // eslint-disable-next-line max-len
+                        defaultMessage="Disables extension security prompts and runs all extensions without the sandbox, including extension imports, URL parameter extensions, and project-loaded extensions. This is dangerous and should only be enabled if you fully trust all loaded extensions."
+                    />}
+                    // eslint-disable-next-line react/jsx-no-bind
+                    onChange={e => props.onSetPreference('unrestrict-sandbox', e.target.checked)}
+                />
+            </Box>
+        },
+		{
             title: messages.limits,
             content: <Box>
                 <InfiniteClones

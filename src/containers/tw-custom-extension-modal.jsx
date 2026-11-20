@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import bindAll from 'lodash.bindall';
 import {connect} from 'react-redux';
-import log from '../lib/utils/log';
+import log from '../lib/log';
 import CustomExtensionModalComponent from '../components/tw-custom-extension-modal/custom-extension-modal.jsx';
-import {closeCustomExtensionModal, openPreviewExt} from '../reducers/modals';
-import { setPreviewExtData } from '../reducers/ae-preview-ext-data';
+import {closeCustomExtensionModal} from '../reducers/modals';
 import {manuallyTrustExtension, isTrustedExtension} from './tw-security-manager.jsx';
-import {getPersistedUnsandboxed, setPersistedUnsandboxed} from '../lib/persistence/tw-unsandboxed.js';
+import {getPersistedUnsandboxed, setPersistedUnsandboxed} from '../lib/tw-persisted-unsandboxed.js';
 
 /**
  * @param {Blob} blob Blob
@@ -125,13 +124,16 @@ class CustomExtensionModal extends React.Component {
         this.handleClose();
         try {
             const urls = await this.getExtensionURLs();
+            const shouldUnsandboxAll = this.props.preferences['unrestrict-sandbox'] === true;
 
-                 setPersistedUnsandboxed(this.state.unsandboxed);
-            if (this.state.unsandboxed) {
-                for (const url of urls) {
-                    manuallyTrustExtension(url);
+            if (!shouldUnsandboxAll && this.state.type !== 'url') {
+                setPersistedUnsandboxed(this.state.unsandboxed);
+                if (this.state.unsandboxed) {
+                    for (const url of urls) {
+                        manuallyTrustExtension(url);
                     }
                 }
+            }
 
             for (const url of urls) {
                 await this.props.vm.extensionManager.loadExtensionURL(url);
@@ -190,11 +192,14 @@ class CustomExtensionModal extends React.Component {
     }
 
     isUnsandboxed () {
-        return this.state.unsandboxed || isTrustedExtension(this.state.url);
+        if (this.state.type === 'url') {
+            return isTrustedExtension(this.state.url) || this.props.preferences['unrestrict-sandbox'];
+        }
+        return this.state.unsandboxed;
     }
 
     canChangeUnsandboxed () {
-        return true;
+        return this.state.type !== 'url';
     }
 
     handleChangeUnsandboxed (e) {
@@ -236,11 +241,13 @@ CustomExtensionModal.propTypes = {
         extensionManager: PropTypes.shape({
             loadExtensionURL: PropTypes.func
         })
-    })
+    }),
+    preferences: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-    vm: state.scratchGui.vm
+    vm: state.scratchGui.vm,
+    preferences: state.scratchGui.preferences
 });
 
 const mapDispatchToProps = dispatch => ({

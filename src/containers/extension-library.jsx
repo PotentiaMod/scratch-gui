@@ -5,6 +5,7 @@ import React from 'react';
 import VM from 'scratch-vm';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import log from '../lib/log';
+import {manuallyTrustExtension} from './tw-security-manager.jsx';
 
 import extensionLibraryContent, {
     galleryStatusItems
@@ -27,7 +28,6 @@ import {
 import LibraryComponent from '../components/library/library.jsx';
 import extensionIcon from '../components/action-menu/icon--sprite.svg';
 import PMExtensions from '../lib/libraries/extensions/index.jsx';
-import {manuallyTrustExtension} from './tw-security-manager.jsx';
 import ExtensionPackManager from '../components/nb-extension-pack-manager/extension-pack-manager.jsx';
 
 import defaultExtensionBanner from '../lib/libraries/extensions/potentiamod/placeholder.png'
@@ -523,8 +523,7 @@ class ExtensionLibrary extends React.PureComponent {
 
         const url = item.extensionURL ? item.extensionURL : extensionId;
         if ((!item.disabled) || (!item.comingSoon)) {
-			//Disabled this below because how stupid GaiaMod fans are thinking of trusting extensions.
-			//if (item.extensionURL) manuallyTrustExtension(url);
+			if (item.extensionURL) manuallyTrustExtension(url);
             if (this.props.vm.extensionManager.isExtensionLoaded(extensionId)) {
                 this.props.onCategorySelected(extensionId);
             } else {
