@@ -80,7 +80,7 @@ const blockColors = {
 
     zoomIconFilter: 'invert(100%)',
 
-    gridColor: 'transparent'
+    gridColor: '#27354a'
 };
 
 export {

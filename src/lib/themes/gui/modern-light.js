@@ -103,8 +103,7 @@ const guiColors = {
 };
 
 const blockColors = {
-	workspace: 'white',
-	gridColor: 'transparent'
+	workspace: 'white'
 	};
 
 export {

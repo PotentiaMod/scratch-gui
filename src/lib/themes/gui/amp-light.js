@@ -112,6 +112,6 @@ const guiColors = {
     'ui-modal-header-background-classic': '',
 };
 
-const blockColors = {gridColor: 'transparent'};
+const blockColors = {};
 
 export {guiColors, blockColors};

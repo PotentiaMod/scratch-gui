@@ -917,6 +917,22 @@ const EditorSettingsModal = props => {
                     />
 					</Box>
 					
+					<Box>
+					<BooleanSetting
+                        value={!!props.preferences['hide-grid']}
+                        label={<FormattedMessage
+                            id="tw.editorSettings.hideGrid"
+                            defaultMessage="Hide Grid"
+                        />}
+                        help={<FormattedMessage
+                            id="tw.editorSettings.hideGridHelp"
+                            defaultMessage="Hides the grid in the workspace. Note: Changing the GUI color is required for this effect to work."
+                        />}
+                        // eslint-disable-next-line react/jsx-no-bind
+                        onChange={e => props.onSetPreference('hide-grid', e.target.checked)}
+                    />
+					</Box>
+					
                     <Box>
 					<BooleanSetting
                         value={!!props.preferences['hide-backpack']}

@@ -193,7 +193,8 @@ class Blocks extends React.Component {
                 toolbox: this.props.toolboxXML,
                 colours: this.props.theme.getBlockColors(),
                 grid: {
-                    colour: this.props.theme.getBlockColors().gridColor
+                    colour: this.props.theme.getBlockColors().gridColor,
+                    visible: this.props.preferences['hide-grid']
                 }
             },
             Blocks.defaultOptions
@@ -743,6 +744,7 @@ class Blocks extends React.Component {
                 <DroppableBlocks
                     componentRef={this.setBlocks}
                     onDrop={this.handleDrop}
+                    gridVisible={this.props.preferences['hide-grid'] === false}
                     {...props}
                 />
                 {this.state.prompt ? (
@@ -819,6 +821,7 @@ Blocks.propTypes = {
         comments: PropTypes.bool,
         collapse: PropTypes.bool
     }),
+	preferences: PropTypes.object,
     stageSize: PropTypes.oneOf(Object.keys(STAGE_DISPLAY_SIZES)).isRequired,
     theme: PropTypes.instanceOf(Theme),
     toolboxXML: PropTypes.string,
@@ -840,7 +843,8 @@ Blocks.defaultOptions = {
     grid: {
         spacing: 40,
         length: 2,
-        colour: '#ddd'
+        colour: '#ddd',
+        visible: true
     },
     comments: true,
     collapse: false,
@@ -863,6 +867,7 @@ const mapStateToProps = state => ({
     isRtl: state.locales.isRtl,
     locale: state.locales.locale,
     messages: state.locales.messages,
+	preferences: state.scratchGui.preferences,
     toolboxXML: state.scratchGui.toolbox.toolboxXML,
     customProceduresVisible: state.scratchGui.customProcedures.active,
     workspaceMetrics: state.scratchGui.workspaceMetrics,

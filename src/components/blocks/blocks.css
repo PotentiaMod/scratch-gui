@@ -18,18 +18,6 @@
     transition: all 0.25s ease;
 }
 
-.hide-grid :global(.blocklyMainBackground) {
-    fill: transparent;
-}
-
-.hide-grid :global([id*="gridPattern"]) {
-    opacity: 0;
-}
-
-.hide-grid :global([id*="grid"]) {
-    opacity: 0;
-}
-
 .blocks :global(.injectionDiv){
     position: absolute;
     top: 0;
@@ -99,15 +87,19 @@
 /* Hide grid when gridVisible is false */
 .blocks.hide-grid :global(.blocklyMainBackground) {
     fill: transparent;
+	opacity: 0;
 }
 
 .blocks.hide-grid :global([id*="gridPattern"]) {
     opacity: 0;
+	fill: transparent;
 }
 
 .blocks.hide-grid :global([id*="grid"]) {
     opacity: 0;
+	fill: transparent;
 }
+
 
 /*
     Shrink category font to fit "My Blocks" for now.
