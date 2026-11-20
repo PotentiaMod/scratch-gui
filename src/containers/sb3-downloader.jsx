@@ -14,9 +14,8 @@ import log from '../lib/log';
 const getProjectTitleFromFilename = fileInputFilename => {
     if (!fileInputFilename) return '';
 
-    const matches = fileInputFilename.match(
-        /^(.*)\.(?:pot|zip|cmp|mwp|dbp|torch|pmp|cw|dino|ich|bm|arkide|zinc|falcon|coffee|snail|electra|gaia|sbx|sb3|sb2|sb)$/i
-    );
+    // Accept any file extension.
+    const matches = fileInputFilename.match(/^(.*)\.[^.]+$/i);
 
     if (!matches) return '';
 
@@ -115,33 +114,35 @@ class SB3Downloader extends React.Component {
 
         try {
             const fileType = getPreferredFileType();
+			
+			const fileTypeDescriptions = {
+                pot: 'PotentiaMod Project',
+                mwp: 'MistWarp Project',
+                cmp: 'CattyMod Project',
+                dbp: 'DashBlocks Project',
+                torch: 'CodeTorch Project',
+                sb3: 'Scratch Project',
+                sbx: 'ScratchX Project',
+                pmp: 'PenguinMod Project',
+                cw: 'Cattiest World Project',
+                dino: 'DinosaurMod Project',
+                ich: 'Itch Project',
+                bm: 'BananaMod Project',
+                arkide: 'Ark IDE Project',
+                zinc: 'Zinc Coding Project',
+                falcon: 'FalconMod Project',
+                coffee: 'Espresso Project',
+                snail: 'Snail IDE Project',
+                electra: 'ElectraMod Project',
+                gaia: 'GaiaMod Project',
+                zip: 'Generic Project'
+            };
 
             const handle = await this.props.showSaveFilePicker({
                 suggestedName: this.props.projectFilename,
                 types: [
                     {
-                        description: ({
-                            pot: 'PotentiaMod Project',
-                            mwp: 'MistWarp Project',
-                            cmp: 'CattyMod Project',
-                            dbp: 'DashBlocks Project',
-                            torch: 'CodeTorch Project',
-                            sb3: 'Scratch Project',
-                            sbx: 'ScratchX Project',
-                            pmp: 'PenguinMod Project',
-                            cw: 'Cattiest World Project',
-                            dino: 'DinosaurMod Project',
-                            ich: 'Itch Project',
-                            bm: 'BananaMod Project',
-                            arkide: 'Ark IDE Project',
-                            zinc: 'Zinc Coding Project',
-                            falcon: 'FalconMod Project',
-                            coffee: 'Espresso Project',
-                            snail: 'Snail IDE Project',
-                            electra: 'ElectraMod Project',
-                            gaia: 'GaiaMod Project',
-                            zip: 'Generic Project'
-                        })[fileType] || 'PotentiaMod Project',
+                        description: fileTypeDescriptions[fileType] || 'Custom Project',
                         accept: {
                             'application/octet-stream': [
                                 `.${fileType}`
@@ -149,7 +150,8 @@ class SB3Downloader extends React.Component {
                         }
                     }
                 ],
-                excludeAcceptAllOption: true
+                // Allow all file types.
+                excludeAcceptAllOption: false
             });
 
             await this.saveToHandle(handle);
@@ -371,9 +373,12 @@ class SB3Downloader extends React.Component {
 const getPreferredFileType = () => {
     const validTypes = ['pot', 'cmp', 'mwp', 'dbp', 'torch', 'pmp', 'cw', 'dino', 'ich', 'bm', 'arkide',
 	                    'zinc', 'falcon', 'coffee', 'snail', 'electra', 'gaia', 'sbx', 'sb3', 'zip'];
-    const savedType = localStorage.getItem('potentiamod:saveFileType');
-
-    return validTypes.includes(savedType) ? savedType : 'pot';
+	 try {
+        const savedType = localStorage.getItem('potentiamod:saveFileType');
+        return savedType || 'pot';
+    } catch (err) {
+        return 'pot';
+    }
 };
 
 const getProjectFilename = (curTitle, defaultTitle) => {
@@ -385,9 +390,9 @@ const getProjectFilename = (curTitle, defaultTitle) => {
 
     const fileType = getPreferredFileType();
 
-    // Remove an existing supported project extension.
+    // Remove any existing file extension.
     filenameTitle = filenameTitle.replace(
-        /\.(?:pot|zip|cmp|mwp|dbp|torch|pmp|cw|dino|ich|bm|arkide|zinc|falcon|coffee|snail|electra|gaia|sbx|sb3|sb2|sb)$/i,
+        /\.[^.]+$/i,
         ''
     );
 

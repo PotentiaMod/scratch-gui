@@ -67,6 +67,67 @@ const SBFileUploaderHOC = function (WrappedComponent) {
             );
         }
 
+        useHtmlFilePicker () {
+            try {
+                return localStorage.getItem('potentiamod:htmlpicker') === 'true';
+            } catch (err) {
+                return false;
+            }
+        }
+
+        getSupportedExtensions () {
+            const extensions = [
+                '.pot',
+                '.cmp',
+                '.mwp',
+                '.dbp',
+                '.torch',
+                '.pmp',
+                '.cw',
+                '.dino',
+                '.ich',
+                '.bm',
+                '.arkide',
+                '.zinc',
+                '.falcon',
+                '.coffee',
+                '.snail',
+                '.electra',
+                '.gaia',
+                '.zip',
+                '.sbx',
+                '.sb',
+                '.sb2',
+                '.sb3'
+            ];
+
+            // Read the custom extension from localStorage.
+            try {
+                const customFileType = localStorage.getItem('potentiamod:saveFileType');
+
+                if (customFileType) {
+                    // Remove a leading dot if one was saved.
+                    const normalizedExtension = customFileType
+                        .trim()
+                        .replace(/^\./, '')
+                        .toLowerCase();
+
+                    // Only add it if it isn't already supported.
+                    if (
+                        normalizedExtension &&
+                        /^[a-z0-9_-]+$/.test(normalizedExtension) &&
+                        !extensions.includes(normalizedExtension)
+                    ) {
+                        extensions.push(normalizedExtension);
+                    }
+                }
+            } catch (err) {
+                // Ignore localStorage errors.
+            }
+
+            return extensions;
+        }
+
         handleStartSelectingFileUpload () {
             this.expectingFileUploadFinish = true;
             this.createFileObjects();
@@ -76,49 +137,36 @@ const SBFileUploaderHOC = function (WrappedComponent) {
             this.removeFileObjects();
 
             const isAppleDevice = this.isAppleDevice();
+            const useHtmlPicker = this.useHtmlFilePicker();
+            const supportedExtensions = this.getSupportedExtensions();
+
+            const extensionList = supportedExtensions
+                .map(extension => `.${extension}`);
 
             this.fileReader = new FileReader();
             this.fileReader.onload = this.onload;
 
-            if (this.props.showOpenFilePicker) {
+            // Use the native picker unless the HTML picker setting is enabled.
+            if (!useHtmlPicker && this.props.showOpenFilePicker) {
                 try {
-                    // Call immediately during the user's click event.
-                    const pickerPromise = this.props.showOpenFilePicker({
-                        multiple: false,
-                        ...(isAppleDevice ? {} : {
-                            types: [
-                                {
-                                    description: 'PotentiaMod Project',
-                                    accept: {
-                                        '*/*': [
-                                            '.pot',
-                                            '.cmp',
-                                            '.mwp',
-                                            '.dbp',
-                                            '.torch',
-                                            '.pmp',
-                                            '.cw',
-                                            '.dino',
-                                            '.ich',
-                                            '.bm',
-                                            '.arkide',
-                                            '.zinc',
-                                            '.falcon',
-                                            '.coffee',
-                                            '.snail',
-                                            '.electra',
-                                            '.gaia',
-                                            '.zip',
-                                            '.sbx',
-                                            '.sb',
-                                            '.sb2',
-                                            '.sb3'
-                                        ]
-                                    }
+                    const pickerOptions = {
+                        multiple: false
+                    };
+
+                    // Only restrict extensions on non-Apple devices.
+                    if (!isAppleDevice) {
+                        pickerOptions.types = [
+                            {
+                                description: 'PotentiaMod Project',
+                                accept: {
+                                    '*/*': extensionList
                                 }
-                            ]
-                        })
-                    });
+                            }
+                        ];
+                    }
+
+                    const pickerPromise =
+                        this.props.showOpenFilePicker(pickerOptions);
 
                     pickerPromise.then(async handles => {
                         try {
@@ -151,20 +199,26 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                             log.error(err);
                         }
                     });
+
+                    return;
                 } catch (err) {
                     this.expectingFileUploadFinish = false;
                     this.removeFileObjects();
                     log.error(err);
                 }
-
-                return;
             }
 
-            // Android and unsupported-browser fallback.
+            // HTML picker fallback.
             this.inputElement = document.createElement('input');
-            this.inputElement.accept ='.pot,.cmp,.mwp,.dbp,.torch,.pmp,.cw,.dino,.ich,.bm,.arkide,.zinc,.falcon,.coffee,.snail,.electra,.gaia,.sbx,.sb3,.zip';
-            this.inputElement.style.display = 'none';
             this.inputElement.type = 'file';
+            this.inputElement.style.display = 'none';
+
+            // Apple devices can select any file type.
+            // Other devices use supported extensions, including custom ones.
+            if (!isAppleDevice) {
+                this.inputElement.accept = extensionList.join(',');
+            }
+
             this.inputElement.onchange = this.handleChange;
 
             document.body.appendChild(this.inputElement);
@@ -200,15 +254,24 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                     const handle = thisFileInput.handle;
                     const filename = this.fileToUpload.name || '';
 
-                    const supportedExtension =
-                        /\.(?:pot|zip|cmp|mwp|dbp|torch|pmp|cw|dino|ich|bm|arkide|zinc|falcon|coffee|snail|electra|gaia|sbx|sb3|sb2|sb)$/i.test(filename);
+                    const supportedExtensions = this.getSupportedExtensions();
 
+                    const extensionMatch = filename.match(/\.([^.]+)$/);
+                    const fileExtension = extensionMatch ?
+                        extensionMatch[1].toLowerCase() :
+                        '';
+
+                    const supportedExtension =
+                        supportedExtensions.includes(fileExtension);
+
+                    // Preserve file handles for supported and custom extensions.
                     if (handle && supportedExtension) {
                         this.props.onSetFileHandle(handle);
                     } else {
                         this.props.onSetFileHandle(null);
                     }
 
+                    // Upload the selected file.
                     this.props.requestProjectUpload(loadingState);
                 } else {
                     this.expectingFileUploadFinish = false;
