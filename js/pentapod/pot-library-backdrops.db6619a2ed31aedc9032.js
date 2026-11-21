@@ -1,0 +1,1 @@
+(window.webpackJsonpGUI=window.webpackJsonpGUI||[]).push([[108],{3374:function(t){t.exports=JSON.parse('[{"name":"Stripes 2","tags":["potentia","patterns"],"bitmapResolution":1,"dataFormat":"svg","rotationCenterX":240,"rotationCenterY":180,"src":{"library":"potentia","path":"/backdrops/Stripes%202.svg"}}]')}}]);

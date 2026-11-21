@@ -1,0 +1,1 @@
+(window.webpackJsonpGUI=window.webpackJsonpGUI||[]).push([[24],{3316:function(d,n,o){"use strict";o.r(n),o.d(n,"resources",function(){return e});const e={"userscript.js":async function(d){let n=d.addon,o=d.console;o.log("daily-quote addon loaded"),n.self.addEventListener("disabled",()=>{o.log("daily-quote addon disabled")})}}}}]);
