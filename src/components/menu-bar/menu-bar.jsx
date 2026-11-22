@@ -244,6 +244,7 @@ class MenuBar extends React.Component {
             'handleClickPackager',
             'handleClickDesktopSettings',
             'handleClickRestorePoints',
+            'handleClickAddRestorePoint',
             'handleClickSeeCommunity',
             'handleClickShare',
             'handleSetMode',
@@ -393,6 +394,12 @@ class MenuBar extends React.Component {
         this.props.onClickRestorePoints();
         this.props.onRequestCloseFile();
     }
+	handleClickAddRestorePoint = () => {
+        if (this.props.vm) {
+            this.props.vm.emit('TRIGGER_MANUAL_RESTORE_POINT');
+        }
+        this.props.onRequestCloseFile();
+    };
     handleClickSeeCommunity (waitForUpdate) {
         if (this.props.shouldSaveBeforeTransition()) {
             this.props.autoUpdateProject(); // save before transitioning to project page
@@ -854,6 +861,16 @@ class MenuBar extends React.Component {
                                                 defaultMessage="Restore points"
                                                 description="Menu bar item to manage restore points"
                                                 id="tw.menuBar.restorePoints"
+                                            />
+                                        </MenuItem>
+                                    </MenuSection>
+									<MenuSection>
+                                        <MenuItem onClick={this.handleClickAddRestorePoint}>
+										<RefreshCcw size={20} />
+                                            <FormattedMessage
+                                                defaultMessage="Add restore point"
+                                                description="Menu bar item to add a restore point"
+                                                id="tw.menuBar.addRestorePoint"
                                             />
                                         </MenuItem>
                                     </MenuSection>

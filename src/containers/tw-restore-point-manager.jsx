@@ -81,6 +81,7 @@ class TWRestorePointManager extends React.Component {
 
         RestorePointAPI.deleteLegacyRestorePoint();
         this.props.vm.on('PROJECT_CHANGED', this.handleProjectChanged);
+		this.props.vm.on('TRIGGER_MANUAL_RESTORE_POINT', this.handleClickCreate);
     }
 
     componentWillReceiveProps (nextProps) {

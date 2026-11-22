@@ -19,6 +19,18 @@ const messages = defineMessages({
         id: 'tw.restorePoints.never',
         description: 'Part of restore point modal. Appears as dropdown in context "Restore points are created [never]"'
     },
+	oneSecond: {
+        defaultMessage: 'every second',
+        id: 'tw.restorePoints.1second',
+        // eslint-disable-next-line max-len
+        description: 'Part of restore point modal. Appears as dropdown in context "Restore points are created [every second]"'
+    },
+    seconds: {
+        defaultMessage: 'every {n} seconds',
+        id: 'tw.restorePoints.seconds',
+        // eslint-disable-next-line max-len
+        description: 'Part of restore point modal. Appears as dropdown in context "Restore points are created [every 5 seconds]". {n} will be replaced with a number greater than 1.'
+    },
     oneMinute: {
         defaultMessage: 'every minute',
         id: 'tw.restorePoints.1minute',
@@ -30,16 +42,39 @@ const messages = defineMessages({
         id: 'tw.restorePoints.minutes',
         // eslint-disable-next-line max-len
         description: 'Part of restore point modal. Appears as dropdown in context "Restore points are created [every 5 minutes]". {n} will be replaced with a number greater than 1.'
+    },
+	oneHour: {
+        defaultMessage: 'every hour',
+        id: 'tw.restorePoints.1hour',
+        // eslint-disable-next-line max-len
+        description: 'Part of restore point modal. Appears as dropdown in context "Restore points are created [every hour]"'
+    },
+	hours: {
+        defaultMessage: 'every {n} hours',
+        id: 'tw.restorePoints.hours',
+        // eslint-disable-next-line max-len
+        description: 'Part of restore point modal. Appears as dropdown in context "Restore points are created [every 5 hours]". {n} will be replaced with a number greater than 1.'
     }
 });
 
-const MINUTE = 1000 * 60;
+const SECOND = 1000;
+const MINUTE = SECOND * 60;
+const HOUR = MINUTE * 60;
+const DAY = HOUR * 24;
 const INTERVAL_OPTIONS = [
+//    SECOND * 1,
+//    SECOND * 5,
+//    SECOND * 10,
+ //   SECOND * 15,
+//    SECOND * 30,
     MINUTE * 1,
     MINUTE * 5,
     MINUTE * 10,
     MINUTE * 15,
     MINUTE * 30,
+//    HOUR * 1,
+//    HOUR * 5,
+//    HOUR * 10,
     -1
 ];
 const IntervalSelector = props => (
@@ -167,6 +202,7 @@ const RestorePointModal = props => (
                                 key={restorePoint.id}
                                 onClickDelete={props.onClickDelete}
                                 onClickExport={props.onClickExport}
+                                onClickCreate={props.onClickCreate}
                                 onClickLoad={props.onClickLoad}
                                 isExporting={props.isExporting(restorePoint.id)}
                                 {...restorePoint}
@@ -196,6 +232,18 @@ const RestorePointModal = props => (
                                 />
                             </div>
                         </div>
+						
+						<button
+                            onClick={props.onClickCreate}
+                            className={classNames(styles.button, styles.deleteAllButton)}
+                            disabled={props.isLoading}
+                        >
+                            <FormattedMessage
+                                defaultMessage="Create"
+                                description="Button to create restore points"
+                                id="tw.restorePoints.create"
+                            />
+                        </button>
 
                         <button
                             onClick={props.onClickDeleteAll}

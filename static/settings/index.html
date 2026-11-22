@@ -3389,6 +3389,7 @@
             indexedDB.deleteDatabase('tw:theme');
             indexedDB.deleteDatabase('potentiamod:preferences');
             indexedDB.deleteDatabase('potentiamod:closedNews');
+			window.onbeforeunload = null;
             window.location.replace("/");
           } catch (error) {
             console.error("Failed to clear localStorage:", error);
@@ -3408,8 +3409,8 @@
             const url = new URL(from);
 			
             const isPotentiaMod = url.hostname === "potentiamod.github.io" ||
-								  url.hostname.startsWith("potentiamod.github.io") ||
-								  url.hostname.startsWith("localhost:8601");
+								  url.hostname.startsWith("potentiamod.github.io/") ||
+								  url.hostname.startsWith("localhost:8601/");
             if (isPotentiaMod && (url.protocol === "https:" || url.protocol === "http:")) {
               destination = url.href;
             }
