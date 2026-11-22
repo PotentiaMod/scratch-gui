@@ -58,6 +58,7 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+          NODE_OPTIONS: --max-old-space-size=4096
           ROUTING_STYLE: hash
 
       - name: Fix artifact permissions
