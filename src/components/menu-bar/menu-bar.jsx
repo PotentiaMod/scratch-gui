@@ -253,6 +253,7 @@ class MenuBar extends React.Component {
             'getSaveToComputerHandler',
             'restoreOptionMessage',
 			'handleClickScratch2',
+			'handleClickContact',
 			'handleClickGpt',
 			'handleClickPiP',
             'isPiPButtonVisible'
@@ -327,6 +328,14 @@ class MenuBar extends React.Component {
 	handleClickScratch2 () {
         window.open(
             'https://potentiamod.github.io/scratch2',
+            '_blank',
+            'noopener,noreferrer'
+        );
+    }
+	
+	handleClickContact () {
+        window.open(
+            'https://www.facebook.com/CrystalMae1990/',
             '_blank',
             'noopener,noreferrer'
         );
@@ -986,6 +995,15 @@ class MenuBar extends React.Component {
 										<Laptop size={20} />
                                             Open Scratch 2 Legacy
                                         </MenuItem>}
+									
+									{/* Feedback */}
+                                        <MenuItem
+                                            isRtl={this.props.isRtl}
+                                            onClick={this.handleClickContact}
+                                        >
+										<MessagesSquare size={20} />
+                                            Feedback
+                                        </MenuItem>
 									
 									
                                     <CloudVariablesToggler>{(toggleCloudVariables, {enabled, canUseCloudVariables}) => (
