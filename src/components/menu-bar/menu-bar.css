@@ -172,6 +172,11 @@
     height: 34px;
 }
 
+.feedback-button-icon {
+    height: 1.25rem;
+	filter: var(--menu-bar-icon-filter);
+}
+
 .divider {
     height: 34px;
 }

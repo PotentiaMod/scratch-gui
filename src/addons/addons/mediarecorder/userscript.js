@@ -1,5 +1,6 @@
 import downloadBlob from "../../libraries/common/cs/download-blob.js";
 import recordIcon from "./camera.svg";
+import {Camera} from 'lucide-react';
 
 export default async ({ addon, console, msg }) => {
   const MAX_RECORD_TIME = 1000; // seconds
@@ -274,7 +275,7 @@ export default async ({ addon, console, msg }) => {
     };
     const disposeRecorder = () => {
       isRecording = false;
-      recordElem.textContent = msg("record");
+      updateRecordButton(msg("record"));
       recordElem.title = "";
       recorder = null;
       recordBuffer = [];
@@ -307,6 +308,23 @@ export default async ({ addon, console, msg }) => {
         recorder.stop();
       }
     };
+	
+	// Function to update record button content while preserving camera icon
+    const updateRecordButton = (text) => {
+      // Clear all content
+      recordElem.innerHTML = '';
+      
+      // Re-add camera icon
+      const cameraIcon = document.createElement('span');
+      cameraIcon.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera preview-icon"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></svg>
+      `;
+      
+      // Add icon and text
+      recordElem.appendChild(cameraIcon);
+      recordElem.appendChild(document.createTextNode(text));
+    };
+	
     const startRecording = async (opts) => {
       // Timer
       const secs = Math.min(MAX_RECORD_TIME, Math.max(1, opts.secs));
@@ -331,10 +349,8 @@ export default async ({ addon, console, msg }) => {
 
       if (opts.waitUntilFlag) {
         isWaitingForFlag = true;
-        Object.assign(recordElem, {
-          textContent: msg("click-flag"),
-          title: msg("click-flag-description"),
-        });
+        updateRecordButton(msg("click-flag"));
+        recordElem.title = msg("click-flag-description");
         abortController = new AbortController();
         try {
           await Promise.race([
@@ -390,12 +406,12 @@ export default async ({ addon, console, msg }) => {
       const delay = opts.delay || 0;
       const roundedDelay = Math.floor(delay);
       for (let index = 0; index < roundedDelay; index++) {
-        recordElem.textContent = msg("starting-in", { secs: roundedDelay - index });
+        updateRecordButton(msg("starting-in", { secs: roundedDelay - index }));
         await new Promise((resolve) => setTimeout(resolve, 975));
       }
       setTimeout(
         () => {
-          recordElem.textContent = msg("stop");
+          updateRecordButton(msg("stop"));
 
           recorder.start(1000);
         },
@@ -407,12 +423,15 @@ export default async ({ addon, console, msg }) => {
     if (!recordElem) {
       recordElem = Object.assign(document.createElement("div"), {
         className: "sa-record " + referenceElem.className,
-        textContent: msg("record"),
         // TW: remove title - it contains "Scratch Addons"
         /*
         title: msg("added-by"),
         */
       });
+	  
+	  // Initialize button with camera icon and text
+      updateRecordButton(msg("record"));
+	  
       recordElem.addEventListener("click", async () => {
         if (isRecording) {
           stopRecording();

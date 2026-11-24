@@ -55,6 +55,11 @@ p.mediaRecorderPopupOption {
   margin-bottom: 0.25rem;
 }
 
+.sa-record svg {
+    margin-right: .5rem;
+    vertical-align: middle;
+}
+
 .mediaRecorderSeparator {
   height: 1.25rem;
 }

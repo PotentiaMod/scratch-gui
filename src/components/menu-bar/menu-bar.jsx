@@ -18,7 +18,7 @@ import {
     FilePen, UserPen, Gauge, PictureInPicture, PictureInPicture2, PencilRuler,
 	TriangleAlert, ChevronDown, Info, Shuffle, CloudOff, 
     FilePlusCorner, Blocks, Upload, DatabasePlus, RefreshCcw,
-	Zap, ClockPlus, Package, FileInput, RotateCw,
+	Zap, ClockPlus, MessagesSquare, Package, FileInput, RotateCw,
     Bot, Download, ArchiveRestore, House, Cloud,
 	Settings, PackagePlus, Puzzle, AppWindow, Laptop,
     Bookmark, SlidersHorizontal, Save, GitBranch, UserGroup,
@@ -1179,15 +1179,26 @@ class MenuBar extends React.Component {
                         >
                             {/* todo: icon */}
                             <Button className={styles.feedbackButton}>
+                            <span
+                                style={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '6px'
+                                }}
+                            >
+                                <House
+                                    size={18}
+                                    color="currentColor"
+                                    strokeWidth={2}
+                                />
                                 <FormattedMessage
                                     defaultMessage="Back to Home"
-                                    description="Button to the PotentiaMod homepage"
+                                    description="Button to go back home in the menu bar"
                                     id="tw.feedbackButton"
-                                    values={{
-                                        APP_NAME
-                                    }}
+                                    values={{APP_NAME}}
                                 />
-                             </Button>
+                            </span>
+                            </Button>
                         </a>
                     </div>}
                 </div>
