@@ -105,17 +105,17 @@ const ACCENT_CYAN = 'cyan';
 const ACCENT_LIME = 'lime';
 const ACCENT_ORANGE = 'orange';
 const ACCENT_MAGENTA = 'magenta';
-const ACCENT_FUCHSIA = 'magentapurple';
+const ACCENT_FUCHSIA = 'fuchsia';
 const ACCENT_INDIGO = 'indigo';
-const ACCENT_INDIGO_BLUE = 'indigoblue';
-const ACCENT_CORRUPTED_BLUE = 'corruptedblue';
-const ACCENT_GAIA_BLUE = 'gaiablue';
+const ACCENT_INDIGO_BLUE = 'serene';
+const ACCENT_CORRUPTED_BLUE = 'corrupted';
+const ACCENT_GAIA_BLUE = 'gaia';
 const ACCENT_GREEN = 'green';
 const ACCENT_RAINBOW = 'rainbow';
 const ACCENT_COTTON_CANDY = 'cottoncandy'; //unique
-const ACCENT_HOT_FUSE = 'stars'; //unique
-const ACCENT_NITRO_FIRE = 'nitrofire'; //unique
-const ACCENT_OMNIBLUE = 'omnimaxblue'; //LOL From my deleted MistWarp mod.
+const ACCENT_HOT_FUSE = 'hotfuse'; //unique
+const ACCENT_NITRO_FIRE = 'nitro'; //unique
+const ACCENT_OMNIBLUE = 'omnimax'; //LOL From my deleted MistWarp mod.
 const ACCENT_GREEN_TEA = 'greentea'; //Bilup
 const ACCENT_PALE_BLUE = 'paleblue'; //Bilup
 const ACCENT_EGGPLANT_PURPLE = 'eggplantpurple'; //Bilup
@@ -152,7 +152,7 @@ const ACCENT_MIKU = 'miku'; //Astra Editor
 const ACCENT_TY = 'ty'; //Astra Editor
 const ACCENT_OUBI = 'oubi'; //Astra Editor
 const ACCENT_CE = 'ce'; //02Engines
-const ACCENT_02E = '02e'; //02Engine
+const ACCENT_02E = 'ztengine'; //02Engine
 const ACCENT_CUSTOM = 'custom';
 const ACCENT_MAP = {
     [ACCENT_PURPLE]: accentPurple,
@@ -220,7 +220,7 @@ const ACCENT_GROUPS = [
     },
     {
         label: {id: 'tw.accentGroup.colorsSpecial', defaultMessage: 'Special Colors'},
-        accents: ['cyan', 'lime', 'magentapurple', 'indigoblue', 'corruptedblue', 'gaiablue', 'omnimaxblue']
+        accents: ['cyan', 'lime', 'magentapurple', 'serene', 'corrupted', 'gaia', 'omnimax']
     },
     {
         label: {id: 'tw.accentGroup.gradients', defaultMessage: 'Gradients'},
@@ -304,15 +304,50 @@ const AccentOptions = defineMessages({
         description: 'Name of the pure blue color scheme. Matches GaiaMod.',
         id: 'tw.accent.gaiablue'
     },
-	[ACCENT_COTTON_CANDY]: {
-        defaultMessage: 'C. Candy',
-        description: 'Name of the pastel pink/blue color scheme.',
-        id: 'tw.accent.cottoncandy'
+	[ACCENT_ROTUR]: {
+        defaultMessage: 'Rotur',
+        description: 'Rotur accent color',
+        id: 'tw.accent.rotur'
     },
 	[ACCENT_OMNIBLUE]: {
         defaultMessage: 'O. Blue',
         description: 'Name of color scheme. Matches defunct OmniMAX IDE\'s color.',
         id: 'tw.accent.omniblue'
+    },
+	[ACCENT_AE]: {
+        defaultMessage: 'A.E.',
+        description: 'AstraEditor accent color',
+        id: 'tw.accent.ae'
+    },
+	[ACCENT_02E]: {
+        defaultMessage: '02',
+        description: '02 accent color',
+        id: 'tw.accent.02e'
+    },
+	[ACCENT_CE]: {
+        defaultMessage: 'CE Pink',
+        description: 'CyberExplorer Pink accent color',
+        id: 'tw.accent.ce'
+    },
+	[ACCENT_MIKU]: {
+        defaultMessage: 'M. Green',
+        description: 'Miku Green accent color',
+        id: 'tw.accent.miku'
+    },
+	[ACCENT_TY]: {
+        defaultMessage: 'T. Blue',
+        description: 'Tianyi Blue accent color',
+        id: 'tw.accent.ty'
+    },
+	[ACCENT_OUBI]: {
+        defaultMessage: 'Oubi',
+        description: 'Oubi gradient',
+        id: 'tw.accent.oubi'
+    },
+	[ACCENT_COTTON_CANDY]: {
+        defaultMessage: 'C. Candy',
+        description: 'Name of the pastel pink/blue color scheme.',
+        id: 'tw.accent.cottoncandy'
     },
 	[ACCENT_HOT_FUSE]: {
         defaultMessage: 'H. Fuse',
@@ -324,25 +359,115 @@ const AccentOptions = defineMessages({
         description: 'Name of orange-red color scheme.',
         id: 'tw.accent.nitrofire'
     },
+	[ACCENT_TRANS]: {
+        defaultMessage: 'Trans',
+        description: 'Trans accent color',
+        id: 'tw.accent.trans'
+    },
+   [ACCENT_GAY]: {
+        defaultMessage: 'Gay',
+        description: 'Gay accent color',
+        id: 'tw.accent.gay'
+    },
+	[ACCENT_BI]: {
+        defaultMessage: 'Bisexual',
+        description: 'Bisexual pride flag accent',
+        id: 'tw.accent.bi'
+    },
+	[ACCENT_PAN]: {
+        defaultMessage: 'Pansexual',
+        description: 'Pansexual pride flag accent',
+        id: 'tw.accent.pan'
+    },
+	[ACCENT_ACE]: {
+        defaultMessage: 'Asexual',
+        description: 'Asexual pride flag accent',
+        id: 'mw.accent.asexual'
+    },
+	[ACCENT_LESBIAN]: {
+        defaultMessage: 'Lesian',
+        description: 'Lesbian pride flag accent',
+        id: 'tw.accent.lesbian'
+    },
+	[ACCENT_NONBINARY]: {
+        defaultMessage: 'Nonbinary',
+        description: 'Nonbinary pride flag accent',
+        id: 'tw.accent.nonbinary'
+    },
+	[ACCENT_CHERRY]: {
+        defaultMessage: 'Cherry',
+        description: 'Vibrant cherry to rose gradient',
+        id: 'tw.accent.cherry'
+    },
+	[ACCENT_FOREST]: {
+        defaultMessage: 'Forest',
+        description: 'Deep forest to bright green gradient',
+        id: 'tw.accent.forest'
+    },
+	[ACCENT_CORAL]: {
+        defaultMessage: 'Coral',
+        description: 'Warm coral to peach gradient',
+        id: 'tw.accent.coral'
+    },
+	[ACCENT_FIRE]: {
+        defaultMessage: 'Fire',
+        description: 'Fiery gradient',
+        id: 'tw.accent.fire'
+    },
 	[ACCENT_NEBULA]: {
         defaultMessage: 'Nebula',
         description: 'Name of color scheme.',
         id: 'tw.accent.nebula'
+    },
+	[ACCENT_LAVENDER]: {
+        defaultMessage: 'Lavender',
+        description: 'Soft lavender to pink gradient',
+        id: 'tw.accent.lavender'
     },
 	[ACCENT_COSMIC]: {
         defaultMessage: 'Cosmic',
         description: 'Name of color scheme.',
         id: 'tw.accent.cosmic'
     },
+	[ACCENT_OCEAN]: {
+        defaultMessage: 'Ocean',
+        description: 'Deep ocean gradient',
+        id: 'tw.accent.ocean'
+    },
+	[ACCENT_MATRIX]: {
+        defaultMessage: 'Matrix',
+        description: 'Digital rain green on black',
+        id: 'tw.accent.matrix'
+    },
+	[ACCENT_SUNSET]: {
+        defaultMessage: 'Sunset',
+        description: 'Beautiful sunset gradient',
+        id: 'tw.accent.sunset'
+    },
+	[ACCENT_SKY]: {
+        defaultMessage: 'Sky',
+        description: 'Light sky blue to white gradient',
+        id: 'tw.accent.sky'
+    },
 	[ACCENT_AURORA]: {
         defaultMessage: 'Aurora',
         description: 'Name of color scheme.',
         id: 'tw.accent.aurora'
     },
+	[ACCENT_HONEY]: {
+        defaultMessage: 'Honey',
+        description: 'Warm golden honey gradient',
+        id: 'tw.accent.honey'
+    },
 	[ACCENT_MINT]: {
         defaultMessage: 'Mint',
         description: 'Name of color scheme.',
         id: 'tw.accent.mint'
+    },
+	[ACCENT_VAPORWAVE]: {
+        defaultMessage: 'Vaporwave',
+        description: 'Retro vaporwave gradient',
+        id: 'tw.accent.vaporwave'
     },
     [ACCENT_RAINBOW]: {
         defaultMessage: 'Rainbow',
@@ -360,14 +485,14 @@ const AccentIcons = {
 const ACCENT_DEFAULT = ACCENT_INDIGO;
 
 const GUI_LIGHT = 'light';
-const GUI_MODERN_LIGHT = 'modern-light';
+const GUI_MODERN_LIGHT = 'pot-white';
 const GUI_AMP_LIGHT = 'amp-light';
-const GUI_GENESIS_LIGHT = 'genesislight';
+const GUI_GENESIS_LIGHT = 'genesis-white';
 const GUI_MODERN_WHITE = 'modern-white';
 const GUI_DARK = 'dark';
 const GUI_AMP_DARK = 'amp-dark';
-const GUI_MODERN_DARK = 'modern-dark';
-const GUI_GENESIS_DARK = 'genesisdark';
+const GUI_MODERN_DARK = 'pot-black';
+const GUI_GENESIS_DARK = 'genesis-black';
 const GUI_DEEP_DARK = 'deep-dark';
 const GUI_MIDNIGHT = 'midnight';
 const GUI_CATTY_MIDNIGHT = 'catty-midnight';

@@ -48,7 +48,7 @@
         --shadow: 0 2px 14px rgba(0, 0, 0, .25);
       }
 
-      body.modern-light {
+      body.pot-white {
         --bg: #ffffff;
         --sidebar: #ffffff;
         --card: #ffffff;
@@ -60,7 +60,7 @@
         --shadow: 0 2px 12px rgba(0, 0, 0, .06);
       }
 	  
-	  body.genesislight {
+	  body.genesis-white {
         --bg: #ffffff;
         --sidebar: #ffffff;
         --card: #ffffff;
@@ -96,7 +96,7 @@
         --shadow: 0 2px 16px rgba(0, 0, 0, .4);
       }
 	  
-	  body.modern-dark {
+	  body.pot-black {
         --bg: #000000;
         --sidebar: #080808;
         --card: #171717;
@@ -108,7 +108,7 @@
         --shadow: 0 2px 16px rgba(0, 0, 0, .4);
       }
 	  
-	  body.genesisdark {
+	  body.genesis-black {
         --bg: #000000;
         --sidebar: #0D0D0D;
         --card: #0D0D0D;
@@ -1734,11 +1734,11 @@
                   </div>
                   <select id="dark-mode-select" class="setting-select" aria-label="Theme">
                     <option value="light">Light</option>
-                    <option value="modern-light">PotentiaMod Light</option>
-                    <option value="genesislight">Genesis Light</option>
+                    <option value="pot-white">PotentiaMod Light</option>
+                    <option value="genesis-white">Genesis Light</option>
                     <option value="dark">Dark</option>
-                    <option value="modern-dark">PotentiaMod Dark</option>
-                    <option value="genesisdark">Genesis Dark</option>
+                    <option value="pot-black">PotentiaMod Dark</option>
+                    <option value="genesis-black">Genesis Dark</option>
                     <option value="midnight">Midnight</option>
                     <option value="catty-midnight">CattyMod Midnight</option>
                     <option value="high-contrast">High-Contrast</option>
@@ -1789,19 +1789,43 @@
                       <option value="cyan">Cyan</option>
                       <option value="lime">Lime</option>
                       <option value="fuchsia">Fuchsia</option>
-                      <option value="sereneblue">Serene Blue</option>
-                      <option value="corruptedblue">Corrupted Blue</option>
-                      <option value="gaiablue">Gaia Blue</option>
-                      <option value="omnimaxblue">OmniMAX Blue</option>
+                      <option value="serene">Serene Blue</option>
+                      <option value="corrupted">Corrupted Blue</option>
+                      <option value="gaia">Gaia Blue</option>
+                      <option value="omnimax">OmniMAX Blue</option>
+                      <option value="rotur">Rotur</option>
+                      <option value="astraeditor">Astra Editor</option>
+                      <option value="ztengine">02Engine</option>
+                      <option value="miku">Miku Green</option>
+                      <option value="ty">Tianyi Blue</option>
+                      <option value="ce">CE Pink</option>
                     </optgroup>
                     <optgroup label="Gradients">
                       <option value="cottoncandy">Cotton Candy</option>
-                      <option value="stars">Hot Fuse</option>
-                      <option value="nitrofire">Nitro Fire</option>
-                      <option value="nebula">Nebula</option>
-                      <option value="cosmic">Cosmic</option>
+                      <option value="hotfuse">Hot Fuse</option>
+                      <option value="nitro">Nitro Fire</option>
+                      <option value="ace">Asexual</option>
                       <option value="aurora">Aurora</option>
+                      <option value="bi">Bisexual</option>
+                      <option value="cherry">Cherry</option>
+                      <option value="coral">Coral</option>
+                      <option value="cosmic">Cosmic</option>
+                      <option value="fire">Fire</option>
+                      <option value="forest">Forest</option>
+                      <option value="gay">Gay</option>
+                      <option value="honey">Honey</option>
+                      <option value="lavender">Lavender</option>
+                      <option value="lesbian">Lesbian</option>
+                      <option value="matrix">Matrix</option>
                       <option value="mint">Mint</option>
+                      <option value="nebula">Nebula</option>
+                      <option value="nonbinary">Nonbinary</option>
+                      <option value="ocean">Ocean</option>
+                      <option value="pan">Pansexual</option>
+                      <option value="sky">Sky</option>
+                      <option value="sunset">Sunset</option>
+                      <option value="trans">Trans</option>
+                      <option value="vaporwave">Vaporwave</option>
                       <option value="rainbow">Rainbow</option>
                     </optgroup>
                   </select>
@@ -2290,7 +2314,7 @@
 
       function getCurrentGuiTheme() {
         const theme = readTheme();
-        if (theme && ["light", "dark", "modern-light", "modern-dark", "genesislight", "genesisdark", "midnight", "catty-midnight", "high-contrast"].includes(theme.gui)) {
+        if (theme && ["light", "dark", "pot-white", "pot-black", "genesis-white", "genesis-black", "midnight", "catty-midnight", "high-contrast"].includes(theme.gui)) {
           return theme.gui;
         }
         return systemIsDark() ? "dark" : "light";
@@ -2299,10 +2323,10 @@
       function applyTheme() {
         const theme = getCurrentGuiTheme();
         document.body.classList.toggle("dark", theme === "dark");
-        document.body.classList.toggle("modern-light", theme === "modern-light");
-        document.body.classList.toggle("modern-dark", theme === "modern-dark");
-        document.body.classList.toggle("genesislight", theme === "genesislight");
-        document.body.classList.toggle("genesisdark", theme === "genesisdark");
+        document.body.classList.toggle("pot-white", theme === "pot-white");
+        document.body.classList.toggle("pot-black", theme === "pot-black");
+        document.body.classList.toggle("genesis-white", theme === "genesis-white");
+        document.body.classList.toggle("genesis-black", theme === "genesis-black");
         document.body.classList.toggle("midnight", theme === "midnight");
         document.body.classList.toggle("catty-midnight", theme === "catty-midnight");
         document.body.classList.toggle("high-contrast", theme === "high-contrast");
@@ -2325,7 +2349,7 @@
       }
 
       function setGuiTheme(gui) {
-        if (!["light", "dark", "modern-light", "modern-dark", "genesislight", "genesisdark", "midnight", "catty-midnight", "high-contrast"].includes(gui)) {
+        if (!["light", "dark", "pot-white", "pot-black", "genesis-white", "genesis-black", "midnight", "catty-midnight", "high-contrast"].includes(gui)) {
           gui = "light";
         }
         updateTheme(theme => {
@@ -2367,15 +2391,22 @@
         cyan: "#00c4ff",
         lime: "#80f51b",
         fuchsia: "#d415ff",
-        sereneblue: "#5a00ff",
-        corruptedblue: "#625e97",
-        gaiablue: "#2d2dd3",
-        omnimaxblue: "#4aa8ff"
+        serene: "#5a00ff",
+        corrupted: "#625e97",
+        gaia: "#2d2dd3",
+        omnimax: "#4aa8ff",
+        rotur: "#354C79",
+        astraeditor: "#0099ff",
+        ztengine: "#00BAAD",
+        miku: "#39c5bb",
+        ty: "#66ccff",
+        ce: "#ff9b86",
+        oubi: "#3C7699"
       };
       const ACCENT_GRADIENTS = {
         cottoncandy: ["#91d3ff", "#ff91e2"],
-        stars: ["#FF0EB0", "#8d00ff"],
-        nitrofire: ["#ff9000", "#ff0004"],
+        hotfuse: ["#FF0EB0", "#8d00ff"],
+        nitro: ["#ff9000", "#ff0004"],
         ace: ["#000000", "#ffffff", "#800080"],
         aurora: ["#00a86b", "#009ccc", "#8000a8"],
         bi: ["#d60270", "#9b4f96", "#0038a8"],

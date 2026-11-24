@@ -4,9 +4,13 @@ const guiColors = {
     'motion-tertiary': 'oklab(0.37 0.01 -0.07)',
 
     'looks-secondary': 'oklab(0.37 0.01 -0.07)',
+    'looks-secondary-light': 'oklab(47% 0.01 -0.07)',
+    'looks-secondary-lighter': 'oklab(58% 0.01 -0.07)',
     'looks-transparent': 'oklab(0.37 0.01 -0.07 / 0.6)',
     'looks-light-transparent': 'oklab(0.37 0.01 -0.07 / 0.3)',
     'looks-secondary-dark': 'oklab(0.30 0.02 -0.04)',
+    'looks-secondary-darker': 'oklab(25% 0.02 -0.04)',
+    'looks-secondary-deep-dark': 'oklab(18% 0.02 -0.04)',
 
     'extensions-primary': 'oklab(0.30 0.02 -0.04)',
     'extensions-tertiary': 'oklab(0.30 0.02 -0.04 / 0.8)',

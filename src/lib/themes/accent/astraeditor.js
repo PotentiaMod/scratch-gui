@@ -4,9 +4,13 @@ const guiColors = {
     'motion-tertiary': '#0066ff',
 
     'looks-secondary': '#0099ff',
+    'looks-secondary-light': '#4CB8FF',
+    'looks-secondary-lighter': '#82CDFF',
     'looks-transparent': '#0077aa59',
     'looks-light-transparent': '#00669926',
-    'looks-secondary-dark': '#4e97b7ff',
+    'looks-secondary-dark': '#0078D6',
+    'looks-secondary-darker': '#005AB0',
+    'looks-secondary-deep-dark': '#004191',
 
     'extensions-primary': '#5a8ff2ff',
     'extensions-tertiary': 'hsla(197, 85%, 40%, 1.00)',
