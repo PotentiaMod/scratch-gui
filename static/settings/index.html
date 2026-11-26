@@ -2049,6 +2049,7 @@
             <div class="section">
               <div class="section-title">Scratch</div>
               <div class="card">
+              
                 <div class="setting-row">
                   <div class="setting-info">
                     <div class="setting-title">Project Integration</div>
@@ -2059,6 +2060,16 @@
                     <span class="slider"></span>
                   </label>
                 </div>
+                <!-- <div class="setting-row">
+                  <div class="setting-info">
+                    <div class="setting-title">Studio Mode</div>
+                    <div class="setting-description"> Enables the toggle of the featured projects from the Scratch studio. </div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="studio-toggle">
+                    <span class="slider"></span>
+                  </label>
+                </div> -->
               </div>
             </div>
             <div class="section">
@@ -2294,6 +2305,7 @@
       //const GO_ICON_KEY = "potentiamod:goIcon";
       //const MOBILE_TOUCH_CONTROLS_KEY = "potentiamod:mobileTouchControls";
       const TABS_MODE_KEY = "potentiamod:tabsMode";
+      const STUDIO_KEY = "potentiamod:studioMode";
       //const GPT_ENABLED_KEY = "potentiamod:gptEnabled";
       //const LOGO_VISIBLE_KEY = "potentiamod:logoVisible";
       //const PIP_ENABLED_KEY = "potentiamod:pipEnabled";
@@ -2611,6 +2623,30 @@
           setVerticalTabsEnabled(verticalTabsToggle.checked);
         });
       }
+      
+      /* ------------------------- Studio Mode -------------------------*/
+      const studioToggle = document.getElementById("studio-toggle");
+
+      function getStudioModeEnabled() {
+        return localStorage.getItem(STUDIO_KEY) !== "false";
+      }
+
+      function loadGptEnabled() {
+        if (!studioToggle) return;
+        studioToggle.checked = getStudioModeEnabled();
+        applySettingsAccent();
+      }
+
+      function setStudioModeEnabled(enabled) {
+        localStorage.setItem(STUDIO_KEY, enabled ? "true" : "false");
+        loadStudioMode();
+      }
+      if (studioToggle) {
+        studioToggle.addEventListener("change", () => {
+          setStudioModeEnabled(studioToggle.checked);
+        });
+      }
+
       /* ------------------------- AI / Copilot ------------------------- 
       const gptEnabledToggle = document.getElementById("gpt-enabled-toggle");
 
@@ -3340,6 +3376,9 @@
         if (event.key === TABS_MODE_KEY || event.key === null) {
           loadVerticalTabs();
         }
+        /*if (event.key === STUDIO_KEY) {
+          loadStudioMode();
+        }*/
         /*if (event.key === GPT_ENABLED_KEY) {
           loadGptEnabled();
         }*/
@@ -3486,6 +3525,7 @@
       loadBlockStyle();
       loadAccent();
       loadCustomProject();
+      //loadStudioMode();
       //loadGoIcon();
       //loadMobileTouchControls();
       //loadGptEnabled();

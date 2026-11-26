@@ -304,10 +304,12 @@ componentDidMount () {
                             </div>
 							
 							{localStorage.getItem('potentiamod:removeScratch') !== 'true' &&
+							
 							<div className={classNames(styles.section, styles.exampleProjects)}>
                                 <ExampleProjects />
 					         </div>
-							 }
+							 
+							}
 							
                             {/*<div className={styles.section}>
                                 <FeaturedProjects studio="51729513" />
