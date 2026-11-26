@@ -46,6 +46,7 @@ import {APP_NAME, MOTTO, SLOGAN} from '../lib/brand.js';
 import { setPreference } from '../reducers/preferences.js';
 import {removeScratch} from '../lib/removeScratch.js';
 import {startAllMods} from '../lib/modRuntime.js';
+import ExampleProjects from '../components/tw-example-projects/example-projects.jsx';
 
 import styles from './interface.css';
 import Swal from 'sweetalert2';
@@ -299,12 +300,19 @@ componentDidMount () {
                                             }}
                                     />
 									{localStorage.getItem('potentiamod:removeScratch') !== 'true' &&
-            ' Try it out by inputting a project ID or URL above or choosing a featured project below.'}
-                                </p>
+            ' Try it out by inputting a Scratch project ID or URL above or choosing an example project below'}</p>
                             </div>
-                            <div className={styles.section}>
+							
+							{localStorage.getItem('potentiamod:removeScratch') !== 'true' &&
+							<div className={classNames(styles.section, styles.exampleProjects)}>
+                                <ExampleProjects />
+					         </div>
+							 }
+							
+                            {/*<div className={styles.section}>
                                 <FeaturedProjects studio="51729513" />
-                            </div>
+                            </div>*/}
+							
                         </React.Fragment>
                     ) : null}
                 </div>

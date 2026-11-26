@@ -8,6 +8,8 @@ export function removeScratch() {
       const shouldRemove = classes.some((className) =>
         className.startsWith('project-input_input_') ||
         className.startsWith('studioview') ||
+        className.startsWith('exampleprojects') ||
+        className.startsWith('container') ||
         className.startsWith('featured-projects_')
       );
 
@@ -25,6 +27,7 @@ export function removeScratch() {
     document.querySelectorAll(
       'a[target="_blank"][rel="noopener noreferrer"][href="https://scratch.mit.edu/studios/51729513/"]'
     ).forEach((el) => el.remove());
+	
   };
 
   // Clean existing elements
