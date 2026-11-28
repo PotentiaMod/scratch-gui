@@ -1005,7 +1005,7 @@ const EditorSettingsModal = props => {
                     <p>
                         <button
                             className={styles.button}
-                            onClick={() => {window.location.href = '/settings#mods';}}
+                            onClick={() => {window.location.href = '/settings#mods-turbowarp';}}
                         >
                             <FormattedMessage
                                 id="nb.editorSettings.openMods"

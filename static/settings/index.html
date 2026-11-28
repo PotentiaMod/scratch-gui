@@ -1752,8 +1752,8 @@
                   </div>
                   <select id="block-style-select" class="setting-select" aria-label="Block Style">
                     <option value="original">Original</option>
-                    <option value="high-contrast">High Contrast</option>
-                    <option value="dark">Dark (Beta)</option>
+                    <option value="highcontrasted">High Contrast</option>
+                    <option value="blackbeta">Dark (Beta)</option>
                   </select>
                 </div>
 				
@@ -2531,8 +2531,8 @@
         if (!theme || typeof theme.blocks !== "string") {
           return "original";
         }
-        if (theme.blocks === "high-contrast") return "high-contrast";
-        if (theme.blocks === "dark") return "dark";
+        if (theme.blocks === "highcontrasted") return "highcontrasted";
+        if (theme.blocks === "blackbeta") return "blackbeta";
         return "original";
       }
 

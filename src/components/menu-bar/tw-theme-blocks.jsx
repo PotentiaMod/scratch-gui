@@ -35,11 +35,6 @@ const options = defineMessages({
         description: 'Name of the dark block colors',
         id: 'tw.blockColors.dark'
     },
-	[BLOCKS_COLORFUL]: {
-        defaultMessage: 'Colorful (Beta)',
-        description: 'Name of the colorful block colors',
-        id: 'tw.blockColors.colorful'
-    },
     [BLOCKS_CUSTOM]: {
         defaultMessage: 'Customize in Addon Settings',
         description: 'Link in block colsor list to open addon settings for more customization',
@@ -47,16 +42,10 @@ const options = defineMessages({
     }
 });
 
-//Taken fro Unsandboxed
-const showColorful = () => {
-    return new URLSearchParams(global.location.search).has('allpowerscombined');
-};
-
 const icons = {
     [BLOCKS_THREE]: threeIcon,
     [BLOCKS_HIGH_CONTRAST]: highContrastIcon,
     [BLOCKS_DARK]: darkIcon,
-    [BLOCKS_COLORFUL]: colorfulIcon,
     [BLOCKS_CUSTOM]: customIcon
 };
 
@@ -136,7 +125,6 @@ const BlocksThemeMenu = ({
                 BLOCKS_THREE,
                 BLOCKS_HIGH_CONTRAST,
                 BLOCKS_DARK,
-				...(showColorful()) ? [BLOCKS_COLORFUL] : [],
                 ...(onOpenCustomSettings ? [BLOCKS_CUSTOM] : [])
             ].map(i => (
                 <ThemeMenuItem

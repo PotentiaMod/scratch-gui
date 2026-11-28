@@ -596,8 +596,8 @@ const GuiIcons = {
 const GUI_DEFAULT = GUI_LIGHT;
 
 const BLOCKS_THREE = 'three';
-const BLOCKS_DARK = 'dark';
-const BLOCKS_HIGH_CONTRAST = 'high-contrast';
+const BLOCKS_DARK = 'blackbeta';
+const BLOCKS_HIGH_CONTRAST = 'highcontrasted';
 const BLOCKS_COLORFUL = 'colorful';
 const BLOCKS_CUSTOM = 'custom';
 const BLOCKS_DEFAULT = BLOCKS_THREE;

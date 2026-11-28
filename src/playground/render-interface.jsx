@@ -261,13 +261,14 @@ componentDidMount () {
 											editor: (
                                                 <a
 												style={{
+                                                color: '#00AAFF',
                                                 cursor: 'pointer'
                                             }}
-                                              href="https://potentiamod.github.io/editor"
-                                              target="_blank"
+                                              href="/editor.html"
+                                              target="_self"
                                               rel="noreferrer"
                                                    >
-                                              {'going to the editor'}
+                                              {'entering the editor'}
                                                </a>
                                                ),
 											potentiaMod: (
