@@ -118,7 +118,9 @@ class SB3Downloader extends React.Component {
 			const fileTypeDescriptions = {
                 pot: 'PotentiaMod Project',
                 mwp: 'MistWarp Project',
+                rj: 'RemixWarp Project',
                 cmp: 'CattyMod Project',
+                tbp: 'ThunderBlocks Project',
                 dbp: 'DashBlocks Project',
                 torch: 'CodeTorch Project',
                 sb3: 'Scratch Project',
@@ -371,7 +373,7 @@ class SB3Downloader extends React.Component {
 }
 
 const getPreferredFileType = () => {
-    const validTypes = ['pot', 'cmp', 'mwp', 'dbp', 'torch', 'pmp', 'cw', 'dino', 'ich', 'bm', 'arkide',
+    const validTypes = ['pot', 'cmp', 'mwp', 'rj', 'tbp', 'dbp', 'torch', 'pmp', 'cw', 'dino', 'ich', 'bm', 'arkide',
 	                    'zinc', 'falcon', 'coffee', 'snail', 'electra', 'gaia', 'sbx', 'sb3', 'zip'];
 	 try {
         const savedType = localStorage.getItem('potentiamod:saveFileType');

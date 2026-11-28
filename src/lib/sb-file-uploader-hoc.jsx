@@ -80,6 +80,8 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                 '.pot',
                 '.cmp',
                 '.mwp',
+                '.rj',
+                '.tbp',
                 '.dbp',
                 '.torch',
                 '.pmp',

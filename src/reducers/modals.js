@@ -19,6 +19,7 @@ const MODAL_CUSTOM_EXTENSION = 'customExtensionModal';
 const MODAL_CCW_EXTENSION = 'ccwExtensionModal';
 const MODAL_EXTENSION_IMPORT_METHOD = 'extensionImportMethodModal';
 const MODAL_CUSTOM_GALLERY = 'customGalleryModal';
+const MODAL_EXTENSION_PACK = 'extensionPackModal';
 const MODAL_WALLPAPER = 'wallpaperModal';
 const MODAL_CUSTOM_FONTS = 'customFontsModal';
 const SWAP_ID = 'extensionSwapId';
@@ -50,6 +51,7 @@ const initialState = {
 	[MODAL_CCW_EXTENSION]: false,
     [MODAL_EXTENSION_IMPORT_METHOD]: false,
     [MODAL_CUSTOM_GALLERY]: false,
+    [MODAL_EXTENSION_PACK]: false,
     [MODAL_WALLPAPER]: false,
     [MODAL_CUSTOM_FONTS]: false,
 	[SWAP_ID]: null,
@@ -178,6 +180,9 @@ const setSelectedExtensions = function (extensions) {
 const openCustomGalleryModal = function () {
     return openModal(MODAL_CUSTOM_GALLERY);
 };
+const openExtensionPackModal = function () {
+    return openModal(MODAL_EXTENSION_PACK);
+};
 const openWallpaperModal = function () {
     return openModal(MODAL_WALLPAPER);
 };
@@ -265,6 +270,9 @@ const closeExtensionManagerModal = function () {
 const closeCustomGalleryModal = function () {
     return closeModal(MODAL_CUSTOM_GALLERY);
 };
+const closeExtensionPackModal = function () {
+    return closeModal(MODAL_EXTENSION_PACK);
+};
 const closeWallpaperModal = function () {
     return closeModal(MODAL_WALLPAPER);
 };
@@ -310,6 +318,7 @@ export {
     openExtensionImportMethodModal,
     openExtensionManagerModal,
 	openCustomGalleryModal,
+	openExtensionPackModal,
 	openWallpaperModal,
 	openCustomFontsModal,
 	openCustomAccentModal,
@@ -339,6 +348,7 @@ export {
 	closeCCWExtensionModal,
     closeExtensionImportMethodModal,
     closeCustomGalleryModal,
+    closeExtensionPackModal,
     closeWallpaperModal,
     closeCustomFontsModal,
     closeExtensionManagerModal,

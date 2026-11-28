@@ -17,9 +17,9 @@ import JSZip from '@turbowarp/jszip';
 import {
     FilePen, UserPen, Gauge, PictureInPicture, PictureInPicture2, PencilRuler,
 	TriangleAlert, ChevronDown, Info, Shuffle, CloudOff, 
-    FilePlusCorner, Blocks, Upload, DatabasePlus, RefreshCcw,
+    FilePlusCorner, Blocks, Plus, Upload, RefreshCcw,
 	Zap, ClockPlus, MessagesSquare, Package, FileInput, RotateCw,
-    Bot, Download, ArchiveRestore, House, Cloud,
+    Bot, Download, ArchiveRestore, DatabasePlus, House, Cloud,
 	Settings, PackagePlus, Puzzle, AppWindow, Laptop,
     Bookmark, SlidersHorizontal, Save, GitBranch, UserGroup,
 	FileCog, Bug, Database, Undo, Redo, Handshake
@@ -238,6 +238,7 @@ class MenuBar extends React.Component {
             'handleClickSeeInside',
             'handleClickNew',
             'handleClickNewWindow',
+            'handleClickNewTab',
             'handleClickRemix',
             'handleClickSave',
             'handleClickSaveAsCopy',
@@ -323,6 +324,12 @@ class MenuBar extends React.Component {
             '_blank',
             'noopener,noreferrer'
         );
+    }
+	
+	handleClickNewTab () {
+        window.location.href = '/tabs.html';
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        this.props.onRequestCloseFile();
     }
 	
 	handleClickScratch2 () {
@@ -570,6 +577,7 @@ class MenuBar extends React.Component {
         };
     }
     render () {
+		const isEmbeddedEditor = window.parent !== window;
 		
 		const navPos = (() => {
     try {
@@ -761,6 +769,15 @@ class MenuBar extends React.Component {
                                             />
                                         </MenuItem>
                                     )}
+									{!isEmbeddedEditor && (
+									<MenuItem
+                                            isRtl={this.props.isRtl}
+                                            onClick={this.handleClickNewTab}
+                                        >
+										<Plus size={20} />
+                                            New Tab
+                                        </MenuItem>
+									)}	
                                     {(this.props.canSave || this.props.canCreateCopy || this.props.canRemix) && (
                                         <MenuSection>
 										<Save size={20} />
@@ -865,7 +882,7 @@ class MenuBar extends React.Component {
                                     )}
                                     <MenuSection>
                                         <MenuItem onClick={this.handleClickRestorePoints}>
-										<RotateCw size={20} />
+										<RefreshCcw size={20} />
                                             <FormattedMessage
                                                 defaultMessage="Restore points"
                                                 description="Menu bar item to manage restore points"
@@ -875,7 +892,7 @@ class MenuBar extends React.Component {
                                     </MenuSection>
 									<MenuSection>
                                         <MenuItem onClick={this.handleClickAddRestorePoint}>
-										<RefreshCcw size={20} />
+										<ClockPlus size={20} />
                                             <FormattedMessage
                                                 defaultMessage="Add restore point"
                                                 description="Menu bar item to add a restore point"
@@ -1011,7 +1028,12 @@ class MenuBar extends React.Component {
                                             className={classNames({[styles.disabled]: !canUseCloudVariables})}
                                             onClick={toggleCloudVariables}
                                         >
-										<Cloud size={20} />
+										{enabled ? (
+                                                    <Cloud size={20} />
+                                                ) : (
+                                                    <CloudOff size={20} />
+                                                )}
+									
                                             {canUseCloudVariables ? (
                                                 enabled ? (
                                                     <FormattedMessage

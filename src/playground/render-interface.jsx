@@ -253,11 +253,23 @@ componentDidMount () {
                                 <p>
                                     <FormattedMessage
                                         // eslint-disable-next-line max-len
-                                        defaultMessage="{potentiaMod} is a supercharged mod of {turboWarp} that adds powerful new features in extensions and anything. {turboWarp} is a {scratch} mod that compiles projects to JavaScript to make them run really fast."
+                                        defaultMessage="{potentiaMod} is a supercharged mod of {turboWarp} that adds powerful new features in extensions and anything. {turboWarp} is a {scratch} mod that compiles projects to JavaScript to make them run really fast. Try it out by {editor}"
                                         description="Description of PotentiaMod on the homepage"
                                         id="tw.home.description"
                                         values={{
                                             APP_NAME,
+											editor: (
+                                                <a
+												style={{
+                                                cursor: 'pointer'
+                                            }}
+                                              href="https://potentiamod.github.io/editor"
+                                              target="_blank"
+                                              rel="noreferrer"
+                                                   >
+                                              {'going to the editor'}
+                                               </a>
+                                               ),
 											potentiaMod: (
                                                 <a
 												style={{
@@ -300,7 +312,7 @@ componentDidMount () {
                                             }}
                                     />
 									{localStorage.getItem('potentiamod:removeScratch') !== 'true' &&
-            ' Try it out by inputting a Scratch project ID or URL above or choosing an example project below'}</p>
+            ', inputting a Scratch project ID or URL above or choosing an example project below'}.</p>
                             </div>
 							
 							{localStorage.getItem('potentiamod:removeScratch') !== 'true' &&

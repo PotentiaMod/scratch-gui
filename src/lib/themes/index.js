@@ -13,6 +13,7 @@ import * as accentIndigo from './accent/indigo';
 import * as accentIndigoBlue from './accent/indigoblue';
 import * as accentCorruptedBlue from './accent/corruptedblue';
 import * as accentGaiaBlue from './accent/gaiablue';
+import * as accentThunderBlue from './accent/thunderblue';
 import * as accentFuchsia from './accent/magentapurple';
 import * as accentCottonCandy from './accent/cottoncandy';
 import * as accentRainbow from './accent/rainbow';
@@ -110,6 +111,7 @@ const ACCENT_INDIGO = 'indigo';
 const ACCENT_INDIGO_BLUE = 'serene';
 const ACCENT_CORRUPTED_BLUE = 'corrupted';
 const ACCENT_GAIA_BLUE = 'gaia';
+const ACCENT_THUNDER_BLUE = 'thunderblocks';
 const ACCENT_GREEN = 'green';
 const ACCENT_RAINBOW = 'rainbow';
 const ACCENT_COTTON_CANDY = 'cottoncandy'; //unique
@@ -167,6 +169,7 @@ const ACCENT_MAP = {
     [ACCENT_INDIGO_BLUE]: accentIndigoBlue,
     [ACCENT_CORRUPTED_BLUE]: accentCorruptedBlue,
     [ACCENT_GAIA_BLUE]: accentGaiaBlue,
+    [ACCENT_THUNDER_BLUE]: accentThunderBlue,
     [ACCENT_GREEN]: accentGreen,
     [ACCENT_RAINBOW]: accentRainbow,
     [ACCENT_HOT_FUSE]: accentHotFuse,
@@ -220,7 +223,7 @@ const ACCENT_GROUPS = [
     },
     {
         label: {id: 'tw.accentGroup.colorsSpecial', defaultMessage: 'Special Colors'},
-        accents: ['cyan', 'lime', 'magentapurple', 'serene', 'corrupted', 'gaia', 'omnimax']
+        accents: ['cyan', 'lime', 'fuchsia', 'serene', 'corrupted', 'gaia', 'thunderblocks', 'omnimax']
     },
     {
         label: {id: 'tw.accentGroup.gradients', defaultMessage: 'Gradients'},
@@ -273,6 +276,11 @@ const AccentOptions = defineMessages({
         defaultMessage: 'Blue',
         description: 'Name of the blue color scheme. Matches Scratch before the high contrast update.',
         id: 'tw.accent.blue'
+    },
+	[ACCENT_THUNDER_BLUE]: {
+        defaultMessage: 'E. Blue',
+        description: 'Name of the electric blue color scheme. Matches ThunderBlocks\' menu bar color.',
+        id: 'tw.accent.thunderblue'
     },
 	[ACCENT_CYAN]: {
         defaultMessage: 'Cyan',

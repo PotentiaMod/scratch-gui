@@ -436,6 +436,18 @@ const menuItems = [
         incompatibleWithScratch: true
     },
 	{
+        name: 'Web Server',
+        extensionId: 'server',
+        collaborator: 'LibreKitten',
+        iconURL: require('../extensions/librekitten/server/server.svg'),
+	    insetIconURL: require('../extensions/librekitten/server/server-small.svg'),
+		tags: ['other', 'preload', 'new'],
+        description: 'Build a web server that can host an API and simple websites.',
+        incompatibleWithScratch: true,
+		isNew: true,
+        featured: true
+    },
+	{
         name: 'Cozmo',
         extensionId: 'cozmo',
         tags: ['cognimates', 'preload'],
@@ -1354,29 +1366,14 @@ const menuItems = [
         incompatibleWithScratch: true
     },
 	{
-        name: (
-            <FormattedMessage
-                defaultMessage="PotentiaMod Blocks"
-                description="Name of the 'PotentiaMod  Blocks' extension"
-                id="tw.potExtension.name"
-                values={{
-                    APP_NAME
-                }}
-            />
-        ),
+        name: 'PotentiaMod Blocks',
         extensionId: 'potentia',
         iconURL: require('../extensions/potentiamod/pot.svg'),
 		insetIconURL: require('../extensions/icons/potentiamod.svg'),
 		customInsetColor: '#4800CC',
-		isNew: true,
-        description: (
-            <FormattedMessage
-                defaultMessage="A collection of useful, PotentiaMod-exclusive blocks."
-                description="Description of the 'PotentiaMod Blocks' extension"
-                id="tw.potExtension.description"
-            />
-        ),
-        tags: ['potentia', 'new'],
+		isNew: false,
+        description: 'A collection of useful, PotentiaMod-exclusive blocks.',
+        tags: ['potentia'],
         featured: true,
         incompatibleWithScratch: true
     },
