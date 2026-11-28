@@ -1,0 +1,21 @@
+{
+  "short_name": "PotentiaMod",
+  "name": "PotentiaMod",
+  "description": "TurboWarp mod with a new themes, new features and more!",
+  "icons": [
+    {
+      "src": "images/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "editor",
+  "background_color": "#4800CC",
+  "display": "standalone",
+  "theme_color": "#4800CC"
+}
